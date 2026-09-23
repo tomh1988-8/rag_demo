@@ -1,0 +1,48 @@
+{
+  "dataset_id": "phil-arrival-reference-v1",
+  "snapshot_id": "phil-arrival-v1",
+  "split": "development",
+  "group_id": "phil-arrival-february-1990",
+  "review": {
+    "reviewer": "Codex, source inspection on 2026-09-23",
+    "method": "Read the original Wikipedia story paragraph and checked the retained clause before running retrieval. Labels describe this excerpt, not a generated answer.",
+    "human_reviewed": false,
+    "independent_canon_corroboration": false,
+    "source_revision": "1375499431",
+    "notes": "Main-series narrative retained; subsequent clauses, performer credits and spin-offs excluded. Missing evidence is relative to this single-clause fixture. These development labels are not a held-out benchmark.",
+    "independent_source_review": {
+      "reviewer": "issue2_spec_review agent, 2026-09-23",
+      "result": "Confirmed downloaded HTML hash, revision, license and exact clause in paragraph mwAZc under Storylines / 1990–2003. Confirmed 19 words, 111 Unicode characters, passage hash and [0,111) span. Arrival label and absent-from-fixture mother label are supported.",
+      "human_review": false,
+      "independent_canon_corroboration": false
+    }
+  },
+  "cases": [
+    {
+      "case_id": "phil-arrival-when-001",
+      "question": "When does Phil Mitchell first arrive in Walford?",
+      "answerability": "answerable_in_fixture",
+      "expected_evidence_ids": ["phil-arrival-001"],
+      "supporting_spans": [{"evidence_id": "phil-arrival-001", "start": 0, "end": 111}],
+      "expected_facts": ["Phil Mitchell first arrives in Walford in February 1990."],
+      "acceptable_alternatives": ["February 1990", "1990-02"],
+      "forbidden_claims": ["An exact day of arrival", "Independently cross-checked canon", "Complete coverage through the capture date"],
+      "synthetic_question": true,
+      "synthetic_source": false,
+      "provenance": "Question authored by Codex; fact and span checked directly against the captured clause."
+    },
+    {
+      "case_id": "phil-mother-absent-001",
+      "question": "Who is Phil Mitchell's mother?",
+      "answerability": "absent_from_fixture",
+      "expected_evidence_ids": [],
+      "supporting_spans": [],
+      "expected_facts": [],
+      "acceptable_alternatives": ["No matching evidence in this fixture"],
+      "forbidden_claims": ["Phil has no mother", "The fixture establishes his mother's identity", "The event or relationship never happened"],
+      "synthetic_question": true,
+      "synthetic_source": false,
+      "provenance": "Question authored by Codex; the entire retained clause was inspected and contains no parentage information."
+    }
+  ]
+}

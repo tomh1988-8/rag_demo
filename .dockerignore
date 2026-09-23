@@ -1,0 +1,11 @@
+*
+!pyproject.toml
+!uv.lock
+!.python-version
+!src/
+!src/**
+!data/
+!data/**
+!tests/
+!tests/**
+**/__pycache__/

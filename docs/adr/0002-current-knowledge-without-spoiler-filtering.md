@@ -1,0 +1,3 @@
+# Current knowledge without spoiler filtering
+
+Walford Graph prioritises up-to-date, accurate knowledge of family trees, plot connections, marriages, divorces, family deaths, crimes, imprisonment, affairs, and scandals. Spoiler filtering and audience reveal dates are not requirements, superseding ADR-0001 and the spoiler-related requirements in the original scoping pack; this removes reveal-date curation and filtering from the design so work can focus on factual coverage and evidence quality. Story chronology remains relevant to describing events and distinguishing current from former relationships.

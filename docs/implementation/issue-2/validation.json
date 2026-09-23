@@ -1,0 +1,64 @@
+{
+  "issue": 2,
+  "status": "native_implementation_verified_compose_pending",
+  "source_spec": "https://github.com/tomh1988-8/rag_demo/issues/2",
+  "python": "3.12.3",
+  "postgresql": "18.6",
+  "model_calls": 0,
+  "full_suite": {
+    "command": ".venv/bin/pytest -q --test-database-url <disposable PostgreSQL URL> --junitxml=docs/implementation/issue-2/tests.xml",
+    "exit_code": 0,
+    "passed": 17,
+    "failed": 0,
+    "skipped": 0,
+    "warnings": 1,
+    "warning": "Starlette deprecates its httpx TestClient fallback in favour of httpx2."
+  },
+  "typecheck": {
+    "command": ".venv/bin/mypy",
+    "exit_code": 0,
+    "files": 10
+  },
+  "lint": {
+    "command": ".venv/bin/ruff check .",
+    "exit_code": 0
+  },
+  "baseline": {
+    "artifact": "baseline.json",
+    "reference": "../../../data/references/phil-arrival-v1.json",
+    "expected_evidence_ids_matched": 2,
+    "cases": 2,
+    "interpretation": "Two exposed deterministic development cases; not generative-answer quality."
+  },
+  "database_restart": {
+    "command": "pg_ctl restart -m fast on the disposable test cluster",
+    "cli_exit_code": 0,
+    "snapshot_id": "phil-arrival-v1",
+    "snapshot_sha256": "26da379f1f9c27c0bf41ca4a200072280bf441f7e84eacee92c761cede134462",
+    "evidence_ids": [
+      "phil-arrival-001"
+    ]
+  },
+  "review": {
+    "standards": {
+      "findings": 0
+    },
+    "spec": {
+      "implementation_defects": 0,
+      "pending_acceptance_items": [
+        "Fresh Docker Compose run"
+      ]
+    },
+    "source_review": "Independent agent checked downloaded HTML, revision, exact clause, hashes, spans and reference labels. No human or independent-canon corroboration is claimed."
+  },
+  "compose": {
+    "status": "not_run",
+    "reason": "Docker Engine/Compose are absent; sudo requires the user's password. User was asked to provide Docker or retain this pending check.",
+    "commands": [
+      "docker compose up --build --wait",
+      "docker compose --profile test run --build --rm test",
+      "docker compose restart db api"
+    ]
+  },
+  "commit_basis": "File fingerprints in baseline.json identify the exercised application before its first Git commit."
+}

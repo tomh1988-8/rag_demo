@@ -1,0 +1,173 @@
+{
+  "date": "2026-09-23",
+  "user_instruction": "I forgot to make sure that the final product must enable the user to give feedback and that feedback must be used in online evaluations - look into this practice and integrate it within our current ticketing system and spec",
+  "status": "published_and_verified",
+  "implementation_started": false,
+  "spec_issue_number": 1,
+  "previous_spec_sha256": "66cd67521170aaef531efe699a2318a83e3d0886bef7a2415045ed1915ee35b5",
+  "new_spec_sha256": "09d6030f6339360d2fc544d928825dc2ba30f1cfb6b3058e0d5338acd459d52e",
+  "new_story_ids": [
+    99,
+    100,
+    101,
+    102,
+    103,
+    104,
+    105,
+    106,
+    107,
+    108,
+    109,
+    110,
+    111,
+    112,
+    113,
+    114,
+    115,
+    116
+  ],
+  "checklist_version": "1.1",
+  "added_checks": [
+    "ONLINE-01",
+    "ONLINE-02",
+    "ONLINE-03",
+    "ONLINE-04"
+  ],
+  "added_tickets": [
+    {
+      "draft_number": 21,
+      "title": "Capture response feedback and inspect live quality signals",
+      "file": "docs/plans/ask-phil-tickets-v2/21-capture-response-feedback.md",
+      "issue_number": 22,
+      "url": "https://github.com/tomh1988-8/rag_demo/issues/22",
+      "labels": [
+        "ready-for-agent"
+      ],
+      "body_verified": true
+    },
+    {
+      "draft_number": 22,
+      "title": "Evaluate live answers with feedback and close the review loop",
+      "file": "docs/plans/ask-phil-tickets-v2/22-evaluate-live-feedback.md",
+      "issue_number": 23,
+      "url": "https://github.com/tomh1988-8/rag_demo/issues/23",
+      "labels": [
+        "ready-for-agent"
+      ],
+      "body_verified": true
+    }
+  ],
+  "updated_issues": [
+    {
+      "issue_number": 1,
+      "updated": true,
+      "verified": true
+    },
+    {
+      "issue_number": 3,
+      "updated": true,
+      "verified": true
+    },
+    {
+      "issue_number": 8,
+      "updated": true,
+      "verified": true
+    },
+    {
+      "issue_number": 9,
+      "updated": true,
+      "verified": true
+    },
+    {
+      "issue_number": 10,
+      "updated": true,
+      "verified": true
+    },
+    {
+      "issue_number": 21,
+      "updated": true,
+      "verified": true
+    }
+  ],
+  "new_native_links_created": 0,
+  "local_documents_synchronised": true,
+  "verified_date": "2026-09-23",
+  "validation": {
+    "status": "passed",
+    "remote_issues_checked": 23,
+    "local_ticket_bodies_match_remote": true,
+    "ready_for_agent_labels_verified": 23,
+    "planned_blocking_edges": 35,
+    "native_blocking_edges_created": 0,
+    "acyclic": true,
+    "no_redundant_dependencies": true,
+    "final_acceptance_ancestors": 21,
+    "first_unblocked_issue_number": 2,
+    "local_links_valid": true,
+    "local_links_checked": 624,
+    "spec_matches_amended_local": true,
+    "spec_sha256": "09d6030f6339360d2fc544d928825dc2ba30f1cfb6b3058e0d5338acd459d52e",
+    "spec_stories": 116,
+    "all_stories_mapped": true,
+    "checklist_items": 64,
+    "current_checks": 51,
+    "design_pass": 3,
+    "current_pending": 48,
+    "deferred_checks": 1,
+    "not_applicable_checks": 12,
+    "implementation_started": false
+  },
+  "blocker_changes": {
+    "added": [
+      {
+        "blocked": 22,
+        "blocking": 8
+      },
+      {
+        "blocked": 22,
+        "blocking": 10
+      },
+      {
+        "blocked": 23,
+        "blocking": 22
+      },
+      {
+        "blocked": 23,
+        "blocking": 9
+      },
+      {
+        "blocked": 21,
+        "blocking": 23
+      }
+    ],
+    "removed": [
+      {
+        "blocked": 21,
+        "blocking": 8,
+        "reason": "Inherited through #23 → #22 → #8; remove redundant direct blocker."
+      }
+    ],
+    "total_recorded_edges": 35,
+    "native_links_created": 0
+  },
+  "updated_local_artifacts": [
+    "docs/specs/ask-phil.md",
+    "docs/design/ask-phil.md",
+    "docs/design/testing-and-evaluation.md",
+    "docs/checklists/agent-development.md",
+    "docs/checklists/ask-phil-profile.md",
+    "docs/research/feedback-and-online-evaluation.md",
+    "docs/agents/issue-tracker.md",
+    "docs/plans/ask-phil-tickets-v2/README.md",
+    "docs/plans/ask-phil-tickets-v2/HANDOFF.md",
+    "docs/plans/ask-phil-tickets-v2/spec-coverage.md",
+    "docs/plans/ask-phil-tickets-v2/publication.json",
+    "docs/plans/ask-phil-tickets-v2/02-generate-grounded-answer.md",
+    "docs/plans/ask-phil-tickets-v2/07-ground-followups-and-reset.md",
+    "docs/plans/ask-phil-tickets-v2/08-inspect-calibrated-comparisons.md",
+    "docs/plans/ask-phil-tickets-v2/09-enforce-execution-boundaries.md",
+    "docs/plans/ask-phil-tickets-v2/20-accept-complete-local-demo.md",
+    "docs/plans/ask-phil-tickets-v2/21-capture-response-feedback.md",
+    "docs/plans/ask-phil-tickets-v2/22-evaluate-live-feedback.md"
+  ]
+}
