@@ -9,7 +9,8 @@ feedback/evaluation loop belong to subsequent tickets.
 
 ## Run with Docker Compose
 
-Requires Docker Engine with Compose v2. From this directory:
+Requires Docker Engine with the Compose plugin (v2 or newer). Acceptance was run
+with Engine 29.8.1 and Compose 5.5.1. From this directory:
 
 ```sh
 docker compose up --build --wait
@@ -32,6 +33,18 @@ version 18. Image tags can receive patches, so record image IDs with acceptance
 runs when comparing environments. This first deterministic slice uses PostgreSQL
 full-text search. Vector retrieval, LlamaIndex, Prefect refresh and MLflow arrive
 in their dependent tickets; no stub integrations stand in for them here.
+
+For an Ubuntu 24.04 development host, the optional
+[installer](scripts/install-docker-ubuntu.sh) follows Docker's
+[official apt setup](https://docs.docker.com/engine/install/ubuntu/):
+
+```sh
+sudo bash scripts/install-docker-ubuntu.sh "$USER"
+```
+
+It installs Engine and Compose, enables the daemon, and grants the named account
+Docker group access. Log out and back in, or use `newgrp docker`, to activate the
+new group in your shell. Existing conflicting packages cause it to stop for review.
 
 ## Native development
 

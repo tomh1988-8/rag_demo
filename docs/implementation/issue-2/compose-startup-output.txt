@@ -1,0 +1,41 @@
+Command: docker compose -p ask-phil-issue2-acceptance up --build --wait --wait-timeout 180
+Exit code: 0
+Final startup output; earlier image-download and build progress omitted.
+
+#17 [seed] resolving provenance for metadata file
+#17 DONE 0.0s
+
+#18 [api] resolving provenance for metadata file
+#18 DONE 0.0s
+ Image ask-phil-issue2-acceptance-seed Built
+ Image ask-phil-issue2-acceptance-api Built
+ Network ask-phil-issue2-acceptance_default Creating
+ Volume ask-phil-issue2-acceptance_pgdata Creating
+ Volume ask-phil-issue2-acceptance_pgdata Creating
+ Network ask-phil-issue2-acceptance_default Creating
+ Volume ask-phil-issue2-acceptance_pgdata Created
+ Volume ask-phil-issue2-acceptance_pgdata Created
+ Network ask-phil-issue2-acceptance_default Created
+ Network ask-phil-issue2-acceptance_default Created
+ Container ask-phil-issue2-acceptance-db-1 Creating
+ Container ask-phil-issue2-acceptance-db-1 Created
+ Container ask-phil-issue2-acceptance-seed-1 Creating
+ Container ask-phil-issue2-acceptance-seed-1 Created
+ Container ask-phil-issue2-acceptance-api-1 Creating
+ Container ask-phil-issue2-acceptance-api-1 Created
+ Container ask-phil-issue2-acceptance-db-1 Starting
+ Container ask-phil-issue2-acceptance-db-1 Started
+ Container ask-phil-issue2-acceptance-db-1 Waiting
+ Container ask-phil-issue2-acceptance-db-1 Healthy
+ Container ask-phil-issue2-acceptance-seed-1 Starting
+ Container ask-phil-issue2-acceptance-seed-1 Started
+ Container ask-phil-issue2-acceptance-seed-1 Waiting
+ Container ask-phil-issue2-acceptance-seed-1 Exited
+ Container ask-phil-issue2-acceptance-api-1 Starting
+ Container ask-phil-issue2-acceptance-api-1 Started
+ Container ask-phil-issue2-acceptance-api-1 Waiting
+ Container ask-phil-issue2-acceptance-db-1 Waiting
+ Container ask-phil-issue2-acceptance-seed-1 Waiting
+ Container ask-phil-issue2-acceptance-seed-1 Exited
+ Container ask-phil-issue2-acceptance-db-1 Healthy
+ Container ask-phil-issue2-acceptance-api-1 Healthy

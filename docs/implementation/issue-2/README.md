@@ -1,10 +1,11 @@
 # Issue #2 implementation evidence
 
 23 September 2026. [Ticket #2](https://github.com/tomh1988-8/rag_demo/issues/2)
-is implemented and validated natively. **Acceptance remains pending the fresh
-Docker Compose run.** Docker/Compose are absent on this machine and sudo requires
-the user's password. No container run, image build or hosted deployment is claimed.
-The issue remains open; its dependent work is not yet accepted as unblocked.
+is implemented and validated natively and in a fresh Docker Compose environment.
+**All seven acceptance criteria now have evidence.** The container startup, CLI,
+test suite and actual database/API restart passed on 23 September 2026.
+GitHub issue #2 is closed as completed; its checked criteria and completion evidence
+were read back and verified.
 
 ## What works
 
@@ -33,8 +34,8 @@ source review by agents, not human review or independent corroboration of canon.
 - [Baseline](baseline.json): both actual API outputs match the reviewed evidence-ID
   expectations: one arrival passage and one absent-evidence result. These two exposed
   development cases say nothing about generative or broad-corpus quality.
-- [Machine-readable record](validation.json): commands, environment, restart identity,
-  review outcomes and the explicitly unrun Docker checks.
+- [Machine-readable record](validation.json): commands, environment, restart identity
+  and review outcomes, including the completed Docker checks below.
 
 `baseline.json` fingerprints the exercised code, locked dependencies, source fixture
 and reference artifact. These identify the pre-commit revision without a circular
@@ -66,13 +67,40 @@ Standards reported zero findings. Spec reported no implementation defects or sco
 creep, and retained the unverified Docker criterion. The preexisting project design
 documents were context, not newly implemented product behavior.
 
-## Remaining acceptance work
+## Docker acceptance
 
-Once Docker Engine and Compose v2 are available, run the documented fresh startup,
-CLI answerable/absent cases, container test service and database/API restart from
-the repository README. Record image IDs, commands and outcomes here. A native run
-does not substitute for that check. Fix any container-specific failures before
-closing #2 or declaring its dependents unblocked.
+The user authorised Docker installation and issue closure. The Ubuntu 24.04 host
+now runs Docker Engine 29.8.1 with Compose 5.5.1, installed from Docker's official
+apt repository using [the saved installer](../../../scripts/install-docker-ubuntu.sh).
+The daemon is enabled and running. The `tom` account belongs to the Docker group;
+the existing agent session used `sg docker -c` because group membership is refreshed
+at login. Application code and configuration are unchanged from commit `1748866`.
+
+- `docker compose -p ask-phil-issue2-acceptance up --build --wait --wait-timeout 180`
+  built the images and created a fresh project, network and PostgreSQL volume.
+  The seed exited successfully and both services became healthy.
+  [Final startup transcript](compose-startup-output.txt).
+- The exact two reviewed questions ran through the container CLI and shared API.
+  Both produced their expected evidence IDs. The citation endpoint was also checked
+  through the published host port.
+- `docker compose -p ask-phil-issue2-acceptance --profile test run --build --name ask-phil-issue2-suite test pytest -q -p no:cacheprovider --junitxml=/tmp/compose-tests.xml`
+  passed **17 tests, with no failures or skips**. One upstream Starlette deprecation
+  warning remains. [JUnit](compose-tests.xml), [build/test output](compose-test-output.txt).
+- `docker compose -p ask-phil-issue2-acceptance restart db api` preserved both CLI
+  responses and the resolved evidence record exactly. The seed container's state
+  and completion timestamp were unchanged: this checked persistence without reloading.
+
+[Compose acceptance record](compose-acceptance.json) contains actual before/after
+responses, commands, image digests and code/configuration/reference fingerprints.
+The runtime used Python 3.12.14, PostgreSQL 18.6 and non-root application UID 10001.
+These records supplement the earlier native baseline; they do not overwrite it.
+
+The initial review's outstanding Docker criterion is now satisfied. A continuation
+review compares the installation/evidence changes against `1748866`; its results
+are recorded in `validation.json`.
+Standards: zero findings. Spec: zero findings and no remaining acceptance blocker.
+The acceptance containers and network were removed afterward; the named data volume
+was retained and the Docker daemon remains enabled.
 
 The complete product remains future work: generative text RAG, the other routes,
 corpus expansion, conversational state, MLflow/Prefect and online feedback evaluation

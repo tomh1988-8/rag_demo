@@ -1,6 +1,6 @@
 # Testing and evaluation strategy
 
-Status: the user has confirmed this strategy and its public test boundaries as part of the complete design. The first deterministic slice now has 17 passing native tests and recorded baseline outputs; [issue #2 evidence](../implementation/issue-2/README.md) describes the scope and pending Docker check. Generative/component quality evaluation remains future work.
+Status: the user has confirmed this strategy and its public test boundaries as part of the complete design. The first deterministic slice now has 17 passing tests in both native and Docker environments, plus recorded baseline outputs; [issue #2 evidence](../implementation/issue-2/README.md) describes the scope and successful restart checks. Generative/component quality evaluation remains future work.
 
 ## Development approach
 

@@ -1,6 +1,6 @@
 # Ask Phil: agreed design
 
-Status: the user has confirmed the complete design, including the testing and evaluation strategy and public test boundaries. The design interview is complete. The user added feedback and online evaluation as mandatory product requirements on 23 September 2026. The first deterministic evidence-inspection slice is implemented and tested natively; [issue #2 evidence](../implementation/issue-2/README.md) records its limits and pending Docker acceptance.
+Status: the user has confirmed the complete design, including the testing and evaluation strategy and public test boundaries. The design interview is complete. The user added feedback and online evaluation as mandatory product requirements on 23 September 2026. The first deterministic evidence-inspection slice is implemented and tested natively and with fresh Docker Compose; [issue #2 evidence](../implementation/issue-2/README.md) records its limits and completed acceptance checks.
 
 ## Purpose and experience
 

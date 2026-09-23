@@ -41,7 +41,7 @@
       "body_verified": true,
       "created_at": "2026-09-23T08:13:19Z",
       "node_id": "I_kwDOUl8W3M8AAAABSth6zg",
-      "state": "open",
+      "state": "closed",
       "readback_verified": true,
       "native_dependency_summary": {
         "blocked_by": 0,
@@ -49,9 +49,12 @@
         "blocking": 0,
         "total_blocking": 0
       },
-      "published_body_sha256": "97af822e2d307dcf05f59ce288d9ba52c193124f174f4276152924d7dbabf825",
-      "updated_at": "2026-09-23T08:13:19Z",
-      "current_local_file_sha256": "eec2241e4eb6eb4e93a5a18972c408c01e76729e089a7318f66847958261c2ce"
+      "published_body_sha256": "448f0c0795b513b176ec7e8e59cd88035e0f69c3d76644f6a31ea2eab997f050",
+      "updated_at": "2026-09-23T16:40:51Z",
+      "current_local_file_sha256": "150176541e508bb03b321a24093de138b34270ec51b202b785b4a515a38ba6f4",
+      "state_reason": "completed",
+      "closed_at": "2026-09-23T16:40:51Z",
+      "completion_readback_verified": true
     },
     {
       "draft_number": 2,
@@ -1007,11 +1010,17 @@
   },
   "publication_verified_date": "2026-09-23",
   "handoff": {
-    "instruction": "Finish issue #2 Docker acceptance before closing it or selecting dependent tickets. Read the saved native evidence and pending commands.",
-    "first_unblocked_issue_number": 2,
-    "first_unblocked_issue_url": "https://github.com/tomh1988-8/rag_demo/issues/2",
+    "instruction": "Issue #2 is complete and closed. Read the saved native/Docker evidence. On the next implementation instruction, select from the open dependency frontier #3 and #5.",
     "specification_is_not_an_implementation_ticket": true,
-    "dependency_handling": "Use the explicit Blocked by issue references and saved mapping until native relationships can be written and verified."
+    "dependency_handling": "Use the explicit Blocked by issue references and saved mapping until native relationships can be written and verified.",
+    "first_unblocked_issue_numbers": [
+      3,
+      5
+    ],
+    "first_unblocked_issue_urls": [
+      "https://github.com/tomh1988-8/rag_demo/issues/3",
+      "https://github.com/tomh1988-8/rag_demo/issues/5"
+    ]
   },
   "validation": {
     "status": "passed",
@@ -1091,15 +1100,17 @@
   ],
   "implementation_progress": {
     "issue_number": 2,
-    "status": "native_verified_compose_pending",
+    "status": "completed",
     "record": "docs/implementation/issue-2/validation.json",
-    "github_issue_closed": false,
+    "github_issue_closed": true,
     "checklist": {
       "design_pass": 3,
       "initial_slice_pass": 5,
       "pending": 43,
       "deferred": 1,
       "not_applicable": 12
-    }
+    },
+    "closed_at": "2026-09-23T16:40:51Z",
+    "github_closure_readback_verified": true
   }
 }

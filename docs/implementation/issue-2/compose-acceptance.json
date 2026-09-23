@@ -1,0 +1,358 @@
+{
+  "recorded_at": "2026-09-23T16:02:50.229077+00:00",
+  "kind": "fresh_compose_deterministic_inspection_acceptance",
+  "project": "ask-phil-issue2-acceptance",
+  "volume": "ask-phil-issue2-acceptance_pgdata",
+  "application_commit": "1748866b8ec57564d91be6b7c1f51b41d154114e",
+  "startup": {
+    "command": "docker compose -p ask-phil-issue2-acceptance up --build --wait --wait-timeout 180",
+    "exit_code": 0,
+    "fresh_project_and_volume": true
+  },
+  "docker_version": "29.8.1",
+  "compose_version": "5.5.1",
+  "python": "Python 3.12.14",
+  "postgresql": "18.6 (Debian 18.6-1.pgdg13+2)",
+  "runtime_uid": "10001",
+  "images": {
+    "postgres:18": {
+      "Id": "sha256:86c951e05bf56c93d95d397747fb8820ac76cc3bedb78f43abd83eedbe3666ae",
+      "RepoDigests": [
+        "postgres@sha256:86c951e05bf56c93d95d397747fb8820ac76cc3bedb78f43abd83eedbe3666ae"
+      ]
+    },
+    "ask-phil-issue2-acceptance-api:latest": {
+      "Id": "sha256:5a269f790d74f08e4b81c45a64a27af6fb0b583bb91f7a0f0b6f969edf1e479a",
+      "RepoDigests": [
+        "ask-phil-issue2-acceptance-api@sha256:5a269f790d74f08e4b81c45a64a27af6fb0b583bb91f7a0f0b6f969edf1e479a"
+      ]
+    },
+    "ask-phil-issue2-acceptance-seed:latest": {
+      "Id": "sha256:f0fc3b1f604cec6e6b6682079eb4a541abe76747559ebbde0f3ebf37319260ff",
+      "RepoDigests": [
+        "ask-phil-issue2-acceptance-seed@sha256:f0fc3b1f604cec6e6b6682079eb4a541abe76747559ebbde0f3ebf37319260ff"
+      ]
+    },
+    "ask-phil-issue2-acceptance-test:latest": {
+      "Id": "sha256:b76a95c00527cffc41cb2bac7f793240e84757cc5af80fb4d5c307547fd6e737",
+      "RepoDigests": [
+        "ask-phil-issue2-acceptance-test@sha256:b76a95c00527cffc41cb2bac7f793240e84757cc5af80fb4d5c307547fd6e737"
+      ]
+    }
+  },
+  "files_sha256": {
+    ".dockerignore": "82f46fb634fda5e552a3284ff7c9d7e88695db4e74df147f58d6a6ad50ea0924",
+    ".python-version": "7b55f8e67b5623c4bef3fa691288da9437d79d3aba156de48d481db32ac7d16d",
+    "Dockerfile": "4645b1fce9823fc18abf7fbef9b49d575cc65370911aeae4d8c8b78408c101f6",
+    "compose.yaml": "924ff1475efd487a9d694ff8a1930b2d204b07c1045e3a309b0eb600f57c9987",
+    "data/references/phil-arrival-v1.json": "0afb6859fbb655f42b7b5c0756f3f07f9895027c69536c95369d642cece519de",
+    "data/seed/phil-arrival-v1.json": "7ee9a1c5676adbdfbb4a38ffebad5a5d01a118d09f1ed43d0d8297edb8e25fc0",
+    "pyproject.toml": "19e4fe88596aa496c40b806c8cf15b99a9e3c4fe49e2aef81838b7040af786c2",
+    "src/ask_phil/__init__.py": "c4be197720058e2c86d4a79594bf60163b9bef1578b8e0e99650ec5e8b114a3d",
+    "src/ask_phil/api.py": "c390aadf214f01a7666ff0f167cf81ae94e6174fd97fe884d90b8f8569299c4c",
+    "src/ask_phil/cli.py": "cc8c985cab864ba811f35a869eb211e94111028be287185c1252ce7e3a1c4b45",
+    "src/ask_phil/evidence.py": "82f7130d24a11ecac5a4d784456c8a63de34f85364d8e093e3b1d592d2ea6899",
+    "src/ask_phil/storage.py": "d003c30bdca20f01fee6d7d8adfadf88017235ceb83904899f01769930458a06",
+    "tests/conftest.py": "bc00644be727c51c1aea3bc4a8f8a3bddd05e7dbe76d050a108f624032c97d1a",
+    "tests/test_cli.py": "46c82f8dca5c52f5ef55b909be64a9b1ef514f73c23cd82ee432ac64317b332f",
+    "tests/test_inspection.py": "97b460517280da1202a7c8cc1019a167bfd764d6cf3a31108758b838ac9ee1e6",
+    "tests/test_provenance.py": "1c362c9a6d7a3ce92977ae00d79d1fd46f0f3d2accf8b87a6b24cc58dc67d1a7",
+    "uv.lock": "77d19a40c06904beca2b86e1af44f6f7eecbd745dc54bc1fa1722588e9c50fb7"
+  },
+  "model_calls": 0,
+  "limitations": "Two exposed development cases; this does not establish generative quality, independent canon corroboration or complete-product acceptance.",
+  "before_restart": {
+    "cli_cases": [
+      {
+        "case_id": "phil-arrival-when-001",
+        "expected_evidence_ids": [
+          "phil-arrival-001"
+        ],
+        "actual_response": {
+          "snapshot_id": "phil-arrival-v1",
+          "snapshot_sha256": "26da379f1f9c27c0bf41ca4a200072280bf441f7e84eacee92c761cede134462",
+          "source": {
+            "title": "Phil Mitchell",
+            "url": "https://en.wikipedia.org/wiki/Phil_Mitchell",
+            "revision_id": "1375499431",
+            "revision_url": "https://en.wikipedia.org/w/index.php?title=Phil_Mitchell&oldid=1375499431",
+            "section": "Storylines / 1990\u20132003 / opening sentence, first clause",
+            "captured_at": "2026-09-23T14:18:05.792450Z",
+            "capture_sha256": "df4f36d8f708824e7003353c6fcb52bff387050e3010053a373741ee33dbad8e",
+            "scope": "main_series",
+            "license_url": "https://creativecommons.org/licenses/by-sa/4.0/",
+            "attribution": "Wikipedia contributors, Phil Mitchell, revision 1375499431",
+            "coverage": "One clause about Phil's arrival in February 1990 and The Arches; no continuous storyline coverage.",
+            "gaps": [
+              "Family relationships",
+              "Later events",
+              "Current character status"
+            ],
+            "support_status": "source_supported"
+          },
+          "query": "When does Phil Mitchell first arrive in Walford?",
+          "matches": [
+            {
+              "evidence_id": "phil-arrival-001",
+              "text": "Phil Mitchell first arrives in Walford in February 1990 to open an automobile repair shop, known as The Arches;",
+              "sha256": "c58db6653c582d8d2c75291831d8a3c48142261499f6a04ea732d8b2469031db",
+              "start": 0,
+              "end": 111
+            }
+          ],
+          "method": "postgresql_english_all_terms_v1",
+          "limitation": "Matching excerpts from this captured fixture only; this is not a generated answer. No match does not establish that an event never happened. Source-supported does not mean independently cross-checked."
+        }
+      },
+      {
+        "case_id": "phil-mother-absent-001",
+        "expected_evidence_ids": [],
+        "actual_response": {
+          "snapshot_id": "phil-arrival-v1",
+          "snapshot_sha256": "26da379f1f9c27c0bf41ca4a200072280bf441f7e84eacee92c761cede134462",
+          "source": {
+            "title": "Phil Mitchell",
+            "url": "https://en.wikipedia.org/wiki/Phil_Mitchell",
+            "revision_id": "1375499431",
+            "revision_url": "https://en.wikipedia.org/w/index.php?title=Phil_Mitchell&oldid=1375499431",
+            "section": "Storylines / 1990\u20132003 / opening sentence, first clause",
+            "captured_at": "2026-09-23T14:18:05.792450Z",
+            "capture_sha256": "df4f36d8f708824e7003353c6fcb52bff387050e3010053a373741ee33dbad8e",
+            "scope": "main_series",
+            "license_url": "https://creativecommons.org/licenses/by-sa/4.0/",
+            "attribution": "Wikipedia contributors, Phil Mitchell, revision 1375499431",
+            "coverage": "One clause about Phil's arrival in February 1990 and The Arches; no continuous storyline coverage.",
+            "gaps": [
+              "Family relationships",
+              "Later events",
+              "Current character status"
+            ],
+            "support_status": "source_supported"
+          },
+          "query": "Who is Phil Mitchell's mother?",
+          "matches": [],
+          "method": "postgresql_english_all_terms_v1",
+          "limitation": "Matching excerpts from this captured fixture only; this is not a generated answer. No match does not establish that an event never happened. Source-supported does not mean independently cross-checked."
+        }
+      }
+    ],
+    "evidence_by_id": {
+      "snapshot_id": "phil-arrival-v1",
+      "snapshot_sha256": "26da379f1f9c27c0bf41ca4a200072280bf441f7e84eacee92c761cede134462",
+      "source": {
+        "title": "Phil Mitchell",
+        "url": "https://en.wikipedia.org/wiki/Phil_Mitchell",
+        "revision_id": "1375499431",
+        "revision_url": "https://en.wikipedia.org/w/index.php?title=Phil_Mitchell&oldid=1375499431",
+        "section": "Storylines / 1990\u20132003 / opening sentence, first clause",
+        "captured_at": "2026-09-23T14:18:05.792450Z",
+        "capture_sha256": "df4f36d8f708824e7003353c6fcb52bff387050e3010053a373741ee33dbad8e",
+        "scope": "main_series",
+        "license_url": "https://creativecommons.org/licenses/by-sa/4.0/",
+        "attribution": "Wikipedia contributors, Phil Mitchell, revision 1375499431",
+        "coverage": "One clause about Phil's arrival in February 1990 and The Arches; no continuous storyline coverage.",
+        "gaps": [
+          "Family relationships",
+          "Later events",
+          "Current character status"
+        ],
+        "support_status": "source_supported"
+      },
+      "query": null,
+      "matches": [
+        {
+          "evidence_id": "phil-arrival-001",
+          "text": "Phil Mitchell first arrives in Walford in February 1990 to open an automobile repair shop, known as The Arches;",
+          "sha256": "c58db6653c582d8d2c75291831d8a3c48142261499f6a04ea732d8b2469031db",
+          "start": 0,
+          "end": 111
+        }
+      ],
+      "method": "evidence_id_lookup_v1",
+      "limitation": "Matching excerpts from this captured fixture only; this is not a generated answer. No match does not establish that an event never happened. Source-supported does not mean independently cross-checked."
+    }
+  },
+  "after_restart": {
+    "cli_cases": [
+      {
+        "case_id": "phil-arrival-when-001",
+        "expected_evidence_ids": [
+          "phil-arrival-001"
+        ],
+        "actual_response": {
+          "snapshot_id": "phil-arrival-v1",
+          "snapshot_sha256": "26da379f1f9c27c0bf41ca4a200072280bf441f7e84eacee92c761cede134462",
+          "source": {
+            "title": "Phil Mitchell",
+            "url": "https://en.wikipedia.org/wiki/Phil_Mitchell",
+            "revision_id": "1375499431",
+            "revision_url": "https://en.wikipedia.org/w/index.php?title=Phil_Mitchell&oldid=1375499431",
+            "section": "Storylines / 1990\u20132003 / opening sentence, first clause",
+            "captured_at": "2026-09-23T14:18:05.792450Z",
+            "capture_sha256": "df4f36d8f708824e7003353c6fcb52bff387050e3010053a373741ee33dbad8e",
+            "scope": "main_series",
+            "license_url": "https://creativecommons.org/licenses/by-sa/4.0/",
+            "attribution": "Wikipedia contributors, Phil Mitchell, revision 1375499431",
+            "coverage": "One clause about Phil's arrival in February 1990 and The Arches; no continuous storyline coverage.",
+            "gaps": [
+              "Family relationships",
+              "Later events",
+              "Current character status"
+            ],
+            "support_status": "source_supported"
+          },
+          "query": "When does Phil Mitchell first arrive in Walford?",
+          "matches": [
+            {
+              "evidence_id": "phil-arrival-001",
+              "text": "Phil Mitchell first arrives in Walford in February 1990 to open an automobile repair shop, known as The Arches;",
+              "sha256": "c58db6653c582d8d2c75291831d8a3c48142261499f6a04ea732d8b2469031db",
+              "start": 0,
+              "end": 111
+            }
+          ],
+          "method": "postgresql_english_all_terms_v1",
+          "limitation": "Matching excerpts from this captured fixture only; this is not a generated answer. No match does not establish that an event never happened. Source-supported does not mean independently cross-checked."
+        }
+      },
+      {
+        "case_id": "phil-mother-absent-001",
+        "expected_evidence_ids": [],
+        "actual_response": {
+          "snapshot_id": "phil-arrival-v1",
+          "snapshot_sha256": "26da379f1f9c27c0bf41ca4a200072280bf441f7e84eacee92c761cede134462",
+          "source": {
+            "title": "Phil Mitchell",
+            "url": "https://en.wikipedia.org/wiki/Phil_Mitchell",
+            "revision_id": "1375499431",
+            "revision_url": "https://en.wikipedia.org/w/index.php?title=Phil_Mitchell&oldid=1375499431",
+            "section": "Storylines / 1990\u20132003 / opening sentence, first clause",
+            "captured_at": "2026-09-23T14:18:05.792450Z",
+            "capture_sha256": "df4f36d8f708824e7003353c6fcb52bff387050e3010053a373741ee33dbad8e",
+            "scope": "main_series",
+            "license_url": "https://creativecommons.org/licenses/by-sa/4.0/",
+            "attribution": "Wikipedia contributors, Phil Mitchell, revision 1375499431",
+            "coverage": "One clause about Phil's arrival in February 1990 and The Arches; no continuous storyline coverage.",
+            "gaps": [
+              "Family relationships",
+              "Later events",
+              "Current character status"
+            ],
+            "support_status": "source_supported"
+          },
+          "query": "Who is Phil Mitchell's mother?",
+          "matches": [],
+          "method": "postgresql_english_all_terms_v1",
+          "limitation": "Matching excerpts from this captured fixture only; this is not a generated answer. No match does not establish that an event never happened. Source-supported does not mean independently cross-checked."
+        }
+      }
+    ],
+    "evidence_by_id": {
+      "snapshot_id": "phil-arrival-v1",
+      "snapshot_sha256": "26da379f1f9c27c0bf41ca4a200072280bf441f7e84eacee92c761cede134462",
+      "source": {
+        "title": "Phil Mitchell",
+        "url": "https://en.wikipedia.org/wiki/Phil_Mitchell",
+        "revision_id": "1375499431",
+        "revision_url": "https://en.wikipedia.org/w/index.php?title=Phil_Mitchell&oldid=1375499431",
+        "section": "Storylines / 1990\u20132003 / opening sentence, first clause",
+        "captured_at": "2026-09-23T14:18:05.792450Z",
+        "capture_sha256": "df4f36d8f708824e7003353c6fcb52bff387050e3010053a373741ee33dbad8e",
+        "scope": "main_series",
+        "license_url": "https://creativecommons.org/licenses/by-sa/4.0/",
+        "attribution": "Wikipedia contributors, Phil Mitchell, revision 1375499431",
+        "coverage": "One clause about Phil's arrival in February 1990 and The Arches; no continuous storyline coverage.",
+        "gaps": [
+          "Family relationships",
+          "Later events",
+          "Current character status"
+        ],
+        "support_status": "source_supported"
+      },
+      "query": null,
+      "matches": [
+        {
+          "evidence_id": "phil-arrival-001",
+          "text": "Phil Mitchell first arrives in Walford in February 1990 to open an automobile repair shop, known as The Arches;",
+          "sha256": "c58db6653c582d8d2c75291831d8a3c48142261499f6a04ea732d8b2469031db",
+          "start": 0,
+          "end": 111
+        }
+      ],
+      "method": "evidence_id_lookup_v1",
+      "limitation": "Matching excerpts from this captured fixture only; this is not a generated answer. No match does not establish that an event never happened. Source-supported does not mean independently cross-checked."
+    }
+  },
+  "restart": {
+    "identical_public_responses": true,
+    "seed_ran_again": false,
+    "seed_finished_at": "2026-09-23T15:39:01.751953809Z"
+  },
+  "commands": [
+    {
+      "command": "docker version --format json",
+      "exit_code": 0
+    },
+    {
+      "command": "docker compose version --short",
+      "exit_code": 0
+    },
+    {
+      "command": "docker compose -p ask-phil-issue2-acceptance exec -T api python --version",
+      "exit_code": 0
+    },
+    {
+      "command": "docker compose -p ask-phil-issue2-acceptance exec -T db psql -U ask_phil -d ask_phil -Atc 'SHOW server_version'",
+      "exit_code": 0
+    },
+    {
+      "command": "docker compose -p ask-phil-issue2-acceptance exec -T api id -u",
+      "exit_code": 0
+    },
+    {
+      "command": "docker image inspect --format '{{json .}}' postgres:18",
+      "exit_code": 0
+    },
+    {
+      "command": "docker image inspect --format '{{json .}}' ask-phil-issue2-acceptance-api:latest",
+      "exit_code": 0
+    },
+    {
+      "command": "docker image inspect --format '{{json .}}' ask-phil-issue2-acceptance-seed:latest",
+      "exit_code": 0
+    },
+    {
+      "command": "docker image inspect --format '{{json .}}' ask-phil-issue2-acceptance-test:latest",
+      "exit_code": 0
+    },
+    {
+      "command": "docker inspect --format '{{json .State}}' ask-phil-issue2-acceptance-seed-1",
+      "exit_code": 0
+    },
+    {
+      "command": "docker compose -p ask-phil-issue2-acceptance exec -T api ask-phil inspect 'When does Phil Mitchell first arrive in Walford?' --snapshot phil-arrival-v1",
+      "exit_code": 0
+    },
+    {
+      "command": "docker compose -p ask-phil-issue2-acceptance exec -T api ask-phil inspect 'Who is Phil Mitchell'\"'\"'s mother?' --snapshot phil-arrival-v1",
+      "exit_code": 0
+    },
+    {
+      "command": "docker compose -p ask-phil-issue2-acceptance restart db api",
+      "exit_code": 0
+    },
+    {
+      "command": "docker compose -p ask-phil-issue2-acceptance exec -T api ask-phil inspect 'When does Phil Mitchell first arrive in Walford?' --snapshot phil-arrival-v1",
+      "exit_code": 0
+    },
+    {
+      "command": "docker compose -p ask-phil-issue2-acceptance exec -T api ask-phil inspect 'Who is Phil Mitchell'\"'\"'s mother?' --snapshot phil-arrival-v1",
+      "exit_code": 0
+    },
+    {
+      "command": "docker inspect --format '{{json .State}}' ask-phil-issue2-acceptance-seed-1",
+      "exit_code": 0
+    }
+  ],
+  "status": "passed"
+}

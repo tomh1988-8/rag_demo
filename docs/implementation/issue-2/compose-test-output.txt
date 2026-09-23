@@ -1,0 +1,104 @@
+ Container ask-phil-issue2-acceptance-db-1 Running
+ Image ask-phil-issue2-acceptance-test Building
+#1 [internal] load local bake definitions
+#1 reading from stdin 586B done
+#1 DONE 0.0s
+
+#2 [internal] load build definition from Dockerfile
+#2 transferring dockerfile: 662B done
+#2 DONE 0.0s
+
+#3 [internal] load metadata for docker.io/library/python:3.12-slim
+#3 ...
+
+#4 [internal] load metadata for ghcr.io/astral-sh/uv:0.12.9
+#4 DONE 0.5s
+
+#3 [internal] load metadata for docker.io/library/python:3.12-slim
+#3 DONE 0.7s
+
+#5 [internal] load .dockerignore
+#5 transferring context: 148B done
+#5 DONE 0.0s
+
+#6 [internal] load build context
+#6 transferring context: 10.84kB done
+#6 DONE 0.0s
+
+#7 [base 1/7] FROM docker.io/library/python:3.12-slim@sha256:2f17fc044b579bab302c2e8054d3a686e2cb9a83de48e70534b94cd8ebbe06a9
+#7 resolve docker.io/library/python:3.12-slim@sha256:2f17fc044b579bab302c2e8054d3a686e2cb9a83de48e70534b94cd8ebbe06a9 0.0s done
+#7 DONE 0.0s
+
+#8 FROM ghcr.io/astral-sh/uv:0.12.9@sha256:8b940d3a9d65bed080436972241af2e21c84b5e8c9193f7014ed71479ee795ff
+#8 resolve ghcr.io/astral-sh/uv:0.12.9@sha256:8b940d3a9d65bed080436972241af2e21c84b5e8c9193f7014ed71479ee795ff 0.0s done
+#8 DONE 0.0s
+
+#9 [base 4/7] COPY pyproject.toml uv.lock .python-version ./
+#9 CACHED
+
+#10 [base 6/7] COPY data ./data
+#10 CACHED
+
+#11 [base 3/7] WORKDIR /app
+#11 CACHED
+
+#12 [base 2/7] COPY --from=ghcr.io/astral-sh/uv:0.12.9 /uv /usr/local/bin/uv
+#12 CACHED
+
+#13 [base 5/7] COPY src ./src
+#13 CACHED
+
+#14 [base 7/7] RUN uv sync --frozen --no-dev --no-editable --cache-dir /tmp/uv-cache
+#14 CACHED
+
+#15 [test 1/2] RUN uv sync --frozen --no-editable --cache-dir /tmp/uv-cache
+#15 0.353 Downloading pygments (1.2MiB)
+#15 0.404 Downloading ruff (9.8MiB)
+#15 0.404 Downloading mypy (14.1MiB)
+#15 0.916  Downloaded pygments
+#15 2.783  Downloaded ruff
+#15 3.324  Downloaded mypy
+#15 3.325 Prepared 7 packages in 3.10s
+#15 3.385 Installed 10 packages in 59ms
+#15 3.385  + iniconfig==2.3.0
+#15 3.385  + librt==0.15.0
+#15 3.385  + mypy==1.20.2
+#15 3.385  + mypy-extensions==1.1.0
+#15 3.385  + packaging==26.3
+#15 3.385  + pathspec==1.1.1
+#15 3.385  + pluggy==1.6.0
+#15 3.385  + pygments==2.21.0
+#15 3.385  + pytest==9.1.1
+#15 3.385  + ruff==0.16.8
+#15 DONE 3.5s
+
+#16 [test 2/2] COPY tests ./tests
+#16 DONE 0.0s
+
+#17 exporting to image
+#17 exporting layers
+#17 exporting layers 4.1s done
+#17 exporting manifest sha256:13d4b77db6e630e6aadb9162e402973767f273081882612c2a456e8fa44e5568 done
+#17 exporting config sha256:6688c71b6021b99521f7ef189a936c74b4856f98f48b05da3c6683157a88ee29 done
+#17 exporting attestation manifest sha256:40ce4eaaeb529da39761b4b2f51e39110b86fdf9b23132b2d3c9957369e5efaf done
+#17 exporting manifest list sha256:b76a95c00527cffc41cb2bac7f793240e84757cc5af80fb4d5c307547fd6e737 done
+#17 naming to docker.io/library/ask-phil-issue2-acceptance-test:latest done
+#17 unpacking to docker.io/library/ask-phil-issue2-acceptance-test:latest
+#17 unpacking to docker.io/library/ask-phil-issue2-acceptance-test:latest 0.7s done
+#17 DONE 4.9s
+
+#18 resolving provenance for metadata file
+#18 DONE 0.0s
+ Image ask-phil-issue2-acceptance-test Built
+ Container ask-phil-issue2-acceptance-db-1 Waiting
+ Container ask-phil-issue2-acceptance-db-1 Healthy
+ Container ask-phil-issue2-suite Creating
+ Container ask-phil-issue2-suite Created
+.................                                                        [100%]
+=============================== warnings summary ===============================
+.venv/lib/python3.12/site-packages/fastapi/testclient.py:1
+  /app/.venv/lib/python3.12/site-packages/fastapi/testclient.py:1: StarletteDeprecationWarning: Using `httpx` with `starlette.testclient` is deprecated; install `httpx2` instead.
+    from starlette.testclient import TestClient as TestClient  # noqa
+
+-- Docs: https://docs.pytest.org/en/stable/how-to/capture-warnings.html
+17 passed, 1 warning in 5.93s
