@@ -1,0 +1,1116 @@
+{
+  "repository": "tomh1988-8/rag_demo",
+  "plan_version": 2,
+  "approval": {
+    "date": "2026-09-23",
+    "user_instruction": "ok thats good lets proceed with those, store what you have to and when we are ready to move on I will trigger the next skill"
+  },
+  "status": "issues_published_native_dependencies_pending",
+  "implementation_started": true,
+  "spec": {
+    "title": "Ask Phil: evidence-backed EastEnders RAG demonstration \u2014 specification",
+    "file": "docs/specs/ask-phil.md",
+    "sha256": "09d6030f6339360d2fc544d928825dc2ba30f1cfb6b3058e0d5338acd459d52e",
+    "issue_number": 1,
+    "url": "https://github.com/tomh1988-8/rag_demo/issues/1",
+    "labels": [
+      "ready-for-agent"
+    ],
+    "body_verified": true,
+    "created_at": "2026-09-23T08:12:07Z",
+    "issue_id": 5550656340,
+    "node_id": "I_kwDOUl8W3M8AAAABSthLVA",
+    "readback_verified": true,
+    "previous_sha256": "66cd67521170aaef531efe699a2318a83e3d0886bef7a2415045ed1915ee35b5",
+    "amended_date": "2026-09-23"
+  },
+  "tickets": [
+    {
+      "draft_number": 1,
+      "title": "Inspect captured source evidence locally",
+      "file": "docs/plans/ask-phil-tickets-v2/01-inspect-captured-evidence.md",
+      "blockers": [],
+      "approved_sha256": "5448da3b0627fbd68bf0d3aeac7dd962418add606d85ddf968abfe61fba1cdfe",
+      "issue_number": 2,
+      "issue_id": 5550668494,
+      "url": "https://github.com/tomh1988-8/rag_demo/issues/2",
+      "labels": [
+        "ready-for-agent"
+      ],
+      "blocker_issue_numbers": [],
+      "body_verified": true,
+      "created_at": "2026-09-23T08:13:19Z",
+      "node_id": "I_kwDOUl8W3M8AAAABSth6zg",
+      "state": "closed",
+      "readback_verified": true,
+      "native_dependency_summary": {
+        "blocked_by": 0,
+        "total_blocked_by": 0,
+        "blocking": 0,
+        "total_blocking": 0
+      },
+      "published_body_sha256": "448f0c0795b513b176ec7e8e59cd88035e0f69c3d76644f6a31ea2eab997f050",
+      "updated_at": "2026-09-23T16:40:51Z",
+      "current_local_file_sha256": "150176541e508bb03b321a24093de138b34270ec51b202b785b4a515a38ba6f4",
+      "state_reason": "completed",
+      "closed_at": "2026-09-23T16:40:51Z",
+      "completion_readback_verified": true
+    },
+    {
+      "draft_number": 2,
+      "title": "Generate a grounded Ask Phil answer",
+      "file": "docs/plans/ask-phil-tickets-v2/02-generate-grounded-answer.md",
+      "blockers": [
+        1
+      ],
+      "approved_sha256": "cc494efa01cfb477e2f5bdec396256e13d1b2076635f64f725beaaf9d80ec89f",
+      "issue_number": 3,
+      "issue_id": 5550697082,
+      "url": "https://github.com/tomh1988-8/rag_demo/issues/3",
+      "labels": [
+        "ready-for-agent"
+      ],
+      "blocker_issue_numbers": [
+        2
+      ],
+      "body_verified": true,
+      "created_at": "2026-09-23T08:16:01Z",
+      "node_id": "I_kwDOUl8W3M8AAAABStjqeg",
+      "state": "open",
+      "readback_verified": true,
+      "native_dependency_summary": {
+        "blocked_by": 0,
+        "total_blocked_by": 0,
+        "blocking": 0,
+        "total_blocking": 0
+      },
+      "published_body_sha256": "3e6c7f0f1ed1a675447dd3f2be11f5c35d09650f216cc1bd4edffaa32c56e76a",
+      "updated_at": "2026-09-23T09:04:47Z",
+      "current_local_file_sha256": "7b4e5c943f37420891d217fad868d639b215c98ed38342cf7144974584c985e9"
+    },
+    {
+      "draft_number": 3,
+      "title": "Handle incomplete evidence and false premises",
+      "file": "docs/plans/ask-phil-tickets-v2/03-handle-incomplete-evidence.md",
+      "blockers": [
+        2
+      ],
+      "approved_sha256": "358c8223d55eb29e822e2fabd09bee22a2fd5e900b11f0ed64b4cb831b5f09f4",
+      "issue_number": 4,
+      "issue_id": 5550698056,
+      "url": "https://github.com/tomh1988-8/rag_demo/issues/4",
+      "labels": [
+        "ready-for-agent"
+      ],
+      "blocker_issue_numbers": [
+        3
+      ],
+      "body_verified": true,
+      "created_at": "2026-09-23T08:16:06Z",
+      "node_id": "I_kwDOUl8W3M8AAAABStjuSA",
+      "state": "open",
+      "readback_verified": true,
+      "native_dependency_summary": {
+        "blocked_by": 0,
+        "total_blocked_by": 0,
+        "blocking": 0,
+        "total_blocking": 0
+      },
+      "published_body_sha256": "b0e773f2e2214e80c14ce92e331eeec27e0444f2d7bdbff090fba26cddd78b44",
+      "updated_at": "2026-09-23T08:16:06Z",
+      "current_local_file_sha256": "23206d640374be065937ef330c640932fb86658617c56c247f6053821f814721"
+    },
+    {
+      "draft_number": 4,
+      "title": "Import real sources with character identity and canon scope",
+      "file": "docs/plans/ask-phil-tickets-v2/04-import-real-sources.md",
+      "blockers": [
+        1
+      ],
+      "approved_sha256": "e877bfe6efd0df70ef908a7f45887c2227d291ab69af5e8e6a7d76cc4f73ba20",
+      "issue_number": 5,
+      "issue_id": 5550702491,
+      "url": "https://github.com/tomh1988-8/rag_demo/issues/5",
+      "labels": [
+        "ready-for-agent"
+      ],
+      "blocker_issue_numbers": [
+        2
+      ],
+      "body_verified": true,
+      "created_at": "2026-09-23T08:16:29Z",
+      "node_id": "I_kwDOUl8W3M8AAAABStj_mw",
+      "state": "open",
+      "readback_verified": true,
+      "native_dependency_summary": {
+        "blocked_by": 0,
+        "total_blocked_by": 0,
+        "blocking": 0,
+        "total_blocking": 0
+      },
+      "published_body_sha256": "7318d4591edf579145c3c6690f35435e6e74120e5493e2239d6bb6d4b9601583",
+      "updated_at": "2026-09-23T08:16:29Z",
+      "current_local_file_sha256": "4a2660600140802f39e24ce7ef0ffcc014e07881111a41b4fb03f52840724d59"
+    },
+    {
+      "draft_number": 5,
+      "title": "Refresh and recover a captured snapshot",
+      "file": "docs/plans/ask-phil-tickets-v2/05-refresh-and-recover-snapshot.md",
+      "blockers": [
+        4
+      ],
+      "approved_sha256": "d28d6306a6ddebcdec4454dd319e72baa52e91258e49988b82456a66a30f3a88",
+      "issue_number": 6,
+      "issue_id": 5550702677,
+      "url": "https://github.com/tomh1988-8/rag_demo/issues/6",
+      "labels": [
+        "ready-for-agent"
+      ],
+      "blocker_issue_numbers": [
+        5
+      ],
+      "body_verified": true,
+      "created_at": "2026-09-23T08:16:30Z",
+      "node_id": "I_kwDOUl8W3M8AAAABStkAVQ",
+      "state": "open",
+      "readback_verified": true,
+      "native_dependency_summary": {
+        "blocked_by": 0,
+        "total_blocked_by": 0,
+        "blocking": 0,
+        "total_blocking": 0
+      },
+      "published_body_sha256": "be82f13e5e21d308f028f6395974005d8b996a02012a91d304c9141a71075414",
+      "updated_at": "2026-09-23T08:16:30Z",
+      "current_local_file_sha256": "ee03f15dba1df94407580bb4e3ee594b3724b029da3183ba0cdcccc61491c490"
+    },
+    {
+      "draft_number": 6,
+      "title": "Answer from all 20 core character profiles",
+      "file": "docs/plans/ask-phil-tickets-v2/06-cover-core-text-profiles.md",
+      "blockers": [
+        2,
+        5
+      ],
+      "approved_sha256": "04db814bf7add7e98ab16a255ed52ab489b584a5fbcf5c55580098defca80cd0",
+      "issue_number": 7,
+      "issue_id": 5550702858,
+      "url": "https://github.com/tomh1988-8/rag_demo/issues/7",
+      "labels": [
+        "ready-for-agent"
+      ],
+      "blocker_issue_numbers": [
+        3,
+        6
+      ],
+      "body_verified": true,
+      "created_at": "2026-09-23T08:16:31Z",
+      "node_id": "I_kwDOUl8W3M8AAAABStkBCg",
+      "state": "open",
+      "readback_verified": true,
+      "native_dependency_summary": {
+        "blocked_by": 0,
+        "total_blocked_by": 0,
+        "blocking": 0,
+        "total_blocking": 0
+      },
+      "published_body_sha256": "8bdf98771075e07a6ab57fbbbfc1368eebd7cd97100e2e80bff69dc88c058ee9",
+      "updated_at": "2026-09-23T08:16:31Z",
+      "current_local_file_sha256": "f76e2d771d5d48d36f0c2ca0c49eb9c9a9188deeb3740bdb6ba996a80db5cf87"
+    },
+    {
+      "draft_number": 7,
+      "title": "Ground follow-ups and reset conversation",
+      "file": "docs/plans/ask-phil-tickets-v2/07-ground-followups-and-reset.md",
+      "blockers": [
+        3,
+        4
+      ],
+      "approved_sha256": "727acfac02af480c473a0f5ebbef0743a2b4e899e93dca4e4a9aa2681df4de7a",
+      "issue_number": 8,
+      "issue_id": 5550703187,
+      "url": "https://github.com/tomh1988-8/rag_demo/issues/8",
+      "labels": [
+        "ready-for-agent"
+      ],
+      "blocker_issue_numbers": [
+        4,
+        5
+      ],
+      "body_verified": true,
+      "created_at": "2026-09-23T08:16:32Z",
+      "node_id": "I_kwDOUl8W3M8AAAABStkCUw",
+      "state": "open",
+      "readback_verified": true,
+      "native_dependency_summary": {
+        "blocked_by": 0,
+        "total_blocked_by": 0,
+        "blocking": 0,
+        "total_blocking": 0
+      },
+      "published_body_sha256": "4f0ef2a4d0a46851c14ab0bf058e0563ba7042304025f6163463b7bd4856fc89",
+      "updated_at": "2026-09-23T09:04:49Z",
+      "current_local_file_sha256": "52c8f8367558f3c6cfe5b518e6472f5b2a2da509015b1918dda28054f4ee0b4f"
+    },
+    {
+      "draft_number": 8,
+      "title": "Inspect calibrated quality comparisons",
+      "file": "docs/plans/ask-phil-tickets-v2/08-inspect-calibrated-comparisons.md",
+      "blockers": [
+        3
+      ],
+      "approved_sha256": "8c5140fc87d1584313822b5fb1daa458b347a57c51551b6358d5844a6d810609",
+      "issue_number": 9,
+      "issue_id": 5550703393,
+      "url": "https://github.com/tomh1988-8/rag_demo/issues/9",
+      "labels": [
+        "ready-for-agent"
+      ],
+      "blocker_issue_numbers": [
+        4
+      ],
+      "body_verified": true,
+      "created_at": "2026-09-23T08:16:33Z",
+      "node_id": "I_kwDOUl8W3M8AAAABStkDIQ",
+      "state": "open",
+      "readback_verified": true,
+      "native_dependency_summary": {
+        "blocked_by": 0,
+        "total_blocked_by": 0,
+        "blocking": 0,
+        "total_blocking": 0
+      },
+      "published_body_sha256": "95c0e7f255fa4bd4f544f9dc379739dc06b17db8df0403420023d0763d88900c",
+      "updated_at": "2026-09-23T09:04:50Z",
+      "current_local_file_sha256": "9e1e3d70755bc7405f5b34a06b25916244442a93976a9b6c04820882d4c103b6"
+    },
+    {
+      "draft_number": 9,
+      "title": "Bound requests and enforce read-only execution",
+      "file": "docs/plans/ask-phil-tickets-v2/09-enforce-execution-boundaries.md",
+      "blockers": [
+        3
+      ],
+      "approved_sha256": "955aa9d18f2affc227a8323138b92154e702b126e742c4d2d912648ffb61d8ad",
+      "issue_number": 10,
+      "issue_id": 5550703675,
+      "url": "https://github.com/tomh1988-8/rag_demo/issues/10",
+      "labels": [
+        "ready-for-agent"
+      ],
+      "blocker_issue_numbers": [
+        4
+      ],
+      "body_verified": true,
+      "created_at": "2026-09-23T08:16:34Z",
+      "node_id": "I_kwDOUl8W3M8AAAABStkEOw",
+      "state": "open",
+      "readback_verified": true,
+      "native_dependency_summary": {
+        "blocked_by": 0,
+        "total_blocked_by": 0,
+        "blocking": 0,
+        "total_blocking": 0
+      },
+      "published_body_sha256": "762e12f7a57963f3275fe107ccb809167747437687a551a697c2f7a1964f2874",
+      "updated_at": "2026-09-23T09:04:51Z",
+      "current_local_file_sha256": "8d669cc27ad3cba569fd6d7138460676355e714e001128a0a5803202b10c6e2f"
+    },
+    {
+      "draft_number": 10,
+      "title": "Answer biological family questions from admitted claims",
+      "file": "docs/plans/ask-phil-tickets-v2/10-answer-biological-family.md",
+      "blockers": [
+        3,
+        4
+      ],
+      "approved_sha256": "3ff119036ac350659dcd4a44841f3f47eeadecfa50a1304e335403537afcdd37",
+      "issue_number": 11,
+      "issue_id": 5550703841,
+      "url": "https://github.com/tomh1988-8/rag_demo/issues/11",
+      "labels": [
+        "ready-for-agent"
+      ],
+      "blocker_issue_numbers": [
+        4,
+        5
+      ],
+      "body_verified": true,
+      "created_at": "2026-09-23T08:16:35Z",
+      "node_id": "I_kwDOUl8W3M8AAAABStkE4Q",
+      "state": "open",
+      "readback_verified": true,
+      "native_dependency_summary": {
+        "blocked_by": 0,
+        "total_blocked_by": 0,
+        "blocking": 0,
+        "total_blocking": 0
+      },
+      "published_body_sha256": "371ffad998a5b19c89a55476c2a9484784e4aedfe15bf8f741f911a8062f9ab2",
+      "updated_at": "2026-09-23T08:16:35Z",
+      "current_local_file_sha256": "02480e411dfb90254617ea15cb37e381f18c48c71fada7d1ea23b6bd2ac7d8db"
+    },
+    {
+      "draft_number": 11,
+      "title": "Explain family and romantic histories",
+      "file": "docs/plans/ask-phil-tickets-v2/11-explain-relationship-histories.md",
+      "blockers": [
+        10
+      ],
+      "approved_sha256": "20ad80ffc1478096893918880772153a8fb967277cd87b6d4f9c5a1dd6b0bf5b",
+      "issue_number": 12,
+      "issue_id": 5550704000,
+      "url": "https://github.com/tomh1988-8/rag_demo/issues/12",
+      "labels": [
+        "ready-for-agent"
+      ],
+      "blocker_issue_numbers": [
+        11
+      ],
+      "body_verified": true,
+      "created_at": "2026-09-23T08:16:36Z",
+      "node_id": "I_kwDOUl8W3M8AAAABStkFgA",
+      "state": "open",
+      "readback_verified": true,
+      "native_dependency_summary": {
+        "blocked_by": 0,
+        "total_blocked_by": 0,
+        "blocking": 0,
+        "total_blocking": 0
+      },
+      "published_body_sha256": "eef35c3a5728e41fe2468246b07de9fbd9ad389c04411a43d467538c7b5fcfe2",
+      "updated_at": "2026-09-23T08:16:36Z",
+      "current_local_file_sha256": "e113981cddce24f45d3f7456ba592bee7ef9f69e17150d47485b85f322d985f3"
+    },
+    {
+      "draft_number": 12,
+      "title": "Explain crimes and criminal justice roles",
+      "file": "docs/plans/ask-phil-tickets-v2/12-explain-crime-and-justice.md",
+      "blockers": [
+        10
+      ],
+      "approved_sha256": "f05ff0f7bd4f01a3bff66379bd142cc26b56cb74a14593c8c332a56cfd6c6be7",
+      "issue_number": 13,
+      "issue_id": 5550704150,
+      "url": "https://github.com/tomh1988-8/rag_demo/issues/13",
+      "labels": [
+        "ready-for-agent"
+      ],
+      "blocker_issue_numbers": [
+        11
+      ],
+      "body_verified": true,
+      "created_at": "2026-09-23T08:16:37Z",
+      "node_id": "I_kwDOUl8W3M8AAAABStkGFg",
+      "state": "open",
+      "readback_verified": true,
+      "native_dependency_summary": {
+        "blocked_by": 0,
+        "total_blocked_by": 0,
+        "blocking": 0,
+        "total_blocking": 0
+      },
+      "published_body_sha256": "73e0f8fed546c8cc2eb466960579ac952494d38e9afa05f3116a8f0eadcee255",
+      "updated_at": "2026-09-23T08:16:37Z",
+      "current_local_file_sha256": "dd338cd7a1e09393f580e6380e96f34b0e8ff252042de508e68f6a7213835404"
+    },
+    {
+      "draft_number": 13,
+      "title": "Explain life events, themes and unclassified facts",
+      "file": "docs/plans/ask-phil-tickets-v2/13-explain-life-events-and-themes.md",
+      "blockers": [
+        12
+      ],
+      "approved_sha256": "fe8bd945b5166f12776d86f5921bfdb9cf772730db45c35fe8099c4bac108baf",
+      "issue_number": 14,
+      "issue_id": 5550704298,
+      "url": "https://github.com/tomh1988-8/rag_demo/issues/14",
+      "labels": [
+        "ready-for-agent"
+      ],
+      "blocker_issue_numbers": [
+        13
+      ],
+      "body_verified": true,
+      "created_at": "2026-09-23T08:16:37Z",
+      "node_id": "I_kwDOUl8W3M8AAAABStkGqg",
+      "state": "open",
+      "readback_verified": true,
+      "native_dependency_summary": {
+        "blocked_by": 0,
+        "total_blocked_by": 0,
+        "blocking": 0,
+        "total_blocking": 0
+      },
+      "published_body_sha256": "efc1e7a1e5b32d1e14bfbd87b20f2b5cc44d06c0fe4277bcb5369402e51f6aa8",
+      "updated_at": "2026-09-23T08:16:37Z",
+      "current_local_file_sha256": "559be4dc002edbf10623c448d4485c6cb411a7488ceeb4c5246179fd731365d9"
+    },
+    {
+      "draft_number": 14,
+      "title": "Review corrected and disputed knowledge",
+      "file": "docs/plans/ask-phil-tickets-v2/14-review-corrections-and-disputes.md",
+      "blockers": [
+        5,
+        10
+      ],
+      "approved_sha256": "2c3d1d4a4b837351e2bf3467b04215fca7dbdb9362e95670537098d170972078",
+      "issue_number": 15,
+      "issue_id": 5550704443,
+      "url": "https://github.com/tomh1988-8/rag_demo/issues/15",
+      "labels": [
+        "ready-for-agent"
+      ],
+      "blocker_issue_numbers": [
+        6,
+        11
+      ],
+      "body_verified": true,
+      "created_at": "2026-09-23T08:16:38Z",
+      "node_id": "I_kwDOUl8W3M8AAAABStkHOw",
+      "state": "open",
+      "readback_verified": true,
+      "native_dependency_summary": {
+        "blocked_by": 0,
+        "total_blocked_by": 0,
+        "blocking": 0,
+        "total_blocking": 0
+      },
+      "published_body_sha256": "eeba017fd37e3350963096b9ab9c257d7ad31ff91bd81dc77f2ea582fa85cb73",
+      "updated_at": "2026-09-23T08:16:38Z",
+      "current_local_file_sha256": "7c6788d5a2e1c5f788d8ece10b13e14fa1a93adcdd80f1f485f5214b3d701103"
+    },
+    {
+      "draft_number": 15,
+      "title": "Trace evidenced connections between characters",
+      "file": "docs/plans/ask-phil-tickets-v2/15-trace-character-connections.md",
+      "blockers": [
+        11,
+        13
+      ],
+      "approved_sha256": "e07259cc31d7c0abdaf1e3a9b8e7ebaae6f3722dbd29a5090a921bb6d41af354",
+      "issue_number": 16,
+      "issue_id": 5550704606,
+      "url": "https://github.com/tomh1988-8/rag_demo/issues/16",
+      "labels": [
+        "ready-for-agent"
+      ],
+      "blocker_issue_numbers": [
+        12,
+        14
+      ],
+      "body_verified": true,
+      "created_at": "2026-09-23T08:16:39Z",
+      "node_id": "I_kwDOUl8W3M8AAAABStkH3g",
+      "state": "open",
+      "readback_verified": true,
+      "native_dependency_summary": {
+        "blocked_by": 0,
+        "total_blocked_by": 0,
+        "blocking": 0,
+        "total_blocking": 0
+      },
+      "published_body_sha256": "f651ca60b4dc7de5cad7a114b0e37605dc03862a14ff6b74ce914fd66c7cad14",
+      "updated_at": "2026-09-23T08:16:39Z",
+      "current_local_file_sha256": "3e1d72bf50f53f1bbb27c3ccc66b75b1acdf9799a8f5ffe954dd171d778cbc4b"
+    },
+    {
+      "draft_number": 16,
+      "title": "Investigate with bounded text and graph tools",
+      "file": "docs/plans/ask-phil-tickets-v2/16-investigate-with-bounded-tools.md",
+      "blockers": [
+        9,
+        15
+      ],
+      "approved_sha256": "6c13768adad9c599158afba676a18a781926d09bebcf7e3b2a5595805fdeb752",
+      "issue_number": 17,
+      "issue_id": 5550704932,
+      "url": "https://github.com/tomh1988-8/rag_demo/issues/17",
+      "labels": [
+        "ready-for-agent"
+      ],
+      "blocker_issue_numbers": [
+        10,
+        16
+      ],
+      "body_verified": true,
+      "created_at": "2026-09-23T08:16:40Z",
+      "node_id": "I_kwDOUl8W3M8AAAABStkJJA",
+      "state": "open",
+      "readback_verified": true,
+      "native_dependency_summary": {
+        "blocked_by": 0,
+        "total_blocked_by": 0,
+        "blocking": 0,
+        "total_blocking": 0
+      },
+      "published_body_sha256": "5a16924275b0b5ed540ad42683ec4027a40a19db1cea8d3df451c2a0a3dc0c44",
+      "updated_at": "2026-09-23T08:16:40Z",
+      "current_local_file_sha256": "e17f3eb9647a703e896e78313777ca26d9e393952c421db17144e10eebc75032"
+    },
+    {
+      "draft_number": 17,
+      "title": "Route and escalate according to evidence",
+      "file": "docs/plans/ask-phil-tickets-v2/17-route-and-escalate.md",
+      "blockers": [
+        16
+      ],
+      "approved_sha256": "965653d1d334c14f83d30d8cad2b07adca1ccb7038d2ce4943dc959aa52d8470",
+      "issue_number": 18,
+      "issue_id": 5550705117,
+      "url": "https://github.com/tomh1988-8/rag_demo/issues/18",
+      "labels": [
+        "ready-for-agent"
+      ],
+      "blocker_issue_numbers": [
+        17
+      ],
+      "body_verified": true,
+      "created_at": "2026-09-23T08:16:41Z",
+      "node_id": "I_kwDOUl8W3M8AAAABStkJ3Q",
+      "state": "open",
+      "readback_verified": true,
+      "native_dependency_summary": {
+        "blocked_by": 0,
+        "total_blocked_by": 0,
+        "blocking": 0,
+        "total_blocking": 0
+      },
+      "published_body_sha256": "2ea63ab06c3ebe48bfd08569652f559198ffdf7e15060d58a018298a6f7b9528",
+      "updated_at": "2026-09-23T08:16:41Z",
+      "current_local_file_sha256": "5d354291cb249cb2dd67192df3fbf97ebbf477dff10ef86dcc69ed5e65b65a6c"
+    },
+    {
+      "draft_number": 18,
+      "title": "Validate Phil's voice without changing facts",
+      "file": "docs/plans/ask-phil-tickets-v2/18-validate-phil-voice.md",
+      "blockers": [
+        8
+      ],
+      "approved_sha256": "17f87de21c91180a43e021b4ed67ac86ec20b8f5305fb626018474d8149b53bb",
+      "issue_number": 19,
+      "issue_id": 5550705440,
+      "url": "https://github.com/tomh1988-8/rag_demo/issues/19",
+      "labels": [
+        "ready-for-agent"
+      ],
+      "blocker_issue_numbers": [
+        9
+      ],
+      "body_verified": true,
+      "created_at": "2026-09-23T08:16:42Z",
+      "node_id": "I_kwDOUl8W3M8AAAABStkLIA",
+      "state": "open",
+      "readback_verified": true,
+      "native_dependency_summary": {
+        "blocked_by": 0,
+        "total_blocked_by": 0,
+        "blocking": 0,
+        "total_blocking": 0
+      },
+      "published_body_sha256": "2ed2de343d642133b414a153d4c503d7263344952fb536dc30c58ca751204a14",
+      "updated_at": "2026-09-23T08:16:42Z",
+      "current_local_file_sha256": "e864e05aef8b14b218785cc0d2d25f55a9b10691504730e8e6b5c48765ddcb26"
+    },
+    {
+      "draft_number": 19,
+      "title": "Establish checked graph coverage across the core roster",
+      "file": "docs/plans/ask-phil-tickets-v2/19-establish-core-graph-coverage.md",
+      "blockers": [
+        6,
+        11,
+        13,
+        14
+      ],
+      "approved_sha256": "8f20f03ab39684c04743b9393c7fd7d6e5718b270f373afdd9f0324fb95dc6e2",
+      "issue_number": 20,
+      "issue_id": 5550705588,
+      "url": "https://github.com/tomh1988-8/rag_demo/issues/20",
+      "labels": [
+        "ready-for-agent"
+      ],
+      "blocker_issue_numbers": [
+        7,
+        12,
+        14,
+        15
+      ],
+      "body_verified": true,
+      "created_at": "2026-09-23T08:16:43Z",
+      "node_id": "I_kwDOUl8W3M8AAAABStkLtA",
+      "state": "open",
+      "readback_verified": true,
+      "native_dependency_summary": {
+        "blocked_by": 0,
+        "total_blocked_by": 0,
+        "blocking": 0,
+        "total_blocking": 0
+      },
+      "published_body_sha256": "50cdf0ad54de6fed1d73ac9104bf69815d1c9f51e718e7819250c32553873808",
+      "updated_at": "2026-09-23T08:16:43Z",
+      "current_local_file_sha256": "6d86091b0b9b96ad04596e99888059db4ba00b24ca2fdfcafbd811e071d2d0b0"
+    },
+    {
+      "draft_number": 20,
+      "title": "Reproduce and accept the complete local demo",
+      "file": "docs/plans/ask-phil-tickets-v2/20-accept-complete-local-demo.md",
+      "blockers": [
+        17,
+        18,
+        19,
+        22
+      ],
+      "approved_sha256": "6c69991240af05df374a80eb6195ff19dc8c99c5b51c28d99b91b3b4f72a0ce0",
+      "issue_number": 21,
+      "issue_id": 5550705735,
+      "url": "https://github.com/tomh1988-8/rag_demo/issues/21",
+      "labels": [
+        "ready-for-agent"
+      ],
+      "blocker_issue_numbers": [
+        18,
+        19,
+        20,
+        23
+      ],
+      "body_verified": true,
+      "created_at": "2026-09-23T08:16:44Z",
+      "node_id": "I_kwDOUl8W3M8AAAABStkMRw",
+      "state": "open",
+      "readback_verified": true,
+      "native_dependency_summary": {
+        "blocked_by": 0,
+        "total_blocked_by": 0,
+        "blocking": 0,
+        "total_blocking": 0
+      },
+      "published_body_sha256": "8489139dd1b83c6ba79e5203420e707bf208ee8a644fc26f2a731b5b0b2686ba",
+      "updated_at": "2026-09-23T09:04:53Z",
+      "current_local_file_sha256": "cca979cbaf0cb95a75e76dd1fbe6c03fc833edb30914a426e3241324763a5e70"
+    },
+    {
+      "draft_number": 21,
+      "title": "Capture response feedback and inspect live quality signals",
+      "file": "docs/plans/ask-phil-tickets-v2/21-capture-response-feedback.md",
+      "scope_authorisation": "feedback/online-evaluation user instruction recorded in feedback-amendment.json",
+      "blockers": [
+        7,
+        9
+      ],
+      "issue_number": 22,
+      "issue_id": 5551181116,
+      "node_id": "I_kwDOUl8W3M8AAAABSuBNPA",
+      "url": "https://github.com/tomh1988-8/rag_demo/issues/22",
+      "labels": [
+        "ready-for-agent"
+      ],
+      "blocker_issue_numbers": [
+        8,
+        10
+      ],
+      "body_verified": true,
+      "created_at": "2026-09-23T09:04:09Z",
+      "updated_at": "2026-09-23T09:04:09Z",
+      "state": "open",
+      "readback_verified": true,
+      "native_dependency_summary": {
+        "blocked_by": 0,
+        "total_blocked_by": 0,
+        "blocking": 0,
+        "total_blocking": 0
+      },
+      "published_body_sha256": "343e491e3b4b235689a19f8a9c6ad2df1e30afe36c636419c4a64199a6828f2c",
+      "current_local_file_sha256": "cf72ce6c7f95bbcdbd59d2d6abd37beb5b4dabae00a6bdfa5607d6d0c1bb872e"
+    },
+    {
+      "draft_number": 22,
+      "title": "Evaluate live answers with feedback and close the review loop",
+      "file": "docs/plans/ask-phil-tickets-v2/22-evaluate-live-feedback.md",
+      "scope_authorisation": "feedback/online-evaluation user instruction recorded in feedback-amendment.json",
+      "blockers": [
+        21,
+        8
+      ],
+      "issue_number": 23,
+      "issue_id": 5551181317,
+      "node_id": "I_kwDOUl8W3M8AAAABSuBOBQ",
+      "url": "https://github.com/tomh1988-8/rag_demo/issues/23",
+      "labels": [
+        "ready-for-agent"
+      ],
+      "blocker_issue_numbers": [
+        22,
+        9
+      ],
+      "body_verified": true,
+      "created_at": "2026-09-23T09:04:10Z",
+      "updated_at": "2026-09-23T09:04:10Z",
+      "state": "open",
+      "readback_verified": true,
+      "native_dependency_summary": {
+        "blocked_by": 0,
+        "total_blocked_by": 0,
+        "blocking": 0,
+        "total_blocking": 0
+      },
+      "published_body_sha256": "9a08b10646330ca0cca1b4af2d5f8e8931beb5160f0a5d3c0864ef00f83a0ac0",
+      "current_local_file_sha256": "e6ad7b0606224e84e5cce1ed91b3c8f82499f470b791fb9ad661a742094084c3"
+    }
+  ],
+  "native_dependencies": {
+    "status": "pending_tool_capability",
+    "reason": "The installed GitHub connector exposes issue creation and labels but no native dependency/sub-issue mutation. The gh executable, GitHub token environment, git credential helper and gh host credentials are unavailable. Remote readback confirms no native dependencies were created.",
+    "edges": [
+      {
+        "blocked_issue_number": 3,
+        "blocked_issue_id": 5550697082,
+        "blocking_issue_number": 2,
+        "blocking_issue_id": 5550668494,
+        "status": "not_created"
+      },
+      {
+        "blocked_issue_number": 4,
+        "blocked_issue_id": 5550698056,
+        "blocking_issue_number": 3,
+        "blocking_issue_id": 5550697082,
+        "status": "not_created"
+      },
+      {
+        "blocked_issue_number": 5,
+        "blocked_issue_id": 5550702491,
+        "blocking_issue_number": 2,
+        "blocking_issue_id": 5550668494,
+        "status": "not_created"
+      },
+      {
+        "blocked_issue_number": 6,
+        "blocked_issue_id": 5550702677,
+        "blocking_issue_number": 5,
+        "blocking_issue_id": 5550702491,
+        "status": "not_created"
+      },
+      {
+        "blocked_issue_number": 7,
+        "blocked_issue_id": 5550702858,
+        "blocking_issue_number": 3,
+        "blocking_issue_id": 5550697082,
+        "status": "not_created"
+      },
+      {
+        "blocked_issue_number": 7,
+        "blocked_issue_id": 5550702858,
+        "blocking_issue_number": 6,
+        "blocking_issue_id": 5550702677,
+        "status": "not_created"
+      },
+      {
+        "blocked_issue_number": 8,
+        "blocked_issue_id": 5550703187,
+        "blocking_issue_number": 4,
+        "blocking_issue_id": 5550698056,
+        "status": "not_created"
+      },
+      {
+        "blocked_issue_number": 8,
+        "blocked_issue_id": 5550703187,
+        "blocking_issue_number": 5,
+        "blocking_issue_id": 5550702491,
+        "status": "not_created"
+      },
+      {
+        "blocked_issue_number": 9,
+        "blocked_issue_id": 5550703393,
+        "blocking_issue_number": 4,
+        "blocking_issue_id": 5550698056,
+        "status": "not_created"
+      },
+      {
+        "blocked_issue_number": 10,
+        "blocked_issue_id": 5550703675,
+        "blocking_issue_number": 4,
+        "blocking_issue_id": 5550698056,
+        "status": "not_created"
+      },
+      {
+        "blocked_issue_number": 11,
+        "blocked_issue_id": 5550703841,
+        "blocking_issue_number": 4,
+        "blocking_issue_id": 5550698056,
+        "status": "not_created"
+      },
+      {
+        "blocked_issue_number": 11,
+        "blocked_issue_id": 5550703841,
+        "blocking_issue_number": 5,
+        "blocking_issue_id": 5550702491,
+        "status": "not_created"
+      },
+      {
+        "blocked_issue_number": 12,
+        "blocked_issue_id": 5550704000,
+        "blocking_issue_number": 11,
+        "blocking_issue_id": 5550703841,
+        "status": "not_created"
+      },
+      {
+        "blocked_issue_number": 13,
+        "blocked_issue_id": 5550704150,
+        "blocking_issue_number": 11,
+        "blocking_issue_id": 5550703841,
+        "status": "not_created"
+      },
+      {
+        "blocked_issue_number": 14,
+        "blocked_issue_id": 5550704298,
+        "blocking_issue_number": 13,
+        "blocking_issue_id": 5550704150,
+        "status": "not_created"
+      },
+      {
+        "blocked_issue_number": 15,
+        "blocked_issue_id": 5550704443,
+        "blocking_issue_number": 6,
+        "blocking_issue_id": 5550702677,
+        "status": "not_created"
+      },
+      {
+        "blocked_issue_number": 15,
+        "blocked_issue_id": 5550704443,
+        "blocking_issue_number": 11,
+        "blocking_issue_id": 5550703841,
+        "status": "not_created"
+      },
+      {
+        "blocked_issue_number": 16,
+        "blocked_issue_id": 5550704606,
+        "blocking_issue_number": 12,
+        "blocking_issue_id": 5550704000,
+        "status": "not_created"
+      },
+      {
+        "blocked_issue_number": 16,
+        "blocked_issue_id": 5550704606,
+        "blocking_issue_number": 14,
+        "blocking_issue_id": 5550704298,
+        "status": "not_created"
+      },
+      {
+        "blocked_issue_number": 17,
+        "blocked_issue_id": 5550704932,
+        "blocking_issue_number": 10,
+        "blocking_issue_id": 5550703675,
+        "status": "not_created"
+      },
+      {
+        "blocked_issue_number": 17,
+        "blocked_issue_id": 5550704932,
+        "blocking_issue_number": 16,
+        "blocking_issue_id": 5550704606,
+        "status": "not_created"
+      },
+      {
+        "blocked_issue_number": 18,
+        "blocked_issue_id": 5550705117,
+        "blocking_issue_number": 17,
+        "blocking_issue_id": 5550704932,
+        "status": "not_created"
+      },
+      {
+        "blocked_issue_number": 19,
+        "blocked_issue_id": 5550705440,
+        "blocking_issue_number": 9,
+        "blocking_issue_id": 5550703393,
+        "status": "not_created"
+      },
+      {
+        "blocked_issue_number": 20,
+        "blocked_issue_id": 5550705588,
+        "blocking_issue_number": 7,
+        "blocking_issue_id": 5550702858,
+        "status": "not_created"
+      },
+      {
+        "blocked_issue_number": 20,
+        "blocked_issue_id": 5550705588,
+        "blocking_issue_number": 12,
+        "blocking_issue_id": 5550704000,
+        "status": "not_created"
+      },
+      {
+        "blocked_issue_number": 20,
+        "blocked_issue_id": 5550705588,
+        "blocking_issue_number": 14,
+        "blocking_issue_id": 5550704298,
+        "status": "not_created"
+      },
+      {
+        "blocked_issue_number": 20,
+        "blocked_issue_id": 5550705588,
+        "blocking_issue_number": 15,
+        "blocking_issue_id": 5550704443,
+        "status": "not_created"
+      },
+      {
+        "blocked_issue_number": 21,
+        "blocked_issue_id": 5550705735,
+        "blocking_issue_number": 18,
+        "blocking_issue_id": 5550705117,
+        "status": "not_created"
+      },
+      {
+        "blocked_issue_number": 21,
+        "blocked_issue_id": 5550705735,
+        "blocking_issue_number": 19,
+        "blocking_issue_id": 5550705440,
+        "status": "not_created"
+      },
+      {
+        "blocked_issue_number": 21,
+        "blocked_issue_id": 5550705735,
+        "blocking_issue_number": 20,
+        "blocking_issue_id": 5550705588,
+        "status": "not_created"
+      },
+      {
+        "blocked_issue_number": 21,
+        "blocked_issue_id": 5550705735,
+        "blocking_issue_number": 23,
+        "blocking_issue_id": 5551181317,
+        "status": "not_created"
+      },
+      {
+        "blocked_issue_number": 22,
+        "blocked_issue_id": 5551181116,
+        "blocking_issue_number": 8,
+        "blocking_issue_id": 5550703187,
+        "status": "not_created"
+      },
+      {
+        "blocked_issue_number": 22,
+        "blocked_issue_id": 5551181116,
+        "blocking_issue_number": 10,
+        "blocking_issue_id": 5550703675,
+        "status": "not_created"
+      },
+      {
+        "blocked_issue_number": 23,
+        "blocked_issue_id": 5551181317,
+        "blocking_issue_number": 22,
+        "blocking_issue_id": 5551181116,
+        "status": "not_created"
+      },
+      {
+        "blocked_issue_number": 23,
+        "blocked_issue_id": 5551181317,
+        "blocking_issue_number": 9,
+        "blocking_issue_id": 5550703393,
+        "status": "not_created"
+      }
+    ]
+  },
+  "publication_verified_date": "2026-09-23",
+  "handoff": {
+    "instruction": "Issue #2 is complete and closed. Read the saved native/Docker evidence. On the next implementation instruction, select from the open dependency frontier #3 and #5.",
+    "specification_is_not_an_implementation_ticket": true,
+    "dependency_handling": "Use the explicit Blocked by issue references and saved mapping until native relationships can be written and verified.",
+    "first_unblocked_issue_numbers": [
+      3,
+      5
+    ],
+    "first_unblocked_issue_urls": [
+      "https://github.com/tomh1988-8/rag_demo/issues/3",
+      "https://github.com/tomh1988-8/rag_demo/issues/5"
+    ]
+  },
+  "validation": {
+    "status": "passed",
+    "remote_issues_checked": 23,
+    "local_ticket_bodies_match_remote": true,
+    "ready_for_agent_labels_verified": 23,
+    "planned_blocking_edges": 35,
+    "native_blocking_edges_created": 0,
+    "acyclic": true,
+    "no_redundant_dependencies": true,
+    "final_acceptance_ancestors": 21,
+    "first_unblocked_issue_number": 2,
+    "local_links_valid": true,
+    "local_links_checked": 624,
+    "spec_matches_amended_local": true,
+    "spec_sha256": "09d6030f6339360d2fc544d928825dc2ba30f1cfb6b3058e0d5338acd459d52e",
+    "spec_stories": 116,
+    "all_stories_mapped": true,
+    "checklist_items": 64,
+    "current_checks": 51,
+    "design_pass": 3,
+    "current_pending": 48,
+    "deferred_checks": 1,
+    "not_applicable_checks": 12,
+    "implementation_started": false,
+    "context": "Historical issue-publication consistency check before implementation; current runtime evidence is linked in implementation_progress."
+  },
+  "plan_revision": "2.1",
+  "initial_publication_validation": {
+    "remote_issues_checked": 21,
+    "local_ticket_bodies_match_remote": true,
+    "ready_for_agent_labels_verified": 21,
+    "planned_blocking_edges": 31,
+    "native_blocking_edges_created": 0,
+    "local_links_valid": true,
+    "spec_unchanged": true
+  },
+  "scope_amendments": [
+    {
+      "date": "2026-09-23",
+      "user_instruction": "I forgot to make sure that the final product must enable the user to give feedback and that feedback must be used in online evaluations - look into this practice and integrate it within our current ticketing system and spec",
+      "record": "docs/plans/ask-phil-tickets-v2/feedback-amendment.json",
+      "new_story_ids": [
+        99,
+        100,
+        101,
+        102,
+        103,
+        104,
+        105,
+        106,
+        107,
+        108,
+        109,
+        110,
+        111,
+        112,
+        113,
+        114,
+        115,
+        116
+      ],
+      "new_implementation_issues": [
+        22,
+        23
+      ],
+      "amended_issues": [
+        1,
+        3,
+        8,
+        9,
+        10,
+        21
+      ],
+      "checklist_version": "1.1"
+    }
+  ],
+  "implementation_progress": {
+    "issue_number": 2,
+    "status": "completed",
+    "record": "docs/implementation/issue-2/validation.json",
+    "github_issue_closed": true,
+    "checklist": {
+      "design_pass": 3,
+      "initial_slice_pass": 5,
+      "pending": 43,
+      "deferred": 1,
+      "not_applicable": 12
+    },
+    "closed_at": "2026-09-23T16:40:51Z",
+    "github_closure_readback_verified": true
+  }
+}

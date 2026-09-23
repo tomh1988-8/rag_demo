@@ -1,0 +1,3 @@
+# Use PostgreSQL for initial retrieval storage
+
+Store source records, claims, relationship data, and retrieval vectors in PostgreSQL initially, using pgvector for vector retrieval and typed SQL tools for the supported graph queries. LlamaIndex's PostgreSQL vector integration does not provide the relationship traversal layer, so that layer is an explicit application responsibility with evidence returned alongside paths. This keeps one database while the workload is being established; reconsider a dedicated graph store if measured query requirements, performance, or integration complexity justify it.

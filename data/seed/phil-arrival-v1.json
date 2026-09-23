@@ -1,0 +1,27 @@
+{
+  "snapshot_id": "phil-arrival-v1",
+  "fixture_version": 1,
+  "source": {
+    "title": "Phil Mitchell",
+    "url": "https://en.wikipedia.org/wiki/Phil_Mitchell",
+    "revision_id": "1375499431",
+    "revision_url": "https://en.wikipedia.org/w/index.php?title=Phil_Mitchell&oldid=1375499431",
+    "section": "Storylines / 1990–2003 / opening sentence, first clause",
+    "captured_at": "2026-09-23T14:18:05.792450Z",
+    "capture_sha256": "df4f36d8f708824e7003353c6fcb52bff387050e3010053a373741ee33dbad8e",
+    "scope": "main_series",
+    "license_url": "https://creativecommons.org/licenses/by-sa/4.0/",
+    "attribution": "Wikipedia contributors, Phil Mitchell, revision 1375499431",
+    "coverage": "One clause about Phil's arrival in February 1990 and The Arches; no continuous storyline coverage.",
+    "gaps": ["Family relationships", "Later events", "Current character status"]
+  },
+  "passages": [
+    {
+      "evidence_id": "phil-arrival-001",
+      "text": "Phil Mitchell first arrives in Walford in February 1990 to open an automobile repair shop, known as The Arches;",
+      "sha256": "c58db6653c582d8d2c75291831d8a3c48142261499f6a04ea732d8b2469031db",
+      "start": 0,
+      "end": 111
+    }
+  ]
+}
