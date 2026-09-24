@@ -1,0 +1,36 @@
+{
+  "dataset_id": "phil-arrival-rag-reference-v1",
+  "snapshot_id": "phil-arrival-v1",
+  "split": "development",
+  "independent_group_count": 1,
+  "label_source": "data/references/phil-arrival-v1.json",
+  "review": "Reuses the source-reviewed arrival fact and absent-parentage labels from issue #2. No model output was used to create these labels. Neither human review nor independent canon corroboration is claimed.",
+  "cases": [
+    {
+      "case_id": "phil-arrival-when-001",
+      "question": "When does Phil Mitchell first arrive in Walford?",
+      "answerable": true,
+      "relevant_ids": ["phil-arrival-001"],
+      "required_facts": [
+        {
+          "fact": "Phil Mitchell first arrives in Walford in February 1990.",
+          "sufficient_sets": [["phil-arrival-001"]]
+        }
+      ]
+    },
+    {
+      "case_id": "phil-mother-absent-001",
+      "question": "Who is Phil Mitchell's mother?",
+      "answerable": false,
+      "relevant_ids": [],
+      "required_facts": []
+    }
+  ],
+  "scoring": {
+    "k": 3,
+    "matching": "Exact evidence IDs within the fixed snapshot; deduplicate retrieval IDs before taking top k.",
+    "retrieval_denominator": "Recall divides relevant retrieved passages by all labelled relevant passages. Hit and reciprocal first-relevant rank are defined only for cases with relevant passages. Zero-relevance cases are null, not perfect scores.",
+    "context_denominator": "Fraction of required facts with at least one complete labelled sufficient evidence set in the actual whole-span context. No required facts gives null coverage. An unanswerable case cannot have sufficient context for the requested fact.",
+    "limitation": "Two exposed cases, one positive, one negative, one source passage and one fact group. No held-out performance, meaningful rank discrimination, persona assessment or general answer-quality conclusion. A nearest neighbour may be returned for the negative case without supplying the requested fact."
+  }
+}

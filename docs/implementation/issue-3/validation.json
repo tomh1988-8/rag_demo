@@ -1,0 +1,240 @@
+{
+  "issue": 3,
+  "status": "completed",
+  "recorded_at": "2026-09-24T09:37:12.988836+00:00",
+  "review_base_commit": "573a8adefcf6b3addb46346b128669de3065bf00",
+  "application_sha256": "42cfb7575ff26aac74eb35e65233b69d426238ff5f78ae50c9773764781a43d9",
+  "prompt_sha256": "a5c55194fed5bcb97322c4bdcf04644094c11d4cfd8fa73846d6f88599cb18bf",
+  "revision_linkage": "The containing Git commit identifies the final code and artifacts. Application fingerprints match the executed Docker baseline and served response; no circular commit ID is embedded.",
+  "file_sha256": {
+    ".dockerignore": "87e80be61762201546285dc5c8cb22ec8ca9d428fb9183b6b2951d4625b4f6ce",
+    "Dockerfile": "e38f5e16bd93d52558a4152c24999b60883e3e4d1e6cf943d40192f0659bc03c",
+    "compose.yaml": "88a8d03a76d13846926c7fc3af34e6a18a8c4c2f515f70da27dbef453c1069dc",
+    "config/local-models.json": "a2b0dff8b7a7a79d0dbd57004b5ebcfbabddbfda56d41e0b720da7626ac8f2f2",
+    "data/references/phil-arrival-rag-v1.json": "a19df8459191b27e355f246afeab3640d2f3086424d4e2deeb88494f8a0840aa",
+    "pyproject.toml": "d48f595b74124c5f22e21a72b1f79f6f6149170e9ecae5729bd2134413733b4e",
+    "scripts/evaluate_text_baseline.py": "82cd69334c91d78ef6dbffee126a3eb450fb2a09705f756827172b86d8136c34",
+    "src/ask_phil/__init__.py": "c4be197720058e2c86d4a79594bf60163b9bef1578b8e0e99650ec5e8b114a3d",
+    "src/ask_phil/answering.py": "1bb46411fa72f58620be76aacbb91fbba2f8b069979ad1ab5f7d37ca0fe36a3a",
+    "src/ask_phil/answers.py": "b14d672001490e8a14a8e5d71ff94f9a1bf38a2b0a941d259889b8c993b05333",
+    "src/ask_phil/api.py": "6613e622468d38ccf9534db22fbaeec9bfcbac4da0a4e65da9f31a43a566e371",
+    "src/ask_phil/cli.py": "697cdb0ddd23ec4970366e9d7f4f33338508429846eb4a679eef1a8d1ecc3368",
+    "src/ask_phil/evaluation.py": "c81b4ebb1c889665593bbb30af4e0d622101d11a9c49390b3bab6500ed921540",
+    "src/ask_phil/evidence.py": "82f7130d24a11ecac5a4d784456c8a63de34f85364d8e093e3b1d592d2ea6899",
+    "src/ask_phil/models.py": "6debf8ee326b67c46406fdf2f15d237fcd98bec747847dece111b0d5bc27375b",
+    "src/ask_phil/responses.py": "a51474b03f35ffec016760d31754fc4eae4e19447e2f8ffd7719f81794222f73",
+    "src/ask_phil/retrieval.py": "323015ac6809d9c3f6f3c0c29d1f9207a9f03f7f096ba10fc62f5dab560a13fe",
+    "src/ask_phil/storage.py": "d003c30bdca20f01fee6d7d8adfadf88017235ceb83904899f01769930458a06",
+    "tests/conftest.py": "bc00644be727c51c1aea3bc4a8f8a3bddd05e7dbe76d050a108f624032c97d1a",
+    "tests/test_answer_rules.py": "85f48c1924bf964f1c20b2d5fc22fd9b7e0110a9ce27d709b69e5f94ecd99bd9",
+    "tests/test_answers_api.py": "854ac2cd8b80a29c166643d3aab9bc8c35c62d51f3f97ec8677b2c80ba1d5eeb",
+    "tests/test_cli.py": "46c82f8dca5c52f5ef55b909be64a9b1ef514f73c23cd82ee432ac64317b332f",
+    "tests/test_evaluation.py": "5341c3ad69f3b91943b0dde457dc3670f6bc3c8458a54beb3e8dd9984b6bea13",
+    "tests/test_inspection.py": "97b460517280da1202a7c8cc1019a167bfd764d6cf3a31108758b838ac9ee1e6",
+    "tests/test_provenance.py": "1c362c9a6d7a3ce92977ae00d79d1fd46f0f3d2accf8b87a6b24cc58dc67d1a7",
+    "tests/test_retrieval.py": "7c5371dc4dfbeee5c1bb30bbd1fd70cc3bb100ae5e0784161cc97ebc8ab3003c",
+    "uv.lock": "3188f0901ec0619f3352ceb13a274a857e737aac7193b4702948ae8c8ca63d69"
+  },
+  "runtime": {
+    "python": "3.12.14",
+    "postgresql": "18.6",
+    "pgvector": "0.8.6",
+    "ollama": "0.34.4",
+    "docker_engine": "29.8.1",
+    "compose": "5.5.1",
+    "images": {
+      "ask-phil-issue3-api-1": {
+        "image": "sha256:17e2dd45ad73a0cbb0f5d4591e4b0236518e15e9c0bc9b3369c64d91ea566b59",
+        "state_at_capture": "running"
+      },
+      "ask-phil-issue3-db-1": {
+        "image": "sha256:78bf48b801e792f99e3ac62b5036fd3876e9be48afda16c1e331af1c75ceb2ff",
+        "state_at_capture": "running"
+      },
+      "ask-phil-issue3-ollama-1": {
+        "image": "sha256:8262851b2846b87c649eddf3e76beb270c52f4d1bc94559f47efde16b0841551",
+        "state_at_capture": "running"
+      },
+      "ask-phil-issue3-mlflow-1": {
+        "image": "sha256:9cd5dfbfcd76baa0c25b0840b9831b95766a9d0d7f833ae756c89a72c1ced404",
+        "state_at_capture": "running"
+      },
+      "ask-phil-issue3-accepted-tests": {
+        "image": "sha256:0b6e82250650d3d4d46725fc57ef7e38310e0dce570a6181b12e3052e30074f6",
+        "state_at_capture": "exited"
+      }
+    }
+  },
+  "full_suite": {
+    "command": "docker compose -p ask-phil-issue3 --profile test run --name ask-phil-issue3-accepted-tests test pytest -q -p no:cacheprovider --junitxml=/tmp/issue3-tests.xml",
+    "passed": 32,
+    "failed": 0,
+    "errors": 0,
+    "skipped": 0,
+    "warnings": 1,
+    "duration_seconds": 42.894,
+    "junit": "tests.xml",
+    "output": "docker-tests.log",
+    "warning": "Upstream Starlette TestClient deprecates its httpx fallback.",
+    "scope": "Real PostgreSQL/pgvector, MLflow and application/CLI; only external model responses substituted."
+  },
+  "static_checks": {
+    "ruff_check": {
+      "exit_code": 0
+    },
+    "ruff_format_check": {
+      "exit_code": 0
+    },
+    "mypy": {
+      "exit_code": 0,
+      "source_files": 21
+    }
+  },
+  "live_baseline": {
+    "artifact": "text-baseline-v4.json",
+    "evaluation_run_id": "5722d6dd4374444eb6a6d7c1ce357f6a",
+    "cases": 2,
+    "independent_groups": 1,
+    "split": "exposed development",
+    "answerable_fact_and_basic_first_person_style": "passed on arrival case",
+    "absent_parentage": "insufficient_evidence, no citations; passed",
+    "metrics": "Positive-case retrieval/context scores are 1; no ranking-discrimination conclusion from one passage. Negative-case positive-label metrics are null and context_sufficient is false.",
+    "judgement": "Implementer checked the actual final outputs against the source-reviewed labels; no human review, LLM judge, held-out result or deployment readiness claimed."
+  },
+  "serving": {
+    "artifact": "docker-serving.json",
+    "trace_artifact": "docker-serving-trace.json",
+    "trace_id": "tr-66cf6aa2f4ffe0a2589a306ae40673da",
+    "application_elapsed_ms": 24178.69575599616,
+    "complete_cli_elapsed_ms": 30384.18208899384,
+    "complete_measurement_scope": "Wall time from CLI process launch through receipt delivery, parsing and initial smoke assertions; includes trace flush and response persistence, and client startup overhead. One observation, not an SLA.",
+    "missing_usage_example": "test_answer_has_resolvable_citations_real_trace_and_durable_private_receipt: unreported provider input/output counts stay null.",
+    "private_read_tokens_absent_from_published_artifacts": true
+  },
+  "restart": {
+    "services": [
+      "db",
+      "api",
+      "mlflow"
+    ],
+    "snapshot_reimported": false,
+    "answer_regenerated": false,
+    "original_response_identical": true,
+    "citation_resolves_identically": true,
+    "private_lookup_enforced": true,
+    "completed_trace_resolves_via_mlflow_http": true,
+    "record": "docker-serving.json",
+    "transcript": "compose-restart.log"
+  },
+  "retained_development_attempts": [
+    "local-probe-v0.json",
+    "local-probe-v1.json",
+    "serving-probe-v1.json",
+    "local-probe-v2.json",
+    "local-probe-v3.json",
+    "pre-prompt-tests.xml",
+    "pre-prompt-docker-tests.log",
+    "text-baseline-v3.json",
+    "accounting-serving-v3.json",
+    "accounting-serving-trace-v3.json",
+    "pre-accounting-tests.xml",
+    "pre-accounting-docker-tests.log"
+  ],
+  "recorded_live_answer_calls": 14,
+  "paid_api_calls": 0,
+  "budget_scope": "Each baseline invocation bounded to one or two answer calls with 256 output tokens per call, zero retries; each CLI serving probe used one call. Recorded calls include unsuccessful persona probes. Indexing/query embedding usage is separate when available. This is not an account-wide spending control.",
+  "model_migration": {
+    "local_model_role": "development and smoke checks only",
+    "before_issues": [
+      7,
+      9,
+      11
+    ],
+    "requirement": "Use a more capable model before judging broad roster answers, representative quality comparisons or substantive extraction. Record a new provider/model baseline and configure conservative key/account/request controls before any paid call."
+  },
+  "checklist": {
+    "design_pass": 3,
+    "inspection_slice_pass": 5,
+    "text_rag_slice_pass": 5,
+    "pending": 38,
+    "deferred": 1,
+    "not_applicable": 12,
+    "new_scoped_pass": [
+      "AD-02.1",
+      "AD-05.1",
+      "AD-06.2",
+      "AD-09.1",
+      "RAG-02"
+    ],
+    "partial_measurement_evidence": "AD-09.3 remains Pending for full routing/online accounting."
+  },
+  "review": {
+    "record": "review.md",
+    "method": "Independent Standards and Spec agents, with final evidence follow-ups.",
+    "standards_remaining_findings": 0,
+    "spec_remaining_findings": 0,
+    "resolved": [
+      "duplicated experiment setup",
+      "first-person persona smoke",
+      "complete client latency",
+      "final test/register evidence",
+      "MLflow aggregate token total"
+    ]
+  },
+  "environment_left_available": {
+    "compose_project": "ask-phil-issue3",
+    "api": "http://127.0.0.1:8000",
+    "mlflow": "http://127.0.0.1:5000",
+    "ollama": "http://127.0.0.1:11435",
+    "named_volumes": [
+      "ask-phil-issue3_pgdata",
+      "ask-phil-issue3_models",
+      "ask-phil-issue3_traces"
+    ],
+    "note": "Use this project name to reuse the downloaded models. The earlier host Ollama/Qwen setup remains intact."
+  },
+  "token_accounting": {
+    "defect": "Historical MLflow trace aggregate total_tokens included only embedding tokens because answer spans omitted their total. Per-call input/output counts and response usage were unaffected.",
+    "historical_artifacts": [
+      "local-probe-v0.json",
+      "local-probe-v1.json",
+      "serving-probe-v1.json",
+      "local-probe-v2.json",
+      "local-probe-v3.json",
+      "text-baseline-v3.json",
+      "accounting-serving-v3.json",
+      "accounting-serving-trace-v3.json"
+    ],
+    "regression": "Real API/MLflow aggregate: 40 answer input + 12 embedding input = 52 input; 5 output; 57 total. Missing answer counts remain null and root usage_complete is false.",
+    "red": "token-accounting-red.log",
+    "green": "token-accounting-green.log",
+    "final_actual_aggregates": [
+      {
+        "trace_id": "tr-75119c68e70be9734f9c5fd2e37fe6d7",
+        "input_tokens": 360,
+        "output_tokens": 55,
+        "total_tokens": 415
+      },
+      {
+        "trace_id": "tr-8de1f16c1798745206559bd486197e4b",
+        "input_tokens": 356,
+        "output_tokens": 28,
+        "total_tokens": 384
+      },
+      {
+        "trace_id": "tr-66cf6aa2f4ffe0a2589a306ae40673da",
+        "input_tokens": 360,
+        "output_tokens": 55,
+        "total_tokens": 415
+      }
+    ],
+    "scope": "MLflow sums reported counts; usage_complete must be true to interpret the aggregate as a complete request total. Unknown per-call counts are never replaced with zero."
+  },
+  "github_closure": {
+    "url": "https://github.com/tomh1988-8/rag_demo/issues/3",
+    "state": "closed",
+    "state_reason": "completed",
+    "closed_at": "2026-09-24T09:40:18Z",
+    "readback_verified": true
+  }
+}

@@ -1,0 +1,176 @@
+FF                                                                       [100%]
+=================================== FAILURES ===================================
+_ test_embedding_usage_is_reported_separately_from_answer_tokens[models0-None-None] _
+
+database_url = 'user=ask_phil password=local-demo-only dbname=ask_phil_test_d911afc7d7fb441f9f0e285a51dd1736 host=127.0.0.1 port=54330'
+seed = SourceSnapshot(snapshot_id='phil-arrival-v1', fixture_version=1, source=Source(title='Phil Mitchell', url=HttpUrl('htt... known as The Arches;', sha256='c58db6653c582d8d2c75291831d8a3c48142261499f6a04ea732d8b2469031db', start=0, end=111),))
+models = Models(settings=ModelSettings(answer_model='test-answer', answer_digest='aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa... additional_kwargs={'num_predict': 256}, is_function_calling_model=True, keep_alive=None, thinking=None, headers=None))
+tracking_uri = 'sqlite:////tmp/pytest-of-tom/pytest-11/mlflow0/tracking.db'
+expected_input = None, expected_output = None
+
+    @pytest.mark.parametrize(
+        "models,expected_input,expected_output",
+        [({}, None, None), ({"prompt_eval_count": 40, "eval_count": 5}, 40, 5)],
+        indirect=["models"],
+    )
+    def test_embedding_usage_is_reported_separately_from_answer_tokens(
+        database_url: str,
+        seed: SourceSnapshot,
+        models: Models,
+        tracking_uri: str,
+        expected_input: int | None,
+        expected_output: int | None,
+    ) -> None:
+        from ask_phil.models import LocalEmbedding
+
+        def embedding_provider(request: httpx.Request) -> httpx.Response:
+            body = json.loads(request.content)
+            assert body["truncate"] is False
+            count = 12 if body["input"].startswith("task: search result | query:") else 34
+            return httpx.Response(
+                200,
+                json={
+                    "embeddings": [[1.0, 0.0, 0.0]],
+                    "prompt_eval_count": count,
+                },
+            )
+
+        models = replace(
+            models,
+            embedding=LocalEmbedding(
+                model_name="test-embedding",
+                client=Client(
+                    host="http://model.invalid", transport=httpx.MockTransport(embedding_provider)
+                ),
+            ),
+        )
+        EvidenceStore(database_url).load(seed)
+        TextRetriever(database_url, models.embedding, models.settings.embedding_id, 3).prepare(
+            seed.snapshot_id
+        )
+        with TestClient(create_app(database_url, models=models, tracking_uri=tracking_uri)) as client:
+            response = client.post(
+                "/v1/answers",
+                json={
+                    "snapshot_id": seed.snapshot_id,
+                    "question": "When did Phil arrive?",
+                },
+            ).json()["response"]
+            assert response["usage"] == {
+                "input_tokens": expected_input,
+                "output_tokens": expected_output,
+                "embedding_tokens": 12,
+            }
+            trace = MlflowClient(tracking_uri=tracking_uri).get_trace(response["trace_id"], flush=True)
+            embedding_span = next(span for span in trace.data.spans if span.name == "query_embedding")
+            assert embedding_span.outputs["input_tokens"] == 12
+            if expected_input is not None:
+                assert trace.info.token_usage == {
+                    "input_tokens": 52,
+                    "output_tokens": 5,
+                    "total_tokens": 57,
+                }
+            root = next(span for span in trace.data.spans if span.name == "text_rag")
+>           assert root.attributes["usage_complete"] is (expected_input is not None)
+                   ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+E           KeyError: 'usage_complete'
+
+tests/test_answers_api.py:375: KeyError
+----------------------------- Captured stderr call -----------------------------
+2026/09/24 10:23:51 INFO mlflow.store.db.utils: Creating initial MLflow database tables...
+2026/09/24 10:23:51 INFO mlflow.store.db.utils: Updating database tables
+------------------------------ Captured log call -------------------------------
+INFO     mlflow.store.db.utils:utils.py:87 Creating initial MLflow database tables...
+INFO     mlflow.store.db.utils:utils.py:294 Updating database tables
+WARNING  mlflow.types.type_hints:type_hints.py:237 Union type hint with multiple non-None types is inferred as AnyType, and MLflow doesn't validate the data against its element types.
+WARNING  mlflow.types.type_hints:type_hints.py:244 Union type hint is inferred as AnyType, and MLflow doesn't validate the data against its element types.
+WARNING  mlflow.types.type_hints:type_hints.py:237 Union type hint with multiple non-None types is inferred as AnyType, and MLflow doesn't validate the data against its element types.
+_ test_embedding_usage_is_reported_separately_from_answer_tokens[models1-40-5] _
+
+database_url = 'user=ask_phil password=local-demo-only dbname=ask_phil_test_3c19d5ee2b624024beea57d584ca38fc host=127.0.0.1 port=54330'
+seed = SourceSnapshot(snapshot_id='phil-arrival-v1', fixture_version=1, source=Source(title='Phil Mitchell', url=HttpUrl('htt... known as The Arches;', sha256='c58db6653c582d8d2c75291831d8a3c48142261499f6a04ea732d8b2469031db', start=0, end=111),))
+models = Models(settings=ModelSettings(answer_model='test-answer', answer_digest='aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa... additional_kwargs={'num_predict': 256}, is_function_calling_model=True, keep_alive=None, thinking=None, headers=None))
+tracking_uri = 'sqlite:////tmp/pytest-of-tom/pytest-11/mlflow0/tracking.db'
+expected_input = 40, expected_output = 5
+
+    @pytest.mark.parametrize(
+        "models,expected_input,expected_output",
+        [({}, None, None), ({"prompt_eval_count": 40, "eval_count": 5}, 40, 5)],
+        indirect=["models"],
+    )
+    def test_embedding_usage_is_reported_separately_from_answer_tokens(
+        database_url: str,
+        seed: SourceSnapshot,
+        models: Models,
+        tracking_uri: str,
+        expected_input: int | None,
+        expected_output: int | None,
+    ) -> None:
+        from ask_phil.models import LocalEmbedding
+
+        def embedding_provider(request: httpx.Request) -> httpx.Response:
+            body = json.loads(request.content)
+            assert body["truncate"] is False
+            count = 12 if body["input"].startswith("task: search result | query:") else 34
+            return httpx.Response(
+                200,
+                json={
+                    "embeddings": [[1.0, 0.0, 0.0]],
+                    "prompt_eval_count": count,
+                },
+            )
+
+        models = replace(
+            models,
+            embedding=LocalEmbedding(
+                model_name="test-embedding",
+                client=Client(
+                    host="http://model.invalid", transport=httpx.MockTransport(embedding_provider)
+                ),
+            ),
+        )
+        EvidenceStore(database_url).load(seed)
+        TextRetriever(database_url, models.embedding, models.settings.embedding_id, 3).prepare(
+            seed.snapshot_id
+        )
+        with TestClient(create_app(database_url, models=models, tracking_uri=tracking_uri)) as client:
+            response = client.post(
+                "/v1/answers",
+                json={
+                    "snapshot_id": seed.snapshot_id,
+                    "question": "When did Phil arrive?",
+                },
+            ).json()["response"]
+            assert response["usage"] == {
+                "input_tokens": expected_input,
+                "output_tokens": expected_output,
+                "embedding_tokens": 12,
+            }
+            trace = MlflowClient(tracking_uri=tracking_uri).get_trace(response["trace_id"], flush=True)
+            embedding_span = next(span for span in trace.data.spans if span.name == "query_embedding")
+            assert embedding_span.outputs["input_tokens"] == 12
+            if expected_input is not None:
+>               assert trace.info.token_usage == {
+                    "input_tokens": 52,
+                    "output_tokens": 5,
+                    "total_tokens": 57,
+                }
+E               AssertionError: assert {'input_token...l_tokens': 12} == {'input_token...l_tokens': 57}
+E
+E                 Omitting 2 identical items, use -vv to show
+E                 Differing items:
+E                 {'total_tokens': 12} != {'total_tokens': 57}
+E                 Use -v to get more diff
+
+tests/test_answers_api.py:369: AssertionError
+=============================== warnings summary ===============================
+.venv/lib/python3.12/site-packages/fastapi/testclient.py:1
+  /home/tom/Documents/code/python/rag_demo/.venv/lib/python3.12/site-packages/fastapi/testclient.py:1: StarletteDeprecationWarning: Using `httpx` with `starlette.testclient` is deprecated; install `httpx2` instead.
+    from starlette.testclient import TestClient as TestClient  # noqa
+
+-- Docs: https://docs.pytest.org/en/stable/how-to/capture-warnings.html
+=========================== short test summary info ============================
+FAILED tests/test_answers_api.py::test_embedding_usage_is_reported_separately_from_answer_tokens[models0-None-None]
+FAILED tests/test_answers_api.py::test_embedding_usage_is_reported_separately_from_answer_tokens[models1-40-5]
+2 failed, 6 deselected, 1 warning in 12.40s
+2026/09/24 10:23:59 INFO mlflow.tracing.export.async_export_queue: Flushing the async trace logging queue before program exit. This may take a while...

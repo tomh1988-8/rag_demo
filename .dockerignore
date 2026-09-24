@@ -6,6 +6,10 @@
 !src/**
 !data/
 !data/**
+!config/
+!config/**
+!scripts/
+!scripts/evaluate_text_baseline.py
 !tests/
 !tests/**
 **/__pycache__/

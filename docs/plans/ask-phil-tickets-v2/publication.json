@@ -77,7 +77,7 @@
       "body_verified": true,
       "created_at": "2026-09-23T08:16:01Z",
       "node_id": "I_kwDOUl8W3M8AAAABStjqeg",
-      "state": "open",
+      "state": "closed",
       "readback_verified": true,
       "native_dependency_summary": {
         "blocked_by": 0,
@@ -85,10 +85,12 @@
         "blocking": 0,
         "total_blocking": 0
       },
-      "published_body_sha256": "a81b8a96962d7e0cdf63619b4b0d0608f305f708c414ffdf9f9fcbb17dcd2c86",
-      "updated_at": "2026-09-24T07:15:02Z",
-      "current_local_file_sha256": "8142421ccdac5a0d6f03f3e23f1c04fa81f4c7983558ecfc5ddb0770fbd59064",
-      "previous_published_body_sha256": "3e6c7f0f1ed1a675447dd3f2be11f5c35d09650f216cc1bd4edffaa32c56e76a"
+      "published_body_sha256": "7c48beacad8e615fedb670bd851fc9595ee08dc47ed64a87bc72ee88d6fe1d59",
+      "updated_at": "2026-09-24T09:40:18Z",
+      "current_local_file_sha256": "3f254cd54266239777474a9bd62db0b1399611489ef72f2598168fb3cae40f69",
+      "previous_published_body_sha256": "a81b8a96962d7e0cdf63619b4b0d0608f305f708c414ffdf9f9fcbb17dcd2c86",
+      "state_reason": "completed",
+      "closed_at": "2026-09-24T09:40:18Z"
     },
     {
       "draft_number": 3,
@@ -1121,15 +1123,15 @@
   },
   "publication_verified_date": "2026-09-23",
   "handoff": {
-    "instruction": "Issue #2 is complete and closed. Read the saved native/Docker evidence. On the next implementation instruction, select from the open dependency frontier #3 and #5.",
+    "instruction": "Issues #2 and #3 are complete and closed. Read the saved evidence; wait for the next implementation instruction, then select from #4 and #5.",
     "specification_is_not_an_implementation_ticket": true,
     "dependency_handling": "Use the explicit Blocked by issue references and saved mapping until native relationships can be written and verified.",
     "first_unblocked_issue_numbers": [
-      3,
+      4,
       5
     ],
     "first_unblocked_issue_urls": [
-      "https://github.com/tomh1988-8/rag_demo/issues/3",
+      "https://github.com/tomh1988-8/rag_demo/issues/4",
       "https://github.com/tomh1988-8/rag_demo/issues/5"
     ]
   },
@@ -1247,28 +1249,45 @@
     }
   ],
   "implementation_progress": {
-    "issue_number": 2,
+    "issue_number": 3,
     "status": "completed",
-    "record": "docs/implementation/issue-2/validation.json",
+    "record": "docs/implementation/issue-3/validation.json",
     "github_issue_closed": true,
+    "closed_at": "2026-09-24T09:40:18Z",
+    "github_closure_readback_verified": true,
     "checklist": {
       "design_pass": 3,
-      "initial_slice_pass": 5,
-      "pending": 43,
+      "inspection_slice_pass": 5,
+      "text_rag_slice_pass": 5,
+      "pending": 38,
       "deferred": 1,
-      "not_applicable": 12
+      "not_applicable": 12,
+      "new_scoped_pass": [
+        "AD-02.1",
+        "AD-05.1",
+        "AD-06.2",
+        "AD-09.1",
+        "RAG-02"
+      ],
+      "partial_measurement_evidence": "AD-09.3 remains Pending for full routing/online accounting."
     },
-    "closed_at": "2026-09-23T16:40:51Z",
-    "github_closure_readback_verified": true
+    "model_migration": {
+      "local_model_role": "development and smoke checks only",
+      "before_issues": [
+        7,
+        9,
+        11
+      ],
+      "requirement": "Use a more capable model before judging broad roster answers, representative quality comparisons or substantive extraction. Record a new provider/model baseline and configure conservative key/account/request controls before any paid call."
+    }
   },
   "code_publication": {
-    "local_commit": "e5ac34c",
-    "remote_commit": "1a186fd1c6cbf306742a7ef6868f5b2cded58df2",
-    "tree": "c1a07826eeeaf944234d75fd0f95f3c6bd379c2f",
-    "method": "Authenticated GitHub connector; native Git push lacks credentials.",
+    "scope": "Issue #3 implementation and evidence in the commit containing this manifest.",
     "branch": "main",
-    "exact_tree_match": true,
-    "scope": "Existing validated issue #2 implementation and Docker acceptance. Planning amendments are published in a subsequent commit."
+    "method": "Authenticated GitHub connector; native Git push lacks credentials.",
+    "verification": "Require an exact local/remote tree match before reporting completion.",
+    "local_receipt": "artifacts/issue-3-github-publication.json",
+    "receipt_is_git_ignored": true
   },
   "current_scope_validation": {
     "record": "docs/plans/ask-phil-tickets-v2/fusion-cache-amendment.json",
@@ -1278,9 +1297,37 @@
     "native_edges_created": 0,
     "state_verified": true,
     "next_open_frontier": [
-      3,
+      4,
       5
     ],
     "remote_bodies_states_and_labels_verified": 25
-  }
+  },
+  "implementation_history": [
+    {
+      "issue_number": 2,
+      "status": "completed",
+      "record": "docs/implementation/issue-2/validation.json",
+      "github_issue_closed": true,
+      "checklist": {
+        "design_pass": 3,
+        "initial_slice_pass": 5,
+        "pending": 43,
+        "deferred": 1,
+        "not_applicable": 12
+      },
+      "closed_at": "2026-09-23T16:40:51Z",
+      "github_closure_readback_verified": true
+    }
+  ],
+  "code_publication_history": [
+    {
+      "local_commit": "e5ac34c",
+      "remote_commit": "1a186fd1c6cbf306742a7ef6868f5b2cded58df2",
+      "tree": "c1a07826eeeaf944234d75fd0f95f3c6bd379c2f",
+      "method": "Authenticated GitHub connector; native Git push lacks credentials.",
+      "branch": "main",
+      "exact_tree_match": true,
+      "scope": "Existing validated issue #2 implementation and Docker acceptance. Planning amendments are published in a subsequent commit."
+    }
+  ]
 }

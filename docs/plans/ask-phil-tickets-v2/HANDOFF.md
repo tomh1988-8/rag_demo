@@ -1,11 +1,11 @@
 # Ask Phil: publication and next-skill handoff
 
-Saved 23 September 2026. The user approved the initial checklist/ticket breakdown, authorised publication, and subsequently required user feedback and online evaluation. Checklist v1.1 and the amended 24-ticket breakdown are published. The user subsequently invoked implement for the first unblocked ticket, #2. Its native and fresh Docker Compose acceptance passed, and GitHub #2 is closed as completed.
+Updated 24 September 2026. The user approved the initial checklist/ticket breakdown, authorised publication, and subsequently required user feedback and online evaluation. Checklist v1.1 and the amended 24-ticket breakdown are published. The user subsequently invoked implement for the first unblocked ticket, #2. Its acceptance passed, and #2 is closed. The user then invoked implement for #3; its grounded-answer slice is also complete and closed, with 32 passing Docker tests and actual local-model/MLflow/restart evidence.
 
 ## Published and verified
 
 - [Specification #1](https://github.com/tomh1988-8/rag_demo/issues/1) contains the agreed specification with the feedback/online-evaluation and fusion/cache amendments (130 stories).
-- Implementation tickets **#2–#25** are published and labelled `ready-for-agent`. **#2 is closed as completed**; #3–#25 remain open.
+- Implementation tickets **#2–#25** are published and labelled `ready-for-agent`. **#2 and #3 are closed as completed**; #4–#25 remain open.
 - All 25 remote bodies, states and ready-for-agent labels were read back and checked against the intended content after the fusion/cache amendment.
 - The 41 blocking relationships are recorded as real issue references in ticket bodies and as a machine-readable mapping in [publication.json](publication.json).
 - Issue #2 has a reviewed captured seed, CLI/API/PostgreSQL behavior, 17 passing tests in both native and Docker environments, and recorded deterministic baseline outputs. [Fresh Compose startup and database/API restart passed](../../implementation/issue-2/README.md); no generative model quality is claimed. GitHub closure and all seven checked criteria were read back and verified.
@@ -14,7 +14,7 @@ The [to-spec skill](../../../.agents/skills/to-spec/SKILL.md) authorised specifi
 
 ## First available work
 
-**[#3 — Generate a grounded Ask Phil answer](https://github.com/tomh1988-8/rag_demo/issues/3)** and **[#5 — Import real sources with character identity and canon scope](https://github.com/tomh1988-8/rag_demo/issues/5)** are now unblocked by completed #2. Both were read back as open. Wait for the next implementation instruction before starting another ticket. Specification #1 remains the parent context, not an implementation ticket.
+**[#4 — Handle incomplete evidence and false premises](https://github.com/tomh1988-8/rag_demo/issues/4)** and **[#5 — Import real sources with character identity and canon scope](https://github.com/tomh1988-8/rag_demo/issues/5)** are the next open dependency frontier. Both were read back as open. Wait for the next implementation instruction before starting another ticket. Specification #1 remains parent context.
 
 For subsequent work, read the current issue and comments, the relevant domain/ADR decisions and the checklist profile. Work the dependency frontier; the shared `ready-for-agent` label does not mean a blocked ticket can begin. Existing approved decisions and the six public test boundaries do not need another design interview.
 
@@ -53,7 +53,7 @@ The “Blocked by” column contains **GitHub issue numbers**, which differ from
 
 - [Approved ticket breakdown](README.md), including rationale and the common evidence-completion pattern.
 - [Reusable checklist v1.1](../../checklists/agent-development.md).
-- [Ask Phil applicability profile and evidence register](../../checklists/ask-phil-profile.md): 51 current items, one deployment deferral and 12 N/A items. Three items pass on design evidence and five on initial-slice runtime evidence; 43 current obligations remain Pending.
+- [Ask Phil applicability profile and evidence register](../../checklists/ask-phil-profile.md): 51 current items, one deployment deferral and 12 N/A items. Three items pass on design evidence, five on inspection evidence and five on initial text-RAG evidence; 38 current obligations remain Pending.
 - [All 130 specification stories mapped to tickets](spec-coverage.md).
 - [Local specification](../../specs/ask-phil.md), [test/evaluation strategy](../../design/testing-and-evaluation.md), [domain glossary](../../../CONTEXT.md) and [architecture decisions](../../adr/).
 - [Publication manifest](publication.json), including issue IDs/URLs, approval, source fingerprints, readback verification and the outstanding native relationship operations.
@@ -80,11 +80,40 @@ The user requested fusion/context expansion and repeated-question caching before
 the next implementation. [Research](../../research/rag-fusion-and-answer-caching.md)
 and [scope validation](fusion-cache-amendment.json) describe the changes. GitHub #24
 and #25 own the new behavior; #18 and #21 include their actual prerequisites.
-Issues #3 and #5 remain the next open frontier. Neither new feature is implemented.
+After completion of #3, issues #4 and #5 form the next open frontier. Neither new feature is implemented.
 
-The validated code is published on GitHub `main` at `1a186fd1c6cbf306742a7ef6868f5b2cded58df2`,
+Historical issue #2 publication: the validated code was published on GitHub `main` at `1a186fd1c6cbf306742a7ef6868f5b2cded58df2`,
 whose tree exactly matches local `e5ac34c`. Publication used the authenticated GitHub
 connector because command-line Git has no push credentials. `origin` is configured;
 do not confuse connector publication commits with the original local commit IDs.
 The planning amendment is published as a subsequent repository update. Preserve
 both histories when reconciling native Git; never force-push over published work.
+
+## Completed grounded-answer slice and model migration
+
+Issue #3 is closed after [recorded acceptance](../../implementation/issue-3/README.md):
+real LlamaIndex/pgvector retrieval, sourced basic Phil-style answers, private original
+response lookup, MLflow traces and separated usage/cost evidence. The complete
+Docker suite passes 32 tests. Persona and token-accounting failures are retained;
+the final traces correct the aggregate and explicitly label incomplete usage.
+The [review](../../implementation/issue-3/review.md) has zero remaining findings
+on either axis. This is a one-passage exposed development baseline, not broad quality.
+
+The user explicitly limits local Gemma 4 E2B QAT to convenient development/smoke
+work. Recommend and configure a more capable model before broad-roster answer
+acceptance (#7), representative evaluation (#9), or substantive extraction (#11
+onward), or sooner if local-model weaknesses prevent useful progress. Record a
+new provider/model baseline; configure conservative key/account/request controls
+before any paid call. No paid API calls were used for #3.
+
+The running Compose project is `ask-phil-issue3`; use `docker compose -p ask-phil-issue3`
+to reuse its installed model/data volumes. API: localhost:8000; MLflow: localhost:5000.
+The old host Ollama/Qwen installation is unchanged. See the evidence README for
+startup, lookup and stop commands.
+
+The implementation and this handoff are committed together. Publication uses the
+authenticated GitHub connector because native Git lacks push credentials, and
+must verify an exact local/remote tree match before reporting completion. The
+publication receipt is saved locally in ignored `artifacts/issue-3-github-publication.json`;
+GitHub commit history records the published revision. Preserve both histories on
+reconciliation; do not force-push. Fusion, caching and feedback remain later tickets.
