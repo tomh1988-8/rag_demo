@@ -55,6 +55,40 @@ All routes answer from a versioned captured source snapshot and the graph derive
 - GraphRAG queries supported relationships and events, returning the relevant path or structured result with its evidence.
 - Agentic RAG performs bounded investigation using the available text and graph tools within the snapshot.
 
+### Fusion and wider source context
+
+The conventional text route adds bounded multi-query RAG-Fusion with reciprocal rank
+fusion, followed by source-preserving sentence-window context expansion. Fusion
+combines ranked search results; expansion supplies neighbouring source text needed
+to interpret those hits. Both stay within the captured snapshot and retain citation
+spans. This is a fixed retrieval pipeline, not an agentic or graph route.
+
+Keep original-query retrieval available as the initial baseline and as a visible
+bounded fallback. Record query variants, candidates, merged ranks, expanded spans
+and final context. Evaluate fusion and expansion independently and together; count
+all added latency, calls and truncation loss. The [research note](../research/rag-fusion-and-answer-caching.md)
+records the primary-source terminology and implementation choices.
+
+### Repeated-question caching
+
+After the text, refresh and online-evaluation contracts work, add a PostgreSQL-backed
+exact-match answer cache for eligible standalone conventional-text questions. Match
+the effective request, active snapshot/index, canon/access scope, model/prompts/persona,
+retrieval/fusion/context settings and response-policy version. Preserve citations
+and evidence context, enforce expiry/capacity, retire incompatible entries and fall
+back to ordinary bounded answering when reuse is unavailable.
+
+Follow-ups and graph/investigative requests bypass this first cache. Each cache hit
+is a new served response and trace with current measurements and a link to original
+generation evidence. It can receive its own feedback and online assessment without
+exposing the origin session. Snapshot/configuration changes invalidate compatibility;
+TTL is only an additional lifetime bound. Semantic matching of paraphrases remains
+a later opt-in extension gated by reviewed false-match and stale-answer checks.
+
+Disable caching for retrieval/model comparisons. Report deliberately cold/warm
+workloads separately and isolate evaluation runs/partitions. Final acceptance
+includes fresh generation, cache reuse, invalidation and feedback on cached answers.
+
 ### Routing policy
 
 - Select routes automatically during normal conversation, with an explicit override for demonstrations and comparisons.
@@ -132,11 +166,12 @@ flowchart LR
 ### Delivery sequence
 
 1. Use the confirmed public test boundaries and prepare a small reviewed source/claim/question seed set. Work in behavior slices with failing tests and relevant evaluation cases before the implementation changes they guide.
-2. Build a complete, evidence-backed text-RAG path through source capture, retrieval, FastAPI, and the CLI, establishing unit/integration coverage and component/end-to-end comparison baselines.
+2. Build a complete, evidence-backed text-RAG path through source capture, retrieval, FastAPI, and the CLI, establishing unit/integration coverage and a single-query baseline. Extend it with evaluated query fusion and wider source context after real-source ingestion.
 3. Add the checked graph and the four supported graph query families, preserving evidence for each asserted connection and extending their tests and evaluations.
 4. Add bounded investigation and automatic routing, with explicit overrides, recorded execution, and component and end-to-end evaluations.
 5. Add optional feedback collection and automatic online evaluation as an independent branch using the existing conversation, trace, limit and evaluation contracts.
-6. Demonstrate the full core roster, grounded follow-up questions, reproducible refresh, offline comparisons and the complete feedback-to-online-assessment-to-review workflow.
+6. Add versioned exact-match answer caching once refresh and online evaluation work, including evidence-preserving reuse and feedback on cache hits.
+7. Demonstrate the full core roster, grounded follow-ups, refresh, fused text retrieval, cold/warm caching, offline comparisons and the feedback-to-online-assessment-to-review workflow.
 
 All three retrieval routes are required for the completed portfolio demonstration, even though the first working slice starts with one complete text-RAG path.
 

@@ -1,14 +1,14 @@
 # 21: Capture response feedback and inspect live quality signals
 
-Status: published as [GitHub #22](https://github.com/tomh1988-8/rag_demo/issues/22); feedback/online-evaluation amendment authorised by the user on 23 September 2026. Remote body and ready-for-agent label verified. Implementation has not started.
+Status: published as [GitHub #22](https://github.com/tomh1988-8/rag_demo/issues/22); fusion/cache scope amendment requested on 23 September 2026. Publication readback is recorded in the manifest. Implementation has not started.
 
-Spec stories: S99, S100, S101, S102, S103, S105, S108, S110, S113, S115.
+Spec stories: S99, S100, S101, S102, S103, S105, S108, S110, S113, S115, S125, S126.
 
 ## Parent
 
 #1 — Ask Phil: evidence-backed EastEnders RAG demonstration — specification
 
-Spec stories: S99, S100, S101, S102, S103, S105, S108, S110, S113, S115.
+Spec stories: S99, S100, S101, S102, S103, S105, S108, S110, S113, S115, S125, S126.
 
 ## What to build
 
@@ -24,6 +24,8 @@ A user can optionally rate a selected Ask Phil response and explain a problem th
 - [ ] Before implementation, define reviewed success/counterexample cases and exposed-rule tests. Integrate real PostgreSQL, local MLflow and the API/CLI for positive/negative/skip, optional comments, duplicate/revised input, invalid/cross-session response IDs, reset, delayed trace export, restart and failed delivery. Verify resulting records and assessments, not just a success message.
 - [ ] Test summary arithmetic against independent expected counts, including no ratings, zero denominators and late/revised feedback. Demonstrate normal CLI use reaching a human assessment and changed live feedback summary. Raw feedback never edits source claims or becomes a gold expectation.
 - [ ] Update the checklist evidence register with revision-linked results, failures and limitations. Required runtime evidence remains Pending until demonstrated.
+
+- [ ] Preserve the contract that feedback addresses a delivered response, not a reusable answer value. The later cache slice must issue new response/trace identities and inherit evidence lineage without exposing another session or reusing its feedback.
 
 ## Checklist evidence
 

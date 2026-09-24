@@ -23,7 +23,7 @@ Preserve the six confirmed public test boundaries and all accepted ADRs. R Shiny
 
 Of the 51 current checks, **eight Pass**: three on design evidence (AD-01.1, AD-01.2, AD-01.4) and five for the initial deterministic slice (AD-02.4, AD-03.1, AD-04.1, AD-04.2, AD-06.1). **43 remain Pending**. The [issue #2 evidence](../implementation/issue-2/README.md) records 17 passing tests in each environment and a two-case deterministic baseline. Fresh Docker Compose startup and persistence across database/API restart passed. These results do not establish generative quality, broad corpus coverage or complete-product acceptance.
 
-Design Pass records below concern the approved design, including the user's explicit feedback/online-evaluation amendment, captured by specification SHA-256 `09d6030f6339360d2fc544d928825dc2ba30f1cfb6b3058e0d5338acd459d52e`. Runtime Pass records link to the exact first-slice artifacts below; other runtime evidence remains prospective. On implementation, add artifact/run links and source/code/configuration identities before changing a check to Pass. Update affected checks to Pending, In progress or Fail when their evidence is invalidated. A current-release failure cannot be turned into a deployment deferral merely to complete a ticket.
+Design Pass records below concern the approved design, including the user's feedback/online-evaluation and fusion/cache amendments, captured by specification SHA-256 `a82e93bd170be20c253415606fcb9a6ab082f7a9a7c991d56ca5e757ca728c53`. Runtime Pass records link to the exact first-slice artifacts below; other runtime evidence remains prospective. On implementation, add artifact/run links and source/code/configuration identities before changing a check to Pass. Update affected checks to Pending, In progress or Fail when their evidence is invalidated. A current-release failure cannot be turned into a deployment deferral merely to complete a ticket.
 
 Primary ownership is an index into a continuing evidence obligation, not a licence to postpone all work to that ticket. For example, caps and basic traces start in 02, stronger failure enforcement is proved in 09, and every tool extension rechecks the affected constraints. Source claims are reviewed before their extraction pilot. Per-slice tests and evaluations start in 01/02; final acceptance in 20 reuses their results.
 
@@ -119,3 +119,20 @@ Each evidence update records check IDs, case and dataset versions/splits, source
 Keep correctness, grounding, citation support, completeness, answerability and style separate. Critical biological, guilt, factual and evidence failures remain visible. Calibrate semantic judges against reviewed labels before trusting their scores. Set numerical acceptance thresholds after baseline measurement but before held-out candidate results; keep related story events and duplicates grouped across splits.
 
 Re-evaluate affected evidence when sources, claims, code, dependencies, prompts, models, tools, scores or requirements change. Review meaningful user failures into regression cases. Feedback and automatic online evaluation are current obligations, with the same source-evidence and held-out protections as offline work. The final local release closes the current obligations with actual results; it does not automatically activate future capability modules or mark deployment complete.
+
+## Fusion and cache amendment
+
+The user requested these additions on 23 September 2026. The [research note](../research/rag-fusion-and-answer-caching.md),
+[plan 23](../plans/ask-phil-tickets-v2/23-fuse-text-retrieval-and-expand-context.md) and
+[plan 24](../plans/ask-phil-tickets-v2/24-cache-repeated-text-answers.md) extend existing
+checklist obligations without changing checklist IDs or the six public seams.
+
+- Fusion/expansion: RAG-02/03, AD-02.1, AD-05.1, AD-06.1/2, AD-08.3 and AD-09.1/3
+  need reviewed variants/windows, fusion/deduplication/budget results, four uncached
+  text ablations, resolvable citations and complete serving measurements.
+- Caching: AD-05.3, AD-06.1/2, AD-09.1/3, RAG-03 and ONLINE-01–04 need exact-match
+  eligibility, snapshot/configuration invalidation, isolated new delivery identities,
+  cold/warm reports and actual feedback/online evaluation of cache hits.
+- Final acceptance in plan 20 integrates both. All added runtime evidence is Pending.
+  Existing first-slice Pass records remain limited to the unchanged issue #2 behavior;
+  eight Pass and 43 Pending checks do not imply either new feature works.

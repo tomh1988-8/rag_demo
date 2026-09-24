@@ -1,14 +1,14 @@
 # 08: Inspect calibrated quality comparisons
 
-Status: published as [GitHub #9](https://github.com/tomh1988-8/rag_demo/issues/9); feedback/online-evaluation amendment authorised by the user on 23 September 2026. Remote body and ready-for-agent label verified. Implementation has not started.
+Status: published as [GitHub #9](https://github.com/tomh1988-8/rag_demo/issues/9); fusion/cache scope amendment requested on 23 September 2026. Publication readback is recorded in the manifest. Implementation has not started.
 
-Spec stories: S71, S74, S79, S80, S83, S84, S86, S87, S88, S89, S90, S91, S92, S93, S94, S95, S97, S103, S106, S111, S115.
+Spec stories: S71, S74, S79, S80, S83, S84, S86, S87, S88, S89, S90, S91, S92, S93, S94, S95, S97, S103, S106, S111, S115, S121, S127, S130.
 
 ## Parent
 
 #1 — Ask Phil: evidence-backed EastEnders RAG demonstration — specification
 
-Spec stories: S71, S74, S79, S80, S83, S84, S86, S87, S88, S89, S90, S91, S92, S93, S94, S95, S97, S103, S106, S111, S115.
+Spec stories: S71, S74, S79, S80, S83, S84, S86, S87, S88, S89, S90, S91, S92, S93, S94, S95, S97, S103, S106, S111, S115, S121, S127, S130.
 
 ## What to build
 
@@ -23,6 +23,7 @@ Extend the baseline already running with the text-answer slice into a useful qua
 - [ ] Store self-hosted-compatible MLflow artifacts and hashes for datasets/splits, source revisions, prompts, models/settings, context/retrieval configuration, scorer/rubric versions and code revision or available source identity. Associate separate software-test artifacts with the same evaluation.
 - [ ] Produce a controlled development-set baseline/candidate comparison with per-case/category failures, sample sizes and variation limits. Distinguish serving from offline evaluation costs. Define the suite cadence and critical gates, and record the procedure for choosing numeric thresholds after baseline measurement but before held-out candidate results are inspected. Keep this development comparison separate from final held-out acceptance.
 - [ ] Declare which scorer inputs require reviewed expectations and which checks can assess recorded responses/context alone. Reuse versioned/calibrated checks for later online evaluation; user helpfulness and unverified corrections are human reports, not factual answer keys. Include missing-reference and human/judge-disagreement fixtures, preserving held-out separation.
+- [ ] Keep uncached single-query baseline results identifiable. Support versioned fusion/context configurations and stage-level measurements; the later fusion slice supplies the four ablations. Keep deliberate cold/warm cache experiments separate, with isolated run/partition state and no reuse of held-out labels or tuning answers.
 - [ ] Record applicable checklist results and revision-linked evidence in the project register, including failures, limitations and follow-up regressions. A documented plan alone does not pass an implementation check.
 
 ## Checklist evidence

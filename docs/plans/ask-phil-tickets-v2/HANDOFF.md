@@ -1,13 +1,13 @@
 # Ask Phil: publication and next-skill handoff
 
-Saved 23 September 2026. The user approved the initial checklist/ticket breakdown, authorised publication, and subsequently required user feedback and online evaluation. Checklist v1.1 and the amended 22-ticket breakdown are published. The user subsequently invoked implement for the first unblocked ticket, #2. Its native and fresh Docker Compose acceptance passed, and GitHub #2 is closed as completed.
+Saved 23 September 2026. The user approved the initial checklist/ticket breakdown, authorised publication, and subsequently required user feedback and online evaluation. Checklist v1.1 and the amended 24-ticket breakdown are published. The user subsequently invoked implement for the first unblocked ticket, #2. Its native and fresh Docker Compose acceptance passed, and GitHub #2 is closed as completed.
 
 ## Published and verified
 
-- [Specification #1](https://github.com/tomh1988-8/rag_demo/issues/1) contains the agreed specification with the requested feedback/online-evaluation amendment (116 stories).
-- Implementation tickets **#2–#23** are published and labelled `ready-for-agent`. **#2 is closed as completed**; #3–#23 remain open.
-- All 23 remote bodies/titles/labels were read back and checked against the intended content.
-- The 35 blocking relationships are recorded as real issue references in ticket bodies and as a machine-readable mapping in [publication.json](publication.json).
+- [Specification #1](https://github.com/tomh1988-8/rag_demo/issues/1) contains the agreed specification with the feedback/online-evaluation and fusion/cache amendments (130 stories).
+- Implementation tickets **#2–#25** are published and labelled `ready-for-agent`. **#2 is closed as completed**; #3–#25 remain open.
+- All 25 remote bodies, states and ready-for-agent labels were read back and checked against the intended content after the fusion/cache amendment.
+- The 41 blocking relationships are recorded as real issue references in ticket bodies and as a machine-readable mapping in [publication.json](publication.json).
 - Issue #2 has a reviewed captured seed, CLI/API/PostgreSQL behavior, 17 passing tests in both native and Docker environments, and recorded deterministic baseline outputs. [Fresh Compose startup and database/API restart passed](../../implementation/issue-2/README.md); no generative model quality is claimed. GitHub closure and all seven checked criteria were read back and verified.
 
 The [to-spec skill](../../../.agents/skills/to-spec/SKILL.md) authorised specification publication and the [to-tickets skill](../../../.agents/skills/to-tickets/SKILL.md) authorised the approved ticket publication. The installed GitHub plugin performed the remote operations. The user's explicit amendment request authorised updating parent specification #1. Their later Docker setup request authorised closing #2 once its remaining acceptance checks passed.
@@ -20,7 +20,7 @@ For subsequent work, read the current issue and comments, the relevant domain/AD
 
 ## Plan-to-issue mapping
 
-The “Blocked by” column contains **GitHub issue numbers**, which differ from local plan numbers because specification #1 was published first. Plan IDs remain stable; they are not execution order. New plans 21–22 must finish before final acceptance in plan 20.
+The “Blocked by” column contains **GitHub issue numbers**, which differ from local plan numbers because specification #1 was published first. Plan IDs remain stable; they are not execution order. New plans 21–24 must finish before final acceptance in plan 20.
 
 | Plan ticket | GitHub issue | Title | Blocked by GitHub issues |
 | --- | --- | --- | --- |
@@ -40,19 +40,21 @@ The “Blocked by” column contains **GitHub issue numbers**, which differ from
 | 14 | [#15](https://github.com/tomh1988-8/rag_demo/issues/15) | Review corrected and disputed knowledge | [#6](https://github.com/tomh1988-8/rag_demo/issues/6), [#11](https://github.com/tomh1988-8/rag_demo/issues/11) |
 | 15 | [#16](https://github.com/tomh1988-8/rag_demo/issues/16) | Trace evidenced connections between characters | [#12](https://github.com/tomh1988-8/rag_demo/issues/12), [#14](https://github.com/tomh1988-8/rag_demo/issues/14) |
 | 16 | [#17](https://github.com/tomh1988-8/rag_demo/issues/17) | Investigate with bounded text and graph tools | [#10](https://github.com/tomh1988-8/rag_demo/issues/10), [#16](https://github.com/tomh1988-8/rag_demo/issues/16) |
-| 17 | [#18](https://github.com/tomh1988-8/rag_demo/issues/18) | Route and escalate according to evidence | [#17](https://github.com/tomh1988-8/rag_demo/issues/17) |
+| 17 | [#18](https://github.com/tomh1988-8/rag_demo/issues/18) | Route and escalate according to evidence | [#17](https://github.com/tomh1988-8/rag_demo/issues/17), [#24](https://github.com/tomh1988-8/rag_demo/issues/24) |
 | 18 | [#19](https://github.com/tomh1988-8/rag_demo/issues/19) | Validate Phil's voice without changing facts | [#9](https://github.com/tomh1988-8/rag_demo/issues/9) |
 | 19 | [#20](https://github.com/tomh1988-8/rag_demo/issues/20) | Establish checked graph coverage across the core roster | [#7](https://github.com/tomh1988-8/rag_demo/issues/7), [#12](https://github.com/tomh1988-8/rag_demo/issues/12), [#14](https://github.com/tomh1988-8/rag_demo/issues/14), [#15](https://github.com/tomh1988-8/rag_demo/issues/15) |
-| 20 | [#21](https://github.com/tomh1988-8/rag_demo/issues/21) | Reproduce and accept the complete local demo | [#18](https://github.com/tomh1988-8/rag_demo/issues/18), [#19](https://github.com/tomh1988-8/rag_demo/issues/19), [#20](https://github.com/tomh1988-8/rag_demo/issues/20), [#23](https://github.com/tomh1988-8/rag_demo/issues/23) |
+| 20 | [#21](https://github.com/tomh1988-8/rag_demo/issues/21) | Reproduce and accept the complete local demo | [#18](https://github.com/tomh1988-8/rag_demo/issues/18), [#19](https://github.com/tomh1988-8/rag_demo/issues/19), [#20](https://github.com/tomh1988-8/rag_demo/issues/20), [#25](https://github.com/tomh1988-8/rag_demo/issues/25) |
 | 21 | [#22](https://github.com/tomh1988-8/rag_demo/issues/22) | Capture response feedback and inspect live quality signals | [#8](https://github.com/tomh1988-8/rag_demo/issues/8), [#10](https://github.com/tomh1988-8/rag_demo/issues/10) |
 | 22 | [#23](https://github.com/tomh1988-8/rag_demo/issues/23) | Evaluate live answers with feedback and close the review loop | [#9](https://github.com/tomh1988-8/rag_demo/issues/9), [#22](https://github.com/tomh1988-8/rag_demo/issues/22) |
+| 23 | [#24](https://github.com/tomh1988-8/rag_demo/issues/24) | Answer with fused retrieval and wider source context | [#4](https://github.com/tomh1988-8/rag_demo/issues/4), [#5](https://github.com/tomh1988-8/rag_demo/issues/5) |
+| 24 | [#25](https://github.com/tomh1988-8/rag_demo/issues/25) | Reuse eligible text answers with a versioned cache | [#24](https://github.com/tomh1988-8/rag_demo/issues/24), [#6](https://github.com/tomh1988-8/rag_demo/issues/6), [#23](https://github.com/tomh1988-8/rag_demo/issues/23) |
 
 ## Saved context
 
 - [Approved ticket breakdown](README.md), including rationale and the common evidence-completion pattern.
 - [Reusable checklist v1.1](../../checklists/agent-development.md).
 - [Ask Phil applicability profile and evidence register](../../checklists/ask-phil-profile.md): 51 current items, one deployment deferral and 12 N/A items. Three items pass on design evidence and five on initial-slice runtime evidence; 43 current obligations remain Pending.
-- [All 116 specification stories mapped to tickets](spec-coverage.md).
+- [All 130 specification stories mapped to tickets](spec-coverage.md).
 - [Local specification](../../specs/ask-phil.md), [test/evaluation strategy](../../design/testing-and-evaluation.md), [domain glossary](../../../CONTEXT.md) and [architecture decisions](../../adr/).
 - [Publication manifest](publication.json), including issue IDs/URLs, approval, source fingerprints, readback verification and the outstanding native relationship operations.
 
@@ -68,6 +70,21 @@ The to-tickets skill says: “Use the platform's native blocking / sub-issue rel
 
 Following the user's request to investigate alternatives, the [access review](../../research/github-issue-dependency-access.md) found no additional suitable plugin in the available catalog. GitHub's official MCP server offers experimental dependency-write tools, and its REST API/CLI also support native links, but each alternative requires a separate authenticated setup. The recommendation for this handoff is to keep the working blocker references and revisit native links only when that connection is requested or becomes available. Do not repeat this investigation on every implementation turn.
 
-When an authenticated native relationship-write capability is available, use the existing issue IDs in the manifest, inspect existing links, add only the missing 35 directed blocking edges and verify the resulting relationships. Do not recreate the published issues, convert the parent spec into implementation work, or change the agreed dependency graph. No new permission for these already approved relationships is implied by this handoff.
+When an authenticated native relationship-write capability is available, use the existing issue IDs in the manifest, inspect existing links, add only the missing 41 directed blocking edges and verify the resulting relationships. Do not recreate the published issues, convert the parent spec into implementation work, or change the agreed dependency graph. No new permission for these already approved relationships is implied by this handoff.
 
 Issue #2 is complete. Docker Engine 29.8.1 and Compose 5.5.1 remain installed and enabled; the acceptance project was stopped with its data volume retained. Runtime evidence and the installer are saved locally. No commits were pushed during acceptance.
+
+## Current fusion/cache and code-publication handoff
+
+The user requested fusion/context expansion and repeated-question caching before
+the next implementation. [Research](../../research/rag-fusion-and-answer-caching.md)
+and [scope validation](fusion-cache-amendment.json) describe the changes. GitHub #24
+and #25 own the new behavior; #18 and #21 include their actual prerequisites.
+Issues #3 and #5 remain the next open frontier. Neither new feature is implemented.
+
+The validated code is published on GitHub `main` at `1a186fd1c6cbf306742a7ef6868f5b2cded58df2`,
+whose tree exactly matches local `e5ac34c`. Publication used the authenticated GitHub
+connector because command-line Git has no push credentials. `origin` is configured;
+do not confuse connector publication commits with the original local commit IDs.
+The planning amendment is published as a subsequent repository update. Preserve
+both histories when reconciling native Git; never force-push over published work.

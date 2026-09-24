@@ -10,7 +10,7 @@
   "spec": {
     "title": "Ask Phil: evidence-backed EastEnders RAG demonstration \u2014 specification",
     "file": "docs/specs/ask-phil.md",
-    "sha256": "09d6030f6339360d2fc544d928825dc2ba30f1cfb6b3058e0d5338acd459d52e",
+    "sha256": "a82e93bd170be20c253415606fcb9a6ab082f7a9a7c991d56ca5e757ca728c53",
     "issue_number": 1,
     "url": "https://github.com/tomh1988-8/rag_demo/issues/1",
     "labels": [
@@ -21,8 +21,9 @@
     "issue_id": 5550656340,
     "node_id": "I_kwDOUl8W3M8AAAABSthLVA",
     "readback_verified": true,
-    "previous_sha256": "66cd67521170aaef531efe699a2318a83e3d0886bef7a2415045ed1915ee35b5",
-    "amended_date": "2026-09-23"
+    "previous_sha256": "09d6030f6339360d2fc544d928825dc2ba30f1cfb6b3058e0d5338acd459d52e",
+    "amended_date": "2026-09-23",
+    "updated_at": "2026-09-24T07:14:57Z"
   },
   "tickets": [
     {
@@ -84,9 +85,10 @@
         "blocking": 0,
         "total_blocking": 0
       },
-      "published_body_sha256": "3e6c7f0f1ed1a675447dd3f2be11f5c35d09650f216cc1bd4edffaa32c56e76a",
-      "updated_at": "2026-09-23T09:04:47Z",
-      "current_local_file_sha256": "7b4e5c943f37420891d217fad868d639b215c98ed38342cf7144974584c985e9"
+      "published_body_sha256": "a81b8a96962d7e0cdf63619b4b0d0608f305f708c414ffdf9f9fcbb17dcd2c86",
+      "updated_at": "2026-09-24T07:15:02Z",
+      "current_local_file_sha256": "8142421ccdac5a0d6f03f3e23f1c04fa81f4c7983558ecfc5ddb0770fbd59064",
+      "previous_published_body_sha256": "3e6c7f0f1ed1a675447dd3f2be11f5c35d09650f216cc1bd4edffaa32c56e76a"
     },
     {
       "draft_number": 3,
@@ -148,9 +150,10 @@
         "blocking": 0,
         "total_blocking": 0
       },
-      "published_body_sha256": "7318d4591edf579145c3c6690f35435e6e74120e5493e2239d6bb6d4b9601583",
-      "updated_at": "2026-09-23T08:16:29Z",
-      "current_local_file_sha256": "4a2660600140802f39e24ce7ef0ffcc014e07881111a41b4fb03f52840724d59"
+      "published_body_sha256": "d9d273a228d0f6a7a1b809c69172dd9b158c663e0f646782b25509d20db522a1",
+      "updated_at": "2026-09-24T07:15:04Z",
+      "current_local_file_sha256": "d87efafc96e594da9235a04cc7ed652da3f4763d6d0510cf2c569d7829931dbc",
+      "previous_published_body_sha256": "7318d4591edf579145c3c6690f35435e6e74120e5493e2239d6bb6d4b9601583"
     },
     {
       "draft_number": 5,
@@ -180,9 +183,10 @@
         "blocking": 0,
         "total_blocking": 0
       },
-      "published_body_sha256": "be82f13e5e21d308f028f6395974005d8b996a02012a91d304c9141a71075414",
-      "updated_at": "2026-09-23T08:16:30Z",
-      "current_local_file_sha256": "ee03f15dba1df94407580bb4e3ee594b3724b029da3183ba0cdcccc61491c490"
+      "published_body_sha256": "8a62300d023feeddf43f21bcdaf7c99575f8a401604e9effa8d879106807b9f4",
+      "updated_at": "2026-09-24T07:15:07Z",
+      "current_local_file_sha256": "4003f7861c48c7a9b0d97c5c3836cef106b44a75a84c0dc2ad4de4b7dc4e589c",
+      "previous_published_body_sha256": "be82f13e5e21d308f028f6395974005d8b996a02012a91d304c9141a71075414"
     },
     {
       "draft_number": 6,
@@ -280,9 +284,10 @@
         "blocking": 0,
         "total_blocking": 0
       },
-      "published_body_sha256": "95c0e7f255fa4bd4f544f9dc379739dc06b17db8df0403420023d0763d88900c",
-      "updated_at": "2026-09-23T09:04:50Z",
-      "current_local_file_sha256": "9e1e3d70755bc7405f5b34a06b25916244442a93976a9b6c04820882d4c103b6"
+      "published_body_sha256": "2b1c1bc7ae43b0c6586eba102f2e829a278cf86ae5ee63b9ba0069f181a7e785",
+      "updated_at": "2026-09-24T07:15:09Z",
+      "current_local_file_sha256": "dda5c73a2a7636440a86840e047a2020affbdaeb75aa3287eed9307495440245",
+      "previous_published_body_sha256": "95c0e7f255fa4bd4f544f9dc379739dc06b17db8df0403420023d0763d88900c"
     },
     {
       "draft_number": 9,
@@ -553,7 +558,8 @@
       "title": "Route and escalate according to evidence",
       "file": "docs/plans/ask-phil-tickets-v2/17-route-and-escalate.md",
       "blockers": [
-        16
+        16,
+        23
       ],
       "approved_sha256": "965653d1d334c14f83d30d8cad2b07adca1ccb7038d2ce4943dc959aa52d8470",
       "issue_number": 18,
@@ -563,7 +569,8 @@
         "ready-for-agent"
       ],
       "blocker_issue_numbers": [
-        17
+        17,
+        24
       ],
       "body_verified": true,
       "created_at": "2026-09-23T08:16:41Z",
@@ -576,9 +583,10 @@
         "blocking": 0,
         "total_blocking": 0
       },
-      "published_body_sha256": "2ea63ab06c3ebe48bfd08569652f559198ffdf7e15060d58a018298a6f7b9528",
-      "updated_at": "2026-09-23T08:16:41Z",
-      "current_local_file_sha256": "5d354291cb249cb2dd67192df3fbf97ebbf477dff10ef86dcc69ed5e65b65a6c"
+      "published_body_sha256": "33903167309e84172b08100caa1e3ea20f3ac25498b78ce1072fdffefff87218",
+      "updated_at": "2026-09-24T07:15:11Z",
+      "current_local_file_sha256": "3fb1d95de5127282279b07b5f698430e511db73a46f9a683b40fab175402bacc",
+      "previous_published_body_sha256": "2ea63ab06c3ebe48bfd08569652f559198ffdf7e15060d58a018298a6f7b9528"
     },
     {
       "draft_number": 18,
@@ -658,7 +666,7 @@
         17,
         18,
         19,
-        22
+        24
       ],
       "approved_sha256": "6c69991240af05df374a80eb6195ff19dc8c99c5b51c28d99b91b3b4f72a0ce0",
       "issue_number": 21,
@@ -671,7 +679,7 @@
         18,
         19,
         20,
-        23
+        25
       ],
       "body_verified": true,
       "created_at": "2026-09-23T08:16:44Z",
@@ -684,9 +692,10 @@
         "blocking": 0,
         "total_blocking": 0
       },
-      "published_body_sha256": "8489139dd1b83c6ba79e5203420e707bf208ee8a644fc26f2a731b5b0b2686ba",
-      "updated_at": "2026-09-23T09:04:53Z",
-      "current_local_file_sha256": "cca979cbaf0cb95a75e76dd1fbe6c03fc833edb30914a426e3241324763a5e70"
+      "published_body_sha256": "3bc50d6636e479b59fdc43d05e9b738ae041a4a4e9493ab1a015faebcdb5a77e",
+      "updated_at": "2026-09-24T07:15:15Z",
+      "current_local_file_sha256": "e7174eeb42a7871ac5e734a301c94732fb939bca32c4c66ebde98bf2acbdc055",
+      "previous_published_body_sha256": "8489139dd1b83c6ba79e5203420e707bf208ee8a644fc26f2a731b5b0b2686ba"
     },
     {
       "draft_number": 21,
@@ -710,7 +719,7 @@
       ],
       "body_verified": true,
       "created_at": "2026-09-23T09:04:09Z",
-      "updated_at": "2026-09-23T09:04:09Z",
+      "updated_at": "2026-09-24T07:15:17Z",
       "state": "open",
       "readback_verified": true,
       "native_dependency_summary": {
@@ -719,8 +728,9 @@
         "blocking": 0,
         "total_blocking": 0
       },
-      "published_body_sha256": "343e491e3b4b235689a19f8a9c6ad2df1e30afe36c636419c4a64199a6828f2c",
-      "current_local_file_sha256": "cf72ce6c7f95bbcdbd59d2d6abd37beb5b4dabae00a6bdfa5607d6d0c1bb872e"
+      "published_body_sha256": "42e43e01b776bb5f3dc9c86e9a589bc0d1f528d7a7447ce270fe84921ae0b86f",
+      "current_local_file_sha256": "764b7f7eaef9c97a1a0bcb2027f504b22be4ee5b8a982e0973b49fc2936b65dd",
+      "previous_published_body_sha256": "343e491e3b4b235689a19f8a9c6ad2df1e30afe36c636419c4a64199a6828f2c"
     },
     {
       "draft_number": 22,
@@ -744,7 +754,7 @@
       ],
       "body_verified": true,
       "created_at": "2026-09-23T09:04:10Z",
-      "updated_at": "2026-09-23T09:04:10Z",
+      "updated_at": "2026-09-24T07:15:18Z",
       "state": "open",
       "readback_verified": true,
       "native_dependency_summary": {
@@ -753,8 +763,67 @@
         "blocking": 0,
         "total_blocking": 0
       },
-      "published_body_sha256": "9a08b10646330ca0cca1b4af2d5f8e8931beb5160f0a5d3c0864ef00f83a0ac0",
-      "current_local_file_sha256": "e6ad7b0606224e84e5cce1ed91b3c8f82499f470b791fb9ad661a742094084c3"
+      "published_body_sha256": "d65ebad7e9e91d45c4d1b3c4ae78a165cde4b67b7d77c3e99476b10c3c34000e",
+      "current_local_file_sha256": "e9cf19a43f3ba97ad917cb128f43536459813e80dfd5558d678df3a5c3781235",
+      "previous_published_body_sha256": "9a08b10646330ca0cca1b4af2d5f8e8931beb5160f0a5d3c0864ef00f83a0ac0"
+    },
+    {
+      "draft_number": 23,
+      "title": "Answer with fused retrieval and wider source context",
+      "file": "docs/plans/ask-phil-tickets-v2/23-fuse-text-retrieval-and-expand-context.md",
+      "approved_sha256": "b3fdc7918d454e4ef92ab0bb64d67cf049a2d02a576c50569e968bf7af56ca4b",
+      "issue_number": 24,
+      "issue_id": 5557777094,
+      "node_id": "I_kwDOUl8W3M8AAAABS0Tyxg",
+      "url": "https://github.com/tomh1988-8/rag_demo/issues/24",
+      "labels": [
+        "ready-for-agent"
+      ],
+      "created_at": "2026-09-23T18:32:51Z",
+      "state": "open",
+      "body_verified": true,
+      "readback_verified": true,
+      "updated_at": "2026-09-23T18:32:51Z",
+      "published_body_sha256": "2def431e64c4141ce7d49ee188c3e60a7a6490f8740632e47813b8205436213d",
+      "current_local_file_sha256": "b3fdc7918d454e4ef92ab0bb64d67cf049a2d02a576c50569e968bf7af56ca4b",
+      "blocker_issue_numbers": [
+        4,
+        5
+      ],
+      "blockers": [
+        3,
+        4
+      ]
+    },
+    {
+      "draft_number": 24,
+      "title": "Reuse eligible text answers with a versioned cache",
+      "file": "docs/plans/ask-phil-tickets-v2/24-cache-repeated-text-answers.md",
+      "approved_sha256": "69c26415c081396f70dfdd398bc1f6ae9b13a7007b560ee109c262da421827e6",
+      "issue_number": 25,
+      "issue_id": 5557790930,
+      "node_id": "I_kwDOUl8W3M8AAAABS0Uo0g",
+      "url": "https://github.com/tomh1988-8/rag_demo/issues/25",
+      "labels": [
+        "ready-for-agent"
+      ],
+      "created_at": "2026-09-23T18:34:01Z",
+      "state": "open",
+      "body_verified": true,
+      "readback_verified": true,
+      "updated_at": "2026-09-23T18:34:01Z",
+      "published_body_sha256": "9d15f162505ed943f58de566067cd7a3c61b0a5982ba585d6066724970a03777",
+      "current_local_file_sha256": "69c26415c081396f70dfdd398bc1f6ae9b13a7007b560ee109c262da421827e6",
+      "blocker_issue_numbers": [
+        24,
+        6,
+        23
+      ],
+      "blockers": [
+        23,
+        5,
+        22
+      ]
     }
   ],
   "native_dependencies": {
@@ -916,6 +985,13 @@
         "status": "not_created"
       },
       {
+        "blocked_issue_number": 18,
+        "blocked_issue_id": 5550705117,
+        "blocking_issue_number": 24,
+        "blocking_issue_id": 5557777094,
+        "status": "not_created"
+      },
+      {
         "blocked_issue_number": 19,
         "blocked_issue_id": 5550705440,
         "blocking_issue_number": 9,
@@ -974,8 +1050,8 @@
       {
         "blocked_issue_number": 21,
         "blocked_issue_id": 5550705735,
-        "blocking_issue_number": 23,
-        "blocking_issue_id": 5551181317,
+        "blocking_issue_number": 25,
+        "blocking_issue_id": 5557790930,
         "status": "not_created"
       },
       {
@@ -1004,6 +1080,41 @@
         "blocked_issue_id": 5551181317,
         "blocking_issue_number": 9,
         "blocking_issue_id": 5550703393,
+        "status": "not_created"
+      },
+      {
+        "blocked_issue_number": 24,
+        "blocked_issue_id": 5557777094,
+        "blocking_issue_number": 4,
+        "blocking_issue_id": 5550698056,
+        "status": "not_created"
+      },
+      {
+        "blocked_issue_number": 24,
+        "blocked_issue_id": 5557777094,
+        "blocking_issue_number": 5,
+        "blocking_issue_id": 5550702491,
+        "status": "not_created"
+      },
+      {
+        "blocked_issue_number": 25,
+        "blocked_issue_id": 5557790930,
+        "blocking_issue_number": 24,
+        "blocking_issue_id": 5557777094,
+        "status": "not_created"
+      },
+      {
+        "blocked_issue_number": 25,
+        "blocked_issue_id": 5557790930,
+        "blocking_issue_number": 6,
+        "blocking_issue_id": 5550702677,
+        "status": "not_created"
+      },
+      {
+        "blocked_issue_number": 25,
+        "blocked_issue_id": 5557790930,
+        "blocking_issue_number": 23,
+        "blocking_issue_id": 5551181317,
         "status": "not_created"
       }
     ]
@@ -1048,7 +1159,7 @@
     "implementation_started": false,
     "context": "Historical issue-publication consistency check before implementation; current runtime evidence is linked in implementation_progress."
   },
-  "plan_revision": "2.1",
+  "plan_revision": "2.2",
   "initial_publication_validation": {
     "remote_issues_checked": 21,
     "local_ticket_bodies_match_remote": true,
@@ -1096,6 +1207,43 @@
         21
       ],
       "checklist_version": "1.1"
+    },
+    {
+      "date": "2026-09-23",
+      "user_instruction_summary": "Research and add fusion/wider context to conventional RAG and repeated-question caching; update spec/tickets and publish the local code to GitHub.",
+      "record": "docs/plans/ask-phil-tickets-v2/fusion-cache-amendment.json",
+      "new_story_ids": [
+        117,
+        118,
+        119,
+        120,
+        121,
+        122,
+        123,
+        124,
+        125,
+        126,
+        127,
+        128,
+        129,
+        130
+      ],
+      "new_implementation_issues": [
+        24,
+        25
+      ],
+      "amended_issues": [
+        1,
+        3,
+        5,
+        6,
+        9,
+        18,
+        21,
+        22,
+        23
+      ],
+      "checklist_version": "1.1"
     }
   ],
   "implementation_progress": {
@@ -1112,5 +1260,27 @@
     },
     "closed_at": "2026-09-23T16:40:51Z",
     "github_closure_readback_verified": true
+  },
+  "code_publication": {
+    "local_commit": "e5ac34c",
+    "remote_commit": "1a186fd1c6cbf306742a7ef6868f5b2cded58df2",
+    "tree": "c1a07826eeeaf944234d75fd0f95f3c6bd379c2f",
+    "method": "Authenticated GitHub connector; native Git push lacks credentials.",
+    "branch": "main",
+    "exact_tree_match": true,
+    "scope": "Existing validated issue #2 implementation and Docker acceptance. Planning amendments are published in a subsequent commit."
+  },
+  "current_scope_validation": {
+    "record": "docs/plans/ask-phil-tickets-v2/fusion-cache-amendment.json",
+    "spec_stories": 130,
+    "implementation_tickets": 24,
+    "blocking_edges": 41,
+    "native_edges_created": 0,
+    "state_verified": true,
+    "next_open_frontier": [
+      3,
+      5
+    ],
+    "remote_bodies_states_and_labels_verified": 25
   }
 }

@@ -154,6 +154,41 @@ Required for the initial local demo. Use the existing conversation API/CLI and e
 
 The [research review](../research/feedback-and-online-evaluation.md) records MLflow compatibility constraints. Use application-managed orchestration for the full feedback lifecycle rather than assuming native automatic judges process code checks or arbitrary delayed feedback.
 
+## Fusion, context expansion and caching
+
+The [research and design choices](../research/rag-fusion-and-answer-caching.md)
+extend the existing retrieval, conversation and scorer seams; no new service seam
+or design interview is needed. All new runtime evidence starts Pending.
+
+- Review questions needing several passages or a qualification outside the first hit.
+  Label variants for preserved identity, time, negation and intent. Include drift,
+  repeated variants, empty retrieval, overlapping windows, out-of-scope neighbours,
+  conflicting accounts, invalid spans and truncation of a required qualification.
+- Unit-check observable fusion rank/tie/deduplication and context-budget contracts
+  using independently calculated examples. Integrate real PostgreSQL/pgvector and
+  the CLI/API; resolve citations to expanded spans in the same source revision.
+- Run original-query, fusion-only, expansion-only and combined configurations on
+  identical corpus/questions/answer-model settings and comparable context budgets.
+  Measure candidates, merged ranking and final-context sufficiency separately from
+  final-answer support/completeness. Count variant-generation and fallback expense.
+- Cache tests cover exact eligible hits, misses, meaningful query changes, session
+  isolation/follow-up bypass, expiry, snapshot/configuration change, rollback,
+  withdrawn evidence, eviction, explicit disable and unavailable-cache fallback.
+  A hit preserves evidence but gets a new response ID and serving measurements.
+- Exercise feedback, late/revised feedback, sampling and online review of cached
+  deliveries through real storage and public interfaces. Assess the delivered answer
+  using its original context, preserve generation lineage, and never reuse another
+  interaction's feedback or count original model usage as new usage.
+- Keep retrieval/model-quality baselines uncached. In separately labelled cold/warm
+  runs, record eligible and total requests, hit/miss counts, incorrect/stale reuse,
+  supported-answer quality, latency and serving expense with explicit denominators.
+  Isolate run/partition cache namespaces and prevent holdout contamination. Repeated
+  deliveries are interactions, not independent factual examples of the same answer.
+- Any future semantic-cache pilot needs reviewed paraphrases and adversarial near
+  matches (different characters, dates, negation, relationship types and criminal
+  roles), calibration distinct from holdout, hard compatibility filters and a
+  reviewed false-hit gate before activation. It is not required for the first cache.
+
 ## Execution cadence and acceptance
 
 - Run fast deterministic unit/integration tests and relevant fixture-based scorer regressions during normal development.

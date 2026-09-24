@@ -1,6 +1,6 @@
 # 05: Refresh and recover a captured snapshot
 
-Status: approved and published as [GitHub #6](https://github.com/tomh1988-8/rag_demo/issues/6), labelled ready-for-agent; body and label verified on 23 September 2026. Plan version: 2. Implementation has not started.
+Status: published as [GitHub #6](https://github.com/tomh1988-8/rag_demo/issues/6); fusion/cache scope amendment requested on 23 September 2026. Publication readback is recorded in the manifest. Implementation has not started.
 
 Spec stories: S05, S31, S42, S55, S58, S63, S64, S65, S69, S73, S74, S89. Checklist evidence owner for: AD-03.3.
 
@@ -22,6 +22,7 @@ A maintainer can refresh captured sources manually through Prefect, publish a us
 - [ ] Demonstrate recovery to the previous compatible source/retrieval snapshot and a reproducible rerun; define how later graph projections join this publication/recovery contract.
 - [ ] Use reviewed changed-source, repeated-run, partial-failure and interrupted-run cases before implementation. Integrate real Prefect/application/database boundaries with controlled sources, and verify resulting persisted state and usable API/CLI evidence rather than only scheduler success.
 - [ ] Document manual refresh for the local demo. Weekly scheduling and deployed monitoring remain a recorded future trigger, not an unimplemented requirement claimed complete here.
+- [ ] Expose a stable snapshot/index compatibility identity for answer reuse. Publish or roll back the active compatible snapshot atomically; later cache lookups must reject entries from an incompatible or withdrawn revision. The cache ticket owns end-to-end invalidation and stale-answer tests.
 - [ ] Record applicable checklist results and revision-linked evidence in the project register, including failures, limitations and follow-up regressions. A documented plan alone does not pass an implementation check.
 
 ## Checklist evidence

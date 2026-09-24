@@ -1,6 +1,6 @@
 # 02: Generate a grounded Ask Phil answer
 
-Status: published as [GitHub #3](https://github.com/tomh1988-8/rag_demo/issues/3); feedback/online-evaluation amendment authorised by the user on 23 September 2026. Remote body and ready-for-agent label verified. Implementation has not started.
+Status: published as [GitHub #3](https://github.com/tomh1988-8/rag_demo/issues/3); fusion/cache scope amendment requested on 23 September 2026. Publication readback is recorded in the manifest. Implementation has not started.
 
 Spec stories: S01, S02, S03, S05, S06, S38, S41, S42, S43, S44, S45, S46, S47, S54, S66, S67, S69, S70, S71, S72, S73, S74, S79, S80, S89, S94, S95, S98, S102, S115.
 
@@ -23,6 +23,7 @@ Extend the evidence path to a complete conventional RAG answer using Python, Lla
 - [ ] Use independently labelled relevant passages and required facts to measure retrieval coverage/ranking and context sufficiency separately. Define k, matching, denominators and sufficient evidence sets; do not claim corpus-wide quality from the small seed.
 - [ ] Add failing public cases, exposed citation/context-rule unit tests and real PostgreSQL/pgvector/API integration checks. Substitute only external services in routine tests, then run a separately budgeted live-provider check and baseline with fixed corpus/answer-model settings.
 - [ ] Assign each served outcome a stable client-visible response identifier resolving server-side to the original final persona answer, evidence/context, source snapshot, actual route and versioned model/prompt/application trace. Preserve that association for subsequent feedback without exposing arbitrary assessment-write authority; verify it through the API/CLI. Feedback submission is delivered by the separate feedback ticket.
+- [ ] Preserve this slice as a versioned single-query, uncached text-RAG baseline. Record retrieval and final context distinctly so the later fusion/context-expansion slice can compare against it without rewriting baseline results. Do not implement the later fusion or cache here.
 - [ ] Record applicable checklist results and revision-linked evidence in the project register, including failures, limitations and follow-up regressions. A documented plan alone does not pass an implementation check.
 
 ## Checklist evidence
