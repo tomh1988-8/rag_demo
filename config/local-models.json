@@ -5,7 +5,7 @@
   "embedding_digest": "85462619ee721b466c5927d109d4cb765861907d5417b9109caebc4e614679f1",
   "embedding_dimensions": 768,
   "context_window": 4096,
-  "output_tokens": 256,
+  "output_tokens": 512,
   "temperature": 0,
   "request_timeout_seconds": 180,
   "seed": 17

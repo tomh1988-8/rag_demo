@@ -101,7 +101,7 @@ class AnswerService:
                     "expenditure_category": category,
                     "model_settings": self.models.settings.model_dump(),
                     "prompt": SYSTEM_PROMPT,
-                    "baseline_version": "single-query-uncached-v1",
+                    "baseline_version": "single-query-uncached-v2",
                     "usage_complete": False,
                     "usage_aggregate_scope": (
                         "Reported token counts only; incomplete usage is not a full-request total."
@@ -120,52 +120,74 @@ class AnswerService:
             usage = TokenUsage(embedding_tokens=self.models.embedding_tokens)
             failure = False
             citations: tuple[Citation, ...] = ()
-            with mlflow.start_span("answer_model", span_type="LLM") as span:
-                messages = [
-                    ChatMessage(role="system", content=SYSTEM_PROMPT),
-                    ChatMessage(
-                        role="user",
-                        content=(
-                            f"Question: {request.question}\n"
-                            f"Captured evidence: {context_text(context)}"
-                        ),
+            if not context:
+                draft = Draft(
+                    answer=(
+                        "I can't answer from the available captured context. "
+                        "Missing evidence doesn't establish that an event didn't happen."
                     ),
-                ]
-                span.set_inputs([m.model_dump(mode="json") for m in messages])
-                try:
-                    result = self.models.llm.chat(messages, format=Draft.model_json_schema())
-                    span.set_outputs({"content": result.message.content})
-                    raw = result.raw if isinstance(result.raw, dict) else {}
-                    usage = TokenUsage(
-                        input_tokens=raw.get("prompt_eval_count"),
-                        output_tokens=raw.get("eval_count"),
-                        embedding_tokens=self.models.embedding_tokens,
-                    )
-                    span.set_attributes({"observed_usage": usage.model_dump()})
-                    available = {
-                        key: value
-                        for key, value in {
-                            "input_tokens": usage.input_tokens,
-                            "output_tokens": usage.output_tokens,
-                        }.items()
-                        if value is not None
-                    }
-                    if usage.input_tokens is not None and usage.output_tokens is not None:
-                        available["total_tokens"] = usage.input_tokens + usage.output_tokens
-                    if available:
-                        span.set_attribute("mlflow.chat.tokenUsage", available)
-                    draft = Draft.model_validate_json(result.message.content or "")
-                    citations = cite_answer(draft, context, request.snapshot_id)
-                except (ValueError, ResponseError, httpx.HTTPError, ConnectionError) as exc:
-                    failure = True
-                    span.set_status("ERROR")
-                    span.set_attributes({"failure_type": type(exc).__name__})
-                    root.set_status("ERROR")
-                    draft = Draft(
-                        answer="I couldn't produce a usable, cited answer. Please try again later.",
-                        status="insufficient_evidence",
-                        evidence_ids=(),
-                    )
+                    evidence_ids=(),
+                    status="insufficient_evidence",
+                    qualifications=(),
+                    unanswered=("The question cannot be answered from the available context.",),
+                )
+                usage = TokenUsage(
+                    input_tokens=0, output_tokens=0, embedding_tokens=self.models.embedding_tokens
+                )
+                root.set_attribute("answer_model_skipped", "empty_context")
+            else:
+                with mlflow.start_span("answer_model", span_type="LLM") as span:
+                    messages = [
+                        ChatMessage(role="system", content=SYSTEM_PROMPT),
+                        ChatMessage(
+                            role="user",
+                            content=(
+                                f"Question: {request.question}\n"
+                                f"Snapshot provenance: {retrieved.snapshot.source.title} "
+                                f"({retrieved.snapshot.source.support_status})\n"
+                                f"Captured evidence: {context_text(context)}"
+                            ),
+                        ),
+                    ]
+                    span.set_inputs([m.model_dump(mode="json") for m in messages])
+                    try:
+                        result = self.models.llm.chat(messages, format=Draft.model_json_schema())
+                        span.set_outputs({"content": result.message.content})
+                        raw = result.raw if isinstance(result.raw, dict) else {}
+                        usage = TokenUsage(
+                            input_tokens=raw.get("prompt_eval_count"),
+                            output_tokens=raw.get("eval_count"),
+                            embedding_tokens=self.models.embedding_tokens,
+                        )
+                        span.set_attributes({"observed_usage": usage.model_dump()})
+                        available = {
+                            key: value
+                            for key, value in {
+                                "input_tokens": usage.input_tokens,
+                                "output_tokens": usage.output_tokens,
+                            }.items()
+                            if value is not None
+                        }
+                        if usage.input_tokens is not None and usage.output_tokens is not None:
+                            available["total_tokens"] = usage.input_tokens + usage.output_tokens
+                        if available:
+                            span.set_attribute("mlflow.chat.tokenUsage", available)
+                        draft = Draft.model_validate_json(result.message.content or "")
+                        citations = cite_answer(draft, context, request.snapshot_id)
+                    except (ValueError, ResponseError, httpx.HTTPError, ConnectionError) as exc:
+                        failure = True
+                        span.set_status("ERROR")
+                        span.set_attributes({"failure_type": type(exc).__name__})
+                        root.set_status("ERROR")
+                        draft = Draft(
+                            answer=(
+                                "I couldn't produce a usable, cited answer. Please try again later."
+                            ),
+                            status="insufficient_evidence",
+                            evidence_ids=(),
+                            unanswered=(),
+                            qualifications=(),
+                        )
             root.set_attribute(
                 "usage_complete", all(value is not None for value in usage.model_dump().values())
             )
@@ -174,6 +196,8 @@ class AnswerService:
                 question=request.question,
                 status="failed" if failure else draft.status,
                 answer=draft.answer,
+                unanswered=draft.unanswered,
+                qualifications=draft.qualifications,
                 citations=citations,
                 snapshot_id=request.snapshot_id,
                 snapshot_sha256=retrieved.snapshot.fingerprint,
@@ -181,6 +205,7 @@ class AnswerService:
                 retrieved=retrieved.hits,
                 context=context,
                 retrieval_k=3,
+                baseline_version="single-query-uncached-v2",
                 model_settings=self.models.settings,
                 prompt_sha256=hashlib.sha256(SYSTEM_PROMPT.encode()).hexdigest(),
                 application_sha256=application_fingerprint(),

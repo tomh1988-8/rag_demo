@@ -2,6 +2,23 @@
 
 Updated 24 September 2026. The user approved the initial checklist/ticket breakdown, authorised publication, and subsequently required user feedback and online evaluation. Checklist v1.1 and the amended 24-ticket breakdown are published. The user subsequently invoked implement for the first unblocked ticket, #2. Its acceptance passed, and #2 is closed. The user then invoked implement for #3; its grounded-answer slice is also complete and closed, with 32 passing Docker tests and actual local-model/MLflow/restart evidence.
 
+## Active issue #4: stronger-model acceptance required
+
+[Issue #4](https://github.com/tomh1988-8/rag_demo/issues/4) is **open**, with the
+software implementation, 66 passing Docker tests and [reviewed evidence](../../implementation/issue-4/README.md).
+The final six-case local diagnostic has three appropriate outcomes and a served
+critical citation-support failure. Source-purpose wording was upgraded to a completed
+act in the appendix; ambiguity, abstention, false-premise, persona and conflict
+qualification also need stronger-model acceptance. No paid API was called.
+
+Next work is `<pro>`: configure the user's chosen capable provider and conservative
+local key/account/request controls, then rerun the full reference matrix and retained
+regressions. Provider name and credential environment-variable name were requested;
+the secret itself must stay out of chat and Git. Do not close #4 or advance its
+blocked tickets on the strength of software checks. #5 remains independently unblocked.
+The final images were built/tested; currently running API/MLflow containers still use
+#3. Do not infer that the failing candidate was accepted or deployed.
+
 ## Published and verified
 
 - [Specification #1](https://github.com/tomh1988-8/rag_demo/issues/1) contains the agreed specification with the feedback/online-evaluation and fusion/cache amendments (130 stories).
@@ -14,7 +31,7 @@ The [to-spec skill](../../../.agents/skills/to-spec/SKILL.md) authorised specifi
 
 ## First available work
 
-**[#4 — Handle incomplete evidence and false premises](https://github.com/tomh1988-8/rag_demo/issues/4)** and **[#5 — Import real sources with character identity and canon scope](https://github.com/tomh1988-8/rag_demo/issues/5)** are the next open dependency frontier. Both were read back as open. Wait for the next implementation instruction before starting another ticket. Specification #1 remains parent context.
+**[#4 — Handle incomplete evidence and false premises](https://github.com/tomh1988-8/rag_demo/issues/4)** and **[#5 — Import real sources with character identity and canon scope](https://github.com/tomh1988-8/rag_demo/issues/5)** are the next open dependency frontier. Both are open; #4 is in progress and needs the stronger-provider input described above. Wait for the next implementation instruction before starting another ticket. Specification #1 remains parent context.
 
 For subsequent work, read the current issue and comments, the relevant domain/ADR decisions and the checklist profile. Work the dependency frontier; the shared `ready-for-agent` label does not mean a blocked ticket can begin. Existing approved decisions and the six public test boundaries do not need another design interview.
 
@@ -53,7 +70,7 @@ The “Blocked by” column contains **GitHub issue numbers**, which differ from
 
 - [Approved ticket breakdown](README.md), including rationale and the common evidence-completion pattern.
 - [Reusable checklist v1.1](../../checklists/agent-development.md).
-- [Ask Phil applicability profile and evidence register](../../checklists/ask-phil-profile.md): 51 current items, one deployment deferral and 12 N/A items. Three items pass on design evidence, five on inspection evidence and five on initial text-RAG evidence; 38 current obligations remain Pending.
+- [Ask Phil applicability profile and evidence register](../../checklists/ask-phil-profile.md): 51 current items, one deployment deferral and 12 N/A items. Three items pass on design evidence, five on inspection, five on initial text RAG and two on #4 software counterexamples/quality measurement; 36 current obligations remain Pending. Model-quality acceptance for #4 is still open.
 - [All 130 specification stories mapped to tickets](spec-coverage.md).
 - [Local specification](../../specs/ask-phil.md), [test/evaluation strategy](../../design/testing-and-evaluation.md), [domain glossary](../../../CONTEXT.md) and [architecture decisions](../../adr/).
 - [Publication manifest](publication.json), including issue IDs/URLs, approval, source fingerprints, readback verification and the outstanding native relationship operations.
@@ -102,7 +119,7 @@ on either axis. This is a one-passage exposed development baseline, not broad qu
 The user explicitly limits local Gemma 4 E2B QAT to convenient development/smoke
 work. Recommend and configure a more capable model before broad-roster answer
 acceptance (#7), representative evaluation (#9), or substantive extraction (#11
-onward), or sooner if local-model weaknesses prevent useful progress. Record a
+onward), or sooner if local-model weaknesses prevent useful progress. **That gate has now been reached in #4.** Record a
 new provider/model baseline; configure conservative key/account/request controls
 before any paid call. No paid API calls were used for #3.
 

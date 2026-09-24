@@ -120,9 +120,12 @@
         "blocking": 0,
         "total_blocking": 0
       },
-      "published_body_sha256": "b0e773f2e2214e80c14ce92e331eeec27e0444f2d7bdbff090fba26cddd78b44",
-      "updated_at": "2026-09-23T08:16:06Z",
-      "current_local_file_sha256": "23206d640374be065937ef330c640932fb86658617c56c247f6053821f814721"
+      "published_body_sha256": "3fc862be1e030f510bdeaacf59da7e46a54fb4033c23ec3a3d33bd7b0acba291",
+      "updated_at": "2026-09-24T14:07:41Z",
+      "current_local_file_sha256": "1a17aac6055aae190963d4f4db22882e9d5e438da56a0e19179ab51003199486",
+      "implementation_status": "software_verified_semantic_acceptance_pending",
+      "implementation_record": "docs/implementation/issue-4/validation.json",
+      "previous_published_body_sha256": "b0e773f2e2214e80c14ce92e331eeec27e0444f2d7bdbff090fba26cddd78b44"
     },
     {
       "draft_number": 4,
@@ -1123,7 +1126,7 @@
   },
   "publication_verified_date": "2026-09-23",
   "handoff": {
-    "instruction": "Issues #2 and #3 are complete and closed. Read the saved evidence; wait for the next implementation instruction, then select from #4 and #5.",
+    "instruction": "Issues #2 and #3 are complete. Issue #4 software passes 66 Docker tests but semantic acceptance remains open; resume with stronger-provider input and conservative controls before any paid calls. Do not advance its blocked dependants. #5 remains independently unblocked; wait for a further implementation instruction before another ticket.",
     "specification_is_not_an_implementation_ticket": true,
     "dependency_handling": "Use the explicit Blocked by issue references and saved mapping until native relationships can be written and verified.",
     "first_unblocked_issue_numbers": [
@@ -1249,44 +1252,56 @@
     }
   ],
   "implementation_progress": {
-    "issue_number": 3,
-    "status": "completed",
-    "record": "docs/implementation/issue-3/validation.json",
-    "github_issue_closed": true,
-    "closed_at": "2026-09-24T09:40:18Z",
-    "github_closure_readback_verified": true,
+    "issue_number": 4,
+    "status": "software_verified_semantic_acceptance_pending",
+    "record": "docs/implementation/issue-4/validation.json",
+    "github_issue_closed": false,
+    "code_and_evidence_commit": "172b42d17ff5a3c3b1bc5ec07679a92341ff2225",
+    "software_tests": {
+      "docker": 66,
+      "failures": 0,
+      "ruff": "passed",
+      "mypy": "passed"
+    },
     "checklist": {
-      "design_pass": 3,
-      "inspection_slice_pass": 5,
-      "text_rag_slice_pass": 5,
-      "pending": 38,
+      "current": 51,
+      "pass": 15,
+      "pending": 36,
       "deferred": 1,
       "not_applicable": 12,
       "new_scoped_pass": [
-        "AD-02.1",
-        "AD-05.1",
-        "AD-06.2",
-        "AD-09.1",
-        "RAG-02"
+        "AD-06.3",
+        "RAG-03"
       ],
-      "partial_measurement_evidence": "AD-09.3 remains Pending for full routing/online accounting."
+      "scope": "Software counterexamples and separate quality measurement; not model acceptance"
+    },
+    "semantic_results": {
+      "v3_targeted_cases": 6,
+      "appropriate_outcomes": 3,
+      "served_critical_false_citations": 1,
+      "reference": "data/references/answer-policy-v2.json",
+      "regressions": "data/references/answer-policy-regressions-v1.json"
     },
     "model_migration": {
-      "local_model_role": "development and smoke checks only",
-      "before_issues": [
-        7,
-        9,
-        11
-      ],
-      "requirement": "Use a more capable model before judging broad roster answers, representative quality comparisons or substantive extraction. Record a new provider/model baseline and configure conservative key/account/request controls before any paid call."
-    }
+      "required_now": true,
+      "before_issue_4_acceptance": true,
+      "next_reasoning": "pro",
+      "missing_input": "Capable API provider and locally configured credential environment-variable name; conservative controls before paid calls",
+      "paid_api_calls": 0
+    },
+    "dependency_frontier": [
+      4,
+      5
+    ],
+    "blocked_dependants_still_blocked": true,
+    "publication_method": "Authorized GitHub connector; exact tree verification required. Final receipt is local ignored artifacts/issue-4-github-publication.json."
   },
   "code_publication": {
-    "scope": "Issue #3 implementation and evidence in the commit containing this manifest.",
+    "scope": "Issue #4 software implementation, failed semantic evaluations and stronger-model handoff in the commit containing this manifest; issue remains open.",
     "branch": "main",
     "method": "Authenticated GitHub connector; native Git push lacks credentials.",
     "verification": "Require an exact local/remote tree match before reporting completion.",
-    "local_receipt": "artifacts/issue-3-github-publication.json",
+    "local_receipt": "artifacts/issue-4-github-publication.json",
     "receipt_is_git_ignored": true
   },
   "current_scope_validation": {
@@ -1317,6 +1332,39 @@
       },
       "closed_at": "2026-09-23T16:40:51Z",
       "github_closure_readback_verified": true
+    },
+    {
+      "issue_number": 3,
+      "status": "completed",
+      "record": "docs/implementation/issue-3/validation.json",
+      "github_issue_closed": true,
+      "closed_at": "2026-09-24T09:40:18Z",
+      "github_closure_readback_verified": true,
+      "checklist": {
+        "design_pass": 3,
+        "inspection_slice_pass": 5,
+        "text_rag_slice_pass": 5,
+        "pending": 38,
+        "deferred": 1,
+        "not_applicable": 12,
+        "new_scoped_pass": [
+          "AD-02.1",
+          "AD-05.1",
+          "AD-06.2",
+          "AD-09.1",
+          "RAG-02"
+        ],
+        "partial_measurement_evidence": "AD-09.3 remains Pending for full routing/online accounting."
+      },
+      "model_migration": {
+        "local_model_role": "development and smoke checks only",
+        "before_issues": [
+          7,
+          9,
+          11
+        ],
+        "requirement": "Use a more capable model before judging broad roster answers, representative quality comparisons or substantive extraction. Record a new provider/model baseline and configure conservative key/account/request controls before any paid call."
+      }
     }
   ],
   "code_publication_history": [

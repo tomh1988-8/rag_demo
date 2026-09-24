@@ -1,0 +1,14 @@
+{
+  "capture": "local-policy-v1.json",
+  "disposition": "interrupted_after_four_completed_responses",
+  "run_id": "324f221c6ab34aa98a53a5e207262e0c",
+  "reason": "The old JSON exemplar and optional generated fields allowed omission of policy details. Stop to fix the contract; no speculative model quality claim. A fifth inference was interrupted; its usage is unavailable. The checkpoint state remains running because KeyboardInterrupt bypassed the original Exception cleanup. The runner now records interrupted failures.",
+  "completed_cases": [
+    "ambiguous-character",
+    "missing-mother",
+    "arrival-and-mother",
+    "false-arrival-premise"
+  ],
+  "critical_factual_failure_observed": false,
+  "limitations": "Ambiguous subject answered incorrectly; missing-mother and multipart drafts failed safely; corrected false premise omitted required qualification. This is an interrupted diagnostic, not a completed baseline."
+}

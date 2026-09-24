@@ -34,7 +34,18 @@ def tracking_uri(tmp_path_factory: pytest.TempPathFactory) -> str:
 
 @pytest.fixture
 def models(request: pytest.FixtureRequest) -> Models:
-    reported_usage = getattr(request, "param", {})
+    parameters = dict(getattr(request, "param", {}))
+    forbid_chat = parameters.pop("forbid_chat", False)
+    draft = parameters.pop(
+        "draft",
+        {
+            "answer": "Listen, I first arrived in Walford in February 1990.",
+            "evidence_ids": ["phil-arrival-001"],
+            "status": "answered",
+        },
+    )
+    draft = {"status": "answered", "unanswered": [], "qualifications": [], **draft}
+    reported_usage = parameters
 
     def provider(request: httpx.Request) -> httpx.Response:
         if request.url.path == "/api/tags":
@@ -51,9 +62,17 @@ def models(request: pytest.FixtureRequest) -> Models:
         if request.url.path == "/api/embed":
             return httpx.Response(200, json={"embeddings": [[1.0, 0.0, 0.0]]})
         assert request.url.path == "/api/chat"
+        assert not forbid_chat, "No model inference is allowed for an empty assembled context"
         assert body["stream"] is False
         assert body["options"]["num_predict"] == 256
         assert body["options"]["num_ctx"] == 4096
+        assert set(body["format"]["required"]) == {
+            "answer",
+            "status",
+            "evidence_ids",
+            "unanswered",
+            "qualifications",
+        }
         return httpx.Response(
             200,
             json={
@@ -62,13 +81,7 @@ def models(request: pytest.FixtureRequest) -> Models:
                 **reported_usage,
                 "message": {
                     "role": "assistant",
-                    "content": json.dumps(
-                        {
-                            "answer": "Listen, I first arrived in Walford in February 1990.",
-                            "evidence_ids": ["phil-arrival-001"],
-                            "status": "answered",
-                        }
-                    ),
+                    "content": json.dumps(draft),
                 },
             },
         )
@@ -94,6 +107,412 @@ def models(request: pytest.FixtureRequest) -> Models:
             client=Client(host="http://model.invalid", transport=transport),
         ),
     )
+
+
+@pytest.mark.parametrize(
+    "models",
+    [
+        {
+            "draft": {
+                "answer": (
+                    "Right, listen. I arrived in February 1990. This evidence doesn't "
+                    "identify my mother."
+                ),
+                "evidence_ids": ["phil-arrival-001"],
+                "status": "partial",
+                "unanswered": ["Who is Phil's mother?"],
+            }
+        }
+    ],
+    indirect=True,
+)
+def test_partial_answer_preserves_supported_fact_and_unanswered_part(
+    database_url: str, seed: SourceSnapshot, models: Models, tracking_uri: str
+) -> None:
+    EvidenceStore(database_url).load(seed)
+    TextRetriever(database_url, models.embedding, models.settings.embedding_id, 3).prepare(
+        seed.snapshot_id
+    )
+    with TestClient(create_app(database_url, models=models, tracking_uri=tracking_uri)) as client:
+        result = client.post(
+            "/v1/answers",
+            json={
+                "snapshot_id": seed.snapshot_id,
+                "question": "When did Phil first arrive in Walford, and who is his mother?",
+            },
+        )
+        assert result.status_code == 200, result.text
+        receipt = result.json()
+        answer = receipt["response"]
+        assert answer["status"] == "partial"
+        assert "February 1990" in answer["answer"]
+        assert answer["unanswered"] == ["Who is Phil's mother?"]
+        assert [c["evidence_id"] for c in answer["citations"]] == ["phil-arrival-001"]
+        saved = client.get(
+            f"/v1/responses/{answer['response_id']}",
+            headers={"Authorization": f"Bearer {receipt['read_token']}"},
+        )
+        assert saved.json() == answer
+
+
+@pytest.mark.parametrize(
+    "models,expected",
+    [
+        (
+            {
+                "draft": {
+                    "answer": "Which character do you mean?",
+                    "evidence_ids": [],
+                    "status": "clarification",
+                    "unanswered": ["Which character?"],
+                }
+            },
+            "clarification",
+        ),
+        (
+            {
+                "draft": {
+                    "answer": "Which character do you mean?",
+                    "evidence_ids": [],
+                    "status": "clarification",
+                }
+            },
+            "failed",
+        ),
+        (
+            {
+                "draft": {
+                    "answer": "I can't identify my mother from this captured evidence.",
+                    "evidence_ids": [],
+                    "status": "insufficient_evidence",
+                }
+            },
+            "insufficient_evidence",
+        ),
+    ],
+    indirect=["models"],
+)
+def test_unresolved_intent_is_distinct_from_absent_evidence(
+    database_url: str, seed: SourceSnapshot, models: Models, tracking_uri: str, expected: str
+) -> None:
+    EvidenceStore(database_url).load(seed)
+    TextRetriever(database_url, models.embedding, models.settings.embedding_id, 3).prepare(
+        seed.snapshot_id
+    )
+    with TestClient(create_app(database_url, models=models, tracking_uri=tracking_uri)) as client:
+        response = client.post(
+            "/v1/answers",
+            json={
+                "snapshot_id": seed.snapshot_id,
+                "question": "Who is Phil's mother?"
+                if expected == "insufficient_evidence"
+                else "When did they arrive?",
+            },
+        ).json()["response"]
+        assert response["status"] == expected
+        assert response["citations"] == []
+        if expected == "clarification":
+            assert response["unanswered"] == ["Which character?"]
+
+
+@pytest.mark.parametrize(
+    "models,fixture,kind",
+    [
+        (
+            {
+                "draft": {
+                    "answer": (
+                        "Right, listen. I first arrived in February 1990 to open The Arches, "
+                        "not in 2001."
+                    ),
+                    "status": "answered",
+                    "evidence_ids": ["phil-arrival-001"],
+                    "qualifications": [
+                        {
+                            "kind": "false_premise",
+                            "detail": "The first arrival was February 1990, contradicting 2001.",
+                            "evidence_ids": ["phil-arrival-001"],
+                        }
+                    ],
+                }
+            },
+            "data/seed/phil-arrival-v1.json",
+            "false_premise",
+        ),
+        (
+            {
+                "draft": {
+                    "answer": (
+                        "Right, listen. The synthetic account explicitly says Alex did not "
+                        "rob the cafe."
+                    ),
+                    "status": "answered",
+                    "evidence_ids": ["negative-001"],
+                    "qualifications": [
+                        {
+                            "kind": "explicit_negative",
+                            "detail": "The account explicitly excludes Alex as the robber.",
+                            "evidence_ids": ["negative-001"],
+                        }
+                    ],
+                }
+            },
+            "data/seed/policy/negative-v1.json",
+            "explicit_negative",
+        ),
+    ],
+    indirect=["models"],
+)
+def test_false_premise_and_explicit_negative_have_evidence_in_the_neutral_appendix(
+    database_url: str, models: Models, tracking_uri: str, fixture: str, kind: str
+) -> None:
+    snapshot = SourceSnapshot.model_validate_json(Path(fixture).read_text())
+    EvidenceStore(database_url).load(snapshot)
+    TextRetriever(database_url, models.embedding, models.settings.embedding_id, 3).prepare(
+        snapshot.snapshot_id
+    )
+    question = (
+        "Why did Phil first arrive in 2001?"
+        if kind == "false_premise"
+        else "Did Alex Vale rob the cafe?"
+    )
+    with TestClient(create_app(database_url, models=models, tracking_uri=tracking_uri)) as client:
+        result = client.post(
+            "/v1/answers", json={"snapshot_id": snapshot.snapshot_id, "question": question}
+        )
+        assert result.status_code == 200, result.text
+        answer = result.json()["response"]
+        assert answer["status"] == "answered"
+        note = answer["qualifications"][0]
+        assert note["kind"] == kind
+        assert note["evidence_ids"] == [answer["citations"][0]["evidence_id"]]
+        citation = answer["citations"][0]
+        assert (
+            client.get(citation["resolve_path"]).json()["matches"][0]["sha256"]
+            == citation["sha256"]
+        )
+
+
+@pytest.mark.parametrize(
+    "models",
+    [
+        {
+            "draft": {
+                "answer": (
+                    "Right, listen. Synthetic Account A says 2001; Account B says 2003. These"
+                    " accounts don't settle which is right."
+                ),
+                "status": "partial",
+                "evidence_ids": ["account-a", "account-b"],
+                "unanswered": ["Which marriage year is correct?"],
+                "qualifications": [
+                    {
+                        "kind": "conflict",
+                        "detail": (
+                            "Account A and Account B disagree; neither is a verified correction."
+                        ),
+                        "evidence_ids": ["account-a", "account-b"],
+                    }
+                ],
+            }
+        }
+    ],
+    indirect=True,
+)
+def test_conflicting_accounts_keep_both_source_attributions_and_citations(
+    database_url: str, models: Models, tracking_uri: str
+) -> None:
+    snapshot = SourceSnapshot.model_validate_json(
+        Path("data/seed/policy/conflict-v1.json").read_text()
+    )
+    EvidenceStore(database_url).load(snapshot)
+    TextRetriever(database_url, models.embedding, models.settings.embedding_id, 3).prepare(
+        snapshot.snapshot_id
+    )
+    with TestClient(create_app(database_url, models=models, tracking_uri=tracking_uri)) as client:
+        result = client.post(
+            "/v1/answers",
+            json={
+                "snapshot_id": snapshot.snapshot_id,
+                "question": "In which year did Alex Vale marry Blair Example?",
+            },
+        )
+        assert result.status_code == 200, result.text
+        answer = result.json()["response"]
+        assert answer["status"] == "partial"
+        assert answer["qualifications"][0]["evidence_ids"] == ["account-a", "account-b"]
+        assert {c["source"]["title"] for c in answer["citations"]} == {
+            "Synthetic policy fixture: account-a",
+            "Synthetic policy fixture: account-b",
+        }
+        for citation in answer["citations"]:
+            resolved = client.get(citation["resolve_path"]).json()["matches"][0]
+            assert resolved["source"] == citation["source"]
+            assert resolved["sha256"] == citation["sha256"]
+        trace = MlflowClient(tracking_uri=tracking_uri).get_trace(answer["trace_id"], flush=True)
+        model_span = next(s for s in trace.data.spans if s.name == "answer_model")
+        prompt = str(model_span.inputs)
+        assert "Synthetic policy fixture: account-a" in prompt
+        assert "Synthetic policy fixture: account-b" in prompt
+
+
+@pytest.mark.parametrize(
+    "models,precision,phrase",
+    [
+        (
+            {
+                "draft": {
+                    "answer": (
+                        "Right, listen. In this synthetic account, Alex arrived on 3 March 2001."
+                    ),
+                    "status": "answered",
+                    "evidence_ids": ["timing-001"],
+                    "qualifications": [
+                        {
+                            "kind": "timing",
+                            "precision": "exact",
+                            "detail": "3 March 2001",
+                            "evidence_ids": ["timing-001"],
+                        }
+                    ],
+                }
+            },
+            "exact",
+            "3 March 2001",
+        ),
+        (
+            {
+                "draft": {
+                    "answer": (
+                        "Right, listen. In this synthetic account, Alex married around spring 2004."
+                    ),
+                    "status": "answered",
+                    "evidence_ids": ["timing-001"],
+                    "qualifications": [
+                        {
+                            "kind": "timing",
+                            "precision": "approximate",
+                            "detail": "Around spring 2004",
+                            "evidence_ids": ["timing-001"],
+                        }
+                    ],
+                }
+            },
+            "approximate",
+            "around spring 2004",
+        ),
+        (
+            {
+                "draft": {
+                    "answer": (
+                        "Right, listen. In this synthetic account, Alex left two weeks after "
+                        "the wedding."
+                    ),
+                    "status": "answered",
+                    "evidence_ids": ["timing-001"],
+                    "qualifications": [
+                        {
+                            "kind": "timing",
+                            "precision": "relative",
+                            "detail": "Two weeks after the wedding; no calendar date established",
+                            "evidence_ids": ["timing-001"],
+                        }
+                    ],
+                }
+            },
+            "relative",
+            "two weeks after the wedding",
+        ),
+        (
+            {
+                "draft": {
+                    "answer": (
+                        "Right, listen. This synthetic account doesn't state the hearing's "
+                        "story date. Its publication and broadcast dates don't establish "
+                        "that."
+                    ),
+                    "status": "partial",
+                    "evidence_ids": ["timing-001"],
+                    "unanswered": ["What was the hearing's story date?"],
+                    "qualifications": [
+                        {
+                            "kind": "timing",
+                            "precision": "unknown",
+                            "detail": (
+                                "Story date unknown; neither publication nor broadcast "
+                                "establishes it"
+                            ),
+                            "evidence_ids": ["timing-001"],
+                        }
+                    ],
+                }
+            },
+            "unknown",
+            "doesn't state the hearing's story date",
+        ),
+    ],
+    indirect=["models"],
+)
+def test_story_time_precision_survives_answer_appendix_and_saved_receipt(
+    database_url: str, models: Models, tracking_uri: str, precision: str, phrase: str
+) -> None:
+    snapshot = SourceSnapshot.model_validate_json(
+        Path("data/seed/policy/timing-v1.json").read_text()
+    )
+    references = json.loads(Path("data/references/answer-policy-v1.json").read_text())
+    question = next(
+        c["question"] for c in references["cases"] if c["case_id"] == "timing-" + precision
+    )
+    EvidenceStore(database_url).load(snapshot)
+    TextRetriever(database_url, models.embedding, models.settings.embedding_id, 3).prepare(
+        snapshot.snapshot_id
+    )
+    with TestClient(create_app(database_url, models=models, tracking_uri=tracking_uri)) as client:
+        result = client.post(
+            "/v1/answers", json={"snapshot_id": snapshot.snapshot_id, "question": question}
+        )
+        assert result.status_code == 200, result.text
+        receipt = result.json()
+        answer = receipt["response"]
+        assert answer["status"] == ("partial" if precision == "unknown" else "answered")
+        assert phrase in answer["answer"]
+        assert answer["qualifications"][0]["precision"] == precision
+        saved = client.get(
+            f"/v1/responses/{answer['response_id']}",
+            headers={"Authorization": f"Bearer {receipt['read_token']}"},
+        )
+        assert saved.json() == answer
+
+
+@pytest.mark.parametrize("models", [{"forbid_chat": True}], indirect=True)
+def test_empty_context_abstains_without_model_inference_or_a_negative_fact(
+    database_url: str, models: Models, tracking_uri: str
+) -> None:
+    snapshot = SourceSnapshot.model_validate_json(
+        Path("data/seed/policy/no-context-v1.json").read_text()
+    )
+    EvidenceStore(database_url).load(snapshot)
+    TextRetriever(database_url, models.embedding, models.settings.embedding_id, 3).prepare(
+        snapshot.snapshot_id
+    )
+    with TestClient(create_app(database_url, models=models, tracking_uri=tracking_uri)) as client:
+        result = client.post(
+            "/v1/answers",
+            json={
+                "snapshot_id": snapshot.snapshot_id,
+                "question": "Did Alex Vale commit any crime?",
+            },
+        )
+        assert result.status_code == 200, result.text
+        answer = result.json()["response"]
+        assert len(answer["retrieved"]) == 1
+        assert answer["context"] == []
+        assert answer["status"] == "insufficient_evidence"
+        assert answer["citations"] == []
+        assert "doesn't establish that an event didn't happen" in answer["answer"]
+        assert answer["usage"]["input_tokens"] == answer["usage"]["output_tokens"] == 0
+        trace = MlflowClient(tracking_uri=tracking_uri).get_trace(answer["trace_id"], flush=True)
+        assert not any(s.span_type == "LLM" for s in trace.data.spans)
 
 
 def test_answer_has_resolvable_citations_real_trace_and_durable_private_receipt(
@@ -168,6 +587,9 @@ def test_invalid_model_citation_becomes_a_traced_failure_with_a_response_identif
                         {
                             "answer": "An unsupported claim.",
                             "evidence_ids": ["invented-001"],
+                            "status": "answered",
+                            "unanswered": [],
+                            "qualifications": [],
                         }
                     ),
                 },
@@ -211,8 +633,59 @@ def test_invalid_model_citation_becomes_a_traced_failure_with_a_response_identif
         assert trace.info.state.value == "ERROR"
 
 
+@pytest.mark.parametrize(
+    "models,question,expected",
+    [
+        ({}, "When did Phil arrive?", "answered"),
+        (
+            {
+                "draft": {
+                    "answer": (
+                        "Right, listen. I arrived in February 1990. This evidence doesn't "
+                        "identify my mother."
+                    ),
+                    "evidence_ids": ["phil-arrival-001"],
+                    "status": "partial",
+                    "unanswered": ["Who is Phil's mother?"],
+                }
+            },
+            "When did Phil arrive, and who is his mother?",
+            "partial",
+        ),
+        (
+            {
+                "draft": {
+                    "answer": "Which character do you mean?",
+                    "evidence_ids": [],
+                    "status": "clarification",
+                    "unanswered": ["Which character?"],
+                }
+            },
+            "When did they arrive?",
+            "clarification",
+        ),
+        (
+            {
+                "draft": {
+                    "answer": "I can't identify my mother from this captured evidence.",
+                    "evidence_ids": [],
+                    "status": "insufficient_evidence",
+                }
+            },
+            "Who is Phil's mother?",
+            "insufficient_evidence",
+        ),
+    ],
+    indirect=["models"],
+)
 def test_cli_asks_and_resolves_the_original_response_over_http(
-    database_url: str, seed: SourceSnapshot, models: Models, tracking_uri: str, tmp_path: Path
+    database_url: str,
+    seed: SourceSnapshot,
+    models: Models,
+    tracking_uri: str,
+    tmp_path: Path,
+    question: str,
+    expected: str,
 ) -> None:
     EvidenceStore(database_url).load(seed)
     TextRetriever(database_url, models.embedding, models.settings.embedding_id, 3).prepare(
@@ -242,13 +715,14 @@ def test_cli_asks_and_resolves_the_original_response_over_http(
             ]
             env = {k: v for k, v in os.environ.items() if k != "DATABASE_URL"}
             asked = subprocess.run(
-                [*command, "ask", "When did Phil arrive?", "--snapshot", seed.snapshot_id],
+                [*command, "ask", question, "--snapshot", seed.snapshot_id],
                 capture_output=True,
                 text=True,
                 timeout=30,
                 env=env,
             )
             assert asked.returncode == 0, asked.stderr
+            assert json.loads(asked.stdout)["response"]["status"] == expected
             receipt_file = tmp_path / "receipt.json"
             receipt_file.write_text(asked.stdout)
             original = subprocess.run(

@@ -94,7 +94,7 @@ class ModelSettings(Record):
     embedding_digest: Fingerprint
     embedding_dimensions: int = Field(default=768, ge=1, le=2000)
     context_window: int = Field(default=4096, ge=4096, le=4096)
-    output_tokens: int = Field(default=256, ge=256, le=256)
+    output_tokens: int = Field(default=256, ge=256, le=512)
     temperature: float = Field(default=0, ge=0, le=0)
     request_timeout_seconds: int = Field(default=180, ge=1, le=180)
     seed: int = 17

@@ -1,0 +1,241 @@
+{
+  "scope": "Served responses and appendix, not the rejected raw model drafts. Technical failures and coverage messages contain no asserted story facts, so correctness/groundedness/citation-support denominators are zero. Completeness and answerability remain evaluated. This diagnostic does not claim quality acceptance.",
+  "reviews": [
+    {
+      "case_id": "ambiguous-character",
+      "response_sha256": "a9b917ce9e6bed4364e2d745053e9d2a5c7437d22e8711eb910e90d86849dbb4",
+      "reference_sha256": "f6dbe3348e355b971752fb0bd9bddb3c211d74afd1838ea75a3ed67f9f9b5d82",
+      "reviewer": "Codex, separate inspection of frozen served responses on 2026-09-24; not a human or calibrated judge",
+      "rationale": "Served only a technical failure; no clarification question. Rejected draft guessed Phil and omitted timing precision.",
+      "claims": [],
+      "required_facts": [
+        {
+          "fact": "Ask which character or characters the user means",
+          "covered": false
+        }
+      ],
+      "answerability": false,
+      "critical_failures": []
+    },
+    {
+      "case_id": "missing-mother",
+      "response_sha256": "19b5cb8dd2418ded95b883cb556bff61de0555ba65743bf9bfefebadd6651dcc",
+      "reference_sha256": "66d87e718ade462433a85a993500e93ac27f262bf70e979eb4d660af4e4704d4",
+      "reviewer": "Codex, separate inspection of frozen served responses on 2026-09-24; not a human or calibrated judge",
+      "rationale": "Served only a technical failure, not a coverage-qualified abstention. Rejected draft attached unrelated arrival evidence and an incomplete timing note.",
+      "claims": [],
+      "required_facts": [
+        {
+          "fact": "The retained evidence cannot identify his mother",
+          "covered": false
+        }
+      ],
+      "answerability": false,
+      "critical_failures": []
+    },
+    {
+      "case_id": "arrival-and-mother",
+      "response_sha256": "efb05522d8182f8745e2ce94d2a67adf8ed6edc182537cb5ad090aad1b2d73bb",
+      "reference_sha256": "bbb4f03fab770e4828dadfdc51da002eb74747bbbe9e27715b9edbf83bfd5ed6",
+      "reviewer": "Codex, separate inspection of frozen served responses on 2026-09-24; not a human or calibrated judge",
+      "rationale": "Served only a technical failure; the supported arrival and unanswered mother are not delivered. Rejected draft omitted precision and mislabeled missing evidence as explicit negative.",
+      "claims": [],
+      "required_facts": [
+        {
+          "fact": "Phil first arrived in February 1990",
+          "covered": false
+        },
+        {
+          "fact": "The retained evidence does not identify his mother",
+          "covered": false
+        }
+      ],
+      "answerability": false,
+      "critical_failures": []
+    },
+    {
+      "case_id": "false-arrival-premise",
+      "response_sha256": "5c3393e362cf0499cc27a5f0eb595f9ad1f0412a04324851eeeaae0bf33cf45c",
+      "reference_sha256": "a8cd533fad9ea6a9f0c5264ddf46fe1925822d6578b1f4ff1ebb28507b046844",
+      "reviewer": "Codex, separate inspection of frozen served responses on 2026-09-24; not a human or calibrated judge",
+      "rationale": "Served only a technical failure. Rejected draft incorrectly calls the documented purpose missing and omits precision; corrected v2 reference permits a full corrected answer.",
+      "claims": [],
+      "required_facts": [
+        {
+          "fact": "Phil first arrived in February 1990, contradicting 2001",
+          "covered": false
+        },
+        {
+          "fact": "Phil arrived to open The Arches",
+          "covered": false
+        }
+      ],
+      "answerability": false,
+      "critical_failures": []
+    },
+    {
+      "case_id": "explicit-negative",
+      "response_sha256": "24b6daf751e65fee39278bab35310ed4ad856e6a89a236f7ca66ca81f12514ee",
+      "reference_sha256": "06a6279484b78b3ee04a3eb5e95217345da6c600a5722126f1c8addf347f56dd",
+      "reviewer": "Codex, separate inspection of frozen served responses on 2026-09-24; not a human or calibrated judge",
+      "rationale": "Served only a technical failure. Rejected draft has an irrelevant timing qualification without precision and omits the synthetic provenance label.",
+      "claims": [],
+      "required_facts": [
+        {
+          "fact": "The synthetic account explicitly says Alex Vale did not rob the cafe",
+          "covered": false
+        }
+      ],
+      "answerability": false,
+      "critical_failures": []
+    },
+    {
+      "case_id": "unresolved-conflict",
+      "response_sha256": "3b5eb908fdc23cecd250b6af73b4ad37847073c376a746cabad0b25d702c3912",
+      "reference_sha256": "415907a977e93a01b7907c02c7becc262bccead6f993ae8b8562301176c85fd4",
+      "reviewer": "Codex, separate inspection of frozen served responses on 2026-09-24; not a human or calibrated judge",
+      "rationale": "Served only a technical failure. Rejected draft was truncated at the 256-token limit. No attributed conflict explanation reaches the user.",
+      "claims": [],
+      "required_facts": [
+        {
+          "fact": "Account A reports 2001",
+          "covered": false
+        },
+        {
+          "fact": "Account B reports 2003",
+          "covered": false
+        },
+        {
+          "fact": "The disagreement cannot be resolved from these accounts",
+          "covered": false
+        }
+      ],
+      "answerability": false,
+      "critical_failures": []
+    },
+    {
+      "case_id": "timing-exact",
+      "response_sha256": "2dfc6f984f80446281df9f5c82eb8dde52068403c75872c1f43d75c31c5c6ab6",
+      "reference_sha256": "123c93fe6fa5a440fcc2cad59da604aefdf738f87c9442d9021a750ed5c7142b",
+      "reviewer": "Codex, separate inspection of frozen served responses on 2026-09-24; not a human or calibrated judge",
+      "rationale": "Served only a technical failure. Rejected draft states the source date but omits required precision and the synthetic label.",
+      "claims": [],
+      "required_facts": [
+        {
+          "fact": "3 March 2001",
+          "covered": false
+        }
+      ],
+      "answerability": false,
+      "critical_failures": []
+    },
+    {
+      "case_id": "timing-approximate",
+      "response_sha256": "d8fa543c6d2719d4845b82f42bb1e81281f65b1d4f8e4e1121e2c1e4ce2d1819",
+      "reference_sha256": "c8088abeb710ab2d5bc54fc98e4430e4a9e47750d4bcddeaf7597cf8b612c099",
+      "reviewer": "Codex, separate inspection of frozen served responses on 2026-09-24; not a human or calibrated judge",
+      "rationale": "Served only a technical failure. Rejected draft retains around spring 2004 but omits required precision and synthetic label.",
+      "claims": [],
+      "required_facts": [
+        {
+          "fact": "Around spring 2004",
+          "covered": false
+        }
+      ],
+      "answerability": false,
+      "critical_failures": []
+    },
+    {
+      "case_id": "timing-relative",
+      "response_sha256": "7c59784ba8715fed1346b1a9ab50b116e84718f4fcdb8c14d379e588dae5f504",
+      "reference_sha256": "b2eb3751830839b2f311f8a14e09b6cb6766bb4e5f48eaf2fbdae3809e267f6a",
+      "reviewer": "Codex, separate inspection of frozen served responses on 2026-09-24; not a human or calibrated judge",
+      "rationale": "Served only a technical failure. Rejected draft retains the relative anchor but omits required precision and synthetic label.",
+      "claims": [],
+      "required_facts": [
+        {
+          "fact": "Two weeks after the wedding",
+          "covered": false
+        }
+      ],
+      "answerability": false,
+      "critical_failures": []
+    },
+    {
+      "case_id": "timing-unknown",
+      "response_sha256": "262fdffd9029c909e0fefbb450084c0228f81b33f2942fd9dd94c0179f14938f",
+      "reference_sha256": "710c5c0ac579b807ce143832e22d551811be47707944df42ef1f32035f37ddf1",
+      "reviewer": "Codex, separate inspection of frozen served responses on 2026-09-24; not a human or calibrated judge",
+      "rationale": "Served only a technical failure. Rejected draft omits required precision; insufficient_evidence is also incompatible with its citations.",
+      "claims": [],
+      "required_facts": [
+        {
+          "fact": "The story date is not stated",
+          "covered": false
+        },
+        {
+          "fact": "Publication and broadcast dates do not establish the hearing date",
+          "covered": false
+        }
+      ],
+      "answerability": false,
+      "critical_failures": []
+    },
+    {
+      "case_id": "empty-assembled-context",
+      "response_sha256": "7c31b682b3a786003f3ef75e4031566f96cf9338dc380b93a74773f903e30049",
+      "reference_sha256": "91da2139af6e84695686ad6ccad1aaaaa6a992887fb9e326e6915e3f4dcddd82",
+      "reviewer": "Codex, separate inspection of frozen served responses on 2026-09-24; not a human or calibrated judge",
+      "rationale": "The fixed response says it cannot answer from available context and explicitly says absence does not establish non-occurrence. No domain fact or citation is asserted.",
+      "claims": [],
+      "required_facts": [
+        {
+          "fact": "No usable evidence in the assembled context",
+          "covered": true
+        },
+        {
+          "fact": "This does not establish that an event did not happen",
+          "covered": true
+        }
+      ],
+      "answerability": true,
+      "critical_failures": []
+    },
+    {
+      "case_id": "supported-arrival",
+      "response_sha256": "ea27506e950dcb00638c1aca0a8323bec4201ae4d74232b36f914f789219cf94",
+      "reference_sha256": "b30b73620b13e0b025975175178fac9a860365fef77768c5401935411b422303",
+      "reviewer": "Codex, separate inspection of frozen served responses on 2026-09-24; not a human or calibrated judge",
+      "rationale": "Served only a technical failure. Rejected draft retains the month but omits required precision.",
+      "claims": [],
+      "required_facts": [
+        {
+          "fact": "Phil first arrived in February 1990",
+          "covered": false
+        }
+      ],
+      "answerability": false,
+      "critical_failures": []
+    },
+    {
+      "case_id": "unknown-arrival-day",
+      "response_sha256": "6202d77cb9c771f8b0148371192cbd357f1c0f48c5f25029950f919f9502b4c5",
+      "reference_sha256": "b90b712e73609c259d0cfc29b693f6c3b4758a6a62f618c41849d9baae347e90",
+      "reviewer": "Codex, separate inspection of frozen served responses on 2026-09-24; not a human or calibrated judge",
+      "rationale": "Served only a technical failure; no supported month or missing-day qualification reaches the user.",
+      "claims": [],
+      "required_facts": [
+        {
+          "fact": "February 1990 is supported",
+          "covered": false
+        },
+        {
+          "fact": "The exact day is not established",
+          "covered": false
+        }
+      ],
+      "answerability": false,
+      "critical_failures": []
+    }
+  ]
+}
