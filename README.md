@@ -7,7 +7,13 @@ snapshot coverage, actual MLflow traces and a durable original-response identifi
 Fusion, caching, graph/investigative routes, conversational history and the online
 feedback/evaluation loop remain later tickets.
 
-The fixture contains **one reviewed passage**, not a complete EastEnders knowledge
+Issue #4 adds partial/clarification outcomes, evidence-linked qualifications and
+separate quality scoring. **66 Docker tests pass, but model acceptance remains open:**
+the local model still mishandles ambiguity and false premises, and a served appendix
+claim failed citation support. See the [results and stronger-model handoff](docs/implementation/issue-4/README.md)
+before treating this as an accepted answer-quality baseline.
+
+The default source snapshot contains **one reviewed passage**, not a complete EastEnders knowledge
 base. Gemma 4 E2B QAT is a laptop development convenience. Its smoke results are
 not deployment or representative quality evidence. Move to a more capable model
 before substantial extraction pilots or serious quality acceptance, and record
@@ -48,9 +54,16 @@ Keep receipts private; the example saves them in the Git-ignored `artifacts/` di
 Lookup returns the original answer/context/measurements, without rerunning a model.
 There is no assessment-write or feedback endpoint in this slice.
 
+Response status distinguishes `answered`, `partial`, `clarification`,
+`insufficient_evidence` and `failed`. Partial/clarification replies identify
+`unanswered` parts; `qualifications` carry evidence-linked corrections, conflicts,
+explicit negatives and date precision. Optional empty fields stay absent from old
+saved responses. An empty assembled context produces a fixed abstention without
+answer-model inference. These contract checks do not prove semantic support.
+
 Limits: 500 question characters **and** 1,000 UTF-8 bytes, one query embedding,
 exact cosine retrieval at k=3, 1,200 UTF-8 bytes of whole-passage context and one
-generation call with at most 256 output tokens in a 4,096-token window. The SDK
+generation call with at most 512 output tokens in a 4,096-token window. The SDK
 timeout is 180 seconds per network operation; it is not a guaranteed wall-clock
 cancellation or an account spending cap. No automatic model retries, answer
 cache or query fusion is enabled. Oversized passages must be split before indexing.

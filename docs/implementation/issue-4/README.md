@@ -143,7 +143,8 @@ evidence and attached an irrelevant citation. Do not dilute the known failures i
 aggregate metrics or move exposed examples into a held-out split.
 
 Final runtime bounds are one answer call, no retries, whole-span context ≤1200 UTF-8
-bytes, model context 4096, output ≤512 tokens, and per-call timeout ≤180 seconds. The
+bytes, model context 4096, output ≤512 tokens, and a 180-second network-operation
+timeout. That timeout is not a guaranteed wall-clock deadline or account spending cap. The
 512 ceiling follows observed truncation; old 256-token receipts remain valid. Local
 API cost is zero, excluding hardware, electricity and hosting. Capture runs overlapped
 some Docker builds, so these timings are not a controlled performance comparison.

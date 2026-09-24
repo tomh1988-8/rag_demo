@@ -1,0 +1,78 @@
+{
+  "issue_number": 4,
+  "recorded_at": "2026-09-24T14:05:47.186689+00:00",
+  "status": "software_verified_semantic_acceptance_pending",
+  "github_issue_closed": false,
+  "review_base": "936f265d614345a3209e7f955f1aa82fa9f95a28",
+  "code_and_evidence_commit": "172b42d17ff5a3c3b1bc5ec07679a92341ff2225",
+  "application_sha256": "84785d14801714146411db684fa64666332f9ca5fed143d43c7c73d07f93551d",
+  "lock_sha256": "31cbb5a37f67ea28ec174fc35d4720062b30bfbe2c9a325d14799189191f70e8",
+  "reference_file": "data/references/answer-policy-v2.json",
+  "reference_file_sha256": "6e5d81207393ec8c2b324ed790133432c5d8dac6ccdaeb8b63ce1b939fa7e8e7",
+  "software_checks": {
+    "docker_tests": 66,
+    "failures": 0,
+    "errors": 0,
+    "skipped": 0,
+    "junit": "docs/implementation/issue-4/tests.xml",
+    "log": "docs/implementation/issue-4/docker-tests.log",
+    "ruff": "passed",
+    "mypy": "passed,23 source files",
+    "full_suite_runs": 1,
+    "external_substitutes": "model HTTP boundary only; real PostgreSQL/pgvector,MLflow and CLI/API integrations"
+  },
+  "review": {
+    "standards_required_findings_remaining": 0,
+    "standards_optional_suggestion": "Explicit integration setup duplication retained",
+    "spec_semantic_acceptance": "pending; known failures retained",
+    "record": "docs/implementation/issue-4/review.md",
+    "human_calibrated": false
+  },
+  "model_runs": {
+    "v1": "Interrupted after4 complete responses; fifth inference usage unavailable",
+    "v2": {
+      "cases": 13,
+      "appropriate_outcomes": 1,
+      "required_facts_covered": 2,
+      "required_facts": 20,
+      "run_id": "99b0412382e54011ace6115c274df6f8",
+      "scores": "docs/implementation/issue-4/scores-v2.json"
+    },
+    "v3": {
+      "cases": 6,
+      "scope": "targeted exposed subset, not full matrix",
+      "appropriate_outcomes": 3,
+      "required_facts_covered": 5,
+      "required_facts": 10,
+      "served_critical_false_citations": 1,
+      "run_id": "5c98b4d3d3504d5c8f64ca9fa8e0cd5e",
+      "scores": "docs/implementation/issue-4/scores-v3.json"
+    }
+  },
+  "regressions": "data/references/answer-policy-regressions-v1.json",
+  "spending": {
+    "paid_api_calls": 0,
+    "completed_served_responses": 23,
+    "completed_answer_model_calls": 22,
+    "interrupted_answer_model_calls": 1,
+    "empty_context_bypasses": 1,
+    "hardware_electricity_hosting_cost": "unmeasured"
+  },
+  "checklist": {
+    "current": 51,
+    "pass": 15,
+    "pending": 36,
+    "new_scoped_pass": [
+      "AD-06.3",
+      "RAG-03"
+    ],
+    "scope": "software counterexamples and separate quality measurement only; model quality and issue acceptance have not passed"
+  },
+  "next_action": {
+    "reasoning": "pro",
+    "work": "Configure a more capable provider, conservative request/account/key controls and a new baseline; rerun full reference matrix and regressions; resolve critical failures before closing4",
+    "missing_user_input": "API provider and locally configured credential environment-variable name; never request the key value in chat"
+  },
+  "runtime": "Updated images built/tested. Existing prior issue3 API/MLflow containers remain running; no acceptance deployment of the failing candidate.",
+  "publication": "User-authorized GitHub connector fallback; verify exact tree before final report. Native Git lacks push credentials; preserve both histories."
+}

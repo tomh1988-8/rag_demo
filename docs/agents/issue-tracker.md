@@ -22,6 +22,13 @@ The connector exposes issue creation/read/update and label operations but no nat
 - Remove labels: `gh issue edit <number> --repo tomh1988-8/rag_demo --remove-label "..."`
 - Close: `gh issue close <number> --repo tomh1988-8/rag_demo --comment "..."`
 
+Issue #4 is now implemented at the software-contract level (66 Docker tests), but
+remains **open** because local Gemma fails semantic acceptance, including a served
+citation-support regression. Resume #4 with a stronger provider, conservative local
+credential/spend controls and a new baseline. Provider choice and environment-variable
+name are pending user input. #5 remains independently unblocked; #4's dependants
+must not be advanced. See [the evidence](../implementation/issue-4/README.md).
+
 For multiline bodies, write the exact text to a temporary file and
 pass its path with `--body-file`.
 
