@@ -1,8 +1,8 @@
 # Ask Phil: checklist-based ticket breakdown, version 2
 
-Status: approved and published on 23 September 2026, with the user's feedback/online-evaluation amendment integrated. These 22 implementation tickets are GitHub issues #2–#23 under specification #1. Bodies and ready-for-agent labels are verified. Native dependency links remain pending a supported write capability; all 35 blocker references are saved. See the [next-skill handoff](HANDOFF.md), [publication manifest](publication.json) and [scope amendment record](feedback-amendment.json). Issue #2 is complete and closed; [native and Docker acceptance evidence](../../implementation/issue-2/README.md) is saved. Issues #3 and #5 are the next available work.
+Status: approved and published on 23 September 2026, with the user's feedback/online-evaluation amendment integrated. These 24 implementation tickets are GitHub issues #2–#25 under specification #1. Bodies and ready-for-agent labels are verified. Native dependency links remain pending a supported write capability; all 41 blocker references are saved. See the [next-skill handoff](HANDOFF.md), [publication manifest](publication.json) and [scope amendment record](feedback-amendment.json). Issue #2 is complete and closed; [native and Docker acceptance evidence](../../implementation/issue-2/README.md) is saved. Issues #3 and #5 are the next available work.
 
-Sources: the [agreed specification](../../specs/ask-phil.md), [checklist v1.1](../../checklists/agent-development.md), [project profile and evidence register](../../checklists/ask-phil-profile.md), [testing strategy](../../design/testing-and-evaluation.md), root domain glossary and active ADRs. The [story coverage matrix](spec-coverage.md) maps all 116 stories. The [previous proposal](../ask-phil-tickets/README.md) is retained as superseded history.
+Sources: the [agreed specification](../../specs/ask-phil.md), [checklist v1.1](../../checklists/agent-development.md), [project profile and evidence register](../../checklists/ask-phil-profile.md), [testing strategy](../../design/testing-and-evaluation.md), root domain glossary and active ADRs. The [story coverage matrix](spec-coverage.md) maps all 130 stories. The [previous proposal](../ask-phil-tickets/README.md) is retained as superseded history.
 
 ## How this breakdown applies the checklist
 
@@ -10,7 +10,7 @@ Tickets deliver complete observable behaviors. Checklist areas provide obligatio
 
 The project profile reviews all 64 checklist items: 51 apply to the local release, one is deferred to deployment and 12 are not applicable to the chosen capabilities. Three applicable items have design evidence and five have first-slice runtime evidence; the other 43 remain Pending. The first slice has 17 passing tests in each of the native and Docker environments, reviewed development references, and a successful fresh Compose startup and database/API restart. Generative quality and complete-product acceptance remain unverified.
 
-The sequence starts with a deterministic evidence-inspection baseline and reviewed seed, then a complete measured text answer. Source coverage for all 20 characters can land early while graph semantics develop. Crime/justice and other events have separate slices. Execution limits precede model-directed investigation. Broader checked graph coverage reuses the proven ingestion/review path. All feature tickets carry tests and evaluations; final acceptance in ticket 20 integrates the suite, including the new feedback and online-evaluation tickets 21–22.
+The sequence starts with a deterministic evidence-inspection baseline and reviewed seed, then a complete measured text answer. Source coverage for all 20 characters can land early while graph semantics develop. Crime/justice and other events have separate slices. Execution limits precede model-directed investigation. Broader checked graph coverage reuses the proven ingestion/review path. All feature tickets carry tests and evaluations; final acceptance in ticket 20 integrates the suite, including feedback/online evaluation in 21–22 and fusion/caching in 23–24.
 
 The breakdown was approved before application code existed; issue #2 now supplies the initial CLI/API/database path. The six confirmed test boundaries remain unchanged. Initial models/providers, numerical caps, dataset sizes and thresholds are setup choices: choose conservative bounds before paid work, and set measured acceptance thresholds before examining held-out candidates.
 
@@ -81,7 +81,7 @@ The breakdown was approved before application code existed; issue #2 now supplie
    **What it delivers:** Run an investigative route that combines captured evidence, stops within limits and exposes the actual tools and findings.
 
 17. **[Route and escalate according to evidence](17-route-and-escalate.md)**  
-   **Blocked by:** 16.  
+   **Blocked by:** 16, 23.\
    **What it delivers:** Select an eligible route, escalate when evidence warrants it and show whether routing improves quality and total expense.
 
 18. **[Validate Phil's voice without changing facts](18-validate-phil-voice.md)**  
@@ -93,7 +93,7 @@ The breakdown was approved before application code existed; issue #2 now supplie
    **What it delivers:** Use the established pipeline across the 20 profiles, audit its coverage and answer reviewed graph questions with visible gaps.
 
 20. **[Reproduce and accept the complete local demo](20-accept-complete-local-demo.md)**  
-   **Blocked by:** 17, 18, 19, 22.  
+   **Blocked by:** 17, 18, 19, 24.\
    **What it delivers:** Run the complete local product and inspect reproducible software-test, component/e2e quality, latency and cost evidence against the text baseline, including the complete feedback-to-online-evaluation-to-review loop.
 
 21. **[Capture response feedback and inspect live quality signals](21-capture-response-feedback.md)**  
@@ -104,18 +104,26 @@ The breakdown was approved before application code existed; issue #2 now supplie
    **Blocked by:** 08, 21.  
    **What it delivers:** Automatically evaluate original served interactions using feedback-directed and background samples, then review reports and promote checked failures into regression data within explicit limits.
 
+23. **[Answer with fused retrieval and wider source context](23-fuse-text-retrieval-and-expand-context.md)**
+   **Blocked by:** 03, 04.
+   **What it delivers:** A conventional text answer using multi-query RRF and bounded sentence-window expansion, with citations and four measured retrieval ablations.
+
+24. **[Reuse eligible text answers with a versioned cache](24-cache-repeated-text-answers.md)**
+   **Blocked by:** 23, 05, 22.
+   **What it delivers:** Repeated standalone questions reuse compatible supported answers, with invalidation, new serving identities, honest measurements and working feedback/online evaluation.
+
 ## Dependency review
 
-- Plan numbers are stable identifiers, not execution order: new tickets 21–22 must finish before final acceptance in 20. One valid dependency order is 01–09, 21–22, 10–19, 20. Start any ticket whose blockers are complete.
+- Plan numbers are stable identifiers, not execution order: new tickets 21–24 must finish before final acceptance in 20. One valid dependency order is 01–09, 21–22, 23–24, 10–19, 20. Start any ticket whose blockers are complete.
 - After 01, the text-answer and real-source paths can proceed independently. After 03, conversation work (once identities exist), calibrated comparisons and execution limits can proceed alongside the first graph capability.
 - Ticket 06 brings the complete text roster into use before the checked graph expansion in 19. The same generic pipeline supports future notable characters; family names do not define separate code features.
 - Relationship histories and crime/justice build independently on 10. Other life events extend the actual shared-event path in 12. Connection queries compose those established capabilities in 15.
 - The investigator depends on enforced execution boundaries and graph capabilities. Routing depends on real available routes. Persona refinement depends on calibrated evaluation, not on completion of graph work.
 - Source recovery and claim admission join in 14. The core graph expansion in 19 needs working relationship/event semantics and review, but does not need automatic routing.
 - Feedback capture in 21 uses conversation identity and execution boundaries; online evaluation in 22 also needs calibrated scorers. These can proceed before the graph routes are complete, with every later route preserving the same feedback/trace contract.
-- Ticket 20 joins routing, persona, core graph coverage and the feedback/online-evaluation loop. All 21 other implementation tickets are ancestors of 20; conversation is inherited through 22 → 21 → 07.
+- Ticket 20 joins routing, persona, core graph coverage and the feedback/online-evaluation loop. All 23 other implementation tickets are ancestors of 20; cache plan 24 inherits feedback/online evaluation through 22 → 21 → 07.
 
-Static planning validation: 22 uniquely numbered tickets; 35 blocking edges; no cycles or redundant transitive blocking edges; all 116 stories mapped; all 51 currently applicable checklist items have a primary evidence owner. These are document consistency checks, not product tests.
+Static planning validation: 24 uniquely numbered tickets; 41 blocking edges; no cycles or redundant transitive blocking edges; all 130 stories mapped; all 51 currently applicable checklist items have a primary evidence owner. These are document consistency checks, not product tests.
 
 ## Shared completion pattern
 
@@ -134,7 +142,7 @@ GitHub is the configured tracker for `tomh1988-8/rag_demo`. The installed GitHub
 
 Each ticket contains a Parent reference to specification #1, spec-story references, the approved acceptance criteria and checklist evidence, and real issue numbers in its Blocked by section. The [handoff](HANDOFF.md) maps every local plan number to its GitHub issue. Do not confuse plan number 01 with specification issue #1: the first implementation ticket is [issue #2](https://github.com/tomh1988-8/rag_demo/issues/2).
 
-Native GitHub blocking relationships required by the skill remain outstanding. The connector has no dependency/sub-issue mutation tool, and gh/CLI credentials are unavailable. Readback confirms no native links were created. All 35 directed edges, including stable issue IDs, are saved for reconciliation when the capability becomes available; textual blocker references are not represented as native relationships.
+Native GitHub blocking relationships required by the skill remain outstanding. The connector has no dependency/sub-issue mutation tool, and gh/CLI credentials are unavailable. Readback confirms no native links were created. All 41 directed edges, including stable issue IDs, are saved for reconciliation when the capability becomes available; textual blocker references are not represented as native relationships.
 
 ## Approval recorded
 
@@ -143,3 +151,13 @@ The user approved this breakdown on 23 September 2026: “ok thats good lets pro
 ## Feedback and online-evaluation amendment
 
 The user subsequently required the final product to enable user feedback and use it in online evaluations. [Primary-source research](../../research/feedback-and-online-evaluation.md) informed the updated specification, checklist v1.1 and two new complete behavior slices. This explicit request authorises the parent-spec amendment; original story IDs 1–98 and ticket IDs are preserved, with stories 99–116 appended. Feedback and automatic online evaluation are required during local use, before hosting. All new runtime evidence remains Pending.
+
+## Fusion and cache amendment
+
+The user explicitly requested this scope update and publication of local code.
+The [research](../../research/rag-fusion-and-answer-caching.md) distinguishes RAG-Fusion
+from surrounding-context expansion; both belong to conventional text retrieval.
+Plans 23–24 add complete observable slices without enlarging the next basic-answer
+ticket. Final acceptance requires both; the single-query baseline stays available
+and semantic-cache matching remains a separately gated future extension.
+The [amendment record](fusion-cache-amendment.json) records current scope validation.

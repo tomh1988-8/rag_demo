@@ -1,14 +1,14 @@
 # 20: Reproduce and accept the complete local demo
 
-Status: published as [GitHub #21](https://github.com/tomh1988-8/rag_demo/issues/21); feedback/online-evaluation amendment authorised by the user on 23 September 2026. Remote body and ready-for-agent label verified. Implementation has not started.
+Status: published as [GitHub #21](https://github.com/tomh1988-8/rag_demo/issues/21); fusion/cache scope amendment requested on 23 September 2026. Publication readback is recorded in the manifest. Implementation has not started.
 
-Spec stories: S01, S02, S03, S04, S05, S06, S07, S08, S09, S10, S11, S12, S15, S16, S31, S32, S35, S36, S37, S38, S39, S40, S41, S42, S43, S44, S45, S46, S47, S48, S49, S50, S51, S52, S53, S54, S55, S64, S65, S66, S67, S68, S69, S70, S71, S72, S73, S74, S79, S80, S81, S82, S83, S84, S85, S86, S87, S88, S89, S90, S91, S92, S93, S94, S95, S96, S97, S98, S99, S100, S101, S102, S103, S104, S105, S106, S107, S108, S109, S110, S111, S112, S113, S114, S115, S116.
+Spec stories: S01, S02, S03, S04, S05, S06, S07, S08, S09, S10, S11, S12, S15, S16, S31, S32, S35, S36, S37, S38, S39, S40, S41, S42, S43, S44, S45, S46, S47, S48, S49, S50, S51, S52, S53, S54, S55, S64, S65, S66, S67, S68, S69, S70, S71, S72, S73, S74, S79, S80, S81, S82, S83, S84, S85, S86, S87, S88, S89, S90, S91, S92, S93, S94, S95, S96, S97, S98, S99, S100, S101, S102, S103, S104, S105, S106, S107, S108, S109, S110, S111, S112, S113, S114, S115, S116, S117, S118, S119, S120, S121, S122, S123, S124, S125, S126, S127, S128, S129, S130.
 
 ## Parent
 
 #1 — Ask Phil: evidence-backed EastEnders RAG demonstration — specification
 
-Spec stories: S01, S02, S03, S04, S05, S06, S07, S08, S09, S10, S11, S12, S15, S16, S31, S32, S35, S36, S37, S38, S39, S40, S41, S42, S43, S44, S45, S46, S47, S48, S49, S50, S51, S52, S53, S54, S55, S64, S65, S66, S67, S68, S69, S70, S71, S72, S73, S74, S79, S80, S81, S82, S83, S84, S85, S86, S87, S88, S89, S90, S91, S92, S93, S94, S95, S96, S97, S98, S99, S100, S101, S102, S103, S104, S105, S106, S107, S108, S109, S110, S111, S112, S113, S114, S115, S116.
+Spec stories: S01, S02, S03, S04, S05, S06, S07, S08, S09, S10, S11, S12, S15, S16, S31, S32, S35, S36, S37, S38, S39, S40, S41, S42, S43, S44, S45, S46, S47, S48, S49, S50, S51, S52, S53, S54, S55, S64, S65, S66, S67, S68, S69, S70, S71, S72, S73, S74, S79, S80, S81, S82, S83, S84, S85, S86, S87, S88, S89, S90, S91, S92, S93, S94, S95, S96, S97, S98, S99, S100, S101, S102, S103, S104, S105, S106, S107, S108, S109, S110, S111, S112, S113, S114, S115, S116, S117, S118, S119, S120, S121, S122, S123, S124, S125, S126, S127, S128, S129, S130.
 
 ## What to build
 
@@ -26,6 +26,8 @@ Integrate and reproduce the capabilities and evidence delivered by the earlier s
 - [ ] Demonstrate optional feedback for actual text, graph and investigative responses, including a follow-up and a partial/abstain/clarification outcome. Verify original response/trace/snapshot association, durable receipt, duplicate/revised input and session/reset behavior through the CLI/API.
 - [ ] With the normal local stack running, show that feedback and sampled served traces automatically produce online metrics/assessments and a review disposition. Include late feedback after initial assessment, unrated sampling, unavailable/failed judges and exhausted evaluation budget without blocking chat. A manual offline run alone does not pass.
 - [ ] Inspect feedback coverage and every metric denominator, cohort/version and selection policy; keep satisfaction, reported errors, automated quality and reviewed correctness separate. Verify a checked feedback case enters a versioned regression dataset without held-out leakage. Label demo traffic as test data and show online expense separately from serving/offline costs.
+- [ ] Demonstrate bounded multi-query RRF plus source-context expansion in the conventional route. Inspect query fidelity, merged candidates, final-context support, resolvable expanded citations, fallbacks and four uncached text ablations; report the selected text policy used by router comparisons.
+- [ ] Demonstrate cold then warm exact-match cache use, snapshot/configuration invalidation, follow-up bypass and a new response/trace for every delivery. Submit feedback on a cached answer and inspect its automatic online assessment against original evidence. Report hit/error denominators and current-request latency/cost separately from uncached model-quality comparisons; semantic caching is not required.
 - [ ] Record applicable checklist results and revision-linked evidence in the project register, including failures, limitations and follow-up regressions. A documented plan alone does not pass an implementation check.
 
 ## Checklist evidence
@@ -46,5 +48,5 @@ Recheck when: Any release candidate; changed code, dependencies, prompts/models,
 - #18 — Route and escalate according to evidence: Automatic routing and all three bounded answer routes must be complete.
 - #19 — Validate Phil's voice without changing facts: Persona quality and factual/harm constraints must be validated.
 - #20 — Establish checked graph coverage across the core roster: The agreed roster must have reviewed text and checked graph coverage.
-- #23 — Evaluate live answers with feedback and close the review loop: Automatic local feedback evaluation and review must work; grounded conversation is inherited through its feedback prerequisite.
+- #25 — Reuse eligible text answers with a versioned cache: Repeated-question reuse and invalidation must work with feedback/online evaluation; #23 is inherited through this prerequisite.
 

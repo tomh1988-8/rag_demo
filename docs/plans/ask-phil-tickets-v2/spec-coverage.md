@@ -1,8 +1,8 @@
 # Specification coverage for ticket breakdown v2
 
-Planning traceability only. Each of the 116 stories has a primary delivery/evidence owner and any additional tickets that extend or integrate it; this does not establish implemented or tested coverage. Original stories 1–98 retain their IDs and primary owners; the user's feedback/online-evaluation amendment adds stories 99–116.
+Planning traceability only. Each of the 130 stories has a primary delivery/evidence owner and any additional tickets that extend or integrate it; this does not establish implemented or tested coverage. Original stories 1–98 retain their IDs and primary owners; the feedback/online-evaluation amendment adds stories 99–116 and the fusion/cache amendment adds stories 117–130.
 
-Source: [agreed specification](../../specs/ask-phil.md), SHA-256 `09d6030f6339360d2fc544d928825dc2ba30f1cfb6b3058e0d5338acd459d52e`. Checklist coverage and applicability are maintained separately in the [project evidence register](../../checklists/ask-phil-profile.md).
+Source: [agreed specification](../../specs/ask-phil.md), SHA-256 `a82e93bd170be20c253415606fcb9a6ab082f7a9a7c991d56ca5e757ca728c53`. Checklist coverage and applicability are maintained separately in the [project evidence register](../../checklists/ask-phil-profile.md).
 
 | Spec story | Requested outcome | Primary ticket | Other delivery or verification tickets |
 | --- | --- | --- | --- |
@@ -122,5 +122,19 @@ Source: [agreed specification](../../specs/ask-phil.md), SHA-256 `09d6030f633936
 | S114 | to demonstrate the complete answer-to-feedback-to-online-assessment-to-review path | [22](22-evaluate-live-feedback.md) | [20](20-accept-complete-local-demo.md) |
 | S115 | feedback and assessment provenance and revisions retained separately | [21](21-capture-response-feedback.md) | [02](02-generate-grounded-answer.md), [08](08-inspect-calibrated-comparisons.md), [20](20-accept-complete-local-demo.md), [22](22-evaluate-live-feedback.md) |
 | S116 | online evaluation expenditure separated from serving and offline evaluation costs | [22](22-evaluate-live-feedback.md) | [09](09-enforce-execution-boundaries.md), [20](20-accept-complete-local-demo.md) |
+| S117 | a conventional text answer to consider evidence found through several faithful query variants | [23](23-fuse-text-retrieval-and-expand-context.md) | [17](17-route-and-escalate.md), [20](20-accept-complete-local-demo.md) |
+| S118 | relevant surrounding sentences included when a retrieved passage omits essential context | [23](23-fuse-text-retrieval-and-expand-context.md) | [20](20-accept-complete-local-demo.md) |
+| S119 | every fact drawn from expanded context to retain its own resolvable source span | [23](23-fuse-text-retrieval-and-expand-context.md) | [20](20-accept-complete-local-demo.md) |
+| S120 | query expansion, retrieval fan-out and assembled context bounded and traced | [23](23-fuse-text-retrieval-and-expand-context.md) | [17](17-route-and-escalate.md), [20](20-accept-complete-local-demo.md) |
+| S121 | fusion and context expansion compared separately with single-query retrieval | [23](23-fuse-text-retrieval-and-expand-context.md) | [08](08-inspect-calibrated-comparisons.md), [17](17-route-and-escalate.md), [20](20-accept-complete-local-demo.md) |
+| S122 | eligible repeated standalone questions to reuse supported text answers | [24](24-cache-repeated-text-answers.md) | [20](20-accept-complete-local-demo.md) |
+| S123 | cached answers restricted to compatible snapshots and configurations with expiry and invalidation | [24](24-cache-repeated-text-answers.md) | [20](20-accept-complete-local-demo.md) |
+| S124 | conversation-dependent and incompatible requests excluded from shared answer reuse | [24](24-cache-repeated-text-answers.md) | [20](20-accept-complete-local-demo.md) |
+| S125 | cache hits to retain citations while receiving a new response identifier and truthful execution record | [24](24-cache-repeated-text-answers.md) | [20](20-accept-complete-local-demo.md), [21](21-capture-response-feedback.md) |
+| S126 | feedback and online evaluation to include each served cache hit | [24](24-cache-repeated-text-answers.md) | [20](20-accept-complete-local-demo.md), [21](21-capture-response-feedback.md), [22](22-evaluate-live-feedback.md) |
+| S127 | cold and warm cache results measured separately with explicit hit and error denominators | [24](24-cache-repeated-text-answers.md) | [08](08-inspect-calibrated-comparisons.md), [20](20-accept-complete-local-demo.md), [22](22-evaluate-live-feedback.md) |
+| S128 | a bounded cache with disable, expiry, retirement and failure fallback behavior | [24](24-cache-repeated-text-answers.md) | [20](20-accept-complete-local-demo.md) |
+| S129 | any later semantic matching for paraphrases gated by reviewed false-match evaluation | [24](24-cache-repeated-text-answers.md) | [20](20-accept-complete-local-demo.md) |
+| S130 | cache contents isolated across evaluation runs and dataset partitions | [24](24-cache-repeated-text-answers.md) | [08](08-inspect-calibrated-comparisons.md), [20](20-accept-complete-local-demo.md) |
 
 Story 65 spans delivery stages: manual Prefect refresh is current in 05; weekly scheduling when deployed is deferred under AD-10.3, with the project owner and hosting trigger recorded in the profile. Feedback and automatic online evaluation in stories 99–116 are current local-release requirements. No other story is silently dropped by the applicability decisions.

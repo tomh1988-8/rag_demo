@@ -1,14 +1,14 @@
 # 22: Evaluate live answers with feedback and close the review loop
 
-Status: published as [GitHub #23](https://github.com/tomh1988-8/rag_demo/issues/23); feedback/online-evaluation amendment authorised by the user on 23 September 2026. Remote body and ready-for-agent label verified. Implementation has not started.
+Status: published as [GitHub #23](https://github.com/tomh1988-8/rag_demo/issues/23); fusion/cache scope amendment requested on 23 September 2026. Publication readback is recorded in the manifest. Implementation has not started.
 
-Spec stories: S103, S104, S105, S106, S107, S108, S109, S110, S111, S112, S113, S114, S115, S116.
+Spec stories: S103, S104, S105, S106, S107, S108, S109, S110, S111, S112, S113, S114, S115, S116, S126, S127.
 
 ## Parent
 
 #1 — Ask Phil: evidence-backed EastEnders RAG demonstration — specification
 
-Spec stories: S103, S104, S105, S106, S107, S108, S109, S110, S111, S112, S113, S114, S115, S116.
+Spec stories: S103, S104, S105, S106, S107, S108, S109, S110, S111, S112, S113, S114, S115, S116, S126, S127.
 
 ## What to build
 
@@ -26,6 +26,8 @@ Normal local Ask Phil use automatically turns feedback and a configured sample o
 - [ ] Promote a checked live failure into versioned regression/reference data with original interaction/evidence lineage, independent expected facts, reviewer notes, story/duplicate grouping and held-out contamination checks. Re-evaluate a fix using the established offline process; do not make held-out labels available to tuning.
 - [ ] Start with independently reviewed workflow/scorer cases and test real PostgreSQL/local MLflow/Prefect through the public conversation/evaluation boundaries. Include late feedback, unrated sampling, revised/duplicate events, zero denominators, missing references/context, outage/recovery, disabled/failed/limited judges, redaction and hostile comments. Demonstrate normal interaction-to-feedback-to-automatic-assessment-to-review on a budgeted live local run, labelled as demo/test traffic.
 - [ ] Update the checklist evidence register with revision-linked results, failures and limitations. Required runtime evidence remains Pending until demonstrated.
+
+- [ ] Keep served-interaction identity distinct from shared generation lineage so the later cache slice can evaluate cached deliveries against original context. Cache integration and hit/fresh-generation cohort checks belong to that slice; repeated reuse must not become independent factual examples or duplicate original model cost.
 
 ## Checklist evidence
 
