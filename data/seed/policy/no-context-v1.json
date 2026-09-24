@@ -1,0 +1,30 @@
+{
+  "snapshot_id": "policy-no-context-v1",
+  "fixture_version": 1,
+  "source": {
+    "title": "Synthetic policy fixture: no-context",
+    "url": "https://example.invalid/policy/no-context",
+    "revision_id": "v1",
+    "revision_url": "https://example.invalid/policy/no-context/v1",
+    "section": "Controlled fictional account",
+    "captured_at": "2026-09-24T00:00:00Z",
+    "capture_sha256": "46042a1b1d102a3c5ccce5df6ea7346124a953dcdde011902e710abe67514e16",
+    "scope": "main_series",
+    "license_url": "https://creativecommons.org/publicdomain/zero/1.0/",
+    "attribution": "Project-authored synthetic test data, not EastEnders canon.",
+    "coverage": "Only the fictional statements explicitly retained here.",
+    "gaps": [
+      "No EastEnders canon coverage; not a live or independently verified source."
+    ],
+    "support_status": "synthetic_fixture"
+  },
+  "passages": [
+    {
+      "evidence_id": "oversized-001",
+      "text": "This controlled fixture contains only repetitive filler. This controlled fixture contains only repetitive filler. This controlled fixture contains only repetitive filler. This controlled fixture contains only repetitive filler. This controlled fixture contains only repetitive filler. This controlled fixture contains only repetitive filler. This controlled fixture contains only repetitive filler. This controlled fixture contains only repetitive filler. This controlled fixture contains only repetitive filler. This controlled fixture contains only repetitive filler. This controlled fixture contains only repetitive filler. This controlled fixture contains only repetitive filler. This controlled fixture contains only repetitive filler. This controlled fixture contains only repetitive filler. This controlled fixture contains only repetitive filler. This controlled fixture contains only repetitive filler. This controlled fixture contains only repetitive filler. This controlled fixture contains only repetitive filler. This controlled fixture contains only repetitive filler. This controlled fixture contains only repetitive filler. This controlled fixture contains only repetitive filler. This controlled fixture contains only repetitive filler. This controlled fixture contains only repetitive filler. This controlled fixture contains only repetitive filler. This controlled fixture contains only repetitive filler. This controlled fixture contains only repetitive filler. ",
+      "sha256": "46042a1b1d102a3c5ccce5df6ea7346124a953dcdde011902e710abe67514e16",
+      "start": 0,
+      "end": 1482
+    }
+  ]
+}

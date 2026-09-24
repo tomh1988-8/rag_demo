@@ -5,7 +5,7 @@ COPY pyproject.toml uv.lock .python-version ./
 COPY src ./src
 COPY data ./data
 COPY config ./config
-COPY scripts/evaluate_text_baseline.py ./scripts/evaluate_text_baseline.py
+COPY scripts/evaluate_text_baseline.py scripts/evaluate_answer_policy.py ./scripts/
 RUN uv sync --frozen --no-dev --no-editable --cache-dir /tmp/uv-cache
 RUN mkdir -p /app/artifacts && chown 10001:10001 /app/artifacts
 ENV PATH="/app/.venv/bin:$PATH"
@@ -18,6 +18,7 @@ FROM base AS test
 USER root
 RUN uv sync --frozen --no-editable --cache-dir /tmp/uv-cache
 COPY tests ./tests
+COPY docs/implementation/issue-3/docker-serving.json ./docs/implementation/issue-3/docker-serving.json
 USER 10001:10001
 CMD ["pytest", "-q", "-p", "no:cacheprovider"]
 

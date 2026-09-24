@@ -28,7 +28,7 @@ class Source(Record):
     attribution: NonEmpty
     coverage: NonEmpty
     gaps: tuple[NonEmpty, ...] = Field(min_length=1)
-    support_status: Literal["source_supported"] = "source_supported"
+    support_status: Literal["source_supported", "synthetic_fixture"] = "source_supported"
 
 
 class Passage(Record):
@@ -37,6 +37,8 @@ class Passage(Record):
     sha256: Fingerprint
     start: int = Field(ge=0)
     end: int = Field(gt=0)
+    # Omit absent overrides so published v1 snapshots and receipts retain their identity.
+    source: Source | None = Field(default=None, exclude_if=lambda value: value is None)
 
     @model_validator(mode="after")
     def validate_evidence(self) -> Self:

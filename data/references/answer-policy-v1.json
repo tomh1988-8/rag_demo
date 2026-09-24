@@ -1,0 +1,258 @@
+{
+  "dataset_id": "answer-policy-v1",
+  "split": "development",
+  "review": {
+    "reviewer": "Codex, evidence-first inspection before each implementation slice",
+    "human_reviewed": false,
+    "independent_canon_corroboration": false,
+    "method": "Expected facts and forbidden claims are derived from retained passages before model outputs. Synthetic sources are controlled counterexamples, not canon. Final independent Spec review checks the mapping.",
+    "limitations": "Exposed development cases, not a calibrated or held-out quality benchmark."
+  },
+  "cases": [
+    {
+      "case_id": "ambiguous-character",
+      "group_id": "unresolved-character-pronoun",
+      "snapshot_id": "phil-arrival-v1",
+      "question": "When did they arrive?",
+      "expected_status": "clarification",
+      "required_facts": [
+        "Ask which character or characters the user means"
+      ],
+      "evidence_ids": [],
+      "forbidden_claims": [
+        "Assuming that they refers to Phil without prior conversational context"
+      ],
+      "synthetic_source": false,
+      "review_note": "No conversation history or named subject is supplied. A passage about Phil does not settle the user's intended subject."
+    },
+    {
+      "case_id": "missing-mother",
+      "group_id": "phil-arrival-february-1990",
+      "snapshot_id": "phil-arrival-v1",
+      "question": "Who is Phil's mother?",
+      "expected_status": "insufficient_evidence",
+      "required_facts": [
+        "The retained evidence cannot identify his mother"
+      ],
+      "evidence_ids": [],
+      "forbidden_claims": [
+        "Phil has no mother",
+        "A mother's name from model memory"
+      ],
+      "synthetic_source": false,
+      "review_note": "Inspected the complete arrival clause; no parentage information. This is missing evidence, not ambiguity about the question."
+    },
+    {
+      "case_id": "arrival-and-mother",
+      "group_id": "phil-arrival-february-1990",
+      "snapshot_id": "phil-arrival-v1",
+      "question": "When did Phil first arrive in Walford, and who is his mother?",
+      "expected_status": "partial",
+      "required_facts": [
+        "Phil first arrived in February 1990",
+        "The retained evidence does not identify his mother"
+      ],
+      "evidence_ids": [
+        "phil-arrival-001"
+      ],
+      "forbidden_claims": [
+        "Phil has no mother",
+        "A mother's identity inferred from model memory"
+      ],
+      "synthetic_source": false,
+      "review_note": "The complete 111-character arrival clause supports the month/year only; it contains no parentage information."
+    },
+    {
+      "case_id": "false-arrival-premise",
+      "group_id": "phil-arrival-february-1990",
+      "snapshot_id": "phil-arrival-v1",
+      "question": "Why did Phil first arrive in Walford in 2001?",
+      "expected_status": "partial",
+      "required_facts": [
+        "Phil first arrived in February 1990, contradicting 2001",
+        "The evidence says he arrived to open The Arches; it cannot explain a first arrival in 2001"
+      ],
+      "evidence_ids": [
+        "phil-arrival-001"
+      ],
+      "forbidden_claims": [
+        "Accepting a first arrival in 2001",
+        "Inventing a later reason"
+      ],
+      "synthetic_source": false,
+      "review_note": "The arrival clause explicitly disproves the question's year. Correct it and explain the supported purpose; the requested 2001 explanation remains unanswered."
+    },
+    {
+      "case_id": "explicit-negative",
+      "group_id": "synthetic-cafe-robbery",
+      "snapshot_id": "policy-negative-v1",
+      "question": "Did Alex Vale rob the cafe?",
+      "expected_status": "answered",
+      "required_facts": [
+        "The synthetic account explicitly says Alex Vale did not rob the cafe"
+      ],
+      "evidence_ids": [
+        "negative-001"
+      ],
+      "forbidden_claims": [
+        "Alex robbed the cafe",
+        "Presenting synthetic material as EastEnders canon"
+      ],
+      "synthetic_source": true,
+      "review_note": "The full retained sentence explicitly negates this act by Alex; unlike absent evidence this supports a qualified negative."
+    },
+    {
+      "case_id": "unresolved-conflict",
+      "group_id": "synthetic-marriage-conflict",
+      "snapshot_id": "policy-conflict-v1",
+      "question": "In which year did Alex Vale marry Blair Example?",
+      "expected_status": "partial",
+      "required_facts": [
+        "Account A reports 2001",
+        "Account B reports 2003",
+        "The disagreement cannot be resolved from these accounts"
+      ],
+      "evidence_ids": [
+        "account-a",
+        "account-b"
+      ],
+      "forbidden_claims": [
+        "Choosing either year as settled",
+        "Claiming two marriages",
+        "Treating a later source as an established correction"
+      ],
+      "synthetic_source": true,
+      "review_note": "Inspected both separately attributed synthetic passages. Each claims one marriage year; neither establishes correction, authority or two weddings."
+    },
+    {
+      "case_id": "timing-exact",
+      "group_id": "synthetic-temporal-account",
+      "snapshot_id": "policy-timing-v1",
+      "question": "On what date did Alex Vale arrive?",
+      "expected_status": "answered",
+      "required_facts": [
+        "3 March 2001"
+      ],
+      "evidence_ids": [
+        "timing-001"
+      ],
+      "forbidden_claims": [
+        "Using the bulletin or broadcast date"
+      ],
+      "synthetic_source": true,
+      "review_note": "Directly inspected the authored temporal passage before generation; preserve exact timing. Unknown date has explicit evidence of missing story timing, so cite that limitation."
+    },
+    {
+      "case_id": "timing-approximate",
+      "group_id": "synthetic-temporal-account",
+      "snapshot_id": "policy-timing-v1",
+      "question": "When did Alex Vale marry?",
+      "expected_status": "answered",
+      "required_facts": [
+        "Around spring 2004"
+      ],
+      "evidence_ids": [
+        "timing-001"
+      ],
+      "forbidden_claims": [
+        "An exact wedding date"
+      ],
+      "synthetic_source": true,
+      "review_note": "Directly inspected the authored temporal passage before generation; preserve approximate timing. Unknown date has explicit evidence of missing story timing, so cite that limitation."
+    },
+    {
+      "case_id": "timing-relative",
+      "group_id": "synthetic-temporal-account",
+      "snapshot_id": "policy-timing-v1",
+      "question": "When did Alex Vale leave?",
+      "expected_status": "answered",
+      "required_facts": [
+        "Two weeks after the wedding"
+      ],
+      "evidence_ids": [
+        "timing-001"
+      ],
+      "forbidden_claims": [
+        "A calculated calendar date without an exact wedding date"
+      ],
+      "synthetic_source": true,
+      "review_note": "Directly inspected the authored temporal passage before generation; preserve relative timing. Unknown date has explicit evidence of missing story timing, so cite that limitation."
+    },
+    {
+      "case_id": "timing-unknown",
+      "group_id": "synthetic-temporal-account",
+      "snapshot_id": "policy-timing-v1",
+      "question": "What was the story date of Alex Vale's court hearing?",
+      "expected_status": "partial",
+      "required_facts": [
+        "The story date is not stated",
+        "Publication and broadcast dates do not establish the hearing date"
+      ],
+      "evidence_ids": [
+        "timing-001"
+      ],
+      "forbidden_claims": [
+        "8 May 2024 as the hearing date",
+        "7 May 2024 as the hearing date"
+      ],
+      "synthetic_source": true,
+      "review_note": "Directly inspected the authored temporal passage before generation; preserve unknown timing. Unknown date has explicit evidence of missing story timing, so cite that limitation."
+    },
+    {
+      "case_id": "empty-assembled-context",
+      "group_id": "context-budget-exclusion",
+      "snapshot_id": "policy-no-context-v1",
+      "question": "Did Alex Vale commit any crime?",
+      "expected_status": "insufficient_evidence",
+      "required_facts": [
+        "No usable evidence in the assembled context",
+        "This does not establish that an event did not happen"
+      ],
+      "evidence_ids": [],
+      "forbidden_claims": [
+        "Alex committed no crime",
+        "An inference about guilt from empty context"
+      ],
+      "synthetic_source": true,
+      "review_note": "The complete 1456-byte filler passage fits the embedding limit but exceeds the 1200-byte context budget. The real retriever returns it; whole-span assembly yields no usable evidence."
+    },
+    {
+      "case_id": "supported-arrival",
+      "group_id": "phil-arrival-february-1990",
+      "snapshot_id": "phil-arrival-v1",
+      "question": "When did Phil first arrive in Walford?",
+      "expected_status": "answered",
+      "required_facts": [
+        "Phil first arrived in February 1990"
+      ],
+      "evidence_ids": [
+        "phil-arrival-001"
+      ],
+      "forbidden_claims": [
+        "An exact day or different year"
+      ],
+      "synthetic_source": false,
+      "review_note": "Positive control: source-supported month and year, already independently inspected for issue #2."
+    },
+    {
+      "case_id": "unknown-arrival-day",
+      "group_id": "phil-arrival-february-1990",
+      "snapshot_id": "phil-arrival-v1",
+      "question": "On what exact day did Phil first arrive in Walford?",
+      "expected_status": "partial",
+      "required_facts": [
+        "February 1990 is supported",
+        "The exact day is not established"
+      ],
+      "evidence_ids": [
+        "phil-arrival-001"
+      ],
+      "forbidden_claims": [
+        "An exact day",
+        "Treating a broadcast date as the story arrival"
+      ],
+      "synthetic_source": false,
+      "review_note": "A supported month is less precise than the requested day; offer it with an explicit unanswered precision gap."
+    }
+  ]
+}

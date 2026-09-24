@@ -1,0 +1,30 @@
+{
+  "snapshot_id": "policy-negative-v1",
+  "fixture_version": 1,
+  "source": {
+    "title": "Synthetic policy fixture: negative",
+    "url": "https://example.invalid/policy/negative",
+    "revision_id": "v1",
+    "revision_url": "https://example.invalid/policy/negative/v1",
+    "section": "Controlled fictional account",
+    "captured_at": "2026-09-24T00:00:00Z",
+    "capture_sha256": "cba98efe6275c5b684dfeb7219728c4fbbe7f44effb9df6d2e325138b26b3bff",
+    "scope": "main_series",
+    "license_url": "https://creativecommons.org/publicdomain/zero/1.0/",
+    "attribution": "Project-authored synthetic test data, not EastEnders canon.",
+    "coverage": "Only the fictional statements explicitly retained here.",
+    "gaps": [
+      "No EastEnders canon coverage; not a live or independently verified source."
+    ],
+    "support_status": "synthetic_fixture"
+  },
+  "passages": [
+    {
+      "evidence_id": "negative-001",
+      "text": "In this synthetic story, Alex Vale did not rob the cafe. Blair Example robbed the cafe.",
+      "sha256": "cba98efe6275c5b684dfeb7219728c4fbbe7f44effb9df6d2e325138b26b3bff",
+      "start": 0,
+      "end": 87
+    }
+  ]
+}

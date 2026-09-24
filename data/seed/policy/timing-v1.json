@@ -1,0 +1,30 @@
+{
+  "snapshot_id": "policy-timing-v1",
+  "fixture_version": 1,
+  "source": {
+    "title": "Synthetic policy fixture: timing",
+    "url": "https://example.invalid/policy/timing",
+    "revision_id": "v1",
+    "revision_url": "https://example.invalid/policy/timing/v1",
+    "section": "Controlled fictional account",
+    "captured_at": "2026-09-24T00:00:00Z",
+    "capture_sha256": "3127643495e159cd14311d8fa012f7f5514c42fcc9f6e157a7851a6f0fcc698d",
+    "scope": "main_series",
+    "license_url": "https://creativecommons.org/publicdomain/zero/1.0/",
+    "attribution": "Project-authored synthetic test data, not EastEnders canon.",
+    "coverage": "Only the fictional statements explicitly retained here.",
+    "gaps": [
+      "No EastEnders canon coverage; not a live or independently verified source."
+    ],
+    "support_status": "synthetic_fixture"
+  },
+  "passages": [
+    {
+      "evidence_id": "timing-001",
+      "text": "In this synthetic story, Alex Vale arrived on 3 March 2001, married around spring 2004, and left two weeks after the wedding. The story date of Alex's court hearing is not stated. The bulletin was published on 8 May 2024; the episode aired on 7 May 2024.",
+      "sha256": "3127643495e159cd14311d8fa012f7f5514c42fcc9f6e157a7851a6f0fcc698d",
+      "start": 0,
+      "end": 254
+    }
+  ]
+}

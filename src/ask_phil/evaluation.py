@@ -1,8 +1,83 @@
 """Reference-labelled retrieval and assembled-context scoring, independent of model outputs."""
 
-from pydantic import Field
+from typing import Literal
 
-from ask_phil.evidence import Identifier, Record
+from pydantic import Field, StrictBool
+
+from ask_phil.evidence import Fingerprint, Identifier, NonEmpty, Record
+
+CriticalFailure = Literal["false_premise", "unsupported_negative", "false_citation"]
+
+
+class ClaimReview(Record):
+    claim: NonEmpty
+    correct: StrictBool | None
+    grounded: StrictBool | None
+    citation_supported: StrictBool | None
+
+
+class FactReview(Record):
+    fact: NonEmpty
+    covered: StrictBool | None
+
+
+class QualityReview(Record):
+    """External review annotations, never the answer model's self-reported confidence."""
+
+    case_id: Identifier
+    response_sha256: Fingerprint
+    reference_sha256: Fingerprint
+    reviewer: NonEmpty
+    rationale: NonEmpty
+    claims: tuple[ClaimReview, ...]
+    required_facts: tuple[FactReview, ...]
+    answerability: StrictBool | None
+    critical_failures: tuple[CriticalFailure, ...] = ()
+
+
+class ReviewMetric(Record):
+    passed: int
+    assessed: int
+    unassessed: int
+    value: float | None
+
+
+class AnswerQuality(Record):
+    correctness: ReviewMetric
+    groundedness: ReviewMetric
+    completeness: ReviewMetric
+    citation_support: ReviewMetric
+    answerability: ReviewMetric
+    critical_failures: tuple[CriticalFailure, ...]
+
+
+def score_answer_review(review: QualityReview) -> AnswerQuality:
+    """Reviewed binary labels only. Missing assessments never become passes or failures.
+
+    Correctness compares claims with references; groundedness compares with actual
+    context; citation support checks the claim's cited passages. Completeness counts
+    required facts/qualifications, answerability the appropriateness of the outcome.
+    A zero denominator is unavailable. No combined score hides critical failures.
+    """
+
+    def metric(labels: tuple[bool | None, ...]) -> ReviewMetric:
+        known = [value for value in labels if value is not None]
+        passed = sum(known)
+        return ReviewMetric(
+            passed=passed,
+            assessed=len(known),
+            unassessed=len(labels) - len(known),
+            value=passed / len(known) if known else None,
+        )
+
+    return AnswerQuality(
+        correctness=metric(tuple(c.correct for c in review.claims)),
+        groundedness=metric(tuple(c.grounded for c in review.claims)),
+        completeness=metric(tuple(f.covered for f in review.required_facts)),
+        citation_support=metric(tuple(c.citation_supported for c in review.claims)),
+        answerability=metric((review.answerability,)),
+        critical_failures=review.critical_failures,
+    )
 
 
 class FactLabel(Record):
