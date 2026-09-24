@@ -1,22 +1,74 @@
 """Shared HTTP interface for evidence inspection; fixture loading is maintainer-only."""
 
 import os
+import threading
+from pathlib import Path
 from typing import Annotated
+from uuid import UUID
 
 import psycopg
-from fastapi import FastAPI, HTTPException, Query, Request
+from fastapi import FastAPI, Header, HTTPException, Query, Request
 from fastapi.responses import JSONResponse
 from pydantic import StringConstraints
 
+from ask_phil.answering import AnswerService
+from ask_phil.answers import AnswerReceipt, AnswerRecord, AskRequest
 from ask_phil.evidence import Identifier, Inspection
+from ask_phil.models import ModelConfigurationError, Models
+from ask_phil.responses import ResponseLedger
+from ask_phil.retrieval import IndexNotReady
 from ask_phil.storage import EvidenceStore, SnapshotNotFound
 
 SearchText = Annotated[str, StringConstraints(strip_whitespace=True, min_length=1, max_length=500)]
 
 
-def create_app(database_url: str | None = None) -> FastAPI:
-    store = EvidenceStore(database_url or os.environ["DATABASE_URL"])
+def create_app(
+    database_url: str | None = None,
+    *,
+    models: Models | None = None,
+    tracking_uri: str | None = None,
+) -> FastAPI:
+    database_url = database_url or os.environ["DATABASE_URL"]
+    store = EvidenceStore(database_url)
     app = FastAPI(title="Ask Phil evidence inspection", version="0.1.0")
+    service = (
+        AnswerService(database_url, models, tracking_uri or "sqlite:///artifacts/mlflow.db")
+        if models
+        else None
+    )
+    service_lock = threading.Lock()
+
+    @app.post("/v1/answers")
+    def answer(request: AskRequest) -> AnswerReceipt:
+        nonlocal service
+        try:
+            with service_lock:
+                if service is None:
+                    Path("artifacts").mkdir(exist_ok=True)
+                    service = AnswerService(
+                        database_url,
+                        Models.from_environment(),
+                        tracking_uri
+                        or os.environ.get("MLFLOW_TRACKING_URI", "sqlite:///artifacts/mlflow.db"),
+                    )
+            return service.ask(request)
+        except ModelConfigurationError as exc:
+            raise HTTPException(status_code=503, detail=str(exc)) from exc
+        except SnapshotNotFound as exc:
+            raise HTTPException(status_code=404, detail="Snapshot not found.") from exc
+        except IndexNotReady as exc:
+            raise HTTPException(status_code=503, detail=str(exc)) from exc
+
+    @app.get("/v1/responses/{response_id}")
+    def original_response(
+        response_id: UUID,
+        authorization: Annotated[str | None, Header()] = None,
+    ) -> AnswerRecord:
+        token = authorization.removeprefix("Bearer ") if authorization else ""
+        original = ResponseLedger(database_url).get(response_id, token)
+        if original is None:
+            raise HTTPException(status_code=404, detail="Response not found.")
+        return original
 
     @app.exception_handler(psycopg.Error)
     async def database_unavailable(request: Request, exc: psycopg.Error) -> JSONResponse:

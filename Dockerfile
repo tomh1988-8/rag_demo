@@ -4,9 +4,13 @@ WORKDIR /app
 COPY pyproject.toml uv.lock .python-version ./
 COPY src ./src
 COPY data ./data
+COPY config ./config
+COPY scripts/evaluate_text_baseline.py ./scripts/evaluate_text_baseline.py
 RUN uv sync --frozen --no-dev --no-editable --cache-dir /tmp/uv-cache
+RUN mkdir -p /app/artifacts && chown 10001:10001 /app/artifacts
 ENV PATH="/app/.venv/bin:$PATH"
 ENV PYTHONDONTWRITEBYTECODE=1
+ENV MLFLOW_DISABLE_AGENT_HINT=1
 USER 10001:10001
 CMD ["uvicorn", "ask_phil.api:create_app", "--factory", "--host", "0.0.0.0", "--port", "8000"]
 

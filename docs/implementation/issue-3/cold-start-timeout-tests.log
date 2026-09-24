@@ -1,0 +1,103 @@
+time="2026-09-24T10:28:30+01:00" level=warning msg="Found orphan containers (ask-phil-issue3-reviewed-tests, ask-phil-issue3-final-tests) for this project. If you removed or renamed this service in your compose file, you can run this command with the --remove-orphans flag to clean it up."
+ Container ask-phil-issue3-db-1 Running
+ Container ask-phil-issue3-db-1 Waiting
+ Container ask-phil-issue3-db-1 Healthy
+ Container ask-phil-issue3-accounting-tests Creating
+ Container ask-phil-issue3-accounting-tests Created
+....F...........................                                         [100%]
+=================================== FAILURES ===================================
+__________ test_cli_asks_and_resolves_the_original_response_over_http __________
+
+database_url = 'user=ask_phil password=local-demo-only dbname=ask_phil_test_1128d3cbb1314aa7b1812dc41fa9a6b5 host=db port=5432'
+seed = SourceSnapshot(snapshot_id='phil-arrival-v1', fixture_version=1, source=Source(title='Phil Mitchell', url=HttpUrl('htt... known as The Arches;', sha256='c58db6653c582d8d2c75291831d8a3c48142261499f6a04ea732d8b2469031db', start=0, end=111),))
+models = Models(settings=ModelSettings(answer_model='test-answer', answer_digest='aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa... additional_kwargs={'num_predict': 256}, is_function_calling_model=True, keep_alive=None, thinking=None, headers=None))
+tracking_uri = 'sqlite:////tmp/pytest-of-unknown/pytest-0/mlflow0/tracking.db'
+tmp_path = PosixPath('/tmp/pytest-of-unknown/pytest-0/test_cli_asks_and_resolves_the0')
+
+    def test_cli_asks_and_resolves_the_original_response_over_http(
+        database_url: str, seed: SourceSnapshot, models: Models, tracking_uri: str, tmp_path: Path
+    ) -> None:
+        EvidenceStore(database_url).load(seed)
+        TextRetriever(database_url, models.embedding, models.settings.embedding_id, 3).prepare(
+            seed.snapshot_id
+        )
+        with socket.socket() as listener:
+            listener.bind(("127.0.0.1", 0))
+            server = uvicorn.Server(
+                uvicorn.Config(
+                    create_app(database_url, models=models, tracking_uri=tracking_uri),
+                    log_level="error",
+                )
+            )
+            thread = threading.Thread(target=server.run, kwargs={"sockets": [listener]}, daemon=True)
+            thread.start()
+            try:
+                deadline = time.monotonic() + 5
+                while not server.started and thread.is_alive() and time.monotonic() < deadline:
+                    time.sleep(0.01)
+                assert server.started
+                command = [
+                    sys.executable,
+                    "-m",
+                    "ask_phil.cli",
+                    "--api-url",
+                    f"http://127.0.0.1:{listener.getsockname()[1]}",
+                ]
+                env = {k: v for k, v in os.environ.items() if k != "DATABASE_URL"}
+                asked = subprocess.run(
+                    [*command, "ask", "When did Phil arrive?", "--snapshot", seed.snapshot_id],
+                    capture_output=True,
+                    text=True,
+                    timeout=30,
+                    env=env,
+                )
+                assert asked.returncode == 0, asked.stderr
+                receipt_file = tmp_path / "receipt.json"
+                receipt_file.write_text(asked.stdout)
+>               original = subprocess.run(
+                    [*command, "response", str(receipt_file)],
+                    capture_output=True,
+                    text=True,
+                    timeout=15,
+                    env=env,
+                )
+
+tests/test_answers_api.py:254:
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _
+/usr/local/lib/python3.12/subprocess.py:550: in run
+    stdout, stderr = process.communicate(input, timeout=timeout)
+                     ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+/usr/local/lib/python3.12/subprocess.py:1209: in communicate
+    stdout, stderr = self._communicate(input, endtime, timeout)
+                     ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+/usr/local/lib/python3.12/subprocess.py:2116: in _communicate
+    self._check_timeout(endtime, orig_timeout, stdout, stderr)
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _
+
+self = <Popen: returncode: -9 args: ['/app/.venv/bin/python', '-m', 'ask_phil.cli',...>
+endtime = 41001.712641554, orig_timeout = 15, stdout_seq = [], stderr_seq = []
+skip_check_and_raise = False
+
+    def _check_timeout(self, endtime, orig_timeout, stdout_seq, stderr_seq,
+                       skip_check_and_raise=False):
+        """Convenience for checking if a timeout has expired."""
+        if endtime is None:
+            return
+        if skip_check_and_raise or _time() > endtime:
+>           raise TimeoutExpired(
+                    self.args, orig_timeout,
+                    output=b''.join(stdout_seq) if stdout_seq else None,
+                    stderr=b''.join(stderr_seq) if stderr_seq else None)
+E           subprocess.TimeoutExpired: Command '['/app/.venv/bin/python', '-m', 'ask_phil.cli', '--api-url', 'http://127.0.0.1:35491', 'response', '/tmp/pytest-of-unknown/pytest-0/test_cli_asks_and_resolves_the0/receipt.json']' timed out after 15 seconds
+
+/usr/local/lib/python3.12/subprocess.py:1253: TimeoutExpired
+=============================== warnings summary ===============================
+.venv/lib/python3.12/site-packages/fastapi/testclient.py:1
+  /app/.venv/lib/python3.12/site-packages/fastapi/testclient.py:1: StarletteDeprecationWarning: Using `httpx` with `starlette.testclient` is deprecated; install `httpx2` instead.
+    from starlette.testclient import TestClient as TestClient  # noqa
+
+-- Docs: https://docs.pytest.org/en/stable/how-to/capture-warnings.html
+=========================== short test summary info ============================
+FAILED tests/test_answers_api.py::test_cli_asks_and_resolves_the_original_response_over_http
+1 failed, 31 passed, 1 warning in 54.56s
+2026/09/24 09:29:27 INFO mlflow.tracing.export.async_export_queue: Flushing the async trace logging queue before program exit. This may take a while...

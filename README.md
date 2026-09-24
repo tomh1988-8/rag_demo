@@ -1,13 +1,67 @@
 # Ask Phil
 
-An evidence-backed EastEnders demo under development. The first slice implements
-[issue #2](https://github.com/tomh1988-8/rag_demo/issues/2): inspecting a small captured
-source fixture through a CLI, shared FastAPI application and PostgreSQL.
-It returns excerpts and provenance, with an explicit empty-result limitation.
-It does not generate answers or call models. The chatbot, RAG routes and online
-feedback/evaluation loop belong to subsequent tickets.
+An evidence-backed EastEnders demo under development. The CLI and FastAPI expose
+captured evidence inspection and a single-query text-RAG answer using LlamaIndex,
+PostgreSQL/pgvector and local Ollama models. Answers include resolvable citations,
+snapshot coverage, actual MLflow traces and a durable original-response identifier.
+Fusion, caching, graph/investigative routes, conversational history and the online
+feedback/evaluation loop remain later tickets.
 
-## Run with Docker Compose
+The fixture contains **one reviewed passage**, not a complete EastEnders knowledge
+base. Gemma 4 E2B QAT is a laptop development convenience. Its smoke results are
+not deployment or representative quality evidence. Move to a more capable model
+before substantial extraction pilots or serious quality acceptance, and record
+that model's own baseline with spending controls configured before paid calls.
+
+## Run local text RAG
+
+The local stack uses CPU inference, one loaded model and one inference request at
+a time. Initial downloads include roughly 4.3 GB for Gemma 4 E2B QAT and 622 MB for
+EmbeddingGemma, plus the runtime images. From this directory:
+
+```sh
+docker compose --profile rag up -d db ollama
+docker compose --profile rag exec -T ollama ollama pull gemma4:e2b-it-qat
+docker compose --profile rag exec -T ollama ollama pull embeddinggemma:300m
+docker compose --profile rag up --build --wait --wait-timeout 180
+mkdir -p artifacts
+docker compose exec -T api ask-phil ask "When does Phil Mitchell first arrive in Walford?" --snapshot phil-arrival-v1 > artifacts/receipt.json
+docker compose exec -T api ask-phil response /dev/stdin < artifacts/receipt.json
+```
+
+Models are pinned by digest in [local-models.json](config/local-models.json).
+The app rejects a missing or changed model; updating a tag requires an explicit
+configuration review and new baseline. The `index` service embeds the loaded
+snapshot idempotently before MLflow starts. The API answers after that index is
+ready. A new source snapshot or embedding configuration needs its own index.
+
+The API is at `http://127.0.0.1:8000` and MLflow at `http://127.0.0.1:5000`.
+Use the returned `trace_id` in MLflow; serving, indexing and offline-evaluation
+experiments are separate. Models and traces survive service restarts in named
+volumes. `ASK_PHIL_PORT`, `ASK_PHIL_MLFLOW_PORT` and `ASK_PHIL_OLLAMA_PORT` override
+host ports. These are local services; this setup is not a hosted deployment.
+
+`POST /v1/answers` accepts `question` and `snapshot_id`. It returns an original
+response plus a per-response read token. `GET /v1/responses/{response_id}` requires
+that token in `Authorization: Bearer ...`; the CLI reads it from the saved receipt.
+Keep receipts private; the example saves them in the Git-ignored `artifacts/` directory.
+Lookup returns the original answer/context/measurements, without rerunning a model.
+There is no assessment-write or feedback endpoint in this slice.
+
+Limits: 500 question characters **and** 1,000 UTF-8 bytes, one query embedding,
+exact cosine retrieval at k=3, 1,200 UTF-8 bytes of whole-passage context and one
+generation call with at most 256 output tokens in a 4,096-token window. The SDK
+timeout is 180 seconds per network operation; it is not a guaranteed wall-clock
+cancellation or an account spending cap. No automatic model retries, answer
+cache or query fusion is enabled. Oversized passages must be split before indexing.
+
+Local Ollama has no API charge. The labelled zero **estimated API cost** excludes
+hardware, electricity and hosting. Unreported token counts remain `null`.
+`elapsed_ms` measures answer preparation through final composition; trace flushing,
+durable storage and HTTP delivery follow it. Citation validation checks resolution
+against assembled context; semantic support still requires evaluation.
+
+## Run evidence inspection without models
 
 Requires Docker Engine with the Compose plugin (v2 or newer). Acceptance was run
 with Engine 29.8.1 and Compose 5.5.1. From this directory:
@@ -28,11 +82,10 @@ local stack. No external credentials or paid APIs are needed.
 `docker compose down` stops this project while preserving its data. Do not remove
 the volume unless you intend to discard the local snapshot data.
 
-The image locks Python dependencies through `uv.lock`; PostgreSQL uses major
-version 18. Image tags can receive patches, so record image IDs with acceptance
-runs when comparing environments. This first deterministic slice uses PostgreSQL
-full-text search. Vector retrieval, LlamaIndex, Prefect refresh and MLflow arrive
-in their dependent tickets; no stub integrations stand in for them here.
+The image locks Python dependencies through `uv.lock`; PostgreSQL 18 includes
+pgvector 0.8.6. Image tags can receive patches, so acceptance records also retain
+image IDs. The `inspect` command continues to use deterministic full-text search
+and never calls a model. Prefect refresh remains a later ticket.
 
 For an Ubuntu 24.04 development host, the optional
 [installer](scripts/install-docker-ubuntu.sh) follows Docker's
@@ -48,7 +101,7 @@ new group in your shell. Existing conflicting packages cause it to stop for revi
 
 ## Native development
 
-Requires Python 3.12, [uv](https://docs.astral.sh/uv/) and PostgreSQL 18.
+Requires Python 3.12, [uv](https://docs.astral.sh/uv/) and PostgreSQL 18 with pgvector.
 Create an empty development database, then:
 
 ```sh
@@ -64,12 +117,27 @@ In another terminal:
 uv run ask-phil inspect "When does Phil Mitchell first arrive in Walford?" --snapshot phil-arrival-v1
 ```
 
-Only the explicit `load` command needs `DATABASE_URL`. Inspection calls HTTP;
+For text RAG, also start the Docker Ollama service and pull the pinned models as
+above. Its default host port is 11435; `ASK_PHIL_OLLAMA_URL` can select another
+local Ollama address. Before starting the API:
+
+```sh
+uv run ask-phil index --snapshot phil-arrival-v1
+```
+
+The explicit `load` and `index` commands need `DATABASE_URL`. Inspection and
+answering call HTTP;
 `--api-url URL` before the subcommand (or `ASK_PHIL_API_URL`) selects its server.
 The API has no fixture-upload endpoint. Load fixtures only as a maintainer in this
 local environment. Missing storage returns HTTP 503, unknown snapshot/evidence
 identifiers return 404, and invalid query/limit parameters return 422. The CLI
 returns a nonzero exit status for request, storage or fixture failures.
+Unknown answer snapshots return 404; an unprepared index or unavailable model
+configuration returns 503. Invalid requests return 422 before a model outcome is
+created. Completed answers, insufficient-evidence replies and generation failures
+all receive response identifiers. A generation failure contains a safe message,
+an error trace and no unsupported model answer. Infrastructure/validation errors
+are HTTP errors, not saved answer outcomes.
 
 ## Evidence contract
 
@@ -111,8 +179,28 @@ Integration tests create uniquely named databases and drop only those databases
 afterward. They fail explicitly if the test connection is missing; they do not
 silently substitute an in-memory store. The CLI tests use a real localhost HTTP
 server. Routine tests use the committed fixture and never fetch live sources.
+Model responses are controlled only at the external provider boundary; PostgreSQL,
+vector retrieval, API/CLI behavior and MLflow storage remain real.
 
 The [reviewed development cases](data/references/phil-arrival-v1.json) define source
 labels independently of retrieval outputs. See the implementation evidence under
 `docs/implementation/issue-2/` for actual baseline output and validation results.
 Those results measure this deterministic slice, not generative or broad-corpus quality.
+
+## Local model smoke evaluation
+
+After loading and indexing the fixture, with `DATABASE_URL` configured:
+
+```sh
+uv run python scripts/evaluate_text_baseline.py --max-cases 2 --output artifacts/my-local-smoke.json
+```
+
+The script refuses to overwrite an existing artifact. It makes at most two answer
+calls, keeps actual MLflow traces and separates retrieval metrics from context
+sufficiency. [RAG reference labels](data/references/phil-arrival-rag-v1.json) reuse
+the independently source-reviewed development cases. Missing relevant passages
+give undefined (`null`) recall/ranking metrics, not a perfect score. One passage
+cannot provide meaningful rank discrimination or broad quality conclusions.
+
+The [issue #3 record](docs/implementation/issue-3/README.md) documents actual results,
+limits, failures and the point at which a stronger model should replace this one.

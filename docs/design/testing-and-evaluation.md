@@ -1,6 +1,8 @@
 # Testing and evaluation strategy
 
-Status: the user has confirmed this strategy and its public test boundaries as part of the complete design. The first deterministic slice now has 17 passing tests in both native and Docker environments, plus recorded baseline outputs; [issue #2 evidence](../implementation/issue-2/README.md) describes the scope and successful restart checks. Generative/component quality evaluation remains future work.
+Status: the user has confirmed this strategy and its six public boundaries. The deterministic inspection slice is recorded in [issue #2](../implementation/issue-2/README.md). The initial text-RAG slice has 32 passing Docker tests plus separately recorded local-model development probes, retrieval/context scores and API/CLI restart evidence in [issue #3](../implementation/issue-3/README.md). These exposed seed cases do not establish representative model quality.
+
+The laptop model is for convenient development and smoke checks only. Move to a more capable model before representative quality comparisons (#9), substantial extraction pilots (#11 onward), or judging broad-roster answers (#7). Record its own fixed-corpus baseline and setup controls before paid calls; neither local-model success nor failure transfers as a quality result for the replacement.
 
 ## Development approach
 

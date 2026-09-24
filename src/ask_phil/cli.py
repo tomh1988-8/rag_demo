@@ -25,23 +25,69 @@ def main() -> int:
     inspect.add_argument("--limit", type=int, default=10)
     load = commands.add_parser("load", help="Maintainer: load a captured fixture into PostgreSQL.")
     load.add_argument("fixture", type=Path)
+    ask = commands.add_parser("ask", help="Ask a question using the captured snapshot.")
+    ask.add_argument("query")
+    ask.add_argument("--snapshot", required=True)
+    response = commands.add_parser(
+        "response", help="Read the original answer using a saved receipt."
+    )
+    response.add_argument("receipt", type=Path)
+    index = commands.add_parser(
+        "index", help="Maintainer: embed a snapshot using configured models."
+    )
+    index.add_argument("--snapshot", required=True)
     args = parser.parse_args()
     try:
-        if args.command == "load":
+        if args.command in {"load", "index"}:
             database_url = os.environ.get("DATABASE_URL")
             if not database_url:
                 parser.error("DATABASE_URL is required for the maintainer load command.")
-            snapshot = SourceSnapshot.model_validate_json(args.fixture.read_text())
-            EvidenceStore(database_url).load(snapshot)
-            print(json.dumps({"snapshot_id": snapshot.snapshot_id, "sha256": snapshot.fingerprint}))
-        else:
-            with httpx.Client(base_url=args.api_url, timeout=10, trust_env=False) as client:
-                response = client.get(
-                    f"/v1/snapshots/{args.snapshot}/inspect",
-                    params={"query": args.query, "limit": args.limit},
+            if args.command == "load":
+                snapshot = SourceSnapshot.model_validate_json(args.fixture.read_text())
+                EvidenceStore(database_url).load(snapshot)
+                print(
+                    json.dumps(
+                        {"snapshot_id": snapshot.snapshot_id, "sha256": snapshot.fingerprint}
+                    )
                 )
-                response.raise_for_status()
-                print(json.dumps(response.json(), indent=2, ensure_ascii=True))
+            else:
+                from ask_phil.answering import AnswerService
+                from ask_phil.models import Models
+
+                Path("artifacts").mkdir(exist_ok=True)
+                service = AnswerService(
+                    database_url,
+                    Models.from_environment(),
+                    os.environ.get("MLFLOW_TRACKING_URI", "sqlite:///artifacts/mlflow.db"),
+                )
+                trace_id = service.prepare(args.snapshot)
+                print(json.dumps({"snapshot_id": args.snapshot, "trace_id": trace_id}))
+        else:
+            timeout = 400 if args.command == "ask" else 10
+            with httpx.Client(base_url=args.api_url, timeout=timeout, trust_env=False) as client:
+                if args.command == "ask":
+                    result = client.post(
+                        "/v1/answers",
+                        json={
+                            "question": args.query,
+                            "snapshot_id": args.snapshot,
+                        },
+                    )
+                elif args.command == "response":
+                    from ask_phil.answers import AnswerReceipt
+
+                    receipt = AnswerReceipt.model_validate_json(args.receipt.read_text())
+                    result = client.get(
+                        f"/v1/responses/{receipt.response.response_id}",
+                        headers={"Authorization": f"Bearer {receipt.read_token}"},
+                    )
+                else:
+                    result = client.get(
+                        f"/v1/snapshots/{args.snapshot}/inspect",
+                        params={"query": args.query, "limit": args.limit},
+                    )
+                result.raise_for_status()
+                print(json.dumps(result.json(), indent=2, ensure_ascii=True))
     except httpx.HTTPStatusError as exc:
         print(f"API returned HTTP {exc.response.status_code}.", file=sys.stderr)
         return 1

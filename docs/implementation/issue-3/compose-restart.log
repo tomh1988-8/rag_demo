@@ -1,0 +1,6 @@
+ Container ask-phil-issue3-mlflow-1 Restarting
+ Container ask-phil-issue3-db-1 Restarting
+ Container ask-phil-issue3-api-1 Restarting
+ Container ask-phil-issue3-db-1 Started
+ Container ask-phil-issue3-api-1 Started
+ Container ask-phil-issue3-mlflow-1 Started

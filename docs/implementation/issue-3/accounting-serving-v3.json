@@ -1,0 +1,100 @@
+{
+  "recorded_at": "2026-09-24T09:13:36.944676+00:00",
+  "scope": "One real local-model CLI/API serving request; development smoke only.",
+  "cli_had_database_credentials": false,
+  "response": {
+    "response_id": "9c683117-c609-42f4-907b-68a29444d395",
+    "question": "When does Phil Mitchell first arrive in Walford?",
+    "status": "answered",
+    "answer": "Right, listen. I first arrived in Walford in February 1990 to open an automobile repair shop, known as The Arches.",
+    "citations": [
+      {
+        "evidence_id": "phil-arrival-001",
+        "text": "Phil Mitchell first arrives in Walford in February 1990 to open an automobile repair shop, known as The Arches;",
+        "sha256": "c58db6653c582d8d2c75291831d8a3c48142261499f6a04ea732d8b2469031db",
+        "start": 0,
+        "end": 111,
+        "resolve_path": "/v1/snapshots/phil-arrival-v1/evidence/phil-arrival-001"
+      }
+    ],
+    "snapshot_id": "phil-arrival-v1",
+    "snapshot_sha256": "26da379f1f9c27c0bf41ca4a200072280bf441f7e84eacee92c761cede134462",
+    "source": {
+      "title": "Phil Mitchell",
+      "url": "https://en.wikipedia.org/wiki/Phil_Mitchell",
+      "revision_id": "1375499431",
+      "revision_url": "https://en.wikipedia.org/w/index.php?title=Phil_Mitchell&oldid=1375499431",
+      "section": "Storylines / 1990\u20132003 / opening sentence, first clause",
+      "captured_at": "2026-09-23T14:18:05.792450Z",
+      "capture_sha256": "df4f36d8f708824e7003353c6fcb52bff387050e3010053a373741ee33dbad8e",
+      "scope": "main_series",
+      "license_url": "https://creativecommons.org/licenses/by-sa/4.0/",
+      "attribution": "Wikipedia contributors, Phil Mitchell, revision 1375499431",
+      "coverage": "One clause about Phil's arrival in February 1990 and The Arches; no continuous storyline coverage.",
+      "gaps": [
+        "Family relationships",
+        "Later events",
+        "Current character status"
+      ],
+      "support_status": "source_supported"
+    },
+    "retrieved": [
+      {
+        "passage": {
+          "evidence_id": "phil-arrival-001",
+          "text": "Phil Mitchell first arrives in Walford in February 1990 to open an automobile repair shop, known as The Arches;",
+          "sha256": "c58db6653c582d8d2c75291831d8a3c48142261499f6a04ea732d8b2469031db",
+          "start": 0,
+          "end": 111
+        },
+        "similarity": 0.7174562306623884
+      }
+    ],
+    "context": [
+      {
+        "evidence_id": "phil-arrival-001",
+        "text": "Phil Mitchell first arrives in Walford in February 1990 to open an automobile repair shop, known as The Arches;",
+        "sha256": "c58db6653c582d8d2c75291831d8a3c48142261499f6a04ea732d8b2469031db",
+        "start": 0,
+        "end": 111
+      }
+    ],
+    "retrieval_k": 3,
+    "route": "text_rag",
+    "baseline_version": "single-query-uncached-v1",
+    "model_settings": {
+      "answer_model": "gemma4:e2b-it-qat",
+      "answer_digest": "07ea59a474013479c8b6b802bef095c40e964a1d776ba02f264c0e30e1aede0c",
+      "embedding_model": "embeddinggemma:300m",
+      "embedding_digest": "85462619ee721b466c5927d109d4cb765861907d5417b9109caebc4e614679f1",
+      "embedding_dimensions": 768,
+      "context_window": 4096,
+      "output_tokens": 256,
+      "temperature": 0.0,
+      "request_timeout_seconds": 180,
+      "seed": 17
+    },
+    "prompt_sha256": "a5c55194fed5bcb97322c4bdcf04644094c11d4cfd8fa73846d6f88599cb18bf",
+    "application_sha256": "25c7f9783f1d96df82c901403d3934367da9485dfc9ec2381c951e2296c51c20",
+    "trace_id": "tr-78887c7b5fffdd86528473e33fd9b5f8",
+    "elapsed_ms": 24588.516597003036,
+    "usage": {
+      "input_tokens": 341,
+      "output_tokens": 55,
+      "embedding_tokens": 19
+    },
+    "expenditure_category": "serving",
+    "estimated_api_cost_usd": 0.0,
+    "cost_scope": "Local Ollama API only; hardware, electricity and hosting are unmeasured.",
+    "limitation": "Source-supported is not independently cross-checked. Coverage is limited to the captured snapshot. Local-model results are development smoke evidence, not a deployment or representative quality assessment."
+  },
+  "cli_wall_clock_ms": 30924.904731000424,
+  "restart_verified": true,
+  "before_restart_lookup_identical": true,
+  "before_restart_citation_resolved": true,
+  "missing_and_wrong_token_status": 404,
+  "mlflow_health_status": 200,
+  "after_restart_lookup_identical": true,
+  "after_restart_citation_resolved": true,
+  "restart_verified_at": "2026-09-24T09:16:15.273663+00:00"
+}

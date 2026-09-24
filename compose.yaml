@@ -2,7 +2,7 @@ name: ask-phil
 
 services:
   db:
-    image: postgres:18
+    image: pgvector/pgvector:0.8.6-pg18-trixie
     environment:
       POSTGRES_USER: ask_phil
       POSTGRES_PASSWORD: local-demo-only
@@ -15,6 +15,18 @@ services:
       timeout: 5s
       retries: 30
 
+  ollama:
+    profiles: ["rag"]
+    image: ollama/ollama:0.34.4
+    environment:
+      OLLAMA_MAX_LOADED_MODELS: "1"
+      OLLAMA_NUM_PARALLEL: "1"
+      OLLAMA_NO_CLOUD: "1"
+    ports:
+      - "127.0.0.1:${ASK_PHIL_OLLAMA_PORT:-11435}:11434"
+    volumes:
+      - models:/root/.ollama
+
   seed:
     build:
       context: .
@@ -26,12 +38,48 @@ services:
       db:
         condition: service_healthy
 
+  index:
+    profiles: ["rag"]
+    build:
+      context: .
+      target: runtime
+    environment:
+      DATABASE_URL: postgresql://ask_phil:local-demo-only@db:5432/ask_phil
+      ASK_PHIL_OLLAMA_URL: http://ollama:11434
+      MLFLOW_TRACKING_URI: sqlite:////app/artifacts/mlflow.db
+    volumes:
+      - traces:/app/artifacts
+    command: ["ask-phil", "index", "--snapshot", "phil-arrival-v1"]
+    depends_on:
+      seed:
+        condition: service_completed_successfully
+      ollama:
+        condition: service_started
+
+  mlflow:
+    profiles: ["rag"]
+    build:
+      context: .
+      target: runtime
+    volumes:
+      - traces:/app/artifacts
+    ports:
+      - "127.0.0.1:${ASK_PHIL_MLFLOW_PORT:-5000}:5000"
+    command: ["mlflow", "server", "--backend-store-uri", "sqlite:////app/artifacts/mlflow.db", "--host", "0.0.0.0", "--port", "5000", "--workers", "1"]
+    depends_on:
+      index:
+        condition: service_completed_successfully
+
   api:
     build:
       context: .
       target: runtime
     environment:
       DATABASE_URL: postgresql://ask_phil:local-demo-only@db:5432/ask_phil
+      ASK_PHIL_OLLAMA_URL: http://ollama:11434
+      MLFLOW_TRACKING_URI: sqlite:////app/artifacts/mlflow.db
+    volumes:
+      - traces:/app/artifacts
     ports:
       - "127.0.0.1:${ASK_PHIL_PORT:-8000}:8000"
     depends_on:
@@ -56,3 +104,5 @@ services:
 
 volumes:
   pgdata:
+  models:
+  traces:
