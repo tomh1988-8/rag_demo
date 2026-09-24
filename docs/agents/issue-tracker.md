@@ -46,3 +46,14 @@ lacks push credentials. The authenticated GitHub connector can publish repositor
 trees/commits and advance `main` without forcing; use that fallback for authorised
 publication and verify the remote tree against the intended local tree. Preserve
 existing work and both histories when reconciling connector and local commits.
+
+### Required at the end of every issue
+
+The user explicitly requires committing and pushing at the end of each issue.
+After the required checks and reviews, commit the issue's code, evidence and
+handoff changes, then push to GitHub. If native push remains unauthenticated,
+use the authorised connector fallback and state that publication method clearly.
+Read back the remote revision and verify that its tree matches the intended
+local commit before closing the issue or reporting completion. Include the
+published commit link in the completion report. Local commits alone do not
+satisfy this requirement; if publication fails, report the blocker explicitly.
