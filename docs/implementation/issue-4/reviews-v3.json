@@ -1,0 +1,189 @@
+{
+  "scope": "Six targeted exposed development cases, not the full13-case matrix or heldout. Unique domain assertions across persona and appendix are assessed once; repeated dates are not double-counted. Correctness is relative to reviewed retained references, not independently verified canon. Outcome appropriateness does not erase citation or persona failures.",
+  "reviews": [
+    {
+      "case_id": "ambiguous-character",
+      "response_sha256": "5aa7f544107f8ec175ba438798efc2749b8015e5490bed6c68543408976b37bf",
+      "reference_sha256": "f6dbe3348e355b971752fb0bd9bddb3c211d74afd1838ea75a3ed67f9f9b5d82",
+      "reviewer": "issue4_spec_review agent, independent inspection of frozen v3 responses and original passages on 2026-09-24; not human-calibrated",
+      "rationale": "The arrival facts are supported, but the unnamed subject is unresolved; the model wrongly assumes Phil. Third-person voice also fails persona policy.",
+      "claims": [
+        {
+          "claim": "Phil first arrived in Walford in February 1990.",
+          "correct": true,
+          "grounded": true,
+          "citation_supported": true
+        },
+        {
+          "claim": "The purpose of the arrival was opening an automobile repair shop.",
+          "correct": true,
+          "grounded": true,
+          "citation_supported": true
+        },
+        {
+          "claim": "The shop is named The Arches.",
+          "correct": true,
+          "grounded": true,
+          "citation_supported": true
+        }
+      ],
+      "required_facts": [
+        {
+          "fact": "Ask which character or characters the user means",
+          "covered": false
+        }
+      ],
+      "answerability": false,
+      "critical_failures": []
+    },
+    {
+      "case_id": "missing-mother",
+      "response_sha256": "bc9343e73853b9cab7e195c694081ef79f3fd34ad473e7413f4e029eb4822338",
+      "reference_sha256": "66d87e718ade462433a85a993500e93ac27f262bf70e979eb4d660af4e4704d4",
+      "reviewer": "issue4_spec_review agent, independent inspection of frozen v3 responses and original passages on 2026-09-24; not human-calibrated",
+      "rationale": "A technical failure is served instead of a coverage-qualified abstention. No domain claims are delivered.",
+      "claims": [],
+      "required_facts": [
+        {
+          "fact": "The retained evidence cannot identify his mother",
+          "covered": false
+        }
+      ],
+      "answerability": false,
+      "critical_failures": []
+    },
+    {
+      "case_id": "arrival-and-mother",
+      "response_sha256": "c86d76ddf892113b1ce1d476d35fc05bbf666d8893daa35d5a8cc830613c5c09",
+      "reference_sha256": "bbb4f03fab770e4828dadfdc51da002eb74747bbbe9e27715b9edbf83bfd5ed6",
+      "reviewer": "issue4_spec_review agent, independent inspection of frozen v3 responses and original passages on 2026-09-24; not human-calibrated",
+      "rationale": "Supported date and missing mother are identified. The appendix upgrades an arrival purpose into a completed act: correctness unassessable from the retained reference, grounding and citation support fail. Third-person voice and a non-temporal claim labelled timing are additional defects.",
+      "claims": [
+        {
+          "claim": "Phil first arrived in Walford in February 1990.",
+          "correct": true,
+          "grounded": true,
+          "citation_supported": true
+        },
+        {
+          "claim": "The purpose of the arrival was opening an automobile repair shop.",
+          "correct": true,
+          "grounded": true,
+          "citation_supported": true
+        },
+        {
+          "claim": "The shop is named The Arches.",
+          "correct": true,
+          "grounded": true,
+          "citation_supported": true
+        },
+        {
+          "claim": "Phil opened the shop named The Arches (completed act, in the appendix).",
+          "correct": null,
+          "grounded": false,
+          "citation_supported": false
+        }
+      ],
+      "required_facts": [
+        {
+          "fact": "Phil first arrived in February 1990",
+          "covered": true
+        },
+        {
+          "fact": "The retained evidence does not identify his mother",
+          "covered": true
+        }
+      ],
+      "answerability": true,
+      "critical_failures": [
+        "false_citation"
+      ]
+    },
+    {
+      "case_id": "false-arrival-premise",
+      "response_sha256": "8928e240fb603fd98ea72d73f8a63fdbb9d42c9777356a2c562d2b9bfac0cc91",
+      "reference_sha256": "a8cd533fad9ea6a9f0c5264ddf46fe1925822d6578b1f4ff1ebb28507b046844",
+      "reviewer": "issue4_spec_review agent, independent inspection of frozen v3 responses and original passages on 2026-09-24; not human-calibrated",
+      "rationale": "A technical failure is served. The rejected draft calls a documented purpose unstated and labels that a conflict supported by only one account.",
+      "claims": [],
+      "required_facts": [
+        {
+          "fact": "Phil first arrived in February 1990, contradicting 2001",
+          "covered": false
+        },
+        {
+          "fact": "Phil arrived to open The Arches",
+          "covered": false
+        }
+      ],
+      "answerability": false,
+      "critical_failures": []
+    },
+    {
+      "case_id": "unresolved-conflict",
+      "response_sha256": "0118035c1800df758011cfa533480bdd5a108376e9a0cb7ecb42a02a0e633c1d",
+      "reference_sha256": "415907a977e93a01b7907c02c7becc262bccead6f993ae8b8562301176c85fd4",
+      "reviewer": "issue4_spec_review agent, independent inspection of frozen v3 responses and original passages on 2026-09-24; not human-calibrated",
+      "rationale": "Partial is appropriate and both accounts are attributed. The appendix records disagreement, but the persona omits an explicit statement that it remains unresolved; material uncertainty must appear in both. Synthetic provenance is in metadata but missing from the prose.",
+      "claims": [
+        {
+          "claim": "Account A reports a marriage year of 2001.",
+          "correct": true,
+          "grounded": true,
+          "citation_supported": true
+        },
+        {
+          "claim": "Account B reports a marriage year of 2003.",
+          "correct": true,
+          "grounded": true,
+          "citation_supported": true
+        },
+        {
+          "claim": "The two synthetic accounts disagree.",
+          "correct": true,
+          "grounded": true,
+          "citation_supported": true
+        }
+      ],
+      "required_facts": [
+        {
+          "fact": "Account A reports 2001",
+          "covered": true
+        },
+        {
+          "fact": "Account B reports 2003",
+          "covered": true
+        },
+        {
+          "fact": "The disagreement cannot be resolved from these accounts",
+          "covered": false
+        }
+      ],
+      "answerability": true,
+      "critical_failures": []
+    },
+    {
+      "case_id": "timing-approximate",
+      "response_sha256": "724795e2580d42c16e0c0b0e86840cdb0ef315daf5f4a72d87725b3560fbbda6",
+      "reference_sha256": "c8088abeb710ab2d5bc54fc98e4430e4a9e47750d4bcddeaf7597cf8b612c099",
+      "reviewer": "issue4_spec_review agent, independent inspection of frozen v3 responses and original passages on 2026-09-24; not human-calibrated",
+      "rationale": "Approximate timing is preserved and cited. The prose omits the synthetic label that is present in the evidence metadata; this is a separate provenance/presentation limitation.",
+      "claims": [
+        {
+          "claim": "In the synthetic account, Alex married around spring 2004.",
+          "correct": true,
+          "grounded": true,
+          "citation_supported": true
+        }
+      ],
+      "required_facts": [
+        {
+          "fact": "Around spring 2004",
+          "covered": true
+        }
+      ],
+      "answerability": true,
+      "critical_failures": []
+    }
+  ]
+}

@@ -78,7 +78,7 @@ def main() -> None:
         "model_settings": models.settings.model_dump(),
         "budget": {
             "maximum_answer_calls": args.max_cases,
-            "output_tokens_per_call": 256,
+            "output_tokens_per_call": models.settings.output_tokens,
             "paid_api_calls": 0,
             "retries": 0,
         },

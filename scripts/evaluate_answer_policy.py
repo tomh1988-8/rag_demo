@@ -17,7 +17,7 @@ from ask_phil.evidence import SourceSnapshot
 from ask_phil.models import Models
 from ask_phil.storage import EvidenceStore
 
-REFERENCE = Path("data/references/answer-policy-v1.json")
+REFERENCE = Path("data/references/answer-policy-v2.json")
 
 
 def fingerprint(document: Any) -> str:
@@ -125,7 +125,7 @@ def capture(output: Path, case_ids: list[str], limit: int) -> None:
             service.tracking.log_param(run.info.run_id, key, document[key])
         service.tracking.log_artifact(run.info.run_id, str(output))
         service.tracking.set_terminated(run.info.run_id)
-    except Exception:
+    except BaseException:
         document["state"] = "failed"
         save(output, document)
         service.tracking.set_terminated(run.info.run_id, status="FAILED")

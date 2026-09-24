@@ -44,6 +44,7 @@ def models(request: pytest.FixtureRequest) -> Models:
             "status": "answered",
         },
     )
+    draft = {"status": "answered", "unanswered": [], "qualifications": [], **draft}
     reported_usage = parameters
 
     def provider(request: httpx.Request) -> httpx.Response:
@@ -65,6 +66,13 @@ def models(request: pytest.FixtureRequest) -> Models:
         assert body["stream"] is False
         assert body["options"]["num_predict"] == 256
         assert body["options"]["num_ctx"] == 4096
+        assert set(body["format"]["required"]) == {
+            "answer",
+            "status",
+            "evidence_ids",
+            "unanswered",
+            "qualifications",
+        }
         return httpx.Response(
             200,
             json={
@@ -215,11 +223,10 @@ def test_unresolved_intent_is_distinct_from_absent_evidence(
                 "draft": {
                     "answer": (
                         "Right, listen. I first arrived in February 1990 to open The Arches, "
-                        "not in 2001. There is no supported 2001 explanation."
+                        "not in 2001."
                     ),
-                    "status": "partial",
+                    "status": "answered",
                     "evidence_ids": ["phil-arrival-001"],
-                    "unanswered": ["Why a first arrival in 2001?"],
                     "qualifications": [
                         {
                             "kind": "false_premise",
@@ -275,7 +282,7 @@ def test_false_premise_and_explicit_negative_have_evidence_in_the_neutral_append
         )
         assert result.status_code == 200, result.text
         answer = result.json()["response"]
-        assert answer["status"] == ("partial" if kind == "false_premise" else "answered")
+        assert answer["status"] == "answered"
         note = answer["qualifications"][0]
         assert note["kind"] == kind
         assert note["evidence_ids"] == [answer["citations"][0]["evidence_id"]]
@@ -580,6 +587,9 @@ def test_invalid_model_citation_becomes_a_traced_failure_with_a_response_identif
                         {
                             "answer": "An unsupported claim.",
                             "evidence_ids": ["invented-001"],
+                            "status": "answered",
+                            "unanswered": [],
+                            "qualifications": [],
                         }
                     ),
                 },

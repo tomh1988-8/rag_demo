@@ -128,6 +128,7 @@ class AnswerService:
                     ),
                     evidence_ids=(),
                     status="insufficient_evidence",
+                    qualifications=(),
                     unanswered=("The question cannot be answered from the available context.",),
                 )
                 usage = TokenUsage(
@@ -184,6 +185,8 @@ class AnswerService:
                             ),
                             status="insufficient_evidence",
                             evidence_ids=(),
+                            unanswered=(),
+                            qualifications=(),
                         )
             root.set_attribute(
                 "usage_complete", all(value is not None for value in usage.model_dump().values())

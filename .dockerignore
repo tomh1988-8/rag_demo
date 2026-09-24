@@ -10,6 +10,11 @@
 !config/**
 !scripts/
 !scripts/evaluate_text_baseline.py
+!scripts/evaluate_answer_policy.py
 !tests/
 !tests/**
+!docs/
+!docs/implementation/
+!docs/implementation/issue-3/
+!docs/implementation/issue-3/docker-serving.json
 **/__pycache__/
