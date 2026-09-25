@@ -1,30 +1,30 @@
 # Ask Phil: publication and next-skill handoff
 
-Updated 24 September 2026. The user approved the initial checklist/ticket breakdown, authorised publication, and subsequently required user feedback and online evaluation. Checklist v1.1 and the amended 24-ticket breakdown are published. The user subsequently invoked implement for the first unblocked ticket, #2. Its acceptance passed, and #2 is closed. The user then invoked implement for #3; its grounded-answer slice is also complete and closed, with 32 passing Docker tests and actual local-model/MLflow/restart evidence.
+Updated 25 September 2026. The user approved the initial checklist/ticket breakdown, authorised publication, and subsequently required user feedback and online evaluation. Checklist v1.1 and the amended 24-ticket breakdown are published. Issues #2 and #3 are complete and closed. Issue #4 now passes its scoped cloud policy acceptance, with publication and closure handled as the final steps below.
 
-## Active issue #4: stronger-model acceptance required
+## Issue #4: scoped cloud acceptance passed
 
-[Issue #4](https://github.com/tomh1988-8/rag_demo/issues/4) is **open**, with the
-software implementation, 66 passing Docker tests and [reviewed evidence](../../implementation/issue-4/README.md).
-The final six-case local diagnostic has three appropriate outcomes and a served
-critical citation-support failure. Source-purpose wording was upgraded to a completed
-act in the appendix; ambiguity, abstention, false-premise, persona and conflict
-qualification also need stronger-model acceptance. No paid API was called.
+[Issue #4](https://github.com/tomh1988-8/rag_demo/issues/4) passes the independently
+reviewed 13-case policy matrix and five actual CLI/API/restart checks with
+`config/openrouter-sol.json`. Full software validation passes 85 tests, Ruff and
+strict mypy. [Cloud evidence](../../implementation/issue-4/cloud/README.md) retains
+all failed attempts, reviewed regressions and the date-policy prompt repair.
+Reference labels remain unchanged; no critical failures remain in the final matrix.
 
-The [OpenRouter setup](../../implementation/openrouter-setup.md) now implements
-the original Qwen/Sol shortlist, GLM comparison profile, private key storage and
-shared $5 spending controls. Next work is `<pro>`: receive the locally entered
-capped key, verify the provider limit, then run a smoke case and the full reference
-matrix with retained regressions. The secret must stay out of chat and Git.
-Do not close #4 or advance its
-blocked tickets on the strength of software checks. #5 remains independently unblocked.
-The final images were built/tested; currently running API/MLflow containers still use
-#3. Do not infer that the failing candidate was accepted or deployed.
+The [OpenRouter setup](../../implementation/openrouter-setup.md) uses the locally
+entered key, verified non-resetting $5 provider cap and shared persistent ledger.
+The 32 paid attempts cost $0.10890587, leaving $4.89109413. Preserve both private
+key and ledger. Qwen failed its smoke; GLM remains untested. This scoped evidence
+does not establish held-out reliability, human calibration or broad canon accuracy.
+Publish the reviewed tree, verify it against GitHub, then close #4. Check the live
+issue for closure readback; the final receipt is ignored local evidence.
+The temporary cloud API was stopped; existing Docker API/MLflow containers still
+use #3. A persistent cloud deployment has not been configured.
 
 ## Published and verified
 
 - [Specification #1](https://github.com/tomh1988-8/rag_demo/issues/1) contains the agreed specification with the feedback/online-evaluation and fusion/cache amendments (130 stories).
-- Implementation tickets **#2–#25** are published and labelled `ready-for-agent`. **#2 and #3 are closed as completed**; #4–#25 remain open.
+- Implementation tickets **#2–#25** are published and labelled `ready-for-agent`. **#2 and #3 are closed as completed**; #4 has passed scoped acceptance and closes after verified publication. #5–#25 remain open.
 - All 25 remote bodies, states and ready-for-agent labels were read back and checked against the intended content after the fusion/cache amendment.
 - The 41 blocking relationships are recorded as real issue references in ticket bodies and as a machine-readable mapping in [publication.json](publication.json).
 - Issue #2 has a reviewed captured seed, CLI/API/PostgreSQL behavior, 17 passing tests in both native and Docker environments, and recorded deterministic baseline outputs. [Fresh Compose startup and database/API restart passed](../../implementation/issue-2/README.md); no generative model quality is claimed. GitHub closure and all seven checked criteria were read back and verified.
@@ -33,7 +33,7 @@ The [to-spec skill](../../../.agents/skills/to-spec/SKILL.md) authorised specifi
 
 ## First available work
 
-**[#4 — Handle incomplete evidence and false premises](https://github.com/tomh1988-8/rag_demo/issues/4)** and **[#5 — Import real sources with character identity and canon scope](https://github.com/tomh1988-8/rag_demo/issues/5)** are the next open dependency frontier. Both are open; #4 is in progress and needs the stronger-provider input described above. Wait for the next implementation instruction before starting another ticket. Specification #1 remains parent context.
+**[#5 — Import real sources with character identity and canon scope](https://github.com/tomh1988-8/rag_demo/issues/5)** is recommended next, using `<pro>` for source ingestion and provenance. Once #4 is closed, #9 (calibrated comparisons) and #10 (execution boundaries) also become unblocked. Wait for the next implementation instruction before starting another ticket. Specification #1 remains parent context.
 
 For subsequent work, read the current issue and comments, the relevant domain/ADR decisions and the checklist profile. Work the dependency frontier; the shared `ready-for-agent` label does not mean a blocked ticket can begin. Existing approved decisions and the six public test boundaries do not need another design interview.
 
@@ -72,7 +72,7 @@ The “Blocked by” column contains **GitHub issue numbers**, which differ from
 
 - [Approved ticket breakdown](README.md), including rationale and the common evidence-completion pattern.
 - [Reusable checklist v1.1](../../checklists/agent-development.md).
-- [Ask Phil applicability profile and evidence register](../../checklists/ask-phil-profile.md): 51 current items, one deployment deferral and 12 N/A items. Three items pass on design evidence, five on inspection, five on initial text RAG and two on #4 software counterexamples/quality measurement; 36 current obligations remain Pending. Model-quality acceptance for #4 is still open.
+- [Ask Phil applicability profile and evidence register](../../checklists/ask-phil-profile.md): 51 current items, one deployment deferral and 12 N/A items. Three items pass on design evidence, five on inspection, five on initial text RAG and two on #4 software counterexamples/quality measurement; 36 current obligations remain Pending. #4's scoped Sol policy acceptance now passes; this does not discharge full-product comparison, calibration, graph, fusion, cache or online-feedback obligations.
 - [All 130 specification stories mapped to tickets](spec-coverage.md).
 - [Local specification](../../specs/ask-phil.md), [test/evaluation strategy](../../design/testing-and-evaluation.md), [domain glossary](../../../CONTEXT.md) and [architecture decisions](../../adr/).
 - [Publication manifest](publication.json), including issue IDs/URLs, approval, source fingerprints, readback verification and the outstanding native relationship operations.
@@ -99,7 +99,7 @@ The user requested fusion/context expansion and repeated-question caching before
 the next implementation. [Research](../../research/rag-fusion-and-answer-caching.md)
 and [scope validation](fusion-cache-amendment.json) describe the changes. GitHub #24
 and #25 own the new behavior; #18 and #21 include their actual prerequisites.
-After completion of #3, issues #4 and #5 form the next open frontier. Neither new feature is implemented.
+After completion of #4, #5 is recommended next. Neither new feature is implemented.
 
 Historical issue #2 publication: the validated code was published on GitHub `main` at `1a186fd1c6cbf306742a7ef6868f5b2cded58df2`,
 whose tree exactly matches local `e5ac34c`. Publication used the authenticated GitHub
@@ -121,9 +121,9 @@ on either axis. This is a one-passage exposed development baseline, not broad qu
 The user explicitly limits local Gemma 4 E2B QAT to convenient development/smoke
 work. Recommend and configure a more capable model before broad-roster answer
 acceptance (#7), representative evaluation (#9), or substantive extraction (#11
-onward), or sooner if local-model weaknesses prevent useful progress. **That gate has now been reached in #4.** Record a
-new provider/model baseline; configure conservative key/account/request controls
-before any paid call. No paid API calls were used for #3.
+onward), or sooner if local-model weaknesses prevent useful progress. **That gate was reached and satisfied for the policy slice in #4.**
+The Sol baseline and conservative key/account/request controls are recorded above;
+re-evaluate for broader corpus or extraction work. No paid API calls were used for #3.
 
 The running Compose project is `ask-phil-issue3`; use `docker compose -p ask-phil-issue3`
 to reuse its installed model/data volumes. API: localhost:8000; MLflow: localhost:5000.

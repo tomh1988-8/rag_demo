@@ -1,0 +1,18 @@
+{
+  "recorded_at": "2026-09-25T09:43:58.512508+00:00",
+  "scope": "Issue 4 exposed development policy and regression acceptance; not a held-out benchmark",
+  "basis": "Existing answer-policy-v2 labels and answer-policy-regressions-v1; no label changes after generation",
+  "already_observed": "Qwen supported-arrival smoke rejected invented x1 citations and spurious synthetic qualification",
+  "next": "Smoke the selected advanced model, then capture all13cases with a viable unchanged provider/profile before review",
+  "shared_trial_credit_limit_usd": 5,
+  "automatic_retries": 0,
+  "acceptance": {
+    "served_cases": "Every reviewed case must satisfy expected outcome and required facts",
+    "citations": "All served persona and appendix claims supported by retained context and their citations",
+    "qualifications": "Preserve false premises, conflicts and exact/approximate/relative/unknown dates in answer and appendix",
+    "style_and_provenance": "Phil first-person style when describing himself; synthetic accounts explicitly identified",
+    "critical_failures": "No unresolved critical false-premise, unsupported-negative or false-citation failures",
+    "regressions": "All retained regression case IDs covered; preserve old failures as historical observations",
+    "limits": "Numerical performance thresholds and representative held-out claims remain future calibrated evaluation work"
+  }
+}

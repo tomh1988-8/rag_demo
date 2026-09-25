@@ -1,0 +1,235 @@
+{
+  "dataset_id": "answer-policy-regressions-v2",
+  "split": "regression",
+  "review": "Historical v1 failures retained; cloud defects and final dispositions independently reviewed by the Codex Spec agent. See cloud reviews and review.md; not human-calibrated.",
+  "grouping": "Derived from exposed development cases. Keep with the original event groups; never promote these derivatives into an existing held-out split.",
+  "limitations": "Exposed development regressions, not held-out or human-calibrated. Historical failures are retained; current profile acceptance must be linked to new reviewed captures.",
+  "cases": [
+    {
+      "regression_id": "missing-generated-fields",
+      "case_id": "arrival-and-mother",
+      "group_id": "phil-arrival-february-1990",
+      "category": "draft_contract",
+      "observed_capture": "docs/implementation/issue-4/local-policy-v2.json",
+      "response_id": "3af3eebe-bec6-477d-ac1f-a37810b2f1f2",
+      "trace_id": "tr-5b0ddff684c9bd637b9b5aa4fe1dbc8f",
+      "observation_scope": "Served response and trace",
+      "expected_reference": "data/references/answer-policy-v2.json",
+      "disposition": "Fixed: all policy fields are required in both generated schema and validation.",
+      "regression_check": "tests/test_answer_rules.py::test_generated_drafts_cannot_omit_policy_fields",
+      "current_profile_validation": {
+        "profile": "config/openrouter-sol.json",
+        "capture": "docs/implementation/issue-4/cloud/sol-policy-v2.json",
+        "review": "docs/implementation/issue-4/cloud/reviews-sol-policy-v2.json",
+        "response_id": "10d9ee4e-39d7-4192-8eef-447a8a887d8c",
+        "trace_id": "tr-be5998cb05de45ac72afc99d35659111",
+        "result": "Appropriate outcome, required facts and all assessed claims pass; no critical failures in this case. Acceptance is scoped to this profile and captured development response."
+      }
+    },
+    {
+      "regression_id": "timing-schema-precision",
+      "case_id": "timing-approximate",
+      "group_id": "synthetic-temporal-account",
+      "category": "draft_contract",
+      "observed_capture": "docs/implementation/issue-4/local-policy-v2.json",
+      "response_id": "1a70139a-777a-4d01-8e83-a937c8af9c29",
+      "trace_id": "tr-4e64ca511ca3cb0e8b9f480a5b744ce1",
+      "observation_scope": "Served response and trace",
+      "expected_reference": "data/references/answer-policy-v2.json",
+      "disposition": "Fixed: discriminated timing schema requires precision; provider schema has an independent JSON Schema check.",
+      "regression_check": "tests/test_answer_rules.py::test_schema_sent_to_model_rejects_a_timing_note_without_precision",
+      "current_profile_validation": {
+        "profile": "config/openrouter-sol.json",
+        "capture": "docs/implementation/issue-4/cloud/sol-policy-v2.json",
+        "review": "docs/implementation/issue-4/cloud/reviews-sol-policy-v2.json",
+        "response_id": "f183b4ff-35a9-45a4-a120-e3bb61d19aae",
+        "trace_id": "tr-731a62c732663374f22e24fc81db1622",
+        "result": "Appropriate outcome, required facts and all assessed claims pass; no critical failures in this case. Acceptance is scoped to this profile and captured development response."
+      }
+    },
+    {
+      "regression_id": "conflict-output-truncation",
+      "case_id": "unresolved-conflict",
+      "group_id": "synthetic-marriage-conflict",
+      "category": "bounded_output",
+      "observed_capture": "docs/implementation/issue-4/local-policy-v2.json",
+      "response_id": "02456702-9f94-4657-84be-03440fd5892f",
+      "trace_id": "tr-b1873c58505b953a3bfdcb8a3e3d535d",
+      "observation_scope": "Served response and trace",
+      "expected_reference": "data/references/answer-policy-v2.json",
+      "disposition": "Historical local-model failure retained; accepted on the final Sol profile in the linked current_profile_validation. This does not fix or accept the local model.",
+      "regression_check": "data/references/answer-policy-v2.json#unresolved-conflict",
+      "current_profile_validation": {
+        "profile": "config/openrouter-sol.json",
+        "capture": "docs/implementation/issue-4/cloud/sol-policy-v2.json",
+        "review": "docs/implementation/issue-4/cloud/reviews-sol-policy-v2.json",
+        "response_id": "dba10a5d-97ec-4a91-a57d-a753c68fb67e",
+        "trace_id": "tr-a34f282402b9632aac65d8f446261854",
+        "result": "Appropriate outcome, required facts and all assessed claims pass; no critical failures in this case. Acceptance is scoped to this profile and captured development response."
+      },
+      "historical_disposition": "256-token response was truncated. Ceiling512 avoids truncation in v3; semantic qualification still needs stronger-model acceptance."
+    },
+    {
+      "regression_id": "unresolved-subject",
+      "case_id": "ambiguous-character",
+      "group_id": "unresolved-character-pronoun",
+      "category": "answerability",
+      "observed_capture": "docs/implementation/issue-4/local-policy-v2.json",
+      "response_id": "ab4369fd-0449-4981-9e9c-b89e0d8cb384",
+      "trace_id": "tr-6a73b8fafd06a4b594635888338a195c",
+      "observation_scope": "Served response and trace",
+      "expected_reference": "data/references/answer-policy-v2.json",
+      "disposition": "Historical local-model failure retained; accepted on the final Sol profile in the linked current_profile_validation. This does not fix or accept the local model.",
+      "regression_check": "data/references/answer-policy-v2.json#ambiguous-character",
+      "current_profile_validation": {
+        "profile": "config/openrouter-sol.json",
+        "capture": "docs/implementation/issue-4/cloud/sol-policy-v2.json",
+        "review": "docs/implementation/issue-4/cloud/reviews-sol-policy-v2.json",
+        "response_id": "767c283e-2348-43f4-a659-963bce695990",
+        "trace_id": "tr-8493aa9d122bcdca984379f46f8dfc35",
+        "result": "Appropriate outcome, required facts and all assessed claims pass; no critical failures in this case. Acceptance is scoped to this profile and captured development response."
+      },
+      "historical_disposition": "Pending: local model guesses Phil; v3 now serves this wrong outcome with otherwise supported arrival facts."
+    },
+    {
+      "regression_id": "missing-evidence-miscited",
+      "case_id": "missing-mother",
+      "group_id": "phil-arrival-february-1990",
+      "category": "false_citation",
+      "observed_capture": "docs/implementation/issue-4/local-policy-v2.json",
+      "response_id": "4cd26f73-19f9-4fab-93d5-1d9834ecb8bb",
+      "trace_id": "tr-604d0ed391847c56d49a1b79a9885536",
+      "observation_scope": "Raw rejected draft",
+      "expected_reference": "data/references/answer-policy-v2.json",
+      "disposition": "Historical local-model failure retained; accepted on the final Sol profile in the linked current_profile_validation. This does not fix or accept the local model.",
+      "regression_check": "tests/test_answer_rules.py::test_invalid_outcome_citation_combinations_are_rejected",
+      "current_profile_validation": {
+        "profile": "config/openrouter-sol.json",
+        "capture": "docs/implementation/issue-4/cloud/sol-policy-v2.json",
+        "review": "docs/implementation/issue-4/cloud/reviews-sol-policy-v2.json",
+        "response_id": "4a95047f-e07c-462d-a44a-b1ae95c280de",
+        "trace_id": "tr-003d8056cfbb655c06a75ef3a0f86aed",
+        "result": "Appropriate outcome, required facts and all assessed claims pass; no critical failures in this case. Acceptance is scoped to this profile and captured development response."
+      },
+      "historical_disposition": "Rejected draft cited unrelated arrival evidence; safe failure was served. Pending: a correct abstention from a stronger model."
+    },
+    {
+      "regression_id": "false-premise-purpose",
+      "case_id": "false-arrival-premise",
+      "group_id": "phil-arrival-february-1990",
+      "category": "false_premise",
+      "observed_capture": "docs/implementation/issue-4/local-policy-v2.json",
+      "response_id": "36aa3e98-27c2-4f45-8c14-7c770c499e70",
+      "trace_id": "tr-6bab573ff84377c370452dcff16898f5",
+      "observation_scope": "Raw rejected draft",
+      "expected_reference": "data/references/answer-policy-v2.json",
+      "disposition": "Historical local-model failure retained; accepted on the final Sol profile in the linked current_profile_validation. This does not fix or accept the local model.",
+      "regression_check": "data/references/answer-policy-v2.json#false-arrival-premise",
+      "current_profile_validation": {
+        "profile": "config/openrouter-sol.json",
+        "capture": "docs/implementation/issue-4/cloud/sol-policy-v2.json",
+        "review": "docs/implementation/issue-4/cloud/reviews-sol-policy-v2.json",
+        "response_id": "87b08952-2d7d-4ff1-9f4b-1882bdd9e018",
+        "trace_id": "tr-6231df5e55572bb5d627074870bd18b6",
+        "result": "Appropriate outcome, required facts and all assessed claims pass; no critical failures in this case. Acceptance is scoped to this profile and captured development response."
+      },
+      "historical_disposition": "Rejected draft called the documented purpose unstated. Pending stronger-model correction with faithful appendix."
+    },
+    {
+      "regression_id": "purpose-upgraded-to-completed-act",
+      "case_id": "arrival-and-mother",
+      "group_id": "phil-arrival-february-1990",
+      "category": "false_citation",
+      "observation_scope": "Served neutral appendix",
+      "observed_capture": "docs/implementation/issue-4/local-policy-v3.json",
+      "response_id": "0d79f8bb-6374-4c2b-b97b-ce524d8b0fa3",
+      "trace_id": "tr-119684be9e3f1d2a593aed88ba67e55a",
+      "source_quote": "Phil Mitchell first arrives in Walford in February 1990 to open an automobile repair shop, known as The Arches;",
+      "unsupported_claim": "Phil opened an automobile repair shop named The Arches.",
+      "review": "Independent Spec agent: the purpose is supported; successful completion is not established by the retained clause. Correctness is unassessable; groundedness and citation support are false.",
+      "expected_reference": "data/references/answer-policy-v2.json",
+      "forbidden_claims": [
+        "Upgrade an intended purpose into a completed act without evidence"
+      ],
+      "disposition": "Historical local-model failure retained; accepted on the final Sol profile in the linked current_profile_validation. This does not fix or accept the local model.",
+      "regression_check": "docs/implementation/issue-4/reviews-v3.json#arrival-and-mother",
+      "current_profile_validation": {
+        "profile": "config/openrouter-sol.json",
+        "capture": "docs/implementation/issue-4/cloud/sol-policy-v2.json",
+        "review": "docs/implementation/issue-4/cloud/reviews-sol-policy-v2.json",
+        "response_id": "10d9ee4e-39d7-4192-8eef-447a8a887d8c",
+        "trace_id": "tr-be5998cb05de45ac72afc99d35659111",
+        "result": "Appropriate outcome, required facts and all assessed claims pass; no critical failures in this case. Acceptance is scoped to this profile and captured development response."
+      },
+      "historical_disposition": "Open; blocks semantic acceptance of #4. Re-evaluate this frozen case with the stronger model, including the appendix. Do not hide it in averages."
+    },
+    {
+      "regression_id": "explicit-unknown-date-marked-answered",
+      "case_id": "timing-unknown",
+      "group_id": "synthetic-temporal-account",
+      "category": "answerability",
+      "observed_capture": "docs/implementation/issue-4/cloud/sol-policy-v1.json",
+      "response_id": "3258dbea-20f9-40b0-9cf9-36fcbef582c0",
+      "trace_id": "tr-888016fc79927b5b9e8c02fbdf306203",
+      "observation_scope": "Served response and neutral appendix",
+      "expected_reference": "data/references/answer-policy-v2.json",
+      "disposition": "Fixed by explicit partial-outcome prompt rule; targeted and full-matrix Sol reruns pass independent review with unknown timing and missing date preserved.",
+      "regression_check": "data/references/answer-policy-v2.json#timing-unknown",
+      "current_profile_validation": {
+        "profile": "config/openrouter-sol.json",
+        "capture": "docs/implementation/issue-4/cloud/sol-policy-v2.json",
+        "review": "docs/implementation/issue-4/cloud/reviews-sol-policy-v2.json",
+        "response_id": "1810de25-73d9-48cd-ab0b-6d80809a2c46",
+        "trace_id": "tr-16cc7eab943ec800824d7a0b499ca4aa",
+        "result": "Appropriate outcome, required facts and all assessed claims pass; no critical failures in this case. Acceptance is scoped to this profile and captured development response."
+      }
+    },
+    {
+      "regression_id": "unknown-story-date-false-calendar-inequality",
+      "case_id": "timing-unknown",
+      "group_id": "synthetic-temporal-account",
+      "category": "false_citation",
+      "observed_capture": "docs/implementation/issue-4/cloud/sol-policy-v1.json",
+      "response_id": "3258dbea-20f9-40b0-9cf9-36fcbef582c0",
+      "trace_id": "tr-888016fc79927b5b9e8c02fbdf306203",
+      "observation_scope": "Served persona answer",
+      "unsupported_claim": "The bulletin and broadcast dates aren't the story date.",
+      "review": "Unknown story date does not establish that its calendar value differs from publication or broadcast dates. Correctness unassessable; groundedness and citation support false.",
+      "expected_reference": "data/references/answer-policy-v2.json",
+      "forbidden_claims": [
+        "Infer calendar inequality from an unknown story date"
+      ],
+      "disposition": "Prompt repaired: other dates do not establish the missing story date. Targeted and full-matrix reruns pass independent review.",
+      "regression_check": "docs/implementation/issue-4/cloud/reviews-sol-policy-v2.json#timing-unknown",
+      "current_profile_validation": {
+        "profile": "config/openrouter-sol.json",
+        "capture": "docs/implementation/issue-4/cloud/sol-policy-v2.json",
+        "review": "docs/implementation/issue-4/cloud/reviews-sol-policy-v2.json",
+        "response_id": "1810de25-73d9-48cd-ab0b-6d80809a2c46",
+        "trace_id": "tr-16cc7eab943ec800824d7a0b499ca4aa",
+        "result": "Appropriate outcome, required facts and all assessed claims pass; no critical failures in this case. Acceptance is scoped to this profile and captured development response."
+      }
+    },
+    {
+      "regression_id": "qwen-invented-citation-id",
+      "case_id": "supported-arrival",
+      "group_id": "phil-arrival-february-1990",
+      "category": "draft_contract",
+      "observed_capture": "docs/implementation/issue-4/cloud/qwen-smoke-v1.json",
+      "response_id": "329355c1-2615-466e-84f8-1554e5cdd8bf",
+      "trace_id": "tr-23b65beceef9cd67f5fd3991f6474e03",
+      "observation_scope": "Raw rejected draft; served safe technical failure",
+      "expected_reference": "data/references/answer-policy-v2.json",
+      "disposition": "Guard rejected invented x1 citation and spurious synthetic qualification. Qwen remains unaccepted for this slice; final Sol profile returns supported answer with the actual citation.",
+      "regression_check": "docs/implementation/issue-4/cloud/reviews-sol-policy-v2.json#supported-arrival",
+      "current_profile_validation": {
+        "profile": "config/openrouter-sol.json",
+        "capture": "docs/implementation/issue-4/cloud/sol-policy-v2.json",
+        "review": "docs/implementation/issue-4/cloud/reviews-sol-policy-v2.json",
+        "response_id": "c570fb78-b622-4482-be84-e8530e79e880",
+        "trace_id": "tr-727bb70f1af8550b3aad86e8f8a679ed",
+        "result": "Appropriate outcome, required facts and all assessed claims pass; no critical failures in this case. Acceptance is scoped to this profile and captured development response."
+      }
+    }
+  ]
+}

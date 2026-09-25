@@ -8,7 +8,7 @@
   "status": "issues_published_native_dependencies_pending",
   "implementation_started": true,
   "spec": {
-    "title": "Ask Phil: evidence-backed EastEnders RAG demonstration — specification",
+    "title": "Ask Phil: evidence-backed EastEnders RAG demonstration \u2014 specification",
     "file": "docs/specs/ask-phil.md",
     "sha256": "a82e93bd170be20c253415606fcb9a6ab082f7a9a7c991d56ca5e757ca728c53",
     "issue_number": 1,
@@ -122,9 +122,9 @@
       },
       "published_body_sha256": "3fc862be1e030f510bdeaacf59da7e46a54fb4033c23ec3a3d33bd7b0acba291",
       "updated_at": "2026-09-24T14:07:41Z",
-      "current_local_file_sha256": "1a17aac6055aae190963d4f4db22882e9d5e438da56a0e19179ab51003199486",
-      "implementation_status": "software_verified_semantic_acceptance_pending",
-      "implementation_record": "docs/implementation/issue-4/validation.json",
+      "current_local_file_sha256": "541e993edbc214906acb4fa6c8116ef152270d3db5a422e332e9e53e6a455a93",
+      "implementation_status": "scoped_semantic_acceptance_passed_publication_and_closure_pending",
+      "implementation_record": "docs/implementation/issue-4/cloud/summary.json",
       "previous_published_body_sha256": "b0e773f2e2214e80c14ce92e331eeec27e0444f2d7bdbff090fba26cddd78b44"
     },
     {
@@ -1126,16 +1126,19 @@
   },
   "publication_verified_date": "2026-09-23",
   "handoff": {
-    "instruction": "Issues #2 and #3 are complete. Issue #4 software passes 66 Docker tests but semantic acceptance remains open; resume with stronger-provider input and conservative controls before any paid calls. Do not advance its blocked dependants. #5 remains independently unblocked; wait for a further implementation instruction before another ticket.",
+    "instruction": "Issue4 scoped Sol policy acceptance passes. Publish and verify the exact tree, then close issue4. After closure, #5 is recommended next; #9 and #10 are also unblocked. Wait for the next implementation instruction before another ticket.",
     "specification_is_not_an_implementation_ticket": true,
     "dependency_handling": "Use the explicit Blocked by issue references and saved mapping until native relationships can be written and verified.",
     "first_unblocked_issue_numbers": [
-      4,
       5
     ],
     "first_unblocked_issue_urls": [
-      "https://github.com/tomh1988-8/rag_demo/issues/4",
       "https://github.com/tomh1988-8/rag_demo/issues/5"
+    ],
+    "after_issue_4_closure_unblocked": [
+      5,
+      9,
+      10
     ]
   },
   "validation": {
@@ -1253,15 +1256,17 @@
   ],
   "implementation_progress": {
     "issue_number": 4,
-    "status": "software_verified_semantic_acceptance_pending",
-    "record": "docs/implementation/issue-4/validation.json",
+    "status": "scoped_semantic_acceptance_passed_publication_and_closure_pending",
+    "record": "docs/implementation/issue-4/cloud/summary.json",
     "github_issue_closed": false,
-    "code_and_evidence_commit": "172b42d17ff5a3c3b1bc5ec07679a92341ff2225",
+    "code_and_evidence_revision": "Commit containing this manifest; exact remote tree verification required before closure.",
     "software_tests": {
-      "docker": 66,
+      "native": 85,
       "failures": 0,
+      "errors": 0,
+      "skipped": 0,
       "ruff": "passed",
-      "mypy": "passed"
+      "mypy": "passed,27 files"
     },
     "checklist": {
       "current": 51,
@@ -1269,39 +1274,50 @@
       "pending": 36,
       "deferred": 1,
       "not_applicable": 12,
-      "new_scoped_pass": [
-        "AD-06.3",
-        "RAG-03"
-      ],
-      "scope": "Software counterexamples and separate quality measurement; not model acceptance"
+      "scope": "Scoped issue4 Sol policy acceptance; broader product evaluation remains Pending."
     },
     "semantic_results": {
-      "v3_targeted_cases": 6,
-      "appropriate_outcomes": 3,
-      "served_critical_false_citations": 1,
+      "model_profile": "config/openrouter-sol.json",
+      "full_matrix_cases": 13,
+      "appropriate_outcomes": 13,
+      "assessed_assertions": 19,
+      "correct_assertions": 19,
+      "grounded_assertions": 19,
+      "citation_supported_assertions": 19,
+      "required_facts_covered": 20,
+      "required_facts": 20,
+      "served_critical_failures": 0,
+      "actual_cli_cases": 5,
+      "original_receipts_preserved_after_restart": 5,
       "reference": "data/references/answer-policy-v2.json",
-      "regressions": "data/references/answer-policy-regressions-v1.json"
+      "regressions": "data/references/answer-policy-regressions-v2.json",
+      "limitation": "Exposed development references, one retained real source passage and synthetic fixtures; not human-calibrated or held-out."
     },
     "model_migration": {
-      "required_now": true,
-      "before_issue_4_acceptance": true,
-      "next_reasoning": "pro",
-      "missing_input": "Locally entered OpenRouter key with verified non-resetting $5 limit; BYOK settings are not required for this credit-funded trial; live smoke and semantic rebaseline pending",
-      "paid_api_calls": 0
+      "required_for_this_slice_satisfied": true,
+      "accepted_profile": "config/openrouter-sol.json",
+      "qwen": "Smoke rejected; no acceptance or general model ranking",
+      "glm": "Untested",
+      "local_model_role": "Convenient development only",
+      "paid_api_calls": 32,
+      "reported_cost_usd": "0.10890587",
+      "remaining_trial_credit_usd": "4.89109413"
     },
-    "dependency_frontier": [
-      4,
-      5
+    "dependency_frontier_after_closure": [
+      5,
+      9,
+      10
     ],
-    "blocked_dependants_still_blocked": true,
-    "publication_method": "Authorized GitHub connector; exact tree verification required. Final receipt is local ignored artifacts/issue-4-github-publication.json."
+    "next_recommended_issue": 5,
+    "next_reasoning": "pro",
+    "publication_method": "Authorized GitHub connector; exact tree verification before closure. Final receipt: artifacts/issue-4-cloud-github-publication.json."
   },
   "code_publication": {
-    "scope": "Issue #4 software implementation, failed semantic evaluations and stronger-model handoff in the commit containing this manifest; issue remains open.",
+    "scope": "Issue4 cloud policy acceptance, retained failures/regressions, prompt repair and updated handoff in the commit containing this manifest. Close only after publication verification.",
     "branch": "main",
     "method": "Authenticated GitHub connector; native Git push lacks credentials.",
-    "verification": "Require an exact local/remote tree match before reporting completion.",
-    "local_receipt": "artifacts/issue-4-github-publication.json",
+    "verification": "Require an exact local/remote tree match before closure or reporting completion.",
+    "local_receipt": "artifacts/issue-4-cloud-github-publication.json",
     "receipt_is_git_ignored": true
   },
   "current_scope_validation": {
@@ -1365,6 +1381,51 @@
         ],
         "requirement": "Use a more capable model before judging broad roster answers, representative quality comparisons or substantive extraction. Record a new provider/model baseline and configure conservative key/account/request controls before any paid call."
       }
+    },
+    {
+      "issue_number": 4,
+      "status": "software_verified_semantic_acceptance_pending",
+      "record": "docs/implementation/issue-4/validation.json",
+      "github_issue_closed": false,
+      "code_and_evidence_commit": "172b42d17ff5a3c3b1bc5ec07679a92341ff2225",
+      "software_tests": {
+        "docker": 66,
+        "failures": 0,
+        "ruff": "passed",
+        "mypy": "passed"
+      },
+      "checklist": {
+        "current": 51,
+        "pass": 15,
+        "pending": 36,
+        "deferred": 1,
+        "not_applicable": 12,
+        "new_scoped_pass": [
+          "AD-06.3",
+          "RAG-03"
+        ],
+        "scope": "Software counterexamples and separate quality measurement; not model acceptance"
+      },
+      "semantic_results": {
+        "v3_targeted_cases": 6,
+        "appropriate_outcomes": 3,
+        "served_critical_false_citations": 1,
+        "reference": "data/references/answer-policy-v2.json",
+        "regressions": "data/references/answer-policy-regressions-v1.json"
+      },
+      "model_migration": {
+        "required_now": true,
+        "before_issue_4_acceptance": true,
+        "next_reasoning": "pro",
+        "missing_input": "Locally entered OpenRouter key with verified non-resetting $5 limit; BYOK settings are not required for this credit-funded trial; live smoke and semantic rebaseline pending",
+        "paid_api_calls": 0
+      },
+      "dependency_frontier": [
+        4,
+        5
+      ],
+      "blocked_dependants_still_blocked": true,
+      "publication_method": "Authorized GitHub connector; exact tree verification required. Final receipt is local ignored artifacts/issue-4-github-publication.json."
     }
   ],
   "code_publication_history": [
@@ -1376,11 +1437,19 @@
       "branch": "main",
       "exact_tree_match": true,
       "scope": "Existing validated issue #2 implementation and Docker acceptance. Planning amendments are published in a subsequent commit."
+    },
+    {
+      "scope": "Issue #4 software implementation, failed semantic evaluations and stronger-model handoff in the commit containing this manifest; issue remains open.",
+      "branch": "main",
+      "method": "Authenticated GitHub connector; native Git push lacks credentials.",
+      "verification": "Require an exact local/remote tree match before reporting completion.",
+      "local_receipt": "artifacts/issue-4-github-publication.json",
+      "receipt_is_git_ignored": true
     }
   ],
   "openrouter_trial_setup": {
     "date": "2026-09-25",
-    "status": "integration_ready_local_key_entry_and_live_verification_pending",
+    "status": "key_cap_verified_live_policy_acceptance_passed",
     "profiles": [
       "config/openrouter-qwen.json",
       "config/openrouter-sol.json",
@@ -1391,7 +1460,11 @@
     "key_entry_command": ".venv/bin/ask-phil configure-openrouter",
     "secret_check_command": "python3 scripts/check_secrets.py",
     "guide": "docs/implementation/openrouter-setup.md",
-    "paid_api_calls": 0,
-    "semantic_acceptance": "pending_issue_4_stays_open"
+    "paid_api_calls": 32,
+    "semantic_acceptance": "scoped_issue4_sol_policy_passed",
+    "reported_cost_usd": "0.10890587",
+    "remaining_trial_credit_usd": "4.89109413",
+    "accepted_profile": "config/openrouter-sol.json",
+    "evidence": "docs/implementation/issue-4/cloud/summary.json"
   }
 }

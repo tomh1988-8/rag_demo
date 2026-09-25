@@ -1,0 +1,38 @@
+{
+  "scope": "Independent review of exposed development cases, not held-out quality or independently corroborated EastEnders canon. Distinct domain and explicitly evidenced temporal/account assertions across persona and appendix are counted once; repeated claims are not extra observations. Coverage-only abstentions and clarification have no domain-claim denominator; their limitations are assessed in completeness and outcome. Correctness is relative to reviewed retained references; grounding uses actual assembled context; citation support uses delivered cited passages. Persona, synthetic provenance and material uncertainty in prose versus appendix are inspected separately in rationale. Related cases share event groups and are not statistically independent. No paid calls or generated/reference edits were made by this reviewer.",
+  "reviews": [
+    {
+      "case_id": "timing-unknown",
+      "response_sha256": "8b0e71b9702b94613edd29f5bbca73cb5d76fa315cd4926bf24190bc8c734b85",
+      "reference_sha256": "710c5c0ac579b807ce143832e22d551811be47707944df42ef1f32035f37ddf1",
+      "reviewer": "Independent Codex Spec review agent openrouter_spec_review; frozen-output review on 2026-09-25, not human-calibrated",
+      "rationale": "The actual passage explicitly leaves the story hearing date unstated. The repaired reply identifies that missing date in prose and unanswered and uses partial, without asserting that the unknown calendar value must differ from publication/broadcast dates. Don't establish it preserves the required epistemic limitation. The cited unknown-timing appendix agrees, with no spurious explicit-negative event label. Synthetic provenance and restrained Phil-style preface are explicit. This single targeted development pass does not establish full-matrix acceptance or stochastic reliability.",
+      "claims": [
+        {
+          "claim": "The synthetic account does not state the hearing story date.",
+          "correct": true,
+          "grounded": true,
+          "citation_supported": true
+        },
+        {
+          "claim": "Publication and broadcast dates do not establish that hearing date.",
+          "correct": true,
+          "grounded": true,
+          "citation_supported": true
+        }
+      ],
+      "required_facts": [
+        {
+          "fact": "The story date is not stated",
+          "covered": true
+        },
+        {
+          "fact": "Publication and broadcast dates do not establish the hearing date",
+          "covered": true
+        }
+      ],
+      "answerability": true,
+      "critical_failures": []
+    }
+  ]
+}
