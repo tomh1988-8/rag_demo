@@ -3,7 +3,8 @@
 **The Sol profile passes the scoped response-policy acceptance.** All 13 exposed
 development cases and five actual CLI/API responses passed independent semantic
 review. The full software suite passed 85 tests. This completes the model-quality
-work for #4; publication must be verified before its GitHub closure.
+work for #4. [Publication](https://github.com/tomh1988-8/rag_demo/commit/a5062593449a941d28248614e1f3977d14fc9a57) was verified against the exact
+reviewed tree, and GitHub closure was read back as completed.
 
 The accepted profile is `config/openrouter-sol.json`: provider OpenAI,
 `openai/gpt-6-sol`, canonical version `openai/gpt-6-sol-20260922`, medium reasoning,

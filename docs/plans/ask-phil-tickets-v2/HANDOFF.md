@@ -1,6 +1,6 @@
 # Ask Phil: publication and next-skill handoff
 
-Updated 25 September 2026. The user approved the initial checklist/ticket breakdown, authorised publication, and subsequently required user feedback and online evaluation. Checklist v1.1 and the amended 24-ticket breakdown are published. Issues #2 and #3 are complete and closed. Issue #4 now passes its scoped cloud policy acceptance, with publication and closure handled as the final steps below.
+Updated 25 September 2026. The user approved the initial checklist/ticket breakdown, authorised publication, and subsequently required user feedback and online evaluation. Checklist v1.1 and the amended 24-ticket breakdown are published. Issues #2, #3 and #4 are complete and closed. Issue #4 passed its scoped cloud policy acceptance, exact-tree publication verification and closure readback.
 
 ## Issue #4: scoped cloud acceptance passed
 
@@ -16,15 +16,16 @@ entered key, verified non-resetting $5 provider cap and shared persistent ledger
 The 32 paid attempts cost $0.10890587, leaving $4.89109413. Preserve both private
 key and ledger. Qwen failed its smoke; GLM remains untested. This scoped evidence
 does not establish held-out reliability, human calibration or broad canon accuracy.
-Publish the reviewed tree, verify it against GitHub, then close #4. Check the live
-issue for closure readback; the final receipt is ignored local evidence.
+[Commit a506259](https://github.com/tomh1988-8/rag_demo/commit/a5062593449a941d28248614e1f3977d14fc9a57) publishes the exact reviewed tree.
+Issue #4 is closed as completed; all seven checked criteria and closure state were
+read back. The final receipt is ignored local evidence.
 The temporary cloud API was stopped; existing Docker API/MLflow containers still
 use #3. A persistent cloud deployment has not been configured.
 
 ## Published and verified
 
 - [Specification #1](https://github.com/tomh1988-8/rag_demo/issues/1) contains the agreed specification with the feedback/online-evaluation and fusion/cache amendments (130 stories).
-- Implementation tickets **#2–#25** are published and labelled `ready-for-agent`. **#2 and #3 are closed as completed**; #4 has passed scoped acceptance and closes after verified publication. #5–#25 remain open.
+- Implementation tickets **#2–#25** are published and labelled `ready-for-agent`. **#2, #3 and #4 are closed as completed**; #5–#25 remain open.
 - All 25 remote bodies, states and ready-for-agent labels were read back and checked against the intended content after the fusion/cache amendment.
 - The 41 blocking relationships are recorded as real issue references in ticket bodies and as a machine-readable mapping in [publication.json](publication.json).
 - Issue #2 has a reviewed captured seed, CLI/API/PostgreSQL behavior, 17 passing tests in both native and Docker environments, and recorded deterministic baseline outputs. [Fresh Compose startup and database/API restart passed](../../implementation/issue-2/README.md); no generative model quality is claimed. GitHub closure and all seven checked criteria were read back and verified.
@@ -33,7 +34,7 @@ The [to-spec skill](../../../.agents/skills/to-spec/SKILL.md) authorised specifi
 
 ## First available work
 
-**[#5 — Import real sources with character identity and canon scope](https://github.com/tomh1988-8/rag_demo/issues/5)** is recommended next, using `<pro>` for source ingestion and provenance. Once #4 is closed, #9 (calibrated comparisons) and #10 (execution boundaries) also become unblocked. Wait for the next implementation instruction before starting another ticket. Specification #1 remains parent context.
+**[#5 — Import real sources with character identity and canon scope](https://github.com/tomh1988-8/rag_demo/issues/5)** is recommended next, using `<pro>` for source ingestion and provenance. #9 (calibrated comparisons) and #10 (execution boundaries) are also unblocked. Wait for the next implementation instruction before starting another ticket. Specification #1 remains parent context.
 
 For subsequent work, read the current issue and comments, the relevant domain/ADR decisions and the checklist profile. Work the dependency frontier; the shared `ready-for-agent` label does not mean a blocked ticket can begin. Existing approved decisions and the six public test boundaries do not need another design interview.
 

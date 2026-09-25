@@ -112,7 +112,7 @@
       "body_verified": true,
       "created_at": "2026-09-23T08:16:06Z",
       "node_id": "I_kwDOUl8W3M8AAAABStjuSA",
-      "state": "open",
+      "state": "closed",
       "readback_verified": true,
       "native_dependency_summary": {
         "blocked_by": 0,
@@ -120,12 +120,15 @@
         "blocking": 0,
         "total_blocking": 0
       },
-      "published_body_sha256": "3fc862be1e030f510bdeaacf59da7e46a54fb4033c23ec3a3d33bd7b0acba291",
-      "updated_at": "2026-09-24T14:07:41Z",
-      "current_local_file_sha256": "541e993edbc214906acb4fa6c8116ef152270d3db5a422e332e9e53e6a455a93",
-      "implementation_status": "scoped_semantic_acceptance_passed_publication_and_closure_pending",
+      "published_body_sha256": "e3326cb51787b2d930939a673ffcbc506a52b172c28b1a32352626833d32cfac",
+      "updated_at": "2026-09-25T10:48:10Z",
+      "current_local_file_sha256": "ee3ef328adb8f4b596168270cb82ee18b85e56f53106baea4f04e75906656963",
+      "implementation_status": "completed",
       "implementation_record": "docs/implementation/issue-4/cloud/summary.json",
-      "previous_published_body_sha256": "b0e773f2e2214e80c14ce92e331eeec27e0444f2d7bdbff090fba26cddd78b44"
+      "previous_published_body_sha256": "3fc862be1e030f510bdeaacf59da7e46a54fb4033c23ec3a3d33bd7b0acba291",
+      "state_reason": "completed",
+      "closed_at": "2026-09-25T10:48:10Z",
+      "github_closure_readback_verified": true
     },
     {
       "draft_number": 4,
@@ -1126,19 +1129,18 @@
   },
   "publication_verified_date": "2026-09-23",
   "handoff": {
-    "instruction": "Issue4 scoped Sol policy acceptance passes. Publish and verify the exact tree, then close issue4. After closure, #5 is recommended next; #9 and #10 are also unblocked. Wait for the next implementation instruction before another ticket.",
+    "instruction": "Issues #2,#3,#4 are completed and closed after verified publication. #5 is recommended next; #9 and #10 are also unblocked. Wait for the next implementation instruction before another ticket.",
     "specification_is_not_an_implementation_ticket": true,
     "dependency_handling": "Use the explicit Blocked by issue references and saved mapping until native relationships can be written and verified.",
     "first_unblocked_issue_numbers": [
-      5
-    ],
-    "first_unblocked_issue_urls": [
-      "https://github.com/tomh1988-8/rag_demo/issues/5"
-    ],
-    "after_issue_4_closure_unblocked": [
       5,
       9,
       10
+    ],
+    "first_unblocked_issue_urls": [
+      "https://github.com/tomh1988-8/rag_demo/issues/5",
+      "https://github.com/tomh1988-8/rag_demo/issues/9",
+      "https://github.com/tomh1988-8/rag_demo/issues/10"
     ]
   },
   "validation": {
@@ -1256,10 +1258,9 @@
   ],
   "implementation_progress": {
     "issue_number": 4,
-    "status": "scoped_semantic_acceptance_passed_publication_and_closure_pending",
+    "status": "completed",
     "record": "docs/implementation/issue-4/cloud/summary.json",
-    "github_issue_closed": false,
-    "code_and_evidence_revision": "Commit containing this manifest; exact remote tree verification required before closure.",
+    "github_issue_closed": true,
     "software_tests": {
       "native": 85,
       "failures": 0,
@@ -1310,15 +1311,24 @@
     ],
     "next_recommended_issue": 5,
     "next_reasoning": "pro",
-    "publication_method": "Authorized GitHub connector; exact tree verification before closure. Final receipt: artifacts/issue-4-cloud-github-publication.json."
+    "publication_method": "Authenticated GitHub connector; exact tree matched and closure readback verified. Final receipt: artifacts/issue-4-cloud-github-publication.json.",
+    "github_closure_readback_verified": true,
+    "closed_at": "2026-09-25T10:48:10Z",
+    "code_and_evidence_commit": "a5062593449a941d28248614e1f3977d14fc9a57",
+    "published_tree": "589ee66a716921e63495fdbbc82302c83ac303cc",
+    "exact_tree_verified": true
   },
   "code_publication": {
-    "scope": "Issue4 cloud policy acceptance, retained failures/regressions, prompt repair and updated handoff in the commit containing this manifest. Close only after publication verification.",
+    "scope": "Issue4 cloud policy acceptance, retained failures/regressions and prompt repair published; this follow-up records verified closure.",
     "branch": "main",
     "method": "Authenticated GitHub connector; native Git push lacks credentials.",
     "verification": "Require an exact local/remote tree match before closure or reporting completion.",
     "local_receipt": "artifacts/issue-4-cloud-github-publication.json",
-    "receipt_is_git_ignored": true
+    "receipt_is_git_ignored": true,
+    "accepted_code_and_evidence_commit": "a5062593449a941d28248614e1f3977d14fc9a57",
+    "accepted_tree": "589ee66a716921e63495fdbbc82302c83ac303cc",
+    "accepted_tree_verified": true,
+    "github_issue_closed": true
   },
   "current_scope_validation": {
     "record": "docs/plans/ask-phil-tickets-v2/fusion-cache-amendment.json",
