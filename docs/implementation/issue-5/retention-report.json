@@ -1,0 +1,305 @@
+{
+  "version": 1,
+  "evaluation_kind": "deterministic_parsing_and_provenance",
+  "split": "exposed-development",
+  "implementation_commit": "0322b2eac495c515676b60124a6a8e88e04e2da6",
+  "batch_sha256": "bfcaae65ecd30c4ebee805a71d02910ce85db636aa0d5f1ef2a08368a06eb76a",
+  "references_sha256": "1bb00dc59f4b4f34c57a12453dc7135fb7f589dd2c258a876b54ae174a43f86b",
+  "snapshot_sha256": "4dbb79239739ee3ecbaca2056d171b104e942abe9bb8a0f865367ee881725019",
+  "paragraph_checks": [
+    {
+      "source_id": "sharon-wiki",
+      "reviewed_relevant": 30,
+      "retained_relevant": 30,
+      "expected_exclusions": 0,
+      "actual_exclusions": 0,
+      "ordered_span_labels_match": true
+    },
+    {
+      "source_id": "ben-wiki",
+      "reviewed_relevant": 19,
+      "retained_relevant": 19,
+      "expected_exclusions": 0,
+      "actual_exclusions": 0,
+      "ordered_span_labels_match": true
+    },
+    {
+      "source_id": "kat-wiki",
+      "reviewed_relevant": 30,
+      "retained_relevant": 30,
+      "expected_exclusions": 5,
+      "actual_exclusions": 5,
+      "ordered_span_labels_match": true
+    },
+    {
+      "source_id": "den-wiki",
+      "reviewed_relevant": 0,
+      "retained_relevant": 0,
+      "expected_exclusions": 0,
+      "actual_exclusions": 0,
+      "ordered_span_labels_match": true
+    }
+  ],
+  "passages": 138,
+  "all_passages_match_admitted_capture_spans": true,
+  "structured_record_ids": [
+    {
+      "source_id": "sharon-identity",
+      "record_id": "Q7490258",
+      "role": "identity_linkage"
+    },
+    {
+      "source_id": "ben-identity",
+      "record_id": "Q2766568",
+      "role": "identity_linkage"
+    },
+    {
+      "source_id": "kat-identity",
+      "record_id": "Q3955054",
+      "role": "identity_linkage"
+    },
+    {
+      "source_id": "episode",
+      "record_id": "116520",
+      "role": "episode_metadata"
+    }
+  ],
+  "report": {
+    "parser_version": "html-paragraphs-v1",
+    "sources": [
+      {
+        "role": "narrative",
+        "license_url": "https://creativecommons.org/licenses/by-sa/4.0/",
+        "attribution": "Wikipedia contributors; markup removed and whitespace normalized.",
+        "source_id": "sharon-wiki",
+        "url": "https://en.wikipedia.org/wiki/Sharon_Watts",
+        "revision_id": "1372798905",
+        "captured_at": "2026-09-25T12:00:27.812293Z",
+        "sha256": "86b90fe8e3816fdd7f6ee92c97f94ba65a650bfa7cbc48476dd01de4f6a6560d",
+        "paragraphs": 95,
+        "admitted_paragraphs": 30,
+        "excluded_paragraphs": 0,
+        "review_required_paragraphs": 65,
+        "structured_records": 0
+      },
+      {
+        "role": "narrative",
+        "license_url": "https://creativecommons.org/licenses/by-sa/4.0/",
+        "attribution": "Wikipedia contributors; markup removed and whitespace normalized.",
+        "source_id": "ben-wiki",
+        "url": "https://en.wikipedia.org/wiki/Ben_Mitchell_(EastEnders)",
+        "revision_id": "1369268749",
+        "captured_at": "2026-09-25T12:00:27.860635Z",
+        "sha256": "42038dc15e2c78b46205eebf354d85e8babcc67d1ab73ae8e45d73b469a3a9d6",
+        "paragraphs": 48,
+        "admitted_paragraphs": 19,
+        "excluded_paragraphs": 0,
+        "review_required_paragraphs": 29,
+        "structured_records": 0
+      },
+      {
+        "role": "narrative",
+        "license_url": "https://creativecommons.org/licenses/by-sa/4.0/",
+        "attribution": "Wikipedia contributors; markup removed and whitespace normalized.",
+        "source_id": "kat-wiki",
+        "url": "https://en.wikipedia.org/wiki/Kat_Slater",
+        "revision_id": "1375940007",
+        "captured_at": "2026-09-25T12:04:27.187765Z",
+        "sha256": "83963acfaf2513d675920178dd67974d4f69d9ec92fb2cf2cc2eb5bcd009d9b7",
+        "paragraphs": 80,
+        "admitted_paragraphs": 30,
+        "excluded_paragraphs": 5,
+        "review_required_paragraphs": 45,
+        "structured_records": 0
+      },
+      {
+        "role": "narrative",
+        "license_url": "https://creativecommons.org/licenses/by-sa/4.0/",
+        "attribution": "Wikipedia contributors; markup removed and whitespace normalized.",
+        "source_id": "den-wiki",
+        "url": "https://en.wikipedia.org/wiki/Den_Watts",
+        "revision_id": "1371930128",
+        "captured_at": "2026-09-25T12:19:46.824222Z",
+        "sha256": "936560fd0b6c2a4c770afcc564448c8157cb9a99c18ee37d3428b9aff8a96cb8",
+        "paragraphs": 59,
+        "admitted_paragraphs": 0,
+        "excluded_paragraphs": 0,
+        "review_required_paragraphs": 59,
+        "structured_records": 0
+      },
+      {
+        "role": "identity_linkage",
+        "license_url": "https://creativecommons.org/publicdomain/zero/1.0/",
+        "attribution": "Wikidata contributors; structured identity data.",
+        "source_id": "sharon-identity",
+        "url": "https://www.wikidata.org/wiki/Special:EntityData/Q7490258.json",
+        "revision_id": "2531012756",
+        "captured_at": "2026-09-25T12:04:27.459980Z",
+        "sha256": "a582f41769377d615d2ad986202cf57d676052e50d6233cb66c76eb2e6c62924",
+        "paragraphs": 0,
+        "admitted_paragraphs": 0,
+        "excluded_paragraphs": 0,
+        "review_required_paragraphs": 0,
+        "structured_records": 1
+      },
+      {
+        "role": "identity_linkage",
+        "license_url": "https://creativecommons.org/publicdomain/zero/1.0/",
+        "attribution": "Wikidata contributors; structured identity data.",
+        "source_id": "ben-identity",
+        "url": "https://www.wikidata.org/wiki/Special:EntityData/Q2766568.json",
+        "revision_id": "2531020685",
+        "captured_at": "2026-09-25T12:04:27.867334Z",
+        "sha256": "e73721f684635755aeb61f0dca965e17c12ec368d2ca00612f2c4579ae9676fc",
+        "paragraphs": 0,
+        "admitted_paragraphs": 0,
+        "excluded_paragraphs": 0,
+        "review_required_paragraphs": 0,
+        "structured_records": 1
+      },
+      {
+        "role": "identity_linkage",
+        "license_url": "https://creativecommons.org/publicdomain/zero/1.0/",
+        "attribution": "Wikidata contributors; structured identity data.",
+        "source_id": "kat-identity",
+        "url": "https://www.wikidata.org/wiki/Special:EntityData/Q3955054.json",
+        "revision_id": "2531028992",
+        "captured_at": "2026-09-25T12:19:46.560986Z",
+        "sha256": "3b3d5b8ddb755e6fe6c5f7100998d8ab9a586248595245866f821487bde74869",
+        "paragraphs": 0,
+        "admitted_paragraphs": 0,
+        "excluded_paragraphs": 0,
+        "review_required_paragraphs": 0,
+        "structured_records": 1
+      },
+      {
+        "role": "episode_metadata",
+        "license_url": "https://creativecommons.org/licenses/by-sa/4.0/",
+        "attribution": "TVmaze, https://www.tvmaze.com/shows/793/eastenders; broadcast metadata.",
+        "source_id": "episode",
+        "url": "https://api.tvmaze.com/shows/793/episodesbydate?date=1985-02-19",
+        "revision_id": "20333a0ec99c69b73434c5bbd7676a673ca18bed54f4c5c8b8535b751fe59dbe",
+        "captured_at": "2026-09-25T12:19:47.016548Z",
+        "sha256": "20333a0ec99c69b73434c5bbd7676a673ca18bed54f4c5c8b8535b751fe59dbe",
+        "paragraphs": 0,
+        "admitted_paragraphs": 0,
+        "excluded_paragraphs": 0,
+        "review_required_paragraphs": 0,
+        "structured_records": 1
+      }
+    ],
+    "catalogue": {
+      "characters": [
+        {
+          "character_id": "sharon-watts",
+          "name": "Sharon Watts",
+          "aliases": [
+            "Sharon Mitchell",
+            "Sharon Rickman",
+            "Sharon Beale"
+          ],
+          "performers": [
+            "Letitia Dean"
+          ],
+          "coverage": "core",
+          "wikidata_id": "Q7490258",
+          "review_note": "Codex source inspection, 25 September 2026: Wikipedia infobox identity/aliases/performers and linked Wikidata item. Source-supported only; no independent canon corroboration. Den is supporting context for Sharon; his history is not admitted in this slice.",
+          "evidence_sources": [
+            "sharon-wiki",
+            "sharon-identity"
+          ]
+        },
+        {
+          "character_id": "ben-mitchell",
+          "name": "Ben Mitchell",
+          "aliases": [],
+          "performers": [
+            "Matthew Silver",
+            "Morgan Whittle",
+            "Charlie Jones",
+            "Joshua Pascoe",
+            "Harry Reid",
+            "Max Bowden"
+          ],
+          "coverage": "core",
+          "wikidata_id": "Q2766568",
+          "review_note": "Codex source inspection, 25 September 2026: Wikipedia infobox identity/aliases/performers and linked Wikidata item. Source-supported only; no independent canon corroboration. Den is supporting context for Sharon; his history is not admitted in this slice.",
+          "evidence_sources": [
+            "ben-wiki",
+            "ben-identity"
+          ]
+        },
+        {
+          "character_id": "kat-slater",
+          "name": "Kat Slater",
+          "aliases": [
+            "Kat Moon",
+            "Kat Mitchell"
+          ],
+          "performers": [
+            "Jessie Wallace",
+            "Kate Peck",
+            "Sumar-Elise Sandford",
+            "Amelia Crouch"
+          ],
+          "coverage": "core",
+          "wikidata_id": "Q3955054",
+          "review_note": "Codex source inspection, 25 September 2026: Wikipedia infobox identity/aliases/performers and linked Wikidata item. Source-supported only; no independent canon corroboration. Den is supporting context for Sharon; his history is not admitted in this slice.",
+          "evidence_sources": [
+            "kat-wiki",
+            "kat-identity"
+          ]
+        },
+        {
+          "character_id": "den-watts",
+          "name": "Den Watts",
+          "aliases": [
+            "Dennis Alan Watts",
+            "Dirty Den"
+          ],
+          "performers": [
+            "Leslie Grantham"
+          ],
+          "coverage": "supporting",
+          "wikidata_id": "Q5256484",
+          "review_note": "Codex source inspection, 25 September 2026: Wikipedia infobox identity/aliases/performers and linked Wikidata item. Source-supported only; no independent canon corroboration. Den is supporting context for Sharon; his history is not admitted in this slice.",
+          "evidence_sources": [
+            "den-wiki",
+            "sharon-wiki"
+          ]
+        }
+      ]
+    },
+    "issues": [
+      {
+        "source_id": "episode",
+        "code": "missing_field",
+        "detail": "Episode 116520 has no summary."
+      }
+    ],
+    "limitation": "Counts describe captured paragraphs and metadata, not extracted claims or canon accuracy. Unreviewed paragraphs stay outside retrieval. Capture time is not storyline coverage. Identity and episode metadata do not independently corroborate narrative facts."
+  },
+  "limitations": [
+    "The reviewed narrative subset is the denominator; other article paragraphs are held for review.",
+    "No semantic extraction, independently cross-checked canon, model quality, or complete-roster claim."
+  ],
+  "snapshot_id": "real-sources-v1",
+  "identity_regressions": {
+    "Dennis Alan Watts": {
+      "status": "resolved",
+      "character_ids": [
+        "den-watts"
+      ]
+    },
+    "Dirty Den": {
+      "status": "resolved",
+      "character_ids": [
+        "den-watts"
+      ]
+    },
+    "Leslie Grantham": {
+      "status": "performer",
+      "character_ids": []
+    }
+  }
+}

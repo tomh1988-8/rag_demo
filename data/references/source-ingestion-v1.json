@@ -1,0 +1,448 @@
+{
+  "version": "source-ingestion-v1",
+  "split": "exposed-development",
+  "batch_sha256": "bfcaae65ecd30c4ebee805a71d02910ce85db636aa0d5f1ef2a08368a06eb76a",
+  "reviewer": "Codex primary source inspection, 25 September 2026; review notes in docs/implementation/issue-5/source-review.md. Labels taken from captured HTML, not importer output. No independent canon verification.",
+  "sources": {
+    "sharon-wiki": {
+      "admitted": [
+        {
+          "section": "1985–1995",
+          "sha256": "65ec5583b3a79cbee5eaeb82b2645ccc86b8c4c8f227d961ea13d3a4fae95bd6",
+          "starts_with": "Adopted at the age of three by Den (Leslie Grantham) and Angie Wa"
+        },
+        {
+          "section": "1985–1995",
+          "sha256": "42f62503cbb9852fc16b2dff58eb5a6a019f2f13276f8dfcb4329d04aa749306",
+          "starts_with": "In the spring of 1990, Sharon discovers Den's signet ring on a ma"
+        },
+        {
+          "section": "1985–1995",
+          "sha256": "eb1101034a6ac49d5fd8492ef16ff4889f0e053bf72dc17c43ac091ff14ebadd",
+          "starts_with": "Sharon remains at The Queen Vic, working as a barmaid. She starts"
+        },
+        {
+          "section": "1985–1995",
+          "sha256": "11c79b85d1ac1b1877eda577ab28962f0072d03fd3e1a6f55f99014be8762635",
+          "starts_with": "While Grant wants to start a family, Sharon prefers to concentrat"
+        },
+        {
+          "section": "1985–1995",
+          "sha256": "ca09187d7beb3a1f66ea77229f6ca85740717103f9f645fef87e82dd2c1252c5",
+          "starts_with": "Phil gets engaged to Kathy Beale (Gillian Taylforth). Realising s"
+        },
+        {
+          "section": "2001–2006",
+          "sha256": "42f1db55d98fe707874ec39136af0a7e9f230d354e8495d4fcd8893e843d1086",
+          "starts_with": "Phil and Grant's mother, Peggy Mitchell (Barbara Windsor), sells "
+        },
+        {
+          "section": "2001–2006",
+          "sha256": "40b2a0d10f446a10990dea3670a7d6d99ea3ed7514c5948a0c2da8e6dfc6963a",
+          "starts_with": "In early 2003, Den's daughter, Vicki (now played by Scarlett Alic"
+        },
+        {
+          "section": "2001–2006",
+          "sha256": "ea36e991ee8d52ae77970337a0fe5df900014e9923af7b0aaf60444ece81a9fa",
+          "starts_with": "After years of feeling guilty about disowning Den before his \"dea"
+        },
+        {
+          "section": "2001–2006",
+          "sha256": "1657e1bbc3585b319d460a837ae49bf0ffdfa9aabcbf510f5486a621eeb6843b",
+          "starts_with": "She returns briefly in February 2005 when summoned by Den's wife,"
+        },
+        {
+          "section": "2001–2006",
+          "sha256": "b5e4bb5358584da904470f7632e38c0ff682d1ed6abb848b110c11244823d6be",
+          "starts_with": "In a fit of rage, Den attacks Chrissie but is defended by Zoe who"
+        },
+        {
+          "section": "2001–2006",
+          "sha256": "a3e9110dcccacaa995e41ac664ed28eb6b7969a7d1e9553cd93b89e7e4a1a1c4",
+          "starts_with": "Dennis soon reunites with Sharon in America and they return to Wa"
+        },
+        {
+          "section": "2001–2006",
+          "sha256": "b00623b82d0e0d05034d57b614020e6676be80b5e6f3bb99c9d670d3bd79cff9",
+          "starts_with": "On Christmas Day 2005, Sharon is stunned to discover she is pregn"
+        },
+        {
+          "section": "2001–2006",
+          "sha256": "f48de28a0aa3768f6b12039ee231ff6bc02094bf9e48eb8ad715c49eb6d68770",
+          "starts_with": "Concerned for her unborn child, Phil persuades Sharon to return t"
+        },
+        {
+          "section": "2001–2006",
+          "sha256": "7ac1cb66b3a701be1083e00856afae37104aaaf81721bcb2f3cd507721063d05",
+          "starts_with": "During her absence, Phil keeps his promise for Sharon and persuad"
+        },
+        {
+          "section": "2001–2006",
+          "sha256": "bce06d6918ba590fdd8b4903058fdf1e1987a514f0b964b25460ca9ea25a3ea3",
+          "starts_with": "On New Year's Day 2007, Sharon is unable to attend Pauline's fune"
+        },
+        {
+          "section": "2012–present",
+          "sha256": "d3964554cdd4dce631f9d975d14531c220dc1634042ed32672a7f3d249f42d73",
+          "starts_with": "In August 2012, after more than six years away, Sharon returns to"
+        },
+        {
+          "section": "2012–present",
+          "sha256": "a09cb67dafc0ee44310106c48a162031021edc1b0d3533a256e392d983fb2f1c",
+          "starts_with": "Later, Sharon reunites with Phil and moves back in with him. Her "
+        },
+        {
+          "section": "2012–present",
+          "sha256": "99f5eab4f69fab9c5cc2661c1c92f0053e98d3afedf23e2db92d05cb17af5b09",
+          "starts_with": "When Sharon receives a letter from Carol, she is ambivalent about"
+        },
+        {
+          "section": "2012–present",
+          "sha256": "18bd8f659bc7c54c51c6c5b94285ab0f647eb9781034ea084ac438daf686e4d6",
+          "starts_with": "Sharon arrives home to find Gavin threatening to kill both Kathy "
+        },
+        {
+          "section": "2012–present",
+          "sha256": "e49f27061e6cac04d047ec33814e9946b60485cf040bdfba601321ada59186c5",
+          "starts_with": "Sharon returns with Dennis for Billy (Perry Fenwick) and Honey Mi"
+        },
+        {
+          "section": "2012–present",
+          "sha256": "47d1df0ef48086f80bec8caf741734dc33afe435cfcb833a900bf74e9aa03bf1",
+          "starts_with": "When Phil recovers from his alcoholism, he makes the decision to "
+        },
+        {
+          "section": "2012–present",
+          "sha256": "297dea9361caf4e195a17cd4a7ac06fe91ae1fae3ad78c71b943e5eacafd0fd1",
+          "starts_with": "Sharon supports Louise when she believes she was raped by Keegan "
+        },
+        {
+          "section": "2012–present",
+          "sha256": "79617899946064eda87096a100ba2e06d97f6460f23354700f9a6798005294a5",
+          "starts_with": "Sharon later discovers that Dennis has been storing drugs and cou"
+        },
+        {
+          "section": "2012–present",
+          "sha256": "7f8ed53e92a33fd1e89ad3137a7cf5ba63bb950aad7f311ce38a8706d7e660d3",
+          "starts_with": "Sharon returns and decides to reunite with Phil once more and the"
+        },
+        {
+          "section": "2012–present",
+          "sha256": "bca48b9101ccde330084a04def551e651a17a6076c172e7b0c14b37c70e09431",
+          "starts_with": "A baby, Alyssa Lennox, is left on Sharon's doorstep and she soon "
+        },
+        {
+          "section": "2012–present",
+          "sha256": "10c773d0a5e194d50677250feb5475858cb131a9dfe9070dda1f8dae35514e65",
+          "starts_with": "Months later, Sharon is reunited with Keanu when he returns to se"
+        },
+        {
+          "section": "2012–present",
+          "sha256": "f8a7953089dbd0354cd0fd6ab551a8f35d22214875e565a1c514c5621752a514",
+          "starts_with": "Sharon considers moving to Abu Dhabi after she is offered a job t"
+        },
+        {
+          "section": "2012–present",
+          "sha256": "25558b92769521cb66ac6215abaaef2dcbe1d723a0d82ad86626bd5adf8a0cf6",
+          "starts_with": "Upon returning, Sharon decides to help the other women by disposi"
+        },
+        {
+          "section": "2012–present",
+          "sha256": "44578a9304106ee7f57a98ec8484f7dab59ec3f81d32fa8fd56e3cc32e05d7fc",
+          "starts_with": "Sharon becomes concerned for Phil's mental health when he sells t"
+        },
+        {
+          "section": "2012–present",
+          "sha256": "6d1f63d7070e5e3bf00e27143ed7d5fdfcab1bf26e3c1b3440d00bbf7add088e",
+          "starts_with": "Months later, Sharon returns to Walford, finding out that Zoe too"
+        }
+      ],
+      "excluded": []
+    },
+    "ben-wiki": {
+      "admitted": [
+        {
+          "section": "1996–2000",
+          "sha256": "7ae1721af6c6909445d4c6b287d9498a76b90ec8940d41641dd3f39f03d14d1d",
+          "starts_with": "Ben is born to Phil Mitchell (Steve McFadden) and his then wife K"
+        },
+        {
+          "section": "2006–2012",
+          "sha256": "ff2204abc50eee498e7ab46bf360f36d90ae7db2dcce6a7338940eef4b286570",
+          "starts_with": "In 2006, the residents hear that Kathy and Gavin have been killed"
+        },
+        {
+          "section": "2006–2012",
+          "sha256": "50395e229074aad5df2e4806c445cd4e8fbc2d6da4e37ff85b37111b33f7c6e5",
+          "starts_with": "Unbeknown to Phil, Ben develops an interest in dancing. He secret"
+        },
+        {
+          "section": "2006–2012",
+          "sha256": "80debddf891f3e296476118943d699972baf600c7aa955eead15a912930a448d",
+          "starts_with": "Ben, (now played by Joshua Pascoe) is released, and arrives home "
+        },
+        {
+          "section": "2006–2012",
+          "sha256": "57d32a5afdb81f6584858a0ab2fb3c49e68255f9f84126f2f9dda83925a786fb",
+          "starts_with": "Ben attends a gym and shares his first kiss with boxer, Duncan Wi"
+        },
+        {
+          "section": "2006–2012",
+          "sha256": "de380bd3d05432e67d93ad7b73fa8ed2331efc00b564c9ff9d3c491a8cdff1ff",
+          "starts_with": "Ben continues to feel angst towards Phil for rejecting him. He an"
+        },
+        {
+          "section": "2006–2012",
+          "sha256": "518663c6f171512855655581124e671da51a4d774d3bc548ef118dbfd538663a",
+          "starts_with": "Ben fails to dispose of the photo frame and it is taken by Jean S"
+        },
+        {
+          "section": "2014–2024",
+          "sha256": "92912653985f7b53b521109b83c9bb2f97714416575150790790a0943d05236b",
+          "starts_with": "After witnessing Ian's grief following his daughter Lucy Beale's "
+        },
+        {
+          "section": "2014–2024",
+          "sha256": "cd40d08505d0ee63e5d127caaf3a3f797d0ce4a45f4619ad52f2c18156b164f3",
+          "starts_with": "Ben had instructed Jay to bury Lucy's purse and phone, which has "
+        },
+        {
+          "section": "2014–2024",
+          "sha256": "1e8e0a97e48682ce789e2b038d928668c621ff781e325de37317c4be622acca5",
+          "starts_with": "Ben comes to terms with the fact that his mother Kathy has return"
+        },
+        {
+          "section": "2014–2024",
+          "sha256": "8f3880702ef4d6ea158100b6b38cd557d8e3d36c7fceb93ec687b5e982fba9ef",
+          "starts_with": "Ben later visits the Queen Vic to join his neighbours in a toast "
+        },
+        {
+          "section": "2014–2024",
+          "sha256": "e9025cdcb8bc65c1620a7e3cd0961500b954ebf8ffaf6789ccca5a10f7c6c420",
+          "starts_with": "While Phil and Sharon are on holiday, Ben and Jay move to their o"
+        },
+        {
+          "section": "2014–2024",
+          "sha256": "e1c8ee3d6a7a809bd9faa4a0e8a60f16ee08c46681301b322bb4f21c578816d0",
+          "starts_with": "Ben meets Luke Browning (Adam Astill), the son of James Willmott-"
+        },
+        {
+          "section": "2014–2024",
+          "sha256": "3cefdb0e716702448d65da545a2cc0a966a8edd49082e6485e064e8105a00866",
+          "starts_with": "Following Luke's death and Willmott-Brown's eventual downfall, Ph"
+        },
+        {
+          "section": "2014–2024",
+          "sha256": "0f2bbaa7b77172e9baa55536323c0f682659f6b98c93f2c569fdd4a30a07b612",
+          "starts_with": "When Phil and Keanu Taylor (Danny Walters) end up in some trouble"
+        },
+        {
+          "section": "2014–2024",
+          "sha256": "161a62825c195d0df9ae000bb1397317df0ffcf04b93f406e9e334e260601627",
+          "starts_with": "Ben secretly witnesses Callum \"Halfway\" Highway (Tony Clay) attem"
+        },
+        {
+          "section": "2014–2024",
+          "sha256": "9ba73682acbe6838dbbe4b54380e391b226e8036df3f22199ad07f5f29113a17",
+          "starts_with": "On the day before Halfway and Whitney's wedding, Halfway confesse"
+        },
+        {
+          "section": "2014–2024",
+          "sha256": "649f1c73fe45ba4751e433418043eea6c0a91fe7b3a47a0006f35a28f03abd84",
+          "starts_with": "Phil, who was told by Louise's mother Lisa Fowler (Lucy Benjamin)"
+        },
+        {
+          "section": "2014–2024",
+          "sha256": "10a3c68195a9de3fe7bcf217332497ee27a4218b79a96a29cb5b6b1c570019b4",
+          "starts_with": "During the 35th Anniversary week, the Queen Vic boat crashes due "
+        }
+      ],
+      "excluded": []
+    },
+    "kat-wiki": {
+      "admitted": [
+        {
+          "section": "2000–2005",
+          "sha256": "51c1d621847cdefda27173b630c6515237664fb3e36fa419b2f0e4770cfdd757",
+          "starts_with": "Kat arrives in Walford on 18 September 2000, followed by her fami"
+        },
+        {
+          "section": "2000–2005",
+          "sha256": "f0402e5bec33ecfea38d996427b627aaaaf599ff01c0642600b11b1e1ab3a5bd",
+          "starts_with": "Anthony and Kat's relationship resumes, but she fails to impress "
+        },
+        {
+          "section": "2000–2005",
+          "sha256": "5936c16ed069dfcb59ec5f1aa131fbb916fda7a39f2c6a1ff0e4d72df261471a",
+          "starts_with": "Several months later, Kat's grandmother Mo discovers that she is "
+        },
+        {
+          "section": "2010–2016",
+          "sha256": "72edba0a4e1552fb544d42644f9f96f615bec0edf4c6f2541c2997fcf8d831d2",
+          "starts_with": "Kat returns to Walford in September 2010, fleeing from a man she "
+        },
+        {
+          "section": "2010–2016",
+          "sha256": "87e2aa32ac8b22a9b2326714e7a1271ed7249f45b0615ab75d89426cb7e557d7",
+          "starts_with": "Kat gives birth to Tommy, and is rushed to hospital the next day "
+        },
+        {
+          "section": "2010–2016",
+          "sha256": "bd6fd319e64fd030bbd08fe90567d5a9157d93065c5939cfbfd866e178b97a4a",
+          "starts_with": "Kat and Alfie holiday in Spain, and bring Shenice back with them."
+        },
+        {
+          "section": "2010–2016",
+          "sha256": "1eaf6aa61155902bc7eff330057cfd42b12a93aaa97c95dbc33d608132b34f5f",
+          "starts_with": "After Charlie suffers a stroke, Kat stays with him for a number o"
+        },
+        {
+          "section": "2010–2016",
+          "sha256": "c324b45cfb6e02cb4d0e78d34f432ba0d2fe8dd8b1129271d22e5f80ae046566",
+          "starts_with": "Alfie tries to start a football team for the pub, and Kat takes i"
+        },
+        {
+          "section": "2010–2016",
+          "sha256": "f382912b1d37f9c6bcc697a2527113bfb66a2e425218618d26b8545a0edf3837",
+          "starts_with": "Alfie forces her to end her romance, which Kat does, and they go "
+        },
+        {
+          "section": "2010–2016",
+          "sha256": "b47195de93652b271711d481b63c2548c39b44690a3a66f64e12a9a22c162ad5",
+          "starts_with": "Alfie starts a relationship with Roxy, who moves in with Alfie, u"
+        },
+        {
+          "section": "2010–2016",
+          "sha256": "d803ad9e54ea56f17254e3b427a2c72d5d548906f0ec63ca672558f86123bc8d",
+          "starts_with": "When Kat learns that Roxy is not going to meet Ronnie at her rele"
+        },
+        {
+          "section": "2010–2016",
+          "sha256": "23b896d85d83b62d87e94bd0953e0411d3a03a7af556241ae5cc00b387f8a8bd",
+          "starts_with": "Phil decides to sell The Queen Vic as revenge for Alfie's treatme"
+        },
+        {
+          "section": "2010–2016",
+          "sha256": "242efb163c4ed0db4f5ad60da4e0333431a8fa8b1b8cb0c40b262ed7219dd849",
+          "starts_with": "Kat briefly works on the market again, but market inspector Aleks"
+        },
+        {
+          "section": "2010–2016",
+          "sha256": "a3faef83c59f02ecf34b0e2a44a11d51c3ae83b8c9d097ad077bcd8c71025001",
+          "starts_with": "Kat begins to have second thoughts about the divorce after Pam Co"
+        },
+        {
+          "section": "2010–2016",
+          "sha256": "70c9c2453b336ba5b5bb179627438b12d275fcd7d2915fb594d10018d7870e99",
+          "starts_with": "After the visit from the social worker, Kat tells Stacey and Mo t"
+        },
+        {
+          "section": "2010–2016",
+          "sha256": "781007a96127532b15c434108c02d4887e1693920ddf2f82c9251aa1da4caa88",
+          "starts_with": "After she almost kisses Alfie, Kat nearly has sex with Max, but r"
+        },
+        {
+          "section": "2010–2016",
+          "sha256": "27dfe61899eabfbf1efc90184eacac7e395f533758617b0aa1f1895d95155fbf",
+          "starts_with": "Kat tells Alfie that she wants to reunite with him, and although "
+        },
+        {
+          "section": "2010–2016",
+          "sha256": "7b2ba773c2c73bdaf1ea5034bda9530dd6827d0bcb5ae7eea46b9a96cc306ef4",
+          "starts_with": "Kat returns to Walford to spend Christmas with Stacey. Alfie foll"
+        },
+        {
+          "section": "2018–2022",
+          "sha256": "b725987452496cfe148a69f36704e6d8d3275210bb3293b6eca0ffbcfa975b2a",
+          "starts_with": "Big Mo returns to Walford, telling Stacey that Kat has died. Stac"
+        },
+        {
+          "section": "2018–2022",
+          "sha256": "a3a6fb787d79bd43cb3d661b6ad76a1e9ae92dbb7de7a9264ae4031e71eb9460",
+          "starts_with": "Kat visits a café that Charlie used to take her to when she was a"
+        },
+        {
+          "section": "2018–2022",
+          "sha256": "2a14e0f1a58919e50e8d45e2cb270f846a2338a75c5d06c70015e733d552a464",
+          "starts_with": "Phil taunts Kat for the money that Alfie had stolen from him, but"
+        },
+        {
+          "section": "2018–2022",
+          "sha256": "9e41d05af85e625e952521ef508ade78d6e85eb882da2b0c2083496db176b775",
+          "starts_with": "Off-screen, Kat gives Cherry to Hayley and visits Stacey. During "
+        },
+        {
+          "section": "2018–2022",
+          "sha256": "2fa3aaabc96c56ea33000f6f706dd4869d1f7c495278da11366ed4b740aedb45",
+          "starts_with": "Kat, alongside her family, is forced to move in with Phil after S"
+        },
+        {
+          "section": "2018–2022",
+          "sha256": "aec03b66d082a1099c2093d2504f3e104d684fa37a119201ca7ae2f1fdf95255",
+          "starts_with": "Whilst Phil is imprisoned, Sam sends threats to Kat and Sharon un"
+        },
+        {
+          "section": "2023–present",
+          "sha256": "0c6bb1cc03a093abfd396d13d06092b2d5705a9e3b260344d0007d168c1d38e7",
+          "starts_with": "In January 2023, Lily confides in Kat about her underage pregnanc"
+        },
+        {
+          "section": "2023–present",
+          "sha256": "3e88dae1fa4f27843f58eb7b84b12119c111aad8b51c61f2d93be3f11b3a0a55",
+          "starts_with": "Kat's nephew Freddie (Bobby Brazier) decides to search for his es"
+        },
+        {
+          "section": "2023–present",
+          "sha256": "3d96a6ec741b6afee5f51e0132408b0835cc1d0794cb62d7dfe25d66e55296b4",
+          "starts_with": "Tommy continues to rebel against Kat and assaults her. She concea"
+        },
+        {
+          "section": "2023–present",
+          "sha256": "afcd7d37a9217bac50269625dcef34938f95f7477996a40f46d88fce1b9990ef",
+          "starts_with": "Kat grows suspicious when Alfie lies about travelling to Australi"
+        },
+        {
+          "section": "2023–present",
+          "sha256": "959962920287cd35539d1cc56c8aa1ceb66b6a55742d5b0ac2100fb6c70f987e",
+          "starts_with": "As danger escalates around the family, Kat repeatedly shelters Zo"
+        },
+        {
+          "section": "2023–present",
+          "sha256": "61ab736bc12f1c38993549520e73456aa2b57cac691d45f11f5102f89128366f",
+          "starts_with": "Over the following months, Kat embraces her role as a grandmother"
+        }
+      ],
+      "excluded": [
+        {
+          "section": "Kat & Alfie: Redwater and EastEnders: The Podcast",
+          "sha256": "d85a27ce7d4c66939437f2eddbe5614a86940df3e9f74b77ca481222c8401947",
+          "starts_with": "In episode 1 of Kat & Alfie: Redwater, Kat (referred to as \"Kathl"
+        },
+        {
+          "section": "Kat & Alfie: Redwater and EastEnders: The Podcast",
+          "sha256": "819bebf66b6a5962f19f3f290eeaea07d58647a9ef85d58e593eb9598db0822a",
+          "starts_with": "In episode 2, Kathleen and Alfie are invited to Lance's wake by P"
+        },
+        {
+          "section": "Kat & Alfie: Redwater and EastEnders: The Podcast",
+          "sha256": "39bc1c1111cf3f0838928bd3ceb97a7830b264fbaf8aa1bc0d06028df7403ea4",
+          "starts_with": "In episode 3, Kathleen and Dermott have bonded, but she lies to h"
+        },
+        {
+          "section": "Kat & Alfie: Redwater and EastEnders: The Podcast",
+          "sha256": "8bd729740f8ba32e26ea3b0dc65c6a2b56188f5f0c14cabd49d0a630ef85af3b",
+          "starts_with": "In episode 6, Bernie, a local garda, asks Kathleen about the last"
+        },
+        {
+          "section": "Kat & Alfie: Redwater and EastEnders: The Podcast",
+          "sha256": "d496490b16f5b2b1957e87ea85d516cc3325b400a4fb6b864f04be92445bd427",
+          "starts_with": "In episode 1 of EastEnders: The Podcast, \"Kat's Indecent Proposal"
+        }
+      ]
+    },
+    "den-wiki": {
+      "admitted": [],
+      "excluded": []
+    }
+  }
+}

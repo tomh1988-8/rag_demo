@@ -8,10 +8,17 @@ Fusion, caching, graph/investigative routes, conversational history and the onli
 feedback/evaluation loop remain later tickets.
 
 Issue #4 adds partial/clarification outcomes, evidence-linked qualifications and
-separate quality scoring. **66 Docker tests pass, but model acceptance remains open:**
-the local model still mishandles ambiguity and false premises, and a served appendix
-claim failed citation support. See the [results and stronger-model handoff](docs/implementation/issue-4/README.md)
-before treating this as an accepted answer-quality baseline.
+separate quality scoring. Its [scoped Sol acceptance](docs/implementation/issue-4/cloud/README.md)
+records 85 passing software tests, 13 reviewed policy cases and five actual CLI/API
+checks. Historical local-model failures remain preserved. This exposed development
+matrix does not establish broad-corpus or held-out answer quality.
+
+Issue #5 adds [reviewed real-source ingestion](docs/implementation/issue-5/README.md):
+capture Wikipedia, Wikidata and TVmaze inputs; import a frozen batch; inspect source
+coverage/exclusions; resolve character aliases separately from performers; and
+trace passages to their captured revision and ordered source paragraphs. The small
+batch covers three core identities plus one supporting identity. It does not yet
+provide the complete 20-character corpus.
 
 The default source snapshot contains **one reviewed passage**, not a complete EastEnders knowledge
 base. Gemma 4 E2B QAT is a laptop development convenience. Its smoke results are
@@ -23,8 +30,9 @@ that model's own baseline with spending controls configured before paid calls.
 
 Qwen3.8 Flash, GPT-6 Sol and GLM 5.3 Flash profiles are available with a shared
 $5 trial budget. Follow the [private key and spending setup](docs/implementation/openrouter-setup.md)
-before selecting a cloud profile. A real capped key and the new semantic baseline
-are still pending; local commands below keep their existing default.
+before selecting a cloud profile. The capped Sol profile passed #4's scoped policy
+baseline; Qwen's smoke was rejected and GLM remains untested. Local commands below
+keep their existing default. Preserve the shared key and spending ledger.
 
 ## Run local text RAG
 

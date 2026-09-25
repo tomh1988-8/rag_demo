@@ -1,7 +1,8 @@
-"""CLI client; only the explicit maintainer load command accesses PostgreSQL."""
+"""CLI client and explicit maintainer capture, import and indexing operations."""
 
 import argparse
 import getpass
+import gzip
 import json
 import os
 import sys
@@ -11,7 +12,9 @@ import httpx
 import psycopg
 
 from ask_phil.evidence import SourceSnapshot
+from ask_phil.ingestion import build_snapshot, capture_sources, read_batch
 from ask_phil.openrouter import KEY_PATH, ProviderError, save_key
+from ask_phil.source_records import CapturePlan, SourceBatch
 from ask_phil.storage import EvidenceStore
 
 
@@ -30,6 +33,30 @@ def main() -> int:
     inspect.add_argument("--limit", type=int, default=10)
     load = commands.add_parser("load", help="Maintainer: load a captured fixture into PostgreSQL.")
     load.add_argument("fixture", type=Path)
+    capture = commands.add_parser(
+        "capture-sources", help="Maintainer: capture official public HTML/JSON sources."
+    )
+    capture.add_argument("plan", type=Path)
+    capture.add_argument("output", type=Path)
+    ingest = commands.add_parser(
+        "import-sources", help="Maintainer: import a reviewed captured source batch."
+    )
+    ingest.add_argument("batch", type=Path)
+    ingest.add_argument("--snapshot", required=True)
+    report = commands.add_parser(
+        "source-report", help="Inspect import coverage, exclusions and missing records."
+    )
+    report.add_argument("--snapshot", required=True)
+    source = commands.add_parser(
+        "source", help="Inspect a retained source, ordered spans and metadata."
+    )
+    source.add_argument("source_id")
+    source.add_argument("--snapshot", required=True)
+    identity = commands.add_parser(
+        "resolve-character", help="Resolve a reviewed character name or alias."
+    )
+    identity.add_argument("name")
+    identity.add_argument("--snapshot", required=True)
     ask = commands.add_parser("ask", help="Ask a question using the captured snapshot.")
     ask.add_argument("query")
     ask.add_argument("--snapshot", required=True)
@@ -50,12 +77,31 @@ def main() -> int:
             with httpx.Client(timeout=20, trust_env=False, follow_redirects=False) as client:
                 save_key(key, KEY_PATH, client)
             print("Key saved privately; provider lifetime credit limit verified at $5 or less.")
-        elif args.command in {"load", "index"}:
+        elif args.command == "capture-sources":
+            if args.output.exists():
+                raise ValueError("Capture output already exists; choose a new path.")
+            plan = CapturePlan.model_validate_json(args.plan.read_bytes())
+            with httpx.Client(trust_env=False) as client:
+                batch = SourceBatch(
+                    format_version=1,
+                    catalogue=plan.catalogue,
+                    policies=plan.policies,
+                    captures=capture_sources(plan.requests, client),
+                )
+            data = batch.model_dump_json().encode()
+            with args.output.open("xb") as output:
+                output.write(gzip.compress(data, mtime=0) if args.output.suffix == ".gz" else data)
+            print(json.dumps({"output": str(args.output), "captured_sources": len(batch.captures)}))
+        elif args.command in {"load", "index", "import-sources"}:
             database_url = os.environ.get("DATABASE_URL")
             if not database_url:
-                parser.error("DATABASE_URL is required for the maintainer load command.")
-            if args.command == "load":
-                snapshot = SourceSnapshot.model_validate_json(args.fixture.read_text())
+                parser.error("DATABASE_URL is required for the maintainer storage command.")
+            if args.command in {"load", "import-sources"}:
+                snapshot = (
+                    build_snapshot(read_batch(args.batch), args.snapshot)
+                    if args.command == "import-sources"
+                    else SourceSnapshot.model_validate_json(args.fixture.read_text())
+                )
                 EvidenceStore(database_url).load(snapshot)
                 print(
                     json.dumps(
@@ -92,6 +138,14 @@ def main() -> int:
                     result = client.get(
                         f"/v1/responses/{receipt.response.response_id}",
                         headers={"Authorization": f"Bearer {receipt.read_token}"},
+                    )
+                elif args.command == "source-report":
+                    result = client.get(f"/v1/snapshots/{args.snapshot}/sources")
+                elif args.command == "source":
+                    result = client.get(f"/v1/snapshots/{args.snapshot}/sources/{args.source_id}")
+                elif args.command == "resolve-character":
+                    result = client.get(
+                        f"/v1/snapshots/{args.snapshot}/identities", params={"name": args.name}
                     )
                 else:
                     result = client.get(

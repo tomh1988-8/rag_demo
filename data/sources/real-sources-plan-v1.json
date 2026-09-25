@@ -1,0 +1,189 @@
+{
+  "format_version": 1,
+  "catalogue": {
+    "characters": [
+      {
+        "character_id": "sharon-watts",
+        "name": "Sharon Watts",
+        "aliases": [
+          "Sharon Mitchell",
+          "Sharon Rickman",
+          "Sharon Beale"
+        ],
+        "performers": [
+          "Letitia Dean"
+        ],
+        "coverage": "core",
+        "wikidata_id": "Q7490258",
+        "evidence_sources": [
+          "sharon-wiki",
+          "sharon-identity"
+        ],
+        "review_note": "Codex source inspection, 25 September 2026: Wikipedia infobox identity/aliases/performers and linked Wikidata item. Source-supported only; no independent canon corroboration. Den is supporting context for Sharon; his history is not admitted in this slice."
+      },
+      {
+        "character_id": "ben-mitchell",
+        "name": "Ben Mitchell",
+        "aliases": [],
+        "performers": [
+          "Matthew Silver",
+          "Morgan Whittle",
+          "Charlie Jones",
+          "Joshua Pascoe",
+          "Harry Reid",
+          "Max Bowden"
+        ],
+        "coverage": "core",
+        "wikidata_id": "Q2766568",
+        "evidence_sources": [
+          "ben-wiki",
+          "ben-identity"
+        ],
+        "review_note": "Codex source inspection, 25 September 2026: Wikipedia infobox identity/aliases/performers and linked Wikidata item. Source-supported only; no independent canon corroboration. Den is supporting context for Sharon; his history is not admitted in this slice."
+      },
+      {
+        "character_id": "kat-slater",
+        "name": "Kat Slater",
+        "aliases": [
+          "Kat Moon",
+          "Kat Mitchell"
+        ],
+        "performers": [
+          "Jessie Wallace",
+          "Kate Peck",
+          "Sumar-Elise Sandford",
+          "Amelia Crouch"
+        ],
+        "coverage": "core",
+        "wikidata_id": "Q3955054",
+        "evidence_sources": [
+          "kat-wiki",
+          "kat-identity"
+        ],
+        "review_note": "Codex source inspection, 25 September 2026: Wikipedia infobox identity/aliases/performers and linked Wikidata item. Source-supported only; no independent canon corroboration. Den is supporting context for Sharon; his history is not admitted in this slice."
+      },
+      {
+        "character_id": "den-watts",
+        "name": "Den Watts",
+        "aliases": [
+          "Dennis Alan Watts",
+          "Dirty Den"
+        ],
+        "performers": [
+          "Leslie Grantham"
+        ],
+        "coverage": "supporting",
+        "wikidata_id": "Q5256484",
+        "evidence_sources": [
+          "den-wiki",
+          "sharon-wiki"
+        ],
+        "review_note": "Codex source inspection, 25 September 2026: Wikipedia infobox identity/aliases/performers and linked Wikidata item. Source-supported only; no independent canon corroboration. Den is supporting context for Sharon; his history is not admitted in this slice."
+      }
+    ]
+  },
+  "policies": {
+    "sharon-wiki": {
+      "revision_id": "1372798905",
+      "reviewer": "Codex primary source inspection, 25 September 2026. Main-series section boundary reviewed; extraction/canon verification not claimed.",
+      "rules": [
+        {
+          "section": [
+            "Storylines"
+          ],
+          "scope": "main_series",
+          "reason": "Reviewed main-series narrative section; dates retained as written, never inferred from capture dates."
+        }
+      ]
+    },
+    "ben-wiki": {
+      "revision_id": "1369268749",
+      "reviewer": "Codex primary source inspection, 25 September 2026. Main-series section boundary reviewed; extraction/canon verification not claimed.",
+      "rules": [
+        {
+          "section": [
+            "Storylines"
+          ],
+          "scope": "main_series",
+          "reason": "Reviewed main-series narrative section; dates retained as written, never inferred from capture dates."
+        }
+      ]
+    },
+    "kat-wiki": {
+      "revision_id": "1375940007",
+      "reviewer": "Codex primary source inspection, 25 September 2026. Main-series section boundary reviewed; extraction/canon verification not claimed.",
+      "rules": [
+        {
+          "section": [
+            "Storylines"
+          ],
+          "scope": "main_series",
+          "reason": "Reviewed main-series narrative section; dates retained as written, never inferred from capture dates."
+        },
+        {
+          "section": [
+            "Storylines",
+            "Kat & Alfie: Redwater and EastEnders: The Podcast"
+          ],
+          "scope": "other_media",
+          "reason": "Explicit spin-off and podcast subsection, excluded from main-series evidence."
+        }
+      ]
+    },
+    "den-wiki": {
+      "revision_id": "1371930128",
+      "reviewer": "Codex primary source inspection, 25 September 2026. Main-series section boundary reviewed; extraction/canon verification not claimed.",
+      "rules": []
+    }
+  },
+  "requests": [
+    {
+      "source_id": "sharon-wiki",
+      "kind": "wikipedia",
+      "character_id": "sharon-watts",
+      "url": "https://en.wikipedia.org/wiki/Sharon_Watts"
+    },
+    {
+      "source_id": "ben-wiki",
+      "kind": "wikipedia",
+      "character_id": "ben-mitchell",
+      "url": "https://en.wikipedia.org/wiki/Ben_Mitchell_(EastEnders)"
+    },
+    {
+      "source_id": "kat-wiki",
+      "kind": "wikipedia",
+      "character_id": "kat-slater",
+      "url": "https://en.wikipedia.org/wiki/Kat_Slater"
+    },
+    {
+      "source_id": "den-wiki",
+      "kind": "wikipedia",
+      "character_id": "den-watts",
+      "url": "https://en.wikipedia.org/wiki/Den_Watts"
+    },
+    {
+      "source_id": "sharon-identity",
+      "kind": "wikidata",
+      "character_id": "sharon-watts",
+      "url": "https://www.wikidata.org/wiki/Special:EntityData/Q7490258.json"
+    },
+    {
+      "source_id": "ben-identity",
+      "kind": "wikidata",
+      "character_id": "ben-mitchell",
+      "url": "https://www.wikidata.org/wiki/Special:EntityData/Q2766568.json"
+    },
+    {
+      "source_id": "kat-identity",
+      "kind": "wikidata",
+      "character_id": "kat-slater",
+      "url": "https://www.wikidata.org/wiki/Special:EntityData/Q3955054.json"
+    },
+    {
+      "source_id": "episode",
+      "kind": "tvmaze",
+      "character_id": null,
+      "url": "https://api.tvmaze.com/shows/793/episodesbydate?date=1985-02-19"
+    }
+  ]
+}

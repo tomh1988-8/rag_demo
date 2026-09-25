@@ -1,6 +1,30 @@
 # Ask Phil: publication and next-skill handoff
 
-Updated 25 September 2026. The user approved the initial checklist/ticket breakdown, authorised publication, and subsequently required user feedback and online evaluation. Checklist v1.1 and the amended 24-ticket breakdown are published. Issues #2, #3 and #4 are complete and closed. Issue #4 passed its scoped cloud policy acceptance, exact-tree publication verification and closure readback.
+Updated 25 September 2026. The user approved the initial checklist/ticket breakdown, authorised publication, and subsequently required user feedback and online evaluation. Checklist v1.1 and the amended 24-ticket breakdown are published. Issues #2, #3 and #4 are complete and closed. Issue #4 passed its scoped cloud policy acceptance, exact-tree publication verification and closure readback. Issue #5 has passed independent implementation review; its final validation and publication status are recorded below.
+
+## Issue #5: reviewed real-source ingestion
+
+[Issue #5](https://github.com/tomh1988-8/rag_demo/issues/5) adds maintainer capture
+and atomic import, source/identity inspection through HTTP and CLI, and immutable
+ordered paragraph provenance. The frozen eight-input batch covers Sharon, Ben and
+Kat, plus Den as supporting context: 79 reviewed main-series paragraphs yield 138
+passages; five spin-off/podcast paragraphs are excluded and 198 remain available
+for review. Wikidata identities and TVmaze episode metadata stay outside narrative
+retrieval. No paid model calls were made and the shared ledger is unchanged.
+
+[Acceptance evidence](../../implementation/issue-5/README.md) records source terms,
+independent paragraph labels, live source compatibility, failure regressions and
+software checks: 115 Docker tests, Ruff and strict mypy pass. Independent Standards
+and Spec re-reviews have zero remaining
+findings. Den's omitted aliases were corrected against his captured infobox; the
+raw source captures and paragraph labels were unchanged. Full 20-profile coverage,
+semantic extraction, refresh/recovery, fusion and answer-quality acceptance remain
+later work. Publication and closure readback are pending the final repository update.
+
+The existing `ask-phil-issue3` API/MLflow services still run the older #3 image;
+acceptance uses a newly built test image and real disposable PostgreSQL databases.
+Rebuild the application image before using the new import/inspection commands in
+that Compose project. The frozen seed and existing response contracts remain compatible.
 
 ## Issue #4: scoped cloud acceptance passed
 
@@ -34,7 +58,7 @@ The [to-spec skill](../../../.agents/skills/to-spec/SKILL.md) authorised specifi
 
 ## First available work
 
-**[#5 — Import real sources with character identity and canon scope](https://github.com/tomh1988-8/rag_demo/issues/5)** is recommended next, using `<pro>` for source ingestion and provenance. #9 (calibrated comparisons) and #10 (execution boundaries) are also unblocked. Wait for the next implementation instruction before starting another ticket. Specification #1 remains parent context.
+**[#6 — Refresh and recover a captured snapshot](https://github.com/tomh1988-8/rag_demo/issues/6)** is recommended next after #5 publication. Completion of #5 also unblocks #8 (follow-ups), #11 (biological claims) and #24 (fusion/context expansion); #9 (calibrated comparisons) and #10 (execution boundaries) remain unblocked. Wait for the next implementation instruction before starting another ticket. Specification #1 remains parent context.
 
 For subsequent work, read the current issue and comments, the relevant domain/ADR decisions and the checklist profile. Work the dependency frontier; the shared `ready-for-agent` label does not mean a blocked ticket can begin. Existing approved decisions and the six public test boundaries do not need another design interview.
 
@@ -73,7 +97,7 @@ The “Blocked by” column contains **GitHub issue numbers**, which differ from
 
 - [Approved ticket breakdown](README.md), including rationale and the common evidence-completion pattern.
 - [Reusable checklist v1.1](../../checklists/agent-development.md).
-- [Ask Phil applicability profile and evidence register](../../checklists/ask-phil-profile.md): 51 current items, one deployment deferral and 12 N/A items. Three items pass on design evidence, five on inspection, five on initial text RAG and two on #4 software counterexamples/quality measurement; 36 current obligations remain Pending. #4's scoped Sol policy acceptance now passes; this does not discharge full-product comparison, calibration, graph, fusion, cache or online-feedback obligations.
+- [Ask Phil applicability profile and evidence register](../../checklists/ask-phil-profile.md): 51 current items, one deployment deferral and 12 N/A items. Three items pass on design evidence, five on inspection, five on initial text RAG two on #4 software counterexamples/quality measurement and two on #5 source inventory/retention; 34 current obligations remain Pending. #4's scoped Sol policy acceptance now passes; this does not discharge full-product comparison, calibration, graph, fusion, cache or online-feedback obligations.
 - [All 130 specification stories mapped to tickets](spec-coverage.md).
 - [Local specification](../../specs/ask-phil.md), [test/evaluation strategy](../../design/testing-and-evaluation.md), [domain glossary](../../../CONTEXT.md) and [architecture decisions](../../adr/).
 - [Publication manifest](publication.json), including issue IDs/URLs, approval, source fingerprints, readback verification and the outstanding native relationship operations.
@@ -100,7 +124,7 @@ The user requested fusion/context expansion and repeated-question caching before
 the next implementation. [Research](../../research/rag-fusion-and-answer-caching.md)
 and [scope validation](fusion-cache-amendment.json) describe the changes. GitHub #24
 and #25 own the new behavior; #18 and #21 include their actual prerequisites.
-After completion of #4, #5 is recommended next. Neither new feature is implemented.
+After completion of #5, #6 is recommended next. Neither fusion nor caching is implemented.
 
 Historical issue #2 publication: the validated code was published on GitHub `main` at `1a186fd1c6cbf306742a7ef6868f5b2cded58df2`,
 whose tree exactly matches local `e5ac34c`. Publication used the authenticated GitHub

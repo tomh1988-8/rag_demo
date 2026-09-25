@@ -1,0 +1,92 @@
+{
+  "implementation_commit": "0322b2eac495c515676b60124a6a8e88e04e2da6",
+  "review_baseline": "f2de4a7942441c619d4b2c137c16ffed05a89144",
+  "docker_command": "docker compose -p ask-phil-issue3 --profile test run --build --name ask-phil-issue5-suite test pytest -q -p no:cacheprovider --junitxml=/tmp/issue5-tests.xml",
+  "docker_image": "sha256:f59ac8a9bc126ba8a9d6aa618a9ba92a05b2ec1ffe188090380bca39fb48b3c7",
+  "docker_tests": {
+    "name": "pytest",
+    "errors": "0",
+    "failures": "0",
+    "skipped": "0",
+    "tests": "115",
+    "time": "201.863",
+    "timestamp": "2026-09-25T13:47:06.024793+00:00",
+    "hostname": "c6186271fe00"
+  },
+  "full_suite_runs": 1,
+  "ruff": {
+    "command": ".venv/bin/ruff check .",
+    "exit_code": 0
+  },
+  "mypy": {
+    "command": ".venv/bin/mypy",
+    "exit_code": 0,
+    "source_files": 33,
+    "strict": true
+  },
+  "seed_fingerprint_unchanged": "26da379f1f9c27c0bf41ca4a200072280bf441f7e84eacee92c761cede134462",
+  "paid_model_calls": 0,
+  "review_remaining_findings": {
+    "Standards": 0,
+    "Spec": 0
+  },
+  "counterexamples": [
+    "Unresolved reviewed Den aliases, repaired after independent review.",
+    "Revision/identity mismatch, duplicate scope rules, malformed HTML and nested JSON, and capture hash mismatch reject import.",
+    "Missing identity record and reviewed section are reported distinctly from scope exclusions.",
+    "Duplicate episodes are reported once; conflicting duplicates reject import.",
+    "HTTP 429, wrong host, oversized and interrupted input fail explicitly.",
+    "Invalid final source cannot leave a partial snapshot or damage an existing snapshot."
+  ],
+  "limitations": [
+    "Three core profiles and one supporting identity; not the full 20-profile corpus.",
+    "Exposed development source-retention checks; no semantic extraction or answer-quality evaluation.",
+    "One upstream Starlette/httpx deprecation warning; software tests have no failures or skips.",
+    "Existing long-lived Docker API/MLflow services still run the earlier issue #3 image."
+  ],
+  "file_sha256": {
+    "Dockerfile": "354f5d839a649f9f83a3fe72c9ca3043301b8224b13a8027508f59d47586ed4f",
+    "compose.yaml": "88a8d03a76d13846926c7fc3af34e6a18a8c4c2f515f70da27dbef453c1069dc",
+    "data/references/source-ingestion-v1.json": "1bb00dc59f4b4f34c57a12453dc7135fb7f589dd2c258a876b54ae174a43f86b",
+    "data/sources/README.md": "a1eeff6d17495ea6412ba934e896c654a0ed89de375f2bd19d3c250696751901",
+    "data/sources/real-sources-plan-v1.json": "f26d1b1c409e5e27e0d603cd22128e013939c7869255fff6b6e921c3a9d220b5",
+    "data/sources/real-sources-v1.json.gz": "bfcaae65ecd30c4ebee805a71d02910ce85db636aa0d5f1ef2a08368a06eb76a",
+    "pyproject.toml": "9c6b3004bdb49fc4535cb35aeb001fd86bcd4f562a1ca3c709c3d16fa3beb728",
+    "scripts/check_secrets.py": "921478f224d9fc8586431446404beab6bdd0cd5953a3370ec12afe0cb5e1264f",
+    "scripts/evaluate_answer_policy.py": "70209763d6e48f674a1b5b78edd638de0ca603d19cadc2e8e0b4f8ef8ee3a12d",
+    "scripts/evaluate_text_baseline.py": "f642d4ec9307083ecf113e456cc5beaf201a65866eadb363baeaf530df7209b8",
+    "scripts/install-docker-ubuntu.sh": "a5ade78c1587a927973e2d5e4c1c314b589f3d60fe6beacdce19b56f1388fc02",
+    "scripts/record_baseline.py": "2c6f0cf4fa7b074d5123df9c93c68bb9c84c8322cbecc20a2ecc5e3347f2e419",
+    "src/ask_phil/__init__.py": "c4be197720058e2c86d4a79594bf60163b9bef1578b8e0e99650ec5e8b114a3d",
+    "src/ask_phil/answering.py": "a061ce7bfea92ddab914a597f29abf1b98ae2f65d692f00945f694ea2f27816e",
+    "src/ask_phil/answers.py": "cb7f2aa84f78919f72ba40c9bfd954d7dddc2eed469e978f80121a1935b405b4",
+    "src/ask_phil/api.py": "3a11e4763fbaa2c69a9dd147f9ed3d24d81df69308abd77ff1381112aea1fa88",
+    "src/ask_phil/cli.py": "4f69d5691ceadde105c3174f33ff130df00a125e59f541a18081f21a1c255c7d",
+    "src/ask_phil/evaluation.py": "58d3f30db8e44220a5b9a66ab7ee27959b3b82ffd51da04ca22cb06c19956bfc",
+    "src/ask_phil/evidence.py": "b3883e40a58e12c69f8e85917f73a23b339981e8614dca394f9a30a1612ff70a",
+    "src/ask_phil/identity.py": "f7277f6206c35dcb5e5cb91806f98c5142c09175d86f0fd7fa5b962f20f0d2c9",
+    "src/ask_phil/ingestion.py": "f2c7b8557187e7850e6fd667ca177c2cedc666577009deb6c43beedace951e3b",
+    "src/ask_phil/models.py": "1d4554bfc9c566b1d3a360da1a0d74a4467071eedbb52988ec5c4d1414614108",
+    "src/ask_phil/openrouter.py": "a94c3f04091c5acd8ad9bbdd73549af7c83ad782869cfec2472caf808161f98f",
+    "src/ask_phil/responses.py": "a51474b03f35ffec016760d31754fc4eae4e19447e2f8ffd7719f81794222f73",
+    "src/ask_phil/retrieval.py": "323015ac6809d9c3f6f3c0c29d1f9207a9f03f7f096ba10fc62f5dab560a13fe",
+    "src/ask_phil/source_records.py": "9aa34eee7d2f49bd7b17c680f8f66f16cff3e22db7843667d58db782777904e9",
+    "src/ask_phil/storage.py": "d003c30bdca20f01fee6d7d8adfadf88017235ceb83904899f01769930458a06",
+    "tests/conftest.py": "bc00644be727c51c1aea3bc4a8f8a3bddd05e7dbe76d050a108f624032c97d1a",
+    "tests/test_answer_rules.py": "dc14a86340fc34e0dcbc3638089c89f7b9cb2f232f6f5c5dbc060fc7cf61a8c3",
+    "tests/test_answers_api.py": "71af142c81847c9d562de8b7ac91e8b151d2353583d9e9e702792de20b4343b8",
+    "tests/test_cli.py": "148abc2f16ff28e37b8852f6bb5aa968de03d627ecb111f6c9160bdab7922561",
+    "tests/test_evaluation.py": "896c740f595a0cb3cc222e05741e21fd705d3c475198cc04c6c01e6390f851a3",
+    "tests/test_identity.py": "6b551edb254f6209f90234ebc5a9844c1273b42f26503ef8ebe6c7e9d0c66999",
+    "tests/test_import_api.py": "1541c6791b658e2c00d6cb8d61065a8d929a7c4ab9d11ecb79569a8ec056688a",
+    "tests/test_inspection.py": "97b460517280da1202a7c8cc1019a167bfd764d6cf3a31108758b838ac9ee1e6",
+    "tests/test_openrouter.py": "bcb9a2398232c2281025f873c46f11d59496853ebc2bfef8c27d7bb4eba9061c",
+    "tests/test_openrouter_answers.py": "2cfd3615a6db5349af925f16318aa01d4162b2b1b88b6ddf50c5598d5ab8ad3d",
+    "tests/test_policy_evaluation.py": "1606fb2fe9fa11b4b0b7d5194b0f7c0530cb92e2fb03bd6915484a351528ff0e",
+    "tests/test_provenance.py": "1c6a3c916a4c28413c0fb957dbb283e3a38bcec8012414ceea0d79fcdf4c8eaa",
+    "tests/test_retrieval.py": "7c5371dc4dfbeee5c1bb30bbd1fd70cc3bb100ae5e0784161cc97ebc8ab3003c",
+    "tests/test_source_ingestion.py": "62d0cf968e369850a7b475a7e0650fcec8985b5bde8f12cb0a47a6de7ca32c6a",
+    "uv.lock": "d5c04872a9a22753bc50575a70445364efcfb13949bfa596b049b07fa002eea8"
+  },
+  "junit_sha256": "b4a879d3755f635eb4f47d0291bed2f95707eb4c99b1c188c23f8e13c478b6fd"
+}
