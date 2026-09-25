@@ -54,7 +54,7 @@ def test_cloud_answer_retains_usage_and_receipt_without_credentials(
                         "limit": 5,
                         "limit_reset": None,
                         "limit_remaining": 5,
-                        "include_byok_in_limit": True,
+                        "include_byok_in_limit": False,
                     }
                 },
             )

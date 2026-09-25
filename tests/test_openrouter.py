@@ -34,7 +34,8 @@ def test_uncapped_or_resetting_key_is_rejected(limit: float | None, reset: str |
         verify_key(client, "test-key")
 
 
-def test_only_verified_key_is_saved_privately(tmp_path: Path) -> None:
+@pytest.mark.parametrize("byok", [True, False, None, "absent"])
+def test_only_verified_key_is_saved_privately(tmp_path: Path, byok: bool | str | None) -> None:
     def reply(request: httpx.Request) -> httpx.Response:
         assert request.url.path == "/api/v1/key"
         assert request.headers["Authorization"] == "Bearer test-key"
@@ -45,7 +46,7 @@ def test_only_verified_key_is_saved_privately(tmp_path: Path) -> None:
                     "limit": 5,
                     "limit_reset": None,
                     "limit_remaining": 4.8,
-                    "include_byok_in_limit": True,
+                    **({"include_byok_in_limit": byok} if byok != "absent" else {}),
                 }
             },
         )
@@ -126,7 +127,7 @@ def test_cloud_call_is_bounded_and_records_billing_without_secrets(
                         "limit": 5,
                         "limit_reset": None,
                         "limit_remaining": 5,
-                        "include_byok_in_limit": True,
+                        "include_byok_in_limit": False,
                     }
                 },
             )
@@ -228,11 +229,7 @@ def test_provider_cap_is_checked_before_every_paid_request(tmp_path: Path) -> No
     assert calls == ["/api/v1/key"]
 
 
-@pytest.mark.parametrize("remaining,byok", [(0, True), (5, False), (5, None)])
-def test_depleted_or_partially_counted_budget_is_rejected(
-    remaining: int,
-    byok: bool | None,
-) -> None:
+def test_depleted_budget_is_rejected() -> None:
     client = httpx.Client(
         transport=httpx.MockTransport(
             lambda request: httpx.Response(
@@ -241,8 +238,8 @@ def test_depleted_or_partially_counted_budget_is_rejected(
                     "data": {
                         "limit": 5,
                         "limit_reset": None,
-                        "limit_remaining": remaining,
-                        "include_byok_in_limit": byok,
+                        "limit_remaining": 0,
+                        "include_byok_in_limit": False,
                     }
                 },
             )
