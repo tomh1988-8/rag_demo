@@ -14,10 +14,12 @@ from pydantic import StringConstraints
 from ask_phil.answering import AnswerService
 from ask_phil.answers import AnswerReceipt, AnswerRecord, AskRequest
 from ask_phil.evidence import Identifier, Inspection
+from ask_phil.identity import IdentityResolution
 from ask_phil.models import ModelConfigurationError, Models
 from ask_phil.openrouter import ProviderError
 from ask_phil.responses import ResponseLedger
 from ask_phil.retrieval import IndexNotReady
+from ask_phil.source_records import ImportedSources, ImportSummary, SourceInspection
 from ask_phil.storage import EvidenceStore, SnapshotNotFound
 
 SearchText = Annotated[str, StringConstraints(strip_whitespace=True, min_length=1, max_length=500)]
@@ -85,6 +87,32 @@ def create_app(
             return store.inspect(snapshot_id, query, limit)
         except SnapshotNotFound as exc:
             raise HTTPException(status_code=404, detail="Snapshot not found.") from exc
+
+    def imported_sources(snapshot_id: str) -> ImportedSources:
+        try:
+            imported = store.snapshot(snapshot_id).imported
+        except SnapshotNotFound as exc:
+            raise HTTPException(status_code=404, detail="Snapshot not found.") from exc
+        if imported is None:
+            raise HTTPException(status_code=404, detail="Snapshot has no source import record.")
+        return imported
+
+    @app.get("/v1/snapshots/{snapshot_id}/sources")
+    def source_report(snapshot_id: Identifier) -> ImportSummary:
+        return imported_sources(snapshot_id).report()
+
+    @app.get("/v1/snapshots/{snapshot_id}/sources/{source_id}")
+    def inspect_source(snapshot_id: Identifier, source_id: Identifier) -> SourceInspection:
+        try:
+            return imported_sources(snapshot_id).inspect(source_id)
+        except LookupError as exc:
+            raise HTTPException(status_code=404, detail="Source not found.") from exc
+
+    @app.get("/v1/snapshots/{snapshot_id}/identities")
+    def resolve_character(
+        snapshot_id: Identifier, name: Annotated[SearchText, Query()]
+    ) -> IdentityResolution:
+        return imported_sources(snapshot_id).catalogue.resolve(name)
 
     @app.get("/v1/snapshots/{snapshot_id}/evidence/{evidence_id}")
     def resolve(snapshot_id: Identifier, evidence_id: Identifier) -> Inspection:
