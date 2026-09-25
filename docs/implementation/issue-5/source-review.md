@@ -26,6 +26,10 @@ used ordinary `httpx` requests with the named project User-Agent, not a model.
   heading-to-heading HTML before acceptance, without changing the parser policy.
 - Den Watts: retain the full captured article and its Q5256484 link as supporting
   identity evidence. No Den narrative section is admitted in this small batch.
+  The independent spec review caught omitted infobox aliases: Dennis Alan Watts
+  and Dirty Den. Both now resolve to Den in the frozen catalogue and capture plan;
+  a public identity regression failed before the correction. Raw captures and
+  ordered paragraph labels were unchanged; only the batch fingerprint changed.
 - Wikidata: the three core-item JSON responses contain `entities`, `id`,
   `lastrevid`, English labels and `enwiki` sitelinks. These link identities only.
   English aliases are absent on the sampled Sharon/Ben records; do not manufacture

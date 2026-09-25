@@ -1,7 +1,7 @@
 {
   "version": "source-ingestion-v1",
   "split": "exposed-development",
-  "batch_sha256": "d953afbf4af5ae19402486c1ffaf1f8b6426a2baa942f07402c01e3fd36646e6",
+  "batch_sha256": "bfcaae65ecd30c4ebee805a71d02910ce85db636aa0d5f1ef2a08368a06eb76a",
   "reviewer": "Codex primary source inspection, 25 September 2026; review notes in docs/implementation/issue-5/source-review.md. Labels taken from captured HTML, not importer output. No independent canon verification.",
   "sources": {
     "sharon-wiki": {

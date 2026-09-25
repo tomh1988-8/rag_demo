@@ -22,11 +22,40 @@ class ImportRecord(BaseModel):
     model_config = ConfigDict(extra="forbid", frozen=True)
 
 
+class SourceUse(ImportRecord):
+    role: Literal["narrative", "identity_linkage", "episode_metadata"]
+    license_url: HttpUrl
+    attribution: str
+
+
+_SOURCE_USE = {
+    "wikipedia": SourceUse(
+        role="narrative",
+        license_url=HttpUrl("https://creativecommons.org/licenses/by-sa/4.0/"),
+        attribution="Wikipedia contributors; markup removed and whitespace normalized.",
+    ),
+    "wikidata": SourceUse(
+        role="identity_linkage",
+        license_url=HttpUrl("https://creativecommons.org/publicdomain/zero/1.0/"),
+        attribution="Wikidata contributors; structured identity data.",
+    ),
+    "tvmaze": SourceUse(
+        role="episode_metadata",
+        license_url=HttpUrl("https://creativecommons.org/licenses/by-sa/4.0/"),
+        attribution="TVmaze, https://www.tvmaze.com/shows/793/eastenders; broadcast metadata.",
+    ),
+}
+
+
 class SourceRequest(ImportRecord):
     source_id: Annotated[str, Field(pattern=r"^[a-z0-9][a-z0-9-]{0,39}$")]
     kind: Literal["wikipedia", "wikidata", "tvmaze"]
     character_id: str | None = None
     url: HttpUrl
+
+    @property
+    def usage(self) -> SourceUse:
+        return _SOURCE_USE[self.kind]
 
     @model_validator(mode="after")
     def official_source(self) -> Self:
@@ -156,15 +185,12 @@ class SourceLocation(ImportRecord):
     character_ids: tuple[str, ...]
 
 
-class SourceSummary(ImportRecord):
+class SourceSummary(SourceUse):
     source_id: str
-    role: Literal["narrative", "identity_linkage", "episode_metadata"]
     url: HttpUrl
     revision_id: str
     captured_at: AwareDatetime
     sha256: str
-    license_url: HttpUrl
-    attribution: str
     paragraphs: int
     admitted_paragraphs: int
     excluded_paragraphs: int
@@ -203,36 +229,18 @@ class ImportedSources(SourceBatch):
             document = next((d for d in self.documents if d.source_id == capture.source_id), None)
             records = [r for r in self.records if r.source_id == capture.source_id]
             spans = document.spans if document else ()
-            role: Literal["narrative", "identity_linkage", "episode_metadata"]
-            if capture.kind == "wikipedia":
-                role, license_url = "narrative", "https://creativecommons.org/licenses/by-sa/4.0/"
-                attribution = "Wikipedia contributors; markup removed and whitespace normalized."
-            elif capture.kind == "wikidata":
-                role, license_url = (
-                    "identity_linkage",
-                    "https://creativecommons.org/publicdomain/zero/1.0/",
-                )
-                attribution = "Wikidata contributors; structured identity data."
-            else:
-                role, license_url = (
-                    "episode_metadata",
-                    "https://creativecommons.org/licenses/by-sa/4.0/",
-                )
-                attribution = (
-                    "TVmaze, https://www.tvmaze.com/shows/793/eastenders; broadcast metadata."
-                )
             sources.append(
                 SourceSummary(
                     source_id=capture.source_id,
-                    role=role,
+                    role=capture.usage.role,
                     url=capture.url,
                     revision_id=document.revision_id
                     if document
                     else (records[0].revision_id if records else capture.sha256),
                     captured_at=capture.captured_at,
                     sha256=capture.sha256,
-                    license_url=HttpUrl(license_url),
-                    attribution=attribution,
+                    license_url=capture.usage.license_url,
+                    attribution=capture.usage.attribution,
                     paragraphs=len(spans),
                     admitted_paragraphs=sum(s.scope == "main_series" for s in spans),
                     excluded_paragraphs=sum(

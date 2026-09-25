@@ -65,7 +65,10 @@
       {
         "character_id": "den-watts",
         "name": "Den Watts",
-        "aliases": [],
+        "aliases": [
+          "Dennis Alan Watts",
+          "Dirty Den"
+        ],
         "performers": [
           "Leslie Grantham"
         ],

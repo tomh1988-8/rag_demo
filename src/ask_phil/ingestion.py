@@ -202,11 +202,8 @@ def build_snapshot(batch: SourceBatch, snapshot_id: str) -> SourceSnapshot:
                 captured_at=capture.captured_at,
                 capture_sha256=capture.sha256,
                 scope="main_series",
-                license_url=HttpUrl("https://creativecommons.org/licenses/by-sa/4.0/"),
-                attribution=(
-                    f"Wikipedia contributors, {character.name}, CC BY-SA 4.0; "
-                    "markup removed and whitespace normalized."
-                ),
+                license_url=capture.usage.license_url,
+                attribution=capture.usage.attribution,
                 coverage="Reviewed narrative sections in this captured revision only.",
                 gaps=(
                     "Partial canon coverage; other paragraphs remain excluded or awaiting review.",

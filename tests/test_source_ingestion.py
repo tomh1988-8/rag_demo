@@ -8,7 +8,14 @@ import httpx
 import pytest
 from pydantic import HttpUrl
 
-from ask_phil.ingestion import CapturedSource, ScopeRule, WikipediaPolicy, parse_wikipedia
+from ask_phil.ingestion import (
+    CapturedSource,
+    ScopeRule,
+    SourceRequest,
+    WikipediaPolicy,
+    capture_sources,
+    parse_wikipedia,
+)
 
 
 def test_mixed_page_retains_order_and_exclusions_without_losing_main_series_history() -> None:
@@ -60,15 +67,17 @@ def test_mixed_page_retains_order_and_exclusions_without_losing_main_series_hist
     assert result.spans[3].reason == "Performer information."
 
 
-def test_source_capture_preserves_response_and_rejects_http_failure_or_wrong_host() -> None:
-    from ask_phil.ingestion import SourceRequest, capture_sources
-
-    request = SourceRequest(
+@pytest.fixture
+def identity_request() -> SourceRequest:
+    return SourceRequest(
         source_id="identity",
         kind="wikidata",
         character_id="sharon-watts",
         url=HttpUrl("https://www.wikidata.org/wiki/Special:EntityData/Q7490258.json"),
     )
+
+
+def test_source_capture_preserves_response(identity_request: SourceRequest) -> None:
     content = '{"entities":{}}'
     with httpx.Client(
         transport=httpx.MockTransport(
@@ -77,14 +86,19 @@ def test_source_capture_preserves_response_and_rejects_http_failure_or_wrong_hos
             )
         )
     ) as client:
-        captured = capture_sources((request,), client)[0]
+        captured = capture_sources((identity_request,), client)[0]
     assert captured.content == content
-    assert captured.url == request.url
+    assert captured.url == identity_request.url
     assert captured.captured_at.tzinfo is not None
 
+
+def test_source_capture_rejects_http_failure(identity_request: SourceRequest) -> None:
     with httpx.Client(transport=httpx.MockTransport(lambda request: httpx.Response(429))) as client:
         with pytest.raises(ValueError, match="429"):
-            capture_sources((request,), client)
+            capture_sources((identity_request,), client)
+
+
+def test_source_request_rejects_wrong_host() -> None:
     with pytest.raises(ValueError, match="official"):
         SourceRequest(
             source_id="wrong", kind="wikidata", url=HttpUrl("https://example.com/Q7490258.json")
@@ -103,6 +117,8 @@ def test_real_inputs_preserve_narrative_provenance_and_keep_metadata_out_of_retr
     assert imported.catalogue.resolve("Sharon Rickman").character_ids == ("sharon-watts",)
     assert imported.catalogue.resolve("Max Bowden").status == "performer"
     assert imported.catalogue.characters[3].coverage == "supporting"
+    assert imported.catalogue.resolve("Dirty Den").character_ids == ("den-watts",)
+    assert imported.catalogue.resolve("Dennis Alan Watts").character_ids == ("den-watts",)
     sharon = next(d for d in imported.documents if d.source_id == "sharon-wiki")
     ben = next(d for d in imported.documents if d.source_id == "ben-wiki")
     assert sum(s.scope == "main_series" for s in sharon.spans) == 30
@@ -238,26 +254,22 @@ def test_duplicate_episode_records_are_reported_and_conflicting_duplicates_fail(
         assert sum(i.code == "duplicate_record" for i in snapshot.imported.issues) == 1
 
 
-def test_capture_stops_on_oversized_or_interrupted_response() -> None:
-    from ask_phil.ingestion import SourceRequest, capture_sources
-
-    request = SourceRequest(
-        source_id="identity",
-        kind="wikidata",
-        url=HttpUrl("https://www.wikidata.org/wiki/Special:EntityData/Q7490258.json"),
-    )
+def test_capture_stops_on_oversized_response(identity_request: SourceRequest) -> None:
     with httpx.Client(
         transport=httpx.MockTransport(lambda request: httpx.Response(200, content=b"x" * 5_000_001))
     ) as client:
         with pytest.raises(ValueError, match="byte limit"):
-            capture_sources((request,), client)
+            capture_sources((identity_request,), client)
+
+
+def test_capture_stops_on_interrupted_response(identity_request: SourceRequest) -> None:
 
     def interrupted(request: httpx.Request) -> httpx.Response:
         raise httpx.ReadError("Interrupted upstream response")
 
     with httpx.Client(transport=httpx.MockTransport(interrupted)) as client:
         with pytest.raises(ValueError, match="transport failed"):
-            capture_sources((request,), client)
+            capture_sources((identity_request,), client)
 
 
 def test_real_source_retention_matches_reviewed_ordered_paragraph_labels() -> None:
