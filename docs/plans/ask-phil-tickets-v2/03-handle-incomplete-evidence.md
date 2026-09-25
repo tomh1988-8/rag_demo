@@ -1,6 +1,6 @@
 # 03: Handle incomplete evidence and false premises
 
-Status: [GitHub #4](https://github.com/tomh1988-8/rag_demo/issues/4) passes scoped acceptance with `config/openrouter-sol.json`: 85 software tests, an independently reviewed 13-case policy matrix, and five actual CLI/API/restart cases. [Cloud evidence](../../implementation/issue-4/cloud/README.md) and [the summary](../../implementation/issue-4/cloud/summary.json) retain failures, separate dimensions and reviewed regression dispositions. Close the issue after verified GitHub publication. Broader calibrated and held-out evaluation remains #9. Plan version: 2.
+Status: [GitHub #4](https://github.com/tomh1988-8/rag_demo/issues/4) passes scoped acceptance with `config/openrouter-sol.json`: 85 software tests, an independently reviewed 13-case policy matrix, and five actual CLI/API/restart cases. [Cloud evidence](../../implementation/issue-4/cloud/README.md) and [the summary](../../implementation/issue-4/cloud/summary.json) retain failures, separate dimensions and reviewed regression dispositions. Closed after [verified GitHub publication](https://github.com/tomh1988-8/rag_demo/commit/a5062593449a941d28248614e1f3977d14fc9a57); closure readback confirmed all seven criteria checked. Broader calibrated and held-out evaluation remains #9. Plan version: 2.
 
 Spec stories: S10, S15, S30, S32, S33, S34, S35, S36, S38, S43, S71, S72, S79, S83, S84, S86, S92. Checklist evidence owner for: AD-01.2, AD-06.3, RAG-03.
 

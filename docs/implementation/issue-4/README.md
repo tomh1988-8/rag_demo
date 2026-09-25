@@ -8,8 +8,8 @@ software suite passes **85 tests**. The runs cost **$0.10890587** in total, leav
 Use `config/openrouter-sol.json` for this accepted slice; the Qwen smoke failed
 citation validation and GLM remains untested. See [private setup](../openrouter-setup.md).
 This is exposed development evidence, not held-out reliability or broad canon
-coverage. Close #4 only after its code and evidence are published and the exact
-remote tree is verified. The local-model results below remain historical failures.
+coverage. Issue #4 is closed after [publication](https://github.com/tomh1988-8/rag_demo/commit/a5062593449a941d28248614e1f3977d14fc9a57)
+and exact remote-tree verification. The local-model results below remain historical failures.
 
 Implementation starts from `936f265d614345a3209e7f955f1aa82fa9f95a28` on
 `main`. Scope is [issue #4](https://github.com/tomh1988-8/rag_demo/issues/4).
@@ -174,6 +174,6 @@ labels were independently reviewed.
 
 The temporary cloud API passed restart/receipt checks and was stopped. Existing
 issue-3 Docker containers still use the local model. No cloud deployment is claimed.
-After publication and closure, #5 is the recommended next issue; #9 and #10 also
-become unblocked. Wait for the next implementation instruction. Representative
+Issue #4 is closed; #5 is the recommended next issue, with #9 and #10 also
+unblocked. Wait for the next implementation instruction. Representative
 comparisons and judge calibration remain #9, with full release acceptance in #21.
