@@ -1286,7 +1286,7 @@
       "required_now": true,
       "before_issue_4_acceptance": true,
       "next_reasoning": "pro",
-      "missing_input": "Locally entered OpenRouter key with verified non-resetting $5 limit and BYOK usage included; live smoke and semantic rebaseline pending",
+      "missing_input": "Locally entered OpenRouter key with verified non-resetting $5 limit; BYOK settings are not required for this credit-funded trial; live smoke and semantic rebaseline pending",
       "paid_api_calls": 0
     },
     "dependency_frontier": [
@@ -1380,7 +1380,7 @@
   ],
   "openrouter_trial_setup": {
     "date": "2026-09-25",
-    "status": "integration_ready_real_key_and_live_verification_pending",
+    "status": "integration_ready_local_key_entry_and_live_verification_pending",
     "profiles": [
       "config/openrouter-qwen.json",
       "config/openrouter-sol.json",

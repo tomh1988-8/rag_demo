@@ -63,8 +63,8 @@ def verify_key(client: httpx.Client, key: str) -> Decimal:
         ) from None
     if remaining <= 0:
         raise ProviderError("The OpenRouter key budget is exhausted.")
-    if data.get("include_byok_in_limit") is not True:
-        raise ProviderError("Enable 'include BYOK usage in limit' on this capped OpenRouter key.")
+    # This trial spends OpenRouter credits. The optional BYOK accounting flag
+    # concerns separately connected provider keys, not the credit limit above.
     return remaining
 
 

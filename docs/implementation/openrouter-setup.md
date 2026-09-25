@@ -9,8 +9,8 @@ serving, evaluation and all selected models. This is not a recurring allowance.
 ## Local setup
 
 1. In [OpenRouter keys](https://openrouter.ai/settings/keys), create a dedicated
-   project key with credit limit **5**, reset **never**, and **include BYOK usage
-   in limit** enabled. Keep automatic credit top-ups off and use OpenRouter
+   project key with credit limit **5** and reset **never**.
+   No BYOK setting is required. Keep automatic credit top-ups off and use OpenRouter
    credits without connecting separate provider keys for this trial.
 2. From the repository root, run `.venv/bin/ask-phil configure-openrouter` in your
    terminal. Paste only into its hidden prompt, never chat, a shell command,
@@ -34,7 +34,10 @@ outside the $5 inference-credit limit.
 ## Spending and reproducibility controls
 
 Before every paid call, the app verifies a positive, non-resetting provider limit
-no larger than $5, remaining credit, and inclusion of BYOK usage. It verifies the
+no larger than $5 and remaining credit. The optional `include_byok_in_limit` flag
+does not gate ordinary credit-funded keys, including when false or absent.
+BYOK means separately connected provider credentials and is outside this trial.
+The account balance can exceed $5 without increasing the key's limit. It verifies the
 configured provider/model version still advertises required parameters. Calls
 pin a provider, forbid fallback, enforce maximum token prices, send one strict
 JSON response schema, and use bounded input/output. There are no automatic retries,
