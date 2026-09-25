@@ -1,6 +1,6 @@
 # 04: Import real sources with character identity and canon scope
 
-Status: implemented and independently reviewed for [GitHub #5](https://github.com/tomh1988-8/rag_demo/issues/5). [Acceptance evidence](../../implementation/issue-5/README.md) records the scoped results and limitations. GitHub closure follows exact-tree publication verification.
+Status: completed and closed as [GitHub #5](https://github.com/tomh1988-8/rag_demo/issues/5). [Acceptance evidence](../../implementation/issue-5/README.md) records the scoped results and limitations. [Published commit b6b45cb](https://github.com/tomh1988-8/rag_demo/commit/b6b45cb5eea3402ffe2be466e1693ef91af4ecf5) was verified against the local tree before all eight checked criteria and closure were read back.
 
 Spec stories: S12, S13, S14, S19, S30, S41, S42, S56, S57, S58, S67, S72, S73, S74, S76, S79. Checklist evidence owner for: AD-03.2, EXT-01.
 
