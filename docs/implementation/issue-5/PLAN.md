@@ -27,3 +27,7 @@ needed. Keep the existing seed fingerprints and saved response shapes compatible
 Refresh scheduling/publication recovery remains #6; extraction/admission remains
 #11 onward; context expansion remains #24. The new importer retains the ordered
 source context those tickets will need.
+
+Implementation and review are complete at `0322b2e`: 115 Docker tests, Ruff and
+strict mypy pass. Both independent review axes have zero remaining findings.
+The acceptance README links exact source/code identities and the saved results.

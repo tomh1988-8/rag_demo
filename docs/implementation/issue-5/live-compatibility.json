@@ -1,0 +1,90 @@
+{
+  "version": 1,
+  "command": ".venv/bin/ask-phil capture-sources data/sources/real-sources-plan-v1.json artifacts/issue-5-live-sources.json.gz",
+  "exit_code": 0,
+  "paid_model_calls": 0,
+  "capture_file_sha256": "e202673faa945d11cb5909a098e672e400de6f62b393a630563f143f8bf39e77",
+  "narrative_projection_matches_frozen_batch": true,
+  "sources": [
+    {
+      "source_id": "sharon-wiki",
+      "url": "https://en.wikipedia.org/wiki/Sharon_Watts",
+      "http_status": 200,
+      "captured_at": "2026-09-25T12:47:01.871237+00:00",
+      "sha256": "86b90fe8e3816fdd7f6ee92c97f94ba65a650bfa7cbc48476dd01de4f6a6560d",
+      "retained_utf8_bytes": 667027
+    },
+    {
+      "source_id": "ben-wiki",
+      "url": "https://en.wikipedia.org/wiki/Ben_Mitchell_(EastEnders)",
+      "http_status": 200,
+      "captured_at": "2026-09-25T12:47:01.921614+00:00",
+      "sha256": "42038dc15e2c78b46205eebf354d85e8babcc67d1ab73ae8e45d73b469a3a9d6",
+      "retained_utf8_bytes": 574225
+    },
+    {
+      "source_id": "kat-wiki",
+      "url": "https://en.wikipedia.org/wiki/Kat_Slater",
+      "http_status": 200,
+      "captured_at": "2026-09-25T12:47:01.965053+00:00",
+      "sha256": "83963acfaf2513d675920178dd67974d4f69d9ec92fb2cf2cc2eb5bcd009d9b7",
+      "retained_utf8_bytes": 600480
+    },
+    {
+      "source_id": "den-wiki",
+      "url": "https://en.wikipedia.org/wiki/Den_Watts",
+      "http_status": 200,
+      "captured_at": "2026-09-25T12:47:01.999951+00:00",
+      "sha256": "936560fd0b6c2a4c770afcc564448c8157cb9a99c18ee37d3428b9aff8a96cb8",
+      "retained_utf8_bytes": 266660
+    },
+    {
+      "source_id": "sharon-identity",
+      "url": "https://www.wikidata.org/wiki/Special:EntityData/Q7490258.json",
+      "http_status": 200,
+      "captured_at": "2026-09-25T12:47:02.432987+00:00",
+      "sha256": "a582f41769377d615d2ad986202cf57d676052e50d6233cb66c76eb2e6c62924",
+      "retained_utf8_bytes": 7608
+    },
+    {
+      "source_id": "ben-identity",
+      "url": "https://www.wikidata.org/wiki/Special:EntityData/Q2766568.json",
+      "http_status": 200,
+      "captured_at": "2026-09-25T12:47:03.087014+00:00",
+      "sha256": "e73721f684635755aeb61f0dca965e17c12ec368d2ca00612f2c4579ae9676fc",
+      "retained_utf8_bytes": 8102
+    },
+    {
+      "source_id": "kat-identity",
+      "url": "https://www.wikidata.org/wiki/Special:EntityData/Q3955054.json",
+      "http_status": 200,
+      "captured_at": "2026-09-25T12:47:03.423353+00:00",
+      "sha256": "3b3d5b8ddb755e6fe6c5f7100998d8ab9a586248595245866f821487bde74869",
+      "retained_utf8_bytes": 11528
+    },
+    {
+      "source_id": "episode",
+      "url": "https://api.tvmaze.com/shows/793/episodesbydate?date=1985-02-19",
+      "http_status": 200,
+      "captured_at": "2026-09-25T12:47:03.624681+00:00",
+      "sha256": "20333a0ec99c69b73434c5bbd7676a673ca18bed54f4c5c8b8535b751fe59dbe",
+      "retained_utf8_bytes": 634
+    }
+  ],
+  "failed_discovery": [
+    {
+      "url": "https://api.tvmaze.com/shows/793/episodebynumber?season=1&number=1",
+      "http_status": 404,
+      "resolution": "Used the documented episodesbydate endpoint; no invented fallback data."
+    }
+  ],
+  "limitations": [
+    "Point-in-time public-source compatibility, not scheduled refresh or future availability.",
+    "Live payloads are retained locally in ignored artifacts; the committed frozen batch contains the original complete inputs."
+  ],
+  "capture_implementation_commit": "3ac99324a071e036b60636e476aadc997a45f88d",
+  "capture_plan_sha256": "3dd8ed4f3b1bbab97cd30605788379f1a1cd5175094a12cf8d3756119e0a7865",
+  "projection_checked_with_commit": "0322b2eac495c515676b60124a6a8e88e04e2da6",
+  "frozen_batch_sha256": "bfcaae65ecd30c4ebee805a71d02910ce85db636aa0d5f1ef2a08368a06eb76a",
+  "catalogue_note": "Live capture predates the reviewed Den alias correction. Its original artifact is unchanged; all raw source hashes and ordered narrative spans still match the corrected frozen batch."
+}
