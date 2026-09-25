@@ -11,10 +11,12 @@ critical citation-support failure. Source-purpose wording was upgraded to a comp
 act in the appendix; ambiguity, abstention, false-premise, persona and conflict
 qualification also need stronger-model acceptance. No paid API was called.
 
-Next work is `<pro>`: configure the user's chosen capable provider and conservative
-local key/account/request controls, then rerun the full reference matrix and retained
-regressions. Provider name and credential environment-variable name were requested;
-the secret itself must stay out of chat and Git. Do not close #4 or advance its
+The [OpenRouter setup](../../implementation/openrouter-setup.md) now implements
+the original Qwen/Sol shortlist, GLM comparison profile, private key storage and
+shared $5 spending controls. Next work is `<pro>`: receive the locally entered
+capped key, verify the provider limit, then run a smoke case and the full reference
+matrix with retained regressions. The secret must stay out of chat and Git.
+Do not close #4 or advance its
 blocked tickets on the strength of software checks. #5 remains independently unblocked.
 The final images were built/tested; currently running API/MLflow containers still use
 #3. Do not infer that the failing candidate was accepted or deployed.

@@ -25,8 +25,11 @@ The connector exposes issue creation/read/update and label operations but no nat
 Issue #4 is now implemented at the software-contract level (66 Docker tests), but
 remains **open** because local Gemma fails semantic acceptance, including a served
 citation-support regression. Resume #4 with a stronger provider, conservative local
-credential/spend controls and a new baseline. Provider choice and environment-variable
-name are pending user input. #5 remains independently unblocked; #4's dependants
+credential/spend controls and a new baseline. The original OpenRouter shortlist is
+configured with a shared $5 ledger and provider-limit checks; a real key, live cap
+verification and semantic baseline remain pending. See the
+[private setup](../implementation/openrouter-setup.md). Run its staged-secret scan
+before every publication. #5 remains independently unblocked; #4's dependants
 must not be advanced. See [the evidence](../implementation/issue-4/README.md).
 
 For multiline bodies, write the exact text to a temporary file and

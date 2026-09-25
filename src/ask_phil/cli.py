@@ -1,6 +1,7 @@
 """CLI client; only the explicit maintainer load command accesses PostgreSQL."""
 
 import argparse
+import getpass
 import json
 import os
 import sys
@@ -10,6 +11,7 @@ import httpx
 import psycopg
 
 from ask_phil.evidence import SourceSnapshot
+from ask_phil.openrouter import KEY_PATH, ProviderError, save_key
 from ask_phil.storage import EvidenceStore
 
 
@@ -19,6 +21,9 @@ def main() -> int:
         "--api-url", default=os.environ.get("ASK_PHIL_API_URL", "http://127.0.0.1:8000")
     )
     commands = parser.add_subparsers(dest="command", required=True)
+    commands.add_parser(
+        "configure-openrouter", help="Privately save a provider-verified, capped OpenRouter key."
+    )
     inspect = commands.add_parser("inspect", help="Retrieve matching passages through the API.")
     inspect.add_argument("query")
     inspect.add_argument("--snapshot", required=True)
@@ -38,7 +43,14 @@ def main() -> int:
     index.add_argument("--snapshot", required=True)
     args = parser.parse_args()
     try:
-        if args.command in {"load", "index"}:
+        if args.command == "configure-openrouter":
+            if not sys.stdin.isatty():
+                raise ProviderError("Run this command in an interactive terminal for hidden input.")
+            key = getpass.getpass("OpenRouter key (hidden): ")
+            with httpx.Client(timeout=20, trust_env=False, follow_redirects=False) as client:
+                save_key(key, KEY_PATH, client)
+            print("Key saved privately; provider lifetime credit limit verified at $5 or less.")
+        elif args.command in {"load", "index"}:
             database_url = os.environ.get("DATABASE_URL")
             if not database_url:
                 parser.error("DATABASE_URL is required for the maintainer load command.")

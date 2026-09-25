@@ -15,6 +15,7 @@ from ask_phil.answering import AnswerService
 from ask_phil.answers import AnswerReceipt, AnswerRecord, AskRequest
 from ask_phil.evidence import Identifier, Inspection
 from ask_phil.models import ModelConfigurationError, Models
+from ask_phil.openrouter import ProviderError
 from ask_phil.responses import ResponseLedger
 from ask_phil.retrieval import IndexNotReady
 from ask_phil.storage import EvidenceStore, SnapshotNotFound
@@ -52,7 +53,7 @@ def create_app(
                         or os.environ.get("MLFLOW_TRACKING_URI", "sqlite:///artifacts/mlflow.db"),
                     )
             return service.ask(request)
-        except ModelConfigurationError as exc:
+        except (ModelConfigurationError, ProviderError) as exc:
             raise HTTPException(status_code=503, detail=str(exc)) from exc
         except SnapshotNotFound as exc:
             raise HTTPException(status_code=404, detail="Snapshot not found.") from exc

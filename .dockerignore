@@ -18,3 +18,7 @@
 !docs/implementation/issue-3/
 !docs/implementation/issue-3/docker-serving.json
 **/__pycache__/
+**/.env
+**/.env.*
+**/.secrets/
+**/*.key

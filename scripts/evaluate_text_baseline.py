@@ -11,7 +11,7 @@ from pathlib import Path
 from ask_phil.answering import AnswerService, application_fingerprint
 from ask_phil.answers import AskRequest
 from ask_phil.evaluation import RetrievalReference, score_retrieval
-from ask_phil.models import Models
+from ask_phil.models import Models, OpenRouterSettings
 
 
 def main() -> None:
@@ -24,6 +24,10 @@ def main() -> None:
     references = Path("data/references/phil-arrival-rag-v1.json")
     dataset = json.loads(references.read_text())
     models = Models.from_environment()
+    if isinstance(models.settings, OpenRouterSettings):
+        raise ValueError(
+            "Cloud baselines use scripts/evaluate_answer_policy.py and its spend ledger."
+        )
     Path("artifacts").mkdir(exist_ok=True)
     service = AnswerService(
         os.environ["DATABASE_URL"],

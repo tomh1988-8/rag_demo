@@ -1,4 +1,4 @@
-"""Capture bounded local responses, then score separately reviewed immutable outputs."""
+"""Capture bounded responses, then score separately reviewed immutable outputs."""
 
 import argparse
 import hashlib
@@ -15,6 +15,7 @@ from ask_phil.answers import AskRequest
 from ask_phil.evaluation import QualityReview, score_answer_review
 from ask_phil.evidence import SourceSnapshot
 from ask_phil.models import Models
+from ask_phil.openrouter import OpenRouterChat
 from ask_phil.storage import EvidenceStore
 
 REFERENCE = Path("data/references/answer-policy-v2.json")
@@ -75,7 +76,9 @@ def capture(output: Path, case_ids: list[str], limit: int) -> None:
     )
     document: dict[str, Any] = {
         "recorded_at": datetime.now(UTC).isoformat(),
-        "kind": "local-development-smoke",
+        "kind": "provider-development-smoke"
+        if isinstance(models.llm, OpenRouterChat)
+        else "local-development-smoke",
         "limitation": (
             "Exposed development cases and synthetic policy fixtures; no deployment, held-out"
             " or independently corroborated canon claim. Reviews are separate from generated "
@@ -86,11 +89,12 @@ def capture(output: Path, case_ids: list[str], limit: int) -> None:
         "application_sha256": application_fingerprint(),
         "reference_file_sha256": hashlib.sha256(REFERENCE.read_bytes()).hexdigest(),
         "lock_sha256": hashlib.sha256(Path("uv.lock").read_bytes()).hexdigest(),
-        "model_settings": models.settings.model_dump(),
+        "model_settings": models.settings.model_dump(mode="json"),
         "budget": {
             "maximum_answer_calls": len(cases),
             "output_tokens_per_call": models.settings.output_tokens,
             "paid_api_calls": 0,
+            "shared_trial_limit_usd": 5 if isinstance(models.llm, OpenRouterChat) else None,
             "retries": 0,
         },
         "cases": [],
@@ -104,6 +108,8 @@ def capture(output: Path, case_ids: list[str], limit: int) -> None:
                 category="offline_evaluation",
             )
             response = receipt.response.model_dump(mode="json")
+            if receipt.response.provider_usage:
+                document["budget"]["paid_api_calls"] += 1
             trace = service.tracking.get_trace(receipt.response.trace_id, flush=True)
             document["cases"].append(
                 {

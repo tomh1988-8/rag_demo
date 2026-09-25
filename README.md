@@ -19,6 +19,13 @@ not deployment or representative quality evidence. Move to a more capable model
 before substantial extraction pilots or serious quality acceptance, and record
 that model's own baseline with spending controls configured before paid calls.
 
+## OpenRouter trial
+
+Qwen3.8 Flash, GPT-6 Sol and GLM 5.3 Flash profiles are available with a shared
+$5 trial budget. Follow the [private key and spending setup](docs/implementation/openrouter-setup.md)
+before selecting a cloud profile. A real capped key and the new semantic baseline
+are still pending; local commands below keep their existing default.
+
 ## Run local text RAG
 
 The local stack uses CPU inference, one loaded model and one inference request at

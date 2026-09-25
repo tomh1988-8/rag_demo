@@ -14,9 +14,10 @@ import mlflow
 from llama_index.core.base.embeddings.base import BaseEmbedding
 from llama_index.llms.ollama import Ollama
 from ollama import Client, ResponseError
-from pydantic import Field, PrivateAttr
+from pydantic import Field, PrivateAttr, TypeAdapter
 
 from ask_phil.evidence import Fingerprint, Record
+from ask_phil.openrouter import Budget, OpenRouterChat, OpenRouterProfile, read_key
 
 QUERY_PREFIX = "task: search result | query:"
 DOCUMENT_PREFIX = "title: none | text:"
@@ -41,6 +42,13 @@ class LocalEmbedding(BaseEmbedding):
     @property
     def input_tokens(self) -> int | None:
         return self._input_tokens.get()
+
+    def verify(self, digest: str) -> None:
+        installed = {m.model: m.digest for m in self._client.list().models}
+        if installed.get(self.model_name) != digest:
+            raise ModelConfigurationError(
+                "Installed embedding digest differs; review and rebaseline."
+            )
 
     def _embed(self, text: str, prefix: str, span_name: str) -> list[float]:
         self._input_tokens.set(None)
@@ -87,17 +95,10 @@ class LocalEmbedding(BaseEmbedding):
         return await asyncio.to_thread(self._get_query_embedding, query)
 
 
-class ModelSettings(Record):
-    answer_model: str
-    answer_digest: Fingerprint
+class EmbeddingSettings(Record):
     embedding_model: str
     embedding_digest: Fingerprint
     embedding_dimensions: int = Field(default=768, ge=1, le=2000)
-    context_window: int = Field(default=4096, ge=4096, le=4096)
-    output_tokens: int = Field(default=256, ge=256, le=512)
-    temperature: float = Field(default=0, ge=0, le=0)
-    request_timeout_seconds: int = Field(default=180, ge=1, le=180)
-    seed: int = 17
 
     @property
     def embedding_id(self) -> str:
@@ -108,11 +109,25 @@ class ModelSettings(Record):
         return hashlib.sha256(identity.encode()).hexdigest()
 
 
+class ModelSettings(EmbeddingSettings):
+    answer_model: str
+    answer_digest: Fingerprint
+    context_window: int = Field(default=4096, ge=4096, le=4096)
+    output_tokens: int = Field(default=256, ge=256, le=512)
+    temperature: float = Field(default=0, ge=0, le=0)
+    request_timeout_seconds: int = Field(default=180, ge=1, le=180)
+    seed: int = 17
+
+
+class OpenRouterSettings(OpenRouterProfile, EmbeddingSettings):
+    pass
+
+
 @dataclass(frozen=True)
 class Models:
-    settings: ModelSettings
+    settings: ModelSettings | OpenRouterSettings
     embedding: BaseEmbedding
-    llm: Ollama
+    llm: Ollama | OpenRouterChat
 
     @property
     def embedding_tokens(self) -> int | None:
@@ -121,6 +136,15 @@ class Models:
     def verify(self) -> None:
         """Reject mutable tags whose current content differs from the recorded configuration."""
         try:
+            if isinstance(self.settings, OpenRouterSettings):
+                if not isinstance(self.embedding, LocalEmbedding):
+                    raise ModelConfigurationError(
+                        "Cloud profiles require verified local embeddings."
+                    )
+                self.embedding.verify(self.settings.embedding_digest)
+                return
+            if not isinstance(self.llm, Ollama):
+                raise ModelConfigurationError("Local settings require the local answer client.")
             installed = {m.model: m.digest for m in self.llm.client.list().models}
         except (httpx.HTTPError, ResponseError, ConnectionError) as exc:
             raise ModelConfigurationError("The local model server is unavailable.") from exc
@@ -142,7 +166,9 @@ class Models:
             )
         path = Path(os.environ.get("ASK_PHIL_MODELS", "config/local-models.json"))
         try:
-            settings = ModelSettings.model_validate_json(path.read_text())
+            settings: ModelSettings | OpenRouterSettings = TypeAdapter(
+                ModelSettings | OpenRouterSettings
+            ).validate_json(path.read_text())
         except (OSError, ValueError) as exc:
             raise ModelConfigurationError(
                 "The local model configuration could not be loaded."
@@ -153,16 +179,30 @@ class Models:
             raise ModelConfigurationError(
                 "Cloud models require a separate provider/spending setup."
             )
+        embedding = LocalEmbedding(
+            model_name=settings.embedding_model,
+            client=Client(host=base_url, timeout=settings.request_timeout_seconds, trust_env=False),
+        )
+        if isinstance(settings, OpenRouterSettings):
+            models = cls(
+                settings,
+                embedding,
+                OpenRouterChat(
+                    settings,
+                    read_key(),
+                    Budget(),
+                    httpx.Client(
+                        timeout=settings.request_timeout_seconds,
+                        trust_env=False,
+                        follow_redirects=False,
+                    ),
+                ),
+            )
+            models.verify()
+            return models
         models = cls(
             settings=settings,
-            embedding=LocalEmbedding(
-                model_name=settings.embedding_model,
-                client=Client(
-                    host=base_url,
-                    timeout=settings.request_timeout_seconds,
-                    trust_env=False,
-                ),
-            ),
+            embedding=embedding,
             llm=Ollama(
                 model=settings.answer_model,
                 base_url=base_url,

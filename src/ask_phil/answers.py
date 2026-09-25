@@ -7,7 +7,8 @@ from uuid import UUID
 from pydantic import Field, StringConstraints, field_validator
 
 from ask_phil.evidence import Fingerprint, Identifier, Passage, Record, Source
-from ask_phil.models import ModelSettings
+from ask_phil.models import ModelSettings, OpenRouterSettings
+from ask_phil.openrouter import ProviderUsage
 from ask_phil.retrieval import RetrievedPassage
 
 Outcome = Literal["answered", "partial", "clarification", "insufficient_evidence"]
@@ -112,14 +113,15 @@ class AnswerRecord(Record):
     baseline_version: Literal["single-query-uncached-v1", "single-query-uncached-v2"] = (
         "single-query-uncached-v1"
     )
-    model_settings: ModelSettings
+    model_settings: ModelSettings | OpenRouterSettings
     prompt_sha256: Fingerprint
     application_sha256: Fingerprint
     trace_id: str
     elapsed_ms: float
     usage: TokenUsage
     expenditure_category: Literal["serving", "offline_evaluation"]
-    estimated_api_cost_usd: float = 0.0
+    estimated_api_cost_usd: float | None = 0.0
+    provider_usage: ProviderUsage | None = Field(default=None, exclude_if=lambda v: v is None)
     cost_scope: str = "Local Ollama API only; hardware, electricity and hosting are unmeasured."
     limitation: str = (
         "Source-supported is not independently cross-checked. Coverage is limited to the "
