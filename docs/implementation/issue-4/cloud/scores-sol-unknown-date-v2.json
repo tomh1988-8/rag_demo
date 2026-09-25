@@ -1,0 +1,76 @@
+{
+  "capture_sha256": "f524cb3a9338e21513ef57943b8110446400542bc133d69bcd83cdb7fb95ea51",
+  "review_sha256": "d79feede74210e18bbc20495eeec63c6f34b103e449754354bd3a25020414745",
+  "run_id": "019cbd9deaa14c429b6cd985d6d9b70a",
+  "scorer": "reviewed-binary-dimensions-v1",
+  "cases": [
+    {
+      "review": {
+        "case_id": "timing-unknown",
+        "response_sha256": "8b0e71b9702b94613edd29f5bbca73cb5d76fa315cd4926bf24190bc8c734b85",
+        "reference_sha256": "710c5c0ac579b807ce143832e22d551811be47707944df42ef1f32035f37ddf1",
+        "reviewer": "Independent Codex Spec review agent openrouter_spec_review; frozen-output review on 2026-09-25, not human-calibrated",
+        "rationale": "The actual passage explicitly leaves the story hearing date unstated. The repaired reply identifies that missing date in prose and unanswered and uses partial, without asserting that the unknown calendar value must differ from publication/broadcast dates. Don't establish it preserves the required epistemic limitation. The cited unknown-timing appendix agrees, with no spurious explicit-negative event label. Synthetic provenance and restrained Phil-style preface are explicit. This single targeted development pass does not establish full-matrix acceptance or stochastic reliability.",
+        "claims": [
+          {
+            "claim": "The synthetic account does not state the hearing story date.",
+            "correct": true,
+            "grounded": true,
+            "citation_supported": true
+          },
+          {
+            "claim": "Publication and broadcast dates do not establish that hearing date.",
+            "correct": true,
+            "grounded": true,
+            "citation_supported": true
+          }
+        ],
+        "required_facts": [
+          {
+            "fact": "The story date is not stated",
+            "covered": true
+          },
+          {
+            "fact": "Publication and broadcast dates do not establish the hearing date",
+            "covered": true
+          }
+        ],
+        "answerability": true,
+        "critical_failures": []
+      },
+      "scores": {
+        "correctness": {
+          "passed": 2,
+          "assessed": 2,
+          "unassessed": 0,
+          "value": 1.0
+        },
+        "groundedness": {
+          "passed": 2,
+          "assessed": 2,
+          "unassessed": 0,
+          "value": 1.0
+        },
+        "completeness": {
+          "passed": 2,
+          "assessed": 2,
+          "unassessed": 0,
+          "value": 1.0
+        },
+        "citation_support": {
+          "passed": 2,
+          "assessed": 2,
+          "unassessed": 0,
+          "value": 1.0
+        },
+        "answerability": {
+          "passed": 1,
+          "assessed": 1,
+          "unassessed": 0,
+          "value": 1.0
+        },
+        "critical_failures": []
+      }
+    }
+  ]
+}

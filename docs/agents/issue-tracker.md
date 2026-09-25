@@ -8,7 +8,7 @@ commands so they work even without a configured Git remote.
 
 ## Current Ask Phil handoff
 
-The approved specification is [issue #1](https://github.com/tomh1988-8/rag_demo/issues/1). The 24 implementation tickets are issues #2–#25, with ready-for-agent labels and explicit blocker references. Do not recreate them. The user's feedback/online-evaluation amendment is included in specification #1 and tickets #22–#23; final acceptance #21 requires the full loop. Fusion/context expansion is #24 and repeated-question caching is #25; #21 requires both, with #23 inherited through #25. See the [saved handoff](../plans/ask-phil-tickets-v2/HANDOFF.md) and publication manifest for the exact mapping and remaining native-link work. Issues #2 and #3 are completed and closed. The initial text-RAG slice has 32 passing tests and recorded local-model/MLflow/restart evidence; the next available tickets are #4 and #5. The laptop model is development-only; the handoff records the stronger-model migration gate. See the handoff before selecting subsequent work.
+The approved specification is [issue #1](https://github.com/tomh1988-8/rag_demo/issues/1). The 24 implementation tickets are issues #2–#25, with ready-for-agent labels and explicit blocker references. Do not recreate them. The user's feedback/online-evaluation amendment is included in specification #1 and tickets #22–#23; final acceptance #21 requires the full loop. Fusion/context expansion is #24 and repeated-question caching is #25; #21 requires both, with #23 inherited through #25. See the [saved handoff](../plans/ask-phil-tickets-v2/HANDOFF.md) and publication manifest for the exact mapping and remaining native-link work. Issues #2 and #3 are completed and closed. Issue #4 now passes scoped acceptance with the Sol cloud profile; verify its published tree before closure. #5 is recommended next, with #9 and #10 also unblocked after #4 closes. The laptop model remains development-only. See the handoff before selecting subsequent work.
 
 The connector exposes issue creation/read/update and label operations but no native dependency/sub-issue mutation. Until that capability is available, consult each issue's Blocked by references and the saved graph before selecting work. Do not claim that native links have been installed. The [alternative-access review](../research/github-issue-dependency-access.md) records the official MCP/API/CLI options and the recommendation to retain the working references for now; do not repeat the investigation on each implementation turn.
 
@@ -22,15 +22,16 @@ The connector exposes issue creation/read/update and label operations but no nat
 - Remove labels: `gh issue edit <number> --repo tomh1988-8/rag_demo --remove-label "..."`
 - Close: `gh issue close <number> --repo tomh1988-8/rag_demo --comment "..."`
 
-Issue #4 is now implemented at the software-contract level (66 Docker tests), but
-remains **open** because local Gemma fails semantic acceptance, including a served
-citation-support regression. Resume #4 with a stronger provider, conservative local
-credential/spend controls and a new baseline. The original OpenRouter shortlist is
-configured with a shared $5 ledger and provider-limit checks; a real key, live cap
-verification and semantic baseline remain pending. See the
-[private setup](../implementation/openrouter-setup.md). Run its staged-secret scan
-before every publication. #5 remains independently unblocked; #4's dependants
-must not be advanced. See [the evidence](../implementation/issue-4/README.md).
+Issue #4 now has 85 passing software tests, an independently reviewed 13-case
+cloud policy matrix and five actual CLI/API/restart checks. Use
+`config/openrouter-sol.json` for this accepted slice. Qwen's smoke was rejected;
+GLM is untested. The shared non-resetting $5 trial remains in force; recorded spend
+is $0.10890587. Preserve the private key and shared ledger. See the
+[private setup](../implementation/openrouter-setup.md) and
+[cloud evidence](../implementation/issue-4/cloud/README.md). Run the staged-secret
+scan before every publication. Broader calibrated quality remains #9; scoped
+acceptance does not establish broad canon accuracy. Wait for the user's next
+implementation instruction before starting another issue.
 
 For multiline bodies, write the exact text to a temporary file and
 pass its path with `--body-file`.

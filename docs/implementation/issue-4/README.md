@@ -1,12 +1,15 @@
 # Issue #4: incomplete evidence and false premises
 
-**Software checks pass; semantic acceptance is incomplete. Issue #4 remains open.**
-The local Gemma model is no longer sufficient for this work. The next step is a
-more capable provider with a locally configured, conservatively capped key and a
-new baseline. The [OpenRouter setup](../openrouter-setup.md) now provides the
-original Qwen/Sol shortlist and GLM comparison profile, with private key storage
-and shared $5 spending controls. A real key, provider-limit readback and live
-baseline are still pending. No paid API calls were made.
+**The scoped response-policy acceptance now passes with the Sol cloud profile.**
+The [cloud record](cloud/README.md) preserves the failed attempts, prompt repair,
+independent reviews, full 13-case rerun and five actual CLI/API checks. The final
+software suite passes **85 tests**. The runs cost **$0.10890587** in total, leaving
+**$4.89109413** under the verified non-resetting $5 key limit.
+Use `config/openrouter-sol.json` for this accepted slice; the Qwen smoke failed
+citation validation and GLM remains untested. See [private setup](../openrouter-setup.md).
+This is exposed development evidence, not held-out reliability or broad canon
+coverage. Close #4 only after its code and evidence are published and the exact
+remote tree is verified. The local-model results below remain historical failures.
 
 Implementation starts from `936f265d614345a3209e7f955f1aa82fa9f95a28` on
 `main`. Scope is [issue #4](https://github.com/tomh1988-8/rag_demo/issues/4).
@@ -93,7 +96,8 @@ answer service with offline expenditure categorisation. Set `DATABASE_URL` to a
 local development database, `ASK_PHIL_OLLAMA_URL` if needed, and optionally
 `MLFLOW_TRACKING_URI` (default `sqlite:///artifacts/issue-4-mlflow.db`). It loads and
 indexes the declared fixtures, caps capture at 13 cases by default, performs no
-retries or paid calls, and saves actual responses/traces without receipt capabilities.
+automatic retries, and saves actual responses/traces without receipt capabilities.
+Selecting a cloud profile makes bounded paid calls through the shared trial ledger.
 
 Review the frozen outputs separately, including persona and appendix. Each review
 records claim correctness against references, groundedness in supplied context,
@@ -105,7 +109,7 @@ MLflow run. Zero denominators are unavailable. Review labels are not generated b
 the answer model and are not per-answer confidence scores. Human-calibrated judges
 and broader held-out comparison remain #9.
 
-## Observed results and unresolved regressions
+## Historical local results and unresolved local-model regressions
 
 | Capture | Scope | Result |
 | --- | --- | --- |
@@ -144,7 +148,7 @@ unsupported-negative assertion was observed; a rejected draft misclassified miss
 evidence and attached an irrelevant citation. Do not dilute the known failures in
 aggregate metrics or move exposed examples into a held-out split.
 
-Final runtime bounds are one answer call, no retries, whole-span context ≤1200 UTF-8
+Historical local runtime bounds are one answer call, no retries, whole-span context ≤1200 UTF-8
 bytes, model context 4096, output ≤512 tokens, and a 180-second network-operation
 timeout. That timeout is not a guaranteed wall-clock deadline or account spending cap. The
 512 ceiling follows observed truncation; old 256-token receipts remain valid. Local
@@ -156,12 +160,20 @@ MLflow. Existing API/MLflow containers are still the prior #3 runtime; newly bui
 #4 images were tested, but no acceptance deployment/restart of this failing candidate
 is claimed. The disposable test database and all model/data volumes are retained.
 
-## Next action
+## Cloud acceptance and handoff
 
-Use `<pro>` for the stronger-provider adapter, conservative provider/request spending
-controls and rebaseline. Credentials belong in local configuration, not chat or Git.
-Re-run the complete v2 reference matrix and every retained regression with the chosen
-provider; review the persona and appendix separately, resolve critical failures, then
-verify publication before closing #4. Do not advance tickets blocked by #4 or claim
-that a software-test pass establishes model quality. The next independent ticket
-is still #5, and no other ticket was started here.
+The [cloud summary](cloud/summary.json) and [review](cloud/review.md) supersede the
+old acceptance status in [the local validation snapshot](validation.json).
+[Regressions v2](../../../data/references/answer-policy-regressions-v2.json) retains
+all historical failures and links every affected case to the accepted Sol rerun.
+It also preserves both defects in the first Sol matrix: marking a missing date
+fully answered and falsely asserting that publication/broadcast calendar dates
+differ from an unknown story date. A targeted repair and complete rerun pass with
+unchanged reference labels. Persona, neutral qualifications and synthetic source
+labels were independently reviewed.
+
+The temporary cloud API passed restart/receipt checks and was stopped. Existing
+issue-3 Docker containers still use the local model. No cloud deployment is claimed.
+After publication and closure, #5 is the recommended next issue; #9 and #10 also
+become unblocked. Wait for the next implementation instruction. Representative
+comparisons and judge calibration remain #9, with full release acceptance in #21.

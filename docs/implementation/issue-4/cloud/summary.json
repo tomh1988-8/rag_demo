@@ -1,0 +1,457 @@
+{
+  "issue_number": 4,
+  "recorded_at": "2026-09-25T10:34:47.399619+00:00",
+  "status": "scoped_semantic_acceptance_passed",
+  "review_base": "e7a59dfb723b942fdad54bd676748dcf5eee471e",
+  "accepted_profile": "config/openrouter-sol.json",
+  "accepted_model_settings": {
+    "embedding_model": "embeddinggemma:300m",
+    "embedding_digest": "85462619ee721b466c5927d109d4cb765861907d5417b9109caebc4e614679f1",
+    "embedding_dimensions": 768,
+    "provider_type": "openrouter",
+    "answer_model": "openai/gpt-6-sol",
+    "canonical_slug": "openai/gpt-6-sol-20260922",
+    "provider": "openai",
+    "input_price_per_million": "2",
+    "output_price_per_million": "10",
+    "output_tokens": 8192,
+    "reasoning_effort": "medium",
+    "request_timeout_seconds": 180
+  },
+  "application_sha256": "b3a7f2c8f0449a679e55cd91db3fc2873f9a3757f07abc2b2e6ee295983a008e",
+  "reference_file": "data/references/answer-policy-v2.json",
+  "reference_file_sha256": "6e5d81207393ec8c2b324ed790133432c5d8dac6ccdaeb8b63ce1b939fa7e8e7",
+  "reference_labels_changed_this_turn": false,
+  "lock_sha256": "31cbb5a37f67ea28ec174fc35d4720062b30bfbe2c9a325d14799189191f70e8",
+  "acceptance_plan": "run-plan-v1.json",
+  "regressions": "data/references/answer-policy-regressions-v2.json",
+  "scope": "One retained real source passage plus project-authored synthetic policy fixtures; exposed development examples independently annotated by a Codex Spec agent.",
+  "limitations": [
+    "Not human-calibrated, held-out, cross-source canon verification, broad roster coverage or deployment acceptance.",
+    "Qwen rejected one smoke draft; this does not establish a general model ranking. GLM was not tested.",
+    "Counts of distinct assertions vary with response content; separate dimensions and critical failures must not be averaged together.",
+    "Latency and cost observations are descriptive: uncontrolled timing and provider prompt-cache effects do not establish production estimates."
+  ],
+  "runs": [
+    {
+      "capture": "qwen-smoke-v1.json",
+      "mlflow_run_id": "5560917ba9b34660b2922c2d1272bfc6",
+      "cases": 1,
+      "paid_attempts": 1,
+      "expenditure_categories": [
+        "offline_evaluation"
+      ],
+      "reported_cost_usd": "0.00044787",
+      "input_tokens": 758,
+      "output_tokens_including_reasoning": 711,
+      "reasoning_tokens_subset": 536,
+      "paid_response_latency_ms": {
+        "minimum": 17905.628994994913,
+        "median": 17905.628994994913,
+        "maximum": 17905.628994994913
+      },
+      "application_sha256": [
+        "0c3cef5c743ad93ef47197251b0d9f1a178ca388a1dcf7219d9b0c7a6d71326c"
+      ],
+      "prompt_sha256": [
+        "b3bdd0bd0f1d2689c6e484448c13af6ef4b69a2670e9c8a7060690b49ec6978c"
+      ],
+      "returned_models": [
+        "qwen/qwen3.8-flash"
+      ],
+      "returned_providers": [
+        "Alibaba"
+      ],
+      "trace_ids": [
+        "tr-23b65beceef9cd67f5fd3991f6474e03"
+      ]
+    },
+    {
+      "capture": "sol-smoke-v1.json",
+      "mlflow_run_id": "cf01747f44304304b624ccfe71c5e3ba",
+      "cases": 1,
+      "paid_attempts": 1,
+      "expenditure_categories": [
+        "offline_evaluation"
+      ],
+      "reported_cost_usd": "0.003688",
+      "input_tokens": 974,
+      "output_tokens_including_reasoning": 174,
+      "reasoning_tokens_subset": 87,
+      "paid_response_latency_ms": {
+        "minimum": 6884.8951990075875,
+        "median": 6884.8951990075875,
+        "maximum": 6884.8951990075875
+      },
+      "application_sha256": [
+        "0c3cef5c743ad93ef47197251b0d9f1a178ca388a1dcf7219d9b0c7a6d71326c"
+      ],
+      "prompt_sha256": [
+        "b3bdd0bd0f1d2689c6e484448c13af6ef4b69a2670e9c8a7060690b49ec6978c"
+      ],
+      "returned_models": [
+        "openai/gpt-6-sol"
+      ],
+      "returned_providers": [
+        "OpenAI"
+      ],
+      "trace_ids": [
+        "tr-05996e98d3cd914f86389a005bd3bf58"
+      ]
+    },
+    {
+      "capture": "sol-policy-v1.json",
+      "mlflow_run_id": "059e32a71b194035a7c1b38773133d4a",
+      "cases": 13,
+      "paid_attempts": 12,
+      "expenditure_categories": [
+        "offline_evaluation"
+      ],
+      "reported_cost_usd": "0.043868",
+      "input_tokens": 11894,
+      "output_tokens_including_reasoning": 2008,
+      "reasoning_tokens_subset": 815,
+      "paid_response_latency_ms": {
+        "minimum": 4990.756690996932,
+        "median": 6975.862113999028,
+        "maximum": 9788.028761002352
+      },
+      "application_sha256": [
+        "0c3cef5c743ad93ef47197251b0d9f1a178ca388a1dcf7219d9b0c7a6d71326c"
+      ],
+      "prompt_sha256": [
+        "b3bdd0bd0f1d2689c6e484448c13af6ef4b69a2670e9c8a7060690b49ec6978c"
+      ],
+      "returned_models": [
+        "openai/gpt-6-sol"
+      ],
+      "returned_providers": [
+        "OpenAI"
+      ],
+      "trace_ids": [
+        "tr-ab5eba47aad6205fd3df4033104cf8ab",
+        "tr-22a6ed7d8dd37d5aecb25751e5c191d6",
+        "tr-c7cd3ac41d1e8df2adc0243643c835ef",
+        "tr-5bfc7ec36e4f611f2aa660a575fed016",
+        "tr-91d569d867135fb3dae5f549561ea08a",
+        "tr-5bf36f031feacdc696a55f4142847001",
+        "tr-c9f6f7d41867f954ce54c00f4b3d88ef",
+        "tr-9c256527b6a2ab86551b178de772b1a1",
+        "tr-d84558132fcc5a610d9b0c94811357a3",
+        "tr-888016fc79927b5b9e8c02fbdf306203",
+        "tr-ec9ce00b58108ac5f0e9a5e30efaf635",
+        "tr-679acd07129c9e26ed144927e292ecb4",
+        "tr-0fc5f1fb33dfa26f9ecaf09dc82fe851"
+      ],
+      "scores": "scores-sol-policy-v1.json",
+      "quality": {
+        "correctness": {
+          "passed": 17,
+          "assessed": 17,
+          "unassessed": 1,
+          "value": 1.0
+        },
+        "groundedness": {
+          "passed": 17,
+          "assessed": 18,
+          "unassessed": 0,
+          "value": 0.9444444444444444
+        },
+        "completeness": {
+          "passed": 19,
+          "assessed": 20,
+          "unassessed": 0,
+          "value": 0.95
+        },
+        "citation_support": {
+          "passed": 17,
+          "assessed": 18,
+          "unassessed": 0,
+          "value": 0.9444444444444444
+        },
+        "answerability": {
+          "passed": 12,
+          "assessed": 13,
+          "unassessed": 0,
+          "value": 0.9230769230769231
+        },
+        "critical_failures": [
+          {
+            "case_id": "timing-unknown",
+            "category": "false_citation"
+          }
+        ]
+      }
+    },
+    {
+      "capture": "sol-unknown-date-v2.json",
+      "mlflow_run_id": "019cbd9deaa14c429b6cd985d6d9b70a",
+      "cases": 1,
+      "paid_attempts": 1,
+      "expenditure_categories": [
+        "offline_evaluation"
+      ],
+      "reported_cost_usd": "0.0041385",
+      "input_tokens": 1108,
+      "output_tokens_including_reasoning": 137,
+      "reasoning_tokens_subset": 23,
+      "paid_response_latency_ms": {
+        "minimum": 7002.173711996875,
+        "median": 7002.173711996875,
+        "maximum": 7002.173711996875
+      },
+      "application_sha256": [
+        "b3a7f2c8f0449a679e55cd91db3fc2873f9a3757f07abc2b2e6ee295983a008e"
+      ],
+      "prompt_sha256": [
+        "6f42fd8b13a5bb17664c6c7c435c030931e4f8187bdcb9fc8173195627cd9d64"
+      ],
+      "returned_models": [
+        "openai/gpt-6-sol"
+      ],
+      "returned_providers": [
+        "OpenAI"
+      ],
+      "trace_ids": [
+        "tr-01dea92a9501dd8516be380ea37a2390"
+      ],
+      "scores": "scores-sol-unknown-date-v2.json",
+      "quality": {
+        "correctness": {
+          "passed": 2,
+          "assessed": 2,
+          "unassessed": 0,
+          "value": 1.0
+        },
+        "groundedness": {
+          "passed": 2,
+          "assessed": 2,
+          "unassessed": 0,
+          "value": 1.0
+        },
+        "completeness": {
+          "passed": 2,
+          "assessed": 2,
+          "unassessed": 0,
+          "value": 1.0
+        },
+        "citation_support": {
+          "passed": 2,
+          "assessed": 2,
+          "unassessed": 0,
+          "value": 1.0
+        },
+        "answerability": {
+          "passed": 1,
+          "assessed": 1,
+          "unassessed": 0,
+          "value": 1.0
+        },
+        "critical_failures": []
+      }
+    },
+    {
+      "capture": "sol-policy-v2.json",
+      "mlflow_run_id": "5fa036116ab24bfbb619b622f6f2d610",
+      "cases": 13,
+      "paid_attempts": 12,
+      "expenditure_categories": [
+        "offline_evaluation"
+      ],
+      "reported_cost_usd": "0.0497655",
+      "input_tokens": 12950,
+      "output_tokens_including_reasoning": 1995,
+      "reasoning_tokens_subset": 798,
+      "paid_response_latency_ms": {
+        "minimum": 4589.032339994446,
+        "median": 6610.970974499651,
+        "maximum": 7973.773990990594
+      },
+      "application_sha256": [
+        "b3a7f2c8f0449a679e55cd91db3fc2873f9a3757f07abc2b2e6ee295983a008e"
+      ],
+      "prompt_sha256": [
+        "6f42fd8b13a5bb17664c6c7c435c030931e4f8187bdcb9fc8173195627cd9d64"
+      ],
+      "returned_models": [
+        "openai/gpt-6-sol"
+      ],
+      "returned_providers": [
+        "OpenAI"
+      ],
+      "trace_ids": [
+        "tr-8493aa9d122bcdca984379f46f8dfc35",
+        "tr-003d8056cfbb655c06a75ef3a0f86aed",
+        "tr-be5998cb05de45ac72afc99d35659111",
+        "tr-6231df5e55572bb5d627074870bd18b6",
+        "tr-15dbf502bc29ac617168524e46ef6cfb",
+        "tr-a34f282402b9632aac65d8f446261854",
+        "tr-35eb19287f502977ee8d66ee45d04a04",
+        "tr-731a62c732663374f22e24fc81db1622",
+        "tr-7e8c933dfa773d06775a65045fe9687e",
+        "tr-16cc7eab943ec800824d7a0b499ca4aa",
+        "tr-a3d461695afd3c0539927ff2f693afb0",
+        "tr-727bb70f1af8550b3aad86e8f8a679ed",
+        "tr-24351765be470471f1cfce1c983db526"
+      ],
+      "scores": "scores-sol-policy-v2.json",
+      "quality": {
+        "correctness": {
+          "passed": 19,
+          "assessed": 19,
+          "unassessed": 0,
+          "value": 1.0
+        },
+        "groundedness": {
+          "passed": 19,
+          "assessed": 19,
+          "unassessed": 0,
+          "value": 1.0
+        },
+        "completeness": {
+          "passed": 20,
+          "assessed": 20,
+          "unassessed": 0,
+          "value": 1.0
+        },
+        "citation_support": {
+          "passed": 19,
+          "assessed": 19,
+          "unassessed": 0,
+          "value": 1.0
+        },
+        "answerability": {
+          "passed": 13,
+          "assessed": 13,
+          "unassessed": 0,
+          "value": 1.0
+        },
+        "critical_failures": []
+      }
+    },
+    {
+      "capture": "sol-cli-v1.json",
+      "mlflow_run_id": null,
+      "cases": 5,
+      "paid_attempts": 5,
+      "expenditure_categories": [
+        "serving"
+      ],
+      "reported_cost_usd": "0.0069980",
+      "input_tokens": 5355,
+      "output_tokens_including_reasoning": 590,
+      "reasoning_tokens_subset": 188,
+      "paid_response_latency_ms": {
+        "minimum": 4583.419750997564,
+        "median": 5355.189670997788,
+        "maximum": 6342.49595500296
+      },
+      "application_sha256": [
+        "b3a7f2c8f0449a679e55cd91db3fc2873f9a3757f07abc2b2e6ee295983a008e"
+      ],
+      "prompt_sha256": [
+        "6f42fd8b13a5bb17664c6c7c435c030931e4f8187bdcb9fc8173195627cd9d64"
+      ],
+      "returned_models": [
+        "openai/gpt-6-sol"
+      ],
+      "returned_providers": [
+        "OpenAI"
+      ],
+      "trace_ids": [
+        "tr-fb968ca6edd6bc43167d9483fbe619a5",
+        "tr-ef4e75c6265be85a886b94bfbc5f6180",
+        "tr-776ab9644aef6c7eb382f8395ec14a45",
+        "tr-6133058bb231d5840ac4235754fc834e",
+        "tr-c557df5a7a929bd873d46e869c40860b"
+      ],
+      "scores": "scores-sol-cli-v1.json",
+      "quality": {
+        "correctness": {
+          "passed": 4,
+          "assessed": 4,
+          "unassessed": 0,
+          "value": 1.0
+        },
+        "groundedness": {
+          "passed": 4,
+          "assessed": 4,
+          "unassessed": 0,
+          "value": 1.0
+        },
+        "completeness": {
+          "passed": 7,
+          "assessed": 7,
+          "unassessed": 0,
+          "value": 1.0
+        },
+        "citation_support": {
+          "passed": 4,
+          "assessed": 4,
+          "unassessed": 0,
+          "value": 1.0
+        },
+        "answerability": {
+          "passed": 5,
+          "assessed": 5,
+          "unassessed": 0,
+          "value": 1.0
+        },
+        "critical_failures": []
+      }
+    }
+  ],
+  "spending": {
+    "paid_attempts": 32,
+    "reported_total_usd": "0.10890587",
+    "offline_evaluation_usd": "0.10190787",
+    "serving_usd": "0.0069980",
+    "shared_lifetime_trial_cap_usd": 5,
+    "remaining_provider_credit_usd": "4.89109413",
+    "ledger_microdollars": 108911,
+    "ledger_rounding": "Each settled request rounds upward to whole microdollars; provider charges retain finer precision.",
+    "unsettled_reservations": 0,
+    "automatic_retries": 0,
+    "excluded_costs": "Hardware, electricity, hosting, purchase fees and taxes."
+  },
+  "live_cli_api": {
+    "cases": 5,
+    "appropriate_outcomes": 5,
+    "citation_resolution": "Every citation resolves to the canonical snapshot hash through HTTP.",
+    "original_responses_preserved_after_restart": 5,
+    "private_receipt_capabilities": "Stored only in ignored local artifacts; absent from public captures.",
+    "runtime": "Temporary native API on port8184 stopped after validation; existing issue3 Docker API on port8000 remains unchanged."
+  },
+  "software_checks": {
+    "native_tests": 85,
+    "failures": 0,
+    "errors": 0,
+    "skipped": 0,
+    "junit": "tests.xml",
+    "full_suite_runs_this_turn": 1,
+    "ruff": "passed",
+    "mypy": "passed,27 source files",
+    "external_substitutes": "Model HTTP boundary only in software tests; real PostgreSQL/pgvector, MLflow, API and CLI.",
+    "warning": "One upstream Starlette test-client deprecation warning."
+  },
+  "publication": "Publish and verify an exact local/remote tree match before closing issue4; final remote receipt remains in ignored artifacts/issue-4-cloud-github-publication.json.",
+  "artifacts_sha256": {
+    "cap-after-runs.json": "b4025e7e2b87cc8be69f2675ef2ca13bb688c055a573f3c7c9a2dc1d40b34691",
+    "qwen-smoke-v1.json": "11647927b37bbfec37866912a3a693e2a3bda235b18e022bbbf194e3269b3671",
+    "reviews-sol-cli-v1.json": "b0a2f1d1a1db4e73e86ebb547f5be7054c50d682baf0a0317d51847a6f2921f1",
+    "reviews-sol-policy-v1.json": "323f4d65cb9b85fbc7110ce3e64a0d7e0168f32d173386b5fad532c59eebbcab",
+    "reviews-sol-policy-v2.json": "972bd197315a90c323d6108d8f85302b05e34d2eb0f6010ee5af3c8d38361877",
+    "reviews-sol-unknown-date-v2.json": "d79feede74210e18bbc20495eeec63c6f34b103e449754354bd3a25020414745",
+    "run-plan-v1.json": "b75191f84ab8650e05305c4c4a106cb0684e3a648238cb1d996829baf0c6fd2c",
+    "scores-sol-cli-v1.json": "ab2979b39b6d52d3a1300dce91246012f4c1cf0ac76b49ae1675f07b66faa19f",
+    "scores-sol-policy-v1.json": "e9acfb95702c5fcef3c2746f5435eca82ff77171e6bfa8d354cc2d1c6ce556f4",
+    "scores-sol-policy-v2.json": "f5ee4c435cd877cf540727aac426bdb07cc3e701d53d92236d60580f56083181",
+    "scores-sol-unknown-date-v2.json": "1801a849573f3a5693ab0eb12207fd6470d4a95512f99b5a7940ad1281b590e2",
+    "sol-cli-v1.json": "438a071bab36fc235c551687aca1e0c058bf430621f345968764e251244c3b9f",
+    "sol-policy-v1.json": "8c441a68dce94f66548e3a1fa3380b8a426bd2ce6e9ee81bc670e112726224a8",
+    "sol-policy-v2.json": "9f5c81287239a400fd78489ca7651c22e13ef26585a72779ade1240658ad0966",
+    "sol-smoke-v1.json": "2e5fc6a30410c0925f91746f48cc4b24ea97cf9f46db33be9778b4ce4d238808",
+    "sol-unknown-date-v2.json": "f524cb3a9338e21513ef57943b8110446400542bc133d69bcd83cdb7fb95ea51",
+    "tests.xml": "a75349654c9dc78fb51e3f9eb728094fa41864df6b0f981b4b9bbd9f72faa65b"
+  }
+}

@@ -1,0 +1,365 @@
+{
+  "scope": "Independent review of exposed development cases, not held-out quality or independently corroborated EastEnders canon. Distinct domain and explicitly evidenced temporal/account assertions across persona and appendix are counted once; repeated claims are not extra observations. Coverage-only abstentions and clarification have no domain-claim denominator; their limitations are assessed in completeness and outcome. Correctness is relative to reviewed retained references; grounding uses actual assembled context; citation support uses delivered cited passages. Persona, synthetic provenance and material uncertainty in prose versus appendix are inspected separately in rationale. Related cases share event groups and are not statistically independent. No paid calls or generated/reference edits were made by this reviewer.",
+  "reviews": [
+    {
+      "case_id": "ambiguous-character",
+      "response_sha256": "aa0447e3a028f4d833380b241e168674bae8838b2f30ba6615d2e2eb60093c0f",
+      "reference_sha256": "f6dbe3348e355b971752fb0bd9bddb3c211d74afd1838ea75a3ed67f9f9b5d82",
+      "reviewer": "Independent Codex Spec review agent openrouter_spec_review; frozen-output review on 2026-09-25, not human-calibrated",
+      "rationale": "The pronoun has no named antecedent or conversation history. Asking who they means resolves the missing choice without assuming Phil from retrieval. No domain assertion is served and no citation is fabricated. Neutral clarification is compatible with Phil style; no synthetic fact or temporal qualification is relevant.",
+      "claims": [],
+      "required_facts": [
+        {
+          "fact": "Ask which character or characters the user means",
+          "covered": true
+        }
+      ],
+      "answerability": true,
+      "critical_failures": []
+    },
+    {
+      "case_id": "missing-mother",
+      "response_sha256": "648f8324e8b375cba0cc0c75eb6c81ef30f00a03433eb2d9e1d6ca37eb213764",
+      "reference_sha256": "66d87e718ade462433a85a993500e93ac27f262bf70e979eb4d660af4e4704d4",
+      "reviewer": "Independent Codex Spec review agent openrouter_spec_review; frozen-output review on 2026-09-25, not human-calibrated",
+      "rationale": "The complete retained arrival clause contains no parentage evidence. The response explicitly limits its inability to this captured evidence, gives no remembered name and does not infer that Phil has no mother. Abstention is appropriate. My mother preserves Phil first person; this is a coverage statement, not a domain claim requiring a fabricated denominator.",
+      "claims": [],
+      "required_facts": [
+        {
+          "fact": "The retained evidence cannot identify his mother",
+          "covered": true
+        }
+      ],
+      "answerability": true,
+      "critical_failures": []
+    },
+    {
+      "case_id": "arrival-and-mother",
+      "response_sha256": "13aa59a542269b7ed06ec4d6757795c088798e41e02160cd28c64770a636edd3",
+      "reference_sha256": "bbb4f03fab770e4828dadfdc51da002eb74747bbbe9e27715b9edbf83bfd5ed6",
+      "reviewer": "Independent Codex Spec review agent openrouter_spec_review; frozen-output review on 2026-09-25, not human-calibrated",
+      "rationale": "The month/year and purpose of opening The Arches are directly supported by phil-arrival-001. Crucially, to open remains a purpose, not a claim that the opening was completed. The reply identifies the missing mother information in both prose and unanswered without supplying a remembered name. Exact in the timing appendix is explicitly scoped by its detail to month/year with no day, matching the prose granularity. First-person I/my is preserved. The partial outcome follows from a supported date and unsupported parentage, not just a status-label match.",
+      "claims": [
+        {
+          "claim": "Phil first arrived in Walford in February 1990.",
+          "correct": true,
+          "grounded": true,
+          "citation_supported": true
+        },
+        {
+          "claim": "Phil arrived to open The Arches.",
+          "correct": true,
+          "grounded": true,
+          "citation_supported": true
+        }
+      ],
+      "required_facts": [
+        {
+          "fact": "Phil first arrived in February 1990",
+          "covered": true
+        },
+        {
+          "fact": "The retained evidence does not identify his mother",
+          "covered": true
+        }
+      ],
+      "answerability": true,
+      "critical_failures": []
+    },
+    {
+      "case_id": "false-arrival-premise",
+      "response_sha256": "e51fdab26437592f3fd33a4a87883a17e50facb0297e88e26bd279a1628cab56",
+      "reference_sha256": "a8cd533fad9ea6a9f0c5264ddf46fe1925822d6578b1f4ff1ebb28507b046844",
+      "reviewer": "Independent Codex Spec review agent openrouter_spec_review; frozen-output review on 2026-09-25, not human-calibrated",
+      "rationale": "The response rejects 2001, supplies the captured month/year and answers why with the supported purpose. It does not invent a second first-arrival event or claim that the opening was completed. Prose and false-premise appendix agree; timing detail retains month/year granularity. First-person I preserves the persona, and answered is appropriate because the corrected question is fully addressed.",
+      "claims": [
+        {
+          "claim": "Phil first arrived in Walford in February 1990, not 2001.",
+          "correct": true,
+          "grounded": true,
+          "citation_supported": true
+        },
+        {
+          "claim": "The purpose of the arrival was to open an automobile repair shop.",
+          "correct": true,
+          "grounded": true,
+          "citation_supported": true
+        },
+        {
+          "claim": "That shop is named The Arches.",
+          "correct": true,
+          "grounded": true,
+          "citation_supported": true
+        }
+      ],
+      "required_facts": [
+        {
+          "fact": "Phil first arrived in February 1990, contradicting 2001",
+          "covered": true
+        },
+        {
+          "fact": "Phil arrived to open The Arches",
+          "covered": true
+        }
+      ],
+      "answerability": true,
+      "critical_failures": []
+    },
+    {
+      "case_id": "explicit-negative",
+      "response_sha256": "a68afe2b6baaf15e8115d34c822922c45eab41973c5072afe4d72e4362544031",
+      "reference_sha256": "06a6279484b78b3ee04a3eb5e95217345da6c600a5722126f1c8addf347f56dd",
+      "reviewer": "Independent Codex Spec review agent openrouter_spec_review; frozen-output review on 2026-09-25, not human-calibrated",
+      "rationale": "Both assertions occur explicitly in negative-001; this is an evidenced negative, not an inference from missing retrieval. The qualification accurately restates the negative. Prose identifies the account as synthetic and explicitly disclaims EastEnders canon. The extra Blair assertion is supported and cited. Mildly gruff style does not trivialise the offence or introduce Phil involvement.",
+      "claims": [
+        {
+          "claim": "In the synthetic story, Alex Vale did not rob the cafe.",
+          "correct": true,
+          "grounded": true,
+          "citation_supported": true
+        },
+        {
+          "claim": "In the synthetic story, Blair Example robbed the cafe.",
+          "correct": true,
+          "grounded": true,
+          "citation_supported": true
+        }
+      ],
+      "required_facts": [
+        {
+          "fact": "The synthetic account explicitly says Alex Vale did not rob the cafe",
+          "covered": true
+        }
+      ],
+      "answerability": true,
+      "critical_failures": []
+    },
+    {
+      "case_id": "unresolved-conflict",
+      "response_sha256": "9d8d30b7327efc3b7b1237ae299f4e96e26afd5124022464d491ae4c0e039643",
+      "reference_sha256": "415907a977e93a01b7907c02c7becc262bccead6f993ae8b8562301176c85fd4",
+      "reviewer": "Independent Codex Spec review agent openrouter_spec_review; frozen-output review on 2026-09-25, not human-calibrated",
+      "rationale": "Both separately attributed captured passages are delivered as citations. The answer names each account/year and explicitly states that the year remains unresolved; appendix conflict and unknown-timing details agree. Account B explicitly states that neither is an established correction. The response selects neither year, invents no second marriage and names the unresolved question. Synthetic fixture provenance is clear in prose; Phil has no first-person action to describe.",
+      "claims": [
+        {
+          "claim": "Synthetic Account A reports that Alex married Blair in 2001.",
+          "correct": true,
+          "grounded": true,
+          "citation_supported": true
+        },
+        {
+          "claim": "Synthetic Account B reports that Alex married Blair in 2003.",
+          "correct": true,
+          "grounded": true,
+          "citation_supported": true
+        },
+        {
+          "claim": "These accounts disagree and do not resolve the marriage year.",
+          "correct": true,
+          "grounded": true,
+          "citation_supported": true
+        },
+        {
+          "claim": "Neither account is established as a correction.",
+          "correct": true,
+          "grounded": true,
+          "citation_supported": true
+        }
+      ],
+      "required_facts": [
+        {
+          "fact": "Account A reports 2001",
+          "covered": true
+        },
+        {
+          "fact": "Account B reports 2003",
+          "covered": true
+        },
+        {
+          "fact": "The disagreement cannot be resolved from these accounts",
+          "covered": true
+        }
+      ],
+      "answerability": true,
+      "critical_failures": []
+    },
+    {
+      "case_id": "timing-exact",
+      "response_sha256": "f479dc617a1025c7c4412e031194c54b9c76248108fb0441e7d26cb757a0c7e8",
+      "reference_sha256": "123c93fe6fa5a440fcc2cad59da604aefdf738f87c9442d9021a750ed5c7142b",
+      "reviewer": "Independent Codex Spec review agent openrouter_spec_review; frozen-output review on 2026-09-25, not human-calibrated",
+      "rationale": "The retained timing passage states that exact arrival date. Prose and timing appendix preserve it without substituting publication/broadcast metadata. Synthetic provenance is explicit. Answered is appropriate because the requested date is available; the generic gruff preface adds no factual claim.",
+      "claims": [
+        {
+          "claim": "In the synthetic story, Alex Vale arrived on 3 March 2001.",
+          "correct": true,
+          "grounded": true,
+          "citation_supported": true
+        }
+      ],
+      "required_facts": [
+        {
+          "fact": "3 March 2001",
+          "covered": true
+        }
+      ],
+      "answerability": true,
+      "critical_failures": []
+    },
+    {
+      "case_id": "timing-approximate",
+      "response_sha256": "6976ade1801a3abd2b5061f462fef2cb1ef5acf86f781c1d0fbfbb695b32cdcd",
+      "reference_sha256": "c8088abeb710ab2d5bc54fc98e4430e4a9e47750d4bcddeaf7597cf8b612c099",
+      "reviewer": "Independent Codex Spec review agent openrouter_spec_review; frozen-output review on 2026-09-25, not human-calibrated",
+      "rationale": "Around spring 2004 is retained in prose and the approximate timing qualification. No precise wedding date is invented. The passage directly supports the claim and the delivered citation. Synthetic story provenance is explicit. Answered is appropriate for a when question at the available approximate granularity, which remains visible.",
+      "claims": [
+        {
+          "claim": "In the synthetic story, Alex Vale married around spring 2004.",
+          "correct": true,
+          "grounded": true,
+          "citation_supported": true
+        }
+      ],
+      "required_facts": [
+        {
+          "fact": "Around spring 2004",
+          "covered": true
+        }
+      ],
+      "answerability": true,
+      "critical_failures": []
+    },
+    {
+      "case_id": "timing-relative",
+      "response_sha256": "27be4daea4441afbdd6af29f6245a840ec68a74123279c74e23b86281b02a7e8",
+      "reference_sha256": "b2eb3751830839b2f311f8a14e09b6cb6766bb4e5f48eaf2fbdae3809e267f6a",
+      "reviewer": "Independent Codex Spec review agent openrouter_spec_review; frozen-output review on 2026-09-25, not human-calibrated",
+      "rationale": "The reply preserves the two-week departure interval, identifies the wedding anchor and retains its approximate spring 2004 timing. It explicitly says the result is relative rather than an exact departure date. The appendix agrees, and both story assertions are in the actual cited timing passage. No calculated calendar date or publication/broadcast substitution appears. Synthetic provenance is explicit. This qualified relative answer addresses the question at the available precision.",
+      "claims": [
+        {
+          "claim": "In the synthetic story, Alex left two weeks after the wedding.",
+          "correct": true,
+          "grounded": true,
+          "citation_supported": true
+        },
+        {
+          "claim": "That wedding was around spring 2004.",
+          "correct": true,
+          "grounded": true,
+          "citation_supported": true
+        }
+      ],
+      "required_facts": [
+        {
+          "fact": "Two weeks after the wedding",
+          "covered": true
+        }
+      ],
+      "answerability": true,
+      "critical_failures": []
+    },
+    {
+      "case_id": "timing-unknown",
+      "response_sha256": "2867b288cb64b9b82a2342bfa5eacaeb13f412d0af5d69c95818215b45fc41ad",
+      "reference_sha256": "710c5c0ac579b807ce143832e22d551811be47707944df42ef1f32035f37ddf1",
+      "reviewer": "Independent Codex Spec review agent openrouter_spec_review; frozen-output review on 2026-09-25, not human-calibrated",
+      "rationale": "The actual passage explicitly leaves the hearing story date unstated. The reply identifies the missing date in prose and unanswered, with a partial outcome. Don't establish it expresses the evidential limitation without asserting that an unknown calendar value necessarily differs from publication/broadcast dates. The unknown-timing appendix agrees and has no spurious explicit-negative event label. Synthetic provenance is clear. Both the outcome defect and unsupported inequality from v1 are absent in this independently inspected full-matrix response.",
+      "claims": [
+        {
+          "claim": "The synthetic account does not state the hearing story date.",
+          "correct": true,
+          "grounded": true,
+          "citation_supported": true
+        },
+        {
+          "claim": "Publication and broadcast dates do not establish that hearing date.",
+          "correct": true,
+          "grounded": true,
+          "citation_supported": true
+        }
+      ],
+      "required_facts": [
+        {
+          "fact": "The story date is not stated",
+          "covered": true
+        },
+        {
+          "fact": "Publication and broadcast dates do not establish the hearing date",
+          "covered": true
+        }
+      ],
+      "answerability": true,
+      "critical_failures": []
+    },
+    {
+      "case_id": "empty-assembled-context",
+      "response_sha256": "a437e56fb4dd00662bffb1000543f5a5538b7ef51e6a539ac16d40ce9aca7747",
+      "reference_sha256": "91da2139af6e84695686ad6ccad1aaaaa6a992887fb9e326e6915e3f4dcddd82",
+      "reviewer": "Independent Codex Spec review agent openrouter_spec_review; frozen-output review on 2026-09-25, not human-calibrated",
+      "rationale": "Actual assembled context is empty despite a retrieved passage; the fixed reply clearly says it cannot answer and that missing evidence does not establish non-occurrence. It neither invents guilt nor an innocence claim and cites nothing. This coverage-qualified abstention has no domain claims. The response makes no synthetic story assertion needing a prose provenance label; stored source metadata remains synthetic. No first-person Phil action is asserted.",
+      "claims": [],
+      "required_facts": [
+        {
+          "fact": "No usable evidence in the assembled context",
+          "covered": true
+        },
+        {
+          "fact": "This does not establish that an event did not happen",
+          "covered": true
+        }
+      ],
+      "answerability": true,
+      "critical_failures": []
+    },
+    {
+      "case_id": "supported-arrival",
+      "response_sha256": "41d8603bc393d6380ce4963e22a16e11e78c7c872a0a2325af09e385b552aad3",
+      "reference_sha256": "b30b73620b13e0b025975175178fac9a860365fef77768c5401935411b422303",
+      "reviewer": "Independent Codex Spec review agent openrouter_spec_review; frozen-output review on 2026-09-25, not human-calibrated",
+      "rationale": "The retained arrival clause supports the month/year directly. First-person I is correct for Phil; no day is invented. The appendix explicitly says month/year, not day; the answer expresses that same granularity without misleading precision. Answered is appropriate for this when question. Source-supported is not upgraded to verified or synthetic.",
+      "claims": [
+        {
+          "claim": "Phil first arrived in Walford in February 1990.",
+          "correct": true,
+          "grounded": true,
+          "citation_supported": true
+        }
+      ],
+      "required_facts": [
+        {
+          "fact": "Phil first arrived in February 1990",
+          "covered": true
+        }
+      ],
+      "answerability": true,
+      "critical_failures": []
+    },
+    {
+      "case_id": "unknown-arrival-day",
+      "response_sha256": "6dff30d5f531a9065999c2fce53ab51d8e374f885d232f7b194443a30201b643",
+      "reference_sha256": "b90b712e73609c259d0cfc29b693f6c3b4758a6a62f618c41849d9baae347e90",
+      "reviewer": "Independent Codex Spec review agent openrouter_spec_review; frozen-output review on 2026-09-25, not human-calibrated",
+      "rationale": "The requested exact day is unknown, while February 1990 remains supported. The persona, unanswered field and appendix detail all preserve that distinction explicitly. Precision unknown is therefore acceptable here as uncertainty about the requested day; the detail says February 1990 is stated and does not erase known month/year timing or claim that all timing is unknown. No exact day or broadcast date is invented. Partial correctly supplies the supported month and names the missing requested precision. I/my preserves Phil first person. The enum alone must not be read without its accompanying detail.",
+      "claims": [
+        {
+          "claim": "Phil first arrived in Walford in February 1990.",
+          "correct": true,
+          "grounded": true,
+          "citation_supported": true
+        }
+      ],
+      "required_facts": [
+        {
+          "fact": "February 1990 is supported",
+          "covered": true
+        },
+        {
+          "fact": "The exact day is not established",
+          "covered": true
+        }
+      ],
+      "answerability": true,
+      "critical_failures": []
+    }
+  ]
+}

@@ -61,8 +61,14 @@ For date questions add a timing qualification. Preserve exact/approximate/relati
 precision and the source's wording/granularity: a month is not a day, 'around' is not
 exact, and a relative date needs its anchor. Never derive a calendar date from an
 uncertain anchor or replace a story date with capture/publication/broadcast dates.
-If only a month or an explicitly unknown date is supported but a day is requested,
-return partial with that information and name the missing precision in unanswered.
+If a source explicitly says the requested story date is not stated, return partial,
+even when the question does not ask for an exact day. Cite that timing limitation;
+name the missing date in both answer and unanswered, with timing precision unknown.
+Missing date information is not an explicit_negative qualification about a story event.
+Publication/broadcast dates do not establish the missing story date; do not assert
+that their calendar values necessarily differ from the unknown date.
+If only a month is supported but a day is requested, return partial with that
+information and name the missing precision in both answer and unanswered.
 Each qualification: kind, detail (neutral wording), evidence_ids. Timing ALSO requires
 precision: exact, approximate, relative or unknown. Other kinds omit precision.
 All qualification IDs must also be in evidence_ids. Cite only supplied IDs, once each.

@@ -19,15 +19,17 @@ serving, evaluation and all selected models. This is not a recurring allowance.
    `.secrets/openrouter.key` (mode 0600; parent 0700). It refuses to overwrite an
    existing key. `.secrets/` and `.env*` are Git-ignored; Docker excludes them too.
    `.env.example` is the sole Git exception and must never contain credentials.
-4. Select `export ASK_PHIL_MODELS=config/openrouter-qwen.json` in the shell
-   running the API or evaluation script. Alternatives are
-   `config/openrouter-sol.json` and `config/openrouter-glm.json`.
+4. Select `export ASK_PHIL_MODELS=config/openrouter-sol.json` in the shell
+   running the API or evaluation script. This is the accepted issue-4 profile.
+   `config/openrouter-qwen.json` and `config/openrouter-glm.json` remain comparison
+   candidates: Qwen's first smoke failed citation validation; GLM is untested.
    Configuration files contain no credentials. Local smoke commands keep
    `config/local-models.json` as their default; there is no silent provider fallback.
 
-The setup command **checks**, rather than sets, your remote key limit. No real
-key was available during implementation: dashboard configuration, real limit
-readback and live inference remain pending. Account top-up settings cannot be
+The setup command **checks**, rather than sets, your remote key limit. The user
+entered the key locally, and real limit readback and bounded inference have now
+passed. The final readback reports $4.89109413 remaining under the non-resetting
+$5 cap; private storage remains 0600 inside a 0700 directory. Account top-up settings cannot be
 verified through the ordinary inference key API. Purchase fees and taxes are
 outside the $5 inference-credit limit.
 
@@ -84,8 +86,10 @@ container run needs a read-only secret mount readable by its runtime UID and the
 same persistent budget ledger; never bake a key into an image or build argument.
 Existing local-model containers have not been switched to cloud inference.
 
-Issue #4 remains open until the stronger-model semantic baseline passes. No live
-cloud result or deployment-quality claim follows from the mocked-provider tests.
+The [issue-4 cloud baseline](issue-4/cloud/README.md) passes its independently
+reviewed 13-case policy matrix and five actual CLI/API/restart checks. This is a
+small exposed development slice, not deployment-quality or broad canon approval.
+No automatic router or model fallback has been enabled.
 
 ## Software validation (2026-09-25)
 
@@ -105,8 +109,11 @@ usage before answer validation and recording it in failed receipts and traces.
 One finding: the same failed-completion accounting gap. Fixed with the corresponding
 integration regression. No other scope or requirements findings were reported.
 
-These are software/control checks. Real cap readback, schema acceptance by the
-live providers and answer-quality evidence are pending the locally entered key.
+The subsequent ordinary-key/BYOK correction passed 85 tests. After the live policy
+prompt repair, the full suite again passed **85 tests**, Ruff and strict mypy
+(27 files). [Separate live evidence](issue-4/cloud/summary.json) records 32 paid
+attempts costing $0.10890587: $0.10190787 offline evaluation and $0.006998 serving.
+All reservations settled; the ledger rounds upward to $0.108911. Preserve it.
 
 ## Verified reference material (2026-09-25)
 
@@ -121,6 +128,6 @@ The public endpoint catalog confirmed Alibaba/Qwen at $0.15/$0.47, OpenAI/Sol at
 $2/$10, and Fireworks/GLM at $0.15/$0.50 per million input/output tokens at setup.
 These are ceilings in the checked-in profiles, not guarantees of future prices.
 Qwen and GLM start at low reasoning with 4096 completion tokens; Sol uses medium
-reasoning with 8192. Reasoning quality, schema compliance and latency still need
-measurement on our data before any routing recommendation becomes an acceptance
-decision.
+reasoning with 8192. Sol now has scoped policy acceptance; the recorded observations
+do not establish a general provider ranking or production cost/latency estimate.
+Broader model comparisons and route selection remain later evaluated work.

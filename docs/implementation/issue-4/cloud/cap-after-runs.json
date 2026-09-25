@@ -1,0 +1,11 @@
+{
+  "recorded_at": "2026-09-25T10:32:52.571549+00:00",
+  "non_resetting_provider_limit_at_most_usd": 5,
+  "provider_remaining_credit_usd": "4.89109413",
+  "ledger_requests": 32,
+  "ledger_settled_or_reserved_microdollars": 108911,
+  "unsettled_reservations": 0,
+  "key_file_mode": "0o600",
+  "key_directory_mode": "0o700",
+  "scope": "Read-only verification; no inference call or cap change."
+}
