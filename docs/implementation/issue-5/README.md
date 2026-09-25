@@ -82,3 +82,7 @@ EXT-01 for this sample; RAG-01 and AD-03.4 retain their broader pending obligati
 Full-corpus parsing, semantic extraction, graph coverage and answer quality remain
 outside this ticket's acceptance claim. No application deployment is implied:
 the existing long-lived Docker API/MLflow services still use the earlier #3 image.
+
+## Publication
+
+[Commit b6b45cb](https://github.com/tomh1988-8/rag_demo/commit/b6b45cb5eea3402ffe2be466e1693ef91af4ecf5) publishes the exact accepted local tree `97f9fa4981785294c7dcb7144bcd59a065ecb740` from `223e5db`. The authenticated GitHub connector advanced `main` without forcing; remote revision/tree readback passed before issue #5 was closed. All eight checked criteria, the acceptance body and closed state were read back. This receipt is added in a subsequent documentation commit.

@@ -1,6 +1,6 @@
 # Ask Phil: publication and next-skill handoff
 
-Updated 25 September 2026. The user approved the initial checklist/ticket breakdown, authorised publication, and subsequently required user feedback and online evaluation. Checklist v1.1 and the amended 24-ticket breakdown are published. Issues #2, #3 and #4 are complete and closed. Issue #4 passed its scoped cloud policy acceptance, exact-tree publication verification and closure readback. Issue #5 has passed independent implementation review; its final validation and publication status are recorded below.
+Updated 25 September 2026. The user approved the initial checklist/ticket breakdown, authorised publication, and subsequently required user feedback and online evaluation. Checklist v1.1 and the amended 24-ticket breakdown are published. Issues #2, #3, #4 and #5 are complete and closed. Issue #4 passed its scoped cloud policy acceptance, exact-tree publication verification and closure readback. Issue #5 passed its full software suite, independent reviews, exact-tree publication verification and closure readback.
 
 ## Issue #5: reviewed real-source ingestion
 
@@ -19,7 +19,7 @@ and Spec re-reviews have zero remaining
 findings. Den's omitted aliases were corrected against his captured infobox; the
 raw source captures and paragraph labels were unchanged. Full 20-profile coverage,
 semantic extraction, refresh/recovery, fusion and answer-quality acceptance remain
-later work. Publication and closure readback are pending the final repository update.
+later work. [Published commit b6b45cb](https://github.com/tomh1988-8/rag_demo/commit/b6b45cb5eea3402ffe2be466e1693ef91af4ecf5) exactly matches local acceptance commit `223e5db`. GitHub main and its tree were read back before closure; issue #5 is closed as completed with all eight criteria checked. The publication receipt is retained in ignored `artifacts/issue-5-github-publication.json`.
 
 The existing `ask-phil-issue3` API/MLflow services still run the older #3 image;
 acceptance uses a newly built test image and real disposable PostgreSQL databases.
@@ -49,7 +49,7 @@ use #3. A persistent cloud deployment has not been configured.
 ## Published and verified
 
 - [Specification #1](https://github.com/tomh1988-8/rag_demo/issues/1) contains the agreed specification with the feedback/online-evaluation and fusion/cache amendments (130 stories).
-- Implementation tickets **#2–#25** are published and labelled `ready-for-agent`. **#2, #3 and #4 are closed as completed**; #5–#25 remain open.
+- Implementation tickets **#2–#25** are published and labelled `ready-for-agent`. **#2, #3, #4 and #5 are closed as completed**; #6–#25 remain open.
 - All 25 remote bodies, states and ready-for-agent labels were read back and checked against the intended content after the fusion/cache amendment.
 - The 41 blocking relationships are recorded as real issue references in ticket bodies and as a machine-readable mapping in [publication.json](publication.json).
 - Issue #2 has a reviewed captured seed, CLI/API/PostgreSQL behavior, 17 passing tests in both native and Docker environments, and recorded deterministic baseline outputs. [Fresh Compose startup and database/API restart passed](../../implementation/issue-2/README.md); no generative model quality is claimed. GitHub closure and all seven checked criteria were read back and verified.
@@ -58,7 +58,7 @@ The [to-spec skill](../../../.agents/skills/to-spec/SKILL.md) authorised specifi
 
 ## First available work
 
-**[#6 — Refresh and recover a captured snapshot](https://github.com/tomh1988-8/rag_demo/issues/6)** is recommended next after #5 publication. Completion of #5 also unblocks #8 (follow-ups), #11 (biological claims) and #24 (fusion/context expansion); #9 (calibrated comparisons) and #10 (execution boundaries) remain unblocked. Wait for the next implementation instruction before starting another ticket. Specification #1 remains parent context.
+**[#6 — Refresh and recover a captured snapshot](https://github.com/tomh1988-8/rag_demo/issues/6)** is recommended next. Completion of #5 also unblocks #8 (follow-ups), #11 (biological claims) and #24 (fusion/context expansion); #9 (calibrated comparisons) and #10 (execution boundaries) remain unblocked. Wait for the next implementation instruction before starting another ticket. Specification #1 remains parent context.
 
 For subsequent work, read the current issue and comments, the relevant domain/ADR decisions and the checklist profile. Work the dependency frontier; the shared `ready-for-agent` label does not mean a blocked ticket can begin. Existing approved decisions and the six public test boundaries do not need another design interview.
 
