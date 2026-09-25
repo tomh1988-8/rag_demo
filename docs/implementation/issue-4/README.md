@@ -3,8 +3,10 @@
 **Software checks pass; semantic acceptance is incomplete. Issue #4 remains open.**
 The local Gemma model is no longer sufficient for this work. The next step is a
 more capable provider with a locally configured, conservatively capped key and a
-new baseline. Provider choice and credential environment-variable name have been
-requested from the user. No paid API calls were made.
+new baseline. The [OpenRouter setup](../openrouter-setup.md) now provides the
+original Qwen/Sol shortlist and GLM comparison profile, with private key storage
+and shared $5 spending controls. A real key, provider-limit readback and live
+baseline are still pending. No paid API calls were made.
 
 Implementation starts from `936f265d614345a3209e7f955f1aa82fa9f95a28` on
 `main`. Scope is [issue #4](https://github.com/tomh1988-8/rag_demo/issues/4).

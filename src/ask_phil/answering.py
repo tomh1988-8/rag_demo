@@ -26,6 +26,7 @@ from ask_phil.answers import (
     context_text,
 )
 from ask_phil.models import Models
+from ask_phil.openrouter import OpenRouterChat, ProviderUsage
 from ask_phil.responses import ResponseLedger
 from ask_phil.retrieval import TextRetriever
 
@@ -73,7 +74,7 @@ class AnswerService:
             span.set_attributes(
                 {
                     "expenditure_category": "indexing",
-                    "model_settings": self.models.settings.model_dump(),
+                    "model_settings": self.models.settings.model_dump(mode="json"),
                 }
             )
             self.retriever.prepare(snapshot_id)
@@ -99,7 +100,7 @@ class AnswerService:
                 {
                     "response_id": str(response_id),
                     "expenditure_category": category,
-                    "model_settings": self.models.settings.model_dump(),
+                    "model_settings": self.models.settings.model_dump(mode="json"),
                     "prompt": SYSTEM_PROMPT,
                     "baseline_version": "single-query-uncached-v2",
                     "usage_complete": False,
@@ -119,6 +120,7 @@ class AnswerService:
                 )
             usage = TokenUsage(embedding_tokens=self.models.embedding_tokens)
             failure = False
+            provider_usage: ProviderUsage | None = None
             citations: tuple[Citation, ...] = ()
             if not context:
                 draft = Draft(
@@ -188,6 +190,27 @@ class AnswerService:
                             unanswered=(),
                             qualifications=(),
                         )
+                    if isinstance(self.models.llm, OpenRouterChat):
+                        provider_usage = self.models.llm.last_call
+                        if provider_usage:
+                            usage = TokenUsage(
+                                input_tokens=provider_usage.input_tokens,
+                                output_tokens=provider_usage.output_tokens,
+                                embedding_tokens=self.models.embedding_tokens,
+                            )
+                            span.set_attribute(
+                                "provider_usage", provider_usage.model_dump(mode="json")
+                            )
+                            span.set_attribute("observed_usage", usage.model_dump())
+                            if usage.input_tokens is not None and usage.output_tokens is not None:
+                                span.set_attribute(
+                                    "mlflow.chat.tokenUsage",
+                                    {
+                                        "input_tokens": usage.input_tokens,
+                                        "output_tokens": usage.output_tokens,
+                                        "total_tokens": usage.input_tokens + usage.output_tokens,
+                                    },
+                                )
             root.set_attribute(
                 "usage_complete", all(value is not None for value in usage.model_dump().values())
             )
@@ -213,6 +236,25 @@ class AnswerService:
                 elapsed_ms=(time.perf_counter() - started) * 1000,
                 usage=usage,
                 expenditure_category=category,
+                provider_usage=provider_usage,
+                estimated_api_cost_usd=(
+                    provider_usage.cost_usd
+                    if provider_usage
+                    else (None if failure and isinstance(self.models.llm, OpenRouterChat) else 0.0)
+                ),
+                cost_scope=(
+                    "OpenRouter reported inference credits only. Null means unknown cost; "
+                    "the local budget retains a reservation. Credit purchase fees, tax, "
+                    "local embeddings and hosting are excluded."
+                    if isinstance(self.models.llm, OpenRouterChat)
+                    else AnswerRecord.model_fields["cost_scope"].default
+                ),
+                limitation=(
+                    "Source-supported is not independently cross-checked. Coverage is limited "
+                    "to the captured snapshot; this provider baseline is not deployment approval."
+                    if isinstance(self.models.llm, OpenRouterChat)
+                    else AnswerRecord.model_fields["limitation"].default
+                ),
             )
             root.set_outputs(response.model_dump(mode="json"))
         # A returned reference must resolve to a completed trace, not just an allocated ID.

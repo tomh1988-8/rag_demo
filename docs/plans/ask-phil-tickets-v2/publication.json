@@ -8,7 +8,7 @@
   "status": "issues_published_native_dependencies_pending",
   "implementation_started": true,
   "spec": {
-    "title": "Ask Phil: evidence-backed EastEnders RAG demonstration \u2014 specification",
+    "title": "Ask Phil: evidence-backed EastEnders RAG demonstration — specification",
     "file": "docs/specs/ask-phil.md",
     "sha256": "a82e93bd170be20c253415606fcb9a6ab082f7a9a7c991d56ca5e757ca728c53",
     "issue_number": 1,
@@ -1286,7 +1286,7 @@
       "required_now": true,
       "before_issue_4_acceptance": true,
       "next_reasoning": "pro",
-      "missing_input": "Capable API provider and locally configured credential environment-variable name; conservative controls before paid calls",
+      "missing_input": "Locally entered OpenRouter key with verified non-resetting $5 limit and BYOK usage included; live smoke and semantic rebaseline pending",
       "paid_api_calls": 0
     },
     "dependency_frontier": [
@@ -1377,5 +1377,21 @@
       "exact_tree_match": true,
       "scope": "Existing validated issue #2 implementation and Docker acceptance. Planning amendments are published in a subsequent commit."
     }
-  ]
+  ],
+  "openrouter_trial_setup": {
+    "date": "2026-09-25",
+    "status": "integration_ready_real_key_and_live_verification_pending",
+    "profiles": [
+      "config/openrouter-qwen.json",
+      "config/openrouter-sol.json",
+      "config/openrouter-glm.json"
+    ],
+    "shared_trial_inference_credit_limit_usd": 5,
+    "credential_path": ".secrets/openrouter.key",
+    "key_entry_command": ".venv/bin/ask-phil configure-openrouter",
+    "secret_check_command": "python3 scripts/check_secrets.py",
+    "guide": "docs/implementation/openrouter-setup.md",
+    "paid_api_calls": 0,
+    "semantic_acceptance": "pending_issue_4_stays_open"
+  }
 }
