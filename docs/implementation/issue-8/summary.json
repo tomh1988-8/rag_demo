@@ -1,5 +1,5 @@
 {
-  "state": "acceptance_passed_publication_pending",
+  "state": "complete",
   "recorded_at": "2026-10-17T15:32:21.372157+00:00",
   "user_authorization": {
     "message": "i approve, continue",
@@ -85,5 +85,17 @@
     "Persona range and serious-harm scenarios are limited in this sample; prior source-policy regressions remain.",
     "Earlier #7 Janine/context and explicit garage co-ownership gaps remain under #24/#9.",
     "Feedback submission and online evaluation are later tickets; #8 provides identity/lifetime only."
-  ]
+  ],
+  "publication": {
+    "state": "verified",
+    "commit": "1991e3bf1e5a404137b1b8cb178a15bf85ebc6cf",
+    "url": "https://github.com/tomh1988-8/rag_demo/commit/1991e3bf1e5a404137b1b8cb178a15bf85ebc6cf",
+    "tree": "e3641ea170aef7c0dfeee95f55c95af94671200f",
+    "exact_tree_match": true,
+    "issue_closed": true,
+    "closure_readback_verified": true,
+    "all_eight_criteria_checked": true,
+    "receipt": "publication.json"
+  },
+  "next_recommended_issue": 9
 }
