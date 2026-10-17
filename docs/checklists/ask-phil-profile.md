@@ -31,7 +31,9 @@ Primary ownership is an index into a continuing evidence obligation, not a licen
 
 Issue #9 is in progress. Its [implementation record](../implementation/issue-9/README.md)
 links grouped references, six separate scorer dimensions, API capture/review
-regressions and a narrow support judge. The failed live pilot is retained. Human
+regressions and a narrow support judge. All 248 software tests and both software
+review axes pass; [publication](../implementation/issue-9/publication.json)
+matches the tested implementation tree. The failed live pilot is retained. Human
 label review and authorization for the corrected OpenRouter payloads remain
 pending, so AD-04.3/4, AD-06.4, AD-08.1/2 and AD-09.2 remain Pending. ONLINE-02/04
 gain versioned input contracts and disagreement/missing-reference fixtures; their

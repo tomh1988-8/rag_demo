@@ -4,6 +4,11 @@ Implementation starts at `07a4be2f405051da8ce5edf46957a2590f657d40`.
 The ticket remains **open**. Software implementation and deterministic checks
 are separate from the pending live comparison and human-reviewed calibration.
 
+[Published implementation 928c0fb](https://github.com/tomh1988-8/rag_demo/commit/928c0fb6d12d5178aad25716dfe4146bb94cda32)
+was pushed with native Git. Remote object/API readback and an empty full-tree
+diff confirm the exact local tree. [The receipt](publication.json) records the
+verification and that #9 remains open. Unrelated workspace changes are preserved.
+
 The workflow adds grouped, versioned references; six separately reviewed answer
 dimensions; paired development comparisons with repeat ranges; public API capture
 with fresh session state; a narrow context-support judge; and self-hosted MLflow

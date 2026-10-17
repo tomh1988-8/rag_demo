@@ -10,6 +10,8 @@ narrow support judge. A failed two-call pilot cost $0.009182; its clarification
 recorder error now has a passing API regression. The shared ledger is $0.241848
 with no unsettled reservations. All 248 software tests, strict mypy and Ruff pass;
 the independent Standards and Spec reviews have zero remaining software findings.
+[Published 928c0fb](https://github.com/tomh1988-8/rag_demo/commit/928c0fb6d12d5178aad25716dfe4146bb94cda32)
+was pushed through native Git and its exact tree verified by remote readback.
 Human review of eight synthetic support labels
 and explicit authorization for the corrected OpenRouter evaluation payloads are
 pending. Complete the live comparison/calibration and actual MLflow readback

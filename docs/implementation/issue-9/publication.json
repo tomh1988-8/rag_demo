@@ -1,0 +1,21 @@
+{
+  "verified_at": "2026-10-17T18:03:45.300312+00:00",
+  "method": "native_git_push",
+  "repository": "tomh1988-8/rag_demo",
+  "branch": "main",
+  "implementation_commit": "928c0fb6d12d5178aad25716dfe4146bb94cda32",
+  "commit_url": "https://github.com/tomh1988-8/rag_demo/commit/928c0fb6d12d5178aad25716dfe4146bb94cda32",
+  "local_tree": "55c4003b6ff5532b97ccfd50efec165b78017d60",
+  "remote_tree": "55c4003b6ff5532b97ccfd50efec165b78017d60",
+  "exact_tree_match": true,
+  "verification": [
+    "git ls-remote origin refs/heads/main",
+    "git fetch origin main",
+    "git diff --exit-code LOCAL_IMPLEMENTATION FETCH_HEAD",
+    "GitHub Git-commit API tree readback"
+  ],
+  "issue_number": 9,
+  "issue_state_readback": "OPEN",
+  "acceptance": "software validated; live payload authorization and human label review pending",
+  "unrelated_workspace_changes": "Preserved unstaged/untracked; excluded from implementation publication."
+}

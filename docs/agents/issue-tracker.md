@@ -26,8 +26,10 @@ authenticated connector publication and native Git credential limitation.
 #9 is now in progress. [Implementation and execution status](../implementation/issue-9/README.md)
 records the quality-comparison workflow, failed live pilot and corrected API
 regression. All 248 software tests, strict mypy and Ruff pass; both independent
-reviews have zero remaining software findings. Human review of eight support labels and explicit authorization for
-the corrected OpenRouter payloads are pending in this session. The ticket remains
+reviews have zero remaining software findings. [Published implementation 928c0fb](https://github.com/tomh1988-8/rag_demo/commit/928c0fb6d12d5178aad25716dfe4146bb94cda32)
+was pushed with native Git and its exact tree read back. Human review of eight
+support labels and authorization for the corrected OpenRouter payloads are
+pending in this session. The ticket remains
 open; finish its actual comparison/calibration evidence before selecting another
 ticket. Preserve the $0.241848 shared ledger and zero unsettled reservations.
 
