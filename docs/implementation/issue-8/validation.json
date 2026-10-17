@@ -144,19 +144,31 @@
   ],
   "limitations": [
     "All cases are exposed development data; no human adjudication, held-out calibration or independent canon corroboration.",
-    "Source-supported development acceptance for #8; publication/tree verification and closure follow separately."
+    "Source-supported development acceptance for #8; broader calibrated quality remains #9."
   ],
   "publication": {
-    "state": "authorized_ready_for_publication",
-    "attempted_action": "git push origin main",
-    "attempted_local_commit": "e8bd51ecce21cee32e7bd188aa573ff9d7fc2fd3",
-    "automatic_approval_rejections": 1,
-    "reason": "Remote default-branch publication requires explicit trusted user authorization; implementation and local commits alone were not accepted as authorization.",
-    "connector_workaround_attempted": false,
-    "issue_closed": false,
+    "state": "verified",
+    "method": "Authenticated GitHub connector; native Git push lacks credentials.",
+    "native_push_after_user_approval": "Executed and failed because HTTPS credentials are unavailable.",
+    "local_acceptance_commit": "319de84575e7313ff76e7f97b01ce0de5f364a2d",
+    "published_acceptance_commit": "1991e3bf1e5a404137b1b8cb178a15bf85ebc6cf",
+    "published_acceptance_url": "https://github.com/tomh1988-8/rag_demo/commit/1991e3bf1e5a404137b1b8cb178a15bf85ebc6cf",
+    "accepted_tree": "e3641ea170aef7c0dfeee95f55c95af94671200f",
+    "exact_tree_match": true,
+    "issue_closed": true,
+    "closure_readback_verified": true,
+    "all_eight_criteria_checked": true,
+    "receipt": "publication.json",
     "user_authorization": {
       "message": "i approve, continue",
       "scope": "OpenRouter/OpenAI public-evidence live sample up to $0.25 and publication to tomh1988-8/rag_demo main."
+    },
+    "historical_automatic_approval_rejection": {
+      "count": 1,
+      "attempted_action": "git push origin main",
+      "attempted_local_commit": "e8bd51ecce21cee32e7bd188aa573ff9d7fc2fd3",
+      "reason": "Remote default-branch publication requires explicit trusted user authorization; implementation and local commits alone were not accepted as authorization.",
+      "resolved_by": "Explicit user approval: i approve, continue"
     }
   }
 }

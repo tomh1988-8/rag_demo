@@ -149,6 +149,13 @@ before scoring it. The recorder retains private session/read receipts under igno
 
 ## Publication
 
-The user approved publication to GitHub `main`. Acceptance is complete; exact
-remote-tree verification and issue closure follow publication. The earlier automatic
-approval denials are historical records and no longer permission blockers.
+[Published implementation 1991e3b](https://github.com/tomh1988-8/rag_demo/commit/1991e3bf1e5a404137b1b8cb178a15bf85ebc6cf)
+exactly matches local acceptance commit `319de84`, tree
+`e3641ea170aef7c0dfeee95f55c95af94671200f`. The published objects were fetched,
+both tree IDs matched and `git diff --exit-code` passed before closure.
+[Issue #8](https://github.com/tomh1988-8/rag_demo/issues/8) is closed as completed;
+all eight checked criteria and the closure state were read back.
+[The receipt](publication.json) records verification and acceptance. The authenticated
+GitHub connector published without forcing because native Git lacks push credentials;
+both histories are retained locally. Earlier automatic approval denials are historical.
+#9 is recommended next; another ticket requires the next implementation instruction.
