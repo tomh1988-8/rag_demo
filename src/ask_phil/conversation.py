@@ -13,7 +13,16 @@ from ask_phil.identity import IdentityCatalogue
 MAX_CONTEXT_TURNS = 8
 PRONOUNS = re.compile(r"\b(he|she|they|him|her|them|his|their)\b", re.IGNORECASE)
 UNSUPPORTED_REFERENCE = re.compile(
-    r"\bthe (?:former|latter)\b(?!\s+\w)|\b(?:that|this) (?:character|person)\b", re.IGNORECASE
+    r"\bthe (?:former|latter)\b(?!\s+(?:wife|husband|partner|spouse|relationship|"
+    r"owner|landlord|landlady|tenant|boss|job|home|house|flat)\b)|"
+    r"\b(?:that|this) (?:character|person)\b",
+    re.IGNORECASE,
+)
+PARTIAL_NAME_BOUNDARY = re.compile(
+    r"^(?:['’]s\b|[?!.,]|$|\s+(?:arriv(?:e|ed|es)|first|marry|married|meet|met|open|opened|"
+    r"leave|left|become|became|die|died|go|went|have|has|had|is|was|were|and|or|in|at|to|with|"
+    r"before|after|ever|never)\b)",
+    re.IGNORECASE,
 )
 POSSESSIVE_HER = re.compile(
     r"\s+(?:(?:first|second|former|current|biological|adoptive|older|younger|late|new)\s+)*"
@@ -104,6 +113,27 @@ def _substitute(question: str, edits: list[tuple[int, int, str]]) -> str:
     return question
 
 
+def _multiple_reference_roles(question: str) -> bool:
+    pronouns = list(PRONOUNS.finditer(question))
+    families = {
+        "male"
+        if p.group().casefold() in {"he", "him", "his"}
+        else "female"
+        if p.group().casefold() in {"she", "her"}
+        else "plural"
+        for p in pronouns
+    }
+    # Distinct unnamed participants need explicit names. One selection must not
+    # collapse a subject and its non-reflexive object into the same character.
+    return len(families) > 1 or any(
+        first.group().casefold() in {"he", "she", "they"}
+        and second.group().casefold() in {"him", "her", "them"}
+        and not _possessive(second, question)
+        for index, first in enumerate(pronouns)
+        for second in pronouns[index + 1 :]
+    )
+
+
 def resolve_reference(
     question: str, catalogue: IdentityCatalogue, history: tuple[ReferenceTurn, ...]
 ) -> ReferenceResolution:
@@ -124,18 +154,38 @@ def resolve_reference(
     if bare and len(mentions[0].character_ids) == 1 and history and history[-1].pending_question:
         chosen = mentions[0].character_ids[0]
         pending = history[-1].pending_question
+        if _multiple_reference_roles(pending):
+            return ReferenceResolution(
+                question=pending,
+                character_ids=(),
+                context_turn_id=history[-1].turn_id,
+                clarification="Please restate the question with a name for each character.",
+            )
         edits = [
             (m.start, m.end, names[chosen])
             for m in _mentions(pending, catalogue)
-            if len(m.character_ids) > 1 and chosen in m.character_ids
+            if chosen in m.character_ids
+            and (
+                len(m.character_ids) > 1
+                or (not m.reviewed and PARTIAL_NAME_BOUNDARY.search(pending[m.end :]) is not None)
+            )
         ]
         edits += [
             (m.start(), m.end(), names[chosen] + ("'s" if _possessive(m, pending) else ""))
             for m in PRONOUNS.finditer(pending)
         ]
+        edits += [
+            (m.start(), m.end(), names[chosen]) for m in UNSUPPORTED_REFERENCE.finditer(pending)
+        ]
         if edits:
             resumed = resolve_reference(_substitute(pending, edits), catalogue, ())
             return resumed.model_copy(update={"context_turn_id": history[-1].turn_id})
+        return ReferenceResolution(
+            question=pending,
+            character_ids=(),
+            context_turn_id=history[-1].turn_id,
+            clarification="Please repeat the question using the character's full name.",
+        )
 
     edits = []
     ids: list[str] = []
@@ -166,12 +216,20 @@ def resolve_reference(
         object_pronoun = pronoun.group().casefold() in {"him", "her", "them"} and not _possessive(
             pronoun, question
         )
+        preceding = tuple(
+            dict.fromkeys(
+                c
+                for m in mentions
+                if m.reviewed and m.end <= pronoun.start() and len(m.character_ids) == 1
+                for c in m.character_ids
+            )
+        )
         candidates = (
-            current
-            if current and not object_pronoun
+            preceding
+            if preceding and not object_pronoun
             else (previous.character_ids if previous else ())
         )
-        if candidates != current or object_pronoun:
+        if not preceding or object_pronoun:
             context_turn_id = previous.turn_id if previous else None
         if (
             len(candidates) != 1
@@ -194,7 +252,12 @@ def resolve_reference(
         for c in catalogue.characters
         for p in c.performers
     )
-    missing = missing or bool(UNSUPPORTED_REFERENCE.search(question)) or (performer and not current)
+    missing = (
+        missing
+        or bool(UNSUPPORTED_REFERENCE.search(question))
+        or (performer and not current)
+        or _multiple_reference_roles(question)
+    )
     clarification = None
     if missing or ambiguous_ids:
         choices = ", ".join(names[c] for c in dict.fromkeys(ambiguous_ids) if c in names)

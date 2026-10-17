@@ -142,3 +142,56 @@ def test_selection_replaces_ambiguous_surname_and_resumes_all_parts() -> None:
     selected = resolve_reference("Phil Mitchell", catalogue(), (pending,))
     assert selected.question == "When did Phil Mitchell arrive and who is Phil Mitchell's mother?"
     assert selected.clarification is None
+
+
+def test_named_objects_do_not_replace_a_preceding_retained_subject() -> None:
+    history = (ReferenceTurn(turn_id=uuid4(), character_ids=("phil-mitchell",)),)
+    result = resolve_reference("Was he married to Kat Slater?", catalogue(), history)
+    assert result.question == "Was Phil Mitchell married to Kat Slater?"
+    assert result.clarification is None
+    result = resolve_reference("Is he Grant Mitchell's brother?", catalogue(), history)
+    assert result.question == "Is Phil Mitchell Grant Mitchell's brother?"
+
+
+def test_distinct_unnamed_participants_require_a_question_with_both_names() -> None:
+    history = (ReferenceTurn(turn_id=uuid4(), character_ids=("phil-mitchell",)),)
+    assert resolve_reference("Did he marry her?", catalogue(), history).clarification
+    pending = ReferenceTurn(
+        turn_id=uuid4(),
+        character_ids=("phil-mitchell", "kat-slater"),
+        pending_question="Did he marry her?",
+    )
+    result = resolve_reference("Phil Mitchell", catalogue(), (pending,))
+    assert result.clarification
+    assert result.question != "Did Phil Mitchell marry Phil Mitchell?"
+
+
+@pytest.mark.parametrize(
+    "question,expected",
+    [
+        ("When did Phil arrive?", "When did Phil Mitchell arrive?"),
+        ("Who is Phil's father?", "Who is Phil Mitchell's father?"),
+        ("When did that character arrive?", "When did Phil Mitchell arrive?"),
+        ("When did the latter arrive?", "When did Phil Mitchell arrive?"),
+    ],
+)
+def test_supported_selection_preserves_the_pending_request(question: str, expected: str) -> None:
+    missing = resolve_reference(question, catalogue(), ())
+    assert missing.clarification
+    pending = ReferenceTurn(
+        turn_id=uuid4(), character_ids=missing.character_ids, pending_question=missing.question
+    )
+    result = resolve_reference("Phil Mitchell", catalogue(), (pending,))
+    assert result.clarification is None
+    assert result.question == expected
+
+
+def test_missing_identity_stops_older_context_from_reappearing() -> None:
+    history = (
+        ReferenceTurn(turn_id=uuid4(), character_ids=("phil-mitchell",)),
+        ReferenceTurn(turn_id=uuid4(), character_ids=(), pending_question="Who is Phil Unknown?"),
+    )
+    assert resolve_reference("When did he arrive?", catalogue(), history).clarification
+    selected = resolve_reference("Phil Mitchell", catalogue(), history)
+    assert selected.clarification
+    assert selected.character_ids == ()
