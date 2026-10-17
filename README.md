@@ -9,8 +9,8 @@ and the online feedback/evaluation loop remain later tickets.
 
 Issue #8 implements [grounded follow-ups, clarification and reset](docs/implementation/issue-8/README.md)
 through the API and CLI, with isolated session context and preserved historical
-response identities. Its required live-model acceptance sample awaits specific
-approval; the implementation is not yet accepted as a completed ticket.
+response identities. Its 182-test suite and reviewed nine-response live sample pass;
+all factual claims retain source support through follow-ups and reset.
 
 Issue #4 adds partial/clarification outcomes, evidence-linked qualifications and
 separate quality scoring. Its [scoped Sol acceptance](docs/implementation/issue-4/cloud/README.md)

@@ -1,0 +1,2011 @@
+{
+  "recorded_at": "2026-10-17T15:23:12.092966+00:00",
+  "state": "complete",
+  "run_id": "f18676adf93f4cfc82480dfd62633f0e",
+  "dataset_id": "conversation-development-v1",
+  "reference_file_sha256": "71e6bfa28f8c09bd0a79bacf617d577bf93ffc868b42539de9f27d87fe73958d",
+  "application_sha256": "6b80889c046292fdcb7360d2a9aa23374c665f01aa8a4f32aa7fa0589a1605bb",
+  "recorder_sha256": "eb528162a1e36c71cdb795b501a5dddb0864dfa0f1dcc4fb99fb4bdcd0f76bb0",
+  "lock_sha256": "983d5a644e3289e6b79d92dc251b5029c199a497ac33c14f504a3c9ee3763152",
+  "cases": [
+    {
+      "case_id": "phil-intro",
+      "reference_sha256": "430186950c88ae1bdfe809ea5aae4f563bbde465991e0a79780dbe9d105d63dc",
+      "response": {
+        "response_id": "c22f26bb-a431-482d-b834-22e699dd5377",
+        "question": "When did Phil Mitchell first arrive in Walford?",
+        "conversation": {
+          "session_id": "92b5d4a1-3238-4531-911e-2c8a274660ac",
+          "turn_id": "8d0a071f-a113-4ae9-99bd-f8410981ef94",
+          "turn_number": 1,
+          "generation": 0,
+          "reference": {
+            "question": "When did Phil Mitchell first arrive in Walford?",
+            "character_ids": [
+              "phil-mitchell"
+            ],
+            "context_turn_id": null,
+            "clarification": null,
+            "followup_requires_name": false
+          }
+        },
+        "status": "answered",
+        "answer": "Right, listen. I first arrived in Walford in February 1990.",
+        "qualifications": [
+          {
+            "detail": "The source gives the month and year, not a day.",
+            "evidence_ids": [
+              "phil-mitchell-wiki-0018-15527"
+            ],
+            "kind": "timing",
+            "precision": "exact"
+          }
+        ],
+        "citations": [
+          {
+            "evidence_id": "phil-mitchell-wiki-0018-15527",
+            "text": "Phil Mitchell first arrives in Walford in February 1990 to open an automobile repair shop, known as The Arches; he is joined by his younger brother Grant (Ross Kemp). Two years later, Phil goes into partnership at The Queen Victoria public house with Grant and his wife Sharon Watts (Letitia Dean) \u2013 up to the point where he moves in with them. Phil grows close to Sharon, who turns to him for comfort during Grant's violent outbursts. Sharon and Phil have sex but she stays with Grant, who is unaware of their betrayal. Sharon and Grant's reconciliation is brief, and amidst more rowing and physical violence, Grant is arrested and imprisoned. In his absence, Phil and Sharon continue their affair but when Grant is released, Sharon reconciles with him, leaving Phil heartbroken. On the rebound, Phil enters into a marriage of convenience with Nadia Borovac (Anna Barkan) - a Romanian refugee - enabling her to stay in Britain, with Nadia departing after the wedding.",
+            "sha256": "9a13fe3539b69694d88ab06a1bd85cf898f46d65ca5ac1d958d0e0ff026bd263",
+            "start": 15527,
+            "end": 16495,
+            "source": {
+              "title": "Phil Mitchell",
+              "url": "https://en.wikipedia.org/wiki/Phil_Mitchell",
+              "revision_id": "1379872347",
+              "revision_url": "https://en.wikipedia.org/w/index.php?oldid=1379872347",
+              "section": "Storylines / 1990\u20132003",
+              "captured_at": "2026-10-17T13:07:31.014189Z",
+              "capture_sha256": "a338d3065203be54e383f2c9c141bca22ae9aedbb950e2e1eada601bcccfe313",
+              "scope": "main_series",
+              "license_url": "https://creativecommons.org/licenses/by-sa/4.0/",
+              "attribution": "Wikipedia contributors; markup removed and whitespace normalized.",
+              "coverage": "Reviewed narrative sections in this captured revision only.",
+              "gaps": [
+                "Partial canon coverage; other paragraphs remain excluded or awaiting review.",
+                "Identity and episode metadata do not independently corroborate story claims."
+              ],
+              "support_status": "source_supported"
+            },
+            "location": {
+              "source_id": "phil-mitchell-wiki",
+              "paragraph_ordinal": 18,
+              "section_id": "1990\u20132003",
+              "character_ids": [
+                "grant-mitchell",
+                "phil-mitchell",
+                "sharon-watts"
+              ]
+            },
+            "resolve_path": "/v1/snapshots/sources-b5bf51ce2c754a5c349834cc87954524d6c89cb20e38fcdafeea815b0760212e/evidence/phil-mitchell-wiki-0018-15527"
+          }
+        ],
+        "snapshot_id": "sources-b5bf51ce2c754a5c349834cc87954524d6c89cb20e38fcdafeea815b0760212e",
+        "snapshot_sha256": "f654d98336a75ac96ff8a38c4213429f1800775f73169811387560020dd9f218",
+        "publication": {
+          "compatibility_id": "b5e13868e87784fe3a590ac011df6e2652d29949f5e70c7c0958040088b157c4",
+          "index_sha256": "6d3b232086e3011f1e6f5ddae36ee51009da9c74afc1a70cb36815947bc136c9",
+          "generation": 2
+        },
+        "source": {
+          "title": "Phil Mitchell",
+          "url": "https://en.wikipedia.org/wiki/Phil_Mitchell",
+          "revision_id": "1379872347",
+          "revision_url": "https://en.wikipedia.org/w/index.php?oldid=1379872347",
+          "section": "Storylines / 1990\u20132003",
+          "captured_at": "2026-10-17T13:07:31.014189Z",
+          "capture_sha256": "a338d3065203be54e383f2c9c141bca22ae9aedbb950e2e1eada601bcccfe313",
+          "scope": "main_series",
+          "license_url": "https://creativecommons.org/licenses/by-sa/4.0/",
+          "attribution": "Wikipedia contributors; markup removed and whitespace normalized.",
+          "coverage": "Reviewed narrative sections in this captured revision only.",
+          "gaps": [
+            "Partial canon coverage; other paragraphs remain excluded or awaiting review.",
+            "Identity and episode metadata do not independently corroborate story claims."
+          ],
+          "support_status": "source_supported"
+        },
+        "retrieved": [
+          {
+            "passage": {
+              "evidence_id": "phil-mitchell-wiki-0018-15527",
+              "text": "Phil Mitchell first arrives in Walford in February 1990 to open an automobile repair shop, known as The Arches; he is joined by his younger brother Grant (Ross Kemp). Two years later, Phil goes into partnership at The Queen Victoria public house with Grant and his wife Sharon Watts (Letitia Dean) \u2013 up to the point where he moves in with them. Phil grows close to Sharon, who turns to him for comfort during Grant's violent outbursts. Sharon and Phil have sex but she stays with Grant, who is unaware of their betrayal. Sharon and Grant's reconciliation is brief, and amidst more rowing and physical violence, Grant is arrested and imprisoned. In his absence, Phil and Sharon continue their affair but when Grant is released, Sharon reconciles with him, leaving Phil heartbroken. On the rebound, Phil enters into a marriage of convenience with Nadia Borovac (Anna Barkan) - a Romanian refugee - enabling her to stay in Britain, with Nadia departing after the wedding.",
+              "sha256": "9a13fe3539b69694d88ab06a1bd85cf898f46d65ca5ac1d958d0e0ff026bd263",
+              "start": 15527,
+              "end": 16495,
+              "source": {
+                "title": "Phil Mitchell",
+                "url": "https://en.wikipedia.org/wiki/Phil_Mitchell",
+                "revision_id": "1379872347",
+                "revision_url": "https://en.wikipedia.org/w/index.php?oldid=1379872347",
+                "section": "Storylines / 1990\u20132003",
+                "captured_at": "2026-10-17T13:07:31.014189Z",
+                "capture_sha256": "a338d3065203be54e383f2c9c141bca22ae9aedbb950e2e1eada601bcccfe313",
+                "scope": "main_series",
+                "license_url": "https://creativecommons.org/licenses/by-sa/4.0/",
+                "attribution": "Wikipedia contributors; markup removed and whitespace normalized.",
+                "coverage": "Reviewed narrative sections in this captured revision only.",
+                "gaps": [
+                  "Partial canon coverage; other paragraphs remain excluded or awaiting review.",
+                  "Identity and episode metadata do not independently corroborate story claims."
+                ],
+                "support_status": "source_supported"
+              },
+              "location": {
+                "source_id": "phil-mitchell-wiki",
+                "paragraph_ordinal": 18,
+                "section_id": "1990\u20132003",
+                "character_ids": [
+                  "grant-mitchell",
+                  "phil-mitchell",
+                  "sharon-watts"
+                ]
+              }
+            },
+            "similarity": 0.5647641939206896
+          },
+          {
+            "passage": {
+              "evidence_id": "phil-mitchell-wiki-0054-69233",
+              "text": "punching him. Later, Phil is knocked unconscious when the exposed gas line explodes during the Walford in Bloom event \u2013 but he is unharmed.",
+              "sha256": "204ac74b6d158c97b3b00789409ba36ba77c1563ef416b45de3aa835240fad39",
+              "start": 69233,
+              "end": 69372,
+              "source": {
+                "title": "Phil Mitchell",
+                "url": "https://en.wikipedia.org/wiki/Phil_Mitchell",
+                "revision_id": "1379872347",
+                "revision_url": "https://en.wikipedia.org/w/index.php?oldid=1379872347",
+                "section": "Storylines / 2005\u2013present",
+                "captured_at": "2026-10-17T13:07:31.014189Z",
+                "capture_sha256": "a338d3065203be54e383f2c9c141bca22ae9aedbb950e2e1eada601bcccfe313",
+                "scope": "main_series",
+                "license_url": "https://creativecommons.org/licenses/by-sa/4.0/",
+                "attribution": "Wikipedia contributors; markup removed and whitespace normalized.",
+                "coverage": "Reviewed narrative sections in this captured revision only.",
+                "gaps": [
+                  "Partial canon coverage; other paragraphs remain excluded or awaiting review.",
+                  "Identity and episode metadata do not independently corroborate story claims."
+                ],
+                "support_status": "source_supported"
+              },
+              "location": {
+                "source_id": "phil-mitchell-wiki",
+                "paragraph_ordinal": 54,
+                "section_id": "2005\u2013present",
+                "character_ids": [
+                  "phil-mitchell"
+                ]
+              }
+            },
+            "similarity": 0.46156247761102187
+          },
+          {
+            "passage": {
+              "evidence_id": "phil-mitchell-wiki-0033-31488",
+              "text": "Phil returns 18 months later, needing more money. He attacks Ian, who calls the police and Phil is arrested. However, the case collapses after Grant returns to Walford and pays a witness to change his testimony and Phil is released. The brothers return to Walford when Peggy requests they help his sister, Sam Mitchell (Kim Medcalf), who is wrongfully remanded in custody for Den's murder; Den was murdered by his second wife and Sam's nemesis, Chrissie Watts (Tracy-Ann Oberman), after the duo and Sam's friend Zoe Slater (Michelle Ryan) initially worked together to get revenge on Den for his nefarious activities \u2013 including Sam's intent to avenge Phil's ordeal. Upon arriving at the square, Phil and Grant notice Peggy being mugged and end up rescuing her. Shortly afterwards, they learn that Peggy's mugging was organised by her enemy and Walford's newly installed crime kingpin: Johnny Allen (Billy Murray). This prompts Phil and Grant to confront Johnny, warning him to stay away from Peggy under the threat of further violence. The pair then confront Chrissie in the pub, where Phil stops Grant from ",
+              "sha256": "0693db95c40b45113d83ee4eb5926a3f1a482fe986a9e6ca70833e0c82019053",
+              "start": 31488,
+              "end": 32596,
+              "source": {
+                "title": "Phil Mitchell",
+                "url": "https://en.wikipedia.org/wiki/Phil_Mitchell",
+                "revision_id": "1379872347",
+                "revision_url": "https://en.wikipedia.org/w/index.php?oldid=1379872347",
+                "section": "Storylines / 2005\u2013present",
+                "captured_at": "2026-10-17T13:07:31.014189Z",
+                "capture_sha256": "a338d3065203be54e383f2c9c141bca22ae9aedbb950e2e1eada601bcccfe313",
+                "scope": "main_series",
+                "license_url": "https://creativecommons.org/licenses/by-sa/4.0/",
+                "attribution": "Wikipedia contributors; markup removed and whitespace normalized.",
+                "coverage": "Reviewed narrative sections in this captured revision only.",
+                "gaps": [
+                  "Partial canon coverage; other paragraphs remain excluded or awaiting review.",
+                  "Identity and episode metadata do not independently corroborate story claims."
+                ],
+                "support_status": "source_supported"
+              },
+              "location": {
+                "source_id": "phil-mitchell-wiki",
+                "paragraph_ordinal": 33,
+                "section_id": "2005\u2013present",
+                "character_ids": [
+                  "phil-mitchell"
+                ]
+              }
+            },
+            "similarity": 0.4605365215133468
+          }
+        ],
+        "context": [
+          {
+            "evidence_id": "phil-mitchell-wiki-0018-15527",
+            "text": "Phil Mitchell first arrives in Walford in February 1990 to open an automobile repair shop, known as The Arches; he is joined by his younger brother Grant (Ross Kemp). Two years later, Phil goes into partnership at The Queen Victoria public house with Grant and his wife Sharon Watts (Letitia Dean) \u2013 up to the point where he moves in with them. Phil grows close to Sharon, who turns to him for comfort during Grant's violent outbursts. Sharon and Phil have sex but she stays with Grant, who is unaware of their betrayal. Sharon and Grant's reconciliation is brief, and amidst more rowing and physical violence, Grant is arrested and imprisoned. In his absence, Phil and Sharon continue their affair but when Grant is released, Sharon reconciles with him, leaving Phil heartbroken. On the rebound, Phil enters into a marriage of convenience with Nadia Borovac (Anna Barkan) - a Romanian refugee - enabling her to stay in Britain, with Nadia departing after the wedding.",
+            "sha256": "9a13fe3539b69694d88ab06a1bd85cf898f46d65ca5ac1d958d0e0ff026bd263",
+            "start": 15527,
+            "end": 16495,
+            "source": {
+              "title": "Phil Mitchell",
+              "url": "https://en.wikipedia.org/wiki/Phil_Mitchell",
+              "revision_id": "1379872347",
+              "revision_url": "https://en.wikipedia.org/w/index.php?oldid=1379872347",
+              "section": "Storylines / 1990\u20132003",
+              "captured_at": "2026-10-17T13:07:31.014189Z",
+              "capture_sha256": "a338d3065203be54e383f2c9c141bca22ae9aedbb950e2e1eada601bcccfe313",
+              "scope": "main_series",
+              "license_url": "https://creativecommons.org/licenses/by-sa/4.0/",
+              "attribution": "Wikipedia contributors; markup removed and whitespace normalized.",
+              "coverage": "Reviewed narrative sections in this captured revision only.",
+              "gaps": [
+                "Partial canon coverage; other paragraphs remain excluded or awaiting review.",
+                "Identity and episode metadata do not independently corroborate story claims."
+              ],
+              "support_status": "source_supported"
+            },
+            "location": {
+              "source_id": "phil-mitchell-wiki",
+              "paragraph_ordinal": 18,
+              "section_id": "1990\u20132003",
+              "character_ids": [
+                "grant-mitchell",
+                "phil-mitchell",
+                "sharon-watts"
+              ]
+            }
+          }
+        ],
+        "retrieval_k": 3,
+        "route": "text_rag",
+        "baseline_version": "single-query-uncached-v2",
+        "model_settings": {
+          "embedding_model": "embeddinggemma:300m",
+          "embedding_digest": "85462619ee721b466c5927d109d4cb765861907d5417b9109caebc4e614679f1",
+          "embedding_dimensions": 768,
+          "provider_type": "openrouter",
+          "answer_model": "openai/gpt-6-sol",
+          "canonical_slug": "openai/gpt-6-sol-20260922",
+          "provider": "openai",
+          "input_price_per_million": "2",
+          "output_price_per_million": "10",
+          "output_tokens": 8192,
+          "reasoning_effort": "medium",
+          "request_timeout_seconds": 180
+        },
+        "prompt_sha256": "6f42fd8b13a5bb17664c6c7c435c030931e4f8187bdcb9fc8173195627cd9d64",
+        "application_sha256": "6b80889c046292fdcb7360d2a9aa23374c665f01aa8a4f32aa7fa0589a1605bb",
+        "trace_id": "tr-9291a41b718b3bb032f9b9badd88a293",
+        "elapsed_ms": 7545.938470997498,
+        "usage": {
+          "input_tokens": 1251,
+          "output_tokens": 131,
+          "embedding_tokens": 19
+        },
+        "expenditure_category": "serving",
+        "estimated_api_cost_usd": 0.004436,
+        "provider_usage": {
+          "reservation_id": "802af3cc75fa4f97a2be57277db7e093",
+          "reserved_usd": 0.104534,
+          "cost_usd": 0.004436,
+          "request_id": "gen-1792250601-73VIeKn2eYDdeGFgb3Te",
+          "returned_model": "openai/gpt-6-sol",
+          "provider": "OpenAI",
+          "input_tokens": 1251,
+          "output_tokens": 131,
+          "reasoning_tokens": 31
+        },
+        "cost_scope": "OpenRouter reported inference credits only. Null means unknown cost; the local budget retains a reservation. Credit purchase fees, tax, local embeddings and hosting are excluded.",
+        "limitation": "Source-supported is not independently cross-checked. Coverage is limited to the captured snapshot; this provider baseline is not deployment approval."
+      }
+    },
+    {
+      "case_id": "phil-followup",
+      "reference_sha256": "8154164961af137f363d2ea7efa1c3be40b6cd85b65314c63f0c4843939efd99",
+      "response": {
+        "response_id": "a42d941b-df58-4cf2-9561-72f80542e324",
+        "question": "What did he open when he first arrived?",
+        "conversation": {
+          "session_id": "92b5d4a1-3238-4531-911e-2c8a274660ac",
+          "turn_id": "b796e112-6642-4fb4-aa2a-a49f383e5bdd",
+          "turn_number": 2,
+          "generation": 0,
+          "reference": {
+            "question": "What did Phil Mitchell open when Phil Mitchell first arrived?",
+            "character_ids": [
+              "phil-mitchell"
+            ],
+            "context_turn_id": "8d0a071f-a113-4ae9-99bd-f8410981ef94",
+            "clarification": null,
+            "followup_requires_name": false
+          }
+        },
+        "status": "answered",
+        "answer": "Right, listen. I opened an automobile repair shop called The Arches when I first arrived in Walford.",
+        "citations": [
+          {
+            "evidence_id": "phil-mitchell-wiki-0018-15527",
+            "text": "Phil Mitchell first arrives in Walford in February 1990 to open an automobile repair shop, known as The Arches; he is joined by his younger brother Grant (Ross Kemp). Two years later, Phil goes into partnership at The Queen Victoria public house with Grant and his wife Sharon Watts (Letitia Dean) \u2013 up to the point where he moves in with them. Phil grows close to Sharon, who turns to him for comfort during Grant's violent outbursts. Sharon and Phil have sex but she stays with Grant, who is unaware of their betrayal. Sharon and Grant's reconciliation is brief, and amidst more rowing and physical violence, Grant is arrested and imprisoned. In his absence, Phil and Sharon continue their affair but when Grant is released, Sharon reconciles with him, leaving Phil heartbroken. On the rebound, Phil enters into a marriage of convenience with Nadia Borovac (Anna Barkan) - a Romanian refugee - enabling her to stay in Britain, with Nadia departing after the wedding.",
+            "sha256": "9a13fe3539b69694d88ab06a1bd85cf898f46d65ca5ac1d958d0e0ff026bd263",
+            "start": 15527,
+            "end": 16495,
+            "source": {
+              "title": "Phil Mitchell",
+              "url": "https://en.wikipedia.org/wiki/Phil_Mitchell",
+              "revision_id": "1379872347",
+              "revision_url": "https://en.wikipedia.org/w/index.php?oldid=1379872347",
+              "section": "Storylines / 1990\u20132003",
+              "captured_at": "2026-10-17T13:07:31.014189Z",
+              "capture_sha256": "a338d3065203be54e383f2c9c141bca22ae9aedbb950e2e1eada601bcccfe313",
+              "scope": "main_series",
+              "license_url": "https://creativecommons.org/licenses/by-sa/4.0/",
+              "attribution": "Wikipedia contributors; markup removed and whitespace normalized.",
+              "coverage": "Reviewed narrative sections in this captured revision only.",
+              "gaps": [
+                "Partial canon coverage; other paragraphs remain excluded or awaiting review.",
+                "Identity and episode metadata do not independently corroborate story claims."
+              ],
+              "support_status": "source_supported"
+            },
+            "location": {
+              "source_id": "phil-mitchell-wiki",
+              "paragraph_ordinal": 18,
+              "section_id": "1990\u20132003",
+              "character_ids": [
+                "grant-mitchell",
+                "phil-mitchell",
+                "sharon-watts"
+              ]
+            },
+            "resolve_path": "/v1/snapshots/sources-b5bf51ce2c754a5c349834cc87954524d6c89cb20e38fcdafeea815b0760212e/evidence/phil-mitchell-wiki-0018-15527"
+          }
+        ],
+        "snapshot_id": "sources-b5bf51ce2c754a5c349834cc87954524d6c89cb20e38fcdafeea815b0760212e",
+        "snapshot_sha256": "f654d98336a75ac96ff8a38c4213429f1800775f73169811387560020dd9f218",
+        "publication": {
+          "compatibility_id": "b5e13868e87784fe3a590ac011df6e2652d29949f5e70c7c0958040088b157c4",
+          "index_sha256": "6d3b232086e3011f1e6f5ddae36ee51009da9c74afc1a70cb36815947bc136c9",
+          "generation": 2
+        },
+        "source": {
+          "title": "Phil Mitchell",
+          "url": "https://en.wikipedia.org/wiki/Phil_Mitchell",
+          "revision_id": "1379872347",
+          "revision_url": "https://en.wikipedia.org/w/index.php?oldid=1379872347",
+          "section": "Storylines / 1990\u20132003",
+          "captured_at": "2026-10-17T13:07:31.014189Z",
+          "capture_sha256": "a338d3065203be54e383f2c9c141bca22ae9aedbb950e2e1eada601bcccfe313",
+          "scope": "main_series",
+          "license_url": "https://creativecommons.org/licenses/by-sa/4.0/",
+          "attribution": "Wikipedia contributors; markup removed and whitespace normalized.",
+          "coverage": "Reviewed narrative sections in this captured revision only.",
+          "gaps": [
+            "Partial canon coverage; other paragraphs remain excluded or awaiting review.",
+            "Identity and episode metadata do not independently corroborate story claims."
+          ],
+          "support_status": "source_supported"
+        },
+        "retrieved": [
+          {
+            "passage": {
+              "evidence_id": "phil-mitchell-wiki-0018-15527",
+              "text": "Phil Mitchell first arrives in Walford in February 1990 to open an automobile repair shop, known as The Arches; he is joined by his younger brother Grant (Ross Kemp). Two years later, Phil goes into partnership at The Queen Victoria public house with Grant and his wife Sharon Watts (Letitia Dean) \u2013 up to the point where he moves in with them. Phil grows close to Sharon, who turns to him for comfort during Grant's violent outbursts. Sharon and Phil have sex but she stays with Grant, who is unaware of their betrayal. Sharon and Grant's reconciliation is brief, and amidst more rowing and physical violence, Grant is arrested and imprisoned. In his absence, Phil and Sharon continue their affair but when Grant is released, Sharon reconciles with him, leaving Phil heartbroken. On the rebound, Phil enters into a marriage of convenience with Nadia Borovac (Anna Barkan) - a Romanian refugee - enabling her to stay in Britain, with Nadia departing after the wedding.",
+              "sha256": "9a13fe3539b69694d88ab06a1bd85cf898f46d65ca5ac1d958d0e0ff026bd263",
+              "start": 15527,
+              "end": 16495,
+              "source": {
+                "title": "Phil Mitchell",
+                "url": "https://en.wikipedia.org/wiki/Phil_Mitchell",
+                "revision_id": "1379872347",
+                "revision_url": "https://en.wikipedia.org/w/index.php?oldid=1379872347",
+                "section": "Storylines / 1990\u20132003",
+                "captured_at": "2026-10-17T13:07:31.014189Z",
+                "capture_sha256": "a338d3065203be54e383f2c9c141bca22ae9aedbb950e2e1eada601bcccfe313",
+                "scope": "main_series",
+                "license_url": "https://creativecommons.org/licenses/by-sa/4.0/",
+                "attribution": "Wikipedia contributors; markup removed and whitespace normalized.",
+                "coverage": "Reviewed narrative sections in this captured revision only.",
+                "gaps": [
+                  "Partial canon coverage; other paragraphs remain excluded or awaiting review.",
+                  "Identity and episode metadata do not independently corroborate story claims."
+                ],
+                "support_status": "source_supported"
+              },
+              "location": {
+                "source_id": "phil-mitchell-wiki",
+                "paragraph_ordinal": 18,
+                "section_id": "1990\u20132003",
+                "character_ids": [
+                  "grant-mitchell",
+                  "phil-mitchell",
+                  "sharon-watts"
+                ]
+              }
+            },
+            "similarity": 0.5204168558121319
+          },
+          {
+            "passage": {
+              "evidence_id": "phil-mitchell-wiki-0062-77727",
+              "text": "Mitchell's, Keeble eventually agrees to this deal and retires from the police force and Phil is a free man.",
+              "sha256": "12b645e3666a424773c108ebafdf26301e81fb634622b27a66907b34fcd256e0",
+              "start": 77727,
+              "end": 77834,
+              "source": {
+                "title": "Phil Mitchell",
+                "url": "https://en.wikipedia.org/wiki/Phil_Mitchell",
+                "revision_id": "1379872347",
+                "revision_url": "https://en.wikipedia.org/w/index.php?oldid=1379872347",
+                "section": "Storylines / 2005\u2013present",
+                "captured_at": "2026-10-17T13:07:31.014189Z",
+                "capture_sha256": "a338d3065203be54e383f2c9c141bca22ae9aedbb950e2e1eada601bcccfe313",
+                "scope": "main_series",
+                "license_url": "https://creativecommons.org/licenses/by-sa/4.0/",
+                "attribution": "Wikipedia contributors; markup removed and whitespace normalized.",
+                "coverage": "Reviewed narrative sections in this captured revision only.",
+                "gaps": [
+                  "Partial canon coverage; other paragraphs remain excluded or awaiting review.",
+                  "Identity and episode metadata do not independently corroborate story claims."
+                ],
+                "support_status": "source_supported"
+              },
+              "location": {
+                "source_id": "phil-mitchell-wiki",
+                "paragraph_ordinal": 62,
+                "section_id": "2005\u2013present",
+                "character_ids": [
+                  "phil-mitchell"
+                ]
+              }
+            },
+            "similarity": 0.46798478162338697
+          },
+          {
+            "passage": {
+              "evidence_id": "janine-butcher-wiki-0028-19802",
+              "text": "Mitchells.",
+              "sha256": "9abb4d7e29061bf25d8e1bd3b7daf5d2545a835b6f4b20ccec6dd6bad566c4f4",
+              "start": 19802,
+              "end": 19812,
+              "source": {
+                "title": "Janine Butcher",
+                "url": "https://en.wikipedia.org/wiki/Janine_Butcher",
+                "revision_id": "1378379064",
+                "revision_url": "https://en.wikipedia.org/w/index.php?oldid=1378379064",
+                "section": "Storylines / 2008\u20132014",
+                "captured_at": "2026-10-17T13:07:34.191734Z",
+                "capture_sha256": "1edd6bcd906c84e4ebd9f78235ea8857ad1a117e67475baf675dd7b51fa56eb8",
+                "scope": "main_series",
+                "license_url": "https://creativecommons.org/licenses/by-sa/4.0/",
+                "attribution": "Wikipedia contributors; markup removed and whitespace normalized.",
+                "coverage": "Reviewed narrative sections in this captured revision only.",
+                "gaps": [
+                  "Partial canon coverage; other paragraphs remain excluded or awaiting review.",
+                  "Identity and episode metadata do not independently corroborate story claims."
+                ],
+                "support_status": "source_supported"
+              },
+              "location": {
+                "source_id": "janine-butcher-wiki",
+                "paragraph_ordinal": 28,
+                "section_id": "2008\u20132014",
+                "character_ids": [
+                  "janine-butcher"
+                ]
+              }
+            },
+            "similarity": 0.4574560649824022
+          }
+        ],
+        "context": [
+          {
+            "evidence_id": "phil-mitchell-wiki-0018-15527",
+            "text": "Phil Mitchell first arrives in Walford in February 1990 to open an automobile repair shop, known as The Arches; he is joined by his younger brother Grant (Ross Kemp). Two years later, Phil goes into partnership at The Queen Victoria public house with Grant and his wife Sharon Watts (Letitia Dean) \u2013 up to the point where he moves in with them. Phil grows close to Sharon, who turns to him for comfort during Grant's violent outbursts. Sharon and Phil have sex but she stays with Grant, who is unaware of their betrayal. Sharon and Grant's reconciliation is brief, and amidst more rowing and physical violence, Grant is arrested and imprisoned. In his absence, Phil and Sharon continue their affair but when Grant is released, Sharon reconciles with him, leaving Phil heartbroken. On the rebound, Phil enters into a marriage of convenience with Nadia Borovac (Anna Barkan) - a Romanian refugee - enabling her to stay in Britain, with Nadia departing after the wedding.",
+            "sha256": "9a13fe3539b69694d88ab06a1bd85cf898f46d65ca5ac1d958d0e0ff026bd263",
+            "start": 15527,
+            "end": 16495,
+            "source": {
+              "title": "Phil Mitchell",
+              "url": "https://en.wikipedia.org/wiki/Phil_Mitchell",
+              "revision_id": "1379872347",
+              "revision_url": "https://en.wikipedia.org/w/index.php?oldid=1379872347",
+              "section": "Storylines / 1990\u20132003",
+              "captured_at": "2026-10-17T13:07:31.014189Z",
+              "capture_sha256": "a338d3065203be54e383f2c9c141bca22ae9aedbb950e2e1eada601bcccfe313",
+              "scope": "main_series",
+              "license_url": "https://creativecommons.org/licenses/by-sa/4.0/",
+              "attribution": "Wikipedia contributors; markup removed and whitespace normalized.",
+              "coverage": "Reviewed narrative sections in this captured revision only.",
+              "gaps": [
+                "Partial canon coverage; other paragraphs remain excluded or awaiting review.",
+                "Identity and episode metadata do not independently corroborate story claims."
+              ],
+              "support_status": "source_supported"
+            },
+            "location": {
+              "source_id": "phil-mitchell-wiki",
+              "paragraph_ordinal": 18,
+              "section_id": "1990\u20132003",
+              "character_ids": [
+                "grant-mitchell",
+                "phil-mitchell",
+                "sharon-watts"
+              ]
+            }
+          },
+          {
+            "evidence_id": "janine-butcher-wiki-0028-19802",
+            "text": "Mitchells.",
+            "sha256": "9abb4d7e29061bf25d8e1bd3b7daf5d2545a835b6f4b20ccec6dd6bad566c4f4",
+            "start": 19802,
+            "end": 19812,
+            "source": {
+              "title": "Janine Butcher",
+              "url": "https://en.wikipedia.org/wiki/Janine_Butcher",
+              "revision_id": "1378379064",
+              "revision_url": "https://en.wikipedia.org/w/index.php?oldid=1378379064",
+              "section": "Storylines / 2008\u20132014",
+              "captured_at": "2026-10-17T13:07:34.191734Z",
+              "capture_sha256": "1edd6bcd906c84e4ebd9f78235ea8857ad1a117e67475baf675dd7b51fa56eb8",
+              "scope": "main_series",
+              "license_url": "https://creativecommons.org/licenses/by-sa/4.0/",
+              "attribution": "Wikipedia contributors; markup removed and whitespace normalized.",
+              "coverage": "Reviewed narrative sections in this captured revision only.",
+              "gaps": [
+                "Partial canon coverage; other paragraphs remain excluded or awaiting review.",
+                "Identity and episode metadata do not independently corroborate story claims."
+              ],
+              "support_status": "source_supported"
+            },
+            "location": {
+              "source_id": "janine-butcher-wiki",
+              "paragraph_ordinal": 28,
+              "section_id": "2008\u20132014",
+              "character_ids": [
+                "janine-butcher"
+              ]
+            }
+          }
+        ],
+        "retrieval_k": 3,
+        "route": "text_rag",
+        "baseline_version": "single-query-uncached-v2",
+        "model_settings": {
+          "embedding_model": "embeddinggemma:300m",
+          "embedding_digest": "85462619ee721b466c5927d109d4cb765861907d5417b9109caebc4e614679f1",
+          "embedding_dimensions": 768,
+          "provider_type": "openrouter",
+          "answer_model": "openai/gpt-6-sol",
+          "canonical_slug": "openai/gpt-6-sol-20260922",
+          "provider": "openai",
+          "input_price_per_million": "2",
+          "output_price_per_million": "10",
+          "output_tokens": 8192,
+          "reasoning_effort": "medium",
+          "request_timeout_seconds": 180
+        },
+        "prompt_sha256": "6f42fd8b13a5bb17664c6c7c435c030931e4f8187bdcb9fc8173195627cd9d64",
+        "application_sha256": "6b80889c046292fdcb7360d2a9aa23374c665f01aa8a4f32aa7fa0589a1605bb",
+        "trace_id": "tr-a6f7f2d0038397fb004e4cc7b1f70e10",
+        "elapsed_ms": 4298.107787995832,
+        "usage": {
+          "input_tokens": 1283,
+          "output_tokens": 62,
+          "embedding_tokens": 20
+        },
+        "expenditure_category": "serving",
+        "estimated_api_cost_usd": 0.003826,
+        "provider_usage": {
+          "reservation_id": "eea295b55eda4b559a8591e9f86ff446",
+          "reserved_usd": 0.104788,
+          "cost_usd": 0.003826,
+          "request_id": "gen-1792250609-IhI69PIRPzEcWZjptOYr",
+          "returned_model": "openai/gpt-6-sol",
+          "provider": "OpenAI",
+          "input_tokens": 1283,
+          "output_tokens": 62,
+          "reasoning_tokens": 0
+        },
+        "cost_scope": "OpenRouter reported inference credits only. Null means unknown cost; the local budget retains a reservation. Credit purchase fees, tax, local embeddings and hosting are excluded.",
+        "limitation": "Source-supported is not independently cross-checked. Coverage is limited to the captured snapshot; this provider baseline is not deployment approval."
+      }
+    },
+    {
+      "case_id": "kat-alias",
+      "reference_sha256": "bf2f0950114594e2d9e11338562429299848a10da6c9310f13b96463c5ae19b7",
+      "response": {
+        "response_id": "f0d1f2f9-ace9-4be7-a64a-db012c55a9c8",
+        "question": "Who is Kat Moon?",
+        "conversation": {
+          "session_id": "92b5d4a1-3238-4531-911e-2c8a274660ac",
+          "turn_id": "0de4a35b-0a82-414e-9ecd-b8cec44463cc",
+          "turn_number": 3,
+          "generation": 0,
+          "reference": {
+            "question": "Who is Kat Slater?",
+            "character_ids": [
+              "kat-slater"
+            ],
+            "context_turn_id": null,
+            "clarification": null,
+            "followup_requires_name": false
+          }
+        },
+        "status": "answered",
+        "answer": "Right, listen. Kat Slater came to Walford with the Slater family and worked behind the bar at The Queen Victoria. Zoe was presented as her sister, but Kat is actually Zoe\u2019s mother.",
+        "citations": [
+          {
+            "evidence_id": "kat-slater-wiki-0041-30971",
+            "text": "Kat arrives in Walford on 18 September 2000, followed by her family: father Charlie Slater (Derek Martin), sisters Lynne Slater (Elaine Lordan), Little Mo Morgan (Kacey Ainsworth) and Zoe Slater (Michelle Ryan), as well as grandmother Mo Harris (Laila Morse) and later, cousin Stacey Slater (Lacey Turner). A fourth sister, Belinda Peacock (Leanne Lakey) is also introduced later the following year. Kat embarks on a brief fling with Steve Owen (Martin Kemp), much to the annoyance of his girlfriend Mel Healy (Tamzin Outhwaite). She finds work in The Queen Victoria public house as a barmaid, where she is an instant hit with the customers. Fiercely defensive of her sisters, Kat embarks on a feud with Little Mo's abusive husband Trevor Morgan (Alex Ferns), though has a fling with Lynne's boyfriend Garry Hobbs (Ricky Groves). Much to Zoe's frustration, Kat is often over-protective of her. When Zoe announces her decision to move to Spain for a new life with their uncle Harry (Michael Elphick), Kat refuses to allow her to go. It is then revealed that Kat is in fact, Zoe's mother, having been sexually abused ",
+            "sha256": "52e1463d8c46b491001d14bbb69b4f109fd99008cfbac4f1b4e5f53467509262",
+            "start": 30971,
+            "end": 32086,
+            "source": {
+              "title": "Kat Slater",
+              "url": "https://en.wikipedia.org/wiki/Kat_Slater",
+              "revision_id": "1380652225",
+              "revision_url": "https://en.wikipedia.org/w/index.php?oldid=1380652225",
+              "section": "Storylines / 2000\u20132005",
+              "captured_at": "2026-10-17T13:07:33.048959Z",
+              "capture_sha256": "f3852a9f1c3fa3f0c254f123fa8ed739d6f6a4388eb5f19c7de975858a537bd7",
+              "scope": "main_series",
+              "license_url": "https://creativecommons.org/licenses/by-sa/4.0/",
+              "attribution": "Wikipedia contributors; markup removed and whitespace normalized.",
+              "coverage": "Reviewed narrative sections in this captured revision only.",
+              "gaps": [
+                "Partial canon coverage; other paragraphs remain excluded or awaiting review.",
+                "Identity and episode metadata do not independently corroborate story claims."
+              ],
+              "support_status": "source_supported"
+            },
+            "location": {
+              "source_id": "kat-slater-wiki",
+              "paragraph_ordinal": 41,
+              "section_id": "2000\u20132005",
+              "character_ids": [
+                "kat-slater",
+                "stacey-slater"
+              ]
+            },
+            "resolve_path": "/v1/snapshots/sources-b5bf51ce2c754a5c349834cc87954524d6c89cb20e38fcdafeea815b0760212e/evidence/kat-slater-wiki-0041-30971"
+          }
+        ],
+        "snapshot_id": "sources-b5bf51ce2c754a5c349834cc87954524d6c89cb20e38fcdafeea815b0760212e",
+        "snapshot_sha256": "f654d98336a75ac96ff8a38c4213429f1800775f73169811387560020dd9f218",
+        "publication": {
+          "compatibility_id": "b5e13868e87784fe3a590ac011df6e2652d29949f5e70c7c0958040088b157c4",
+          "index_sha256": "6d3b232086e3011f1e6f5ddae36ee51009da9c74afc1a70cb36815947bc136c9",
+          "generation": 2
+        },
+        "source": {
+          "title": "Phil Mitchell",
+          "url": "https://en.wikipedia.org/wiki/Phil_Mitchell",
+          "revision_id": "1379872347",
+          "revision_url": "https://en.wikipedia.org/w/index.php?oldid=1379872347",
+          "section": "Storylines / 1990\u20132003",
+          "captured_at": "2026-10-17T13:07:31.014189Z",
+          "capture_sha256": "a338d3065203be54e383f2c9c141bca22ae9aedbb950e2e1eada601bcccfe313",
+          "scope": "main_series",
+          "license_url": "https://creativecommons.org/licenses/by-sa/4.0/",
+          "attribution": "Wikipedia contributors; markup removed and whitespace normalized.",
+          "coverage": "Reviewed narrative sections in this captured revision only.",
+          "gaps": [
+            "Partial canon coverage; other paragraphs remain excluded or awaiting review.",
+            "Identity and episode metadata do not independently corroborate story claims."
+          ],
+          "support_status": "source_supported"
+        },
+        "retrieved": [
+          {
+            "passage": {
+              "evidence_id": "kat-slater-wiki-0041-30971",
+              "text": "Kat arrives in Walford on 18 September 2000, followed by her family: father Charlie Slater (Derek Martin), sisters Lynne Slater (Elaine Lordan), Little Mo Morgan (Kacey Ainsworth) and Zoe Slater (Michelle Ryan), as well as grandmother Mo Harris (Laila Morse) and later, cousin Stacey Slater (Lacey Turner). A fourth sister, Belinda Peacock (Leanne Lakey) is also introduced later the following year. Kat embarks on a brief fling with Steve Owen (Martin Kemp), much to the annoyance of his girlfriend Mel Healy (Tamzin Outhwaite). She finds work in The Queen Victoria public house as a barmaid, where she is an instant hit with the customers. Fiercely defensive of her sisters, Kat embarks on a feud with Little Mo's abusive husband Trevor Morgan (Alex Ferns), though has a fling with Lynne's boyfriend Garry Hobbs (Ricky Groves). Much to Zoe's frustration, Kat is often over-protective of her. When Zoe announces her decision to move to Spain for a new life with their uncle Harry (Michael Elphick), Kat refuses to allow her to go. It is then revealed that Kat is in fact, Zoe's mother, having been sexually abused ",
+              "sha256": "52e1463d8c46b491001d14bbb69b4f109fd99008cfbac4f1b4e5f53467509262",
+              "start": 30971,
+              "end": 32086,
+              "source": {
+                "title": "Kat Slater",
+                "url": "https://en.wikipedia.org/wiki/Kat_Slater",
+                "revision_id": "1380652225",
+                "revision_url": "https://en.wikipedia.org/w/index.php?oldid=1380652225",
+                "section": "Storylines / 2000\u20132005",
+                "captured_at": "2026-10-17T13:07:33.048959Z",
+                "capture_sha256": "f3852a9f1c3fa3f0c254f123fa8ed739d6f6a4388eb5f19c7de975858a537bd7",
+                "scope": "main_series",
+                "license_url": "https://creativecommons.org/licenses/by-sa/4.0/",
+                "attribution": "Wikipedia contributors; markup removed and whitespace normalized.",
+                "coverage": "Reviewed narrative sections in this captured revision only.",
+                "gaps": [
+                  "Partial canon coverage; other paragraphs remain excluded or awaiting review.",
+                  "Identity and episode metadata do not independently corroborate story claims."
+                ],
+                "support_status": "source_supported"
+              },
+              "location": {
+                "source_id": "kat-slater-wiki",
+                "paragraph_ordinal": 41,
+                "section_id": "2000\u20132005",
+                "character_ids": [
+                  "kat-slater",
+                  "stacey-slater"
+                ]
+              }
+            },
+            "similarity": 0.5812866646643499
+          },
+          {
+            "passage": {
+              "evidence_id": "kat-slater-wiki-0067-65277",
+              "text": "Off-screen, Kat gives Cherry to Hayley and visits Stacey. During the COVID-19 pandemic lockdown, Kat and Kush face financial problems, which are funded by Stacey, from money that she stole from Ruby Allen (Louisa Lytton). When Suki Panesar (Balvinder Sopal) increases their rent payments, Kat organises a heist, alongside Kush, Phil, Ben and Shirley. This pushes Kat closer to Phil and they begin a fling after Kat breaks up with Kush. During an argument between Phil, Ben, and Callum, Kat is accidentally knocked down by Whitney. After recovering from the accident, Kat reveals her relationship with Phil and they buy the launderette together and convert the back of it into a taxi rank and name it Kat's Cabs. Kat becomes suspicious when Tommy goes missing and she later discovers that he has been talking to Michael's daughter Scarlett Butcher (Tabitha Byron). Scarlett reveals that her mother Janine Butcher (Charlie Brooks) abandoned her, and she has been living in foster care and is due to be taken into care. Tommy pleads with Kat to foster Scarlett, but she is reluctant, not wanting the truth about ",
+              "sha256": "6b0a2a1ca2ba71e441130939ba2fba2a150572e44644558cd5d322a7f50def4c",
+              "start": 65277,
+              "end": 66386,
+              "source": {
+                "title": "Kat Slater",
+                "url": "https://en.wikipedia.org/wiki/Kat_Slater",
+                "revision_id": "1380652225",
+                "revision_url": "https://en.wikipedia.org/w/index.php?oldid=1380652225",
+                "section": "Storylines / 2018\u2013present",
+                "captured_at": "2026-10-17T13:07:33.048959Z",
+                "capture_sha256": "f3852a9f1c3fa3f0c254f123fa8ed739d6f6a4388eb5f19c7de975858a537bd7",
+                "scope": "main_series",
+                "license_url": "https://creativecommons.org/licenses/by-sa/4.0/",
+                "attribution": "Wikipedia contributors; markup removed and whitespace normalized.",
+                "coverage": "Reviewed narrative sections in this captured revision only.",
+                "gaps": [
+                  "Partial canon coverage; other paragraphs remain excluded or awaiting review.",
+                  "Identity and episode metadata do not independently corroborate story claims."
+                ],
+                "support_status": "source_supported"
+              },
+              "location": {
+                "source_id": "kat-slater-wiki",
+                "paragraph_ordinal": 67,
+                "section_id": "2018\u2013present",
+                "character_ids": [
+                  "janine-butcher",
+                  "kat-slater"
+                ]
+              }
+            },
+            "similarity": 0.4905669722913637
+          },
+          {
+            "passage": {
+              "evidence_id": "kat-slater-wiki-0071-72310",
+              "text": "Kat's nephew Freddie (Bobby Brazier) decides to search for his estranged father, Graham Foster (Alex McSweeney), despite the Slaters' objections. Kat is forced to reveal to Freddie that Graham had raped Little Mo, and she leaves Walford briefly to comfort Little Mo. When she returns, Kat is distressed to learn that Alfie might have prostate cancer and that Phil had kept this from her. She calls off their wedding, and Phil subsequently sleeps with Emma Harding (Patsy Kensit), which he hides from Kat. Kat and Phil reconcile and marry in September 2023. During Sharon's hen night, Kat overhears Sharon telling Linda Carter (Kellie Bright) that Phil is the father of her son, Albie Watts (Arthur Gentleman). Kat decides to tell Phil, but Sharon intervenes, threatening to use Albie to reunite with Phil if Kat reveals the truth, though she eventually confesses. At Kat and Phil's joint birthday party, Sam reveals that Phil had slept with Emma shortly before their wedding. Devastated, Kat ends their marriage and moves out. She then grows close to businessman Nish Panesar (Navin Chowdhry), who offers her a flat ",
+              "sha256": "5e2f7e68815991f7f572c5adfb8be8c5f19710bad16b68b255210056895591b4",
+              "start": 72310,
+              "end": 73426,
+              "source": {
+                "title": "Kat Slater",
+                "url": "https://en.wikipedia.org/wiki/Kat_Slater",
+                "revision_id": "1380652225",
+                "revision_url": "https://en.wikipedia.org/w/index.php?oldid=1380652225",
+                "section": "Storylines / 2018\u2013present",
+                "captured_at": "2026-10-17T13:07:33.048959Z",
+                "capture_sha256": "f3852a9f1c3fa3f0c254f123fa8ed739d6f6a4388eb5f19c7de975858a537bd7",
+                "scope": "main_series",
+                "license_url": "https://creativecommons.org/licenses/by-sa/4.0/",
+                "attribution": "Wikipedia contributors; markup removed and whitespace normalized.",
+                "coverage": "Reviewed narrative sections in this captured revision only.",
+                "gaps": [
+                  "Partial canon coverage; other paragraphs remain excluded or awaiting review.",
+                  "Identity and episode metadata do not independently corroborate story claims."
+                ],
+                "support_status": "source_supported"
+              },
+              "location": {
+                "source_id": "kat-slater-wiki",
+                "paragraph_ordinal": 71,
+                "section_id": "2018\u2013present",
+                "character_ids": [
+                  "kat-slater"
+                ]
+              }
+            },
+            "similarity": 0.4771268110644771
+          }
+        ],
+        "context": [
+          {
+            "evidence_id": "kat-slater-wiki-0041-30971",
+            "text": "Kat arrives in Walford on 18 September 2000, followed by her family: father Charlie Slater (Derek Martin), sisters Lynne Slater (Elaine Lordan), Little Mo Morgan (Kacey Ainsworth) and Zoe Slater (Michelle Ryan), as well as grandmother Mo Harris (Laila Morse) and later, cousin Stacey Slater (Lacey Turner). A fourth sister, Belinda Peacock (Leanne Lakey) is also introduced later the following year. Kat embarks on a brief fling with Steve Owen (Martin Kemp), much to the annoyance of his girlfriend Mel Healy (Tamzin Outhwaite). She finds work in The Queen Victoria public house as a barmaid, where she is an instant hit with the customers. Fiercely defensive of her sisters, Kat embarks on a feud with Little Mo's abusive husband Trevor Morgan (Alex Ferns), though has a fling with Lynne's boyfriend Garry Hobbs (Ricky Groves). Much to Zoe's frustration, Kat is often over-protective of her. When Zoe announces her decision to move to Spain for a new life with their uncle Harry (Michael Elphick), Kat refuses to allow her to go. It is then revealed that Kat is in fact, Zoe's mother, having been sexually abused ",
+            "sha256": "52e1463d8c46b491001d14bbb69b4f109fd99008cfbac4f1b4e5f53467509262",
+            "start": 30971,
+            "end": 32086,
+            "source": {
+              "title": "Kat Slater",
+              "url": "https://en.wikipedia.org/wiki/Kat_Slater",
+              "revision_id": "1380652225",
+              "revision_url": "https://en.wikipedia.org/w/index.php?oldid=1380652225",
+              "section": "Storylines / 2000\u20132005",
+              "captured_at": "2026-10-17T13:07:33.048959Z",
+              "capture_sha256": "f3852a9f1c3fa3f0c254f123fa8ed739d6f6a4388eb5f19c7de975858a537bd7",
+              "scope": "main_series",
+              "license_url": "https://creativecommons.org/licenses/by-sa/4.0/",
+              "attribution": "Wikipedia contributors; markup removed and whitespace normalized.",
+              "coverage": "Reviewed narrative sections in this captured revision only.",
+              "gaps": [
+                "Partial canon coverage; other paragraphs remain excluded or awaiting review.",
+                "Identity and episode metadata do not independently corroborate story claims."
+              ],
+              "support_status": "source_supported"
+            },
+            "location": {
+              "source_id": "kat-slater-wiki",
+              "paragraph_ordinal": 41,
+              "section_id": "2000\u20132005",
+              "character_ids": [
+                "kat-slater",
+                "stacey-slater"
+              ]
+            }
+          }
+        ],
+        "retrieval_k": 3,
+        "route": "text_rag",
+        "baseline_version": "single-query-uncached-v2",
+        "model_settings": {
+          "embedding_model": "embeddinggemma:300m",
+          "embedding_digest": "85462619ee721b466c5927d109d4cb765861907d5417b9109caebc4e614679f1",
+          "embedding_dimensions": 768,
+          "provider_type": "openrouter",
+          "answer_model": "openai/gpt-6-sol",
+          "canonical_slug": "openai/gpt-6-sol-20260922",
+          "provider": "openai",
+          "input_price_per_million": "2",
+          "output_price_per_million": "10",
+          "output_tokens": 8192,
+          "reasoning_effort": "medium",
+          "request_timeout_seconds": 180
+        },
+        "prompt_sha256": "6f42fd8b13a5bb17664c6c7c435c030931e4f8187bdcb9fc8173195627cd9d64",
+        "application_sha256": "6b80889c046292fdcb7360d2a9aa23374c665f01aa8a4f32aa7fa0589a1605bb",
+        "trace_id": "tr-2a87262ea153f84c4049668e068dd8dc",
+        "elapsed_ms": 5354.584587999852,
+        "usage": {
+          "input_tokens": 1314,
+          "output_tokens": 134,
+          "embedding_tokens": 14
+        },
+        "expenditure_category": "serving",
+        "estimated_api_cost_usd": 0.0046235,
+        "provider_usage": {
+          "reservation_id": "459f8d01a7af4f71bcc92031a45edbd9",
+          "reserved_usd": 0.104754,
+          "cost_usd": 0.0046235,
+          "request_id": "gen-1792250618-YMzIbvIap4Fvdv7cFFlu",
+          "returned_model": "openai/gpt-6-sol",
+          "provider": "OpenAI",
+          "input_tokens": 1314,
+          "output_tokens": 134,
+          "reasoning_tokens": 52
+        },
+        "cost_scope": "OpenRouter reported inference credits only. Null means unknown cost; the local budget retains a reservation. Credit purchase fees, tax, local embeddings and hosting are excluded.",
+        "limitation": "Source-supported is not independently cross-checked. Coverage is limited to the captured snapshot; this provider baseline is not deployment approval."
+      }
+    },
+    {
+      "case_id": "kat-followup",
+      "reference_sha256": "edcfb59b065c909d5e3dbee4087706aceb08f27a60ab3a897aa9ecaa0573438c",
+      "response": {
+        "response_id": "596ea02c-666b-40ed-a758-bab95c33021a",
+        "question": "What is her father's name?",
+        "conversation": {
+          "session_id": "92b5d4a1-3238-4531-911e-2c8a274660ac",
+          "turn_id": "813b7f55-5472-44dd-8444-de281953e67e",
+          "turn_number": 4,
+          "generation": 0,
+          "reference": {
+            "question": "What is Kat Slater's father's name?",
+            "character_ids": [
+              "kat-slater"
+            ],
+            "context_turn_id": "0de4a35b-0a82-414e-9ecd-b8cec44463cc",
+            "clarification": null,
+            "followup_requires_name": true
+          }
+        },
+        "status": "answered",
+        "answer": "Right, listen. Kat Slater's father is Charlie Slater.",
+        "citations": [
+          {
+            "evidence_id": "kat-slater-wiki-0041-30971",
+            "text": "Kat arrives in Walford on 18 September 2000, followed by her family: father Charlie Slater (Derek Martin), sisters Lynne Slater (Elaine Lordan), Little Mo Morgan (Kacey Ainsworth) and Zoe Slater (Michelle Ryan), as well as grandmother Mo Harris (Laila Morse) and later, cousin Stacey Slater (Lacey Turner). A fourth sister, Belinda Peacock (Leanne Lakey) is also introduced later the following year. Kat embarks on a brief fling with Steve Owen (Martin Kemp), much to the annoyance of his girlfriend Mel Healy (Tamzin Outhwaite). She finds work in The Queen Victoria public house as a barmaid, where she is an instant hit with the customers. Fiercely defensive of her sisters, Kat embarks on a feud with Little Mo's abusive husband Trevor Morgan (Alex Ferns), though has a fling with Lynne's boyfriend Garry Hobbs (Ricky Groves). Much to Zoe's frustration, Kat is often over-protective of her. When Zoe announces her decision to move to Spain for a new life with their uncle Harry (Michael Elphick), Kat refuses to allow her to go. It is then revealed that Kat is in fact, Zoe's mother, having been sexually abused ",
+            "sha256": "52e1463d8c46b491001d14bbb69b4f109fd99008cfbac4f1b4e5f53467509262",
+            "start": 30971,
+            "end": 32086,
+            "source": {
+              "title": "Kat Slater",
+              "url": "https://en.wikipedia.org/wiki/Kat_Slater",
+              "revision_id": "1380652225",
+              "revision_url": "https://en.wikipedia.org/w/index.php?oldid=1380652225",
+              "section": "Storylines / 2000\u20132005",
+              "captured_at": "2026-10-17T13:07:33.048959Z",
+              "capture_sha256": "f3852a9f1c3fa3f0c254f123fa8ed739d6f6a4388eb5f19c7de975858a537bd7",
+              "scope": "main_series",
+              "license_url": "https://creativecommons.org/licenses/by-sa/4.0/",
+              "attribution": "Wikipedia contributors; markup removed and whitespace normalized.",
+              "coverage": "Reviewed narrative sections in this captured revision only.",
+              "gaps": [
+                "Partial canon coverage; other paragraphs remain excluded or awaiting review.",
+                "Identity and episode metadata do not independently corroborate story claims."
+              ],
+              "support_status": "source_supported"
+            },
+            "location": {
+              "source_id": "kat-slater-wiki",
+              "paragraph_ordinal": 41,
+              "section_id": "2000\u20132005",
+              "character_ids": [
+                "kat-slater",
+                "stacey-slater"
+              ]
+            },
+            "resolve_path": "/v1/snapshots/sources-b5bf51ce2c754a5c349834cc87954524d6c89cb20e38fcdafeea815b0760212e/evidence/kat-slater-wiki-0041-30971"
+          }
+        ],
+        "snapshot_id": "sources-b5bf51ce2c754a5c349834cc87954524d6c89cb20e38fcdafeea815b0760212e",
+        "snapshot_sha256": "f654d98336a75ac96ff8a38c4213429f1800775f73169811387560020dd9f218",
+        "publication": {
+          "compatibility_id": "b5e13868e87784fe3a590ac011df6e2652d29949f5e70c7c0958040088b157c4",
+          "index_sha256": "6d3b232086e3011f1e6f5ddae36ee51009da9c74afc1a70cb36815947bc136c9",
+          "generation": 2
+        },
+        "source": {
+          "title": "Phil Mitchell",
+          "url": "https://en.wikipedia.org/wiki/Phil_Mitchell",
+          "revision_id": "1379872347",
+          "revision_url": "https://en.wikipedia.org/w/index.php?oldid=1379872347",
+          "section": "Storylines / 1990\u20132003",
+          "captured_at": "2026-10-17T13:07:31.014189Z",
+          "capture_sha256": "a338d3065203be54e383f2c9c141bca22ae9aedbb950e2e1eada601bcccfe313",
+          "scope": "main_series",
+          "license_url": "https://creativecommons.org/licenses/by-sa/4.0/",
+          "attribution": "Wikipedia contributors; markup removed and whitespace normalized.",
+          "coverage": "Reviewed narrative sections in this captured revision only.",
+          "gaps": [
+            "Partial canon coverage; other paragraphs remain excluded or awaiting review.",
+            "Identity and episode metadata do not independently corroborate story claims."
+          ],
+          "support_status": "source_supported"
+        },
+        "retrieved": [
+          {
+            "passage": {
+              "evidence_id": "kat-slater-wiki-0041-30971",
+              "text": "Kat arrives in Walford on 18 September 2000, followed by her family: father Charlie Slater (Derek Martin), sisters Lynne Slater (Elaine Lordan), Little Mo Morgan (Kacey Ainsworth) and Zoe Slater (Michelle Ryan), as well as grandmother Mo Harris (Laila Morse) and later, cousin Stacey Slater (Lacey Turner). A fourth sister, Belinda Peacock (Leanne Lakey) is also introduced later the following year. Kat embarks on a brief fling with Steve Owen (Martin Kemp), much to the annoyance of his girlfriend Mel Healy (Tamzin Outhwaite). She finds work in The Queen Victoria public house as a barmaid, where she is an instant hit with the customers. Fiercely defensive of her sisters, Kat embarks on a feud with Little Mo's abusive husband Trevor Morgan (Alex Ferns), though has a fling with Lynne's boyfriend Garry Hobbs (Ricky Groves). Much to Zoe's frustration, Kat is often over-protective of her. When Zoe announces her decision to move to Spain for a new life with their uncle Harry (Michael Elphick), Kat refuses to allow her to go. It is then revealed that Kat is in fact, Zoe's mother, having been sexually abused ",
+              "sha256": "52e1463d8c46b491001d14bbb69b4f109fd99008cfbac4f1b4e5f53467509262",
+              "start": 30971,
+              "end": 32086,
+              "source": {
+                "title": "Kat Slater",
+                "url": "https://en.wikipedia.org/wiki/Kat_Slater",
+                "revision_id": "1380652225",
+                "revision_url": "https://en.wikipedia.org/w/index.php?oldid=1380652225",
+                "section": "Storylines / 2000\u20132005",
+                "captured_at": "2026-10-17T13:07:33.048959Z",
+                "capture_sha256": "f3852a9f1c3fa3f0c254f123fa8ed739d6f6a4388eb5f19c7de975858a537bd7",
+                "scope": "main_series",
+                "license_url": "https://creativecommons.org/licenses/by-sa/4.0/",
+                "attribution": "Wikipedia contributors; markup removed and whitespace normalized.",
+                "coverage": "Reviewed narrative sections in this captured revision only.",
+                "gaps": [
+                  "Partial canon coverage; other paragraphs remain excluded or awaiting review.",
+                  "Identity and episode metadata do not independently corroborate story claims."
+                ],
+                "support_status": "source_supported"
+              },
+              "location": {
+                "source_id": "kat-slater-wiki",
+                "paragraph_ordinal": 41,
+                "section_id": "2000\u20132005",
+                "character_ids": [
+                  "kat-slater",
+                  "stacey-slater"
+                ]
+              }
+            },
+            "similarity": 0.6177048858267478
+          },
+          {
+            "passage": {
+              "evidence_id": "kat-slater-wiki-0071-72310",
+              "text": "Kat's nephew Freddie (Bobby Brazier) decides to search for his estranged father, Graham Foster (Alex McSweeney), despite the Slaters' objections. Kat is forced to reveal to Freddie that Graham had raped Little Mo, and she leaves Walford briefly to comfort Little Mo. When she returns, Kat is distressed to learn that Alfie might have prostate cancer and that Phil had kept this from her. She calls off their wedding, and Phil subsequently sleeps with Emma Harding (Patsy Kensit), which he hides from Kat. Kat and Phil reconcile and marry in September 2023. During Sharon's hen night, Kat overhears Sharon telling Linda Carter (Kellie Bright) that Phil is the father of her son, Albie Watts (Arthur Gentleman). Kat decides to tell Phil, but Sharon intervenes, threatening to use Albie to reunite with Phil if Kat reveals the truth, though she eventually confesses. At Kat and Phil's joint birthday party, Sam reveals that Phil had slept with Emma shortly before their wedding. Devastated, Kat ends their marriage and moves out. She then grows close to businessman Nish Panesar (Navin Chowdhry), who offers her a flat ",
+              "sha256": "5e2f7e68815991f7f572c5adfb8be8c5f19710bad16b68b255210056895591b4",
+              "start": 72310,
+              "end": 73426,
+              "source": {
+                "title": "Kat Slater",
+                "url": "https://en.wikipedia.org/wiki/Kat_Slater",
+                "revision_id": "1380652225",
+                "revision_url": "https://en.wikipedia.org/w/index.php?oldid=1380652225",
+                "section": "Storylines / 2018\u2013present",
+                "captured_at": "2026-10-17T13:07:33.048959Z",
+                "capture_sha256": "f3852a9f1c3fa3f0c254f123fa8ed739d6f6a4388eb5f19c7de975858a537bd7",
+                "scope": "main_series",
+                "license_url": "https://creativecommons.org/licenses/by-sa/4.0/",
+                "attribution": "Wikipedia contributors; markup removed and whitespace normalized.",
+                "coverage": "Reviewed narrative sections in this captured revision only.",
+                "gaps": [
+                  "Partial canon coverage; other paragraphs remain excluded or awaiting review.",
+                  "Identity and episode metadata do not independently corroborate story claims."
+                ],
+                "support_status": "source_supported"
+              },
+              "location": {
+                "source_id": "kat-slater-wiki",
+                "paragraph_ordinal": 71,
+                "section_id": "2018\u2013present",
+                "character_ids": [
+                  "kat-slater"
+                ]
+              }
+            },
+            "similarity": 0.49789112831461313
+          },
+          {
+            "passage": {
+              "evidence_id": "kat-slater-wiki-0067-65277",
+              "text": "Off-screen, Kat gives Cherry to Hayley and visits Stacey. During the COVID-19 pandemic lockdown, Kat and Kush face financial problems, which are funded by Stacey, from money that she stole from Ruby Allen (Louisa Lytton). When Suki Panesar (Balvinder Sopal) increases their rent payments, Kat organises a heist, alongside Kush, Phil, Ben and Shirley. This pushes Kat closer to Phil and they begin a fling after Kat breaks up with Kush. During an argument between Phil, Ben, and Callum, Kat is accidentally knocked down by Whitney. After recovering from the accident, Kat reveals her relationship with Phil and they buy the launderette together and convert the back of it into a taxi rank and name it Kat's Cabs. Kat becomes suspicious when Tommy goes missing and she later discovers that he has been talking to Michael's daughter Scarlett Butcher (Tabitha Byron). Scarlett reveals that her mother Janine Butcher (Charlie Brooks) abandoned her, and she has been living in foster care and is due to be taken into care. Tommy pleads with Kat to foster Scarlett, but she is reluctant, not wanting the truth about ",
+              "sha256": "6b0a2a1ca2ba71e441130939ba2fba2a150572e44644558cd5d322a7f50def4c",
+              "start": 65277,
+              "end": 66386,
+              "source": {
+                "title": "Kat Slater",
+                "url": "https://en.wikipedia.org/wiki/Kat_Slater",
+                "revision_id": "1380652225",
+                "revision_url": "https://en.wikipedia.org/w/index.php?oldid=1380652225",
+                "section": "Storylines / 2018\u2013present",
+                "captured_at": "2026-10-17T13:07:33.048959Z",
+                "capture_sha256": "f3852a9f1c3fa3f0c254f123fa8ed739d6f6a4388eb5f19c7de975858a537bd7",
+                "scope": "main_series",
+                "license_url": "https://creativecommons.org/licenses/by-sa/4.0/",
+                "attribution": "Wikipedia contributors; markup removed and whitespace normalized.",
+                "coverage": "Reviewed narrative sections in this captured revision only.",
+                "gaps": [
+                  "Partial canon coverage; other paragraphs remain excluded or awaiting review.",
+                  "Identity and episode metadata do not independently corroborate story claims."
+                ],
+                "support_status": "source_supported"
+              },
+              "location": {
+                "source_id": "kat-slater-wiki",
+                "paragraph_ordinal": 67,
+                "section_id": "2018\u2013present",
+                "character_ids": [
+                  "janine-butcher",
+                  "kat-slater"
+                ]
+              }
+            },
+            "similarity": 0.4823621862047365
+          }
+        ],
+        "context": [
+          {
+            "evidence_id": "kat-slater-wiki-0041-30971",
+            "text": "Kat arrives in Walford on 18 September 2000, followed by her family: father Charlie Slater (Derek Martin), sisters Lynne Slater (Elaine Lordan), Little Mo Morgan (Kacey Ainsworth) and Zoe Slater (Michelle Ryan), as well as grandmother Mo Harris (Laila Morse) and later, cousin Stacey Slater (Lacey Turner). A fourth sister, Belinda Peacock (Leanne Lakey) is also introduced later the following year. Kat embarks on a brief fling with Steve Owen (Martin Kemp), much to the annoyance of his girlfriend Mel Healy (Tamzin Outhwaite). She finds work in The Queen Victoria public house as a barmaid, where she is an instant hit with the customers. Fiercely defensive of her sisters, Kat embarks on a feud with Little Mo's abusive husband Trevor Morgan (Alex Ferns), though has a fling with Lynne's boyfriend Garry Hobbs (Ricky Groves). Much to Zoe's frustration, Kat is often over-protective of her. When Zoe announces her decision to move to Spain for a new life with their uncle Harry (Michael Elphick), Kat refuses to allow her to go. It is then revealed that Kat is in fact, Zoe's mother, having been sexually abused ",
+            "sha256": "52e1463d8c46b491001d14bbb69b4f109fd99008cfbac4f1b4e5f53467509262",
+            "start": 30971,
+            "end": 32086,
+            "source": {
+              "title": "Kat Slater",
+              "url": "https://en.wikipedia.org/wiki/Kat_Slater",
+              "revision_id": "1380652225",
+              "revision_url": "https://en.wikipedia.org/w/index.php?oldid=1380652225",
+              "section": "Storylines / 2000\u20132005",
+              "captured_at": "2026-10-17T13:07:33.048959Z",
+              "capture_sha256": "f3852a9f1c3fa3f0c254f123fa8ed739d6f6a4388eb5f19c7de975858a537bd7",
+              "scope": "main_series",
+              "license_url": "https://creativecommons.org/licenses/by-sa/4.0/",
+              "attribution": "Wikipedia contributors; markup removed and whitespace normalized.",
+              "coverage": "Reviewed narrative sections in this captured revision only.",
+              "gaps": [
+                "Partial canon coverage; other paragraphs remain excluded or awaiting review.",
+                "Identity and episode metadata do not independently corroborate story claims."
+              ],
+              "support_status": "source_supported"
+            },
+            "location": {
+              "source_id": "kat-slater-wiki",
+              "paragraph_ordinal": 41,
+              "section_id": "2000\u20132005",
+              "character_ids": [
+                "kat-slater",
+                "stacey-slater"
+              ]
+            }
+          }
+        ],
+        "retrieval_k": 3,
+        "route": "text_rag",
+        "baseline_version": "single-query-uncached-v2",
+        "model_settings": {
+          "embedding_model": "embeddinggemma:300m",
+          "embedding_digest": "85462619ee721b466c5927d109d4cb765861907d5417b9109caebc4e614679f1",
+          "embedding_dimensions": 768,
+          "provider_type": "openrouter",
+          "answer_model": "openai/gpt-6-sol",
+          "canonical_slug": "openai/gpt-6-sol-20260922",
+          "provider": "openai",
+          "input_price_per_million": "2",
+          "output_price_per_million": "10",
+          "output_tokens": 8192,
+          "reasoning_effort": "medium",
+          "request_timeout_seconds": 180
+        },
+        "prompt_sha256": "6f42fd8b13a5bb17664c6c7c435c030931e4f8187bdcb9fc8173195627cd9d64",
+        "application_sha256": "6b80889c046292fdcb7360d2a9aa23374c665f01aa8a4f32aa7fa0589a1605bb",
+        "trace_id": "tr-26e3aee021b9715af4add0bcc3b2554a",
+        "elapsed_ms": 4607.370521000121,
+        "usage": {
+          "input_tokens": 1317,
+          "output_tokens": 53,
+          "embedding_tokens": 20
+        },
+        "expenditure_category": "serving",
+        "estimated_api_cost_usd": 0.003821,
+        "provider_usage": {
+          "reservation_id": "6b0f21e0882b4bdb945bc7a7a03e9540",
+          "reserved_usd": 0.104788,
+          "cost_usd": 0.003821,
+          "request_id": "gen-1792250626-dTqsC2nObvrBX3m5P8ro",
+          "returned_model": "openai/gpt-6-sol",
+          "provider": "OpenAI",
+          "input_tokens": 1317,
+          "output_tokens": 53,
+          "reasoning_tokens": 0
+        },
+        "cost_scope": "OpenRouter reported inference credits only. Null means unknown cost; the local budget retains a reservation. Credit purchase fees, tax, local embeddings and hosting are excluded.",
+        "limitation": "Source-supported is not independently cross-checked. Coverage is limited to the captured snapshot; this provider baseline is not deployment approval."
+      }
+    },
+    {
+      "case_id": "two-subjects",
+      "reference_sha256": "e544b117a16464d9bb4ca4ee7d1b1fb64e7eb35378244dce6ed98a7aa5960495",
+      "response": {
+        "response_id": "1e215967-7582-44a0-b8b6-15cd1c0cad68",
+        "question": "When did Phil Mitchell first arrive in Walford with Grant Mitchell?",
+        "conversation": {
+          "session_id": "92b5d4a1-3238-4531-911e-2c8a274660ac",
+          "turn_id": "78858ee5-54c6-48af-9ed7-42af24038904",
+          "turn_number": 5,
+          "generation": 0,
+          "reference": {
+            "question": "When did Phil Mitchell first arrive in Walford with Grant Mitchell?",
+            "character_ids": [
+              "phil-mitchell",
+              "grant-mitchell"
+            ],
+            "context_turn_id": null,
+            "clarification": null,
+            "followup_requires_name": false
+          }
+        },
+        "status": "answered",
+        "answer": "Right, listen. I first arrived in Walford in February 1990, joined by my younger brother Grant.",
+        "qualifications": [
+          {
+            "detail": "The source gives February 1990, without a specific day.",
+            "evidence_ids": [
+              "phil-mitchell-wiki-0018-15527"
+            ],
+            "kind": "timing",
+            "precision": "exact"
+          }
+        ],
+        "citations": [
+          {
+            "evidence_id": "phil-mitchell-wiki-0018-15527",
+            "text": "Phil Mitchell first arrives in Walford in February 1990 to open an automobile repair shop, known as The Arches; he is joined by his younger brother Grant (Ross Kemp). Two years later, Phil goes into partnership at The Queen Victoria public house with Grant and his wife Sharon Watts (Letitia Dean) \u2013 up to the point where he moves in with them. Phil grows close to Sharon, who turns to him for comfort during Grant's violent outbursts. Sharon and Phil have sex but she stays with Grant, who is unaware of their betrayal. Sharon and Grant's reconciliation is brief, and amidst more rowing and physical violence, Grant is arrested and imprisoned. In his absence, Phil and Sharon continue their affair but when Grant is released, Sharon reconciles with him, leaving Phil heartbroken. On the rebound, Phil enters into a marriage of convenience with Nadia Borovac (Anna Barkan) - a Romanian refugee - enabling her to stay in Britain, with Nadia departing after the wedding.",
+            "sha256": "9a13fe3539b69694d88ab06a1bd85cf898f46d65ca5ac1d958d0e0ff026bd263",
+            "start": 15527,
+            "end": 16495,
+            "source": {
+              "title": "Phil Mitchell",
+              "url": "https://en.wikipedia.org/wiki/Phil_Mitchell",
+              "revision_id": "1379872347",
+              "revision_url": "https://en.wikipedia.org/w/index.php?oldid=1379872347",
+              "section": "Storylines / 1990\u20132003",
+              "captured_at": "2026-10-17T13:07:31.014189Z",
+              "capture_sha256": "a338d3065203be54e383f2c9c141bca22ae9aedbb950e2e1eada601bcccfe313",
+              "scope": "main_series",
+              "license_url": "https://creativecommons.org/licenses/by-sa/4.0/",
+              "attribution": "Wikipedia contributors; markup removed and whitespace normalized.",
+              "coverage": "Reviewed narrative sections in this captured revision only.",
+              "gaps": [
+                "Partial canon coverage; other paragraphs remain excluded or awaiting review.",
+                "Identity and episode metadata do not independently corroborate story claims."
+              ],
+              "support_status": "source_supported"
+            },
+            "location": {
+              "source_id": "phil-mitchell-wiki",
+              "paragraph_ordinal": 18,
+              "section_id": "1990\u20132003",
+              "character_ids": [
+                "grant-mitchell",
+                "phil-mitchell",
+                "sharon-watts"
+              ]
+            },
+            "resolve_path": "/v1/snapshots/sources-b5bf51ce2c754a5c349834cc87954524d6c89cb20e38fcdafeea815b0760212e/evidence/phil-mitchell-wiki-0018-15527"
+          }
+        ],
+        "snapshot_id": "sources-b5bf51ce2c754a5c349834cc87954524d6c89cb20e38fcdafeea815b0760212e",
+        "snapshot_sha256": "f654d98336a75ac96ff8a38c4213429f1800775f73169811387560020dd9f218",
+        "publication": {
+          "compatibility_id": "b5e13868e87784fe3a590ac011df6e2652d29949f5e70c7c0958040088b157c4",
+          "index_sha256": "6d3b232086e3011f1e6f5ddae36ee51009da9c74afc1a70cb36815947bc136c9",
+          "generation": 2
+        },
+        "source": {
+          "title": "Phil Mitchell",
+          "url": "https://en.wikipedia.org/wiki/Phil_Mitchell",
+          "revision_id": "1379872347",
+          "revision_url": "https://en.wikipedia.org/w/index.php?oldid=1379872347",
+          "section": "Storylines / 1990\u20132003",
+          "captured_at": "2026-10-17T13:07:31.014189Z",
+          "capture_sha256": "a338d3065203be54e383f2c9c141bca22ae9aedbb950e2e1eada601bcccfe313",
+          "scope": "main_series",
+          "license_url": "https://creativecommons.org/licenses/by-sa/4.0/",
+          "attribution": "Wikipedia contributors; markup removed and whitespace normalized.",
+          "coverage": "Reviewed narrative sections in this captured revision only.",
+          "gaps": [
+            "Partial canon coverage; other paragraphs remain excluded or awaiting review.",
+            "Identity and episode metadata do not independently corroborate story claims."
+          ],
+          "support_status": "source_supported"
+        },
+        "retrieved": [
+          {
+            "passage": {
+              "evidence_id": "phil-mitchell-wiki-0018-15527",
+              "text": "Phil Mitchell first arrives in Walford in February 1990 to open an automobile repair shop, known as The Arches; he is joined by his younger brother Grant (Ross Kemp). Two years later, Phil goes into partnership at The Queen Victoria public house with Grant and his wife Sharon Watts (Letitia Dean) \u2013 up to the point where he moves in with them. Phil grows close to Sharon, who turns to him for comfort during Grant's violent outbursts. Sharon and Phil have sex but she stays with Grant, who is unaware of their betrayal. Sharon and Grant's reconciliation is brief, and amidst more rowing and physical violence, Grant is arrested and imprisoned. In his absence, Phil and Sharon continue their affair but when Grant is released, Sharon reconciles with him, leaving Phil heartbroken. On the rebound, Phil enters into a marriage of convenience with Nadia Borovac (Anna Barkan) - a Romanian refugee - enabling her to stay in Britain, with Nadia departing after the wedding.",
+              "sha256": "9a13fe3539b69694d88ab06a1bd85cf898f46d65ca5ac1d958d0e0ff026bd263",
+              "start": 15527,
+              "end": 16495,
+              "source": {
+                "title": "Phil Mitchell",
+                "url": "https://en.wikipedia.org/wiki/Phil_Mitchell",
+                "revision_id": "1379872347",
+                "revision_url": "https://en.wikipedia.org/w/index.php?oldid=1379872347",
+                "section": "Storylines / 1990\u20132003",
+                "captured_at": "2026-10-17T13:07:31.014189Z",
+                "capture_sha256": "a338d3065203be54e383f2c9c141bca22ae9aedbb950e2e1eada601bcccfe313",
+                "scope": "main_series",
+                "license_url": "https://creativecommons.org/licenses/by-sa/4.0/",
+                "attribution": "Wikipedia contributors; markup removed and whitespace normalized.",
+                "coverage": "Reviewed narrative sections in this captured revision only.",
+                "gaps": [
+                  "Partial canon coverage; other paragraphs remain excluded or awaiting review.",
+                  "Identity and episode metadata do not independently corroborate story claims."
+                ],
+                "support_status": "source_supported"
+              },
+              "location": {
+                "source_id": "phil-mitchell-wiki",
+                "paragraph_ordinal": 18,
+                "section_id": "1990\u20132003",
+                "character_ids": [
+                  "grant-mitchell",
+                  "phil-mitchell",
+                  "sharon-watts"
+                ]
+              }
+            },
+            "similarity": 0.609910441626402
+          },
+          {
+            "passage": {
+              "evidence_id": "phil-mitchell-wiki-0033-31488",
+              "text": "Phil returns 18 months later, needing more money. He attacks Ian, who calls the police and Phil is arrested. However, the case collapses after Grant returns to Walford and pays a witness to change his testimony and Phil is released. The brothers return to Walford when Peggy requests they help his sister, Sam Mitchell (Kim Medcalf), who is wrongfully remanded in custody for Den's murder; Den was murdered by his second wife and Sam's nemesis, Chrissie Watts (Tracy-Ann Oberman), after the duo and Sam's friend Zoe Slater (Michelle Ryan) initially worked together to get revenge on Den for his nefarious activities \u2013 including Sam's intent to avenge Phil's ordeal. Upon arriving at the square, Phil and Grant notice Peggy being mugged and end up rescuing her. Shortly afterwards, they learn that Peggy's mugging was organised by her enemy and Walford's newly installed crime kingpin: Johnny Allen (Billy Murray). This prompts Phil and Grant to confront Johnny, warning him to stay away from Peggy under the threat of further violence. The pair then confront Chrissie in the pub, where Phil stops Grant from ",
+              "sha256": "0693db95c40b45113d83ee4eb5926a3f1a482fe986a9e6ca70833e0c82019053",
+              "start": 31488,
+              "end": 32596,
+              "source": {
+                "title": "Phil Mitchell",
+                "url": "https://en.wikipedia.org/wiki/Phil_Mitchell",
+                "revision_id": "1379872347",
+                "revision_url": "https://en.wikipedia.org/w/index.php?oldid=1379872347",
+                "section": "Storylines / 2005\u2013present",
+                "captured_at": "2026-10-17T13:07:31.014189Z",
+                "capture_sha256": "a338d3065203be54e383f2c9c141bca22ae9aedbb950e2e1eada601bcccfe313",
+                "scope": "main_series",
+                "license_url": "https://creativecommons.org/licenses/by-sa/4.0/",
+                "attribution": "Wikipedia contributors; markup removed and whitespace normalized.",
+                "coverage": "Reviewed narrative sections in this captured revision only.",
+                "gaps": [
+                  "Partial canon coverage; other paragraphs remain excluded or awaiting review.",
+                  "Identity and episode metadata do not independently corroborate story claims."
+                ],
+                "support_status": "source_supported"
+              },
+              "location": {
+                "source_id": "phil-mitchell-wiki",
+                "paragraph_ordinal": 33,
+                "section_id": "2005\u2013present",
+                "character_ids": [
+                  "phil-mitchell"
+                ]
+              }
+            },
+            "similarity": 0.5107373290814643
+          },
+          {
+            "passage": {
+              "evidence_id": "grant-mitchell-wiki-0023-19694",
+              "text": "Grant Mitchell arrives in Albert Square in February 1990 with his older brother Phil (Steve McFadden), and the pair become co-owners of the local garage, The Arches. Grant had returned to civilian life in London having been a paratrooper in the Army, which included serving in the Falklands War at the age of 19. After a brief fling with Julie Cooper (Louise Plowright) and getting involved in various dodgy deals, Grant starts wooing the local barmaid, Sharon Watts (Letitia Dean). She grows attracted to his machismo, and soon their flirting progresses into a relationship. Fiercely protective of his girlfriend, most of Grant's initial problems in the Square revolve around his over-possessive nature and jealousy. He puts Sharon's boss Eddie Royle (Michael Melia), the landlord of The Queen Victoria public house, in hospital after he makes a pass at Sharon; he later becomes prime suspect for Royle's murder, but is proved not guilty when the killer is revealed to be Nick Cotton (John Altman), the well established local villain who eventually owns up to the crime but is found not guilty in court. In ",
+              "sha256": "f7310c97b375bba45eb990105ba5073186a1bdf402d515002f13704d506a977a",
+              "start": 19694,
+              "end": 20802,
+              "source": {
+                "title": "Grant Mitchell",
+                "url": "https://en.wikipedia.org/wiki/Grant_Mitchell_(EastEnders)",
+                "revision_id": "1370914760",
+                "revision_url": "https://en.wikipedia.org/w/index.php?oldid=1370914760",
+                "section": "Storylines / 1990\u20131999",
+                "captured_at": "2026-10-17T13:08:22.582778Z",
+                "capture_sha256": "2548b2c8780b1bda430939378a28ab3b7f98eca424480b7cccfaf2eb76f42ebf",
+                "scope": "main_series",
+                "license_url": "https://creativecommons.org/licenses/by-sa/4.0/",
+                "attribution": "Wikipedia contributors; markup removed and whitespace normalized.",
+                "coverage": "Reviewed narrative sections in this captured revision only.",
+                "gaps": [
+                  "Partial canon coverage; other paragraphs remain excluded or awaiting review.",
+                  "Identity and episode metadata do not independently corroborate story claims."
+                ],
+                "support_status": "source_supported"
+              },
+              "location": {
+                "source_id": "grant-mitchell-wiki",
+                "paragraph_ordinal": 23,
+                "section_id": "1990\u20131999",
+                "character_ids": [
+                  "grant-mitchell",
+                  "phil-mitchell",
+                  "sharon-watts"
+                ]
+              }
+            },
+            "similarity": 0.4759734075180456
+          }
+        ],
+        "context": [
+          {
+            "evidence_id": "phil-mitchell-wiki-0018-15527",
+            "text": "Phil Mitchell first arrives in Walford in February 1990 to open an automobile repair shop, known as The Arches; he is joined by his younger brother Grant (Ross Kemp). Two years later, Phil goes into partnership at The Queen Victoria public house with Grant and his wife Sharon Watts (Letitia Dean) \u2013 up to the point where he moves in with them. Phil grows close to Sharon, who turns to him for comfort during Grant's violent outbursts. Sharon and Phil have sex but she stays with Grant, who is unaware of their betrayal. Sharon and Grant's reconciliation is brief, and amidst more rowing and physical violence, Grant is arrested and imprisoned. In his absence, Phil and Sharon continue their affair but when Grant is released, Sharon reconciles with him, leaving Phil heartbroken. On the rebound, Phil enters into a marriage of convenience with Nadia Borovac (Anna Barkan) - a Romanian refugee - enabling her to stay in Britain, with Nadia departing after the wedding.",
+            "sha256": "9a13fe3539b69694d88ab06a1bd85cf898f46d65ca5ac1d958d0e0ff026bd263",
+            "start": 15527,
+            "end": 16495,
+            "source": {
+              "title": "Phil Mitchell",
+              "url": "https://en.wikipedia.org/wiki/Phil_Mitchell",
+              "revision_id": "1379872347",
+              "revision_url": "https://en.wikipedia.org/w/index.php?oldid=1379872347",
+              "section": "Storylines / 1990\u20132003",
+              "captured_at": "2026-10-17T13:07:31.014189Z",
+              "capture_sha256": "a338d3065203be54e383f2c9c141bca22ae9aedbb950e2e1eada601bcccfe313",
+              "scope": "main_series",
+              "license_url": "https://creativecommons.org/licenses/by-sa/4.0/",
+              "attribution": "Wikipedia contributors; markup removed and whitespace normalized.",
+              "coverage": "Reviewed narrative sections in this captured revision only.",
+              "gaps": [
+                "Partial canon coverage; other paragraphs remain excluded or awaiting review.",
+                "Identity and episode metadata do not independently corroborate story claims."
+              ],
+              "support_status": "source_supported"
+            },
+            "location": {
+              "source_id": "phil-mitchell-wiki",
+              "paragraph_ordinal": 18,
+              "section_id": "1990\u20132003",
+              "character_ids": [
+                "grant-mitchell",
+                "phil-mitchell",
+                "sharon-watts"
+              ]
+            }
+          }
+        ],
+        "retrieval_k": 3,
+        "route": "text_rag",
+        "baseline_version": "single-query-uncached-v2",
+        "model_settings": {
+          "embedding_model": "embeddinggemma:300m",
+          "embedding_digest": "85462619ee721b466c5927d109d4cb765861907d5417b9109caebc4e614679f1",
+          "embedding_dimensions": 768,
+          "provider_type": "openrouter",
+          "answer_model": "openai/gpt-6-sol",
+          "canonical_slug": "openai/gpt-6-sol-20260922",
+          "provider": "openai",
+          "input_price_per_million": "2",
+          "output_price_per_million": "10",
+          "output_tokens": 8192,
+          "reasoning_effort": "medium",
+          "request_timeout_seconds": 180
+        },
+        "prompt_sha256": "6f42fd8b13a5bb17664c6c7c435c030931e4f8187bdcb9fc8173195627cd9d64",
+        "application_sha256": "6b80889c046292fdcb7360d2a9aa23374c665f01aa8a4f32aa7fa0589a1605bb",
+        "trace_id": "tr-a72036a8b074ab0ce89bf17fd76d8660",
+        "elapsed_ms": 5398.064869004884,
+        "usage": {
+          "input_tokens": 1254,
+          "output_tokens": 179,
+          "embedding_tokens": 22
+        },
+        "expenditure_category": "serving",
+        "estimated_api_cost_usd": 0.0049235,
+        "provider_usage": {
+          "reservation_id": "14b5f2f1d2a145249c8011d537522b09",
+          "reserved_usd": 0.104574,
+          "cost_usd": 0.0049235,
+          "request_id": "gen-1792250635-fIH6lkuY9SA9EwuZsRq9",
+          "returned_model": "openai/gpt-6-sol",
+          "provider": "OpenAI",
+          "input_tokens": 1254,
+          "output_tokens": 179,
+          "reasoning_tokens": 71
+        },
+        "cost_scope": "OpenRouter reported inference credits only. Null means unknown cost; the local budget retains a reservation. Credit purchase fees, tax, local embeddings and hosting are excluded.",
+        "limitation": "Source-supported is not independently cross-checked. Coverage is limited to the captured snapshot; this provider baseline is not deployment approval."
+      }
+    },
+    {
+      "case_id": "ambiguous",
+      "reference_sha256": "7c3f5eb7125fa4fc30bbce3565d7bb00ff9a8277be4f794078106273f15b8a03",
+      "response": {
+        "response_id": "3256d3e2-94d9-41ce-b499-103a6e6920c7",
+        "question": "When did he first arrive in Walford?",
+        "conversation": {
+          "session_id": "92b5d4a1-3238-4531-911e-2c8a274660ac",
+          "turn_id": "e468475b-11a8-46fe-b9a0-ec68c25bfefb",
+          "turn_number": 6,
+          "generation": 0,
+          "reference": {
+            "question": "When did he first arrive in Walford?",
+            "character_ids": [
+              "phil-mitchell",
+              "grant-mitchell"
+            ],
+            "context_turn_id": "78858ee5-54c6-48af-9ed7-42af24038904",
+            "clarification": "Which character do you mean: Phil Mitchell, Grant Mitchell?",
+            "followup_requires_name": false
+          }
+        },
+        "status": "clarification",
+        "answer": "Which character do you mean: Phil Mitchell, Grant Mitchell?",
+        "unanswered": [
+          "Which character is intended?"
+        ],
+        "citations": [],
+        "snapshot_id": "sources-b5bf51ce2c754a5c349834cc87954524d6c89cb20e38fcdafeea815b0760212e",
+        "snapshot_sha256": "f654d98336a75ac96ff8a38c4213429f1800775f73169811387560020dd9f218",
+        "publication": {
+          "compatibility_id": "b5e13868e87784fe3a590ac011df6e2652d29949f5e70c7c0958040088b157c4",
+          "index_sha256": "6d3b232086e3011f1e6f5ddae36ee51009da9c74afc1a70cb36815947bc136c9",
+          "generation": 2
+        },
+        "source": {
+          "title": "Phil Mitchell",
+          "url": "https://en.wikipedia.org/wiki/Phil_Mitchell",
+          "revision_id": "1379872347",
+          "revision_url": "https://en.wikipedia.org/w/index.php?oldid=1379872347",
+          "section": "Storylines / 1990\u20132003",
+          "captured_at": "2026-10-17T13:07:31.014189Z",
+          "capture_sha256": "a338d3065203be54e383f2c9c141bca22ae9aedbb950e2e1eada601bcccfe313",
+          "scope": "main_series",
+          "license_url": "https://creativecommons.org/licenses/by-sa/4.0/",
+          "attribution": "Wikipedia contributors; markup removed and whitespace normalized.",
+          "coverage": "Reviewed narrative sections in this captured revision only.",
+          "gaps": [
+            "Partial canon coverage; other paragraphs remain excluded or awaiting review.",
+            "Identity and episode metadata do not independently corroborate story claims."
+          ],
+          "support_status": "source_supported"
+        },
+        "retrieved": [],
+        "context": [],
+        "retrieval_k": 0,
+        "route": "text_rag",
+        "baseline_version": "single-query-uncached-v2",
+        "model_settings": {
+          "embedding_model": "embeddinggemma:300m",
+          "embedding_digest": "85462619ee721b466c5927d109d4cb765861907d5417b9109caebc4e614679f1",
+          "embedding_dimensions": 768,
+          "provider_type": "openrouter",
+          "answer_model": "openai/gpt-6-sol",
+          "canonical_slug": "openai/gpt-6-sol-20260922",
+          "provider": "openai",
+          "input_price_per_million": "2",
+          "output_price_per_million": "10",
+          "output_tokens": 8192,
+          "reasoning_effort": "medium",
+          "request_timeout_seconds": 180
+        },
+        "prompt_sha256": "6f42fd8b13a5bb17664c6c7c435c030931e4f8187bdcb9fc8173195627cd9d64",
+        "application_sha256": "6b80889c046292fdcb7360d2a9aa23374c665f01aa8a4f32aa7fa0589a1605bb",
+        "trace_id": "tr-eb9daa469a1ad65baf7caee2048dc61b",
+        "elapsed_ms": 1733.264505994157,
+        "usage": {
+          "input_tokens": 0,
+          "output_tokens": 0,
+          "embedding_tokens": 0
+        },
+        "expenditure_category": "serving",
+        "estimated_api_cost_usd": 0.0,
+        "cost_scope": "OpenRouter reported inference credits only. Null means unknown cost; the local budget retains a reservation. Credit purchase fees, tax, local embeddings and hosting are excluded.",
+        "limitation": "Source-supported is not independently cross-checked. Coverage is limited to the captured snapshot; this provider baseline is not deployment approval."
+      }
+    },
+    {
+      "case_id": "selected",
+      "reference_sha256": "b81a8deab4b436edb6faaa66ecec7c5ab6853f50acb1a69d65186eacd5c36682",
+      "response": {
+        "response_id": "07e096b8-5ef3-4647-bab3-41d214bc5039",
+        "question": "Phil Mitchell",
+        "conversation": {
+          "session_id": "92b5d4a1-3238-4531-911e-2c8a274660ac",
+          "turn_id": "0a52b033-2988-4d21-95a7-87de6857a9c3",
+          "turn_number": 7,
+          "generation": 0,
+          "reference": {
+            "question": "When did Phil Mitchell first arrive in Walford?",
+            "character_ids": [
+              "phil-mitchell"
+            ],
+            "context_turn_id": "e468475b-11a8-46fe-b9a0-ec68c25bfefb",
+            "clarification": null,
+            "followup_requires_name": false
+          }
+        },
+        "status": "answered",
+        "answer": "Right, listen. I first arrived in Walford in February 1990.",
+        "qualifications": [
+          {
+            "detail": "The arrival is dated to February 1990, at month precision.",
+            "evidence_ids": [
+              "phil-mitchell-wiki-0018-15527"
+            ],
+            "kind": "timing",
+            "precision": "exact"
+          }
+        ],
+        "citations": [
+          {
+            "evidence_id": "phil-mitchell-wiki-0018-15527",
+            "text": "Phil Mitchell first arrives in Walford in February 1990 to open an automobile repair shop, known as The Arches; he is joined by his younger brother Grant (Ross Kemp). Two years later, Phil goes into partnership at The Queen Victoria public house with Grant and his wife Sharon Watts (Letitia Dean) \u2013 up to the point where he moves in with them. Phil grows close to Sharon, who turns to him for comfort during Grant's violent outbursts. Sharon and Phil have sex but she stays with Grant, who is unaware of their betrayal. Sharon and Grant's reconciliation is brief, and amidst more rowing and physical violence, Grant is arrested and imprisoned. In his absence, Phil and Sharon continue their affair but when Grant is released, Sharon reconciles with him, leaving Phil heartbroken. On the rebound, Phil enters into a marriage of convenience with Nadia Borovac (Anna Barkan) - a Romanian refugee - enabling her to stay in Britain, with Nadia departing after the wedding.",
+            "sha256": "9a13fe3539b69694d88ab06a1bd85cf898f46d65ca5ac1d958d0e0ff026bd263",
+            "start": 15527,
+            "end": 16495,
+            "source": {
+              "title": "Phil Mitchell",
+              "url": "https://en.wikipedia.org/wiki/Phil_Mitchell",
+              "revision_id": "1379872347",
+              "revision_url": "https://en.wikipedia.org/w/index.php?oldid=1379872347",
+              "section": "Storylines / 1990\u20132003",
+              "captured_at": "2026-10-17T13:07:31.014189Z",
+              "capture_sha256": "a338d3065203be54e383f2c9c141bca22ae9aedbb950e2e1eada601bcccfe313",
+              "scope": "main_series",
+              "license_url": "https://creativecommons.org/licenses/by-sa/4.0/",
+              "attribution": "Wikipedia contributors; markup removed and whitespace normalized.",
+              "coverage": "Reviewed narrative sections in this captured revision only.",
+              "gaps": [
+                "Partial canon coverage; other paragraphs remain excluded or awaiting review.",
+                "Identity and episode metadata do not independently corroborate story claims."
+              ],
+              "support_status": "source_supported"
+            },
+            "location": {
+              "source_id": "phil-mitchell-wiki",
+              "paragraph_ordinal": 18,
+              "section_id": "1990\u20132003",
+              "character_ids": [
+                "grant-mitchell",
+                "phil-mitchell",
+                "sharon-watts"
+              ]
+            },
+            "resolve_path": "/v1/snapshots/sources-b5bf51ce2c754a5c349834cc87954524d6c89cb20e38fcdafeea815b0760212e/evidence/phil-mitchell-wiki-0018-15527"
+          }
+        ],
+        "snapshot_id": "sources-b5bf51ce2c754a5c349834cc87954524d6c89cb20e38fcdafeea815b0760212e",
+        "snapshot_sha256": "f654d98336a75ac96ff8a38c4213429f1800775f73169811387560020dd9f218",
+        "publication": {
+          "compatibility_id": "b5e13868e87784fe3a590ac011df6e2652d29949f5e70c7c0958040088b157c4",
+          "index_sha256": "6d3b232086e3011f1e6f5ddae36ee51009da9c74afc1a70cb36815947bc136c9",
+          "generation": 2
+        },
+        "source": {
+          "title": "Phil Mitchell",
+          "url": "https://en.wikipedia.org/wiki/Phil_Mitchell",
+          "revision_id": "1379872347",
+          "revision_url": "https://en.wikipedia.org/w/index.php?oldid=1379872347",
+          "section": "Storylines / 1990\u20132003",
+          "captured_at": "2026-10-17T13:07:31.014189Z",
+          "capture_sha256": "a338d3065203be54e383f2c9c141bca22ae9aedbb950e2e1eada601bcccfe313",
+          "scope": "main_series",
+          "license_url": "https://creativecommons.org/licenses/by-sa/4.0/",
+          "attribution": "Wikipedia contributors; markup removed and whitespace normalized.",
+          "coverage": "Reviewed narrative sections in this captured revision only.",
+          "gaps": [
+            "Partial canon coverage; other paragraphs remain excluded or awaiting review.",
+            "Identity and episode metadata do not independently corroborate story claims."
+          ],
+          "support_status": "source_supported"
+        },
+        "retrieved": [
+          {
+            "passage": {
+              "evidence_id": "phil-mitchell-wiki-0018-15527",
+              "text": "Phil Mitchell first arrives in Walford in February 1990 to open an automobile repair shop, known as The Arches; he is joined by his younger brother Grant (Ross Kemp). Two years later, Phil goes into partnership at The Queen Victoria public house with Grant and his wife Sharon Watts (Letitia Dean) \u2013 up to the point where he moves in with them. Phil grows close to Sharon, who turns to him for comfort during Grant's violent outbursts. Sharon and Phil have sex but she stays with Grant, who is unaware of their betrayal. Sharon and Grant's reconciliation is brief, and amidst more rowing and physical violence, Grant is arrested and imprisoned. In his absence, Phil and Sharon continue their affair but when Grant is released, Sharon reconciles with him, leaving Phil heartbroken. On the rebound, Phil enters into a marriage of convenience with Nadia Borovac (Anna Barkan) - a Romanian refugee - enabling her to stay in Britain, with Nadia departing after the wedding.",
+              "sha256": "9a13fe3539b69694d88ab06a1bd85cf898f46d65ca5ac1d958d0e0ff026bd263",
+              "start": 15527,
+              "end": 16495,
+              "source": {
+                "title": "Phil Mitchell",
+                "url": "https://en.wikipedia.org/wiki/Phil_Mitchell",
+                "revision_id": "1379872347",
+                "revision_url": "https://en.wikipedia.org/w/index.php?oldid=1379872347",
+                "section": "Storylines / 1990\u20132003",
+                "captured_at": "2026-10-17T13:07:31.014189Z",
+                "capture_sha256": "a338d3065203be54e383f2c9c141bca22ae9aedbb950e2e1eada601bcccfe313",
+                "scope": "main_series",
+                "license_url": "https://creativecommons.org/licenses/by-sa/4.0/",
+                "attribution": "Wikipedia contributors; markup removed and whitespace normalized.",
+                "coverage": "Reviewed narrative sections in this captured revision only.",
+                "gaps": [
+                  "Partial canon coverage; other paragraphs remain excluded or awaiting review.",
+                  "Identity and episode metadata do not independently corroborate story claims."
+                ],
+                "support_status": "source_supported"
+              },
+              "location": {
+                "source_id": "phil-mitchell-wiki",
+                "paragraph_ordinal": 18,
+                "section_id": "1990\u20132003",
+                "character_ids": [
+                  "grant-mitchell",
+                  "phil-mitchell",
+                  "sharon-watts"
+                ]
+              }
+            },
+            "similarity": 0.5647641939206896
+          },
+          {
+            "passage": {
+              "evidence_id": "phil-mitchell-wiki-0054-69233",
+              "text": "punching him. Later, Phil is knocked unconscious when the exposed gas line explodes during the Walford in Bloom event \u2013 but he is unharmed.",
+              "sha256": "204ac74b6d158c97b3b00789409ba36ba77c1563ef416b45de3aa835240fad39",
+              "start": 69233,
+              "end": 69372,
+              "source": {
+                "title": "Phil Mitchell",
+                "url": "https://en.wikipedia.org/wiki/Phil_Mitchell",
+                "revision_id": "1379872347",
+                "revision_url": "https://en.wikipedia.org/w/index.php?oldid=1379872347",
+                "section": "Storylines / 2005\u2013present",
+                "captured_at": "2026-10-17T13:07:31.014189Z",
+                "capture_sha256": "a338d3065203be54e383f2c9c141bca22ae9aedbb950e2e1eada601bcccfe313",
+                "scope": "main_series",
+                "license_url": "https://creativecommons.org/licenses/by-sa/4.0/",
+                "attribution": "Wikipedia contributors; markup removed and whitespace normalized.",
+                "coverage": "Reviewed narrative sections in this captured revision only.",
+                "gaps": [
+                  "Partial canon coverage; other paragraphs remain excluded or awaiting review.",
+                  "Identity and episode metadata do not independently corroborate story claims."
+                ],
+                "support_status": "source_supported"
+              },
+              "location": {
+                "source_id": "phil-mitchell-wiki",
+                "paragraph_ordinal": 54,
+                "section_id": "2005\u2013present",
+                "character_ids": [
+                  "phil-mitchell"
+                ]
+              }
+            },
+            "similarity": 0.46156247761102187
+          },
+          {
+            "passage": {
+              "evidence_id": "phil-mitchell-wiki-0033-31488",
+              "text": "Phil returns 18 months later, needing more money. He attacks Ian, who calls the police and Phil is arrested. However, the case collapses after Grant returns to Walford and pays a witness to change his testimony and Phil is released. The brothers return to Walford when Peggy requests they help his sister, Sam Mitchell (Kim Medcalf), who is wrongfully remanded in custody for Den's murder; Den was murdered by his second wife and Sam's nemesis, Chrissie Watts (Tracy-Ann Oberman), after the duo and Sam's friend Zoe Slater (Michelle Ryan) initially worked together to get revenge on Den for his nefarious activities \u2013 including Sam's intent to avenge Phil's ordeal. Upon arriving at the square, Phil and Grant notice Peggy being mugged and end up rescuing her. Shortly afterwards, they learn that Peggy's mugging was organised by her enemy and Walford's newly installed crime kingpin: Johnny Allen (Billy Murray). This prompts Phil and Grant to confront Johnny, warning him to stay away from Peggy under the threat of further violence. The pair then confront Chrissie in the pub, where Phil stops Grant from ",
+              "sha256": "0693db95c40b45113d83ee4eb5926a3f1a482fe986a9e6ca70833e0c82019053",
+              "start": 31488,
+              "end": 32596,
+              "source": {
+                "title": "Phil Mitchell",
+                "url": "https://en.wikipedia.org/wiki/Phil_Mitchell",
+                "revision_id": "1379872347",
+                "revision_url": "https://en.wikipedia.org/w/index.php?oldid=1379872347",
+                "section": "Storylines / 2005\u2013present",
+                "captured_at": "2026-10-17T13:07:31.014189Z",
+                "capture_sha256": "a338d3065203be54e383f2c9c141bca22ae9aedbb950e2e1eada601bcccfe313",
+                "scope": "main_series",
+                "license_url": "https://creativecommons.org/licenses/by-sa/4.0/",
+                "attribution": "Wikipedia contributors; markup removed and whitespace normalized.",
+                "coverage": "Reviewed narrative sections in this captured revision only.",
+                "gaps": [
+                  "Partial canon coverage; other paragraphs remain excluded or awaiting review.",
+                  "Identity and episode metadata do not independently corroborate story claims."
+                ],
+                "support_status": "source_supported"
+              },
+              "location": {
+                "source_id": "phil-mitchell-wiki",
+                "paragraph_ordinal": 33,
+                "section_id": "2005\u2013present",
+                "character_ids": [
+                  "phil-mitchell"
+                ]
+              }
+            },
+            "similarity": 0.4605365215133468
+          }
+        ],
+        "context": [
+          {
+            "evidence_id": "phil-mitchell-wiki-0018-15527",
+            "text": "Phil Mitchell first arrives in Walford in February 1990 to open an automobile repair shop, known as The Arches; he is joined by his younger brother Grant (Ross Kemp). Two years later, Phil goes into partnership at The Queen Victoria public house with Grant and his wife Sharon Watts (Letitia Dean) \u2013 up to the point where he moves in with them. Phil grows close to Sharon, who turns to him for comfort during Grant's violent outbursts. Sharon and Phil have sex but she stays with Grant, who is unaware of their betrayal. Sharon and Grant's reconciliation is brief, and amidst more rowing and physical violence, Grant is arrested and imprisoned. In his absence, Phil and Sharon continue their affair but when Grant is released, Sharon reconciles with him, leaving Phil heartbroken. On the rebound, Phil enters into a marriage of convenience with Nadia Borovac (Anna Barkan) - a Romanian refugee - enabling her to stay in Britain, with Nadia departing after the wedding.",
+            "sha256": "9a13fe3539b69694d88ab06a1bd85cf898f46d65ca5ac1d958d0e0ff026bd263",
+            "start": 15527,
+            "end": 16495,
+            "source": {
+              "title": "Phil Mitchell",
+              "url": "https://en.wikipedia.org/wiki/Phil_Mitchell",
+              "revision_id": "1379872347",
+              "revision_url": "https://en.wikipedia.org/w/index.php?oldid=1379872347",
+              "section": "Storylines / 1990\u20132003",
+              "captured_at": "2026-10-17T13:07:31.014189Z",
+              "capture_sha256": "a338d3065203be54e383f2c9c141bca22ae9aedbb950e2e1eada601bcccfe313",
+              "scope": "main_series",
+              "license_url": "https://creativecommons.org/licenses/by-sa/4.0/",
+              "attribution": "Wikipedia contributors; markup removed and whitespace normalized.",
+              "coverage": "Reviewed narrative sections in this captured revision only.",
+              "gaps": [
+                "Partial canon coverage; other paragraphs remain excluded or awaiting review.",
+                "Identity and episode metadata do not independently corroborate story claims."
+              ],
+              "support_status": "source_supported"
+            },
+            "location": {
+              "source_id": "phil-mitchell-wiki",
+              "paragraph_ordinal": 18,
+              "section_id": "1990\u20132003",
+              "character_ids": [
+                "grant-mitchell",
+                "phil-mitchell",
+                "sharon-watts"
+              ]
+            }
+          }
+        ],
+        "retrieval_k": 3,
+        "route": "text_rag",
+        "baseline_version": "single-query-uncached-v2",
+        "model_settings": {
+          "embedding_model": "embeddinggemma:300m",
+          "embedding_digest": "85462619ee721b466c5927d109d4cb765861907d5417b9109caebc4e614679f1",
+          "embedding_dimensions": 768,
+          "provider_type": "openrouter",
+          "answer_model": "openai/gpt-6-sol",
+          "canonical_slug": "openai/gpt-6-sol-20260922",
+          "provider": "openai",
+          "input_price_per_million": "2",
+          "output_price_per_million": "10",
+          "output_tokens": 8192,
+          "reasoning_effort": "medium",
+          "request_timeout_seconds": 180
+        },
+        "prompt_sha256": "6f42fd8b13a5bb17664c6c7c435c030931e4f8187bdcb9fc8173195627cd9d64",
+        "application_sha256": "6b80889c046292fdcb7360d2a9aa23374c665f01aa8a4f32aa7fa0589a1605bb",
+        "trace_id": "tr-4923a46095479764f2ab8260fc651489",
+        "elapsed_ms": 5426.625148000312,
+        "usage": {
+          "input_tokens": 1251,
+          "output_tokens": 188,
+          "embedding_tokens": 19
+        },
+        "expenditure_category": "serving",
+        "estimated_api_cost_usd": 0.0021356,
+        "provider_usage": {
+          "reservation_id": "8022dc83a69848da9e346c626b50b115",
+          "reserved_usd": 0.104534,
+          "cost_usd": 0.0021356,
+          "request_id": "gen-1792250649-Omi2UZTLKdL5hr7JAk9f",
+          "returned_model": "openai/gpt-6-sol",
+          "provider": "OpenAI",
+          "input_tokens": 1251,
+          "output_tokens": 188,
+          "reasoning_tokens": 86
+        },
+        "cost_scope": "OpenRouter reported inference credits only. Null means unknown cost; the local budget retains a reservation. Credit purchase fees, tax, local embeddings and hosting are excluded.",
+        "limitation": "Source-supported is not independently cross-checked. Coverage is limited to the captured snapshot; this provider baseline is not deployment approval."
+      }
+    },
+    {
+      "case_id": "reset",
+      "reset": {
+        "session_id": "92b5d4a1-3238-4531-911e-2c8a274660ac",
+        "created_at": "2026-10-17T15:23:13.757617Z",
+        "expires_at": "2026-10-17T17:23:13.757617Z",
+        "context_expires_at": "2026-10-17T15:54:15.571693Z",
+        "generation": 1,
+        "turn_number": 7,
+        "history": []
+      }
+    },
+    {
+      "case_id": "after-reset",
+      "reference_sha256": "f3ef1de325de86e14f3b2cb04ac31cfbf90be649730935cfa382304172a17ae1",
+      "response": {
+        "response_id": "f3365aa8-71a5-4e2a-93e1-0311e4c399b8",
+        "question": "When did he first arrive in Walford?",
+        "conversation": {
+          "session_id": "92b5d4a1-3238-4531-911e-2c8a274660ac",
+          "turn_id": "f0704bf6-e1a3-4f18-9aeb-86e736991455",
+          "turn_number": 8,
+          "generation": 1,
+          "reference": {
+            "question": "When did he first arrive in Walford?",
+            "character_ids": [],
+            "context_turn_id": null,
+            "clarification": "Which character do you mean? Please give their full name; the reference is unresolved in the available context.",
+            "followup_requires_name": false
+          }
+        },
+        "status": "clarification",
+        "answer": "Which character do you mean? Please give their full name; the reference is unresolved in the available context.",
+        "unanswered": [
+          "Which character is intended?"
+        ],
+        "citations": [],
+        "snapshot_id": "sources-b5bf51ce2c754a5c349834cc87954524d6c89cb20e38fcdafeea815b0760212e",
+        "snapshot_sha256": "f654d98336a75ac96ff8a38c4213429f1800775f73169811387560020dd9f218",
+        "publication": {
+          "compatibility_id": "b5e13868e87784fe3a590ac011df6e2652d29949f5e70c7c0958040088b157c4",
+          "index_sha256": "6d3b232086e3011f1e6f5ddae36ee51009da9c74afc1a70cb36815947bc136c9",
+          "generation": 2
+        },
+        "source": {
+          "title": "Phil Mitchell",
+          "url": "https://en.wikipedia.org/wiki/Phil_Mitchell",
+          "revision_id": "1379872347",
+          "revision_url": "https://en.wikipedia.org/w/index.php?oldid=1379872347",
+          "section": "Storylines / 1990\u20132003",
+          "captured_at": "2026-10-17T13:07:31.014189Z",
+          "capture_sha256": "a338d3065203be54e383f2c9c141bca22ae9aedbb950e2e1eada601bcccfe313",
+          "scope": "main_series",
+          "license_url": "https://creativecommons.org/licenses/by-sa/4.0/",
+          "attribution": "Wikipedia contributors; markup removed and whitespace normalized.",
+          "coverage": "Reviewed narrative sections in this captured revision only.",
+          "gaps": [
+            "Partial canon coverage; other paragraphs remain excluded or awaiting review.",
+            "Identity and episode metadata do not independently corroborate story claims."
+          ],
+          "support_status": "source_supported"
+        },
+        "retrieved": [],
+        "context": [],
+        "retrieval_k": 0,
+        "route": "text_rag",
+        "baseline_version": "single-query-uncached-v2",
+        "model_settings": {
+          "embedding_model": "embeddinggemma:300m",
+          "embedding_digest": "85462619ee721b466c5927d109d4cb765861907d5417b9109caebc4e614679f1",
+          "embedding_dimensions": 768,
+          "provider_type": "openrouter",
+          "answer_model": "openai/gpt-6-sol",
+          "canonical_slug": "openai/gpt-6-sol-20260922",
+          "provider": "openai",
+          "input_price_per_million": "2",
+          "output_price_per_million": "10",
+          "output_tokens": 8192,
+          "reasoning_effort": "medium",
+          "request_timeout_seconds": 180
+        },
+        "prompt_sha256": "6f42fd8b13a5bb17664c6c7c435c030931e4f8187bdcb9fc8173195627cd9d64",
+        "application_sha256": "6b80889c046292fdcb7360d2a9aa23374c665f01aa8a4f32aa7fa0589a1605bb",
+        "trace_id": "tr-4564a8cc69966d2951d5177f7208f85f",
+        "elapsed_ms": 1923.4330850013066,
+        "usage": {
+          "input_tokens": 0,
+          "output_tokens": 0,
+          "embedding_tokens": 0
+        },
+        "expenditure_category": "serving",
+        "estimated_api_cost_usd": 0.0,
+        "cost_scope": "OpenRouter reported inference credits only. Null means unknown cost; the local budget retains a reservation. Credit purchase fees, tax, local embeddings and hosting are excluded.",
+        "limitation": "Source-supported is not independently cross-checked. Coverage is limited to the captured snapshot; this provider baseline is not deployment approval."
+      }
+    },
+    {
+      "case_id": "isolated",
+      "reference_sha256": "8c6d5eed0ef8bc92027b81280f29ec48e4157da35bb7d022d6039a0a51c1f055",
+      "response": {
+        "response_id": "f458f244-b279-4963-a3b3-afc38ff83c13",
+        "question": "What is her father's name?",
+        "conversation": {
+          "session_id": "c563d871-d723-4a20-96a5-be6c5b8fd00f",
+          "turn_id": "df717e44-a8af-493d-8d3f-547bb6ac54cd",
+          "turn_number": 1,
+          "generation": 0,
+          "reference": {
+            "question": "What is her father's name?",
+            "character_ids": [],
+            "context_turn_id": null,
+            "clarification": "Which character do you mean? Please give their full name; the reference is unresolved in the available context.",
+            "followup_requires_name": true
+          }
+        },
+        "status": "clarification",
+        "answer": "Which character do you mean? Please give their full name; the reference is unresolved in the available context.",
+        "unanswered": [
+          "Which character is intended?"
+        ],
+        "citations": [],
+        "snapshot_id": "sources-b5bf51ce2c754a5c349834cc87954524d6c89cb20e38fcdafeea815b0760212e",
+        "snapshot_sha256": "f654d98336a75ac96ff8a38c4213429f1800775f73169811387560020dd9f218",
+        "publication": {
+          "compatibility_id": "b5e13868e87784fe3a590ac011df6e2652d29949f5e70c7c0958040088b157c4",
+          "index_sha256": "6d3b232086e3011f1e6f5ddae36ee51009da9c74afc1a70cb36815947bc136c9",
+          "generation": 2
+        },
+        "source": {
+          "title": "Phil Mitchell",
+          "url": "https://en.wikipedia.org/wiki/Phil_Mitchell",
+          "revision_id": "1379872347",
+          "revision_url": "https://en.wikipedia.org/w/index.php?oldid=1379872347",
+          "section": "Storylines / 1990\u20132003",
+          "captured_at": "2026-10-17T13:07:31.014189Z",
+          "capture_sha256": "a338d3065203be54e383f2c9c141bca22ae9aedbb950e2e1eada601bcccfe313",
+          "scope": "main_series",
+          "license_url": "https://creativecommons.org/licenses/by-sa/4.0/",
+          "attribution": "Wikipedia contributors; markup removed and whitespace normalized.",
+          "coverage": "Reviewed narrative sections in this captured revision only.",
+          "gaps": [
+            "Partial canon coverage; other paragraphs remain excluded or awaiting review.",
+            "Identity and episode metadata do not independently corroborate story claims."
+          ],
+          "support_status": "source_supported"
+        },
+        "retrieved": [],
+        "context": [],
+        "retrieval_k": 0,
+        "route": "text_rag",
+        "baseline_version": "single-query-uncached-v2",
+        "model_settings": {
+          "embedding_model": "embeddinggemma:300m",
+          "embedding_digest": "85462619ee721b466c5927d109d4cb765861907d5417b9109caebc4e614679f1",
+          "embedding_dimensions": 768,
+          "provider_type": "openrouter",
+          "answer_model": "openai/gpt-6-sol",
+          "canonical_slug": "openai/gpt-6-sol-20260922",
+          "provider": "openai",
+          "input_price_per_million": "2",
+          "output_price_per_million": "10",
+          "output_tokens": 8192,
+          "reasoning_effort": "medium",
+          "request_timeout_seconds": 180
+        },
+        "prompt_sha256": "6f42fd8b13a5bb17664c6c7c435c030931e4f8187bdcb9fc8173195627cd9d64",
+        "application_sha256": "6b80889c046292fdcb7360d2a9aa23374c665f01aa8a4f32aa7fa0589a1605bb",
+        "trace_id": "tr-85808a8a51bcc523b307ceb09f541f19",
+        "elapsed_ms": 1964.6768899983726,
+        "usage": {
+          "input_tokens": 0,
+          "output_tokens": 0,
+          "embedding_tokens": 0
+        },
+        "expenditure_category": "serving",
+        "estimated_api_cost_usd": 0.0,
+        "cost_scope": "OpenRouter reported inference credits only. Null means unknown cost; the local budget retains a reservation. Credit purchase fees, tax, local embeddings and hosting are excluded.",
+        "limitation": "Source-supported is not independently cross-checked. Coverage is limited to the captured snapshot; this provider baseline is not deployment approval."
+      }
+    }
+  ],
+  "cost_usd": "0.0237656",
+  "model_calls": 6
+}

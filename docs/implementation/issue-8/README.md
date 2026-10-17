@@ -94,51 +94,61 @@ session isolation/recreation, concurrent turns, bounded truncation and real CLI
 HTTP transport, including interactive chat. Twenty focused reference/state cases
 include all independent review failures. The remaining live result is explicit.
 
-## Live acceptance awaiting authorization
+## Live acceptance
 
-No paid model calls have run for #8. Automatic approval review rejected the capture
-command and its evidence-backed reassessment: it requires trusted authorization
-for this specific external destination and paid spend, and did not accept the
-repository's historical $5 trial authorization as sufficient. No workaround was
-attempted. The shared ledger remains **$0.208899**, zero unsettled reservations.
+The user explicitly approved the live sample and publication after the initial
+approval-review rejections. [The final matrix](serving-matrix.json) records nine
+real CLI/API responses plus a reset: six factual generations and three deterministic
+clarifications. It uses the unchanged core-profile snapshot and Sol profile.
 
-The concrete proposed sample is [conversation development v1](../../../data/references/conversation-v1.json):
-nine real CLI/API turns plus a reset, with six factual generations expected and
-three zero-model clarifications. It uses only retained public Wikipedia passages
-and the fixed fictional-character questions, the existing OpenRouter/OpenAI Sol
-profile and the same non-resetting ledger. Its maximum is twelve paid calls and
-$0.25 additional reported inference spend within the original $5 cap. The alias
-introduction was amended before execution so the later father question has an
-unambiguous subject; this is disclosed in the frozen dataset.
+[Independent Spec labels](answer-reviews.json) and [separate scored dimensions](answer-quality.json)
+pass **15/15** actual factual assertions for correctness, grounding and citation
+support, **7/7** required facts and **9/9** appropriate outcomes, with zero critical
+failures. Clarifications have no factual denominator. The additional Kat/Zoe
+assertions were reviewed against their actual passages, not accepted merely because
+citations resolve. [Persona review](live-review.md) checks Phil's I/my phrasing,
+identity preservation, alias resolution and uncertainty separately.
 
-After specific approval, start the local API with the retained core-profile
-database and `ASK_PHIL_MODELS=config/openrouter-sol.json`, then run:
+[Actual MLflow readback](execution-review.json) confirms all nine traces and 36
+spans: every factual turn freshly retrieves the selected required passage and
+supplies sufficient context; all three clarifications skip retrieval and generation
+with zero usage/cost. Model inputs contain only system instructions and the current
+resolved question with captured evidence. Private bearer capabilities are absent.
+[Public lifecycle readback](lifecycle.json) confirms reset, another session's denied
+access, unchanged original responses, resolvable citations and state/response
+persistence after an actual API restart.
+
+Six paid serving calls cost **$0.0237656**, below the approved $0.25 slice limit.
+The existing non-resetting $5 ledger totals **$0.232666** after upward rounding,
+with zero unsettled reservations. [Summary](summary.json) separates serving from
+the offline review, which uses zero answer-model calls and a separate MLflow run.
+Application elapsed times range 1.73–7.55 seconds, median 4.61 seconds, across this
+one mixed sequence; these exclude complete CLI wall time and are not a controlled
+performance comparison. No source, test or script changed after the 182-test run.
+
+The two related story groups remain exposed development data. These observations
+do not establish held-out reliability, human adjudication, independent canon
+corroboration, exhaustive persona range or full serious-harm acceptance. Earlier
+#7 Janine/context and explicit garage co-ownership gaps remain under #24/#9.
+
+To reproduce with the retained database, existing key and preserved shared ledger,
+start the API with `ASK_PHIL_MODELS=config/openrouter-sol.json` and use fresh output
+paths (the retained capture cannot be overwritten):
 
 ```sh
 uv run python scripts/evaluate_conversation.py capture \
-  --api-url http://127.0.0.1:8008 \
-  --output docs/implementation/issue-8/serving-matrix.json
+  --api-url http://127.0.0.1:8008 --output artifacts/conversation-new.json
+uv run python scripts/evaluate_conversation.py score \
+  --capture artifacts/conversation-new.json --reviews artifacts/conversation-new-reviews.json \
+  --output artifacts/conversation-new-quality.json
 ```
 
-The recorder retains private session/read receipts under ignored `artifacts/`
-and publishes only response/trace/evidence records. Independently review every
-actual factual claim, context support, citations, required facts, persona wording,
-clarification, selection and reset; then score hash-bound `QualityReview` annotations
-using the recorder's `score --capture ... --reviews ... --output ...` mode. Serving
-generation costs remain serving; offline review has separate MLflow artifacts and
-zero answer-model calls. Do not mark #8 complete or close it before this review.
+Review each new response against the frozen references and actual source/context
+before scoring it. The recorder retains private session/read receipts under ignored
+`artifacts/`; published captures contain only response/trace/evidence records.
 
-All cases are exposed development data; no human adjudication, held-out calibration
-or complete canon claim applies. A passing software suite does not fill the missing
-live-model acceptance result.
+## Publication
 
-## Publication awaiting authorization
-
-All implementation and software evidence is committed on the existing local
-`main` branch. Automatic approval review separately rejected `git push origin main`
-because it requires explicit authorization for the shared remote default branch.
-No connector or other workaround was attempted after that denial. Publication,
-exact remote-tree readback and issue closure therefore remain pending. Once
-publication is authorized, use the repository's existing native/connector procedure,
-preserve both histories, verify the intended local tree against the remote revision,
-and keep #8 open until its live acceptance also passes.
+The user approved publication to GitHub `main`. Acceptance is complete; exact
+remote-tree verification and issue closure follow publication. The earlier automatic
+approval denials are historical records and no longer permission blockers.

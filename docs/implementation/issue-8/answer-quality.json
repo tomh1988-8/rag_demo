@@ -1,0 +1,561 @@
+{
+  "recorded_at": "2026-10-17T15:29:02.423132+00:00",
+  "state": "complete",
+  "run_id": "89ff8370f85840dba252beea04353aa0",
+  "dataset_id": "conversation-development-v1",
+  "reference_file_sha256": "71e6bfa28f8c09bd0a79bacf617d577bf93ffc868b42539de9f27d87fe73958d",
+  "application_sha256": "6b80889c046292fdcb7360d2a9aa23374c665f01aa8a4f32aa7fa0589a1605bb",
+  "recorder_sha256": "eb528162a1e36c71cdb795b501a5dddb0864dfa0f1dcc4fb99fb4bdcd0f76bb0",
+  "lock_sha256": "983d5a644e3289e6b79d92dc251b5029c199a497ac33c14f504a3c9ee3763152",
+  "cases": [
+    {
+      "review": {
+        "case_id": "phil-intro",
+        "response_sha256": "3e89fea306c055d53cd43d21d0d875b95c859d1b80bcb1c87653d0474b448731",
+        "reference_sha256": "430186950c88ae1bdfe809ea5aae4f563bbde465991e0a79780dbe9d105d63dc",
+        "reviewer": "Codex independent Spec reviewer (/root/spec_review); agent review of frozen development evidence",
+        "rationale": "The first clause of retained phil-mitchell-wiki-0018-15527 independently states first arrival in Walford in February 1990. The same exact passage is both assembled context and the served citation, and its storyline timing supplies no day. The required arrival fact is covered, answered is appropriate, and Phil uses I for his own action. The timing qualification preserves the actual month granularity.",
+        "claims": [
+          {
+            "claim": "Phil Mitchell first arrived in Walford in February 1990.",
+            "correct": true,
+            "grounded": true,
+            "citation_supported": true
+          },
+          {
+            "claim": "The cited storyline passage dates that arrival to a month and year without specifying a calendar day.",
+            "correct": true,
+            "grounded": true,
+            "citation_supported": true
+          }
+        ],
+        "required_facts": [
+          {
+            "fact": "Phil first arrives in Walford in February 1990.",
+            "covered": true
+          }
+        ],
+        "answerability": true,
+        "critical_failures": []
+      },
+      "scores": {
+        "correctness": {
+          "passed": 2,
+          "assessed": 2,
+          "unassessed": 0,
+          "value": 1.0
+        },
+        "groundedness": {
+          "passed": 2,
+          "assessed": 2,
+          "unassessed": 0,
+          "value": 1.0
+        },
+        "completeness": {
+          "passed": 1,
+          "assessed": 1,
+          "unassessed": 0,
+          "value": 1.0
+        },
+        "citation_support": {
+          "passed": 2,
+          "assessed": 2,
+          "unassessed": 0,
+          "value": 1.0
+        },
+        "answerability": {
+          "passed": 1,
+          "assessed": 1,
+          "unassessed": 0,
+          "value": 1.0
+        },
+        "critical_failures": []
+      }
+    },
+    {
+      "review": {
+        "case_id": "phil-followup",
+        "response_sha256": "81db9558ee8de68a482d0a783b4baf20673ef554afdade82bc85fb3bd5c2c934",
+        "reference_sha256": "8154164961af137f363d2ea7efa1c3be40b6cd85b65314c63f0c4843939efd99",
+        "reviewer": "Codex independent Spec reviewer (/root/spec_review); agent review of frozen development evidence",
+        "rationale": "The first clause of retained phil-mitchell-wiki-0018-15527 explicitly links Phil's first arrival to opening an automobile repair shop known as The Arches. Both claims are supported by the actual supplied and cited passage, independently of the earlier answer. The required fact is fully covered and the response uses I correctly. The additional assembled Janine fragment, Mitchells., is irrelevant and is not needed to support either claim. The reference records the earlier Phil turn as antecedent.",
+        "claims": [
+          {
+            "claim": "Phil Mitchell opened an automobile repair shop when he first arrived in Walford.",
+            "correct": true,
+            "grounded": true,
+            "citation_supported": true
+          },
+          {
+            "claim": "That automobile repair shop was called The Arches.",
+            "correct": true,
+            "grounded": true,
+            "citation_supported": true
+          }
+        ],
+        "required_facts": [
+          {
+            "fact": "Phil opens the automobile repair shop The Arches.",
+            "covered": true
+          }
+        ],
+        "answerability": true,
+        "critical_failures": []
+      },
+      "scores": {
+        "correctness": {
+          "passed": 2,
+          "assessed": 2,
+          "unassessed": 0,
+          "value": 1.0
+        },
+        "groundedness": {
+          "passed": 2,
+          "assessed": 2,
+          "unassessed": 0,
+          "value": 1.0
+        },
+        "completeness": {
+          "passed": 1,
+          "assessed": 1,
+          "unassessed": 0,
+          "value": 1.0
+        },
+        "citation_support": {
+          "passed": 2,
+          "assessed": 2,
+          "unassessed": 0,
+          "value": 1.0
+        },
+        "answerability": {
+          "passed": 1,
+          "assessed": 1,
+          "unassessed": 0,
+          "value": 1.0
+        },
+        "critical_failures": []
+      }
+    },
+    {
+      "review": {
+        "case_id": "kat-alias",
+        "response_sha256": "642ec40557940818224a03233f3424290be23a37fc9ab1d5ee0e2b2f502f1631",
+        "reference_sha256": "bf2f0950114594e2d9e11338562429299848a10da6c9310f13b96463c5ae19b7",
+        "reviewer": "Codex independent Spec reviewer (/root/spec_review); agent review of frozen development evidence",
+        "rationale": "The reviewed retained identity catalogue explicitly lists Kat Moon as an alias of kat-slater, independently establishing the name resolution; the actual resolved request asks about Kat Slater. Retained kat-slater-wiki-0041-30971 is the exact supplied and cited passage. It describes Kat arriving followed by her family, her barmaid work at The Queen Victoria, initially lists Zoe among her sisters, and later reveals that Kat is Zoe's mother. The broad family-arrival wording does not assert an exact simultaneous arrival. All four factual assertions are supported, the response identifies the requested character as Kat Slater, and answered is appropriate. Kat remains third person, preserving Phil's speaker identity. No unsupported details about the abuse cut off at the passage end are added.",
+        "claims": [
+          {
+            "claim": "Kat Slater came to Walford with the Slater family.",
+            "correct": true,
+            "grounded": true,
+            "citation_supported": true
+          },
+          {
+            "claim": "Kat Slater worked behind the bar at The Queen Victoria.",
+            "correct": true,
+            "grounded": true,
+            "citation_supported": true
+          },
+          {
+            "claim": "Zoe was presented as Kat's sister.",
+            "correct": true,
+            "grounded": true,
+            "citation_supported": true
+          },
+          {
+            "claim": "Kat is Zoe's mother.",
+            "correct": true,
+            "grounded": true,
+            "citation_supported": true
+          }
+        ],
+        "required_facts": [
+          {
+            "fact": "The character is Kat Slater.",
+            "covered": true
+          }
+        ],
+        "answerability": true,
+        "critical_failures": []
+      },
+      "scores": {
+        "correctness": {
+          "passed": 4,
+          "assessed": 4,
+          "unassessed": 0,
+          "value": 1.0
+        },
+        "groundedness": {
+          "passed": 4,
+          "assessed": 4,
+          "unassessed": 0,
+          "value": 1.0
+        },
+        "completeness": {
+          "passed": 1,
+          "assessed": 1,
+          "unassessed": 0,
+          "value": 1.0
+        },
+        "citation_support": {
+          "passed": 4,
+          "assessed": 4,
+          "unassessed": 0,
+          "value": 1.0
+        },
+        "answerability": {
+          "passed": 1,
+          "assessed": 1,
+          "unassessed": 0,
+          "value": 1.0
+        },
+        "critical_failures": []
+      }
+    },
+    {
+      "review": {
+        "case_id": "kat-followup",
+        "response_sha256": "a3967ffe7c5b07ebdceeba4c3512139e7f83c28abc30741f2b69f170eeac2022",
+        "reference_sha256": "edcfb59b065c909d5e3dbee4087706aceb08f27a60ab3a897aa9ecaa0573438c",
+        "reviewer": "Codex independent Spec reviewer (/root/spec_review); agent review of frozen development evidence",
+        "rationale": "The actual supplied and cited kat-slater-wiki-0041-30971 explicitly names Kat's father Charlie Slater, matching the separately frozen core-profile reference. The conversation reference resolves her to kat-slater using the prior alias-introduction turn; the answer names both characters correctly and covers the requested fact completely. Answered is appropriate and Kat remains third person.",
+        "claims": [
+          {
+            "claim": "Charlie Slater is Kat Slater's father.",
+            "correct": true,
+            "grounded": true,
+            "citation_supported": true
+          }
+        ],
+        "required_facts": [
+          {
+            "fact": "Charlie Slater is Kat's father.",
+            "covered": true
+          }
+        ],
+        "answerability": true,
+        "critical_failures": []
+      },
+      "scores": {
+        "correctness": {
+          "passed": 1,
+          "assessed": 1,
+          "unassessed": 0,
+          "value": 1.0
+        },
+        "groundedness": {
+          "passed": 1,
+          "assessed": 1,
+          "unassessed": 0,
+          "value": 1.0
+        },
+        "completeness": {
+          "passed": 1,
+          "assessed": 1,
+          "unassessed": 0,
+          "value": 1.0
+        },
+        "citation_support": {
+          "passed": 1,
+          "assessed": 1,
+          "unassessed": 0,
+          "value": 1.0
+        },
+        "answerability": {
+          "passed": 1,
+          "assessed": 1,
+          "unassessed": 0,
+          "value": 1.0
+        },
+        "critical_failures": []
+      }
+    },
+    {
+      "review": {
+        "case_id": "two-subjects",
+        "response_sha256": "347350546c3bacb5f426fb8ca5002af2ad31c3ae752bf92f077af2e56b09b3c2",
+        "reference_sha256": "e544b117a16464d9bb4ca4ee7d1b1fb64e7eb35378244dce6ed98a7aa5960495",
+        "reviewer": "Codex independent Spec reviewer (/root/spec_review); agent review of frozen development evidence",
+        "rationale": "The first sentence of retained phil-mitchell-wiki-0018-15527 explicitly supplies Phil's first-arrival month and year, Grant joining him, and Grant being his younger brother. That exact passage is the actual assembled context and citation. Both required facts are covered; the qualification preserves month granularity without inventing a day. Phil's I and my correctly refer to himself and his relationship to Grant. The request names two characters and the recorded reference preserves both for the subsequent ambiguity case.",
+        "claims": [
+          {
+            "claim": "Phil Mitchell first arrived in Walford in February 1990.",
+            "correct": true,
+            "grounded": true,
+            "citation_supported": true
+          },
+          {
+            "claim": "Grant joined Phil on his arrival in Walford.",
+            "correct": true,
+            "grounded": true,
+            "citation_supported": true
+          },
+          {
+            "claim": "Grant is Phil's younger brother.",
+            "correct": true,
+            "grounded": true,
+            "citation_supported": true
+          },
+          {
+            "claim": "The cited storyline passage gives February 1990 without specifying a calendar day.",
+            "correct": true,
+            "grounded": true,
+            "citation_supported": true
+          }
+        ],
+        "required_facts": [
+          {
+            "fact": "Phil first arrives in Walford in February 1990.",
+            "covered": true
+          },
+          {
+            "fact": "Grant joins Phil.",
+            "covered": true
+          }
+        ],
+        "answerability": true,
+        "critical_failures": []
+      },
+      "scores": {
+        "correctness": {
+          "passed": 4,
+          "assessed": 4,
+          "unassessed": 0,
+          "value": 1.0
+        },
+        "groundedness": {
+          "passed": 4,
+          "assessed": 4,
+          "unassessed": 0,
+          "value": 1.0
+        },
+        "completeness": {
+          "passed": 2,
+          "assessed": 2,
+          "unassessed": 0,
+          "value": 1.0
+        },
+        "citation_support": {
+          "passed": 4,
+          "assessed": 4,
+          "unassessed": 0,
+          "value": 1.0
+        },
+        "answerability": {
+          "passed": 1,
+          "assessed": 1,
+          "unassessed": 0,
+          "value": 1.0
+        },
+        "critical_failures": []
+      }
+    },
+    {
+      "review": {
+        "case_id": "ambiguous",
+        "response_sha256": "4147e34a0d10c31957d2d5f16c7c54986d1bc0f332410bcb111dc58dc2b02209",
+        "reference_sha256": "7c3f5eb7125fa4fc30bbce3565d7bb00ff9a8277be4f794078106273f15b8a03",
+        "reviewer": "Codex independent Spec reviewer (/root/spec_review); agent review of frozen development evidence",
+        "rationale": "The preceding named turn retains both phil-mitchell and grant-mitchell, so he does not select a unique reviewed character. The response asks which one is intended and lists precisely Phil Mitchell and Grant Mitchell. Clarification is appropriate; no lore facts are asserted, and retrieved passages, assembled context and citations are empty with zero recorded generation and embedding tokens. A factual-claim denominator is unavailable rather than a manufactured factual pass.",
+        "claims": [],
+        "required_facts": [],
+        "answerability": true,
+        "critical_failures": []
+      },
+      "scores": {
+        "correctness": {
+          "passed": 0,
+          "assessed": 0,
+          "unassessed": 0,
+          "value": null
+        },
+        "groundedness": {
+          "passed": 0,
+          "assessed": 0,
+          "unassessed": 0,
+          "value": null
+        },
+        "completeness": {
+          "passed": 0,
+          "assessed": 0,
+          "unassessed": 0,
+          "value": null
+        },
+        "citation_support": {
+          "passed": 0,
+          "assessed": 0,
+          "unassessed": 0,
+          "value": null
+        },
+        "answerability": {
+          "passed": 1,
+          "assessed": 1,
+          "unassessed": 0,
+          "value": 1.0
+        },
+        "critical_failures": []
+      }
+    },
+    {
+      "review": {
+        "case_id": "selected",
+        "response_sha256": "97e276f9f5f0706c1896d908c4da8646a410c82789e83ab5001fc348b4b73501",
+        "reference_sha256": "b81a8deab4b436edb6faaa66ecec7c5ab6853f50acb1a69d65186eacd5c36682",
+        "reviewer": "Codex independent Spec reviewer (/root/spec_review); agent review of frozen development evidence",
+        "rationale": "The bare Phil Mitchell choice resumes the pending arrival question, and its context_turn_id identifies the ambiguous turn rather than replacing the request with a character biography. The newly captured answer has its own response and trace identities. Retained phil-mitchell-wiki-0018-15527 independently supports the first-arrival month and the timing limitation, and is again the exact supplied and cited passage. The required fact is covered, answered is appropriate, and first-person Phil wording preserves the fact.",
+        "claims": [
+          {
+            "claim": "Phil Mitchell first arrived in Walford in February 1990.",
+            "correct": true,
+            "grounded": true,
+            "citation_supported": true
+          },
+          {
+            "claim": "The cited storyline passage dates that arrival to February 1990 at month precision.",
+            "correct": true,
+            "grounded": true,
+            "citation_supported": true
+          }
+        ],
+        "required_facts": [
+          {
+            "fact": "Phil first arrives in Walford in February 1990.",
+            "covered": true
+          }
+        ],
+        "answerability": true,
+        "critical_failures": []
+      },
+      "scores": {
+        "correctness": {
+          "passed": 2,
+          "assessed": 2,
+          "unassessed": 0,
+          "value": 1.0
+        },
+        "groundedness": {
+          "passed": 2,
+          "assessed": 2,
+          "unassessed": 0,
+          "value": 1.0
+        },
+        "completeness": {
+          "passed": 1,
+          "assessed": 1,
+          "unassessed": 0,
+          "value": 1.0
+        },
+        "citation_support": {
+          "passed": 2,
+          "assessed": 2,
+          "unassessed": 0,
+          "value": 1.0
+        },
+        "answerability": {
+          "passed": 1,
+          "assessed": 1,
+          "unassessed": 0,
+          "value": 1.0
+        },
+        "critical_failures": []
+      }
+    },
+    {
+      "review": {
+        "case_id": "after-reset",
+        "response_sha256": "ea68c98eebd62d9450203f0f0609b3ab9e2d24569342ea89a870deb3b54c1a3c",
+        "reference_sha256": "f3ef1de325de86e14f3b2cb04ac31cfbf90be649730935cfa382304172a17ae1",
+        "reviewer": "Codex independent Spec reviewer (/root/spec_review); agent review of frozen development evidence",
+        "rationale": "The captured reset result has empty history, generation 1 and preserved turn_number 7. This subsequent turn is number 8 in generation 1, with no resolved character or context_turn_id. Asking for a full name is therefore appropriate and shows the earlier Phil reference was cleared. No factual answer is invented; retrieval, assembled context and citations are empty and all recorded token counts are zero. This review assesses the captured reset behavior, while private receipt persistence and actual trace inspection are separate checks.",
+        "claims": [],
+        "required_facts": [],
+        "answerability": true,
+        "critical_failures": []
+      },
+      "scores": {
+        "correctness": {
+          "passed": 0,
+          "assessed": 0,
+          "unassessed": 0,
+          "value": null
+        },
+        "groundedness": {
+          "passed": 0,
+          "assessed": 0,
+          "unassessed": 0,
+          "value": null
+        },
+        "completeness": {
+          "passed": 0,
+          "assessed": 0,
+          "unassessed": 0,
+          "value": null
+        },
+        "citation_support": {
+          "passed": 0,
+          "assessed": 0,
+          "unassessed": 0,
+          "value": null
+        },
+        "answerability": {
+          "passed": 1,
+          "assessed": 1,
+          "unassessed": 0,
+          "value": 1.0
+        },
+        "critical_failures": []
+      }
+    },
+    {
+      "review": {
+        "case_id": "isolated",
+        "response_sha256": "ae46a98632f51df7b7fdbb174dec8970c1eeeb37fd7d0d392d687373ab7111ca",
+        "reference_sha256": "8c6d5eed0ef8bc92027b81280f29ec48e4157da35bb7d022d6039a0a51c1f055",
+        "reviewer": "Codex independent Spec reviewer (/root/spec_review); agent review of frozen development evidence",
+        "rationale": "This is turn 1 of a distinct session from all prior conversation turns. Her has no antecedent in that new session, so clarification asking for a full name is appropriate despite Kat having been identified in the other session. No character or context_turn_id is resolved, and retrieval, context, citations and all token counts are empty or zero. No factual claim is asserted and no cross-session identity is reused.",
+        "claims": [],
+        "required_facts": [],
+        "answerability": true,
+        "critical_failures": []
+      },
+      "scores": {
+        "correctness": {
+          "passed": 0,
+          "assessed": 0,
+          "unassessed": 0,
+          "value": null
+        },
+        "groundedness": {
+          "passed": 0,
+          "assessed": 0,
+          "unassessed": 0,
+          "value": null
+        },
+        "completeness": {
+          "passed": 0,
+          "assessed": 0,
+          "unassessed": 0,
+          "value": null
+        },
+        "citation_support": {
+          "passed": 0,
+          "assessed": 0,
+          "unassessed": 0,
+          "value": null
+        },
+        "answerability": {
+          "passed": 1,
+          "assessed": 1,
+          "unassessed": 0,
+          "value": 1.0
+        },
+        "critical_failures": []
+      }
+    }
+  ],
+  "cost_usd": "0",
+  "model_calls": 0,
+  "capture_sha256": "508466ce571fea0823055777a9dd1cc34421795aa74195312b26e860f73e447b",
+  "reviews_sha256": "e174f545f4ffc55b66bfa69259b8b38171da41ebe373bd81625cbebe08ed6011",
+  "scorer": "reviewed-binary-dimensions-v1"
+}

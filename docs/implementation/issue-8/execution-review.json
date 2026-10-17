@@ -1,0 +1,157 @@
+{
+  "capture_file_sha256": "508466ce571fea0823055777a9dd1cc34421795aa74195312b26e860f73e447b",
+  "checks": "Actual persisted MLflow traces checked, not inferred from receipt fields.",
+  "capture_run_id": "f18676adf93f4cfc82480dfd62633f0e",
+  "capture_run_state": "FINISHED",
+  "trace_count": 9,
+  "span_count": 36,
+  "private_bearer_capabilities_checked": 13,
+  "normalization": "Validated Passage and ChatMessage values compared; serialized UTC dates and message blocks have equivalent public values.",
+  "facts_require_separate_review": true,
+  "cases": [
+    {
+      "case_id": "phil-intro",
+      "response_id": "c22f26bb-a431-482d-b834-22e699dd5377",
+      "trace_id": "tr-9291a41b718b3bb032f9b9badd88a293",
+      "status": "answered",
+      "spans": [
+        "text_rag",
+        "text_retrieval",
+        "query_embedding",
+        "assembled_context",
+        "answer_model"
+      ],
+      "expected_evidence_retrieved": true,
+      "expected_evidence_supplied": true,
+      "trace_agrees_with_record": true,
+      "no_assistant_messages_in_model_input": true
+    },
+    {
+      "case_id": "phil-followup",
+      "response_id": "a42d941b-df58-4cf2-9561-72f80542e324",
+      "trace_id": "tr-a6f7f2d0038397fb004e4cc7b1f70e10",
+      "status": "answered",
+      "spans": [
+        "text_rag",
+        "text_retrieval",
+        "query_embedding",
+        "assembled_context",
+        "answer_model"
+      ],
+      "expected_evidence_retrieved": true,
+      "expected_evidence_supplied": true,
+      "trace_agrees_with_record": true,
+      "no_assistant_messages_in_model_input": true
+    },
+    {
+      "case_id": "kat-alias",
+      "response_id": "f0d1f2f9-ace9-4be7-a64a-db012c55a9c8",
+      "trace_id": "tr-2a87262ea153f84c4049668e068dd8dc",
+      "status": "answered",
+      "spans": [
+        "text_rag",
+        "text_retrieval",
+        "query_embedding",
+        "assembled_context",
+        "answer_model"
+      ],
+      "expected_evidence_retrieved": true,
+      "expected_evidence_supplied": true,
+      "trace_agrees_with_record": true,
+      "no_assistant_messages_in_model_input": true
+    },
+    {
+      "case_id": "kat-followup",
+      "response_id": "596ea02c-666b-40ed-a758-bab95c33021a",
+      "trace_id": "tr-26e3aee021b9715af4add0bcc3b2554a",
+      "status": "answered",
+      "spans": [
+        "text_rag",
+        "text_retrieval",
+        "query_embedding",
+        "assembled_context",
+        "answer_model"
+      ],
+      "expected_evidence_retrieved": true,
+      "expected_evidence_supplied": true,
+      "trace_agrees_with_record": true,
+      "no_assistant_messages_in_model_input": true
+    },
+    {
+      "case_id": "two-subjects",
+      "response_id": "1e215967-7582-44a0-b8b6-15cd1c0cad68",
+      "trace_id": "tr-a72036a8b074ab0ce89bf17fd76d8660",
+      "status": "answered",
+      "spans": [
+        "text_rag",
+        "text_retrieval",
+        "query_embedding",
+        "assembled_context",
+        "answer_model"
+      ],
+      "expected_evidence_retrieved": true,
+      "expected_evidence_supplied": true,
+      "trace_agrees_with_record": true,
+      "no_assistant_messages_in_model_input": true
+    },
+    {
+      "case_id": "ambiguous",
+      "response_id": "3256d3e2-94d9-41ce-b499-103a6e6920c7",
+      "trace_id": "tr-eb9daa469a1ad65baf7caee2048dc61b",
+      "status": "clarification",
+      "spans": [
+        "text_rag",
+        "assembled_context"
+      ],
+      "expected_evidence_retrieved": null,
+      "expected_evidence_supplied": null,
+      "trace_agrees_with_record": true,
+      "no_assistant_messages_in_model_input": null
+    },
+    {
+      "case_id": "selected",
+      "response_id": "07e096b8-5ef3-4647-bab3-41d214bc5039",
+      "trace_id": "tr-4923a46095479764f2ab8260fc651489",
+      "status": "answered",
+      "spans": [
+        "text_rag",
+        "text_retrieval",
+        "query_embedding",
+        "assembled_context",
+        "answer_model"
+      ],
+      "expected_evidence_retrieved": true,
+      "expected_evidence_supplied": true,
+      "trace_agrees_with_record": true,
+      "no_assistant_messages_in_model_input": true
+    },
+    {
+      "case_id": "after-reset",
+      "response_id": "f3365aa8-71a5-4e2a-93e1-0311e4c399b8",
+      "trace_id": "tr-4564a8cc69966d2951d5177f7208f85f",
+      "status": "clarification",
+      "spans": [
+        "text_rag",
+        "assembled_context"
+      ],
+      "expected_evidence_retrieved": null,
+      "expected_evidence_supplied": null,
+      "trace_agrees_with_record": true,
+      "no_assistant_messages_in_model_input": null
+    },
+    {
+      "case_id": "isolated",
+      "response_id": "f458f244-b279-4963-a3b3-afc38ff83c13",
+      "trace_id": "tr-85808a8a51bcc523b307ceb09f541f19",
+      "status": "clarification",
+      "spans": [
+        "text_rag",
+        "assembled_context"
+      ],
+      "expected_evidence_retrieved": null,
+      "expected_evidence_supplied": null,
+      "trace_agrees_with_record": true,
+      "no_assistant_messages_in_model_input": null
+    }
+  ]
+}

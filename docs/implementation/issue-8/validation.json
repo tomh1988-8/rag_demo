@@ -89,32 +89,74 @@
   ],
   "software_model_calls_paid": 0,
   "live_acceptance": {
-    "state": "pending_specific_user_authorization",
-    "automatic_approval_rejections": 2,
-    "reason": "Paid OpenRouter/OpenAI egress and spend need specific trusted authorization; historical repository budget records were not accepted by automatic review.",
-    "paid_calls": 0,
-    "additional_spend_usd": 0,
-    "proposed_maximum_paid_calls": 12,
-    "proposed_maximum_additional_spend_usd": 0.25,
+    "state": "passed",
+    "user_authorization": {
+      "message": "i approve, continue",
+      "scope": "OpenRouter/OpenAI public-evidence live sample up to $0.25 and publication to tomh1988-8/rag_demo main."
+    },
+    "historical_automatic_approval_rejections": 2,
+    "historical_rejection_reason": "Paid OpenRouter/OpenAI egress and spend need specific trusted authorization; historical repository budget records were not accepted by automatic review.",
+    "paid_calls": 6,
+    "additional_spend_usd": "0.0237656",
+    "approved_maximum_paid_calls": 12,
+    "approved_maximum_additional_spend_usd": 0.25,
     "shared_trial_cap_usd": 5,
-    "shared_ledger_microdollars": 208899,
+    "shared_ledger_microdollars": 232666,
     "unsettled_reservations": 0,
-    "semantic_quality": "unmeasured for #8; software success is not live acceptance"
+    "semantic_quality": {
+      "correctness": {
+        "passed": 15,
+        "assessed": 15,
+        "unassessed": 0
+      },
+      "groundedness": {
+        "passed": 15,
+        "assessed": 15,
+        "unassessed": 0
+      },
+      "citation_support": {
+        "passed": 15,
+        "assessed": 15,
+        "unassessed": 0
+      },
+      "completeness": {
+        "passed": 7,
+        "assessed": 7,
+        "unassessed": 0
+      },
+      "answerability": {
+        "passed": 9,
+        "assessed": 9,
+        "unassessed": 0
+      }
+    },
+    "critical_failures": 0,
+    "capture_run_id": "f18676adf93f4cfc82480dfd62633f0e",
+    "offline_review_run_id": "89ff8370f85840dba252beea04353aa0",
+    "capture_sha256": "508466ce571fea0823055777a9dd1cc34421795aa74195312b26e860f73e447b",
+    "review_sha256": "e174f545f4ffc55b66bfa69259b8b38171da41ebe373bd81625cbebe08ed6011",
+    "quality_sha256": "96acf84e1ad629c1280607c714f3650f23100ede78a1f5026969df0d6d7a71b4",
+    "execution_review_sha256": "01ccabda4edf20630f8876da4aa74de32dfd51b8c5ef115d634a53504c71a916",
+    "lifecycle_sha256": "5811b973d834f9f1f6db31aa2bd0e786bcb63ba9fde9fd35c43c16becf91a761"
   },
   "warnings": [
     "Existing upstream Starlette/httpx TestClient deprecation."
   ],
   "limitations": [
     "All cases are exposed development data; no human adjudication, held-out calibration or independent canon corroboration.",
-    "#8 remains open until the authorized live matrix and separate factual/support review pass."
+    "Source-supported development acceptance for #8; publication/tree verification and closure follow separately."
   ],
   "publication": {
-    "state": "pending_specific_user_authorization",
+    "state": "authorized_ready_for_publication",
     "attempted_action": "git push origin main",
     "attempted_local_commit": "e8bd51ecce21cee32e7bd188aa573ff9d7fc2fd3",
     "automatic_approval_rejections": 1,
     "reason": "Remote default-branch publication requires explicit trusted user authorization; implementation and local commits alone were not accepted as authorization.",
     "connector_workaround_attempted": false,
-    "issue_closed": false
+    "issue_closed": false,
+    "user_authorization": {
+      "message": "i approve, continue",
+      "scope": "OpenRouter/OpenAI public-evidence live sample up to $0.25 and publication to tomh1988-8/rag_demo main."
+    }
   }
 }
