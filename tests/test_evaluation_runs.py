@@ -253,7 +253,11 @@ def test_tracking_completion_agrees_with_the_saved_run(
     if not unavailable:
         assert actual.data.params["cost_usd"] == "0.125"
         assert (
-            json.loads(Path(client.download_artifacts(saved["run_id"], output.name)).read_text())
+            json.loads(
+                Path(
+                    client.download_artifacts(saved["run_id"], saved["result_artifact"])
+                ).read_text()
+            )
             == saved
         )
     assert "private tracking" not in output.read_text()
@@ -379,3 +383,131 @@ def test_tracking_publication_cannot_expose_a_completed_local_capture_early(
         ) as run:
             run.capture("arrival", lambda: {"response": {"answer": "Captured."}})
     assert json.loads(output.read_text())["state"] == "failed"
+
+
+def test_tracking_retains_distinct_inputs_and_result_with_identical_filenames(
+    tmp_path: Path, monkeypatch: pytest.MonkeyPatch
+) -> None:
+    from mlflow import MlflowClient
+
+    from ask_phil.evaluation import EvaluationTracking, review_capture
+
+    monkeypatch.chdir(tmp_path)
+    capture, reviews, references = capture_files(tmp_path)
+    colliding = []
+    for role, source in [("capture", capture), ("reviews", reviews), ("references", references)]:
+        directory = tmp_path / role
+        directory.mkdir()
+        copied = directory / "data.json"
+        copied.write_bytes(source.read_bytes())
+        colliding.append(copied)
+    client = MlflowClient(tracking_uri=f"sqlite:///{tmp_path}/mlflow.db")
+    output = tmp_path / "output" / "data.json"
+    result = review_capture(
+        colliding[0],
+        colliding[1],
+        colliding[2],
+        output,
+        tracking=EvaluationTracking(client, "colliding-inputs", {}),
+    )
+    downloaded = Path(client.download_artifacts(result["run_id"], ""))
+    retained = {
+        hashlib.sha256(path.read_bytes()).hexdigest()
+        for path in downloaded.rglob("*")
+        if path.is_file()
+    }
+    assert {
+        hashlib.sha256(path.read_bytes()).hexdigest() for path in [*colliding, output]
+    } <= retained
+
+
+@pytest.mark.parametrize("phase", ["termination", "completion_upload"])
+def test_downloaded_capture_is_not_reviewable_after_incomplete_publication(
+    tmp_path: Path, monkeypatch: pytest.MonkeyPatch, phase: str
+) -> None:
+    from mlflow import MlflowClient
+
+    from ask_phil.evaluation import EvaluationRun, EvaluationTracking, review_capture
+
+    monkeypatch.chdir(tmp_path)
+    _, reviews, references = capture_files(tmp_path)
+    client = MlflowClient(tracking_uri=f"sqlite:///{tmp_path}/mlflow.db")
+    output = tmp_path / "new-capture.json"
+    terminate = client.set_terminated
+    upload = client.log_artifact
+
+    def fail_termination(run_id: str, status: str | None = None, **kwargs: Any) -> None:
+        if status in {None, "FINISHED"}:
+            raise ConnectionError("tracking termination unavailable")
+        terminate(run_id, status=status, **kwargs)
+
+    def fail_completion_upload(
+        run_id: str, local_path: str, artifact_path: str | None = None
+    ) -> None:
+        if client.get_run(run_id).info.status == "FINISHED":
+            raise ConnectionError("completion upload unavailable")
+        upload(run_id, local_path, artifact_path=artifact_path)
+
+    if phase == "termination":
+        monkeypatch.setattr(client, "set_terminated", fail_termination)
+    else:
+        monkeypatch.setattr(client, "log_artifact", fail_completion_upload)
+    with pytest.raises(ConnectionError):
+        with EvaluationRun(
+            output,
+            references,
+            ("arrival",),
+            tracking=EvaluationTracking(client, "incomplete-publication", {}),
+        ) as run:
+            run.capture(
+                "arrival",
+                lambda: {"response": {"answer": "Right, listen. I arrived in February 1990."}},
+            )
+    saved = json.loads(output.read_text())
+    retained = Path(client.download_artifacts(saved["run_id"], saved["result_artifact"]))
+    assert json.loads(retained.read_text())["state"] != "complete"
+    with pytest.raises(ValueError, match="complete"):
+        review_capture(retained, reviews, references, tmp_path / "scores.json")
+
+
+@pytest.mark.parametrize(
+    ("response", "fingerprint"),
+    [
+        (None, "74234e98afe7498fb5daf1f36ac2d78acc339464f950703b8c019892f982b90b"),
+        ({}, "44136fa355b3678a1146ad16f7e8649e94fb4fc21fe77e8310c060f61caaff8a"),
+        ({"answer": ""}, "3bdf68cc1aec55545f98aa543b2f023f23ac6ec1293c4b67bc998cc1e33b3c60"),
+        ({"answer": "   "}, "a54372398ebe0bb935ebfe4247b2cc68f318fc37c2c4f8997029c7621ffb9ddc"),
+        ({"answer": 42}, "ecf59a2696ca44a417e20e2a7eabb1b26e82c779f8546bea354a2cc80e8e1eed"),
+    ],
+)
+def test_hash_bound_annotations_cannot_replace_a_missing_served_answer(
+    tmp_path: Path, response: object, fingerprint: str
+) -> None:
+    from ask_phil.evaluation import review_capture
+
+    capture, reviews, references = capture_files(tmp_path)
+    document = json.loads(capture.read_text())
+    document["cases"][0]["response"] = response
+    capture.write_text(json.dumps(document))
+    annotations = json.loads(reviews.read_text())
+    annotations["reviews"][0]["response_sha256"] = fingerprint
+    reviews.write_text(json.dumps(annotations))
+    output = tmp_path / "scores.json"
+    with pytest.raises(ValueError, match="response"):
+        review_capture(capture, reviews, references, output)
+    assert not output.exists()
+
+
+def test_later_edits_to_execution_values_do_not_rewrite_frozen_capture(tmp_path: Path) -> None:
+    from ask_phil.evaluation import EvaluationRun, review_capture
+
+    _, reviews, references = capture_files(tmp_path)
+    output = tmp_path / "new-capture.json"
+    payload = {"response": {"answer": "Right, listen. I arrived in February 1990."}}
+    with EvaluationRun(output, references, ("arrival",)) as run:
+        returned = run.capture("arrival", lambda: payload)
+        payload["response"]["answer"] = "Changed provider object."
+        returned["response"]["answer"] = "Changed returned value."
+        returned["reference"]["required_facts"] = ["Changed expected fact."]
+    reviewed = review_capture(output, reviews, references, tmp_path / "scores.json")
+    assert reviewed["cases"][0]["scores"]["completeness"]["value"] == 1.0

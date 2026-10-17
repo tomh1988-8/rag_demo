@@ -46,9 +46,20 @@ readable. Each new review has its own run, zero review model usage and a
 source_run_id when the capture recorded one. Reset outcomes remain in
 conversation captures and are excluded from factual scoring.
 
+MLflow inputs have separate inputs/0, inputs/1, ... directories, with their paths
+and hashes recorded in input_artifacts; the result_artifact field identifies the
+separate result directory. Equal filenames cannot overwrite distinct evidence.
+Review requires a nonempty served answer, as well as matching hashes.
+
 Local journals use exclusive creation and atomic replacement. A caught failure
 records its type without upstream exception text; an abrupt process death leaves
-the last attempted case and a running/finalizing journal. Such a journal cannot
+the last attempted case and a running/finalizing journal. Both local and
+downloadable results stay finalizing until MLflow termination succeeds; the
+complete downloadable result is published last. If that last upload fails,
+the local run fails and the retained finalizing result remains unreviewable,
+even when MLflow already acknowledged FINISHED. The module preserves that
+acknowledged status rather than revoking a possibly completed remote upload.
+Such an unfinished journal cannot
 be reviewed as complete. Retain it for inspection and choose a fresh output path;
 the module does not retry paid execution.
 
@@ -58,6 +69,10 @@ Focused tests exercise all three score commands without model configuration,
 real local MLflow results, unchanged retained artifacts, stale and incomplete
 inputs, zero-denominator dimensions, attempt retention and failed/interrupted
 publication. Strict mypy and Ruff pass.
+
+Independent review found artifact filename collisions, premature downloadable
+completion, and null answers accepted for review. All three have focused
+regressions and were corrected before publication.
 
 Replaying retained captures reproduces every previously recorded quality
 dimension: 13 policy cases from issue #4, 25 corpus cases from issue #7, and nine

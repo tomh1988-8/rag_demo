@@ -5,6 +5,7 @@ import json
 import os
 import tempfile
 from collections.abc import Callable, Sequence
+from copy import deepcopy
 from dataclasses import dataclass
 from datetime import UTC, datetime
 from functools import partial
@@ -30,6 +31,10 @@ _RUN_FIELDS = {
     "run_id",
     "failure_type",
     "tracking_failure_type",
+    "input_artifacts",
+    "result_artifact",
+    "tracking_status",
+    "recorder_version",
 }
 _CASE_FIELDS = {
     "case_id",
@@ -118,15 +123,26 @@ class EvaluationRun:
             raise ValueError("Select unique, known frozen cases for the evaluation.")
         if _RUN_FIELDS.intersection(metadata or {}):
             raise ValueError("Run identity and state belong to the evaluation module.")
-        self._references_path = references
         self._tracking = tracking
+        self._tracking_finished = False
         self._artifacts = (references, *artifacts)
+        self._input_fingerprints = {path: _file_fingerprint(path) for path in self._artifacts}
+        if self._input_fingerprints[references] != reference_sha256:
+            raise ValueError("The frozen references changed while preparing the evaluation.")
         self._active = False
         self._document: dict[str, Any] = {
-            **(metadata or {}),
+            **deepcopy(metadata or {}),
             "recorded_at": datetime.now(UTC).isoformat(),
             "reference_file_sha256": reference_sha256,
             "recorder_version": "frozen-evaluation-run-v1",
+            "input_artifacts": [
+                {
+                    "artifact_path": f"inputs/{index}/{path.name}",
+                    "sha256": self._input_fingerprints[path],
+                }
+                for index, path in enumerate(self._artifacts)
+            ],
+            "result_artifact": f"result/{output.name}",
             "case_ids": list(case_ids),
             "cases": [],
             "state": "running",
@@ -162,7 +178,7 @@ class EvaluationRun:
         """Retain measured expenditure and case-specific run metadata."""
         if not self._active or _RUN_FIELDS.intersection(metadata):
             raise ValueError("Run identity and state belong to the evaluation module.")
-        self._document.update(metadata)
+        self._document.update(deepcopy(metadata))
         self._save()
 
     def capture(self, case_id: str, execute: Callable[[], dict[str, Any]]) -> dict[str, Any]:
@@ -183,12 +199,12 @@ class EvaluationRun:
             result = execute()
             if _CASE_FIELDS.intersection(result):
                 raise ValueError("Case identity and state belong to the evaluation module.")
-            row.update(result)
+            row.update(deepcopy(result))
             if "response" in row:
                 row["response_sha256"] = document_fingerprint(row["response"])
             row["state"] = "complete"
             self._save()
-            return row
+            return deepcopy(row)
         except BaseException as exc:
             row.update(state="failed", failure_type=type(exc).__name__)
             self._save()
@@ -205,8 +221,11 @@ class EvaluationRun:
             self._fail(exc)
             return
         try:
-            if _file_fingerprint(self._references_path) != self._document["reference_file_sha256"]:
-                raise ValueError("The frozen references changed during this evaluation.")
+            if any(
+                _file_fingerprint(path) != fingerprint
+                for path, fingerprint in self._input_fingerprints.items()
+            ):
+                raise ValueError("A frozen evaluation input changed during this evaluation.")
             if [row["case_id"] for row in self._document["cases"]] != self._document[
                 "case_ids"
             ] or any(row["state"] != "complete" for row in self._document["cases"]):
@@ -237,9 +256,13 @@ class EvaluationRun:
             if "review" in row
         )
         log_review_metrics(client, run_id, scored)
-        for path in dict.fromkeys(self._artifacts):
-            client.log_artifact(run_id, str(path))
-        # Keep the local journal unreviewable until artifacts and tracking finish.
+        for index, path in enumerate(self._artifacts):
+            client.log_artifact(run_id, str(path), artifact_path=f"inputs/{index}")
+        # The downloadable journal stays unreviewable until termination succeeds.
+        client.log_artifact(run_id, str(self.output), artifact_path="result")
+        client.set_terminated(run_id)
+        self._tracking_finished = True
+        self._document["tracking_status"] = "FINISHED"
         with tempfile.TemporaryDirectory(prefix="ask-phil-evaluation-publish-") as directory:
             published = Path(directory) / self.output.name
             published.write_text(
@@ -247,12 +270,13 @@ class EvaluationRun:
                 + "\n",
                 encoding="utf-8",
             )
-            client.log_artifact(run_id, str(published))
-        client.set_terminated(run_id)
+            client.log_artifact(run_id, str(published), artifact_path="result")
 
     def _fail(self, exc: BaseException) -> None:
         self._document.update(state="failed", failure_type=type(exc).__name__)
-        if self._tracking and "run_id" in self._document:
+        # After acknowledged termination, an uncertain final upload must not revoke
+        # a completed remote result. Its retained state determines review eligibility.
+        if self._tracking and "run_id" in self._document and not self._tracking_finished:
             try:
                 self._tracking.client.set_terminated(self._document["run_id"], status="FAILED")
             except BaseException as failure:
@@ -316,8 +340,13 @@ def review_capture(
             if "reset" not in row or "response" in row:
                 raise ValueError("A reset case must record its reset outcome.")
             continue
-        if "response" not in row:
-            raise ValueError("A captured case is missing its served response.")
+        response = row.get("response")
+        if (
+            not isinstance(response, dict)
+            or not isinstance(response.get("answer"), str)
+            or not response["answer"].strip()
+        ):
+            raise ValueError("A captured case is missing a usable served response.")
         if "response_sha256" in row and row["response_sha256"] != document_fingerprint(
             row["response"]
         ):
@@ -350,14 +379,24 @@ def review_capture(
         "reviews_sha256": reviews_sha256,
         "scorer": "reviewed-binary-dimensions-v1",
     }
-    with EvaluationRun(
+    evaluation = EvaluationRun(
         output,
         references_path,
         tuple(review.case_id for review in reviews),
         metadata=metadata,
         tracking=tracking,
         artifacts=(capture_path, reviews_path),
-    ) as run:
+    )
+    if any(
+        evaluation._input_fingerprints[path] != fingerprint
+        for path, fingerprint in (
+            (references_path, reference_sha256),
+            (capture_path, capture_sha256),
+            (reviews_path, reviews_sha256),
+        )
+    ):
+        raise ValueError("Frozen evaluation inputs changed while preparing the review.")
+    with evaluation as run:
         for result in scored:
             run.capture(result.review.case_id, partial(result.model_dump, mode="json"))
     result_document: dict[str, Any] = json.loads(output.read_bytes())
