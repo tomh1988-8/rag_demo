@@ -8,6 +8,12 @@ commands so they work even without a configured Git remote.
 
 ## Current Ask Phil handoff
 
+Publication is also awaiting explicit approval: automatic approval review rejected
+`git push origin main` as an unauthorized shared-default-branch mutation. The
+software implementation and evidence are committed locally. No connector workaround
+was attempted after that denial; obtain trusted publication approval before any
+remote write. The live-sample approval and publication approval are separate.
+
 Issue #8 is the selected implementation. Its reviewed conversation API/CLI code is
 implemented; [acceptance evidence](../implementation/issue-8/README.md) and the
 [regression register](../implementation/issue-8/regressions.json) record conservative

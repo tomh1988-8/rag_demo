@@ -107,5 +107,14 @@
   "limitations": [
     "All cases are exposed development data; no human adjudication, held-out calibration or independent canon corroboration.",
     "#8 remains open until the authorized live matrix and separate factual/support review pass."
-  ]
+  ],
+  "publication": {
+    "state": "pending_specific_user_authorization",
+    "attempted_action": "git push origin main",
+    "attempted_local_commit": "e8bd51ecce21cee32e7bd188aa573ff9d7fc2fd3",
+    "automatic_approval_rejections": 1,
+    "reason": "Remote default-branch publication requires explicit trusted user authorization; implementation and local commits alone were not accepted as authorization.",
+    "connector_workaround_attempted": false,
+    "issue_closed": false
+  }
 }

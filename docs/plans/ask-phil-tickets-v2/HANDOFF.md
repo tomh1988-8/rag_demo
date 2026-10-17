@@ -4,6 +4,12 @@ Updated 17 October 2026. The user approved the initial checklist/ticket breakdow
 
 ## Issue #8: implementation ready; live acceptance awaiting approval
 
+Publication is also awaiting explicit approval: automatic approval review rejected
+`git push origin main` as an unauthorized shared-default-branch mutation. The
+software implementation and evidence are committed locally. No connector workaround
+was attempted after that denial; obtain trusted publication approval before any
+remote write. The live-sample approval and publication approval are separate.
+
 The user selected the next ticket on 17 October 2026, and #8 was the next open
 unblocked ticket. [Implementation and operating contract](../../implementation/issue-8/README.md)
 cover shared API/CLI sessions, fresh retrieval per factual turn, safe reference

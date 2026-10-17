@@ -131,3 +131,14 @@ zero answer-model calls. Do not mark #8 complete or close it before this review.
 All cases are exposed development data; no human adjudication, held-out calibration
 or complete canon claim applies. A passing software suite does not fill the missing
 live-model acceptance result.
+
+## Publication awaiting authorization
+
+All implementation and software evidence is committed on the existing local
+`main` branch. Automatic approval review separately rejected `git push origin main`
+because it requires explicit authorization for the shared remote default branch.
+No connector or other workaround was attempted after that denial. Publication,
+exact remote-tree readback and issue closure therefore remain pending. Once
+publication is authorized, use the repository's existing native/connector procedure,
+preserve both histories, verify the intended local tree against the remote revision,
+and keep #8 open until its live acceptance also passes.
