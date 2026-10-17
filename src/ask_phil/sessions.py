@@ -55,8 +55,11 @@ class SessionState(Record):
                     *self.history,
                     ReferenceTurn(
                         turn_id=turn.turn_id,
-                        character_ids=reference.character_ids,
+                        character_ids=()
+                        if reference.followup_requires_name
+                        else reference.character_ids,
                         pending_question=reference.question if reference.clarification else None,
+                        reference_barrier=reference.followup_requires_name,
                     ),
                 )[-MAX_CONTEXT_TURNS:],
             }

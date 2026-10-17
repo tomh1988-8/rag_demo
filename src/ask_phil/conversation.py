@@ -30,12 +30,18 @@ POSSESSIVE_HER = re.compile(
     r"family|name|age|arrival|departure|birth|death|story|marriage|career|history|relationship)\b",
     re.IGNORECASE,
 )
+RELATIONSHIP_REFERENCE = re.compile(
+    r"\b(?:father|mother|parents?|brothers?|sisters?|sons?|daughters?|children|"
+    r"husbands?|wives|wife|partners?|spouse)\b",
+    re.IGNORECASE,
+)
 
 
 class ReferenceTurn(Record):
     turn_id: UUID
     character_ids: tuple[str, ...]
     pending_question: str | None = Field(default=None, max_length=1000)
+    reference_barrier: bool = False
 
 
 class ReferenceResolution(Record):
@@ -43,6 +49,7 @@ class ReferenceResolution(Record):
     character_ids: tuple[str, ...]
     context_turn_id: UUID | None = None
     clarification: str | None = None
+    followup_requires_name: bool = False
 
 
 class TurnIdentity(Record):
@@ -207,7 +214,7 @@ def resolve_reference(
         (
             t
             for t in reversed(history[-MAX_CONTEXT_TURNS:])
-            if t.character_ids or t.pending_question is not None
+            if t.character_ids or t.pending_question is not None or t.reference_barrier
         ),
         None,
     )
@@ -224,6 +231,9 @@ def resolve_reference(
                 for c in m.character_ids
             )
         )
+        if preceding and RELATIONSHIP_REFERENCE.search(question[: pronoun.start()]):
+            missing = True
+            continue
         candidates = (
             preceding
             if preceding and not object_pronoun
@@ -278,4 +288,5 @@ def resolve_reference(
         character_ids=() if missing else tuple(dict.fromkeys((*ids, *ambiguous_ids))),
         context_turn_id=context_turn_id,
         clarification=clarification,
+        followup_requires_name=bool(RELATIONSHIP_REFERENCE.search(question)),
     )

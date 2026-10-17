@@ -195,3 +195,27 @@ def test_missing_identity_stops_older_context_from_reappearing() -> None:
     selected = resolve_reference("Phil Mitchell", catalogue(), history)
     assert selected.clarification
     assert selected.character_ids == ()
+
+
+def test_relative_owner_does_not_supply_an_unnamed_relatives_identity() -> None:
+    from datetime import UTC, datetime, timedelta
+
+    from ask_phil.sessions import SessionState
+
+    assert resolve_reference(
+        "Who is Kat Slater's father, and when did he die?", catalogue(), ()
+    ).clarification
+    assert resolve_reference(
+        "Who is Phil Mitchell's former wife, and when did she arrive?", catalogue(), ()
+    ).clarification
+    question = resolve_reference("Who is Kat Slater's father?", catalogue(), ())
+    assert question.clarification is None
+    now = datetime(2026, 10, 17, tzinfo=UTC)
+    state = SessionState(
+        session_id=uuid4(),
+        created_at=now,
+        expires_at=now + timedelta(hours=2),
+        context_expires_at=now + timedelta(minutes=30),
+    )
+    advanced = state.after_turn(state.next_turn(), question, now=now)
+    assert resolve_reference("When did he arrive?", catalogue(), advanced.history).clarification

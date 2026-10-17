@@ -1,23 +1,147 @@
 {
   "dataset_id": "conversation-development-v1",
   "split": "development",
-  "review": "Agent-authored expectations from retained source passages before candidate execution; not human adjudication or independent canon corroboration. No held-out or calibrated-judge claims.",
+  "review": "Agent-authored expectations from retained source passages before candidate execution; not human adjudication or independent canon corroboration. No held-out or calibrated-judge claims. Before any live call, the alias introduction was made relationship-free after review showed that relatives need an explicit-name context barrier; the next turn still independently asks about Kat\u2019s father.",
   "source_references": "data/references/core-profiles-v2.json",
   "groups": {
-    "mitchell-arrival-1990": ["phil-intro", "phil-followup", "two-subjects", "ambiguous", "selected", "reset", "after-reset", "isolated"],
-    "kat-arrival-family": ["kat-alias", "kat-followup"]
+    "mitchell-arrival-1990": [
+      "phil-intro",
+      "phil-followup",
+      "two-subjects",
+      "ambiguous",
+      "selected",
+      "reset",
+      "after-reset",
+      "isolated"
+    ],
+    "kat-arrival-family": [
+      "kat-alias",
+      "kat-followup"
+    ]
   },
-  "budget": {"max_paid_calls": 12, "max_additional_reported_usd": 0.25, "shared_trial_cap_usd": 5},
+  "budget": {
+    "max_paid_calls": 12,
+    "max_additional_reported_usd": 0.25,
+    "shared_trial_cap_usd": 5
+  },
   "steps": [
-    {"case_id": "phil-intro", "session": "a", "operation": "ask", "question": "When did Phil Mitchell first arrive in Walford?", "expected_status": "answered", "expected_facts": ["Phil first arrives in Walford in February 1990."], "evidence_ids": ["phil-mitchell-wiki-0018-15527"], "forbidden": ["Phil first arrived in 2001."]},
-    {"case_id": "phil-followup", "session": "a", "operation": "ask", "question": "What did he open when he first arrived?", "expected_status": "answered", "expected_facts": ["Phil opens the automobile repair shop The Arches."], "evidence_ids": ["phil-mitchell-wiki-0018-15527"]},
-    {"case_id": "kat-alias", "session": "a", "operation": "ask", "question": "Who is Kat Moon's father?", "expected_status": "answered", "expected_facts": ["Charlie Slater is Kat's father."], "evidence_ids": ["kat-slater-wiki-0041-30971"]},
-    {"case_id": "kat-followup", "session": "a", "operation": "ask", "question": "What is her father's name?", "expected_status": "answered", "expected_facts": ["Charlie Slater is Kat's father."], "evidence_ids": ["kat-slater-wiki-0041-30971"]},
-    {"case_id": "two-subjects", "session": "a", "operation": "ask", "question": "When did Phil Mitchell first arrive in Walford with Grant Mitchell?", "expected_status": "answered", "expected_facts": ["Phil first arrives in Walford in February 1990.", "Grant joins Phil."], "evidence_ids": ["phil-mitchell-wiki-0018-15527"]},
-    {"case_id": "ambiguous", "session": "a", "operation": "ask", "question": "When did he first arrive in Walford?", "expected_status": "clarification", "expected_facts": [], "evidence_ids": [], "required_choices": ["Phil Mitchell", "Grant Mitchell"]},
-    {"case_id": "selected", "session": "a", "operation": "ask", "question": "Phil Mitchell", "expected_status": "answered", "expected_facts": ["Phil first arrives in Walford in February 1990."], "evidence_ids": ["phil-mitchell-wiki-0018-15527"]},
-    {"case_id": "reset", "session": "a", "operation": "reset"},
-    {"case_id": "after-reset", "session": "a", "operation": "ask", "question": "When did he first arrive in Walford?", "expected_status": "clarification", "expected_facts": [], "evidence_ids": []},
-    {"case_id": "isolated", "session": "b", "operation": "ask", "question": "What is her father's name?", "expected_status": "clarification", "expected_facts": [], "evidence_ids": []}
+    {
+      "case_id": "phil-intro",
+      "session": "a",
+      "operation": "ask",
+      "question": "When did Phil Mitchell first arrive in Walford?",
+      "expected_status": "answered",
+      "expected_facts": [
+        "Phil first arrives in Walford in February 1990."
+      ],
+      "evidence_ids": [
+        "phil-mitchell-wiki-0018-15527"
+      ],
+      "forbidden": [
+        "Phil first arrived in 2001."
+      ]
+    },
+    {
+      "case_id": "phil-followup",
+      "session": "a",
+      "operation": "ask",
+      "question": "What did he open when he first arrived?",
+      "expected_status": "answered",
+      "expected_facts": [
+        "Phil opens the automobile repair shop The Arches."
+      ],
+      "evidence_ids": [
+        "phil-mitchell-wiki-0018-15527"
+      ]
+    },
+    {
+      "case_id": "kat-alias",
+      "session": "a",
+      "operation": "ask",
+      "question": "Who is Kat Moon?",
+      "expected_status": "answered",
+      "expected_facts": [
+        "The character is Kat Slater."
+      ],
+      "evidence_ids": [
+        "kat-slater-wiki-0041-30971"
+      ]
+    },
+    {
+      "case_id": "kat-followup",
+      "session": "a",
+      "operation": "ask",
+      "question": "What is her father's name?",
+      "expected_status": "answered",
+      "expected_facts": [
+        "Charlie Slater is Kat's father."
+      ],
+      "evidence_ids": [
+        "kat-slater-wiki-0041-30971"
+      ]
+    },
+    {
+      "case_id": "two-subjects",
+      "session": "a",
+      "operation": "ask",
+      "question": "When did Phil Mitchell first arrive in Walford with Grant Mitchell?",
+      "expected_status": "answered",
+      "expected_facts": [
+        "Phil first arrives in Walford in February 1990.",
+        "Grant joins Phil."
+      ],
+      "evidence_ids": [
+        "phil-mitchell-wiki-0018-15527"
+      ]
+    },
+    {
+      "case_id": "ambiguous",
+      "session": "a",
+      "operation": "ask",
+      "question": "When did he first arrive in Walford?",
+      "expected_status": "clarification",
+      "expected_facts": [],
+      "evidence_ids": [],
+      "required_choices": [
+        "Phil Mitchell",
+        "Grant Mitchell"
+      ]
+    },
+    {
+      "case_id": "selected",
+      "session": "a",
+      "operation": "ask",
+      "question": "Phil Mitchell",
+      "expected_status": "answered",
+      "expected_facts": [
+        "Phil first arrives in Walford in February 1990."
+      ],
+      "evidence_ids": [
+        "phil-mitchell-wiki-0018-15527"
+      ]
+    },
+    {
+      "case_id": "reset",
+      "session": "a",
+      "operation": "reset"
+    },
+    {
+      "case_id": "after-reset",
+      "session": "a",
+      "operation": "ask",
+      "question": "When did he first arrive in Walford?",
+      "expected_status": "clarification",
+      "expected_facts": [],
+      "evidence_ids": []
+    },
+    {
+      "case_id": "isolated",
+      "session": "b",
+      "operation": "ask",
+      "question": "What is her father's name?",
+      "expected_status": "clarification",
+      "expected_facts": [],
+      "evidence_ids": []
+    }
   ]
 }
