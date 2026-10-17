@@ -2,6 +2,19 @@
 
 Updated 17 October 2026. The user approved the initial checklist/ticket breakdown, authorised publication, and subsequently required user feedback and online evaluation. Checklist v1.1 and the amended 24-ticket breakdown are published. Issues #2, #3, #4, #5, #6, #7 and #8 are complete and closed. Issues #5–#8 passed their full software suites, independent reviews, exact-tree publication verification and closure readback. Issue #4 passed its scoped cloud policy acceptance.
 
+## Issue #9: implementation in progress
+
+[The quality-comparison workflow](../../implementation/issue-9/README.md) adds
+grouped references, relevance scoring, paired reports, public API capture and a
+narrow support judge. A failed two-call pilot cost $0.009182; its clarification
+recorder error now has a passing API regression. The shared ledger is $0.241848
+with no unsettled reservations. All 248 software tests, strict mypy and Ruff pass;
+the independent Standards and Spec reviews have zero remaining software findings.
+Human review of eight synthetic support labels
+and explicit authorization for the corrected OpenRouter evaluation payloads are
+pending. Complete the live comparison/calibration and actual MLflow readback
+before closing #9. Its code and protocol alone do not pass runtime acceptance.
+
 ## Issue #8: grounded follow-ups and reset accepted and closed
 
 [Conversation implementation and acceptance](../../implementation/issue-8/README.md)
@@ -33,7 +46,7 @@ records closure readback with all eight criteria checked. The authenticated GitH
 connector published without forcing because native Git has no push credentials;
 both histories are retained locally. The user explicitly approved live execution
 and publication; earlier automatic review denials are historical.
-#9 is recommended next. Wait for the next implementation instruction before starting it.
+#9 is now in progress as recorded above.
 
 ## Issue #7: all 20 core text profiles
 
@@ -64,7 +77,7 @@ zero unsettled reservations. Offline reviews use zero model calls and separate
 MLflow runs. Preserve the private key and ledger. AD-03.4 and RAG-01 pass for this
 scope: 20 checks passed and 31 remained Pending at #7. Graph, fusion, caching and
 online-feedback acceptance remain later work. #8 subsequently completed above;
-#9 is now recommended next and requires the next implementation instruction.
+#9 is now in progress as recorded above.
 
 ## Issue #6: source/text refresh and recovery
 
@@ -152,7 +165,7 @@ The [to-spec skill](../../../.agents/skills/to-spec/SKILL.md) authorised specifi
 
 ## First available work
 
-**[#9 — Inspect calibrated quality comparisons](https://github.com/tomh1988-8/rag_demo/issues/9)** is recommended next. #10 (execution boundaries), #11 (biological claims) and #24 (fusion/context expansion) are also unblocked. Wait for the next implementation instruction before starting another ticket. Specification #1 remains parent context.
+**[#9 — Inspect calibrated quality comparisons](https://github.com/tomh1988-8/rag_demo/issues/9)** is in progress. #10 (execution boundaries), #11 (biological claims) and #24 (fusion/context expansion) are also unblocked. Wait for the next implementation instruction before starting another ticket. Specification #1 remains parent context.
 
 For subsequent work, read the current issue and comments, the relevant domain/ADR decisions and the checklist profile. Work the dependency frontier; the shared `ready-for-agent` label does not mean a blocked ticket can begin. Existing approved decisions and the six public test boundaries do not need another design interview.
 
@@ -218,7 +231,7 @@ The user requested fusion/context expansion and repeated-question caching before
 the next implementation. [Research](../../research/rag-fusion-and-answer-caching.md)
 and [scope validation](fusion-cache-amendment.json) describe the changes. GitHub #24
 and #25 own the new behavior; #18 and #21 include their actual prerequisites.
-After completion of #8, #9 is recommended next. Neither fusion nor caching is implemented.
+#9 is now in progress after completion of #8. Neither fusion nor caching is implemented.
 
 Historical issue #2 publication: the validated code was published on GitHub `main` at `1a186fd1c6cbf306742a7ef6868f5b2cded58df2`,
 whose tree exactly matches local `e5ac34c`. Publication used the authenticated GitHub

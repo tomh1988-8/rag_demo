@@ -1,0 +1,64 @@
+{
+  "version": "quality-scorer-contracts-v1",
+  "reviewed_scorer": "reviewed-binary-dimensions-v2",
+  "checks": {
+    "correctness": {
+      "requires_reviewed_expectations": true,
+      "inputs": [
+        "actual_assertions",
+        "reviewed_reference_labels"
+      ]
+    },
+    "groundedness": {
+      "requires_reviewed_expectations": false,
+      "inputs": [
+        "actual_assertions",
+        "original_context",
+        "reviewed_support_labels"
+      ]
+    },
+    "completeness": {
+      "requires_reviewed_expectations": true,
+      "inputs": [
+        "complete_required_facts",
+        "reviewed_coverage_labels"
+      ]
+    },
+    "relevance": {
+      "requires_reviewed_expectations": false,
+      "inputs": [
+        "question",
+        "served_answer",
+        "reviewed_relevance_label"
+      ]
+    },
+    "citation_support": {
+      "requires_reviewed_expectations": false,
+      "inputs": [
+        "actual_assertions",
+        "cited_passages",
+        "reviewed_citation_labels"
+      ]
+    },
+    "answerability": {
+      "requires_reviewed_expectations": true,
+      "inputs": [
+        "reviewed_expected_outcome",
+        "actual_outcome",
+        "appropriateness_review"
+      ]
+    },
+    "semantic_support": {
+      "requires_reviewed_expectations": false,
+      "inputs": [
+        "served_answer",
+        "original_context"
+      ],
+      "rubric": "all-assertions-supported-v1",
+      "enablement": "Exact model/settings/rubric must match retained human-reviewed calibration; missing context produces unavailable without a paid call."
+    }
+  },
+  "human_reports": "Helpfulness votes and unverified correction text are not factual keys and do not enter the context-only judge prompt.",
+  "missing": "Unavailable when required measurements/expectations are absent; never convert missing data to a pass.",
+  "zero_denominator": "null"
+}

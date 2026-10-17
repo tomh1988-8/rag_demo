@@ -1,0 +1,174 @@
+{
+  "dataset_id": "support-judge-v1",
+  "reviewer": "Codex; proposed labels awaiting Tom",
+  "human_reviewed": false,
+  "adjudication_note": "Eight proposed labels sent for human review in this implementation session; pending. User helpfulness/correction text is not an answer key.",
+  "examples": [
+    {
+      "case_id": "chairs-supported",
+      "group_id": "chairs-delivery",
+      "split": "judge_calibration",
+      "supplied": {
+        "answer": "Phil delivers three red chairs.",
+        "context": [
+          {
+            "evidence_id": "chairs-delivery",
+            "text": "Phil delivers three red chairs to the community hall on Monday."
+          },
+          {
+            "evidence_id": "chairs-meeting",
+            "text": "Phil leaves before the meeting. The account does not identify its chairperson."
+          }
+        ]
+      },
+      "reviewed_label": true,
+      "review_note": "Authored from the two source clauses before any judge execution. Support alone: omitted facts affect completeness separately. Missing context is unavailable.",
+      "synthetic_provenance": "Author-created counterfactual control for support scoring; not EastEnders canon or an answer-model output.",
+      "reference_available": false,
+      "human_report": null
+    },
+    {
+      "case_id": "chairs-wrong-colour",
+      "group_id": "chairs-delivery",
+      "split": "judge_calibration",
+      "supplied": {
+        "answer": "Phil delivers three blue chairs.",
+        "context": [
+          {
+            "evidence_id": "chairs-delivery",
+            "text": "Phil delivers three red chairs to the community hall on Monday."
+          },
+          {
+            "evidence_id": "chairs-meeting",
+            "text": "Phil leaves before the meeting. The account does not identify its chairperson."
+          }
+        ]
+      },
+      "reviewed_label": false,
+      "review_note": "Authored from the two source clauses before any judge execution. Support alone: omitted facts affect completeness separately. Missing context is unavailable.",
+      "synthetic_provenance": "Author-created counterfactual control for support scoring; not EastEnders canon or an answer-model output.",
+      "reference_available": false,
+      "human_report": null
+    },
+    {
+      "case_id": "chairs-incomplete",
+      "group_id": "chairs-delivery",
+      "split": "judge_calibration",
+      "supplied": {
+        "answer": "Phil delivers chairs.",
+        "context": [
+          {
+            "evidence_id": "chairs-delivery",
+            "text": "Phil delivers three red chairs to the community hall on Monday."
+          },
+          {
+            "evidence_id": "chairs-meeting",
+            "text": "Phil leaves before the meeting. The account does not identify its chairperson."
+          }
+        ]
+      },
+      "reviewed_label": true,
+      "review_note": "Authored from the two source clauses before any judge execution. Support alone: omitted facts affect completeness separately. Missing context is unavailable.",
+      "synthetic_provenance": "Author-created counterfactual control for support scoring; not EastEnders canon or an answer-model output.",
+      "reference_available": false,
+      "human_report": null
+    },
+    {
+      "case_id": "chairs-missing-input",
+      "group_id": "chairs-delivery",
+      "split": "judge_calibration",
+      "supplied": {
+        "answer": "Phil delivers three red chairs.",
+        "context": null
+      },
+      "reviewed_label": null,
+      "review_note": "Authored from the two source clauses before any judge execution. Support alone: omitted facts affect completeness separately. Missing context is unavailable.",
+      "synthetic_provenance": "Author-created counterfactual control for support scoring; not EastEnders canon or an answer-model output.",
+      "reference_available": false,
+      "human_report": null
+    },
+    {
+      "case_id": "books-supported",
+      "group_id": "library-return",
+      "split": "judge_validation",
+      "supplied": {
+        "answer": "Ben returns both history books on Tuesday.",
+        "context": [
+          {
+            "evidence_id": "books-borrow",
+            "text": "Ben borrows two history books from the library."
+          },
+          {
+            "evidence_id": "books-return",
+            "text": "He returns both books on Tuesday. The account gives no fine information."
+          }
+        ]
+      },
+      "reviewed_label": true,
+      "review_note": "Authored from the two source clauses before any judge execution. Support alone: omitted facts affect completeness separately. Missing context is unavailable.",
+      "synthetic_provenance": "Author-created counterfactual control for support scoring; not EastEnders canon or an answer-model output.",
+      "reference_available": false,
+      "human_report": null
+    },
+    {
+      "case_id": "books-wrong-day",
+      "group_id": "library-return",
+      "split": "judge_validation",
+      "supplied": {
+        "answer": "Ben returns the books on Friday.",
+        "context": [
+          {
+            "evidence_id": "books-borrow",
+            "text": "Ben borrows two history books from the library."
+          },
+          {
+            "evidence_id": "books-return",
+            "text": "He returns both books on Tuesday. The account gives no fine information."
+          }
+        ]
+      },
+      "reviewed_label": false,
+      "review_note": "Authored from the two source clauses before any judge execution. Support alone: omitted facts affect completeness separately. Missing context is unavailable.",
+      "synthetic_provenance": "Author-created counterfactual control for support scoring; not EastEnders canon or an answer-model output.",
+      "reference_available": false,
+      "human_report": "Helpful; I believe the return was Friday."
+    },
+    {
+      "case_id": "books-invented-fine",
+      "group_id": "library-return",
+      "split": "judge_validation",
+      "supplied": {
+        "answer": "Ben pays a ten-pound library fine.",
+        "context": [
+          {
+            "evidence_id": "books-borrow",
+            "text": "Ben borrows two history books from the library."
+          },
+          {
+            "evidence_id": "books-return",
+            "text": "He returns both books on Tuesday. The account gives no fine information."
+          }
+        ]
+      },
+      "reviewed_label": false,
+      "review_note": "Authored from the two source clauses before any judge execution. Support alone: omitted facts affect completeness separately. Missing context is unavailable.",
+      "synthetic_provenance": "Author-created counterfactual control for support scoring; not EastEnders canon or an answer-model output.",
+      "reference_available": false,
+      "human_report": null
+    },
+    {
+      "case_id": "books-missing-input",
+      "group_id": "library-return",
+      "split": "judge_validation",
+      "supplied": {
+        "answer": "Ben returns the books on Tuesday.",
+        "context": null
+      },
+      "reviewed_label": null,
+      "review_note": "Authored from the two source clauses before any judge execution. Support alone: omitted facts affect completeness separately. Missing context is unavailable.",
+      "synthetic_provenance": "Author-created counterfactual control for support scoring; not EastEnders canon or an answer-model output.",
+      "reference_available": false,
+      "human_report": null
+    }
+  ]
+}

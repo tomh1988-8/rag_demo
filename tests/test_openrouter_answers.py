@@ -6,10 +6,12 @@ from pathlib import Path
 
 import httpx
 import pytest
+from fastapi.testclient import TestClient
 from ollama import Client
 
 from ask_phil.answering import AnswerService
 from ask_phil.answers import AskRequest
+from ask_phil.api import create_app
 from ask_phil.evidence import SourceSnapshot
 from ask_phil.models import LocalEmbedding, Models, OpenRouterSettings
 from ask_phil.openrouter import Budget, OpenRouterChat
@@ -112,7 +114,9 @@ def test_cloud_answer_retains_usage_and_receipt_without_credentials(
                         },
                     }
                 ],
-                "usage": {} if failure == "missing_usage" else {
+                "usage": {}
+                if failure == "missing_usage"
+                else {
                     "prompt_tokens": 20,
                     "completion_tokens": 50,
                     "cost": 0.0001,
@@ -168,9 +172,7 @@ def test_cloud_answer_retains_usage_and_receipt_without_credentials(
         assert response.usage.input_tokens == 0
         assert response.usage.output_tokens == 0
     else:
-        assert response.status == (
-            "answered" if failure in {"none", "missing_usage"} else "failed"
-        )
+        assert response.status == ("answered" if failure in {"none", "missing_usage"} else "failed")
         unknown_usage = failure in {"http", "missing_usage"}
         assert response.estimated_api_cost_usd == (None if unknown_usage else 0.0001)
         assert response.provider_usage is not None
@@ -184,3 +186,48 @@ def test_cloud_answer_retains_usage_and_receipt_without_credentials(
     assert "private-test-key" not in json.dumps(trace.to_dict())
     assert "private-test-key" not in receipt.model_dump_json()
     assert "Local Ollama API only" not in response.cost_scope
+    if failure == "missing_usage":
+        from ask_phil.quality_workflow import capture_quality
+
+        reference = json.loads(Path("data/references/quality-comparison-v1.json").read_bytes())
+        reference["cases"] = [reference["cases"][0]]
+        reference["cases"][0].update(
+            snapshot_id=seed.snapshot_id,
+            required_facts=[
+                {
+                    "fact": "Phil arrives in February 1990.",
+                    "sufficient_sets": [["phil-arrival-001"]],
+                }
+            ],
+            evidence=[
+                {
+                    "evidence_id": "phil-arrival-001",
+                    "text": seed.passages[0].text,
+                    "source_revision": seed.source.revision_id,
+                    "sha256": seed.passages[0].sha256,
+                }
+            ],
+        )
+        reference_path = tmp_path / "capture-references.json"
+        reference_path.write_text(json.dumps(reference))
+        output = tmp_path / "capture.json"
+        with TestClient(
+            create_app(database_url, models=models, tracking_uri=f"sqlite:///{tmp_path}/mlflow.db")
+        ) as api:
+            with pytest.raises(ValueError, match="Unknown serving cost"):
+                capture_quality(
+                    reference_path,
+                    output,
+                    api,
+                    repeats=1,
+                    namespace="unknown-cost-development",
+                    private_directory=tmp_path / "private-capture",
+                    max_cost_usd=1,
+                    profile=settings,
+                )
+        failed = json.loads(output.read_bytes())
+        assert failed["state"] == "failed"
+        assert failed["cost_usd"] is None
+        assert failed["known_cost_usd"] == "0"
+        assert failed["failed_call_usage"]["cost_usd"] is None
+        assert failed["failed_call_usage"]["reserved_usd"] > 0

@@ -83,6 +83,33 @@ def test_no_factual_claims_or_unassessed_labels_do_not_manufacture_quality_passe
     assert scores.answerability.value is None
 
 
+def test_relevance_remains_separate_from_a_correct_but_off_topic_answer() -> None:
+    from ask_phil.evaluation import ClaimReview, QualityReview, score_answer_review
+
+    review = QualityReview(
+        case_id="off-topic",
+        response_sha256="a" * 64,
+        reference_sha256="b" * 64,
+        reviewer="Independently authored scorer counterexample",
+        rationale="The question asks about arrival; the answer only describes a marriage.",
+        claims=(
+            ClaimReview(
+                claim="A source-supported marriage fact",
+                correct=True,
+                grounded=True,
+                citation_supported=True,
+            ),
+        ),
+        required_facts=(),
+        answerability=None,
+        relevance=False,
+    )
+    scores = score_answer_review(review)
+    assert scores.correctness.value == 1
+    assert scores.relevance.value == 0
+    assert scores.completeness.value is None
+
+
 def test_retrieval_success_does_not_hide_evidence_lost_from_assembled_context() -> None:
     reference = RetrievalReference(
         case_id="worked-two-fact-example",

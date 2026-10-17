@@ -21,6 +21,8 @@ KEY_PATH = Path(".secrets/openrouter.key")
 BUDGET_PATH = Path("artifacts/openrouter-budget.sqlite")
 CAP = Decimal("5")
 MICRODOLLARS = Decimal("1000000")
+_MAX_REQUEST_BYTES = 16000
+_REQUEST_FRAMING_ALLOWANCE = 4096
 
 
 class ProviderError(ValueError):
@@ -145,6 +147,14 @@ class OpenRouterProfile(Record):
     request_timeout_seconds: int = Field(default=180, ge=1, le=180)
 
 
+def maximum_call_cost(profile: OpenRouterProfile) -> Decimal:
+    """Conservative per-call slice bound, including the adapter's framing allowance."""
+    return (
+        Decimal(_MAX_REQUEST_BYTES + _REQUEST_FRAMING_ALLOWANCE) * profile.input_price_per_million
+        + profile.output_tokens * profile.output_price_per_million
+    ) / MICRODOLLARS
+
+
 class ProviderUsage(Record):
     reservation_id: str
     reserved_usd: float
@@ -228,12 +238,12 @@ class OpenRouterChat:
             },
         }
         encoded = json.dumps(body, ensure_ascii=False).encode()
-        if len(encoded) > 16000:
+        if len(encoded) > _MAX_REQUEST_BYTES:
             raise ProviderError("Request exceeds the 16000-byte trial input budget.")
         # UTF-8 byte count plus framing/schema allowance is a conservative reservation,
         # not measured usage. The verified provider lifetime cap is the billing authority.
         reservation = (
-            (len(encoded) + 4096) * profile.input_price_per_million
+            (len(encoded) + _REQUEST_FRAMING_ALLOWANCE) * profile.input_price_per_million
             + profile.output_tokens * profile.output_price_per_million
         ) / MICRODOLLARS
         try:

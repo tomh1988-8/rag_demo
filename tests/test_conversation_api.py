@@ -26,6 +26,100 @@ from ask_phil.storage import EvidenceStore
 pytestmark = pytest.mark.integration
 
 
+def test_quality_capture_uses_fresh_api_sessions_and_preserves_each_repeat(
+    conversation_client: TestClient, tmp_path: Path
+) -> None:
+    from ask_phil.evaluation import (
+        EvaluationTracking,
+        QualityReview,
+        document_fingerprint,
+        review_capture,
+    )
+    from ask_phil.quality_comparison import ComparisonDataset
+    from ask_phil.quality_workflow import capture_quality, reviewed_comparison_run
+
+    references = json.loads(Path("data/references/quality-comparison-v1.json").read_bytes())
+    references["cases"] = [
+        case for case in references["cases"] if case["case_id"] in ("phil-intro", "isolated")
+    ]
+    for case in references["cases"]:
+        case["snapshot_id"] = "chat"
+    path = tmp_path / "references.json"
+    path.write_text(json.dumps(references))
+    output = tmp_path / "capture.json"
+    tracking = MlflowClient(tracking_uri=f"sqlite:///{tmp_path}/mlflow.db")
+    capture_quality(
+        path,
+        output,
+        conversation_client,
+        repeats=2,
+        namespace="public-test-development",
+        private_directory=tmp_path / "private",
+        max_cost_usd=0,
+        tracking=EvaluationTracking(tracking, "quality-test-captures", {"kind": "software-test"}),
+        serving_tracking=tracking,
+    )
+    captured = json.loads(output.read_bytes())
+    responses = [row["response"] for row in captured["cases"]]
+    assert captured["state"] == "complete"
+    assert len(responses) == 4
+    assert len({r["response_id"] for r in responses}) == 4
+    assert len({r["conversation"]["session_id"] for r in responses}) == 4
+    assert all(r["conversation"]["turn_number"] == 1 for r in responses)
+    assert sum("February 1990" in r["answer"] for r in responses) == 2
+    assert sum(r["status"] == "clarification" for r in responses) == 2
+    assert captured["cost_usd"] == "0.0"
+    assert captured["cache_mode"] == "off"
+    assert "session_token" not in output.read_text()
+    downloaded = tracking.download_artifacts(captured["run_id"], "result/capture.json")
+    assert json.loads(Path(downloaded).read_bytes()) == captured
+    factual = [r for r in captured["cases"] if r["response"]["status"] == "answered"]
+    assert all(r["stage_ms"]["answer_model"] is not None for r in factual)
+    annotations = tmp_path / "annotations.json"
+    annotations.write_text(
+        json.dumps(
+            {
+                "reviews": [
+                    QualityReview.model_validate(
+                        {
+                            "case_id": row["case_id"],
+                            "reviewer": "Independently specified provider fixture",
+                            "rationale": "Arrival is February 1990; pronouns need a subject.",
+                            "response_sha256": document_fingerprint(row["response"]),
+                            "reference_sha256": document_fingerprint(row["reference"]),
+                            "claims": [
+                                {
+                                    "claim": "Phil arrives in February 1990.",
+                                    "correct": True,
+                                    "grounded": True,
+                                    "citation_supported": True,
+                                }
+                            ]
+                            if row["response"]["status"] == "answered"
+                            else [],
+                            "required_facts": [
+                                {"fact": fact["fact"], "covered": True}
+                                for fact in row["reference"]["required_facts"]
+                            ],
+                            "answerability": True,
+                            "relevance": True,
+                        }
+                    ).model_dump(mode="json")
+                    for row in captured["cases"]
+                ]
+            }
+        )
+    )
+    reviewed = tmp_path / "reviewed.json"
+    review_capture(output, annotations, output.with_suffix(".references.json"), reviewed)
+    scored = reviewed_comparison_run(
+        ComparisonDataset.model_validate_json(path.read_bytes()), output, reviewed
+    )
+    assert len(scored.observations) == 4
+    assert all(row.quality.answerability.value == 1 for row in scored.observations)
+    assert sum(row.quality.correctness.value == 1 for row in scored.observations) == 2
+
+
 @pytest.fixture
 def session_clock() -> list[datetime]:
     return [datetime(2026, 10, 17, 12, tzinfo=UTC)]

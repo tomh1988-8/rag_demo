@@ -69,6 +69,7 @@ class QualityReview(Record):
     claims: tuple[ClaimReview, ...]
     required_facts: tuple[FactReview, ...]
     answerability: StrictBool | None
+    relevance: StrictBool | None = None
     critical_failures: tuple[CriticalFailure, ...] = ()
 
 
@@ -85,6 +86,7 @@ class AnswerQuality(Record):
     completeness: ReviewMetric
     citation_support: ReviewMetric
     answerability: ReviewMetric
+    relevance: ReviewMetric
     critical_failures: tuple[CriticalFailure, ...]
 
 
@@ -377,7 +379,7 @@ def review_capture(
         "cost_usd": "0",
         "capture_sha256": capture_sha256,
         "reviews_sha256": reviews_sha256,
-        "scorer": "reviewed-binary-dimensions-v1",
+        "scorer": "reviewed-binary-dimensions-v2",
     }
     evaluation = EvaluationRun(
         output,
@@ -490,6 +492,7 @@ def score_answer_review(review: QualityReview) -> AnswerQuality:
         completeness=metric(tuple(f.covered for f in review.required_facts)),
         citation_support=metric(tuple(c.citation_supported for c in review.claims)),
         answerability=metric((review.answerability,)),
+        relevance=metric((review.relevance,)),
         critical_failures=review.critical_failures,
     )
 

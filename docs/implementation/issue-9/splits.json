@@ -1,0 +1,34 @@
+{
+  "version": "grouped-quality-splits-v1",
+  "partitions": {
+    "development": [
+      "phil-intro",
+      "phil-followup",
+      "ambiguous",
+      "isolated",
+      "janine-butcher-profile",
+      "phil-mitchell-missing",
+      "cross-mitchell-garage"
+    ],
+    "judge_calibration": [
+      "chairs-supported",
+      "chairs-wrong-colour",
+      "chairs-incomplete",
+      "chairs-missing-input"
+    ],
+    "judge_validation": [
+      "books-supported",
+      "books-wrong-day",
+      "books-invented-fine",
+      "books-missing-input"
+    ],
+    "held_out": [],
+    "regression": []
+  },
+  "grouping": "Shared story groups, evidence identities, paraphrases and derivatives must remain in the same partition. Judge cases use two separate synthetic groups. Exposed Janine and garage regressions retain development ownership.",
+  "held_out_status": "Reserved for future fresh grouped comparison cases; no held-out candidate outputs inspected in this ticket.",
+  "linked_regressions": [
+    "docs/implementation/issue-7/regressions.json",
+    "docs/implementation/issue-8/regressions.json"
+  ]
+}

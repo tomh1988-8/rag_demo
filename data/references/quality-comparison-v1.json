@@ -1,0 +1,255 @@
+{
+  "dataset_id": "quality-comparison-v1",
+  "cases": [
+    {
+      "case_id": "phil-intro",
+      "group_ids": [
+        "mitchell-arrival-1990",
+        "phil-arrival-february-1990"
+      ],
+      "split": "development",
+      "category": "supported",
+      "question": "When did Phil Mitchell first arrive in Walford?",
+      "snapshot_id": "sources-b5bf51ce2c754a5c349834cc87954524d6c89cb20e38fcdafeea815b0760212e",
+      "session": "phil-sequence",
+      "derived_from": [],
+      "expected_status": "answered",
+      "required_facts": [
+        {
+          "fact": "Phil first arrives in Walford in February 1990.",
+          "sufficient_sets": [
+            [
+              "phil-mitchell-wiki-0018-15527"
+            ]
+          ]
+        }
+      ],
+      "allowed_alternatives": [
+        "Equivalent factual wording; Phil may use first person."
+      ],
+      "forbidden_assertions": [
+        "Phil first arrived in 2001."
+      ],
+      "evidence": [
+        {
+          "evidence_id": "phil-mitchell-wiki-0018-15527",
+          "text": "Phil Mitchell first arrives in Walford in February 1990 to open an automobile repair shop, known as The Arches; he is joined by his younger brother Grant (Ross Kemp). Two years later, Phil goes into partnership at The Queen Victoria public house with Grant and his wife Sharon Watts (Letitia Dean) – up to the point where he moves in with them. Phil grows close to Sharon, who turns to him for comfort during Grant's violent outbursts. Sharon and Phil have sex but she stays with Grant, who is unaware of their betrayal. Sharon and Grant's reconciliation is brief, and amidst more rowing and physical violence, Grant is arrested and imprisoned. In his absence, Phil and Sharon continue their affair but when Grant is released, Sharon reconciles with him, leaving Phil heartbroken. On the rebound, Phil enters into a marriage of convenience with Nadia Borovac (Anna Barkan) - a Romanian refugee - enabling her to stay in Britain, with Nadia departing after the wedding.",
+          "source_revision": "1379872347",
+          "sha256": "9a13fe3539b69694d88ab06a1bd85cf898f46d65ca5ac1d958d0e0ff026bd263"
+        }
+      ],
+      "review_note": "Source-derived expectations retained from conversation-v1 before this comparison. Previously exposed development data; no human or canon corroboration claim.",
+      "synthetic_provenance": null
+    },
+    {
+      "case_id": "phil-followup",
+      "group_ids": [
+        "mitchell-arrival-1990",
+        "phil-arrival-february-1990"
+      ],
+      "split": "development",
+      "category": "followup",
+      "question": "What did he open when he first arrived?",
+      "snapshot_id": "sources-b5bf51ce2c754a5c349834cc87954524d6c89cb20e38fcdafeea815b0760212e",
+      "session": "phil-sequence",
+      "derived_from": [],
+      "expected_status": "answered",
+      "required_facts": [
+        {
+          "fact": "Phil opens the automobile repair shop The Arches.",
+          "sufficient_sets": [
+            [
+              "phil-mitchell-wiki-0018-15527"
+            ]
+          ]
+        }
+      ],
+      "allowed_alternatives": [
+        "Equivalent factual wording; Phil may use first person."
+      ],
+      "forbidden_assertions": [],
+      "evidence": [
+        {
+          "evidence_id": "phil-mitchell-wiki-0018-15527",
+          "text": "Phil Mitchell first arrives in Walford in February 1990 to open an automobile repair shop, known as The Arches; he is joined by his younger brother Grant (Ross Kemp). Two years later, Phil goes into partnership at The Queen Victoria public house with Grant and his wife Sharon Watts (Letitia Dean) – up to the point where he moves in with them. Phil grows close to Sharon, who turns to him for comfort during Grant's violent outbursts. Sharon and Phil have sex but she stays with Grant, who is unaware of their betrayal. Sharon and Grant's reconciliation is brief, and amidst more rowing and physical violence, Grant is arrested and imprisoned. In his absence, Phil and Sharon continue their affair but when Grant is released, Sharon reconciles with him, leaving Phil heartbroken. On the rebound, Phil enters into a marriage of convenience with Nadia Borovac (Anna Barkan) - a Romanian refugee - enabling her to stay in Britain, with Nadia departing after the wedding.",
+          "source_revision": "1379872347",
+          "sha256": "9a13fe3539b69694d88ab06a1bd85cf898f46d65ca5ac1d958d0e0ff026bd263"
+        }
+      ],
+      "review_note": "Source-derived expectations retained from conversation-v1 before this comparison. Previously exposed development data; no human or canon corroboration claim.",
+      "synthetic_provenance": null
+    },
+    {
+      "case_id": "ambiguous",
+      "group_ids": [
+        "mitchell-arrival-1990",
+        "phil-arrival-february-1990"
+      ],
+      "split": "development",
+      "category": "clarification",
+      "question": "When did he first arrive in Walford?",
+      "snapshot_id": "sources-b5bf51ce2c754a5c349834cc87954524d6c89cb20e38fcdafeea815b0760212e",
+      "session": "ambiguous",
+      "derived_from": [],
+      "expected_status": "clarification",
+      "required_facts": [],
+      "allowed_alternatives": [
+        "Ask which character is intended."
+      ],
+      "forbidden_assertions": [],
+      "evidence": [],
+      "review_note": "Source-derived expectations retained from conversation-v1 before this comparison. Previously exposed development data; no human or canon corroboration claim.",
+      "synthetic_provenance": null
+    },
+    {
+      "case_id": "isolated",
+      "group_ids": [
+        "mitchell-arrival-1990",
+        "phil-arrival-february-1990"
+      ],
+      "split": "development",
+      "category": "clarification",
+      "question": "What is her father's name?",
+      "snapshot_id": "sources-b5bf51ce2c754a5c349834cc87954524d6c89cb20e38fcdafeea815b0760212e",
+      "session": "isolated",
+      "derived_from": [],
+      "expected_status": "clarification",
+      "required_facts": [],
+      "allowed_alternatives": [
+        "Ask which character is intended."
+      ],
+      "forbidden_assertions": [],
+      "evidence": [],
+      "review_note": "Source-derived expectations retained from conversation-v1 before this comparison. Previously exposed development data; no human or canon corroboration claim.",
+      "synthetic_provenance": null
+    },
+    {
+      "case_id": "janine-butcher-profile",
+      "group_ids": [
+        "frank-disappearance-1994"
+      ],
+      "split": "development",
+      "category": "context-gap",
+      "question": "Who did Janine Butcher stay with when Frank disappeared after his 1994 breakdown?",
+      "snapshot_id": "sources-b5bf51ce2c754a5c349834cc87954524d6c89cb20e38fcdafeea815b0760212e",
+      "session": null,
+      "derived_from": [],
+      "expected_status": "answered",
+      "required_facts": [
+        {
+          "fact": "Janine stayed with Pat.",
+          "sufficient_sets": [
+            [
+              "janine-butcher-wiki-0021-13057"
+            ]
+          ]
+        }
+      ],
+      "allowed_alternatives": [
+        "Equivalent factual wording without inventing missing evidence."
+      ],
+      "forbidden_assertions": [],
+      "evidence": [
+        {
+          "evidence_id": "janine-butcher-wiki-0021-13057",
+          "text": "A troublesome child, Janine throws tantrums, runs away, is a bed-wetter, a sleep-walker, a thief, a compulsive liar and a self-harmer, and hates Pat. Unable to discipline her, Pat forces Frank to take Janine to family therapy, which somehow helps. Janine refuses to go to school and Ricky finds out she is being bullied. When Frank has a breakdown and disappears in 1994, Janine stays with Pat but finds Frank's absence upsetting.",
+          "source_revision": "1378379064",
+          "sha256": "0d31a9bc75ad1b67ae815fc39d34c80b6ea61d74be726ba9d32dc8d6b6098319"
+        }
+      ],
+      "review_note": "Expected fact read from this retained main-series passage before model output. Source-supported, not independently corroborated canon.",
+      "synthetic_provenance": null
+    },
+    {
+      "case_id": "phil-mitchell-missing",
+      "group_ids": [
+        "unavailable-contact-detail"
+      ],
+      "split": "development",
+      "category": "missing-evidence",
+      "question": "What is Phil Mitchell’s current mobile phone number?",
+      "snapshot_id": "sources-b5bf51ce2c754a5c349834cc87954524d6c89cb20e38fcdafeea815b0760212e",
+      "session": null,
+      "derived_from": [],
+      "expected_status": "insufficient_evidence",
+      "required_facts": [],
+      "allowed_alternatives": [
+        "Equivalent factual wording; preserve missing-evidence qualifications."
+      ],
+      "forbidden_assertions": [
+        "Invented contact details."
+      ],
+      "evidence": [],
+      "review_note": "Retained main-series text inspected for the requested identifier; no supporting record. Absence is an evidence limitation, never a negative fact.",
+      "synthetic_provenance": null
+    },
+    {
+      "case_id": "cross-mitchell-garage",
+      "group_ids": [
+        "mitchell-arrival-1990"
+      ],
+      "split": "development",
+      "category": "context-gap",
+      "question": "What garage did Phil and Grant Mitchell co-own on arriving in Walford?",
+      "snapshot_id": "sources-b5bf51ce2c754a5c349834cc87954524d6c89cb20e38fcdafeea815b0760212e",
+      "session": null,
+      "derived_from": [],
+      "expected_status": "answered",
+      "required_facts": [
+        {
+          "fact": "Phil and Grant co-owned The Arches.",
+          "sufficient_sets": [
+            [
+              "grant-mitchell-wiki-0023-19694"
+            ]
+          ]
+        }
+      ],
+      "allowed_alternatives": [
+        "Equivalent factual wording; preserve missing-evidence qualifications."
+      ],
+      "forbidden_assertions": [
+        "Inferring co-ownership without supporting context."
+      ],
+      "evidence": [
+        {
+          "evidence_id": "grant-mitchell-wiki-0023-19694",
+          "text": "Grant Mitchell arrives in Albert Square in February 1990 with his older brother Phil (Steve McFadden), and the pair become co-owners of the local garage, The Arches. Grant had returned to civilian life in London having been a paratrooper in the Army, which included serving in the Falklands War at the age of 19. After a brief fling with Julie Cooper (Louise Plowright) and getting involved in various dodgy deals, Grant starts wooing the local barmaid, Sharon Watts (Letitia Dean). She grows attracted to his machismo, and soon their flirting progresses into a relationship. Fiercely protective of his girlfriend, most of Grant's initial problems in the Square revolve around his over-possessive nature and jealousy. He puts Sharon's boss Eddie Royle (Michael Melia), the landlord of The Queen Victoria public house, in hospital after he makes a pass at Sharon; he later becomes prime suspect for Royle's murder, but is proved not guilty when the killer is revealed to be Nick Cotton (John Altman), the well established local villain who eventually owns up to the crime but is found not guilty in court. In ",
+          "source_revision": "1370914760",
+          "sha256": "f7310c97b375bba45eb990105ba5073186a1bdf402d515002f13704d506a977a"
+        }
+      ],
+      "review_note": "Grant’s narrative explicitly names the two co-owners; no graph inference.",
+      "synthetic_provenance": null
+    }
+  ],
+  "prior_group_splits": {
+    "mitchell-arrival-1990": "development",
+    "peggy-eric-marriage": "development",
+    "sharon-adoption": "development",
+    "ben-infant-meningitis": "development",
+    "ian-catering-career": "development",
+    "kathy-early-work": "development",
+    "cindy-arrival-market": "development",
+    "beale-twins-birth": "development",
+    "bobby-paternity": "development",
+    "martin-christening": "development",
+    "kat-arrival-family": "development",
+    "stacey-childhood": "development",
+    "alfie-arrival": "development",
+    "pat-childhood-joan": "development",
+    "frank-disappearance-1994": "development",
+    "dot-wartime-evacuation": "development",
+    "denise-paternity-test": "development",
+    "max-arrival-2006": "development",
+    "carter-arrival-2013": "development",
+    "unavailable-contact-detail": "development",
+    "unavailable-government-identifier": "development",
+    "unresolved-character-pronoun": "development",
+    "phil-arrival-february-1990": "development",
+    "synthetic-cafe-robbery": "development",
+    "synthetic-marriage-conflict": "development",
+    "synthetic-temporal-account": "development",
+    "context-budget-exclusion": "development"
+  }
+}
