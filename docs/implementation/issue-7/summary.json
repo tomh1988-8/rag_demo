@@ -1,0 +1,53 @@
+{
+  "recorded_at": "2026-10-17",
+  "matrix_cases": 25,
+  "story_groups": 21,
+  "core_profiles_with_sourced_success": 20,
+  "total_core_profiles": 20,
+  "matrix_answered": 22,
+  "matrix_abstained": 3,
+  "selected_label_retrieval": {
+    "answerable_cases": 23,
+    "hit_at_3_passed": 23,
+    "context_sufficient": 21,
+    "required_facts": 23,
+    "zero_relevance_cases_excluded": 2,
+    "matching": "Selected sufficient exact passage IDs; not exhaustive passage relevance."
+  },
+  "full_reference_required_fact_coverage": {
+    "passed": 21,
+    "assessed": 23,
+    "failures": [
+      "janine-butcher-profile",
+      "cross-mitchell-garage"
+    ]
+  },
+  "live_answer_calls": 26,
+  "matrix_serving_cost_usd": "0.0959444",
+  "pilot_serving_cost_usd": "0.004036",
+  "total_serving_cost_usd": "0.0999804",
+  "offline_review_answer_model_calls": 0,
+  "offline_review_model_cost_usd": "0",
+  "ledger": {
+    "reservations": 58,
+    "reserved_or_settled_usd": 0.208899,
+    "unsettled_reservations": 0,
+    "slice_rounded_usd": "0.099988",
+    "shared_nonresetting_cap_usd": 5,
+    "maximum_slice_usd": 1
+  },
+  "application_latency_seconds": {
+    "median": 4.357635488995584,
+    "minimum": 3.803159991002758,
+    "maximum": 5.900140479003312,
+    "scope": "Application response elapsed time only, not complete CLI wall time. Single exposed development sequence; no controlled performance estimate."
+  },
+  "known_limits": [
+    "All cases exposed; no held-out/calibrated accuracy or exhaustive canon claim.",
+    "Janine correctly abstains because its selected paragraph is dropped; therapy case supplies the required per-profile demonstration.",
+    "Cross-garage supports garage name/opening/joining only, not the full frozen co-ownership fact.",
+    "Fresh fetches and identity agreement do not establish complete/current or independently corroborated histories."
+  ],
+  "reference_sha256": "c0a08239b5b01eafdc37fdf4b11632e57990d21327da2caf17eb2226e26d55c4",
+  "capture_sha256": "2fc5461e7e06e13df2746c2d7923fa1fb2f0d913988ef6e3a52456b403022220"
+}

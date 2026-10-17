@@ -66,7 +66,9 @@ class LocalEmbedding(BaseEmbedding):
             result = self._client.embed(
                 model=self.model_name,
                 input=formatted,
-                keep_alive=0,
+                # Reuse the small embedding model across an import; unload after
+                # five idle minutes rather than reload for every roster passage.
+                keep_alive=300,
                 truncate=False,
             )
             self._input_tokens.set(result.prompt_eval_count)

@@ -12,19 +12,20 @@ from mlflow import MlflowClient
 
 from ask_phil.answering import AnswerService, application_fingerprint
 from ask_phil.answers import AskRequest
-from ask_phil.evaluation import QualityReview, score_answer_review
+from ask_phil.evaluation import (
+    QualityReview,
+    log_review_metrics,
+    score_captured_answer,
+)
+from ask_phil.evaluation import (
+    document_fingerprint as fingerprint,
+)
 from ask_phil.evidence import SourceSnapshot
 from ask_phil.models import Models
 from ask_phil.openrouter import OpenRouterChat
 from ask_phil.storage import EvidenceStore
 
 REFERENCE = Path("data/references/answer-policy-v2.json")
-
-
-def fingerprint(document: Any) -> str:
-    return hashlib.sha256(
-        json.dumps(document, sort_keys=True, separators=(",", ":")).encode()
-    ).hexdigest()
 
 
 def save(path: Path, document: Any) -> None:
@@ -153,40 +154,23 @@ def score(capture_path: Path, reviews_path: Path, output: Path) -> None:
     results = []
     for review in reviews:
         row = rows[review.case_id]
-        if review.response_sha256 != fingerprint(
-            row["response"]
-        ) or review.reference_sha256 != fingerprint(row["reference"]):
-            raise ValueError("Stale review: response or reference fingerprint differs.")
-        if [f.fact for f in review.required_facts] != row["reference"]["required_facts"]:
-            raise ValueError("Review must assess every required fact in reference order.")
         results.append(
-            {
-                "review": review.model_dump(mode="json"),
-                "scores": score_answer_review(review).model_dump(mode="json"),
-            }
+            score_captured_answer(
+                review, row["response"], row["reference"], tuple(row["reference"]["required_facts"])
+            )
         )
     result = {
         "capture_sha256": hashlib.sha256(capture_path.read_bytes()).hexdigest(),
         "review_sha256": hashlib.sha256(reviews_path.read_bytes()).hexdigest(),
         "run_id": document["run_id"],
         "scorer": "reviewed-binary-dimensions-v1",
-        "cases": results,
+        "cases": [r.model_dump(mode="json") for r in results],
     }
     client = MlflowClient(
         tracking_uri=os.environ.get("MLFLOW_TRACKING_URI", "sqlite:///artifacts/issue-4-mlflow.db")
     )
     client.get_run(document["run_id"])
-    for row in results:
-        for dimension, metric in row["scores"].items():
-            if dimension == "critical_failures":
-                client.log_metric(
-                    document["run_id"], f"{row['review']['case_id']}.critical_failures", len(metric)
-                )
-                continue
-            prefix = f"{row['review']['case_id']}.{dimension}"
-            for name in ("passed", "assessed", "unassessed", "value"):
-                if metric[name] is not None:
-                    client.log_metric(document["run_id"], f"{prefix}.{name}", metric[name])
+    log_review_metrics(client, document["run_id"], tuple(results))
     save(output, result)
     client.log_artifact(document["run_id"], str(reviews_path))
     client.log_artifact(document["run_id"], str(output))

@@ -1,0 +1,1849 @@
+{
+  "reviewed_at": "2026-10-17",
+  "reviewer": "Codex primary source inspection before answer evaluation",
+  "human_reviewed": false,
+  "roster_basis": "Agreed prominence-based curated roster; no proven ranking, exhaustive canon or complete histories.",
+  "inventory_sha256": "62ce841e45021b796ec57ac7f47d096f0f672e8dcfe23b7e77a84982610626b2",
+  "characters": [
+    {
+      "character_id": "phil-mitchell",
+      "coverage": "core",
+      "identity_resolution": {
+        "status": "resolved",
+        "character_ids": [
+          "phil-mitchell"
+        ]
+      },
+      "source_checks": [
+        {
+          "source_id": "phil-mitchell-wiki",
+          "revision_id": "1379872347",
+          "captured_at": "2026-10-17T13:07:31.014189Z",
+          "sha256": "a338d3065203be54e383f2c9c141bca22ae9aedbb950e2e1eada601bcccfe313"
+        }
+      ],
+      "retention": {
+        "character": {
+          "character_id": "phil-mitchell",
+          "name": "Phil Mitchell",
+          "aliases": [],
+          "performers": [
+            "Steve McFadden",
+            "Daniel Delaney"
+          ],
+          "coverage": "core",
+          "wikidata_id": "Q2115259",
+          "review_note": "Codex source inspection, 17 October 2026: captured character article, infobox aliases/performers and revision metadata checked. Prominence-based curated selection, not a ranked or exhaustive canon. Identity linkage is not independent story corroboration.",
+          "evidence_sources": [
+            "phil-mitchell-wiki"
+          ]
+        },
+        "identity_resolution": {
+          "status": "resolved",
+          "character_ids": [
+            "phil-mitchell"
+          ]
+        },
+        "primary_source_ids": [
+          "phil-mitchell-wiki"
+        ],
+        "mentioned_in_source_ids": [
+          "grant-mitchell-wiki",
+          "peggy-mitchell-wiki",
+          "sharon-watts-wiki",
+          "ben-mitchell-wiki",
+          "ian-beale-wiki",
+          "kathy-beale-wiki",
+          "cindy-beale-wiki",
+          "lucy-beale-wiki",
+          "martin-fowler-wiki",
+          "kat-slater-wiki",
+          "stacey-slater-wiki",
+          "alfie-moon-wiki",
+          "pat-butcher-wiki",
+          "janine-butcher-wiki",
+          "denise-fox-wiki",
+          "max-branning-wiki",
+          "linda-carter-wiki"
+        ],
+        "admitted_paragraphs": 51,
+        "excluded_paragraphs": 0,
+        "review_required_paragraphs": 28,
+        "retained_narrative_characters": 69599,
+        "admitted_sections": [
+          [
+            "Storylines",
+            "1990\u20132003"
+          ],
+          [
+            "Storylines",
+            "2005\u2013present"
+          ]
+        ],
+        "gaps": [
+          "Partial captured history; unreviewed sections are excluded from retrieval.",
+          "Capture time does not establish current storyline completeness.",
+          "Matching identities and repeated accounts do not independently corroborate facts."
+        ]
+      },
+      "known_coverage_and_gaps": "Narrative headings begin in 1990 and include later Nigel material, with several undated events. No latest-complete storyline date established.",
+      "latest_complete_storyline_date": null,
+      "independent_canon_corroboration": false
+    },
+    {
+      "character_id": "grant-mitchell",
+      "coverage": "core",
+      "identity_resolution": {
+        "status": "resolved",
+        "character_ids": [
+          "grant-mitchell"
+        ]
+      },
+      "source_checks": [
+        {
+          "source_id": "grant-mitchell-wiki",
+          "revision_id": "1370914760",
+          "captured_at": "2026-10-17T13:08:22.582778Z",
+          "sha256": "2548b2c8780b1bda430939378a28ab3b7f98eca424480b7cccfaf2eb76f42ebf"
+        }
+      ],
+      "retention": {
+        "character": {
+          "character_id": "grant-mitchell",
+          "name": "Grant Mitchell",
+          "aliases": [],
+          "performers": [
+            "Ross Kemp",
+            "Teddy Jay"
+          ],
+          "coverage": "core",
+          "wikidata_id": "Q2685036",
+          "review_note": "Codex source inspection, 17 October 2026: captured character article, infobox aliases/performers and revision metadata checked. Prominence-based curated selection, not a ranked or exhaustive canon. Identity linkage is not independent story corroboration.",
+          "evidence_sources": [
+            "grant-mitchell-wiki"
+          ]
+        },
+        "identity_resolution": {
+          "status": "resolved",
+          "character_ids": [
+            "grant-mitchell"
+          ]
+        },
+        "primary_source_ids": [
+          "grant-mitchell-wiki"
+        ],
+        "mentioned_in_source_ids": [
+          "phil-mitchell-wiki",
+          "peggy-mitchell-wiki",
+          "sharon-watts-wiki",
+          "ben-mitchell-wiki",
+          "ian-beale-wiki",
+          "kathy-beale-wiki",
+          "cindy-beale-wiki",
+          "lucy-beale-wiki",
+          "max-branning-wiki",
+          "linda-carter-wiki"
+        ],
+        "admitted_paragraphs": 11,
+        "excluded_paragraphs": 0,
+        "review_required_paragraphs": 32,
+        "retained_narrative_characters": 17848,
+        "admitted_sections": [
+          [
+            "Storylines",
+            "1990\u20131999"
+          ],
+          [
+            "Storylines",
+            "2005\u20132006"
+          ],
+          [
+            "Storylines",
+            "2016"
+          ],
+          [
+            "Storylines",
+            "2025\u20132026"
+          ]
+        ],
+        "gaps": [
+          "Partial captured history; unreviewed sections are excluded from retrieval.",
+          "Capture time does not establish current storyline completeness.",
+          "Matching identities and repeated accounts do not independently corroborate facts."
+        ]
+      },
+      "known_coverage_and_gaps": "1990\u20131999, 2005\u20132006, 2016 and 2025\u20132026 sections admitted. Gaps between stints and off-screen history are not complete histories.",
+      "latest_complete_storyline_date": null,
+      "independent_canon_corroboration": false
+    },
+    {
+      "character_id": "peggy-mitchell",
+      "coverage": "core",
+      "identity_resolution": {
+        "status": "resolved",
+        "character_ids": [
+          "peggy-mitchell"
+        ]
+      },
+      "source_checks": [
+        {
+          "source_id": "peggy-mitchell-wiki",
+          "revision_id": "1372787814",
+          "captured_at": "2026-10-17T13:07:31.253971Z",
+          "sha256": "d777ce7a2fffc8e7cb1da6ccd3a87aca45590147a348b5ef5eb6361fb685cacb"
+        }
+      ],
+      "retention": {
+        "character": {
+          "character_id": "peggy-mitchell",
+          "name": "Peggy Mitchell",
+          "aliases": [
+            "Peggy Butcher"
+          ],
+          "performers": [
+            "Jo Warne",
+            "Barbara Windsor",
+            "Jaime Winstone"
+          ],
+          "coverage": "core",
+          "wikidata_id": "Q13130609",
+          "review_note": "Codex source inspection, 17 October 2026: captured character article, infobox aliases/performers and revision metadata checked. Prominence-based curated selection, not a ranked or exhaustive canon. Identity linkage is not independent story corroboration.",
+          "evidence_sources": [
+            "peggy-mitchell-wiki"
+          ]
+        },
+        "identity_resolution": {
+          "status": "resolved",
+          "character_ids": [
+            "peggy-mitchell"
+          ]
+        },
+        "primary_source_ids": [
+          "peggy-mitchell-wiki"
+        ],
+        "mentioned_in_source_ids": [
+          "phil-mitchell-wiki",
+          "grant-mitchell-wiki",
+          "sharon-watts-wiki",
+          "ben-mitchell-wiki",
+          "kathy-beale-wiki",
+          "martin-fowler-wiki",
+          "kat-slater-wiki",
+          "alfie-moon-wiki",
+          "pat-butcher-wiki",
+          "janine-butcher-wiki"
+        ],
+        "admitted_paragraphs": 12,
+        "excluded_paragraphs": 0,
+        "review_required_paragraphs": 45,
+        "retained_narrative_characters": 13968,
+        "admitted_sections": [
+          [
+            "Storylines",
+            "Backstory"
+          ],
+          [
+            "Storylines",
+            "1991"
+          ],
+          [
+            "Storylines",
+            "1994\u20132010"
+          ],
+          [
+            "Storylines",
+            "2013\u20132016"
+          ]
+        ],
+        "gaps": [
+          "Partial captured history; unreviewed sections are excluded from retrieval.",
+          "Capture time does not establish current storyline completeness.",
+          "Matching identities and repeated accounts do not independently corroborate facts."
+        ]
+      },
+      "known_coverage_and_gaps": "Backstory, 1991, 1994\u20132010 and 2013\u20132016 admitted. Later production/flashback discussion is not automatically narrative evidence.",
+      "latest_complete_storyline_date": null,
+      "independent_canon_corroboration": false
+    },
+    {
+      "character_id": "sharon-watts",
+      "coverage": "core",
+      "identity_resolution": {
+        "status": "resolved",
+        "character_ids": [
+          "sharon-watts"
+        ]
+      },
+      "source_checks": [
+        {
+          "source_id": "sharon-watts-wiki",
+          "revision_id": "1372798905",
+          "captured_at": "2026-10-17T13:07:31.327518Z",
+          "sha256": "9ccef3de99353ff737101d9d00561c217608dd4fa6fba0c8200f80ac0114ea85"
+        }
+      ],
+      "retention": {
+        "character": {
+          "character_id": "sharon-watts",
+          "name": "Sharon Watts",
+          "aliases": [
+            "Sharon Mitchell",
+            "Sharon Rickman",
+            "Sharon Beale"
+          ],
+          "performers": [
+            "Letitia Dean"
+          ],
+          "coverage": "core",
+          "wikidata_id": "Q7490258",
+          "review_note": "Codex source inspection, 17 October 2026: captured character article, infobox aliases/performers and revision metadata checked. Prominence-based curated selection, not a ranked or exhaustive canon. Identity linkage is not independent story corroboration.",
+          "evidence_sources": [
+            "sharon-watts-wiki"
+          ]
+        },
+        "identity_resolution": {
+          "status": "resolved",
+          "character_ids": [
+            "sharon-watts"
+          ]
+        },
+        "primary_source_ids": [
+          "sharon-watts-wiki"
+        ],
+        "mentioned_in_source_ids": [
+          "phil-mitchell-wiki",
+          "grant-mitchell-wiki",
+          "peggy-mitchell-wiki",
+          "ben-mitchell-wiki",
+          "ian-beale-wiki",
+          "kathy-beale-wiki",
+          "cindy-beale-wiki",
+          "lucy-beale-wiki",
+          "bobby-beale-wiki",
+          "martin-fowler-wiki",
+          "stacey-slater-wiki",
+          "alfie-moon-wiki",
+          "janine-butcher-wiki",
+          "denise-fox-wiki",
+          "max-branning-wiki",
+          "linda-carter-wiki"
+        ],
+        "admitted_paragraphs": 30,
+        "excluded_paragraphs": 0,
+        "review_required_paragraphs": 65,
+        "retained_narrative_characters": 45037,
+        "admitted_sections": [
+          [
+            "Storylines",
+            "1985\u20131995"
+          ],
+          [
+            "Storylines",
+            "2001\u20132006"
+          ],
+          [
+            "Storylines",
+            "2012\u2013present"
+          ]
+        ],
+        "gaps": [
+          "Partial captured history; unreviewed sections are excluded from retrieval.",
+          "Capture time does not establish current storyline completeness.",
+          "Matching identities and repeated accounts do not independently corroborate facts."
+        ]
+      },
+      "known_coverage_and_gaps": "1985\u20131995, 2001\u20132006 and 2012\u2013present admitted. A present heading and recent source check do not establish latest-story completeness.",
+      "latest_complete_storyline_date": null,
+      "independent_canon_corroboration": false
+    },
+    {
+      "character_id": "ben-mitchell",
+      "coverage": "core",
+      "identity_resolution": {
+        "status": "resolved",
+        "character_ids": [
+          "ben-mitchell"
+        ]
+      },
+      "source_checks": [
+        {
+          "source_id": "ben-mitchell-wiki",
+          "revision_id": "1376729134",
+          "captured_at": "2026-10-17T13:07:31.530421Z",
+          "sha256": "8ae0fbabb19cf12b2bdf46d7a85e15eea4462b8559584c770224a54a9e47d128"
+        }
+      ],
+      "retention": {
+        "character": {
+          "character_id": "ben-mitchell",
+          "name": "Ben Mitchell",
+          "aliases": [],
+          "performers": [
+            "Matthew Silver",
+            "Morgan Whittle",
+            "Charlie Jones",
+            "Joshua Pascoe",
+            "Harry Reid",
+            "Max Bowden"
+          ],
+          "coverage": "core",
+          "wikidata_id": "Q2766568",
+          "review_note": "Codex source inspection, 17 October 2026: captured character article, infobox aliases/performers and revision metadata checked. Prominence-based curated selection, not a ranked or exhaustive canon. Identity linkage is not independent story corroboration.",
+          "evidence_sources": [
+            "ben-mitchell-wiki"
+          ]
+        },
+        "identity_resolution": {
+          "status": "resolved",
+          "character_ids": [
+            "ben-mitchell"
+          ]
+        },
+        "primary_source_ids": [
+          "ben-mitchell-wiki"
+        ],
+        "mentioned_in_source_ids": [
+          "phil-mitchell-wiki",
+          "grant-mitchell-wiki",
+          "sharon-watts-wiki",
+          "ian-beale-wiki",
+          "kathy-beale-wiki",
+          "bobby-beale-wiki",
+          "martin-fowler-wiki",
+          "kat-slater-wiki",
+          "stacey-slater-wiki",
+          "max-branning-wiki",
+          "linda-carter-wiki"
+        ],
+        "admitted_paragraphs": 19,
+        "excluded_paragraphs": 0,
+        "review_required_paragraphs": 29,
+        "retained_narrative_characters": 26801,
+        "admitted_sections": [
+          [
+            "Storylines",
+            "1996\u20132000"
+          ],
+          [
+            "Storylines",
+            "2006\u20132012"
+          ],
+          [
+            "Storylines",
+            "2014\u20132024"
+          ]
+        ],
+        "gaps": [
+          "Partial captured history; unreviewed sections are excluded from retrieval.",
+          "Capture time does not establish current storyline completeness.",
+          "Matching identities and repeated accounts do not independently corroborate facts."
+        ]
+      },
+      "known_coverage_and_gaps": "Storylines includes 1996\u20132000, 2006\u20132012 and 2014\u20132024; later 2024\u20132025 return discussion appears under excluded Development. A late appended 2020 deafness paragraph is out of chronological order.",
+      "latest_complete_storyline_date": null,
+      "independent_canon_corroboration": false
+    },
+    {
+      "character_id": "ian-beale",
+      "coverage": "core",
+      "identity_resolution": {
+        "status": "resolved",
+        "character_ids": [
+          "ian-beale"
+        ]
+      },
+      "source_checks": [
+        {
+          "source_id": "ian-beale-wiki",
+          "revision_id": "1378295578",
+          "captured_at": "2026-10-17T13:07:31.584616Z",
+          "sha256": "1a2acfeb93556aa93a0cece8f32be2aba0165b09b383b11d55d823b5b9c4f2fd"
+        }
+      ],
+      "retention": {
+        "character": {
+          "character_id": "ian-beale",
+          "name": "Ian Beale",
+          "aliases": [
+            "Ian Albert Beale"
+          ],
+          "performers": [
+            "Adam Woodyatt"
+          ],
+          "coverage": "core",
+          "wikidata_id": "Q899011",
+          "review_note": "Codex source inspection, 17 October 2026: captured character article, infobox aliases/performers and revision metadata checked. Prominence-based curated selection, not a ranked or exhaustive canon. Identity linkage is not independent story corroboration.",
+          "evidence_sources": [
+            "ian-beale-wiki"
+          ]
+        },
+        "identity_resolution": {
+          "status": "resolved",
+          "character_ids": [
+            "ian-beale"
+          ]
+        },
+        "primary_source_ids": [
+          "ian-beale-wiki"
+        ],
+        "mentioned_in_source_ids": [
+          "phil-mitchell-wiki",
+          "grant-mitchell-wiki",
+          "peggy-mitchell-wiki",
+          "sharon-watts-wiki",
+          "ben-mitchell-wiki",
+          "kathy-beale-wiki",
+          "cindy-beale-wiki",
+          "lucy-beale-wiki",
+          "bobby-beale-wiki",
+          "martin-fowler-wiki",
+          "alfie-moon-wiki",
+          "pat-butcher-wiki",
+          "janine-butcher-wiki",
+          "denise-fox-wiki",
+          "max-branning-wiki",
+          "linda-carter-wiki"
+        ],
+        "admitted_paragraphs": 22,
+        "excluded_paragraphs": 0,
+        "review_required_paragraphs": 24,
+        "retained_narrative_characters": 30993,
+        "admitted_sections": [
+          [
+            "Storylines"
+          ]
+        ],
+        "gaps": [
+          "Partial captured history; unreviewed sections are excluded from retrieval.",
+          "Capture time does not establish current storyline completeness.",
+          "Matching identities and repeated accounts do not independently corroborate facts."
+        ]
+      },
+      "known_coverage_and_gaps": "Long unsegmented Storylines section retained, including the twins and Jimmy material. No comprehensive event/date annotation or latest-complete date.",
+      "latest_complete_storyline_date": null,
+      "independent_canon_corroboration": false
+    },
+    {
+      "character_id": "kathy-beale",
+      "coverage": "core",
+      "identity_resolution": {
+        "status": "resolved",
+        "character_ids": [
+          "kathy-beale"
+        ]
+      },
+      "source_checks": [
+        {
+          "source_id": "kathy-beale-wiki",
+          "revision_id": "1372746094",
+          "captured_at": "2026-10-17T13:07:31.789877Z",
+          "sha256": "f62a3a5df813c271597fbb984c405ecbd43c08ccd6d863cd7bb4f7c3a184b2c5"
+        }
+      ],
+      "retention": {
+        "character": {
+          "character_id": "kathy-beale",
+          "name": "Kathy Beale",
+          "aliases": [
+            "Kathy Mitchell",
+            "Kathy Sullivan",
+            "Kathy Richards",
+            "Kathy Cotton"
+          ],
+          "performers": [
+            "Gillian Taylforth"
+          ],
+          "coverage": "core",
+          "wikidata_id": "Q6377182",
+          "review_note": "Codex source inspection, 17 October 2026: captured character article, infobox aliases/performers and revision metadata checked. Prominence-based curated selection, not a ranked or exhaustive canon. Identity linkage is not independent story corroboration.",
+          "evidence_sources": [
+            "kathy-beale-wiki"
+          ]
+        },
+        "identity_resolution": {
+          "status": "resolved",
+          "character_ids": [
+            "kathy-beale"
+          ]
+        },
+        "primary_source_ids": [
+          "kathy-beale-wiki"
+        ],
+        "mentioned_in_source_ids": [
+          "phil-mitchell-wiki",
+          "grant-mitchell-wiki",
+          "peggy-mitchell-wiki",
+          "sharon-watts-wiki",
+          "ben-mitchell-wiki",
+          "ian-beale-wiki",
+          "bobby-beale-wiki",
+          "kat-slater-wiki",
+          "stacey-slater-wiki",
+          "pat-butcher-wiki",
+          "denise-fox-wiki",
+          "linda-carter-wiki"
+        ],
+        "admitted_paragraphs": 23,
+        "excluded_paragraphs": 0,
+        "review_required_paragraphs": 44,
+        "retained_narrative_characters": 34879,
+        "admitted_sections": [
+          [
+            "Storylines",
+            "1985\u20132000"
+          ],
+          [
+            "Storylines",
+            "2015\u2013present"
+          ]
+        ],
+        "gaps": [
+          "Partial captured history; unreviewed sections are excluded from retrieval.",
+          "Capture time does not establish current storyline completeness.",
+          "Matching identities and repeated accounts do not independently corroborate facts."
+        ]
+      },
+      "known_coverage_and_gaps": "1985\u20132000 and 2015\u2013present retained. Undated Harvey/Cindy material does not establish current relationship completeness.",
+      "latest_complete_storyline_date": null,
+      "independent_canon_corroboration": false
+    },
+    {
+      "character_id": "cindy-beale",
+      "coverage": "core",
+      "identity_resolution": {
+        "status": "resolved",
+        "character_ids": [
+          "cindy-beale"
+        ]
+      },
+      "source_checks": [
+        {
+          "source_id": "cindy-beale-wiki",
+          "revision_id": "1375368032",
+          "captured_at": "2026-10-17T13:07:31.847644Z",
+          "sha256": "a6f18a70890f11a9fae1e53f9a7779598b48241fffc0341cbf9c05b1d6631626"
+        }
+      ],
+      "retention": {
+        "character": {
+          "character_id": "cindy-beale",
+          "name": "Cindy Beale",
+          "aliases": [
+            "Rose Sawyer",
+            "Rose Knight"
+          ],
+          "performers": [
+            "Michelle Collins"
+          ],
+          "coverage": "core",
+          "wikidata_id": "Q5120478",
+          "review_note": "Codex source inspection, 17 October 2026: captured character article, infobox aliases/performers and revision metadata checked. Prominence-based curated selection, not a ranked or exhaustive canon. Identity linkage is not independent story corroboration. The genuine maternal maiden alias Cindy Williams is deliberately withheld because the captured narratives also evidence her daughter of that name; ambiguous names/daughter links remain unresolved until separately catalogued.",
+          "evidence_sources": [
+            "cindy-beale-wiki"
+          ]
+        },
+        "identity_resolution": {
+          "status": "resolved",
+          "character_ids": [
+            "cindy-beale"
+          ]
+        },
+        "primary_source_ids": [
+          "cindy-beale-wiki"
+        ],
+        "mentioned_in_source_ids": [
+          "phil-mitchell-wiki",
+          "grant-mitchell-wiki",
+          "sharon-watts-wiki",
+          "ian-beale-wiki",
+          "kathy-beale-wiki",
+          "lucy-beale-wiki",
+          "bobby-beale-wiki",
+          "alfie-moon-wiki",
+          "max-branning-wiki",
+          "linda-carter-wiki"
+        ],
+        "admitted_paragraphs": 13,
+        "excluded_paragraphs": 0,
+        "review_required_paragraphs": 12,
+        "retained_narrative_characters": 20737,
+        "admitted_sections": [
+          [
+            "Storylines",
+            "1988\u20131990"
+          ],
+          [
+            "Storylines",
+            "1992\u20131998"
+          ],
+          [
+            "Storylines",
+            "2023\u2013present"
+          ]
+        ],
+        "gaps": [
+          "Partial captured history; unreviewed sections are excluded from retrieval.",
+          "Capture time does not establish current storyline completeness.",
+          "Matching identities and repeated accounts do not independently corroborate facts."
+        ]
+      },
+      "known_coverage_and_gaps": "1988\u20131990, 1992\u20131998 and 2023\u2013present retained. Her reported 1998 death needs qualification in light of later witness-protection account. The genuine maternal maiden alias Cindy Williams is withheld because the daughter shares it; daughter links and ambiguous name inputs remain unresolved, rather than incorrectly identifying the mother.",
+      "latest_complete_storyline_date": null,
+      "independent_canon_corroboration": false
+    },
+    {
+      "character_id": "lucy-beale",
+      "coverage": "core",
+      "identity_resolution": {
+        "status": "resolved",
+        "character_ids": [
+          "lucy-beale"
+        ]
+      },
+      "source_checks": [
+        {
+          "source_id": "lucy-beale-wiki",
+          "revision_id": "1373199144",
+          "captured_at": "2026-10-17T13:07:32.327559Z",
+          "sha256": "9936ed0d7447cbd3d2ecd1c57897adc9d6eada5b4bf9c9a9644cf08a09af3109"
+        }
+      ],
+      "retention": {
+        "character": {
+          "character_id": "lucy-beale",
+          "name": "Lucy Beale",
+          "aliases": [],
+          "performers": [
+            "Eva Brittin-Snell",
+            "Casey Anne Rothery",
+            "Melissa Suffield",
+            "Hetti Bywater"
+          ],
+          "coverage": "core",
+          "wikidata_id": "Q3304512",
+          "review_note": "Codex source inspection, 17 October 2026: captured character article, infobox aliases/performers and revision metadata checked. Prominence-based curated selection, not a ranked or exhaustive canon. Identity linkage is not independent story corroboration.",
+          "evidence_sources": [
+            "lucy-beale-wiki"
+          ]
+        },
+        "identity_resolution": {
+          "status": "resolved",
+          "character_ids": [
+            "lucy-beale"
+          ]
+        },
+        "primary_source_ids": [
+          "lucy-beale-wiki"
+        ],
+        "mentioned_in_source_ids": [
+          "phil-mitchell-wiki",
+          "sharon-watts-wiki",
+          "ben-mitchell-wiki",
+          "ian-beale-wiki",
+          "kathy-beale-wiki",
+          "cindy-beale-wiki",
+          "bobby-beale-wiki",
+          "martin-fowler-wiki",
+          "pat-butcher-wiki",
+          "denise-fox-wiki",
+          "max-branning-wiki",
+          "linda-carter-wiki"
+        ],
+        "admitted_paragraphs": 14,
+        "excluded_paragraphs": 0,
+        "review_required_paragraphs": 17,
+        "retained_narrative_characters": 12234,
+        "admitted_sections": [
+          [
+            "Storylines",
+            "1993\u20132010"
+          ],
+          [
+            "Storylines",
+            "2012\u20132014"
+          ]
+        ],
+        "gaps": [
+          "Partial captured history; unreviewed sections are excluded from retrieval.",
+          "Capture time does not establish current storyline completeness.",
+          "Matching identities and repeated accounts do not independently corroborate facts."
+        ]
+      },
+      "known_coverage_and_gaps": "1993\u20132010 and 2012\u20132014 retained, with later 2016/2019/2023 aftermath appended. Earlier unqualified wording that Cindy died conflicts with the later alive account unless chronology is restored.",
+      "latest_complete_storyline_date": null,
+      "independent_canon_corroboration": false
+    },
+    {
+      "character_id": "bobby-beale",
+      "coverage": "core",
+      "identity_resolution": {
+        "status": "resolved",
+        "character_ids": [
+          "bobby-beale"
+        ]
+      },
+      "source_checks": [
+        {
+          "source_id": "bobby-beale-wiki",
+          "revision_id": "1364396059",
+          "captured_at": "2026-10-17T13:08:22.656156Z",
+          "sha256": "e88dce74d995d7b4eddcf67a34199d41b8b3cfb1033480df16387788fc3527f0"
+        }
+      ],
+      "retention": {
+        "character": {
+          "character_id": "bobby-beale",
+          "name": "Bobby Beale",
+          "aliases": [],
+          "performers": [
+            "Kevin Curran",
+            "Alex Francis",
+            "Rory Stroud",
+            "Eliot Carrington",
+            "Clay Milner Russell"
+          ],
+          "coverage": "core",
+          "wikidata_id": "Q19650328",
+          "review_note": "Codex source inspection, 17 October 2026: captured character article, infobox aliases/performers and revision metadata checked. Prominence-based curated selection, not a ranked or exhaustive canon. Identity linkage is not independent story corroboration.",
+          "evidence_sources": [
+            "bobby-beale-wiki"
+          ]
+        },
+        "identity_resolution": {
+          "status": "resolved",
+          "character_ids": [
+            "bobby-beale"
+          ]
+        },
+        "primary_source_ids": [
+          "bobby-beale-wiki"
+        ],
+        "mentioned_in_source_ids": [
+          "phil-mitchell-wiki",
+          "grant-mitchell-wiki",
+          "sharon-watts-wiki",
+          "ian-beale-wiki",
+          "kathy-beale-wiki",
+          "cindy-beale-wiki",
+          "lucy-beale-wiki",
+          "alfie-moon-wiki",
+          "max-branning-wiki"
+        ],
+        "admitted_paragraphs": 16,
+        "excluded_paragraphs": 0,
+        "review_required_paragraphs": 17,
+        "retained_narrative_characters": 18253,
+        "admitted_sections": [
+          [
+            "Storylines",
+            "2003\u20132017"
+          ],
+          [
+            "Storylines",
+            "2019\u20132024"
+          ]
+        ],
+        "gaps": [
+          "Partial captured history; unreviewed sections are excluded from retrieval.",
+          "Capture time does not establish current storyline completeness.",
+          "Matching identities and repeated accounts do not independently corroborate facts."
+        ]
+      },
+      "known_coverage_and_gaps": "2003\u20132017 and 2019\u20132024 retained. Departure to Jane and paternity correction are represented; subsequent off-screen history is unestablished.",
+      "latest_complete_storyline_date": null,
+      "independent_canon_corroboration": false
+    },
+    {
+      "character_id": "martin-fowler",
+      "coverage": "core",
+      "identity_resolution": {
+        "status": "resolved",
+        "character_ids": [
+          "martin-fowler"
+        ]
+      },
+      "source_checks": [
+        {
+          "source_id": "martin-fowler-wiki",
+          "revision_id": "1375375419",
+          "captured_at": "2026-10-17T13:07:33.007379Z",
+          "sha256": "b4ad40a6df4c4033d8f33d08e9d06d260b20bb285b9121fbbf4d9cc2634a331d"
+        }
+      ],
+      "retention": {
+        "character": {
+          "character_id": "martin-fowler",
+          "name": "Martin Fowler",
+          "aliases": [],
+          "performers": [
+            "Jon Peyton-Price",
+            "James Alexandrou",
+            "James Bye"
+          ],
+          "coverage": "core",
+          "wikidata_id": "Q16992426",
+          "review_note": "Codex source inspection, 17 October 2026: captured character article, infobox aliases/performers and revision metadata checked. Prominence-based curated selection, not a ranked or exhaustive canon. Identity linkage is not independent story corroboration.",
+          "evidence_sources": [
+            "martin-fowler-wiki"
+          ]
+        },
+        "identity_resolution": {
+          "status": "resolved",
+          "character_ids": [
+            "martin-fowler"
+          ]
+        },
+        "primary_source_ids": [
+          "martin-fowler-wiki"
+        ],
+        "mentioned_in_source_ids": [
+          "sharon-watts-wiki",
+          "ben-mitchell-wiki",
+          "ian-beale-wiki",
+          "kathy-beale-wiki",
+          "cindy-beale-wiki",
+          "stacey-slater-wiki",
+          "alfie-moon-wiki",
+          "dot-cotton-wiki",
+          "denise-fox-wiki",
+          "max-branning-wiki",
+          "linda-carter-wiki"
+        ],
+        "admitted_paragraphs": 23,
+        "excluded_paragraphs": 0,
+        "review_required_paragraphs": 10,
+        "retained_narrative_characters": 37818,
+        "admitted_sections": [
+          [
+            "Storylines",
+            "1985\u20132007"
+          ],
+          [
+            "Storylines",
+            "2014\u20132025"
+          ]
+        ],
+        "gaps": [
+          "Partial captured history; unreviewed sections are excluded from retrieval.",
+          "Capture time does not establish current storyline completeness.",
+          "Matching identities and repeated accounts do not independently corroborate facts."
+        ]
+      },
+      "known_coverage_and_gaps": "1985\u20132007 and 2014\u20132025 retained, including the death account. This does not inventory every event or later aftermath.",
+      "latest_complete_storyline_date": null,
+      "independent_canon_corroboration": false
+    },
+    {
+      "character_id": "kat-slater",
+      "coverage": "core",
+      "identity_resolution": {
+        "status": "resolved",
+        "character_ids": [
+          "kat-slater"
+        ]
+      },
+      "source_checks": [
+        {
+          "source_id": "kat-slater-wiki",
+          "revision_id": "1380652225",
+          "captured_at": "2026-10-17T13:07:33.048959Z",
+          "sha256": "f3852a9f1c3fa3f0c254f123fa8ed739d6f6a4388eb5f19c7de975858a537bd7"
+        }
+      ],
+      "retention": {
+        "character": {
+          "character_id": "kat-slater",
+          "name": "Kat Slater",
+          "aliases": [
+            "Kat Moon",
+            "Kat Mitchell"
+          ],
+          "performers": [
+            "Jessie Wallace",
+            "Kate Peck",
+            "Sumar-Elise Sandford",
+            "Amelia Crouch"
+          ],
+          "coverage": "core",
+          "wikidata_id": "Q3955054",
+          "review_note": "Codex source inspection, 17 October 2026: captured character article, infobox aliases/performers and revision metadata checked. Prominence-based curated selection, not a ranked or exhaustive canon. Identity linkage is not independent story corroboration.",
+          "evidence_sources": [
+            "kat-slater-wiki"
+          ]
+        },
+        "identity_resolution": {
+          "status": "resolved",
+          "character_ids": [
+            "kat-slater"
+          ]
+        },
+        "primary_source_ids": [
+          "kat-slater-wiki"
+        ],
+        "mentioned_in_source_ids": [
+          "phil-mitchell-wiki",
+          "peggy-mitchell-wiki",
+          "sharon-watts-wiki",
+          "ben-mitchell-wiki",
+          "martin-fowler-wiki",
+          "stacey-slater-wiki",
+          "alfie-moon-wiki",
+          "janine-butcher-wiki",
+          "max-branning-wiki",
+          "linda-carter-wiki"
+        ],
+        "admitted_paragraphs": 30,
+        "excluded_paragraphs": 5,
+        "review_required_paragraphs": 45,
+        "retained_narrative_characters": 43392,
+        "admitted_sections": [
+          [
+            "Storylines",
+            "2000\u20132005"
+          ],
+          [
+            "Storylines",
+            "2010\u20132016"
+          ],
+          [
+            "Storylines",
+            "2018\u2013present"
+          ]
+        ],
+        "gaps": [
+          "Partial captured history; unreviewed sections are excluded from retrieval.",
+          "Capture time does not establish current storyline completeness.",
+          "Matching identities and repeated accounts do not independently corroborate facts."
+        ]
+      },
+      "known_coverage_and_gaps": "2000\u20132005, 2010\u20132016 and 2018\u2013present retained; five explicit Redwater/podcast paragraphs excluded. Later Zoe material is source-supported only, with no independent check of latest canon.",
+      "latest_complete_storyline_date": null,
+      "independent_canon_corroboration": false
+    },
+    {
+      "character_id": "stacey-slater",
+      "coverage": "core",
+      "identity_resolution": {
+        "status": "resolved",
+        "character_ids": [
+          "stacey-slater"
+        ]
+      },
+      "source_checks": [
+        {
+          "source_id": "stacey-slater-wiki",
+          "revision_id": "1379843622",
+          "captured_at": "2026-10-17T13:07:33.108719Z",
+          "sha256": "ace10a05bd4b522f599fd8a463295c9238e55c992a94e7f364132f61c2ec896b"
+        }
+      ],
+      "retention": {
+        "character": {
+          "character_id": "stacey-slater",
+          "name": "Stacey Slater",
+          "aliases": [
+            "Stacey Branning",
+            "Stacey Fowler",
+            "Jenny Smith"
+          ],
+          "performers": [
+            "Lacey Turner"
+          ],
+          "coverage": "core",
+          "wikidata_id": "Q7595869",
+          "review_note": "Codex source inspection, 17 October 2026: captured character article, infobox aliases/performers and revision metadata checked. Prominence-based curated selection, not a ranked or exhaustive canon. Identity linkage is not independent story corroboration.",
+          "evidence_sources": [
+            "stacey-slater-wiki"
+          ]
+        },
+        "identity_resolution": {
+          "status": "resolved",
+          "character_ids": [
+            "stacey-slater"
+          ]
+        },
+        "primary_source_ids": [
+          "stacey-slater-wiki"
+        ],
+        "mentioned_in_source_ids": [
+          "phil-mitchell-wiki",
+          "peggy-mitchell-wiki",
+          "sharon-watts-wiki",
+          "ben-mitchell-wiki",
+          "ian-beale-wiki",
+          "kathy-beale-wiki",
+          "martin-fowler-wiki",
+          "kat-slater-wiki",
+          "alfie-moon-wiki",
+          "pat-butcher-wiki",
+          "janine-butcher-wiki",
+          "denise-fox-wiki",
+          "max-branning-wiki",
+          "linda-carter-wiki"
+        ],
+        "admitted_paragraphs": 25,
+        "excluded_paragraphs": 0,
+        "review_required_paragraphs": 37,
+        "retained_narrative_characters": 32186,
+        "admitted_sections": [
+          [
+            "Storylines",
+            "2004\u20132010"
+          ],
+          [
+            "Storylines",
+            "2014\u20132025"
+          ]
+        ],
+        "gaps": [
+          "Partial captured history; unreviewed sections are excluded from retrieval.",
+          "Capture time does not establish current storyline completeness.",
+          "Matching identities and repeated accounts do not independently corroborate facts."
+        ]
+      },
+      "known_coverage_and_gaps": "2004\u20132010 and 2014\u20132025 headings retained. Later appended departure material cannot be dated solely from the heading.",
+      "latest_complete_storyline_date": null,
+      "independent_canon_corroboration": false
+    },
+    {
+      "character_id": "alfie-moon",
+      "coverage": "core",
+      "identity_resolution": {
+        "status": "resolved",
+        "character_ids": [
+          "alfie-moon"
+        ]
+      },
+      "source_checks": [
+        {
+          "source_id": "alfie-moon-wiki",
+          "revision_id": "1377842543",
+          "captured_at": "2026-10-17T13:07:33.172953Z",
+          "sha256": "4a370be846519594e9a393e031129532257645f67c15b41dc9837a27c4ee4308"
+        }
+      ],
+      "retention": {
+        "character": {
+          "character_id": "alfie-moon",
+          "name": "Alfie Moon",
+          "aliases": [
+            "Alfred William Moon",
+            "Chris Wright"
+          ],
+          "performers": [
+            "Shane Richie"
+          ],
+          "coverage": "core",
+          "wikidata_id": "Q4721932",
+          "review_note": "Codex source inspection, 17 October 2026: captured character article, infobox aliases/performers and revision metadata checked. Prominence-based curated selection, not a ranked or exhaustive canon. Identity linkage is not independent story corroboration.",
+          "evidence_sources": [
+            "alfie-moon-wiki"
+          ]
+        },
+        "identity_resolution": {
+          "status": "resolved",
+          "character_ids": [
+            "alfie-moon"
+          ]
+        },
+        "primary_source_ids": [
+          "alfie-moon-wiki"
+        ],
+        "mentioned_in_source_ids": [
+          "phil-mitchell-wiki",
+          "sharon-watts-wiki",
+          "ian-beale-wiki",
+          "martin-fowler-wiki",
+          "kat-slater-wiki",
+          "alfie-moon-wiki",
+          "max-branning-wiki"
+        ],
+        "admitted_paragraphs": 22,
+        "excluded_paragraphs": 1,
+        "review_required_paragraphs": 30,
+        "retained_narrative_characters": 32439,
+        "admitted_sections": [
+          [
+            "Storylines",
+            "2002\u20132005"
+          ],
+          [
+            "Storylines",
+            "2010\u20132016"
+          ],
+          [
+            "Storylines",
+            "2018\u20132019"
+          ],
+          [
+            "Storylines",
+            "2022\u2013present"
+          ]
+        ],
+        "gaps": [
+          "Partial captured history; unreviewed sections are excluded from retrieval.",
+          "Capture time does not establish current storyline completeness.",
+          "Matching identities and repeated accounts do not independently corroborate facts."
+        ]
+      },
+      "known_coverage_and_gaps": "2002\u20132005, 2010\u20132016, 2018\u20132019 and 2022\u2013present retained; explicit Redwater paragraph excluded. Present-heading narrative ends in prostate-treatment material while production has other updates.",
+      "latest_complete_storyline_date": null,
+      "independent_canon_corroboration": false
+    },
+    {
+      "character_id": "pat-butcher",
+      "coverage": "core",
+      "identity_resolution": {
+        "status": "resolved",
+        "character_ids": [
+          "pat-butcher"
+        ]
+      },
+      "source_checks": [
+        {
+          "source_id": "pat-butcher-wiki",
+          "revision_id": "1375429106",
+          "captured_at": "2026-10-17T13:07:33.232513Z",
+          "sha256": "3d3cccb3f94e0904f3aa96316665b70df7bbf096054e15c36a8609f22535caed"
+        }
+      ],
+      "retention": {
+        "character": {
+          "character_id": "pat-butcher",
+          "name": "Pat Butcher",
+          "aliases": [
+            "Pat Harris",
+            "Pat Beale",
+            "Pat Wicks",
+            "Pat Evans",
+            "Fat Pat"
+          ],
+          "performers": [
+            "Pam St Clement",
+            "Emma Cooke"
+          ],
+          "coverage": "core",
+          "wikidata_id": "Q368649",
+          "review_note": "Codex source inspection, 17 October 2026: captured character article, infobox aliases/performers and revision metadata checked. Prominence-based curated selection, not a ranked or exhaustive canon. Identity linkage is not independent story corroboration.",
+          "evidence_sources": [
+            "pat-butcher-wiki"
+          ]
+        },
+        "identity_resolution": {
+          "status": "resolved",
+          "character_ids": [
+            "pat-butcher"
+          ]
+        },
+        "primary_source_ids": [
+          "pat-butcher-wiki"
+        ],
+        "mentioned_in_source_ids": [
+          "peggy-mitchell-wiki",
+          "ian-beale-wiki",
+          "kathy-beale-wiki",
+          "lucy-beale-wiki",
+          "bobby-beale-wiki",
+          "max-branning-wiki"
+        ],
+        "admitted_paragraphs": 39,
+        "excluded_paragraphs": 0,
+        "review_required_paragraphs": 18,
+        "retained_narrative_characters": 20159,
+        "admitted_sections": [
+          [
+            "Storylines",
+            "Backstory"
+          ],
+          [
+            "Storylines",
+            "1986\u20132012"
+          ]
+        ],
+        "gaps": [
+          "Partial captured history; unreviewed sections are excluded from retrieval.",
+          "Capture time does not establish current storyline completeness.",
+          "Matching identities and repeated accounts do not independently corroborate facts."
+        ]
+      },
+      "known_coverage_and_gaps": "Backstory and 1986\u20132012 retained, with later hallucination appearance appended. A hallucination does not establish revival; biography is not a complete later-story inventory.",
+      "latest_complete_storyline_date": null,
+      "independent_canon_corroboration": false
+    },
+    {
+      "character_id": "janine-butcher",
+      "coverage": "core",
+      "identity_resolution": {
+        "status": "resolved",
+        "character_ids": [
+          "janine-butcher"
+        ]
+      },
+      "source_checks": [
+        {
+          "source_id": "janine-butcher-wiki",
+          "revision_id": "1378379064",
+          "captured_at": "2026-10-17T13:07:34.191734Z",
+          "sha256": "1edd6bcd906c84e4ebd9f78235ea8857ad1a117e67475baf675dd7b51fa56eb8"
+        }
+      ],
+      "retention": {
+        "character": {
+          "character_id": "janine-butcher",
+          "name": "Janine Butcher",
+          "aliases": [
+            "Janine Evans",
+            "Janine Malloy",
+            "Janine Carter",
+            "Judith Bernstein"
+          ],
+          "performers": [
+            "Rebecca Michael",
+            "Alexia Demetriou",
+            "Charlie Brooks"
+          ],
+          "coverage": "core",
+          "wikidata_id": "Q2321366",
+          "review_note": "Codex source inspection, 17 October 2026: captured character article, infobox aliases/performers and revision metadata checked. Prominence-based curated selection, not a ranked or exhaustive canon. Identity linkage is not independent story corroboration.",
+          "evidence_sources": [
+            "janine-butcher-wiki"
+          ]
+        },
+        "identity_resolution": {
+          "status": "resolved",
+          "character_ids": [
+            "janine-butcher"
+          ]
+        },
+        "primary_source_ids": [
+          "janine-butcher-wiki"
+        ],
+        "mentioned_in_source_ids": [
+          "phil-mitchell-wiki",
+          "peggy-mitchell-wiki",
+          "sharon-watts-wiki",
+          "ian-beale-wiki",
+          "lucy-beale-wiki",
+          "kat-slater-wiki",
+          "stacey-slater-wiki",
+          "pat-butcher-wiki",
+          "max-branning-wiki",
+          "linda-carter-wiki"
+        ],
+        "admitted_paragraphs": 24,
+        "excluded_paragraphs": 0,
+        "review_required_paragraphs": 26,
+        "retained_narrative_characters": 28491,
+        "admitted_sections": [
+          [
+            "Storylines",
+            "1989\u20131996"
+          ],
+          [
+            "Storylines",
+            "1999\u20132004"
+          ],
+          [
+            "Storylines",
+            "2008\u20132014"
+          ],
+          [
+            "Storylines",
+            "2021\u20132022"
+          ]
+        ],
+        "gaps": [
+          "Partial captured history; unreviewed sections are excluded from retrieval.",
+          "Capture time does not establish current storyline completeness.",
+          "Matching identities and repeated accounts do not independently corroborate facts."
+        ]
+      },
+      "known_coverage_and_gaps": "1989\u20131996, 1999\u20132004, 2008\u20132014 and 2021\u20132022 headings retained; prison/birth aftermath continues through 2023. Production discusses 2026 return outside admitted sections.",
+      "latest_complete_storyline_date": null,
+      "independent_canon_corroboration": false
+    },
+    {
+      "character_id": "dot-cotton",
+      "coverage": "core",
+      "identity_resolution": {
+        "status": "resolved",
+        "character_ids": [
+          "dot-cotton"
+        ]
+      },
+      "source_checks": [
+        {
+          "source_id": "dot-cotton-wiki",
+          "revision_id": "1372705076",
+          "captured_at": "2026-10-17T13:07:34.598847Z",
+          "sha256": "e2defd4dcd1e52942e636b02e701b9e42e9d4b2c346cfd675fe4def8aa61574b"
+        }
+      ],
+      "retention": {
+        "character": {
+          "character_id": "dot-cotton",
+          "name": "Dot Cotton",
+          "aliases": [
+            "Dorothy Colwell",
+            "Dot Branning"
+          ],
+          "performers": [
+            "June Brown",
+            "Tallulah Pitt-Brown"
+          ],
+          "coverage": "core",
+          "wikidata_id": "Q3306375",
+          "review_note": "Codex source inspection, 17 October 2026: captured character article, infobox aliases/performers and revision metadata checked. Prominence-based curated selection, not a ranked or exhaustive canon. Identity linkage is not independent story corroboration.",
+          "evidence_sources": [
+            "dot-cotton-wiki"
+          ]
+        },
+        "identity_resolution": {
+          "status": "resolved",
+          "character_ids": [
+            "dot-cotton"
+          ]
+        },
+        "primary_source_ids": [
+          "dot-cotton-wiki"
+        ],
+        "mentioned_in_source_ids": [
+          "peggy-mitchell-wiki",
+          "ian-beale-wiki",
+          "martin-fowler-wiki",
+          "stacey-slater-wiki",
+          "pat-butcher-wiki"
+        ],
+        "admitted_paragraphs": 9,
+        "excluded_paragraphs": 0,
+        "review_required_paragraphs": 59,
+        "retained_narrative_characters": 10626,
+        "admitted_sections": [
+          [
+            "Storylines",
+            "Backstory"
+          ],
+          [
+            "Storylines",
+            "1985\u20132020"
+          ]
+        ],
+        "gaps": [
+          "Partial captured history; unreviewed sections are excluded from retrieval.",
+          "Capture time does not establish current storyline completeness.",
+          "Matching identities and repeated accounts do not independently corroborate facts."
+        ]
+      },
+      "known_coverage_and_gaps": "Backstory and 1985\u20132020 retained with later death/funeral account appended. Evacuation backstory is retained; dates in headings do not bound all subsequent narrative.",
+      "latest_complete_storyline_date": null,
+      "independent_canon_corroboration": false
+    },
+    {
+      "character_id": "denise-fox",
+      "coverage": "core",
+      "identity_resolution": {
+        "status": "resolved",
+        "character_ids": [
+          "denise-fox"
+        ]
+      },
+      "source_checks": [
+        {
+          "source_id": "denise-fox-wiki",
+          "revision_id": "1378939229",
+          "captured_at": "2026-10-17T13:07:34.640123Z",
+          "sha256": "2545a525bd8f3338a51ed788e0c88658b60503df4a025557ff78ef046168476c"
+        }
+      ],
+      "retention": {
+        "character": {
+          "character_id": "denise-fox",
+          "name": "Denise Fox",
+          "aliases": [
+            "Denise Johnson",
+            "Denise Wicks"
+          ],
+          "performers": [
+            "Diane Parish"
+          ],
+          "coverage": "core",
+          "wikidata_id": "Q5257665",
+          "review_note": "Codex source inspection, 17 October 2026: captured character article, infobox aliases/performers and revision metadata checked. Prominence-based curated selection, not a ranked or exhaustive canon. Identity linkage is not independent story corroboration.",
+          "evidence_sources": [
+            "denise-fox-wiki"
+          ]
+        },
+        "identity_resolution": {
+          "status": "resolved",
+          "character_ids": [
+            "denise-fox"
+          ]
+        },
+        "primary_source_ids": [
+          "denise-fox-wiki"
+        ],
+        "mentioned_in_source_ids": [
+          "phil-mitchell-wiki",
+          "sharon-watts-wiki",
+          "ben-mitchell-wiki",
+          "ian-beale-wiki",
+          "lucy-beale-wiki",
+          "martin-fowler-wiki",
+          "stacey-slater-wiki",
+          "alfie-moon-wiki",
+          "max-branning-wiki",
+          "linda-carter-wiki"
+        ],
+        "admitted_paragraphs": 19,
+        "excluded_paragraphs": 0,
+        "review_required_paragraphs": 11,
+        "retained_narrative_characters": 31717,
+        "admitted_sections": [
+          [
+            "Storylines"
+          ]
+        ],
+        "gaps": [
+          "Partial captured history; unreviewed sections are excluded from retrieval.",
+          "Capture time does not establish current storyline completeness.",
+          "Matching identities and repeated accounts do not independently corroborate facts."
+        ]
+      },
+      "known_coverage_and_gaps": "Long Storylines section retained. Early father-never-discovered wording and later Darnell identity must be read chronologically; isolated early passages are unsafe as current exhaustive knowledge.",
+      "latest_complete_storyline_date": null,
+      "independent_canon_corroboration": false
+    },
+    {
+      "character_id": "max-branning",
+      "coverage": "core",
+      "identity_resolution": {
+        "status": "resolved",
+        "character_ids": [
+          "max-branning"
+        ]
+      },
+      "source_checks": [
+        {
+          "source_id": "max-branning-wiki",
+          "revision_id": "1378782554",
+          "captured_at": "2026-10-17T13:07:34.684245Z",
+          "sha256": "48c3bdd9d5f7110e9cbcd9e6cbc7f32970c519fee14c1a32b231b42c639dc615"
+        }
+      ],
+      "retention": {
+        "character": {
+          "character_id": "max-branning",
+          "name": "Max Branning",
+          "aliases": [],
+          "performers": [
+            "Jake Wood"
+          ],
+          "coverage": "core",
+          "wikidata_id": "Q6794615",
+          "review_note": "Codex source inspection, 17 October 2026: captured character article, infobox aliases/performers and revision metadata checked. Prominence-based curated selection, not a ranked or exhaustive canon. Identity linkage is not independent story corroboration.",
+          "evidence_sources": [
+            "max-branning-wiki"
+          ]
+        },
+        "identity_resolution": {
+          "status": "resolved",
+          "character_ids": [
+            "max-branning"
+          ]
+        },
+        "primary_source_ids": [
+          "max-branning-wiki"
+        ],
+        "mentioned_in_source_ids": [
+          "phil-mitchell-wiki",
+          "sharon-watts-wiki",
+          "ben-mitchell-wiki",
+          "ian-beale-wiki",
+          "kathy-beale-wiki",
+          "cindy-beale-wiki",
+          "bobby-beale-wiki",
+          "martin-fowler-wiki",
+          "kat-slater-wiki",
+          "stacey-slater-wiki",
+          "denise-fox-wiki",
+          "linda-carter-wiki"
+        ],
+        "admitted_paragraphs": 33,
+        "excluded_paragraphs": 0,
+        "review_required_paragraphs": 16,
+        "retained_narrative_characters": 50980,
+        "admitted_sections": [
+          [
+            "Storylines",
+            "2006\u20132021"
+          ],
+          [
+            "Storylines",
+            "2025\u2013present"
+          ]
+        ],
+        "gaps": [
+          "Partial captured history; unreviewed sections are excluded from retrieval.",
+          "Capture time does not establish current storyline completeness.",
+          "Matching identities and repeated accounts do not independently corroborate facts."
+        ]
+      },
+      "known_coverage_and_gaps": "2006\u20132021 and 2025\u2013present admitted. Later Zoe material has no independently established currentness or date-completeness check.",
+      "latest_complete_storyline_date": null,
+      "independent_canon_corroboration": false
+    },
+    {
+      "character_id": "linda-carter",
+      "coverage": "core",
+      "identity_resolution": {
+        "status": "resolved",
+        "character_ids": [
+          "linda-carter"
+        ]
+      },
+      "source_checks": [
+        {
+          "source_id": "linda-carter-wiki",
+          "revision_id": "1379097965",
+          "captured_at": "2026-10-17T13:07:34.761741Z",
+          "sha256": "ae80ce98997723c92e8985e2710c8f7eccf92ed6703b79ee6099a29999b9f7a6"
+        }
+      ],
+      "retention": {
+        "character": {
+          "character_id": "linda-carter",
+          "name": "Linda Carter",
+          "aliases": [
+            "Linda Peacock"
+          ],
+          "performers": [
+            "Kellie Bright"
+          ],
+          "coverage": "core",
+          "wikidata_id": "Q17620076",
+          "review_note": "Codex source inspection, 17 October 2026: captured character article, infobox aliases/performers and revision metadata checked. Prominence-based curated selection, not a ranked or exhaustive canon. Identity linkage is not independent story corroboration.",
+          "evidence_sources": [
+            "linda-carter-wiki"
+          ]
+        },
+        "identity_resolution": {
+          "status": "resolved",
+          "character_ids": [
+            "linda-carter"
+          ]
+        },
+        "primary_source_ids": [
+          "linda-carter-wiki"
+        ],
+        "mentioned_in_source_ids": [
+          "phil-mitchell-wiki",
+          "grant-mitchell-wiki",
+          "sharon-watts-wiki",
+          "ben-mitchell-wiki",
+          "ian-beale-wiki",
+          "kathy-beale-wiki",
+          "cindy-beale-wiki",
+          "martin-fowler-wiki",
+          "kat-slater-wiki",
+          "stacey-slater-wiki",
+          "alfie-moon-wiki",
+          "janine-butcher-wiki",
+          "max-branning-wiki"
+        ],
+        "admitted_paragraphs": 26,
+        "excluded_paragraphs": 0,
+        "review_required_paragraphs": 20,
+        "retained_narrative_characters": 42500,
+        "admitted_sections": [
+          [
+            "Storylines"
+          ]
+        ],
+        "gaps": [
+          "Partial captured history; unreviewed sections are excluded from retrieval.",
+          "Capture time does not establish current storyline completeness.",
+          "Matching identities and repeated accounts do not independently corroborate facts."
+        ]
+      },
+      "known_coverage_and_gaps": "Long Storylines section includes Carter arrival and later family material. No complete event list or independently verified latest story date.",
+      "latest_complete_storyline_date": null,
+      "independent_canon_corroboration": false
+    },
+    {
+      "character_id": "den-watts",
+      "coverage": "supporting",
+      "identity_resolution": {
+        "status": "resolved",
+        "character_ids": [
+          "den-watts"
+        ]
+      },
+      "source_checks": [
+        {
+          "source_id": "sharon-watts-wiki",
+          "revision_id": "1372798905",
+          "captured_at": "2026-10-17T13:07:31.327518Z",
+          "sha256": "9ccef3de99353ff737101d9d00561c217608dd4fa6fba0c8200f80ac0114ea85"
+        }
+      ],
+      "retention": {
+        "character": {
+          "character_id": "den-watts",
+          "name": "Den Watts",
+          "aliases": [
+            "Dirty Den",
+            "Dennis Alan Watts"
+          ],
+          "performers": [
+            "Leslie Grantham"
+          ],
+          "coverage": "supporting",
+          "wikidata_id": "Q5256484",
+          "review_note": "Den is evidenced supporting context in Sharon\u2019s captured biography. Identity was also reviewed against retained Den revision 1371930128 in real-sources-v1.json.gz. No separate Den history is admitted here; supporting character mentions do not expand the core roster.",
+          "evidence_sources": [
+            "sharon-watts-wiki"
+          ]
+        },
+        "identity_resolution": {
+          "status": "resolved",
+          "character_ids": [
+            "den-watts"
+          ]
+        },
+        "primary_source_ids": [],
+        "mentioned_in_source_ids": [
+          "phil-mitchell-wiki",
+          "grant-mitchell-wiki",
+          "peggy-mitchell-wiki",
+          "sharon-watts-wiki",
+          "kat-slater-wiki",
+          "stacey-slater-wiki",
+          "pat-butcher-wiki"
+        ],
+        "admitted_paragraphs": 0,
+        "excluded_paragraphs": 0,
+        "review_required_paragraphs": 0,
+        "retained_narrative_characters": 0,
+        "admitted_sections": [],
+        "gaps": [
+          "No admitted primary narrative history.",
+          "Partial captured history; unreviewed sections are excluded from retrieval.",
+          "Capture time does not establish current storyline completeness.",
+          "Matching identities and repeated accounts do not independently corroborate facts."
+        ]
+      },
+      "known_coverage_and_gaps": "Only supporting mentions from Sharon and other captured biographies are admitted. No standalone Den source or comprehensive history in this snapshot; retained earlier sample holds the reviewed identity provenance.",
+      "latest_complete_storyline_date": null,
+      "independent_canon_corroboration": false
+    }
+  ],
+  "duplicate_review": {
+    "exact_groups": [
+      {
+        "sha256": "1490f63c60e6d917febe8976718bd9d359034523c9d1ef754fefd8a6eedf7869",
+        "locations": [
+          {
+            "source_id": "kat-slater-wiki",
+            "paragraph_ordinal": 17
+          },
+          {
+            "source_id": "alfie-moon-wiki",
+            "paragraph_ordinal": 6
+          }
+        ]
+      },
+      {
+        "sha256": "91ba7def5e90254da8cf4c18e05c00c603d1ac022e2e50f3b1a631cd81ff4cae",
+        "locations": [
+          {
+            "source_id": "kat-slater-wiki",
+            "paragraph_ordinal": 18
+          },
+          {
+            "source_id": "alfie-moon-wiki",
+            "paragraph_ordinal": 7
+          }
+        ]
+      }
+    ],
+    "finding": "Two exact repeated paragraphs occur across Kat and Alfie production sections. Neither is admitted to retrieval. Near-duplicate accounts are not independently corroborating sources.",
+    "near_duplicate_policy": "Shared story events, including Phil/Grant arrival and Ben birth/meningitis, are grouped together before any future split. All present cases are development."
+  },
+  "cross_page_review": [
+    {
+      "group_id": "mitchell-arrival-1990",
+      "locations": [
+        [
+          "phil-mitchell-wiki",
+          18
+        ],
+        [
+          "grant-mitchell-wiki",
+          23
+        ]
+      ],
+      "finding": "Both accounts name The Arches and February 1990. Agreement between Wikipedia biographies does not establish independence."
+    },
+    {
+      "group_id": "cindy-reported-death-and-return",
+      "locations": [
+        [
+          "lucy-beale-wiki",
+          10
+        ],
+        [
+          "lucy-beale-wiki",
+          23
+        ],
+        [
+          "cindy-beale-wiki",
+          12
+        ]
+      ],
+      "finding": "Lucy\u2019s early narrative says Cindy died in 1998; later narrative and Cindy\u2019s biography describe survival and witness protection. Treat as apparent death/chronological correction, not two independent established deaths. No automatic source precedence or graph correction is implemented.",
+      "disposition": "Retain visible source gap for contextual retrieval (#24) and claim review (#15); do not use an isolated early passage as a current death fact."
+    },
+    {
+      "group_id": "denise-father-discovery",
+      "locations": [
+        [
+          "denise-fox-wiki",
+          8
+        ],
+        [
+          "denise-fox-wiki",
+          26
+        ]
+      ],
+      "finding": "Early narrative says the father is never discovered, while the later Darnell account identifies him. The negative is temporally scoped, not current exhaustive absence.",
+      "disposition": "The profile question tests only the explicit DNA exclusion of Patrick. Broader identity-history completeness remains a gap; contextual/claim lifecycle work follows."
+    }
+  ],
+  "supporting_character_examples": [
+    {
+      "name": "Den Watts",
+      "source": "sharon-watts-wiki",
+      "paragraph": 53
+    },
+    {
+      "name": "Angie Watts",
+      "source": "sharon-watts-wiki",
+      "paragraph": 53
+    },
+    {
+      "name": "Charlie Slater",
+      "source": "kat-slater-wiki",
+      "paragraph": 41
+    },
+    {
+      "name": "Mick Carter",
+      "source": "linda-carter-wiki",
+      "paragraph": 17
+    }
+  ],
+  "limitations": [
+    "No complete cross-page contradiction detector or exhaustive manual audit. These are inspected overlaps and concrete failure-prone examples.",
+    "All original text, exclusions and source revisions are retained; supporting names do not expand the core roster.",
+    "Source check date means fetch time, not storyline completeness. Semantic graph coverage remains #20."
+  ]
+}

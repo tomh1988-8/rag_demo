@@ -1,0 +1,27 @@
+{
+  "reviews": [
+    {
+      "case_id": "phil-mitchell-profile",
+      "response_sha256": "5258ae6ab35ef06c902d32299c7b6307e288f5a78d817fa657f77c6fb6a3fb9e",
+      "reference_sha256": "3f2445a0ef18d7673d18fb56c4ae71a1bac228c228dc8685a2ef3915ceeefdd5",
+      "reviewer": "Codex source/response inspection, 17 October 2026",
+      "rationale": "The answer says Phil opened The Arches on arrival, explicitly supported by his first retained paragraph and its cited passage. Persona first person preserves the source fact. Exposed initial-snapshot pilot, before the Cindy catalogue correction.",
+      "claims": [
+        {
+          "claim": "Phil opened The Arches when he first arrived in Walford.",
+          "correct": true,
+          "grounded": true,
+          "citation_supported": true
+        }
+      ],
+      "required_facts": [
+        {
+          "fact": "Phil opens the automobile repair shop The Arches.",
+          "covered": true
+        }
+      ],
+      "answerability": true,
+      "critical_failures": []
+    }
+  ]
+}

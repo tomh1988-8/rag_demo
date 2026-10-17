@@ -1,6 +1,11 @@
 """Reference-labelled retrieval and assembled-context scoring, independent of model outputs."""
 
-from typing import Literal
+import hashlib
+import json
+from typing import TYPE_CHECKING, Literal
+
+if TYPE_CHECKING:
+    from mlflow import MlflowClient
 
 from pydantic import Field, StrictBool
 
@@ -49,6 +54,44 @@ class AnswerQuality(Record):
     citation_support: ReviewMetric
     answerability: ReviewMetric
     critical_failures: tuple[CriticalFailure, ...]
+
+
+class ScoredReview(Record):
+    review: QualityReview
+    scores: AnswerQuality
+
+
+def document_fingerprint(document: object) -> str:
+    return hashlib.sha256(
+        json.dumps(document, sort_keys=True, separators=(",", ":")).encode()
+    ).hexdigest()
+
+
+def score_captured_answer(
+    review: QualityReview, response: object, reference: object, required_facts: tuple[str, ...]
+) -> ScoredReview:
+    """Reject stale/incomplete annotations before scoring a captured response."""
+    if review.response_sha256 != document_fingerprint(
+        response
+    ) or review.reference_sha256 != document_fingerprint(reference):
+        raise ValueError("Stale review: response or reference fingerprint differs.")
+    if tuple(f.fact for f in review.required_facts) != required_facts:
+        raise ValueError("Review must assess every required fact in reference order.")
+    return ScoredReview(review=review, scores=score_answer_review(review))
+
+
+def log_review_metrics(
+    client: "MlflowClient", run_id: str, results: tuple[ScoredReview, ...]
+) -> None:
+    for result in results:
+        for dimension, metric in result.scores.model_dump().items():
+            prefix = f"{result.review.case_id}.{dimension}"
+            if dimension == "critical_failures":
+                client.log_metric(run_id, prefix, len(metric))
+            else:
+                for name in ("passed", "assessed", "unassessed", "value"):
+                    if metric[name] is not None:
+                        client.log_metric(run_id, f"{prefix}.{name}", metric[name])
 
 
 def score_answer_review(review: QualityReview) -> AnswerQuality:

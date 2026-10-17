@@ -1,9 +1,12 @@
 """Explicit, revision-bound admission of captured source material into text evidence."""
 
+import fcntl
 import gzip
 import hashlib
 import json
+import os
 import re
+import tempfile
 from collections.abc import Iterator
 from datetime import UTC, datetime
 from pathlib import Path
@@ -17,6 +20,7 @@ from ask_phil.evidence import Passage, Source, SourceSnapshot
 from ask_phil.passage_context import PROJECTION_VERSION, project_passages
 from ask_phil.source_records import CapturedSource as CapturedSource
 from ask_phil.source_records import (
+    CapturePlan,
     ImportedSources,
     ImportIssue,
     ParsedSource,
@@ -30,6 +34,64 @@ from ask_phil.source_records import SourceRequest as SourceRequest
 from ask_phil.source_records import WikipediaPolicy as WikipediaPolicy
 
 USER_AGENT = "AskPhilResearch/0.1 (https://github.com/tomh1988-8/rag_demo)"
+CAPTURE_BYTE_LIMIT = 20_000_000
+
+
+def capture_plan(plan: CapturePlan, client: httpx.Client, checkpoint: Path) -> SourceBatch:
+    """Resume a bounded capture, preserving successful payloads and their original check dates."""
+    checkpoint.mkdir(parents=True, exist_ok=True)
+    with (checkpoint / "lock").open("a") as lock:
+        try:
+            fcntl.flock(lock, fcntl.LOCK_EX | fcntl.LOCK_NB)
+        except BlockingIOError:
+            raise ValueError("Capture checkpoint is busy.") from None
+        plan_path = checkpoint / "plan.json"
+        if plan_path.exists():
+            if CapturePlan.model_validate_json(plan_path.read_bytes()) != plan:
+                raise ValueError("Capture checkpoint belongs to a different plan.")
+        else:
+            _save_checkpoint(plan_path, plan.model_dump_json())
+        payloads = checkpoint / "captures"
+        payloads.mkdir(exist_ok=True)
+        retained = {}
+        for request in plan.requests:
+            path = payloads / f"{request.source_id}.json"
+            if path.exists():
+                capture = CapturedSource.model_validate_json(path.read_bytes())
+                if (
+                    SourceRequest.model_validate(
+                        capture.model_dump(exclude={"content", "sha256", "captured_at"})
+                    )
+                    != request
+                ):
+                    raise ValueError("Retained capture does not match its request.")
+                retained[request.source_id] = capture
+        remaining_bytes = CAPTURE_BYTE_LIMIT - sum(
+            len(c.content.encode()) for c in retained.values()
+        )
+        if remaining_bytes < 0:
+            raise ValueError("Capture exceeds the batch byte limit.")
+        pending = tuple(r for r in plan.requests if r.source_id not in retained)
+        if pending:
+            for capture in iter_captures(pending, client, byte_budget=remaining_bytes):
+                _save_checkpoint(payloads / f"{capture.source_id}.json", capture.model_dump_json())
+                retained[capture.source_id] = capture
+        return SourceBatch(
+            **plan.model_dump(exclude={"requests"}),
+            captures=tuple(retained[r.source_id] for r in plan.requests),
+        )
+
+
+def _save_checkpoint(path: Path, document: str) -> None:
+    with tempfile.NamedTemporaryFile(mode="w", dir=path.parent, delete=False) as output:
+        temporary = Path(output.name)
+        try:
+            output.write(document)
+            output.flush()
+            os.fsync(output.fileno())
+            os.replace(temporary, path)
+        finally:
+            temporary.unlink(missing_ok=True)
 
 
 def read_batch(path: Path) -> SourceBatch:
@@ -62,11 +124,16 @@ def capture_sources(
 
 
 def iter_captures(
-    requests: tuple[SourceRequest, ...], client: httpx.Client
+    requests: tuple[SourceRequest, ...],
+    client: httpx.Client,
+    *,
+    byte_budget: int = CAPTURE_BYTE_LIMIT,
 ) -> Iterator[CapturedSource]:
     """Yield bounded captures so the refresh journal can retain partial progress."""
     if not 1 <= len(requests) <= 20:
         raise ValueError("Capture batches contain 1–20 sources.")
+    if not 0 <= byte_budget <= CAPTURE_BYTE_LIMIT:
+        raise ValueError("Capture byte budget must not exceed the batch byte limit.")
     total = 0
     for request in requests:
         try:
@@ -86,7 +153,7 @@ def iter_captures(
                 for chunk in response.iter_bytes():
                     size += len(chunk)
                     total += len(chunk)
-                    if size > 5_000_000 or total > 20_000_000:
+                    if size > 5_000_000 or total > byte_budget:
                         raise ValueError("Capture exceeds the per-source or batch byte limit.")
                     chunks.append(chunk)
                 raw = b"".join(chunks)

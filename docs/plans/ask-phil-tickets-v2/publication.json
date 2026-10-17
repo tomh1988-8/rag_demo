@@ -228,7 +228,8 @@
       },
       "published_body_sha256": "8bdf98771075e07a6ab57fbbbfc1368eebd7cd97100e2e80bff69dc88c058ee9",
       "updated_at": "2026-09-23T08:16:31Z",
-      "current_local_file_sha256": "f76e2d771d5d48d36f0c2ca0c49eb9c9a9188deeb3740bdb6ba996a80db5cf87"
+      "current_local_file_sha256": "a64365de3686554ae558d7d6997fec9352cc7251f3ec4f1adce5d0be39850562",
+      "implementation_status": "implemented_reviewed_publication_pending"
     },
     {
       "draft_number": 7,
@@ -1257,78 +1258,64 @@
     }
   ],
   "implementation_progress": {
-    "issue_number": 4,
-    "status": "completed",
-    "record": "docs/implementation/issue-4/cloud/summary.json",
-    "github_issue_closed": true,
+    "issue_number": 7,
+    "status": "implemented_reviewed_publication_pending",
+    "record": "docs/implementation/issue-7/README.md",
+    "github_issue_closed": false,
     "software_tests": {
-      "native": 85,
+      "native": 149,
       "failures": 0,
       "errors": 0,
       "skipped": 0,
       "ruff": "passed",
-      "mypy": "passed,27 files"
+      "mypy": "passed,41 files"
     },
     "checklist": {
       "current": 51,
-      "pass": 15,
-      "pending": 36,
+      "pass": 20,
+      "pending": 31,
       "deferred": 1,
       "not_applicable": 12,
-      "scope": "Scoped issue4 Sol policy acceptance; broader product evaluation remains Pending."
+      "new_scoped_pass": [
+        "AD-03.4",
+        "RAG-01"
+      ]
     },
     "semantic_results": {
       "model_profile": "config/openrouter-sol.json",
-      "full_matrix_cases": 13,
-      "appropriate_outcomes": 13,
-      "assessed_assertions": 19,
-      "correct_assertions": 19,
-      "grounded_assertions": 19,
-      "citation_supported_assertions": 19,
-      "required_facts_covered": 20,
-      "required_facts": 20,
-      "served_critical_failures": 0,
-      "actual_cli_cases": 5,
-      "original_receipts_preserved_after_restart": 5,
-      "reference": "data/references/answer-policy-v2.json",
-      "regressions": "data/references/answer-policy-regressions-v2.json",
-      "limitation": "Exposed development references, one retained real source passage and synthetic fixtures; not human-calibrated or held-out."
+      "matrix_cases": 25,
+      "story_groups": 21,
+      "core_profiles_with_sourced_success": 20,
+      "core_profiles": 20,
+      "actual_factual_assertions": 26,
+      "correct_grounded_citation_supported": 26,
+      "selected_evidence_hit_at_3": "23/23",
+      "context_sufficient": "21/23",
+      "full_required_fact_coverage": "21/23",
+      "limitations": "Exposed development references; Janine and garage completeness failures retained; no held-out, human-calibrated or exhaustive canon claim."
     },
-    "model_migration": {
-      "required_for_this_slice_satisfied": true,
-      "accepted_profile": "config/openrouter-sol.json",
-      "qwen": "Smoke rejected; no acceptance or general model ranking",
-      "glm": "Untested",
-      "local_model_role": "Convenient development only",
-      "paid_api_calls": 32,
-      "reported_cost_usd": "0.10890587",
-      "remaining_trial_credit_usd": "4.89109413"
-    },
+    "live_answer_calls": 26,
+    "reported_slice_cost_usd": "0.0999804",
+    "shared_rounded_ledger_usd": "0.208899",
+    "offline_review_answer_model_calls": 0,
     "dependency_frontier_after_closure": [
-      5,
+      8,
       9,
-      10
+      10,
+      11,
+      24
     ],
-    "next_recommended_issue": 5,
-    "next_reasoning": "pro",
-    "publication_method": "Authenticated GitHub connector; exact tree matched and closure readback verified. Final receipt: artifacts/issue-4-cloud-github-publication.json.",
-    "github_closure_readback_verified": true,
-    "closed_at": "2026-09-25T10:48:10Z",
-    "code_and_evidence_commit": "a5062593449a941d28248614e1f3977d14fc9a57",
-    "published_tree": "589ee66a716921e63495fdbbc82302c83ac303cc",
-    "exact_tree_verified": true
+    "next_recommended_issue": 8,
+    "independent_review": "docs/implementation/issue-7/review.md"
   },
   "code_publication": {
-    "scope": "Issue4 cloud policy acceptance, retained failures/regressions and prompt repair published; this follow-up records verified closure.",
+    "scope": "Issue #7 twenty-profile source/text coverage and reviewed live evidence; publication pending.",
     "branch": "main",
     "method": "Authenticated GitHub connector; native Git push lacks credentials.",
     "verification": "Require an exact local/remote tree match before closure or reporting completion.",
-    "local_receipt": "artifacts/issue-4-cloud-github-publication.json",
+    "local_receipt": "artifacts/issue-7-github-publication.json",
     "receipt_is_git_ignored": true,
-    "accepted_code_and_evidence_commit": "a5062593449a941d28248614e1f3977d14fc9a57",
-    "accepted_tree": "589ee66a716921e63495fdbbc82302c83ac303cc",
-    "accepted_tree_verified": true,
-    "github_issue_closed": true
+    "github_issue_closed": false
   },
   "current_scope_validation": {
     "record": "docs/plans/ask-phil-tickets-v2/fusion-cache-amendment.json",
@@ -1436,6 +1423,68 @@
       ],
       "blocked_dependants_still_blocked": true,
       "publication_method": "Authorized GitHub connector; exact tree verification required. Final receipt is local ignored artifacts/issue-4-github-publication.json."
+    },
+    {
+      "issue_number": 4,
+      "status": "completed",
+      "record": "docs/implementation/issue-4/cloud/summary.json",
+      "github_issue_closed": true,
+      "software_tests": {
+        "native": 85,
+        "failures": 0,
+        "errors": 0,
+        "skipped": 0,
+        "ruff": "passed",
+        "mypy": "passed,27 files"
+      },
+      "checklist": {
+        "current": 51,
+        "pass": 15,
+        "pending": 36,
+        "deferred": 1,
+        "not_applicable": 12,
+        "scope": "Scoped issue4 Sol policy acceptance; broader product evaluation remains Pending."
+      },
+      "semantic_results": {
+        "model_profile": "config/openrouter-sol.json",
+        "full_matrix_cases": 13,
+        "appropriate_outcomes": 13,
+        "assessed_assertions": 19,
+        "correct_assertions": 19,
+        "grounded_assertions": 19,
+        "citation_supported_assertions": 19,
+        "required_facts_covered": 20,
+        "required_facts": 20,
+        "served_critical_failures": 0,
+        "actual_cli_cases": 5,
+        "original_receipts_preserved_after_restart": 5,
+        "reference": "data/references/answer-policy-v2.json",
+        "regressions": "data/references/answer-policy-regressions-v2.json",
+        "limitation": "Exposed development references, one retained real source passage and synthetic fixtures; not human-calibrated or held-out."
+      },
+      "model_migration": {
+        "required_for_this_slice_satisfied": true,
+        "accepted_profile": "config/openrouter-sol.json",
+        "qwen": "Smoke rejected; no acceptance or general model ranking",
+        "glm": "Untested",
+        "local_model_role": "Convenient development only",
+        "paid_api_calls": 32,
+        "reported_cost_usd": "0.10890587",
+        "remaining_trial_credit_usd": "4.89109413"
+      },
+      "dependency_frontier_after_closure": [
+        5,
+        9,
+        10
+      ],
+      "next_recommended_issue": 5,
+      "next_reasoning": "pro",
+      "publication_method": "Authenticated GitHub connector; exact tree matched and closure readback verified. Final receipt: artifacts/issue-4-cloud-github-publication.json.",
+      "github_closure_readback_verified": true,
+      "closed_at": "2026-09-25T10:48:10Z",
+      "code_and_evidence_commit": "a5062593449a941d28248614e1f3977d14fc9a57",
+      "published_tree": "589ee66a716921e63495fdbbc82302c83ac303cc",
+      "exact_tree_verified": true
     }
   ],
   "code_publication_history": [
@@ -1455,6 +1504,18 @@
       "verification": "Require an exact local/remote tree match before reporting completion.",
       "local_receipt": "artifacts/issue-4-github-publication.json",
       "receipt_is_git_ignored": true
+    },
+    {
+      "scope": "Issue4 cloud policy acceptance, retained failures/regressions and prompt repair published; this follow-up records verified closure.",
+      "branch": "main",
+      "method": "Authenticated GitHub connector; native Git push lacks credentials.",
+      "verification": "Require an exact local/remote tree match before closure or reporting completion.",
+      "local_receipt": "artifacts/issue-4-cloud-github-publication.json",
+      "receipt_is_git_ignored": true,
+      "accepted_code_and_evidence_commit": "a5062593449a941d28248614e1f3977d14fc9a57",
+      "accepted_tree": "589ee66a716921e63495fdbbc82302c83ac303cc",
+      "accepted_tree_verified": true,
+      "github_issue_closed": true
     }
   ],
   "openrouter_trial_setup": {
@@ -1470,11 +1531,13 @@
     "key_entry_command": ".venv/bin/ask-phil configure-openrouter",
     "secret_check_command": "python3 scripts/check_secrets.py",
     "guide": "docs/implementation/openrouter-setup.md",
-    "paid_api_calls": 32,
-    "semantic_acceptance": "scoped_issue4_sol_policy_passed",
-    "reported_cost_usd": "0.10890587",
-    "remaining_trial_credit_usd": "4.89109413",
+    "paid_api_calls": 58,
+    "semantic_acceptance": "scoped_issue4_policy_and_issue7_text_coverage_passed",
+    "reported_cost_usd": "0.20888627",
+    "remaining_trial_credit_usd": "4.79111373",
     "accepted_profile": "config/openrouter-sol.json",
-    "evidence": "docs/implementation/issue-4/cloud/summary.json"
+    "evidence": "docs/implementation/issue-4/cloud/summary.json",
+    "shared_rounded_ledger_usd": "0.208899",
+    "latest_evidence": "docs/implementation/issue-7/summary.json"
   }
 }

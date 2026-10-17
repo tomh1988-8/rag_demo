@@ -1,0 +1,774 @@
+{
+  "format_version": 1,
+  "catalogue": {
+    "characters": [
+      {
+        "character_id": "phil-mitchell",
+        "name": "Phil Mitchell",
+        "aliases": [],
+        "performers": [
+          "Steve McFadden",
+          "Daniel Delaney"
+        ],
+        "coverage": "core",
+        "wikidata_id": "Q2115259",
+        "review_note": "Codex source inspection, 17 October 2026: captured character article, infobox aliases/performers and revision metadata checked. Prominence-based curated selection, not a ranked or exhaustive canon. Identity linkage is not independent story corroboration.",
+        "evidence_sources": [
+          "phil-mitchell-wiki"
+        ]
+      },
+      {
+        "character_id": "grant-mitchell",
+        "name": "Grant Mitchell",
+        "aliases": [],
+        "performers": [
+          "Ross Kemp",
+          "Teddy Jay"
+        ],
+        "coverage": "core",
+        "wikidata_id": "Q2685036",
+        "review_note": "Codex source inspection, 17 October 2026: captured character article, infobox aliases/performers and revision metadata checked. Prominence-based curated selection, not a ranked or exhaustive canon. Identity linkage is not independent story corroboration.",
+        "evidence_sources": [
+          "grant-mitchell-wiki"
+        ]
+      },
+      {
+        "character_id": "peggy-mitchell",
+        "name": "Peggy Mitchell",
+        "aliases": [
+          "Peggy Butcher"
+        ],
+        "performers": [
+          "Jo Warne",
+          "Barbara Windsor",
+          "Jaime Winstone"
+        ],
+        "coverage": "core",
+        "wikidata_id": "Q13130609",
+        "review_note": "Codex source inspection, 17 October 2026: captured character article, infobox aliases/performers and revision metadata checked. Prominence-based curated selection, not a ranked or exhaustive canon. Identity linkage is not independent story corroboration.",
+        "evidence_sources": [
+          "peggy-mitchell-wiki"
+        ]
+      },
+      {
+        "character_id": "sharon-watts",
+        "name": "Sharon Watts",
+        "aliases": [
+          "Sharon Mitchell",
+          "Sharon Rickman",
+          "Sharon Beale"
+        ],
+        "performers": [
+          "Letitia Dean"
+        ],
+        "coverage": "core",
+        "wikidata_id": "Q7490258",
+        "review_note": "Codex source inspection, 17 October 2026: captured character article, infobox aliases/performers and revision metadata checked. Prominence-based curated selection, not a ranked or exhaustive canon. Identity linkage is not independent story corroboration.",
+        "evidence_sources": [
+          "sharon-watts-wiki"
+        ]
+      },
+      {
+        "character_id": "ben-mitchell",
+        "name": "Ben Mitchell",
+        "aliases": [],
+        "performers": [
+          "Matthew Silver",
+          "Morgan Whittle",
+          "Charlie Jones",
+          "Joshua Pascoe",
+          "Harry Reid",
+          "Max Bowden"
+        ],
+        "coverage": "core",
+        "wikidata_id": "Q2766568",
+        "review_note": "Codex source inspection, 17 October 2026: captured character article, infobox aliases/performers and revision metadata checked. Prominence-based curated selection, not a ranked or exhaustive canon. Identity linkage is not independent story corroboration.",
+        "evidence_sources": [
+          "ben-mitchell-wiki"
+        ]
+      },
+      {
+        "character_id": "ian-beale",
+        "name": "Ian Beale",
+        "aliases": [
+          "Ian Albert Beale"
+        ],
+        "performers": [
+          "Adam Woodyatt"
+        ],
+        "coverage": "core",
+        "wikidata_id": "Q899011",
+        "review_note": "Codex source inspection, 17 October 2026: captured character article, infobox aliases/performers and revision metadata checked. Prominence-based curated selection, not a ranked or exhaustive canon. Identity linkage is not independent story corroboration.",
+        "evidence_sources": [
+          "ian-beale-wiki"
+        ]
+      },
+      {
+        "character_id": "kathy-beale",
+        "name": "Kathy Beale",
+        "aliases": [
+          "Kathy Mitchell",
+          "Kathy Sullivan",
+          "Kathy Richards",
+          "Kathy Cotton"
+        ],
+        "performers": [
+          "Gillian Taylforth"
+        ],
+        "coverage": "core",
+        "wikidata_id": "Q6377182",
+        "review_note": "Codex source inspection, 17 October 2026: captured character article, infobox aliases/performers and revision metadata checked. Prominence-based curated selection, not a ranked or exhaustive canon. Identity linkage is not independent story corroboration.",
+        "evidence_sources": [
+          "kathy-beale-wiki"
+        ]
+      },
+      {
+        "character_id": "cindy-beale",
+        "name": "Cindy Beale",
+        "aliases": [
+          "Rose Sawyer",
+          "Rose Knight"
+        ],
+        "performers": [
+          "Michelle Collins"
+        ],
+        "coverage": "core",
+        "wikidata_id": "Q5120478",
+        "review_note": "Codex source inspection, 17 October 2026: captured character article, infobox aliases/performers and revision metadata checked. Prominence-based curated selection, not a ranked or exhaustive canon. Identity linkage is not independent story corroboration. The genuine maternal maiden alias Cindy Williams is deliberately withheld because the captured narratives also evidence her daughter of that name; ambiguous names/daughter links remain unresolved until separately catalogued.",
+        "evidence_sources": [
+          "cindy-beale-wiki"
+        ]
+      },
+      {
+        "character_id": "lucy-beale",
+        "name": "Lucy Beale",
+        "aliases": [],
+        "performers": [
+          "Eva Brittin-Snell",
+          "Casey Anne Rothery",
+          "Melissa Suffield",
+          "Hetti Bywater"
+        ],
+        "coverage": "core",
+        "wikidata_id": "Q3304512",
+        "review_note": "Codex source inspection, 17 October 2026: captured character article, infobox aliases/performers and revision metadata checked. Prominence-based curated selection, not a ranked or exhaustive canon. Identity linkage is not independent story corroboration.",
+        "evidence_sources": [
+          "lucy-beale-wiki"
+        ]
+      },
+      {
+        "character_id": "bobby-beale",
+        "name": "Bobby Beale",
+        "aliases": [],
+        "performers": [
+          "Kevin Curran",
+          "Alex Francis",
+          "Rory Stroud",
+          "Eliot Carrington",
+          "Clay Milner Russell"
+        ],
+        "coverage": "core",
+        "wikidata_id": "Q19650328",
+        "review_note": "Codex source inspection, 17 October 2026: captured character article, infobox aliases/performers and revision metadata checked. Prominence-based curated selection, not a ranked or exhaustive canon. Identity linkage is not independent story corroboration.",
+        "evidence_sources": [
+          "bobby-beale-wiki"
+        ]
+      },
+      {
+        "character_id": "martin-fowler",
+        "name": "Martin Fowler",
+        "aliases": [],
+        "performers": [
+          "Jon Peyton-Price",
+          "James Alexandrou",
+          "James Bye"
+        ],
+        "coverage": "core",
+        "wikidata_id": "Q16992426",
+        "review_note": "Codex source inspection, 17 October 2026: captured character article, infobox aliases/performers and revision metadata checked. Prominence-based curated selection, not a ranked or exhaustive canon. Identity linkage is not independent story corroboration.",
+        "evidence_sources": [
+          "martin-fowler-wiki"
+        ]
+      },
+      {
+        "character_id": "kat-slater",
+        "name": "Kat Slater",
+        "aliases": [
+          "Kat Moon",
+          "Kat Mitchell"
+        ],
+        "performers": [
+          "Jessie Wallace",
+          "Kate Peck",
+          "Sumar-Elise Sandford",
+          "Amelia Crouch"
+        ],
+        "coverage": "core",
+        "wikidata_id": "Q3955054",
+        "review_note": "Codex source inspection, 17 October 2026: captured character article, infobox aliases/performers and revision metadata checked. Prominence-based curated selection, not a ranked or exhaustive canon. Identity linkage is not independent story corroboration.",
+        "evidence_sources": [
+          "kat-slater-wiki"
+        ]
+      },
+      {
+        "character_id": "stacey-slater",
+        "name": "Stacey Slater",
+        "aliases": [
+          "Stacey Branning",
+          "Stacey Fowler",
+          "Jenny Smith"
+        ],
+        "performers": [
+          "Lacey Turner"
+        ],
+        "coverage": "core",
+        "wikidata_id": "Q7595869",
+        "review_note": "Codex source inspection, 17 October 2026: captured character article, infobox aliases/performers and revision metadata checked. Prominence-based curated selection, not a ranked or exhaustive canon. Identity linkage is not independent story corroboration.",
+        "evidence_sources": [
+          "stacey-slater-wiki"
+        ]
+      },
+      {
+        "character_id": "alfie-moon",
+        "name": "Alfie Moon",
+        "aliases": [
+          "Alfred William Moon",
+          "Chris Wright"
+        ],
+        "performers": [
+          "Shane Richie"
+        ],
+        "coverage": "core",
+        "wikidata_id": "Q4721932",
+        "review_note": "Codex source inspection, 17 October 2026: captured character article, infobox aliases/performers and revision metadata checked. Prominence-based curated selection, not a ranked or exhaustive canon. Identity linkage is not independent story corroboration.",
+        "evidence_sources": [
+          "alfie-moon-wiki"
+        ]
+      },
+      {
+        "character_id": "pat-butcher",
+        "name": "Pat Butcher",
+        "aliases": [
+          "Pat Harris",
+          "Pat Beale",
+          "Pat Wicks",
+          "Pat Evans",
+          "Fat Pat"
+        ],
+        "performers": [
+          "Pam St Clement",
+          "Emma Cooke"
+        ],
+        "coverage": "core",
+        "wikidata_id": "Q368649",
+        "review_note": "Codex source inspection, 17 October 2026: captured character article, infobox aliases/performers and revision metadata checked. Prominence-based curated selection, not a ranked or exhaustive canon. Identity linkage is not independent story corroboration.",
+        "evidence_sources": [
+          "pat-butcher-wiki"
+        ]
+      },
+      {
+        "character_id": "janine-butcher",
+        "name": "Janine Butcher",
+        "aliases": [
+          "Janine Evans",
+          "Janine Malloy",
+          "Janine Carter",
+          "Judith Bernstein"
+        ],
+        "performers": [
+          "Rebecca Michael",
+          "Alexia Demetriou",
+          "Charlie Brooks"
+        ],
+        "coverage": "core",
+        "wikidata_id": "Q2321366",
+        "review_note": "Codex source inspection, 17 October 2026: captured character article, infobox aliases/performers and revision metadata checked. Prominence-based curated selection, not a ranked or exhaustive canon. Identity linkage is not independent story corroboration.",
+        "evidence_sources": [
+          "janine-butcher-wiki"
+        ]
+      },
+      {
+        "character_id": "dot-cotton",
+        "name": "Dot Cotton",
+        "aliases": [
+          "Dorothy Colwell",
+          "Dot Branning"
+        ],
+        "performers": [
+          "June Brown",
+          "Tallulah Pitt-Brown"
+        ],
+        "coverage": "core",
+        "wikidata_id": "Q3306375",
+        "review_note": "Codex source inspection, 17 October 2026: captured character article, infobox aliases/performers and revision metadata checked. Prominence-based curated selection, not a ranked or exhaustive canon. Identity linkage is not independent story corroboration.",
+        "evidence_sources": [
+          "dot-cotton-wiki"
+        ]
+      },
+      {
+        "character_id": "denise-fox",
+        "name": "Denise Fox",
+        "aliases": [
+          "Denise Johnson",
+          "Denise Wicks"
+        ],
+        "performers": [
+          "Diane Parish"
+        ],
+        "coverage": "core",
+        "wikidata_id": "Q5257665",
+        "review_note": "Codex source inspection, 17 October 2026: captured character article, infobox aliases/performers and revision metadata checked. Prominence-based curated selection, not a ranked or exhaustive canon. Identity linkage is not independent story corroboration.",
+        "evidence_sources": [
+          "denise-fox-wiki"
+        ]
+      },
+      {
+        "character_id": "max-branning",
+        "name": "Max Branning",
+        "aliases": [],
+        "performers": [
+          "Jake Wood"
+        ],
+        "coverage": "core",
+        "wikidata_id": "Q6794615",
+        "review_note": "Codex source inspection, 17 October 2026: captured character article, infobox aliases/performers and revision metadata checked. Prominence-based curated selection, not a ranked or exhaustive canon. Identity linkage is not independent story corroboration.",
+        "evidence_sources": [
+          "max-branning-wiki"
+        ]
+      },
+      {
+        "character_id": "linda-carter",
+        "name": "Linda Carter",
+        "aliases": [
+          "Linda Peacock"
+        ],
+        "performers": [
+          "Kellie Bright"
+        ],
+        "coverage": "core",
+        "wikidata_id": "Q17620076",
+        "review_note": "Codex source inspection, 17 October 2026: captured character article, infobox aliases/performers and revision metadata checked. Prominence-based curated selection, not a ranked or exhaustive canon. Identity linkage is not independent story corroboration.",
+        "evidence_sources": [
+          "linda-carter-wiki"
+        ]
+      },
+      {
+        "character_id": "den-watts",
+        "name": "Den Watts",
+        "aliases": [
+          "Dirty Den",
+          "Dennis Alan Watts"
+        ],
+        "performers": [
+          "Leslie Grantham"
+        ],
+        "coverage": "supporting",
+        "wikidata_id": "Q5256484",
+        "review_note": "Den is evidenced supporting context in Sharon\u2019s captured biography. Identity was also reviewed against retained Den revision 1371930128 in real-sources-v1.json.gz. No separate Den history is admitted here; supporting character mentions do not expand the core roster.",
+        "evidence_sources": [
+          "sharon-watts-wiki"
+        ]
+      }
+    ]
+  },
+  "policies": {
+    "phil-mitchell-wiki": {
+      "revision_id": "1379872347",
+      "reviewer": "Codex primary source inspection, 17 October 2026. Reviewed article section tree, narrative boundaries and infobox; source-supported text, not independent canon verification.",
+      "rules": [
+        {
+          "section": [
+            "Storylines"
+          ],
+          "scope": "main_series",
+          "reason": "Reviewed main-series narrative and backstory, preserving source chronology. Production sections and other appearances remain outside retrieval."
+        }
+      ]
+    },
+    "grant-mitchell-wiki": {
+      "revision_id": "1370914760",
+      "reviewer": "Codex primary source inspection, 17 October 2026. Reviewed article section tree, narrative boundaries and infobox; source-supported text, not independent canon verification.",
+      "rules": [
+        {
+          "section": [
+            "Storylines"
+          ],
+          "scope": "main_series",
+          "reason": "Reviewed main-series narrative and backstory, preserving source chronology. Production sections and other appearances remain outside retrieval."
+        }
+      ]
+    },
+    "peggy-mitchell-wiki": {
+      "revision_id": "1372787814",
+      "reviewer": "Codex primary source inspection, 17 October 2026. Reviewed article section tree, narrative boundaries and infobox; source-supported text, not independent canon verification.",
+      "rules": [
+        {
+          "section": [
+            "Storylines"
+          ],
+          "scope": "main_series",
+          "reason": "Reviewed main-series narrative and backstory, preserving source chronology. Production sections and other appearances remain outside retrieval."
+        }
+      ]
+    },
+    "sharon-watts-wiki": {
+      "revision_id": "1372798905",
+      "reviewer": "Codex primary source inspection, 17 October 2026. Reviewed article section tree, narrative boundaries and infobox; source-supported text, not independent canon verification.",
+      "rules": [
+        {
+          "section": [
+            "Storylines"
+          ],
+          "scope": "main_series",
+          "reason": "Reviewed main-series narrative and backstory, preserving source chronology. Production sections and other appearances remain outside retrieval."
+        }
+      ]
+    },
+    "ben-mitchell-wiki": {
+      "revision_id": "1376729134",
+      "reviewer": "Codex primary source inspection, 17 October 2026. Reviewed article section tree, narrative boundaries and infobox; source-supported text, not independent canon verification.",
+      "rules": [
+        {
+          "section": [
+            "Storylines"
+          ],
+          "scope": "main_series",
+          "reason": "Reviewed main-series narrative and backstory, preserving source chronology. Production sections and other appearances remain outside retrieval."
+        }
+      ]
+    },
+    "ian-beale-wiki": {
+      "revision_id": "1378295578",
+      "reviewer": "Codex primary source inspection, 17 October 2026. Reviewed article section tree, narrative boundaries and infobox; source-supported text, not independent canon verification.",
+      "rules": [
+        {
+          "section": [
+            "Storylines"
+          ],
+          "scope": "main_series",
+          "reason": "Reviewed main-series narrative and backstory, preserving source chronology. Production sections and other appearances remain outside retrieval."
+        }
+      ]
+    },
+    "kathy-beale-wiki": {
+      "revision_id": "1372746094",
+      "reviewer": "Codex primary source inspection, 17 October 2026. Reviewed article section tree, narrative boundaries and infobox; source-supported text, not independent canon verification.",
+      "rules": [
+        {
+          "section": [
+            "Storylines"
+          ],
+          "scope": "main_series",
+          "reason": "Reviewed main-series narrative and backstory, preserving source chronology. Production sections and other appearances remain outside retrieval."
+        }
+      ]
+    },
+    "cindy-beale-wiki": {
+      "revision_id": "1375368032",
+      "reviewer": "Codex primary source inspection, 17 October 2026. Reviewed article section tree, narrative boundaries and infobox; source-supported text, not independent canon verification.",
+      "rules": [
+        {
+          "section": [
+            "Storylines"
+          ],
+          "scope": "main_series",
+          "reason": "Reviewed main-series narrative and backstory, preserving source chronology. Production sections and other appearances remain outside retrieval."
+        }
+      ]
+    },
+    "lucy-beale-wiki": {
+      "revision_id": "1373199144",
+      "reviewer": "Codex primary source inspection, 17 October 2026. Reviewed article section tree, narrative boundaries and infobox; source-supported text, not independent canon verification.",
+      "rules": [
+        {
+          "section": [
+            "Storylines"
+          ],
+          "scope": "main_series",
+          "reason": "Reviewed main-series narrative and backstory, preserving source chronology. Production sections and other appearances remain outside retrieval."
+        }
+      ]
+    },
+    "bobby-beale-wiki": {
+      "revision_id": "1364396059",
+      "reviewer": "Codex primary source inspection, 17 October 2026. Reviewed article section tree, narrative boundaries and infobox; source-supported text, not independent canon verification.",
+      "rules": [
+        {
+          "section": [
+            "Storylines"
+          ],
+          "scope": "main_series",
+          "reason": "Reviewed main-series narrative and backstory, preserving source chronology. Production sections and other appearances remain outside retrieval."
+        }
+      ]
+    },
+    "martin-fowler-wiki": {
+      "revision_id": "1375375419",
+      "reviewer": "Codex primary source inspection, 17 October 2026. Reviewed article section tree, narrative boundaries and infobox; source-supported text, not independent canon verification.",
+      "rules": [
+        {
+          "section": [
+            "Storylines"
+          ],
+          "scope": "main_series",
+          "reason": "Reviewed main-series narrative and backstory, preserving source chronology. Production sections and other appearances remain outside retrieval."
+        }
+      ]
+    },
+    "kat-slater-wiki": {
+      "revision_id": "1380652225",
+      "reviewer": "Codex primary source inspection, 17 October 2026. Reviewed article section tree, narrative boundaries and infobox; source-supported text, not independent canon verification.",
+      "rules": [
+        {
+          "section": [
+            "Storylines"
+          ],
+          "scope": "main_series",
+          "reason": "Reviewed main-series narrative and backstory, preserving source chronology. Production sections and other appearances remain outside retrieval."
+        },
+        {
+          "section": [
+            "Storylines",
+            "Kat & Alfie: Redwater and EastEnders: The Podcast"
+          ],
+          "scope": "other_media",
+          "reason": "Explicit spin-off/podcast subsection excluded from main-series evidence. Main-series references to these events remain as written."
+        }
+      ]
+    },
+    "stacey-slater-wiki": {
+      "revision_id": "1379843622",
+      "reviewer": "Codex primary source inspection, 17 October 2026. Reviewed article section tree, narrative boundaries and infobox; source-supported text, not independent canon verification.",
+      "rules": [
+        {
+          "section": [
+            "Storylines"
+          ],
+          "scope": "main_series",
+          "reason": "Reviewed main-series narrative and backstory, preserving source chronology. Production sections and other appearances remain outside retrieval."
+        }
+      ]
+    },
+    "alfie-moon-wiki": {
+      "revision_id": "1377842543",
+      "reviewer": "Codex primary source inspection, 17 October 2026. Reviewed article section tree, narrative boundaries and infobox; source-supported text, not independent canon verification.",
+      "rules": [
+        {
+          "section": [
+            "Storylines"
+          ],
+          "scope": "main_series",
+          "reason": "Reviewed main-series narrative and backstory, preserving source chronology. Production sections and other appearances remain outside retrieval."
+        },
+        {
+          "section": [
+            "Storylines",
+            "Kat & Alfie: Redwater"
+          ],
+          "scope": "other_media",
+          "reason": "Explicit spin-off/podcast subsection excluded from main-series evidence. Main-series references to these events remain as written."
+        }
+      ]
+    },
+    "pat-butcher-wiki": {
+      "revision_id": "1375429106",
+      "reviewer": "Codex primary source inspection, 17 October 2026. Reviewed article section tree, narrative boundaries and infobox; source-supported text, not independent canon verification.",
+      "rules": [
+        {
+          "section": [
+            "Storylines"
+          ],
+          "scope": "main_series",
+          "reason": "Reviewed main-series narrative and backstory, preserving source chronology. Production sections and other appearances remain outside retrieval."
+        }
+      ]
+    },
+    "janine-butcher-wiki": {
+      "revision_id": "1378379064",
+      "reviewer": "Codex primary source inspection, 17 October 2026. Reviewed article section tree, narrative boundaries and infobox; source-supported text, not independent canon verification.",
+      "rules": [
+        {
+          "section": [
+            "Storylines"
+          ],
+          "scope": "main_series",
+          "reason": "Reviewed main-series narrative and backstory, preserving source chronology. Production sections and other appearances remain outside retrieval."
+        }
+      ]
+    },
+    "dot-cotton-wiki": {
+      "revision_id": "1372705076",
+      "reviewer": "Codex primary source inspection, 17 October 2026. Reviewed article section tree, narrative boundaries and infobox; source-supported text, not independent canon verification.",
+      "rules": [
+        {
+          "section": [
+            "Storylines"
+          ],
+          "scope": "main_series",
+          "reason": "Reviewed main-series narrative and backstory, preserving source chronology. Production sections and other appearances remain outside retrieval."
+        }
+      ]
+    },
+    "denise-fox-wiki": {
+      "revision_id": "1378939229",
+      "reviewer": "Codex primary source inspection, 17 October 2026. Reviewed article section tree, narrative boundaries and infobox; source-supported text, not independent canon verification.",
+      "rules": [
+        {
+          "section": [
+            "Storylines"
+          ],
+          "scope": "main_series",
+          "reason": "Reviewed main-series narrative and backstory, preserving source chronology. Production sections and other appearances remain outside retrieval."
+        }
+      ]
+    },
+    "max-branning-wiki": {
+      "revision_id": "1378782554",
+      "reviewer": "Codex primary source inspection, 17 October 2026. Reviewed article section tree, narrative boundaries and infobox; source-supported text, not independent canon verification.",
+      "rules": [
+        {
+          "section": [
+            "Storylines"
+          ],
+          "scope": "main_series",
+          "reason": "Reviewed main-series narrative and backstory, preserving source chronology. Production sections and other appearances remain outside retrieval."
+        }
+      ]
+    },
+    "linda-carter-wiki": {
+      "revision_id": "1379097965",
+      "reviewer": "Codex primary source inspection, 17 October 2026. Reviewed article section tree, narrative boundaries and infobox; source-supported text, not independent canon verification.",
+      "rules": [
+        {
+          "section": [
+            "Storylines"
+          ],
+          "scope": "main_series",
+          "reason": "Reviewed main-series narrative and backstory, preserving source chronology. Production sections and other appearances remain outside retrieval."
+        }
+      ]
+    }
+  },
+  "requests": [
+    {
+      "source_id": "phil-mitchell-wiki",
+      "kind": "wikipedia",
+      "character_id": "phil-mitchell",
+      "url": "https://en.wikipedia.org/wiki/Phil_Mitchell"
+    },
+    {
+      "source_id": "grant-mitchell-wiki",
+      "kind": "wikipedia",
+      "character_id": "grant-mitchell",
+      "url": "https://en.wikipedia.org/wiki/Grant_Mitchell_(EastEnders)"
+    },
+    {
+      "source_id": "peggy-mitchell-wiki",
+      "kind": "wikipedia",
+      "character_id": "peggy-mitchell",
+      "url": "https://en.wikipedia.org/wiki/Peggy_Mitchell"
+    },
+    {
+      "source_id": "sharon-watts-wiki",
+      "kind": "wikipedia",
+      "character_id": "sharon-watts",
+      "url": "https://en.wikipedia.org/wiki/Sharon_Watts"
+    },
+    {
+      "source_id": "ben-mitchell-wiki",
+      "kind": "wikipedia",
+      "character_id": "ben-mitchell",
+      "url": "https://en.wikipedia.org/wiki/Ben_Mitchell_(EastEnders)"
+    },
+    {
+      "source_id": "ian-beale-wiki",
+      "kind": "wikipedia",
+      "character_id": "ian-beale",
+      "url": "https://en.wikipedia.org/wiki/Ian_Beale"
+    },
+    {
+      "source_id": "kathy-beale-wiki",
+      "kind": "wikipedia",
+      "character_id": "kathy-beale",
+      "url": "https://en.wikipedia.org/wiki/Kathy_Beale"
+    },
+    {
+      "source_id": "cindy-beale-wiki",
+      "kind": "wikipedia",
+      "character_id": "cindy-beale",
+      "url": "https://en.wikipedia.org/wiki/Cindy_Beale"
+    },
+    {
+      "source_id": "lucy-beale-wiki",
+      "kind": "wikipedia",
+      "character_id": "lucy-beale",
+      "url": "https://en.wikipedia.org/wiki/Lucy_Beale"
+    },
+    {
+      "source_id": "bobby-beale-wiki",
+      "kind": "wikipedia",
+      "character_id": "bobby-beale",
+      "url": "https://en.wikipedia.org/wiki/Bobby_Beale_(EastEnders)"
+    },
+    {
+      "source_id": "martin-fowler-wiki",
+      "kind": "wikipedia",
+      "character_id": "martin-fowler",
+      "url": "https://en.wikipedia.org/wiki/Martin_Fowler_(EastEnders)"
+    },
+    {
+      "source_id": "kat-slater-wiki",
+      "kind": "wikipedia",
+      "character_id": "kat-slater",
+      "url": "https://en.wikipedia.org/wiki/Kat_Slater"
+    },
+    {
+      "source_id": "stacey-slater-wiki",
+      "kind": "wikipedia",
+      "character_id": "stacey-slater",
+      "url": "https://en.wikipedia.org/wiki/Stacey_Slater"
+    },
+    {
+      "source_id": "alfie-moon-wiki",
+      "kind": "wikipedia",
+      "character_id": "alfie-moon",
+      "url": "https://en.wikipedia.org/wiki/Alfie_Moon"
+    },
+    {
+      "source_id": "pat-butcher-wiki",
+      "kind": "wikipedia",
+      "character_id": "pat-butcher",
+      "url": "https://en.wikipedia.org/wiki/Pat_Butcher"
+    },
+    {
+      "source_id": "janine-butcher-wiki",
+      "kind": "wikipedia",
+      "character_id": "janine-butcher",
+      "url": "https://en.wikipedia.org/wiki/Janine_Butcher"
+    },
+    {
+      "source_id": "dot-cotton-wiki",
+      "kind": "wikipedia",
+      "character_id": "dot-cotton",
+      "url": "https://en.wikipedia.org/wiki/Dot_Cotton"
+    },
+    {
+      "source_id": "denise-fox-wiki",
+      "kind": "wikipedia",
+      "character_id": "denise-fox",
+      "url": "https://en.wikipedia.org/wiki/Denise_Fox"
+    },
+    {
+      "source_id": "max-branning-wiki",
+      "kind": "wikipedia",
+      "character_id": "max-branning",
+      "url": "https://en.wikipedia.org/wiki/Max_Branning"
+    },
+    {
+      "source_id": "linda-carter-wiki",
+      "kind": "wikipedia",
+      "character_id": "linda-carter",
+      "url": "https://en.wikipedia.org/wiki/Linda_Carter"
+    }
+  ]
+}

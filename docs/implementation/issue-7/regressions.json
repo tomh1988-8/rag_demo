@@ -1,0 +1,36 @@
+{
+  "version": 1,
+  "split_policy": "All cases and derivatives remain exposed development groups; future splits must keep each group together. No held-out promotion claimed.",
+  "regressions": [
+    {
+      "case_id": "janine-butcher-profile",
+      "group_id": "frank-disappearance-1994",
+      "observed": "Required passage retrieved at rank 3 but excluded by the whole-span context budget; model safely abstains.",
+      "disposition": "Retain failed reference and raw response. Separate source-reviewed Janine therapy case succeeds; do not replace the original failure.",
+      "followup_issues": [
+        24,
+        9
+      ]
+    },
+    {
+      "case_id": "cross-mitchell-garage",
+      "group_id": "mitchell-arrival-1990",
+      "observed": "Selected explicit co-ownership passage retrieved at rank 3 but excluded. Final answer names the correct garage and accurately describes opening/joining; full co-ownership fact remains uncovered.",
+      "disposition": "Keep strict context/completeness failure. Investigate sufficient alternative evidence and context assembly without claiming the weaker answer completes the full reference.",
+      "followup_issues": [
+        24,
+        9
+      ]
+    },
+    {
+      "case_id": "cindy-williams-identity-collision",
+      "group_id": "cindy-mother-daughter-identity",
+      "observed": "Ambiguous maternal maiden alias falsely linked known daughter mentions to cindy-beale.",
+      "disposition": "Fixed in v2 reviewed catalogue by withholding ambiguous alias. Public full-corpus regression retains unknown resolution and no mother tag on Martin paragraph 18.",
+      "test": "tests/test_core_coverage.py::test_ambiguous_cindy_williams_name_cannot_tag_the_daughter_as_cindy_beale",
+      "followup_issues": [
+        11
+      ]
+    }
+  ]
+}

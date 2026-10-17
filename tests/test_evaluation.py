@@ -119,3 +119,26 @@ def test_absent_evidence_has_no_positive_recall_denominator_or_sufficient_contex
     assert result.context_fact_coverage is None
     assert result.context_sufficient is False
     assert result.relevant_passage_count == result.required_fact_count == 0
+
+
+@pytest.mark.parametrize("change", ["response", "reference", "required_facts"])
+def test_frozen_response_scores_reject_changed_outputs_references_or_reviewed_fact_lists(
+    change: str,
+) -> None:
+    from ask_phil.evaluation import FactReview, QualityReview, score_captured_answer
+
+    review = QualityReview(
+        case_id="frozen-example",
+        response_sha256="20caabb4ef274d20d2ba249cfba6797fa70f7457bc377254c15548a285e93da6",
+        reference_sha256="dcd551b4bd4644479116f7d938f764e046234aee969c5a04d9c06a0540d38040",
+        reviewer="Independently specified canonical JSON example",
+        rationale="The assessment belongs only to the original output and complete fact list.",
+        claims=(),
+        required_facts=(FactReview(fact="Expected fact", covered=True),),
+        answerability=True,
+    )
+    response = {"answer": "changed" if change == "response" else "captured"}
+    reference = {"fact": "changed" if change == "reference" else "expected"}
+    facts = ("Changed fact",) if change == "required_facts" else ("Expected fact",)
+    with pytest.raises(ValueError, match="Stale|fact"):
+        score_captured_answer(review, response, reference, facts)

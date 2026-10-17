@@ -1,0 +1,804 @@
+{
+  "dataset_id": "core-profiles-reference-v2",
+  "snapshot_id": "sources-b5bf51ce2c754a5c349834cc87954524d6c89cb20e38fcdafeea815b0760212e",
+  "snapshot_sha256": "f654d98336a75ac96ff8a38c4213429f1800775f73169811387560020dd9f218",
+  "batch_file_sha256": "1cebb5169b4f36b12f900e3d73f43b4c483c6903b02a566c8f8dee96e5eba457",
+  "review": {
+    "reviewer": "Codex source inspection before model execution, 17 October 2026",
+    "human_reviewed": false,
+    "independent_canon_corroboration": false,
+    "method": "Expected facts and sufficient passage IDs read from retained narrative before retrieval or answer outputs. Final independent Spec review verifies all mappings.",
+    "correction": "V2 withholds a known ambiguous Cindy Williams alias; all source bytes, reviewed questions, facts and sufficient passage IDs are unchanged. Source mappings independently reviewed by issue7_spec_review."
+  },
+  "splits": {
+    "development": [
+      "alfie-arrival",
+      "beale-twins-birth",
+      "ben-infant-meningitis",
+      "bobby-paternity",
+      "carter-arrival-2013",
+      "cindy-arrival-market",
+      "denise-paternity-test",
+      "dot-wartime-evacuation",
+      "frank-disappearance-1994",
+      "ian-catering-career",
+      "kat-arrival-family",
+      "kathy-early-work",
+      "martin-christening",
+      "max-arrival-2006",
+      "mitchell-arrival-1990",
+      "pat-childhood-joan",
+      "peggy-eric-marriage",
+      "sharon-adoption",
+      "stacey-childhood",
+      "unavailable-contact-detail",
+      "unavailable-government-identifier"
+    ],
+    "calibration": [],
+    "held_out": [],
+    "regression": []
+  },
+  "grouping": "Shared story events and derived questions remain in the same development group across biographies. All cases exposed; no train/holdout split or independent sample-size claim.",
+  "scoring": {
+    "k": 3,
+    "matching": "Snapshot-local passage IDs, deduplicated before top-k. Labels identify selected sufficient spans, not exhaustive passage relevance.",
+    "retrieval_denominator": "Selected labelled relevant passages; zero-relevance cases have null recall/hit/MRR.",
+    "context_denominator": "Required facts with a complete sufficient set in actual assembled context; no facts gives null coverage and insufficient context.",
+    "acceptance": "Each profile has at least one reviewed sourced answer; gaps and all measured retrieval/context failures are published. No aggregate held-out or calibrated quality threshold is claimed."
+  },
+  "cases": [
+    {
+      "case_id": "phil-mitchell-profile",
+      "character_ids": [
+        "phil-mitchell"
+      ],
+      "group_id": "mitchell-arrival-1990",
+      "split": "development",
+      "question": "Which garage did Phil Mitchell open when he first arrived in Walford?",
+      "answerable": true,
+      "relevant_ids": [
+        "phil-mitchell-wiki-0018-15527"
+      ],
+      "required_facts": [
+        {
+          "fact": "Phil opens the automobile repair shop The Arches.",
+          "sufficient_sets": [
+            [
+              "phil-mitchell-wiki-0018-15527"
+            ]
+          ]
+        }
+      ],
+      "expected_status": "answered",
+      "review_note": "Expected fact read from this retained main-series passage before model output. Source-supported, not independently corroborated canon.",
+      "source_review": {
+        "source_id": "phil-mitchell-wiki",
+        "revision_id": "1379872347",
+        "paragraph_ordinal": 18,
+        "passage_sha256": "9a13fe3539b69694d88ab06a1bd85cf898f46d65ca5ac1d958d0e0ff026bd263",
+        "supporting_text": "The Arches"
+      }
+    },
+    {
+      "case_id": "grant-mitchell-profile",
+      "character_ids": [
+        "grant-mitchell"
+      ],
+      "group_id": "mitchell-arrival-1990",
+      "split": "development",
+      "question": "Which war had Grant Mitchell served in as an Army paratrooper?",
+      "answerable": true,
+      "relevant_ids": [
+        "grant-mitchell-wiki-0023-19694"
+      ],
+      "required_facts": [
+        {
+          "fact": "Grant served in the Falklands War.",
+          "sufficient_sets": [
+            [
+              "grant-mitchell-wiki-0023-19694"
+            ]
+          ]
+        }
+      ],
+      "expected_status": "answered",
+      "review_note": "Expected fact read from this retained main-series passage before model output. Source-supported, not independently corroborated canon.",
+      "source_review": {
+        "source_id": "grant-mitchell-wiki",
+        "revision_id": "1370914760",
+        "paragraph_ordinal": 23,
+        "passage_sha256": "f7310c97b375bba45eb990105ba5073186a1bdf402d515002f13704d506a977a",
+        "supporting_text": "Falklands War"
+      }
+    },
+    {
+      "case_id": "peggy-mitchell-profile",
+      "character_ids": [
+        "peggy-mitchell"
+      ],
+      "group_id": "peggy-eric-marriage",
+      "split": "development",
+      "question": "Who was Peggy Mitchell\u2019s husband when she was pregnant with Phil?",
+      "answerable": true,
+      "relevant_ids": [
+        "peggy-mitchell-wiki-0037-34316"
+      ],
+      "required_facts": [
+        {
+          "fact": "Peggy married Eric Mitchell.",
+          "sufficient_sets": [
+            [
+              "peggy-mitchell-wiki-0037-34316"
+            ]
+          ]
+        }
+      ],
+      "expected_status": "answered",
+      "review_note": "Expected fact read from this retained main-series passage before model output. Source-supported, not independently corroborated canon.",
+      "source_review": {
+        "source_id": "peggy-mitchell-wiki",
+        "revision_id": "1372787814",
+        "paragraph_ordinal": 37,
+        "passage_sha256": "7f5c479e554043d87ae5d5c0b20c345fa9eb09fd911e1747614f96e8dcb89735",
+        "supporting_text": "Peggy married Eric Mitchell"
+      }
+    },
+    {
+      "case_id": "sharon-watts-profile",
+      "character_ids": [
+        "sharon-watts"
+      ],
+      "group_id": "sharon-adoption",
+      "split": "development",
+      "question": "Who adopted Sharon Watts when she was three?",
+      "answerable": true,
+      "relevant_ids": [
+        "sharon-watts-wiki-0053-50624"
+      ],
+      "required_facts": [
+        {
+          "fact": "Den and Angie Watts adopted Sharon.",
+          "sufficient_sets": [
+            [
+              "sharon-watts-wiki-0053-50624"
+            ]
+          ]
+        }
+      ],
+      "expected_status": "answered",
+      "review_note": "Expected fact read from this retained main-series passage before model output. Source-supported, not independently corroborated canon.",
+      "source_review": {
+        "source_id": "sharon-watts-wiki",
+        "revision_id": "1372798905",
+        "paragraph_ordinal": 53,
+        "passage_sha256": "d8ce708c5c6c19b2d29b3e4940aea7195d42f763b88b298dfa723d372a3061ce",
+        "supporting_text": "Adopted at the age of three"
+      }
+    },
+    {
+      "case_id": "ben-mitchell-profile",
+      "character_ids": [
+        "ben-mitchell"
+      ],
+      "group_id": "ben-infant-meningitis",
+      "split": "development",
+      "question": "Which illness left Ben Mitchell partially deaf in one ear as a baby?",
+      "answerable": true,
+      "relevant_ids": [
+        "ben-mitchell-wiki-0022-17983"
+      ],
+      "required_facts": [
+        {
+          "fact": "Meningitis left Ben partially deaf in one ear.",
+          "sufficient_sets": [
+            [
+              "ben-mitchell-wiki-0022-17983"
+            ]
+          ]
+        }
+      ],
+      "expected_status": "answered",
+      "review_note": "Expected fact read from this retained main-series passage before model output. Source-supported, not independently corroborated canon.",
+      "source_review": {
+        "source_id": "ben-mitchell-wiki",
+        "revision_id": "1376729134",
+        "paragraph_ordinal": 22,
+        "passage_sha256": "7ae1721af6c6909445d4c6b287d9498a76b90ec8940d41641dd3f39f03d14d1d",
+        "supporting_text": "meningitis"
+      }
+    },
+    {
+      "case_id": "ian-beale-profile",
+      "character_ids": [
+        "ian-beale"
+      ],
+      "group_id": "ian-catering-career",
+      "split": "development",
+      "question": "What career did teenage Ian Beale want, despite his father\u2019s objections?",
+      "answerable": true,
+      "relevant_ids": [
+        "ian-beale-wiki-0022-15382"
+      ],
+      "required_facts": [
+        {
+          "fact": "Ian wanted to become a caterer.",
+          "sufficient_sets": [
+            [
+              "ian-beale-wiki-0022-15382"
+            ]
+          ]
+        }
+      ],
+      "expected_status": "answered",
+      "review_note": "Expected fact read from this retained main-series passage before model output. Source-supported, not independently corroborated canon.",
+      "source_review": {
+        "source_id": "ian-beale-wiki",
+        "revision_id": "1378295578",
+        "paragraph_ordinal": 22,
+        "passage_sha256": "50c1c1bf6b571bd60a5d0b0c6839d204eba5ff0b2379e096abf74d5fa4661e9e",
+        "supporting_text": "desire to become a caterer"
+      }
+    },
+    {
+      "case_id": "kathy-beale-profile",
+      "character_ids": [
+        "kathy-beale"
+      ],
+      "group_id": "kathy-early-work",
+      "split": "development",
+      "question": "Which pub did Kathy Beale work in as a barmaid with Angie Watts?",
+      "answerable": true,
+      "relevant_ids": [
+        "kathy-beale-wiki-0033-31121"
+      ],
+      "required_facts": [
+        {
+          "fact": "Kathy worked in The Queen Victoria.",
+          "sufficient_sets": [
+            [
+              "kathy-beale-wiki-0033-31121"
+            ]
+          ]
+        }
+      ],
+      "expected_status": "answered",
+      "review_note": "Expected fact read from this retained main-series passage before model output. Source-supported, not independently corroborated canon.",
+      "source_review": {
+        "source_id": "kathy-beale-wiki",
+        "revision_id": "1372746094",
+        "paragraph_ordinal": 33,
+        "passage_sha256": "5e4bedb033959137213bffb7663a84fb110bfa8a34cd273bca8e9053c7850863",
+        "supporting_text": "barmaid in The Queen Victoria"
+      }
+    },
+    {
+      "case_id": "cindy-beale-profile",
+      "character_ids": [
+        "cindy-beale"
+      ],
+      "group_id": "cindy-arrival-market",
+      "split": "development",
+      "question": "What did Cindy Beale sell on her mother\u2019s market stall when she first arrived?",
+      "answerable": true,
+      "relevant_ids": [
+        "cindy-beale-wiki-0009-5278"
+      ],
+      "required_facts": [
+        {
+          "fact": "Cindy sold hats.",
+          "sufficient_sets": [
+            [
+              "cindy-beale-wiki-0009-5278"
+            ]
+          ]
+        }
+      ],
+      "expected_status": "answered",
+      "review_note": "Expected fact read from this retained main-series passage before model output. Source-supported, not independently corroborated canon.",
+      "source_review": {
+        "source_id": "cindy-beale-wiki",
+        "revision_id": "1375368032",
+        "paragraph_ordinal": 9,
+        "passage_sha256": "5d4f6979b0dd079c5d427c0854a3c818fe1c6beb50655736bf6af5817a369ac9",
+        "supporting_text": "market stall selling hats"
+      }
+    },
+    {
+      "case_id": "lucy-beale-profile",
+      "character_ids": [
+        "lucy-beale"
+      ],
+      "group_id": "beale-twins-birth",
+      "split": "development",
+      "question": "Who is Lucy Beale\u2019s twin brother?",
+      "answerable": true,
+      "relevant_ids": [
+        "lucy-beale-wiki-0010-6407"
+      ],
+      "required_facts": [
+        {
+          "fact": "Peter Beale is Lucy\u2019s twin brother.",
+          "sufficient_sets": [
+            [
+              "lucy-beale-wiki-0010-6407"
+            ]
+          ]
+        }
+      ],
+      "expected_status": "answered",
+      "review_note": "Expected fact read from this retained main-series passage before model output. Source-supported, not independently corroborated canon.",
+      "source_review": {
+        "source_id": "lucy-beale-wiki",
+        "revision_id": "1373199144",
+        "paragraph_ordinal": 10,
+        "passage_sha256": "37076254d8640e0ba7b135d9e26d1cdda42eba0a37ecd574be48e97a68611595",
+        "supporting_text": "her twin brother Peter Beale"
+      }
+    },
+    {
+      "case_id": "bobby-beale-profile",
+      "character_ids": [
+        "bobby-beale"
+      ],
+      "group_id": "bobby-paternity",
+      "split": "development",
+      "question": "Who is established as Bobby Beale\u2019s father when he needs a blood transfusion?",
+      "answerable": true,
+      "relevant_ids": [
+        "bobby-beale-wiki-0015-12289"
+      ],
+      "required_facts": [
+        {
+          "fact": "Ian Beale is established as Bobby\u2019s father.",
+          "sufficient_sets": [
+            [
+              "bobby-beale-wiki-0015-12289"
+            ]
+          ]
+        }
+      ],
+      "expected_status": "answered",
+      "review_note": "Expected fact read from this retained main-series passage before model output. Source-supported, not independently corroborated canon.",
+      "source_review": {
+        "source_id": "bobby-beale-wiki",
+        "revision_id": "1364396059",
+        "paragraph_ordinal": 15,
+        "passage_sha256": "b42ab463806ba8918b6b3ea4b0e0c7b6b4317e90f24da120b75ff6e6ef4bfe40",
+        "supporting_text": "Ian is proved to be Bobby's father"
+      }
+    },
+    {
+      "case_id": "martin-fowler-profile",
+      "character_ids": [
+        "martin-fowler"
+      ],
+      "group_id": "martin-christening",
+      "split": "development",
+      "question": "What illness postponed baby Martin Fowler\u2019s first christening?",
+      "answerable": true,
+      "relevant_ids": [
+        "martin-fowler-wiki-0009-6205"
+      ],
+      "required_facts": [
+        {
+          "fact": "Gastroenteritis postponed Martin\u2019s christening.",
+          "sufficient_sets": [
+            [
+              "martin-fowler-wiki-0009-6205"
+            ]
+          ]
+        }
+      ],
+      "expected_status": "answered",
+      "review_note": "Expected fact read from this retained main-series passage before model output. Source-supported, not independently corroborated canon.",
+      "source_review": {
+        "source_id": "martin-fowler-wiki",
+        "revision_id": "1375375419",
+        "paragraph_ordinal": 9,
+        "passage_sha256": "c38b6242bc5a045e3f9f022692099c86cd92f7641db298de680a01d3a6bd9c3c",
+        "supporting_text": "diagnosed with gastroenteritis"
+      }
+    },
+    {
+      "case_id": "kat-slater-profile",
+      "character_ids": [
+        "kat-slater"
+      ],
+      "group_id": "kat-arrival-family",
+      "split": "development",
+      "question": "Who is Kat Slater\u2019s father?",
+      "answerable": true,
+      "relevant_ids": [
+        "kat-slater-wiki-0041-30971"
+      ],
+      "required_facts": [
+        {
+          "fact": "Charlie Slater is Kat\u2019s father.",
+          "sufficient_sets": [
+            [
+              "kat-slater-wiki-0041-30971"
+            ]
+          ]
+        }
+      ],
+      "expected_status": "answered",
+      "review_note": "Expected fact read from this retained main-series passage before model output. Source-supported, not independently corroborated canon.",
+      "source_review": {
+        "source_id": "kat-slater-wiki",
+        "revision_id": "1380652225",
+        "paragraph_ordinal": 41,
+        "passage_sha256": "52e1463d8c46b491001d14bbb69b4f109fd99008cfbac4f1b4e5f53467509262",
+        "supporting_text": "father Charlie Slater"
+      }
+    },
+    {
+      "case_id": "stacey-slater-profile",
+      "character_ids": [
+        "stacey-slater"
+      ],
+      "group_id": "stacey-childhood",
+      "split": "development",
+      "question": "Who was Stacey Slater\u2019s father, who died when she was eleven?",
+      "answerable": true,
+      "relevant_ids": [
+        "stacey-slater-wiki-0033-27043"
+      ],
+      "required_facts": [
+        {
+          "fact": "Stacey\u2019s father was Brian.",
+          "sufficient_sets": [
+            [
+              "stacey-slater-wiki-0033-27043"
+            ]
+          ]
+        }
+      ],
+      "expected_status": "answered",
+      "review_note": "Expected fact read from this retained main-series passage before model output. Source-supported, not independently corroborated canon.",
+      "source_review": {
+        "source_id": "stacey-slater-wiki",
+        "revision_id": "1379843622",
+        "paragraph_ordinal": 33,
+        "passage_sha256": "094b6ebf0547eebfba265dea1dbb4b4c69e38f8a9fdedfd5aa3286d3585b3513",
+        "supporting_text": "death of her father, Brian"
+      }
+    },
+    {
+      "case_id": "alfie-moon-profile",
+      "character_ids": [
+        "alfie-moon"
+      ],
+      "group_id": "alfie-arrival",
+      "split": "development",
+      "question": "Why was Alfie Moon ejected from Walford East tube station on his first appearance?",
+      "answerable": true,
+      "relevant_ids": [
+        "alfie-moon-wiki-0029-27029"
+      ],
+      "required_facts": [
+        {
+          "fact": "Alfie was ejected for fare evasion.",
+          "sufficient_sets": [
+            [
+              "alfie-moon-wiki-0029-27029"
+            ]
+          ]
+        }
+      ],
+      "expected_status": "answered",
+      "review_note": "Expected fact read from this retained main-series passage before model output. Source-supported, not independently corroborated canon.",
+      "source_review": {
+        "source_id": "alfie-moon-wiki",
+        "revision_id": "1377842543",
+        "paragraph_ordinal": 29,
+        "passage_sha256": "d13acf6b5b45dcc16273bc27e615803fd93926def790ba0c3930675c8aff5b23",
+        "supporting_text": "tube station for fare evasion"
+      }
+    },
+    {
+      "case_id": "pat-butcher-profile",
+      "character_ids": [
+        "pat-butcher"
+      ],
+      "group_id": "pat-childhood-joan",
+      "split": "development",
+      "question": "What was the name of Pat Butcher\u2019s sister who had Down syndrome?",
+      "answerable": true,
+      "relevant_ids": [
+        "pat-butcher-wiki-0015-11688"
+      ],
+      "required_facts": [
+        {
+          "fact": "Pat\u2019s sister was Joan.",
+          "sufficient_sets": [
+            [
+              "pat-butcher-wiki-0015-11688"
+            ]
+          ]
+        }
+      ],
+      "expected_status": "answered",
+      "review_note": "Expected fact read from this retained main-series passage before model output. Source-supported, not independently corroborated canon.",
+      "source_review": {
+        "source_id": "pat-butcher-wiki",
+        "revision_id": "1375429106",
+        "paragraph_ordinal": 15,
+        "passage_sha256": "9ad77c634f8a1bfec1594733dfc9528f84a96b61988d12df004e02b983f71c02",
+        "supporting_text": "Her sister, Joan, had Down syndrome"
+      }
+    },
+    {
+      "case_id": "janine-butcher-profile",
+      "character_ids": [
+        "janine-butcher"
+      ],
+      "group_id": "frank-disappearance-1994",
+      "split": "development",
+      "question": "Who did Janine Butcher stay with when Frank disappeared after his 1994 breakdown?",
+      "answerable": true,
+      "relevant_ids": [
+        "janine-butcher-wiki-0021-13057"
+      ],
+      "required_facts": [
+        {
+          "fact": "Janine stayed with Pat.",
+          "sufficient_sets": [
+            [
+              "janine-butcher-wiki-0021-13057"
+            ]
+          ]
+        }
+      ],
+      "expected_status": "answered",
+      "review_note": "Expected fact read from this retained main-series passage before model output. Source-supported, not independently corroborated canon.",
+      "source_review": {
+        "source_id": "janine-butcher-wiki",
+        "revision_id": "1378379064",
+        "paragraph_ordinal": 21,
+        "passage_sha256": "0d31a9bc75ad1b67ae815fc39d34c80b6ea61d74be726ba9d32dc8d6b6098319",
+        "supporting_text": "Janine stays with Pat"
+      }
+    },
+    {
+      "case_id": "dot-cotton-profile",
+      "character_ids": [
+        "dot-cotton"
+      ],
+      "group_id": "dot-wartime-evacuation",
+      "split": "development",
+      "question": "Where was Dot Cotton evacuated as a child during World War II?",
+      "answerable": true,
+      "relevant_ids": [
+        "dot-cotton-wiki-0048-45933"
+      ],
+      "required_facts": [
+        {
+          "fact": "Dot was evacuated to Wales.",
+          "sufficient_sets": [
+            [
+              "dot-cotton-wiki-0048-45933"
+            ]
+          ]
+        }
+      ],
+      "expected_status": "answered",
+      "review_note": "Expected fact read from this retained main-series passage before model output. Source-supported, not independently corroborated canon.",
+      "source_review": {
+        "source_id": "dot-cotton-wiki",
+        "revision_id": "1372705076",
+        "paragraph_ordinal": 48,
+        "passage_sha256": "2b54a336492700cb0b19b111575987246fe8184c54efb651a82336a736dd2adf",
+        "supporting_text": "evacuated to Wales as a child"
+      }
+    },
+    {
+      "case_id": "denise-fox-profile",
+      "character_ids": [
+        "denise-fox"
+      ],
+      "group_id": "denise-paternity-test",
+      "split": "development",
+      "question": "What does the DNA test establish about Patrick Trueman being Denise Fox\u2019s biological father?",
+      "answerable": true,
+      "relevant_ids": [
+        "denise-fox-wiki-0008-7719"
+      ],
+      "required_facts": [
+        {
+          "fact": "The DNA test establishes that Patrick is not Denise\u2019s biological father.",
+          "sufficient_sets": [
+            [
+              "denise-fox-wiki-0008-7719"
+            ]
+          ]
+        }
+      ],
+      "expected_status": "answered",
+      "review_note": "Expected fact read from this retained main-series passage before model output. Source-supported, not independently corroborated canon.",
+      "source_review": {
+        "source_id": "denise-fox-wiki",
+        "revision_id": "1378939229",
+        "paragraph_ordinal": 8,
+        "passage_sha256": "bfa6e81c09dea759e09b60f8cca074511cf4f7fa5f0ec4dbd6a3246474010747",
+        "supporting_text": "DNA test proves that he is not"
+      }
+    },
+    {
+      "case_id": "max-branning-profile",
+      "character_ids": [
+        "max-branning"
+      ],
+      "group_id": "max-arrival-2006",
+      "split": "development",
+      "question": "Which son did Max Branning reunite with on arriving in Walford in 2006?",
+      "answerable": true,
+      "relevant_ids": [
+        "max-branning-wiki-0013-7972"
+      ],
+      "required_facts": [
+        {
+          "fact": "Max reunited with Bradley.",
+          "sufficient_sets": [
+            [
+              "max-branning-wiki-0013-7972"
+            ]
+          ]
+        }
+      ],
+      "expected_status": "answered",
+      "review_note": "Expected fact read from this retained main-series passage before model output. Source-supported, not independently corroborated canon.",
+      "source_review": {
+        "source_id": "max-branning-wiki",
+        "revision_id": "1378782554",
+        "paragraph_ordinal": 13,
+        "passage_sha256": "86f2d1e79e49212e69752fbd56cd480efa2c5b4e8546a9af9384305477cb22cf",
+        "supporting_text": "Max then reunites with his son Bradley"
+      }
+    },
+    {
+      "case_id": "linda-carter-profile",
+      "character_ids": [
+        "linda-carter"
+      ],
+      "group_id": "carter-arrival-2013",
+      "split": "development",
+      "question": "Who was Linda Carter\u2019s partner when she and her family first appeared in Watford?",
+      "answerable": true,
+      "relevant_ids": [
+        "linda-carter-wiki-0017-13886"
+      ],
+      "required_facts": [
+        {
+          "fact": "Linda\u2019s partner was Mick Carter.",
+          "sufficient_sets": [
+            [
+              "linda-carter-wiki-0017-13886"
+            ]
+          ]
+        }
+      ],
+      "expected_status": "answered",
+      "review_note": "Expected fact read from this retained main-series passage before model output. Source-supported, not independently corroborated canon.",
+      "source_review": {
+        "source_id": "linda-carter-wiki",
+        "revision_id": "1379097965",
+        "paragraph_ordinal": 17,
+        "passage_sha256": "4560e9af9259026afd485a32e2a43c5187810e74fdc867921f8fac18c03123e2",
+        "supporting_text": "her partner Mick Carter"
+      }
+    },
+    {
+      "case_id": "janine-family-therapy",
+      "character_ids": [
+        "janine-butcher"
+      ],
+      "group_id": "frank-disappearance-1994",
+      "split": "development",
+      "question": "What therapy did Pat force Frank to take Janine Butcher to as a child?",
+      "answerable": true,
+      "relevant_ids": [
+        "janine-butcher-wiki-0021-13057"
+      ],
+      "required_facts": [
+        {
+          "fact": "Pat forced Frank to take Janine to family therapy.",
+          "sufficient_sets": [
+            [
+              "janine-butcher-wiki-0021-13057"
+            ]
+          ]
+        }
+      ],
+      "expected_status": "answered",
+      "review_note": "Added after the original Janine question\u2019s selected sufficient passage was lost from assembled context in the component baseline. This expected fact is explicit in the retained paragraph, read before any Janine answer-model output. The original case and failure stay in the matrix. Same passage/event group; development only.",
+      "source_review": {
+        "source_id": "janine-butcher-wiki",
+        "revision_id": "1378379064",
+        "paragraph_ordinal": 21,
+        "passage_sha256": "0d31a9bc75ad1b67ae815fc39d34c80b6ea61d74be726ba9d32dc8d6b6098319",
+        "supporting_text": "Pat forces Frank to take Janine to family therapy"
+      }
+    },
+    {
+      "case_id": "cross-ben-parents",
+      "character_ids": [
+        "ben-mitchell",
+        "phil-mitchell",
+        "kathy-beale"
+      ],
+      "group_id": "ben-infant-meningitis",
+      "split": "development",
+      "question": "Who are Ben Mitchell\u2019s parents?",
+      "answerable": true,
+      "relevant_ids": [
+        "ben-mitchell-wiki-0022-17983"
+      ],
+      "required_facts": [
+        {
+          "fact": "Phil Mitchell and Kathy Beale are Ben\u2019s parents.",
+          "sufficient_sets": [
+            [
+              "ben-mitchell-wiki-0022-17983"
+            ]
+          ]
+        }
+      ],
+      "expected_status": "answered",
+      "review_note": "Ben\u2019s birth paragraph explicitly names both parents; character links are not used as graph proof."
+    },
+    {
+      "case_id": "cross-mitchell-garage",
+      "character_ids": [
+        "phil-mitchell",
+        "grant-mitchell"
+      ],
+      "group_id": "mitchell-arrival-1990",
+      "split": "development",
+      "question": "What garage did Phil and Grant Mitchell co-own on arriving in Walford?",
+      "answerable": true,
+      "relevant_ids": [
+        "grant-mitchell-wiki-0023-19694"
+      ],
+      "required_facts": [
+        {
+          "fact": "Phil and Grant co-owned The Arches.",
+          "sufficient_sets": [
+            [
+              "grant-mitchell-wiki-0023-19694"
+            ]
+          ]
+        }
+      ],
+      "expected_status": "answered",
+      "review_note": "Grant\u2019s narrative explicitly names the two co-owners; no graph inference."
+    },
+    {
+      "case_id": "phil-mitchell-missing",
+      "character_ids": [
+        "phil-mitchell"
+      ],
+      "group_id": "unavailable-contact-detail",
+      "split": "development",
+      "question": "What is Phil Mitchell\u2019s current mobile phone number?",
+      "answerable": false,
+      "relevant_ids": [],
+      "required_facts": [],
+      "expected_status": "insufficient_evidence",
+      "review_note": "Retained main-series text inspected for the requested identifier; no supporting record. Absence is an evidence limitation, never a negative fact."
+    },
+    {
+      "case_id": "linda-carter-missing",
+      "character_ids": [
+        "linda-carter"
+      ],
+      "group_id": "unavailable-government-identifier",
+      "split": "development",
+      "question": "What is Linda Carter\u2019s National Insurance number?",
+      "answerable": false,
+      "relevant_ids": [],
+      "required_facts": [],
+      "expected_status": "insufficient_evidence",
+      "review_note": "Retained main-series text inspected for the requested identifier; no supporting record. Absence is an evidence limitation, never a negative fact."
+    }
+  ]
+}

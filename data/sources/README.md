@@ -1,5 +1,12 @@
 # Reviewed real-source batch
 
+The complete curated roster is now retained separately in
+[`core-profiles-v2.json.gz`](core-profiles-v2.json.gz), with its
+[capture plan](core-profiles-plan-v2.json) and
+[20-profile inventory, gaps and acceptance evidence](../../docs/implementation/issue-7/README.md).
+The original eight-source sample below remains available for reproducible
+inspection, regression tests and historical identity provenance.
+
 `real-sources-v1.json.gz` is lossless gzip-compressed UTF-8 JSON containing eight
 complete captured HTTP payloads, capture times/hashes, four reviewed character
 identities and revision-specific Wikipedia scope policies. The adjacent plan is

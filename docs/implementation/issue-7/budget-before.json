@@ -1,0 +1,10 @@
+{
+  "recorded_before_issue7_calls": true,
+  "ledger": "artifacts/openrouter-budget.sqlite",
+  "reservations": 32,
+  "reserved_or_settled_usd": 0.108911,
+  "unsettled_reservations": 0,
+  "shared_nonresetting_cap_usd": 5,
+  "issue7_additional_cap_usd": 1,
+  "initial_max_calls": 30
+}

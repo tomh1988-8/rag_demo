@@ -5,7 +5,7 @@ COPY pyproject.toml uv.lock .python-version ./
 COPY src ./src
 COPY data ./data
 COPY config ./config
-COPY scripts/evaluate_text_baseline.py scripts/evaluate_answer_policy.py ./scripts/
+COPY scripts/evaluate_text_baseline.py scripts/evaluate_answer_policy.py scripts/evaluate_text_corpus.py ./scripts/
 RUN uv sync --frozen --no-dev --no-editable --cache-dir /tmp/uv-cache
 RUN mkdir -p /app/artifacts && chown 10001:10001 /app/artifacts
 ENV PATH="/app/.venv/bin:$PATH"

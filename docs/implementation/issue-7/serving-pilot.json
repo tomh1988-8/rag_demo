@@ -1,0 +1,612 @@
+{
+  "recorded_at": "2026-10-17T13:31:08.855135+00:00",
+  "kind": "live-provider-api-and-cli-development",
+  "reference_file_sha256": "8127346fb4e31f9bb844b6bf2f6c447655ee0c40d61e86e8715636588538ab5e",
+  "application_sha256": "861c7c53ef52907287d9ab8cecc5bbfe4b54a6462f97e0bfce363db6c5cdcb0c",
+  "lock_sha256": "983d5a644e3289e6b79d92dc251b5029c199a497ac33c14f504a3c9ee3763152",
+  "publication": {
+    "compatibility_id": "8c747c0c0f4389fb2b8b1cf7f325395a342e6b293870e7f0d0974a3eeb4ca8bb",
+    "manifest": {
+      "format_version": "source-text-publication-v1",
+      "snapshot_id": "sources-a786e0d48c987b120b1aedb19940b2220975c54b1cafce2210195c438c02a3fd",
+      "snapshot_sha256": "f971eb1c601a65c073c65a44aca68e6ad50581e6fd8e429f0b87e650e312bad2",
+      "input_sha256": "a786e0d48c987b120b1aedb19940b2220975c54b1cafce2210195c438c02a3fd",
+      "sources": [
+        {
+          "role": "narrative",
+          "license_url": "https://creativecommons.org/licenses/by-sa/4.0/",
+          "attribution": "Wikipedia contributors; markup removed and whitespace normalized.",
+          "source_id": "phil-mitchell-wiki",
+          "url": "https://en.wikipedia.org/wiki/Phil_Mitchell",
+          "revision_id": "1379872347",
+          "captured_at": "2026-10-17T13:07:31.014189Z",
+          "sha256": "a338d3065203be54e383f2c9c141bca22ae9aedbb950e2e1eada601bcccfe313",
+          "paragraphs": 79,
+          "admitted_paragraphs": 51,
+          "excluded_paragraphs": 0,
+          "review_required_paragraphs": 28,
+          "structured_records": 0
+        },
+        {
+          "role": "narrative",
+          "license_url": "https://creativecommons.org/licenses/by-sa/4.0/",
+          "attribution": "Wikipedia contributors; markup removed and whitespace normalized.",
+          "source_id": "grant-mitchell-wiki",
+          "url": "https://en.wikipedia.org/wiki/Grant_Mitchell_(EastEnders)",
+          "revision_id": "1370914760",
+          "captured_at": "2026-10-17T13:08:22.582778Z",
+          "sha256": "2548b2c8780b1bda430939378a28ab3b7f98eca424480b7cccfaf2eb76f42ebf",
+          "paragraphs": 43,
+          "admitted_paragraphs": 11,
+          "excluded_paragraphs": 0,
+          "review_required_paragraphs": 32,
+          "structured_records": 0
+        },
+        {
+          "role": "narrative",
+          "license_url": "https://creativecommons.org/licenses/by-sa/4.0/",
+          "attribution": "Wikipedia contributors; markup removed and whitespace normalized.",
+          "source_id": "peggy-mitchell-wiki",
+          "url": "https://en.wikipedia.org/wiki/Peggy_Mitchell",
+          "revision_id": "1372787814",
+          "captured_at": "2026-10-17T13:07:31.253971Z",
+          "sha256": "d777ce7a2fffc8e7cb1da6ccd3a87aca45590147a348b5ef5eb6361fb685cacb",
+          "paragraphs": 57,
+          "admitted_paragraphs": 12,
+          "excluded_paragraphs": 0,
+          "review_required_paragraphs": 45,
+          "structured_records": 0
+        },
+        {
+          "role": "narrative",
+          "license_url": "https://creativecommons.org/licenses/by-sa/4.0/",
+          "attribution": "Wikipedia contributors; markup removed and whitespace normalized.",
+          "source_id": "sharon-watts-wiki",
+          "url": "https://en.wikipedia.org/wiki/Sharon_Watts",
+          "revision_id": "1372798905",
+          "captured_at": "2026-10-17T13:07:31.327518Z",
+          "sha256": "9ccef3de99353ff737101d9d00561c217608dd4fa6fba0c8200f80ac0114ea85",
+          "paragraphs": 95,
+          "admitted_paragraphs": 30,
+          "excluded_paragraphs": 0,
+          "review_required_paragraphs": 65,
+          "structured_records": 0
+        },
+        {
+          "role": "narrative",
+          "license_url": "https://creativecommons.org/licenses/by-sa/4.0/",
+          "attribution": "Wikipedia contributors; markup removed and whitespace normalized.",
+          "source_id": "ben-mitchell-wiki",
+          "url": "https://en.wikipedia.org/wiki/Ben_Mitchell_(EastEnders)",
+          "revision_id": "1376729134",
+          "captured_at": "2026-10-17T13:07:31.530421Z",
+          "sha256": "8ae0fbabb19cf12b2bdf46d7a85e15eea4462b8559584c770224a54a9e47d128",
+          "paragraphs": 48,
+          "admitted_paragraphs": 19,
+          "excluded_paragraphs": 0,
+          "review_required_paragraphs": 29,
+          "structured_records": 0
+        },
+        {
+          "role": "narrative",
+          "license_url": "https://creativecommons.org/licenses/by-sa/4.0/",
+          "attribution": "Wikipedia contributors; markup removed and whitespace normalized.",
+          "source_id": "ian-beale-wiki",
+          "url": "https://en.wikipedia.org/wiki/Ian_Beale",
+          "revision_id": "1378295578",
+          "captured_at": "2026-10-17T13:07:31.584616Z",
+          "sha256": "1a2acfeb93556aa93a0cece8f32be2aba0165b09b383b11d55d823b5b9c4f2fd",
+          "paragraphs": 46,
+          "admitted_paragraphs": 22,
+          "excluded_paragraphs": 0,
+          "review_required_paragraphs": 24,
+          "structured_records": 0
+        },
+        {
+          "role": "narrative",
+          "license_url": "https://creativecommons.org/licenses/by-sa/4.0/",
+          "attribution": "Wikipedia contributors; markup removed and whitespace normalized.",
+          "source_id": "kathy-beale-wiki",
+          "url": "https://en.wikipedia.org/wiki/Kathy_Beale",
+          "revision_id": "1372746094",
+          "captured_at": "2026-10-17T13:07:31.789877Z",
+          "sha256": "f62a3a5df813c271597fbb984c405ecbd43c08ccd6d863cd7bb4f7c3a184b2c5",
+          "paragraphs": 67,
+          "admitted_paragraphs": 23,
+          "excluded_paragraphs": 0,
+          "review_required_paragraphs": 44,
+          "structured_records": 0
+        },
+        {
+          "role": "narrative",
+          "license_url": "https://creativecommons.org/licenses/by-sa/4.0/",
+          "attribution": "Wikipedia contributors; markup removed and whitespace normalized.",
+          "source_id": "cindy-beale-wiki",
+          "url": "https://en.wikipedia.org/wiki/Cindy_Beale",
+          "revision_id": "1375368032",
+          "captured_at": "2026-10-17T13:07:31.847644Z",
+          "sha256": "a6f18a70890f11a9fae1e53f9a7779598b48241fffc0341cbf9c05b1d6631626",
+          "paragraphs": 25,
+          "admitted_paragraphs": 13,
+          "excluded_paragraphs": 0,
+          "review_required_paragraphs": 12,
+          "structured_records": 0
+        },
+        {
+          "role": "narrative",
+          "license_url": "https://creativecommons.org/licenses/by-sa/4.0/",
+          "attribution": "Wikipedia contributors; markup removed and whitespace normalized.",
+          "source_id": "lucy-beale-wiki",
+          "url": "https://en.wikipedia.org/wiki/Lucy_Beale",
+          "revision_id": "1373199144",
+          "captured_at": "2026-10-17T13:07:32.327559Z",
+          "sha256": "9936ed0d7447cbd3d2ecd1c57897adc9d6eada5b4bf9c9a9644cf08a09af3109",
+          "paragraphs": 31,
+          "admitted_paragraphs": 14,
+          "excluded_paragraphs": 0,
+          "review_required_paragraphs": 17,
+          "structured_records": 0
+        },
+        {
+          "role": "narrative",
+          "license_url": "https://creativecommons.org/licenses/by-sa/4.0/",
+          "attribution": "Wikipedia contributors; markup removed and whitespace normalized.",
+          "source_id": "bobby-beale-wiki",
+          "url": "https://en.wikipedia.org/wiki/Bobby_Beale_(EastEnders)",
+          "revision_id": "1364396059",
+          "captured_at": "2026-10-17T13:08:22.656156Z",
+          "sha256": "e88dce74d995d7b4eddcf67a34199d41b8b3cfb1033480df16387788fc3527f0",
+          "paragraphs": 33,
+          "admitted_paragraphs": 16,
+          "excluded_paragraphs": 0,
+          "review_required_paragraphs": 17,
+          "structured_records": 0
+        },
+        {
+          "role": "narrative",
+          "license_url": "https://creativecommons.org/licenses/by-sa/4.0/",
+          "attribution": "Wikipedia contributors; markup removed and whitespace normalized.",
+          "source_id": "martin-fowler-wiki",
+          "url": "https://en.wikipedia.org/wiki/Martin_Fowler_(EastEnders)",
+          "revision_id": "1375375419",
+          "captured_at": "2026-10-17T13:07:33.007379Z",
+          "sha256": "b4ad40a6df4c4033d8f33d08e9d06d260b20bb285b9121fbbf4d9cc2634a331d",
+          "paragraphs": 33,
+          "admitted_paragraphs": 23,
+          "excluded_paragraphs": 0,
+          "review_required_paragraphs": 10,
+          "structured_records": 0
+        },
+        {
+          "role": "narrative",
+          "license_url": "https://creativecommons.org/licenses/by-sa/4.0/",
+          "attribution": "Wikipedia contributors; markup removed and whitespace normalized.",
+          "source_id": "kat-slater-wiki",
+          "url": "https://en.wikipedia.org/wiki/Kat_Slater",
+          "revision_id": "1380652225",
+          "captured_at": "2026-10-17T13:07:33.048959Z",
+          "sha256": "f3852a9f1c3fa3f0c254f123fa8ed739d6f6a4388eb5f19c7de975858a537bd7",
+          "paragraphs": 80,
+          "admitted_paragraphs": 30,
+          "excluded_paragraphs": 5,
+          "review_required_paragraphs": 45,
+          "structured_records": 0
+        },
+        {
+          "role": "narrative",
+          "license_url": "https://creativecommons.org/licenses/by-sa/4.0/",
+          "attribution": "Wikipedia contributors; markup removed and whitespace normalized.",
+          "source_id": "stacey-slater-wiki",
+          "url": "https://en.wikipedia.org/wiki/Stacey_Slater",
+          "revision_id": "1379843622",
+          "captured_at": "2026-10-17T13:07:33.108719Z",
+          "sha256": "ace10a05bd4b522f599fd8a463295c9238e55c992a94e7f364132f61c2ec896b",
+          "paragraphs": 62,
+          "admitted_paragraphs": 25,
+          "excluded_paragraphs": 0,
+          "review_required_paragraphs": 37,
+          "structured_records": 0
+        },
+        {
+          "role": "narrative",
+          "license_url": "https://creativecommons.org/licenses/by-sa/4.0/",
+          "attribution": "Wikipedia contributors; markup removed and whitespace normalized.",
+          "source_id": "alfie-moon-wiki",
+          "url": "https://en.wikipedia.org/wiki/Alfie_Moon",
+          "revision_id": "1377842543",
+          "captured_at": "2026-10-17T13:07:33.172953Z",
+          "sha256": "4a370be846519594e9a393e031129532257645f67c15b41dc9837a27c4ee4308",
+          "paragraphs": 53,
+          "admitted_paragraphs": 22,
+          "excluded_paragraphs": 1,
+          "review_required_paragraphs": 30,
+          "structured_records": 0
+        },
+        {
+          "role": "narrative",
+          "license_url": "https://creativecommons.org/licenses/by-sa/4.0/",
+          "attribution": "Wikipedia contributors; markup removed and whitespace normalized.",
+          "source_id": "pat-butcher-wiki",
+          "url": "https://en.wikipedia.org/wiki/Pat_Butcher",
+          "revision_id": "1375429106",
+          "captured_at": "2026-10-17T13:07:33.232513Z",
+          "sha256": "3d3cccb3f94e0904f3aa96316665b70df7bbf096054e15c36a8609f22535caed",
+          "paragraphs": 57,
+          "admitted_paragraphs": 39,
+          "excluded_paragraphs": 0,
+          "review_required_paragraphs": 18,
+          "structured_records": 0
+        },
+        {
+          "role": "narrative",
+          "license_url": "https://creativecommons.org/licenses/by-sa/4.0/",
+          "attribution": "Wikipedia contributors; markup removed and whitespace normalized.",
+          "source_id": "janine-butcher-wiki",
+          "url": "https://en.wikipedia.org/wiki/Janine_Butcher",
+          "revision_id": "1378379064",
+          "captured_at": "2026-10-17T13:07:34.191734Z",
+          "sha256": "1edd6bcd906c84e4ebd9f78235ea8857ad1a117e67475baf675dd7b51fa56eb8",
+          "paragraphs": 50,
+          "admitted_paragraphs": 24,
+          "excluded_paragraphs": 0,
+          "review_required_paragraphs": 26,
+          "structured_records": 0
+        },
+        {
+          "role": "narrative",
+          "license_url": "https://creativecommons.org/licenses/by-sa/4.0/",
+          "attribution": "Wikipedia contributors; markup removed and whitespace normalized.",
+          "source_id": "dot-cotton-wiki",
+          "url": "https://en.wikipedia.org/wiki/Dot_Cotton",
+          "revision_id": "1372705076",
+          "captured_at": "2026-10-17T13:07:34.598847Z",
+          "sha256": "e2defd4dcd1e52942e636b02e701b9e42e9d4b2c346cfd675fe4def8aa61574b",
+          "paragraphs": 68,
+          "admitted_paragraphs": 9,
+          "excluded_paragraphs": 0,
+          "review_required_paragraphs": 59,
+          "structured_records": 0
+        },
+        {
+          "role": "narrative",
+          "license_url": "https://creativecommons.org/licenses/by-sa/4.0/",
+          "attribution": "Wikipedia contributors; markup removed and whitespace normalized.",
+          "source_id": "denise-fox-wiki",
+          "url": "https://en.wikipedia.org/wiki/Denise_Fox",
+          "revision_id": "1378939229",
+          "captured_at": "2026-10-17T13:07:34.640123Z",
+          "sha256": "2545a525bd8f3338a51ed788e0c88658b60503df4a025557ff78ef046168476c",
+          "paragraphs": 30,
+          "admitted_paragraphs": 19,
+          "excluded_paragraphs": 0,
+          "review_required_paragraphs": 11,
+          "structured_records": 0
+        },
+        {
+          "role": "narrative",
+          "license_url": "https://creativecommons.org/licenses/by-sa/4.0/",
+          "attribution": "Wikipedia contributors; markup removed and whitespace normalized.",
+          "source_id": "max-branning-wiki",
+          "url": "https://en.wikipedia.org/wiki/Max_Branning",
+          "revision_id": "1378782554",
+          "captured_at": "2026-10-17T13:07:34.684245Z",
+          "sha256": "48c3bdd9d5f7110e9cbcd9e6cbc7f32970c519fee14c1a32b231b42c639dc615",
+          "paragraphs": 49,
+          "admitted_paragraphs": 33,
+          "excluded_paragraphs": 0,
+          "review_required_paragraphs": 16,
+          "structured_records": 0
+        },
+        {
+          "role": "narrative",
+          "license_url": "https://creativecommons.org/licenses/by-sa/4.0/",
+          "attribution": "Wikipedia contributors; markup removed and whitespace normalized.",
+          "source_id": "linda-carter-wiki",
+          "url": "https://en.wikipedia.org/wiki/Linda_Carter",
+          "revision_id": "1379097965",
+          "captured_at": "2026-10-17T13:07:34.761741Z",
+          "sha256": "ae80ce98997723c92e8985e2710c8f7eccf92ed6703b79ee6099a29999b9f7a6",
+          "paragraphs": 46,
+          "admitted_paragraphs": 26,
+          "excluded_paragraphs": 0,
+          "review_required_paragraphs": 20,
+          "structured_records": 0
+        }
+      ],
+      "index": {
+        "format_version": "pgvector-exact-v1",
+        "snapshot_sha256": "f971eb1c601a65c073c65a44aca68e6ad50581e6fd8e429f0b87e650e312bad2",
+        "embedding_id": "ca378fa1493585d9a05dbc2ed5b01023a944d96bae9a94ec7349ed0dbd2fd7fd",
+        "dimensions": 768,
+        "passages": 794,
+        "artifact_sha256": "8b44ec8c87ff7e8c60259c1321a75127f4caff8bb70fe480c40890c84a6d1181"
+      }
+    },
+    "generation": 1,
+    "published_at": "2026-10-17T13:29:53.385577Z"
+  },
+  "maximum_calls": 1,
+  "maximum_slice_cost_usd": "1",
+  "shared_nonresetting_trial_cap_usd": "5",
+  "cost_usd": "0.004036",
+  "retries": 0,
+  "cases": [
+    {
+      "case_id": "phil-mitchell-profile",
+      "reference_sha256": "3f2445a0ef18d7673d18fb56c4ae71a1bac228c228dc8685a2ef3915ceeefdd5",
+      "state": "complete",
+      "response": {
+        "response_id": "b86743e6-61ee-44ff-a32b-76581d8c52cf",
+        "question": "Which garage did Phil Mitchell open when he first arrived in Walford?",
+        "status": "answered",
+        "answer": "Right, listen. I opened The Arches when I first arrived in Walford.",
+        "citations": [
+          {
+            "evidence_id": "phil-mitchell-wiki-0018-15527",
+            "text": "Phil Mitchell first arrives in Walford in February 1990 to open an automobile repair shop, known as The Arches; he is joined by his younger brother Grant (Ross Kemp). Two years later, Phil goes into partnership at The Queen Victoria public house with Grant and his wife Sharon Watts (Letitia Dean) \u2013 up to the point where he moves in with them. Phil grows close to Sharon, who turns to him for comfort during Grant's violent outbursts. Sharon and Phil have sex but she stays with Grant, who is unaware of their betrayal. Sharon and Grant's reconciliation is brief, and amidst more rowing and physical violence, Grant is arrested and imprisoned. In his absence, Phil and Sharon continue their affair but when Grant is released, Sharon reconciles with him, leaving Phil heartbroken. On the rebound, Phil enters into a marriage of convenience with Nadia Borovac (Anna Barkan) - a Romanian refugee - enabling her to stay in Britain, with Nadia departing after the wedding.",
+            "sha256": "9a13fe3539b69694d88ab06a1bd85cf898f46d65ca5ac1d958d0e0ff026bd263",
+            "start": 15527,
+            "end": 16495,
+            "source": {
+              "title": "Phil Mitchell",
+              "url": "https://en.wikipedia.org/wiki/Phil_Mitchell",
+              "revision_id": "1379872347",
+              "revision_url": "https://en.wikipedia.org/w/index.php?oldid=1379872347",
+              "section": "Storylines / 1990\u20132003",
+              "captured_at": "2026-10-17T13:07:31.014189Z",
+              "capture_sha256": "a338d3065203be54e383f2c9c141bca22ae9aedbb950e2e1eada601bcccfe313",
+              "scope": "main_series",
+              "license_url": "https://creativecommons.org/licenses/by-sa/4.0/",
+              "attribution": "Wikipedia contributors; markup removed and whitespace normalized.",
+              "coverage": "Reviewed narrative sections in this captured revision only.",
+              "gaps": [
+                "Partial canon coverage; other paragraphs remain excluded or awaiting review.",
+                "Identity and episode metadata do not independently corroborate story claims."
+              ],
+              "support_status": "source_supported"
+            },
+            "location": {
+              "source_id": "phil-mitchell-wiki",
+              "paragraph_ordinal": 18,
+              "section_id": "1990\u20132003",
+              "character_ids": [
+                "grant-mitchell",
+                "phil-mitchell",
+                "sharon-watts"
+              ]
+            },
+            "resolve_path": "/v1/snapshots/sources-a786e0d48c987b120b1aedb19940b2220975c54b1cafce2210195c438c02a3fd/evidence/phil-mitchell-wiki-0018-15527"
+          }
+        ],
+        "snapshot_id": "sources-a786e0d48c987b120b1aedb19940b2220975c54b1cafce2210195c438c02a3fd",
+        "snapshot_sha256": "f971eb1c601a65c073c65a44aca68e6ad50581e6fd8e429f0b87e650e312bad2",
+        "publication": {
+          "compatibility_id": "8c747c0c0f4389fb2b8b1cf7f325395a342e6b293870e7f0d0974a3eeb4ca8bb",
+          "index_sha256": "f5e5bbf5008865afc6ce77348dc422ae1b383b6fb987d154f76eae2d971e5cab",
+          "generation": 1
+        },
+        "source": {
+          "title": "Phil Mitchell",
+          "url": "https://en.wikipedia.org/wiki/Phil_Mitchell",
+          "revision_id": "1379872347",
+          "revision_url": "https://en.wikipedia.org/w/index.php?oldid=1379872347",
+          "section": "Storylines / 1990\u20132003",
+          "captured_at": "2026-10-17T13:07:31.014189Z",
+          "capture_sha256": "a338d3065203be54e383f2c9c141bca22ae9aedbb950e2e1eada601bcccfe313",
+          "scope": "main_series",
+          "license_url": "https://creativecommons.org/licenses/by-sa/4.0/",
+          "attribution": "Wikipedia contributors; markup removed and whitespace normalized.",
+          "coverage": "Reviewed narrative sections in this captured revision only.",
+          "gaps": [
+            "Partial canon coverage; other paragraphs remain excluded or awaiting review.",
+            "Identity and episode metadata do not independently corroborate story claims."
+          ],
+          "support_status": "source_supported"
+        },
+        "retrieved": [
+          {
+            "passage": {
+              "evidence_id": "phil-mitchell-wiki-0018-15527",
+              "text": "Phil Mitchell first arrives in Walford in February 1990 to open an automobile repair shop, known as The Arches; he is joined by his younger brother Grant (Ross Kemp). Two years later, Phil goes into partnership at The Queen Victoria public house with Grant and his wife Sharon Watts (Letitia Dean) \u2013 up to the point where he moves in with them. Phil grows close to Sharon, who turns to him for comfort during Grant's violent outbursts. Sharon and Phil have sex but she stays with Grant, who is unaware of their betrayal. Sharon and Grant's reconciliation is brief, and amidst more rowing and physical violence, Grant is arrested and imprisoned. In his absence, Phil and Sharon continue their affair but when Grant is released, Sharon reconciles with him, leaving Phil heartbroken. On the rebound, Phil enters into a marriage of convenience with Nadia Borovac (Anna Barkan) - a Romanian refugee - enabling her to stay in Britain, with Nadia departing after the wedding.",
+              "sha256": "9a13fe3539b69694d88ab06a1bd85cf898f46d65ca5ac1d958d0e0ff026bd263",
+              "start": 15527,
+              "end": 16495,
+              "source": {
+                "title": "Phil Mitchell",
+                "url": "https://en.wikipedia.org/wiki/Phil_Mitchell",
+                "revision_id": "1379872347",
+                "revision_url": "https://en.wikipedia.org/w/index.php?oldid=1379872347",
+                "section": "Storylines / 1990\u20132003",
+                "captured_at": "2026-10-17T13:07:31.014189Z",
+                "capture_sha256": "a338d3065203be54e383f2c9c141bca22ae9aedbb950e2e1eada601bcccfe313",
+                "scope": "main_series",
+                "license_url": "https://creativecommons.org/licenses/by-sa/4.0/",
+                "attribution": "Wikipedia contributors; markup removed and whitespace normalized.",
+                "coverage": "Reviewed narrative sections in this captured revision only.",
+                "gaps": [
+                  "Partial canon coverage; other paragraphs remain excluded or awaiting review.",
+                  "Identity and episode metadata do not independently corroborate story claims."
+                ],
+                "support_status": "source_supported"
+              },
+              "location": {
+                "source_id": "phil-mitchell-wiki",
+                "paragraph_ordinal": 18,
+                "section_id": "1990\u20132003",
+                "character_ids": [
+                  "grant-mitchell",
+                  "phil-mitchell",
+                  "sharon-watts"
+                ]
+              }
+            },
+            "similarity": 0.5564435191683552
+          },
+          {
+            "passage": {
+              "evidence_id": "phil-mitchell-wiki-0054-69233",
+              "text": "punching him. Later, Phil is knocked unconscious when the exposed gas line explodes during the Walford in Bloom event \u2013 but he is unharmed.",
+              "sha256": "204ac74b6d158c97b3b00789409ba36ba77c1563ef416b45de3aa835240fad39",
+              "start": 69233,
+              "end": 69372,
+              "source": {
+                "title": "Phil Mitchell",
+                "url": "https://en.wikipedia.org/wiki/Phil_Mitchell",
+                "revision_id": "1379872347",
+                "revision_url": "https://en.wikipedia.org/w/index.php?oldid=1379872347",
+                "section": "Storylines / 2005\u2013present",
+                "captured_at": "2026-10-17T13:07:31.014189Z",
+                "capture_sha256": "a338d3065203be54e383f2c9c141bca22ae9aedbb950e2e1eada601bcccfe313",
+                "scope": "main_series",
+                "license_url": "https://creativecommons.org/licenses/by-sa/4.0/",
+                "attribution": "Wikipedia contributors; markup removed and whitespace normalized.",
+                "coverage": "Reviewed narrative sections in this captured revision only.",
+                "gaps": [
+                  "Partial canon coverage; other paragraphs remain excluded or awaiting review.",
+                  "Identity and episode metadata do not independently corroborate story claims."
+                ],
+                "support_status": "source_supported"
+              },
+              "location": {
+                "source_id": "phil-mitchell-wiki",
+                "paragraph_ordinal": 54,
+                "section_id": "2005\u2013present",
+                "character_ids": [
+                  "phil-mitchell"
+                ]
+              }
+            },
+            "similarity": 0.4161513449604499
+          },
+          {
+            "passage": {
+              "evidence_id": "phil-mitchell-wiki-0033-31488",
+              "text": "Phil returns 18 months later, needing more money. He attacks Ian, who calls the police and Phil is arrested. However, the case collapses after Grant returns to Walford and pays a witness to change his testimony and Phil is released. The brothers return to Walford when Peggy requests they help his sister, Sam Mitchell (Kim Medcalf), who is wrongfully remanded in custody for Den's murder; Den was murdered by his second wife and Sam's nemesis, Chrissie Watts (Tracy-Ann Oberman), after the duo and Sam's friend Zoe Slater (Michelle Ryan) initially worked together to get revenge on Den for his nefarious activities \u2013 including Sam's intent to avenge Phil's ordeal. Upon arriving at the square, Phil and Grant notice Peggy being mugged and end up rescuing her. Shortly afterwards, they learn that Peggy's mugging was organised by her enemy and Walford's newly installed crime kingpin: Johnny Allen (Billy Murray). This prompts Phil and Grant to confront Johnny, warning him to stay away from Peggy under the threat of further violence. The pair then confront Chrissie in the pub, where Phil stops Grant from ",
+              "sha256": "0693db95c40b45113d83ee4eb5926a3f1a482fe986a9e6ca70833e0c82019053",
+              "start": 31488,
+              "end": 32596,
+              "source": {
+                "title": "Phil Mitchell",
+                "url": "https://en.wikipedia.org/wiki/Phil_Mitchell",
+                "revision_id": "1379872347",
+                "revision_url": "https://en.wikipedia.org/w/index.php?oldid=1379872347",
+                "section": "Storylines / 2005\u2013present",
+                "captured_at": "2026-10-17T13:07:31.014189Z",
+                "capture_sha256": "a338d3065203be54e383f2c9c141bca22ae9aedbb950e2e1eada601bcccfe313",
+                "scope": "main_series",
+                "license_url": "https://creativecommons.org/licenses/by-sa/4.0/",
+                "attribution": "Wikipedia contributors; markup removed and whitespace normalized.",
+                "coverage": "Reviewed narrative sections in this captured revision only.",
+                "gaps": [
+                  "Partial canon coverage; other paragraphs remain excluded or awaiting review.",
+                  "Identity and episode metadata do not independently corroborate story claims."
+                ],
+                "support_status": "source_supported"
+              },
+              "location": {
+                "source_id": "phil-mitchell-wiki",
+                "paragraph_ordinal": 33,
+                "section_id": "2005\u2013present",
+                "character_ids": [
+                  "phil-mitchell"
+                ]
+              }
+            },
+            "similarity": 0.41084683472831696
+          }
+        ],
+        "context": [
+          {
+            "evidence_id": "phil-mitchell-wiki-0018-15527",
+            "text": "Phil Mitchell first arrives in Walford in February 1990 to open an automobile repair shop, known as The Arches; he is joined by his younger brother Grant (Ross Kemp). Two years later, Phil goes into partnership at The Queen Victoria public house with Grant and his wife Sharon Watts (Letitia Dean) \u2013 up to the point where he moves in with them. Phil grows close to Sharon, who turns to him for comfort during Grant's violent outbursts. Sharon and Phil have sex but she stays with Grant, who is unaware of their betrayal. Sharon and Grant's reconciliation is brief, and amidst more rowing and physical violence, Grant is arrested and imprisoned. In his absence, Phil and Sharon continue their affair but when Grant is released, Sharon reconciles with him, leaving Phil heartbroken. On the rebound, Phil enters into a marriage of convenience with Nadia Borovac (Anna Barkan) - a Romanian refugee - enabling her to stay in Britain, with Nadia departing after the wedding.",
+            "sha256": "9a13fe3539b69694d88ab06a1bd85cf898f46d65ca5ac1d958d0e0ff026bd263",
+            "start": 15527,
+            "end": 16495,
+            "source": {
+              "title": "Phil Mitchell",
+              "url": "https://en.wikipedia.org/wiki/Phil_Mitchell",
+              "revision_id": "1379872347",
+              "revision_url": "https://en.wikipedia.org/w/index.php?oldid=1379872347",
+              "section": "Storylines / 1990\u20132003",
+              "captured_at": "2026-10-17T13:07:31.014189Z",
+              "capture_sha256": "a338d3065203be54e383f2c9c141bca22ae9aedbb950e2e1eada601bcccfe313",
+              "scope": "main_series",
+              "license_url": "https://creativecommons.org/licenses/by-sa/4.0/",
+              "attribution": "Wikipedia contributors; markup removed and whitespace normalized.",
+              "coverage": "Reviewed narrative sections in this captured revision only.",
+              "gaps": [
+                "Partial canon coverage; other paragraphs remain excluded or awaiting review.",
+                "Identity and episode metadata do not independently corroborate story claims."
+              ],
+              "support_status": "source_supported"
+            },
+            "location": {
+              "source_id": "phil-mitchell-wiki",
+              "paragraph_ordinal": 18,
+              "section_id": "1990\u20132003",
+              "character_ids": [
+                "grant-mitchell",
+                "phil-mitchell",
+                "sharon-watts"
+              ]
+            }
+          }
+        ],
+        "retrieval_k": 3,
+        "route": "text_rag",
+        "baseline_version": "single-query-uncached-v2",
+        "model_settings": {
+          "embedding_model": "embeddinggemma:300m",
+          "embedding_digest": "85462619ee721b466c5927d109d4cb765861907d5417b9109caebc4e614679f1",
+          "embedding_dimensions": 768,
+          "provider_type": "openrouter",
+          "answer_model": "openai/gpt-6-sol",
+          "canonical_slug": "openai/gpt-6-sol-20260922",
+          "provider": "openai",
+          "input_price_per_million": "2",
+          "output_price_per_million": "10",
+          "output_tokens": 8192,
+          "reasoning_effort": "medium",
+          "request_timeout_seconds": 180
+        },
+        "prompt_sha256": "6f42fd8b13a5bb17664c6c7c435c030931e4f8187bdcb9fc8173195627cd9d64",
+        "application_sha256": "861c7c53ef52907287d9ab8cecc5bbfe4b54a6462f97e0bfce363db6c5cdcb0c",
+        "trace_id": "tr-857917b2e3dd5995754b4f53c98397fe",
+        "elapsed_ms": 95867.02667799545,
+        "usage": {
+          "input_tokens": 1255,
+          "output_tokens": 90,
+          "embedding_tokens": 23
+        },
+        "expenditure_category": "serving",
+        "estimated_api_cost_usd": 0.004036,
+        "provider_usage": {
+          "reservation_id": "22ed7559825f49bb85ce7f149f7d2cc9",
+          "reserved_usd": 0.104578,
+          "cost_usd": 0.004036,
+          "request_id": "gen-1792243965-afieiD6kLgUQOvfMsTMW",
+          "returned_model": "openai/gpt-6-sol",
+          "provider": "OpenAI",
+          "input_tokens": 1255,
+          "output_tokens": 90,
+          "reasoning_tokens": 31
+        },
+        "cost_scope": "OpenRouter reported inference credits only. Null means unknown cost; the local budget retains a reservation. Credit purchase fees, tax, local embeddings and hosting are excluded.",
+        "limitation": "Source-supported is not independently cross-checked. Coverage is limited to the captured snapshot; this provider baseline is not deployment approval."
+      },
+      "response_sha256": "5258ae6ab35ef06c902d32299c7b6307e288f5a78d817fa657f77c6fb6a3fb9e",
+      "retrieval_score": {
+        "k": 3,
+        "relevant_passage_count": 1,
+        "recall_at_k": 1.0,
+        "hit_at_k": 1.0,
+        "mrr_at_k": 1.0,
+        "required_fact_count": 1,
+        "context_fact_coverage": 1.0,
+        "context_sufficient": true
+      }
+    }
+  ],
+  "state": "complete",
+  "limitation": "Exposed development cases, selected passage labels, no held-out or independent canon accuracy claim. Software checks are separate."
+}

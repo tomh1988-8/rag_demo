@@ -1,0 +1,870 @@
+{
+  "recorded_at": "2026-10-17T13:29:57.271513+00:00",
+  "kind": "local-embedding-component-evaluation",
+  "reference_file_sha256": "8127346fb4e31f9bb844b6bf2f6c447655ee0c40d61e86e8715636588538ab5e",
+  "application_sha256": "861c7c53ef52907287d9ab8cecc5bbfe4b54a6462f97e0bfce363db6c5cdcb0c",
+  "lock_sha256": "983d5a644e3289e6b79d92dc251b5029c199a497ac33c14f504a3c9ee3763152",
+  "publication": {
+    "compatibility_id": "8c747c0c0f4389fb2b8b1cf7f325395a342e6b293870e7f0d0974a3eeb4ca8bb",
+    "manifest": {
+      "format_version": "source-text-publication-v1",
+      "snapshot_id": "sources-a786e0d48c987b120b1aedb19940b2220975c54b1cafce2210195c438c02a3fd",
+      "snapshot_sha256": "f971eb1c601a65c073c65a44aca68e6ad50581e6fd8e429f0b87e650e312bad2",
+      "input_sha256": "a786e0d48c987b120b1aedb19940b2220975c54b1cafce2210195c438c02a3fd",
+      "sources": [
+        {
+          "role": "narrative",
+          "license_url": "https://creativecommons.org/licenses/by-sa/4.0/",
+          "attribution": "Wikipedia contributors; markup removed and whitespace normalized.",
+          "source_id": "phil-mitchell-wiki",
+          "url": "https://en.wikipedia.org/wiki/Phil_Mitchell",
+          "revision_id": "1379872347",
+          "captured_at": "2026-10-17T13:07:31.014189Z",
+          "sha256": "a338d3065203be54e383f2c9c141bca22ae9aedbb950e2e1eada601bcccfe313",
+          "paragraphs": 79,
+          "admitted_paragraphs": 51,
+          "excluded_paragraphs": 0,
+          "review_required_paragraphs": 28,
+          "structured_records": 0
+        },
+        {
+          "role": "narrative",
+          "license_url": "https://creativecommons.org/licenses/by-sa/4.0/",
+          "attribution": "Wikipedia contributors; markup removed and whitespace normalized.",
+          "source_id": "grant-mitchell-wiki",
+          "url": "https://en.wikipedia.org/wiki/Grant_Mitchell_(EastEnders)",
+          "revision_id": "1370914760",
+          "captured_at": "2026-10-17T13:08:22.582778Z",
+          "sha256": "2548b2c8780b1bda430939378a28ab3b7f98eca424480b7cccfaf2eb76f42ebf",
+          "paragraphs": 43,
+          "admitted_paragraphs": 11,
+          "excluded_paragraphs": 0,
+          "review_required_paragraphs": 32,
+          "structured_records": 0
+        },
+        {
+          "role": "narrative",
+          "license_url": "https://creativecommons.org/licenses/by-sa/4.0/",
+          "attribution": "Wikipedia contributors; markup removed and whitespace normalized.",
+          "source_id": "peggy-mitchell-wiki",
+          "url": "https://en.wikipedia.org/wiki/Peggy_Mitchell",
+          "revision_id": "1372787814",
+          "captured_at": "2026-10-17T13:07:31.253971Z",
+          "sha256": "d777ce7a2fffc8e7cb1da6ccd3a87aca45590147a348b5ef5eb6361fb685cacb",
+          "paragraphs": 57,
+          "admitted_paragraphs": 12,
+          "excluded_paragraphs": 0,
+          "review_required_paragraphs": 45,
+          "structured_records": 0
+        },
+        {
+          "role": "narrative",
+          "license_url": "https://creativecommons.org/licenses/by-sa/4.0/",
+          "attribution": "Wikipedia contributors; markup removed and whitespace normalized.",
+          "source_id": "sharon-watts-wiki",
+          "url": "https://en.wikipedia.org/wiki/Sharon_Watts",
+          "revision_id": "1372798905",
+          "captured_at": "2026-10-17T13:07:31.327518Z",
+          "sha256": "9ccef3de99353ff737101d9d00561c217608dd4fa6fba0c8200f80ac0114ea85",
+          "paragraphs": 95,
+          "admitted_paragraphs": 30,
+          "excluded_paragraphs": 0,
+          "review_required_paragraphs": 65,
+          "structured_records": 0
+        },
+        {
+          "role": "narrative",
+          "license_url": "https://creativecommons.org/licenses/by-sa/4.0/",
+          "attribution": "Wikipedia contributors; markup removed and whitespace normalized.",
+          "source_id": "ben-mitchell-wiki",
+          "url": "https://en.wikipedia.org/wiki/Ben_Mitchell_(EastEnders)",
+          "revision_id": "1376729134",
+          "captured_at": "2026-10-17T13:07:31.530421Z",
+          "sha256": "8ae0fbabb19cf12b2bdf46d7a85e15eea4462b8559584c770224a54a9e47d128",
+          "paragraphs": 48,
+          "admitted_paragraphs": 19,
+          "excluded_paragraphs": 0,
+          "review_required_paragraphs": 29,
+          "structured_records": 0
+        },
+        {
+          "role": "narrative",
+          "license_url": "https://creativecommons.org/licenses/by-sa/4.0/",
+          "attribution": "Wikipedia contributors; markup removed and whitespace normalized.",
+          "source_id": "ian-beale-wiki",
+          "url": "https://en.wikipedia.org/wiki/Ian_Beale",
+          "revision_id": "1378295578",
+          "captured_at": "2026-10-17T13:07:31.584616Z",
+          "sha256": "1a2acfeb93556aa93a0cece8f32be2aba0165b09b383b11d55d823b5b9c4f2fd",
+          "paragraphs": 46,
+          "admitted_paragraphs": 22,
+          "excluded_paragraphs": 0,
+          "review_required_paragraphs": 24,
+          "structured_records": 0
+        },
+        {
+          "role": "narrative",
+          "license_url": "https://creativecommons.org/licenses/by-sa/4.0/",
+          "attribution": "Wikipedia contributors; markup removed and whitespace normalized.",
+          "source_id": "kathy-beale-wiki",
+          "url": "https://en.wikipedia.org/wiki/Kathy_Beale",
+          "revision_id": "1372746094",
+          "captured_at": "2026-10-17T13:07:31.789877Z",
+          "sha256": "f62a3a5df813c271597fbb984c405ecbd43c08ccd6d863cd7bb4f7c3a184b2c5",
+          "paragraphs": 67,
+          "admitted_paragraphs": 23,
+          "excluded_paragraphs": 0,
+          "review_required_paragraphs": 44,
+          "structured_records": 0
+        },
+        {
+          "role": "narrative",
+          "license_url": "https://creativecommons.org/licenses/by-sa/4.0/",
+          "attribution": "Wikipedia contributors; markup removed and whitespace normalized.",
+          "source_id": "cindy-beale-wiki",
+          "url": "https://en.wikipedia.org/wiki/Cindy_Beale",
+          "revision_id": "1375368032",
+          "captured_at": "2026-10-17T13:07:31.847644Z",
+          "sha256": "a6f18a70890f11a9fae1e53f9a7779598b48241fffc0341cbf9c05b1d6631626",
+          "paragraphs": 25,
+          "admitted_paragraphs": 13,
+          "excluded_paragraphs": 0,
+          "review_required_paragraphs": 12,
+          "structured_records": 0
+        },
+        {
+          "role": "narrative",
+          "license_url": "https://creativecommons.org/licenses/by-sa/4.0/",
+          "attribution": "Wikipedia contributors; markup removed and whitespace normalized.",
+          "source_id": "lucy-beale-wiki",
+          "url": "https://en.wikipedia.org/wiki/Lucy_Beale",
+          "revision_id": "1373199144",
+          "captured_at": "2026-10-17T13:07:32.327559Z",
+          "sha256": "9936ed0d7447cbd3d2ecd1c57897adc9d6eada5b4bf9c9a9644cf08a09af3109",
+          "paragraphs": 31,
+          "admitted_paragraphs": 14,
+          "excluded_paragraphs": 0,
+          "review_required_paragraphs": 17,
+          "structured_records": 0
+        },
+        {
+          "role": "narrative",
+          "license_url": "https://creativecommons.org/licenses/by-sa/4.0/",
+          "attribution": "Wikipedia contributors; markup removed and whitespace normalized.",
+          "source_id": "bobby-beale-wiki",
+          "url": "https://en.wikipedia.org/wiki/Bobby_Beale_(EastEnders)",
+          "revision_id": "1364396059",
+          "captured_at": "2026-10-17T13:08:22.656156Z",
+          "sha256": "e88dce74d995d7b4eddcf67a34199d41b8b3cfb1033480df16387788fc3527f0",
+          "paragraphs": 33,
+          "admitted_paragraphs": 16,
+          "excluded_paragraphs": 0,
+          "review_required_paragraphs": 17,
+          "structured_records": 0
+        },
+        {
+          "role": "narrative",
+          "license_url": "https://creativecommons.org/licenses/by-sa/4.0/",
+          "attribution": "Wikipedia contributors; markup removed and whitespace normalized.",
+          "source_id": "martin-fowler-wiki",
+          "url": "https://en.wikipedia.org/wiki/Martin_Fowler_(EastEnders)",
+          "revision_id": "1375375419",
+          "captured_at": "2026-10-17T13:07:33.007379Z",
+          "sha256": "b4ad40a6df4c4033d8f33d08e9d06d260b20bb285b9121fbbf4d9cc2634a331d",
+          "paragraphs": 33,
+          "admitted_paragraphs": 23,
+          "excluded_paragraphs": 0,
+          "review_required_paragraphs": 10,
+          "structured_records": 0
+        },
+        {
+          "role": "narrative",
+          "license_url": "https://creativecommons.org/licenses/by-sa/4.0/",
+          "attribution": "Wikipedia contributors; markup removed and whitespace normalized.",
+          "source_id": "kat-slater-wiki",
+          "url": "https://en.wikipedia.org/wiki/Kat_Slater",
+          "revision_id": "1380652225",
+          "captured_at": "2026-10-17T13:07:33.048959Z",
+          "sha256": "f3852a9f1c3fa3f0c254f123fa8ed739d6f6a4388eb5f19c7de975858a537bd7",
+          "paragraphs": 80,
+          "admitted_paragraphs": 30,
+          "excluded_paragraphs": 5,
+          "review_required_paragraphs": 45,
+          "structured_records": 0
+        },
+        {
+          "role": "narrative",
+          "license_url": "https://creativecommons.org/licenses/by-sa/4.0/",
+          "attribution": "Wikipedia contributors; markup removed and whitespace normalized.",
+          "source_id": "stacey-slater-wiki",
+          "url": "https://en.wikipedia.org/wiki/Stacey_Slater",
+          "revision_id": "1379843622",
+          "captured_at": "2026-10-17T13:07:33.108719Z",
+          "sha256": "ace10a05bd4b522f599fd8a463295c9238e55c992a94e7f364132f61c2ec896b",
+          "paragraphs": 62,
+          "admitted_paragraphs": 25,
+          "excluded_paragraphs": 0,
+          "review_required_paragraphs": 37,
+          "structured_records": 0
+        },
+        {
+          "role": "narrative",
+          "license_url": "https://creativecommons.org/licenses/by-sa/4.0/",
+          "attribution": "Wikipedia contributors; markup removed and whitespace normalized.",
+          "source_id": "alfie-moon-wiki",
+          "url": "https://en.wikipedia.org/wiki/Alfie_Moon",
+          "revision_id": "1377842543",
+          "captured_at": "2026-10-17T13:07:33.172953Z",
+          "sha256": "4a370be846519594e9a393e031129532257645f67c15b41dc9837a27c4ee4308",
+          "paragraphs": 53,
+          "admitted_paragraphs": 22,
+          "excluded_paragraphs": 1,
+          "review_required_paragraphs": 30,
+          "structured_records": 0
+        },
+        {
+          "role": "narrative",
+          "license_url": "https://creativecommons.org/licenses/by-sa/4.0/",
+          "attribution": "Wikipedia contributors; markup removed and whitespace normalized.",
+          "source_id": "pat-butcher-wiki",
+          "url": "https://en.wikipedia.org/wiki/Pat_Butcher",
+          "revision_id": "1375429106",
+          "captured_at": "2026-10-17T13:07:33.232513Z",
+          "sha256": "3d3cccb3f94e0904f3aa96316665b70df7bbf096054e15c36a8609f22535caed",
+          "paragraphs": 57,
+          "admitted_paragraphs": 39,
+          "excluded_paragraphs": 0,
+          "review_required_paragraphs": 18,
+          "structured_records": 0
+        },
+        {
+          "role": "narrative",
+          "license_url": "https://creativecommons.org/licenses/by-sa/4.0/",
+          "attribution": "Wikipedia contributors; markup removed and whitespace normalized.",
+          "source_id": "janine-butcher-wiki",
+          "url": "https://en.wikipedia.org/wiki/Janine_Butcher",
+          "revision_id": "1378379064",
+          "captured_at": "2026-10-17T13:07:34.191734Z",
+          "sha256": "1edd6bcd906c84e4ebd9f78235ea8857ad1a117e67475baf675dd7b51fa56eb8",
+          "paragraphs": 50,
+          "admitted_paragraphs": 24,
+          "excluded_paragraphs": 0,
+          "review_required_paragraphs": 26,
+          "structured_records": 0
+        },
+        {
+          "role": "narrative",
+          "license_url": "https://creativecommons.org/licenses/by-sa/4.0/",
+          "attribution": "Wikipedia contributors; markup removed and whitespace normalized.",
+          "source_id": "dot-cotton-wiki",
+          "url": "https://en.wikipedia.org/wiki/Dot_Cotton",
+          "revision_id": "1372705076",
+          "captured_at": "2026-10-17T13:07:34.598847Z",
+          "sha256": "e2defd4dcd1e52942e636b02e701b9e42e9d4b2c346cfd675fe4def8aa61574b",
+          "paragraphs": 68,
+          "admitted_paragraphs": 9,
+          "excluded_paragraphs": 0,
+          "review_required_paragraphs": 59,
+          "structured_records": 0
+        },
+        {
+          "role": "narrative",
+          "license_url": "https://creativecommons.org/licenses/by-sa/4.0/",
+          "attribution": "Wikipedia contributors; markup removed and whitespace normalized.",
+          "source_id": "denise-fox-wiki",
+          "url": "https://en.wikipedia.org/wiki/Denise_Fox",
+          "revision_id": "1378939229",
+          "captured_at": "2026-10-17T13:07:34.640123Z",
+          "sha256": "2545a525bd8f3338a51ed788e0c88658b60503df4a025557ff78ef046168476c",
+          "paragraphs": 30,
+          "admitted_paragraphs": 19,
+          "excluded_paragraphs": 0,
+          "review_required_paragraphs": 11,
+          "structured_records": 0
+        },
+        {
+          "role": "narrative",
+          "license_url": "https://creativecommons.org/licenses/by-sa/4.0/",
+          "attribution": "Wikipedia contributors; markup removed and whitespace normalized.",
+          "source_id": "max-branning-wiki",
+          "url": "https://en.wikipedia.org/wiki/Max_Branning",
+          "revision_id": "1378782554",
+          "captured_at": "2026-10-17T13:07:34.684245Z",
+          "sha256": "48c3bdd9d5f7110e9cbcd9e6cbc7f32970c519fee14c1a32b231b42c639dc615",
+          "paragraphs": 49,
+          "admitted_paragraphs": 33,
+          "excluded_paragraphs": 0,
+          "review_required_paragraphs": 16,
+          "structured_records": 0
+        },
+        {
+          "role": "narrative",
+          "license_url": "https://creativecommons.org/licenses/by-sa/4.0/",
+          "attribution": "Wikipedia contributors; markup removed and whitespace normalized.",
+          "source_id": "linda-carter-wiki",
+          "url": "https://en.wikipedia.org/wiki/Linda_Carter",
+          "revision_id": "1379097965",
+          "captured_at": "2026-10-17T13:07:34.761741Z",
+          "sha256": "ae80ce98997723c92e8985e2710c8f7eccf92ed6703b79ee6099a29999b9f7a6",
+          "paragraphs": 46,
+          "admitted_paragraphs": 26,
+          "excluded_paragraphs": 0,
+          "review_required_paragraphs": 20,
+          "structured_records": 0
+        }
+      ],
+      "index": {
+        "format_version": "pgvector-exact-v1",
+        "snapshot_sha256": "f971eb1c601a65c073c65a44aca68e6ad50581e6fd8e429f0b87e650e312bad2",
+        "embedding_id": "ca378fa1493585d9a05dbc2ed5b01023a944d96bae9a94ec7349ed0dbd2fd7fd",
+        "dimensions": 768,
+        "passages": 794,
+        "artifact_sha256": "8b44ec8c87ff7e8c60259c1321a75127f4caff8bb70fe480c40890c84a6d1181"
+      }
+    },
+    "generation": 1,
+    "published_at": "2026-10-17T13:29:53.385577Z"
+  },
+  "maximum_calls": 0,
+  "maximum_slice_cost_usd": "1",
+  "shared_nonresetting_trial_cap_usd": "5",
+  "cost_usd": "0",
+  "retries": 0,
+  "cases": [
+    {
+      "case_id": "phil-mitchell-profile",
+      "reference_sha256": "3f2445a0ef18d7673d18fb56c4ae71a1bac228c228dc8685a2ef3915ceeefdd5",
+      "retrieved_ids": [
+        "phil-mitchell-wiki-0018-15527",
+        "phil-mitchell-wiki-0054-69233",
+        "phil-mitchell-wiki-0033-31488"
+      ],
+      "context_ids": [
+        "phil-mitchell-wiki-0018-15527"
+      ],
+      "retrieval_score": {
+        "k": 3,
+        "relevant_passage_count": 1,
+        "recall_at_k": 1.0,
+        "hit_at_k": 1.0,
+        "mrr_at_k": 1.0,
+        "required_fact_count": 1,
+        "context_fact_coverage": 1.0,
+        "context_sufficient": true
+      }
+    },
+    {
+      "case_id": "grant-mitchell-profile",
+      "reference_sha256": "d0496600334555c08b94ab2007b1510bcc25cf13520a29ef3fc0952a4f74c6ab",
+      "retrieved_ids": [
+        "grant-mitchell-wiki-0023-19694",
+        "grant-mitchell-wiki-0023-20802",
+        "janine-butcher-wiki-0028-19802"
+      ],
+      "context_ids": [
+        "grant-mitchell-wiki-0023-19694"
+      ],
+      "retrieval_score": {
+        "k": 3,
+        "relevant_passage_count": 1,
+        "recall_at_k": 1.0,
+        "hit_at_k": 1.0,
+        "mrr_at_k": 1.0,
+        "required_fact_count": 1,
+        "context_fact_coverage": 1.0,
+        "context_sufficient": true
+      }
+    },
+    {
+      "case_id": "peggy-mitchell-profile",
+      "reference_sha256": "4f4d6b3a5ed11eeb8b6f6c8a3f38eeab2cfd72ddc99214c3497715d3e5f3f5d3",
+      "retrieved_ids": [
+        "peggy-mitchell-wiki-0037-34316",
+        "peggy-mitchell-wiki-0044-41435",
+        "kathy-beale-wiki-0039-37250"
+      ],
+      "context_ids": [
+        "peggy-mitchell-wiki-0037-34316"
+      ],
+      "retrieval_score": {
+        "k": 3,
+        "relevant_passage_count": 1,
+        "recall_at_k": 1.0,
+        "hit_at_k": 1.0,
+        "mrr_at_k": 1.0,
+        "required_fact_count": 1,
+        "context_fact_coverage": 1.0,
+        "context_sufficient": true
+      }
+    },
+    {
+      "case_id": "sharon-watts-profile",
+      "reference_sha256": "fbb8c9b8053f6f89a442b8d438064326c0537b0d6e08077123acc44ced418cff",
+      "retrieved_ids": [
+        "sharon-watts-wiki-0053-50624",
+        "phil-mitchell-wiki-0029-28398",
+        "sharon-watts-wiki-0070-67089"
+      ],
+      "context_ids": [
+        "sharon-watts-wiki-0053-50624"
+      ],
+      "retrieval_score": {
+        "k": 3,
+        "relevant_passage_count": 1,
+        "recall_at_k": 1.0,
+        "hit_at_k": 1.0,
+        "mrr_at_k": 1.0,
+        "required_fact_count": 1,
+        "context_fact_coverage": 1.0,
+        "context_sufficient": true
+      }
+    },
+    {
+      "case_id": "ben-mitchell-profile",
+      "reference_sha256": "31732fff87d061d4f2caa2f6f9d0de8923a7c5211ed7e3bb0393c5320ae20556",
+      "retrieved_ids": [
+        "ben-mitchell-wiki-0022-17983",
+        "kathy-beale-wiki-0039-37250",
+        "ben-mitchell-wiki-0040-44580"
+      ],
+      "context_ids": [
+        "ben-mitchell-wiki-0022-17983",
+        "ben-mitchell-wiki-0040-44580"
+      ],
+      "retrieval_score": {
+        "k": 3,
+        "relevant_passage_count": 1,
+        "recall_at_k": 1.0,
+        "hit_at_k": 1.0,
+        "mrr_at_k": 1.0,
+        "required_fact_count": 1,
+        "context_fact_coverage": 1.0,
+        "context_sufficient": true
+      }
+    },
+    {
+      "case_id": "ian-beale-profile",
+      "reference_sha256": "5cf3e8708f0e9dfee1a8db7e9b07cfffd6e6025461b5d9a129440db5d30a255f",
+      "retrieved_ids": [
+        "ian-beale-wiki-0022-15382",
+        "bobby-beale-wiki-0015-12289",
+        "ian-beale-wiki-0022-16499"
+      ],
+      "context_ids": [
+        "ian-beale-wiki-0022-15382"
+      ],
+      "retrieval_score": {
+        "k": 3,
+        "relevant_passage_count": 1,
+        "recall_at_k": 1.0,
+        "hit_at_k": 1.0,
+        "mrr_at_k": 1.0,
+        "required_fact_count": 1,
+        "context_fact_coverage": 1.0,
+        "context_sufficient": true
+      }
+    },
+    {
+      "case_id": "kathy-beale-profile",
+      "reference_sha256": "ef64eabfe3168fcebddcba87a892f7c4e1b21e7c2f9e61d80c7fe16cefb0179c",
+      "retrieved_ids": [
+        "kathy-beale-wiki-0033-31121",
+        "kathy-beale-wiki-0048-52503",
+        "pat-butcher-wiki-0021-15693"
+      ],
+      "context_ids": [
+        "kathy-beale-wiki-0033-31121"
+      ],
+      "retrieval_score": {
+        "k": 3,
+        "relevant_passage_count": 1,
+        "recall_at_k": 1.0,
+        "hit_at_k": 1.0,
+        "mrr_at_k": 1.0,
+        "required_fact_count": 1,
+        "context_fact_coverage": 1.0,
+        "context_sufficient": true
+      }
+    },
+    {
+      "case_id": "cindy-beale-profile",
+      "reference_sha256": "4d1e1728b5b7f261d73c2e0a09b9894e6d102d835ac2cb24f5f652d03941ae30",
+      "retrieved_ids": [
+        "cindy-beale-wiki-0009-5278",
+        "cindy-beale-wiki-0015-14433",
+        "cindy-beale-wiki-0019-21957"
+      ],
+      "context_ids": [
+        "cindy-beale-wiki-0009-5278"
+      ],
+      "retrieval_score": {
+        "k": 3,
+        "relevant_passage_count": 1,
+        "recall_at_k": 1.0,
+        "hit_at_k": 1.0,
+        "mrr_at_k": 1.0,
+        "required_fact_count": 1,
+        "context_fact_coverage": 1.0,
+        "context_sufficient": true
+      }
+    },
+    {
+      "case_id": "lucy-beale-profile",
+      "reference_sha256": "6692047973b17d8e8b69e90c59dbfb60c31f0f38aee1c173229755305e9d946e",
+      "retrieved_ids": [
+        "lucy-beale-wiki-0010-6407",
+        "lucy-beale-wiki-0010-7517",
+        "pat-butcher-wiki-0038-24244"
+      ],
+      "context_ids": [
+        "lucy-beale-wiki-0010-6407"
+      ],
+      "retrieval_score": {
+        "k": 3,
+        "relevant_passage_count": 1,
+        "recall_at_k": 1.0,
+        "hit_at_k": 1.0,
+        "mrr_at_k": 1.0,
+        "required_fact_count": 1,
+        "context_fact_coverage": 1.0,
+        "context_sufficient": true
+      }
+    },
+    {
+      "case_id": "bobby-beale-profile",
+      "reference_sha256": "c4ae56e86bf7957e5a96158a7a14d29f757e74c4fa2f80dd49579703624d515a",
+      "retrieved_ids": [
+        "bobby-beale-wiki-0015-12289",
+        "bobby-beale-wiki-0027-24637",
+        "bobby-beale-wiki-0018-15066"
+      ],
+      "context_ids": [
+        "bobby-beale-wiki-0015-12289"
+      ],
+      "retrieval_score": {
+        "k": 3,
+        "relevant_passage_count": 1,
+        "recall_at_k": 1.0,
+        "hit_at_k": 1.0,
+        "mrr_at_k": 1.0,
+        "required_fact_count": 1,
+        "context_fact_coverage": 1.0,
+        "context_sufficient": true
+      }
+    },
+    {
+      "case_id": "martin-fowler-profile",
+      "reference_sha256": "5070bf23839a48ac1f39df29b3612c61461fc45cd150d242efe8afa55677d837",
+      "retrieved_ids": [
+        "martin-fowler-wiki-0009-6205",
+        "martin-fowler-wiki-0019-15937",
+        "stacey-slater-wiki-0046-40277"
+      ],
+      "context_ids": [
+        "martin-fowler-wiki-0009-6205"
+      ],
+      "retrieval_score": {
+        "k": 3,
+        "relevant_passage_count": 1,
+        "recall_at_k": 1.0,
+        "hit_at_k": 1.0,
+        "mrr_at_k": 1.0,
+        "required_fact_count": 1,
+        "context_fact_coverage": 1.0,
+        "context_sufficient": true
+      }
+    },
+    {
+      "case_id": "kat-slater-profile",
+      "reference_sha256": "2a2aa6b5636d5b4d0be1495fa369cc220a321a15d3fce8e8fd3890b56d0786e4",
+      "retrieved_ids": [
+        "kat-slater-wiki-0041-30971",
+        "kat-slater-wiki-0071-72310",
+        "kat-slater-wiki-0067-65277"
+      ],
+      "context_ids": [
+        "kat-slater-wiki-0041-30971"
+      ],
+      "retrieval_score": {
+        "k": 3,
+        "relevant_passage_count": 1,
+        "recall_at_k": 1.0,
+        "hit_at_k": 1.0,
+        "mrr_at_k": 1.0,
+        "required_fact_count": 1,
+        "context_fact_coverage": 1.0,
+        "context_sufficient": true
+      }
+    },
+    {
+      "case_id": "stacey-slater-profile",
+      "reference_sha256": "2491844193102993ad3af9087ee6459aaede9ee5e62c0485db72b2a6055dfa1b",
+      "retrieved_ids": [
+        "stacey-slater-wiki-0033-27043",
+        "stacey-slater-wiki-0034-27490",
+        "stacey-slater-wiki-0041-33780"
+      ],
+      "context_ids": [
+        "stacey-slater-wiki-0033-27043"
+      ],
+      "retrieval_score": {
+        "k": 3,
+        "relevant_passage_count": 1,
+        "recall_at_k": 1.0,
+        "hit_at_k": 1.0,
+        "mrr_at_k": 1.0,
+        "required_fact_count": 1,
+        "context_fact_coverage": 1.0,
+        "context_sufficient": true
+      }
+    },
+    {
+      "case_id": "alfie-moon-profile",
+      "reference_sha256": "a8d345c1a35164dfbe7c59a20922a9793fe22f15cfab1f0c22a28e0efa63cb24",
+      "retrieved_ids": [
+        "alfie-moon-wiki-0029-27029",
+        "kat-slater-wiki-0052-45673",
+        "alfie-moon-wiki-0031-31870"
+      ],
+      "context_ids": [
+        "alfie-moon-wiki-0029-27029"
+      ],
+      "retrieval_score": {
+        "k": 3,
+        "relevant_passage_count": 1,
+        "recall_at_k": 1.0,
+        "hit_at_k": 1.0,
+        "mrr_at_k": 1.0,
+        "required_fact_count": 1,
+        "context_fact_coverage": 1.0,
+        "context_sufficient": true
+      }
+    },
+    {
+      "case_id": "pat-butcher-profile",
+      "reference_sha256": "4ff5d3e3f8a1981292d0d484ea6d96f06541aac69420d0942672920a29917069",
+      "retrieved_ids": [
+        "pat-butcher-wiki-0015-11688",
+        "pat-butcher-wiki-0036-23522",
+        "pat-butcher-wiki-0016-11941"
+      ],
+      "context_ids": [
+        "pat-butcher-wiki-0015-11688",
+        "pat-butcher-wiki-0036-23522"
+      ],
+      "retrieval_score": {
+        "k": 3,
+        "relevant_passage_count": 1,
+        "recall_at_k": 1.0,
+        "hit_at_k": 1.0,
+        "mrr_at_k": 1.0,
+        "required_fact_count": 1,
+        "context_fact_coverage": 1.0,
+        "context_sufficient": true
+      }
+    },
+    {
+      "case_id": "janine-butcher-profile",
+      "reference_sha256": "63be00c09e3945d325d116b92105dd7d207d5566f7bda21097ac3133cc8e2c3a",
+      "retrieved_ids": [
+        "pat-butcher-wiki-0024-17192",
+        "janine-butcher-wiki-0022-13489",
+        "janine-butcher-wiki-0021-13057"
+      ],
+      "context_ids": [
+        "pat-butcher-wiki-0024-17192",
+        "janine-butcher-wiki-0022-13489"
+      ],
+      "retrieval_score": {
+        "k": 3,
+        "relevant_passage_count": 1,
+        "recall_at_k": 1.0,
+        "hit_at_k": 1.0,
+        "mrr_at_k": 0.3333333333333333,
+        "required_fact_count": 1,
+        "context_fact_coverage": 0.0,
+        "context_sufficient": false
+      }
+    },
+    {
+      "case_id": "dot-cotton-profile",
+      "reference_sha256": "6c03e88bc81689c64f16b7989633402d0e21e7f51071cd076387e11d0356d519",
+      "retrieved_ids": [
+        "dot-cotton-wiki-0048-45933",
+        "dot-cotton-wiki-0049-47193",
+        "dot-cotton-wiki-0051-48251"
+      ],
+      "context_ids": [
+        "dot-cotton-wiki-0048-45933"
+      ],
+      "retrieval_score": {
+        "k": 3,
+        "relevant_passage_count": 1,
+        "recall_at_k": 1.0,
+        "hit_at_k": 1.0,
+        "mrr_at_k": 1.0,
+        "required_fact_count": 1,
+        "context_fact_coverage": 1.0,
+        "context_sufficient": true
+      }
+    },
+    {
+      "case_id": "denise-fox-profile",
+      "reference_sha256": "5be9dc63d411a50837377ebbeb47ea691bc6e9bc280ed9cdefd8b6ed2d5c1764",
+      "retrieved_ids": [
+        "denise-fox-wiki-0008-7719",
+        "denise-fox-wiki-0026-38582",
+        "denise-fox-wiki-0010-9597"
+      ],
+      "context_ids": [
+        "denise-fox-wiki-0008-7719"
+      ],
+      "retrieval_score": {
+        "k": 3,
+        "relevant_passage_count": 1,
+        "recall_at_k": 1.0,
+        "hit_at_k": 1.0,
+        "mrr_at_k": 1.0,
+        "required_fact_count": 1,
+        "context_fact_coverage": 1.0,
+        "context_sufficient": true
+      }
+    },
+    {
+      "case_id": "max-branning-profile",
+      "reference_sha256": "9c84e0941954cdf8cbd3d4db2e02b2995df293c5a99ae08e7525eaa4d30e1167",
+      "retrieved_ids": [
+        "max-branning-wiki-0013-7972",
+        "stacey-slater-wiki-0036-29037",
+        "max-branning-wiki-0015-8813"
+      ],
+      "context_ids": [
+        "max-branning-wiki-0013-7972"
+      ],
+      "retrieval_score": {
+        "k": 3,
+        "relevant_passage_count": 1,
+        "recall_at_k": 1.0,
+        "hit_at_k": 1.0,
+        "mrr_at_k": 1.0,
+        "required_fact_count": 1,
+        "context_fact_coverage": 1.0,
+        "context_sufficient": true
+      }
+    },
+    {
+      "case_id": "linda-carter-profile",
+      "reference_sha256": "a42ccf8ba6a28f3374ffbc63c5aac40a2a8ae9df240f003bb575311076d3aa96",
+      "retrieved_ids": [
+        "linda-carter-wiki-0017-13886",
+        "linda-carter-wiki-0018-15555",
+        "linda-carter-wiki-0023-22742"
+      ],
+      "context_ids": [
+        "linda-carter-wiki-0017-13886"
+      ],
+      "retrieval_score": {
+        "k": 3,
+        "relevant_passage_count": 1,
+        "recall_at_k": 1.0,
+        "hit_at_k": 1.0,
+        "mrr_at_k": 1.0,
+        "required_fact_count": 1,
+        "context_fact_coverage": 1.0,
+        "context_sufficient": true
+      }
+    },
+    {
+      "case_id": "cross-ben-parents",
+      "reference_sha256": "04dbfc70291380fefb36ee4c744e8651f40c5a498851ddfaeeaa1479bfcd2f79",
+      "retrieved_ids": [
+        "ben-mitchell-wiki-0022-17983",
+        "ben-mitchell-wiki-0024-20791",
+        "kathy-beale-wiki-0039-37250"
+      ],
+      "context_ids": [
+        "ben-mitchell-wiki-0022-17983"
+      ],
+      "retrieval_score": {
+        "k": 3,
+        "relevant_passage_count": 1,
+        "recall_at_k": 1.0,
+        "hit_at_k": 1.0,
+        "mrr_at_k": 1.0,
+        "required_fact_count": 1,
+        "context_fact_coverage": 1.0,
+        "context_sufficient": true
+      }
+    },
+    {
+      "case_id": "cross-mitchell-garage",
+      "reference_sha256": "0a7d1045f95ebc9d9ea9a331c40fb7f134811bbf74c3d791bb775f8a8af5eddb",
+      "retrieved_ids": [
+        "phil-mitchell-wiki-0018-15527",
+        "phil-mitchell-wiki-0033-31488",
+        "grant-mitchell-wiki-0023-19694"
+      ],
+      "context_ids": [
+        "phil-mitchell-wiki-0018-15527"
+      ],
+      "retrieval_score": {
+        "k": 3,
+        "relevant_passage_count": 1,
+        "recall_at_k": 1.0,
+        "hit_at_k": 1.0,
+        "mrr_at_k": 0.3333333333333333,
+        "required_fact_count": 1,
+        "context_fact_coverage": 0.0,
+        "context_sufficient": false
+      }
+    },
+    {
+      "case_id": "phil-mitchell-missing",
+      "reference_sha256": "c32ec9b7fb17e30312d25bab023d553c67496476d01db9bade5fa9b11ade42d3",
+      "retrieved_ids": [
+        "phil-mitchell-wiki-0062-77727",
+        "janine-butcher-wiki-0028-19802",
+        "phil-mitchell-wiki-0064-79876"
+      ],
+      "context_ids": [
+        "phil-mitchell-wiki-0062-77727",
+        "janine-butcher-wiki-0028-19802",
+        "phil-mitchell-wiki-0064-79876"
+      ],
+      "retrieval_score": {
+        "k": 3,
+        "relevant_passage_count": 0,
+        "recall_at_k": null,
+        "hit_at_k": null,
+        "mrr_at_k": null,
+        "required_fact_count": 0,
+        "context_fact_coverage": null,
+        "context_sufficient": false
+      }
+    },
+    {
+      "case_id": "linda-carter-missing",
+      "reference_sha256": "7dad87e39c91c64c0e906d4dafab1f70c26d559a961f7ae712286b930beaa693",
+      "retrieved_ids": [
+        "linda-carter-wiki-0017-13886",
+        "linda-carter-wiki-0023-22742",
+        "linda-carter-wiki-0025-28865"
+      ],
+      "context_ids": [
+        "linda-carter-wiki-0017-13886"
+      ],
+      "retrieval_score": {
+        "k": 3,
+        "relevant_passage_count": 0,
+        "recall_at_k": null,
+        "hit_at_k": null,
+        "mrr_at_k": null,
+        "required_fact_count": 0,
+        "context_fact_coverage": null,
+        "context_sufficient": false
+      }
+    }
+  ],
+  "state": "complete",
+  "limitation": "Exposed development cases, selected passage labels, no held-out or independent canon accuracy claim. Software checks are separate."
+}

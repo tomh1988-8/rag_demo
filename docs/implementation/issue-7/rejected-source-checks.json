@@ -1,0 +1,26 @@
+{
+  "checks": [
+    {
+      "source_id": "bobby-beale-wiki",
+      "url": "https://en.wikipedia.org/wiki/Bobby_Beale",
+      "captured_at": "2026-10-17T13:07:32.954331Z",
+      "sha256": "bd5f4872d960ea0147fd1148ed60bf0b1eabf74760038214b9387f408fdb18f9",
+      "bytes": 51955,
+      "wikidata_ids": [
+        "Q16156980"
+      ],
+      "decision": "Rejected disambiguation page: no character infobox or admitted storylines. Corrected disambiguated character URL used in frozen batch; no answer-model call used this source."
+    },
+    {
+      "source_id": "grant-mitchell-wiki",
+      "url": "https://en.wikipedia.org/wiki/Grant_Mitchell",
+      "captured_at": "2026-10-17T13:07:31.068919Z",
+      "sha256": "b04e9bae65e8c5f575df1751d2ef86cdbb23240ccde4645b3a57e2369e62f3a1",
+      "bytes": 52088,
+      "wikidata_ids": [
+        "Q16230538"
+      ],
+      "decision": "Rejected disambiguation page: no character infobox or admitted storylines. Corrected disambiguated character URL used in frozen batch; no answer-model call used this source."
+    }
+  ]
+}

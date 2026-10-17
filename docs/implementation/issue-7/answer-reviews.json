@@ -1,0 +1,573 @@
+{
+  "review_method": "Source-based inspection independent of the answer generator. All original facts checked before model capture; actual additional assertions, citations and context checked afterwards. Outcome appropriateness is judged against actual supplied context; full-reference completeness and retrieval failures remain separate.",
+  "reviews": [
+    {
+      "case_id": "phil-mitchell-profile",
+      "response_sha256": "7413f7ed0c12c7153a23ab33ec2d96c77a46f7c78dbf78d0fb54b36a5ce84f59",
+      "reference_sha256": "3f2445a0ef18d7673d18fb56c4ae71a1bac228c228dc8685a2ef3915ceeefdd5",
+      "reviewer": "Codex source/response inspection, 17 October 2026; independently rechecked by Spec reviewer",
+      "rationale": "Read actual answer and citation against retained source and assembled context. Each listed assertion is explicit in the cited passage; first-person Phil wording preserves the same fact. No human or independent canon verification claimed.",
+      "claims": [
+        {
+          "claim": "Phil opened The Arches, an automobile repair shop, on his first arrival in Walford.",
+          "correct": true,
+          "grounded": true,
+          "citation_supported": true
+        }
+      ],
+      "required_facts": [
+        {
+          "fact": "Phil opens the automobile repair shop The Arches.",
+          "covered": true
+        }
+      ],
+      "answerability": true,
+      "critical_failures": []
+    },
+    {
+      "case_id": "grant-mitchell-profile",
+      "response_sha256": "5ceecb1075e7de45372cb0eae5ebc78326b5a88a30eb2c4beeaf332b6a106b48",
+      "reference_sha256": "d0496600334555c08b94ab2007b1510bcc25cf13520a29ef3fc0952a4f74c6ab",
+      "reviewer": "Codex source/response inspection, 17 October 2026; independently rechecked by Spec reviewer",
+      "rationale": "Read actual answer and citation against retained source and assembled context. Each listed assertion is explicit in the cited passage; first-person Phil wording preserves the same fact. No human or independent canon verification claimed.",
+      "claims": [
+        {
+          "claim": "Grant served in the Falklands War as an Army paratrooper.",
+          "correct": true,
+          "grounded": true,
+          "citation_supported": true
+        }
+      ],
+      "required_facts": [
+        {
+          "fact": "Grant served in the Falklands War.",
+          "covered": true
+        }
+      ],
+      "answerability": true,
+      "critical_failures": []
+    },
+    {
+      "case_id": "peggy-mitchell-profile",
+      "response_sha256": "f160629b66df1b0e4ca77bfa27ada2cb7f85e3c226a7854accd45ae443af12c6",
+      "reference_sha256": "4f4d6b3a5ed11eeb8b6f6c8a3f38eeab2cfd72ddc99214c3497715d3e5f3f5d3",
+      "reviewer": "Codex source/response inspection, 17 October 2026; independently rechecked by Spec reviewer",
+      "rationale": "Read actual answer and citation against retained source and assembled context. Each listed assertion is explicit in the cited passage; first-person Phil wording preserves the same fact. No human or independent canon verification claimed.",
+      "claims": [
+        {
+          "claim": "Peggy married Eric Mitchell because she was pregnant with Phil.",
+          "correct": true,
+          "grounded": true,
+          "citation_supported": true
+        }
+      ],
+      "required_facts": [
+        {
+          "fact": "Peggy married Eric Mitchell.",
+          "covered": true
+        }
+      ],
+      "answerability": true,
+      "critical_failures": []
+    },
+    {
+      "case_id": "sharon-watts-profile",
+      "response_sha256": "5c0d69d7036200d6051595e4560f91fef997a541533bb196c1837721d386c770",
+      "reference_sha256": "fbb8c9b8053f6f89a442b8d438064326c0537b0d6e08077123acc44ced418cff",
+      "reviewer": "Codex source/response inspection, 17 October 2026; independently rechecked by Spec reviewer",
+      "rationale": "Read actual answer and citation against retained source and assembled context. Each listed assertion is explicit in the cited passage; first-person Phil wording preserves the same fact. No human or independent canon verification claimed.",
+      "claims": [
+        {
+          "claim": "Den and Angie Watts adopted Sharon when she was three.",
+          "correct": true,
+          "grounded": true,
+          "citation_supported": true
+        }
+      ],
+      "required_facts": [
+        {
+          "fact": "Den and Angie Watts adopted Sharon.",
+          "covered": true
+        }
+      ],
+      "answerability": true,
+      "critical_failures": []
+    },
+    {
+      "case_id": "ben-mitchell-profile",
+      "response_sha256": "daf11d8961d6c4874b708fd925fd154df87ce79af72b7551367b244341978e7e",
+      "reference_sha256": "31732fff87d061d4f2caa2f6f9d0de8923a7c5211ed7e3bb0393c5320ae20556",
+      "reviewer": "Codex source/response inspection, 17 October 2026; independently rechecked by Spec reviewer",
+      "rationale": "Read actual answer and citation against retained source and assembled context. Each listed assertion is explicit in the cited passage; first-person Phil wording preserves the same fact. No human or independent canon verification claimed.",
+      "claims": [
+        {
+          "claim": "Meningitis left Ben partially deaf in one ear as a baby.",
+          "correct": true,
+          "grounded": true,
+          "citation_supported": true
+        },
+        {
+          "claim": "Phil is Ben\u2019s father.",
+          "correct": true,
+          "grounded": true,
+          "citation_supported": true
+        }
+      ],
+      "required_facts": [
+        {
+          "fact": "Meningitis left Ben partially deaf in one ear.",
+          "covered": true
+        }
+      ],
+      "answerability": true,
+      "critical_failures": []
+    },
+    {
+      "case_id": "ian-beale-profile",
+      "response_sha256": "ed2b4bca8e3c9313560ab4907175371bc178c35bb9da18236912f0bb8ac223d2",
+      "reference_sha256": "5cf3e8708f0e9dfee1a8db7e9b07cfffd6e6025461b5d9a129440db5d30a255f",
+      "reviewer": "Codex source/response inspection, 17 October 2026; independently rechecked by Spec reviewer",
+      "rationale": "Read actual answer and citation against retained source and assembled context. Each listed assertion is explicit in the cited passage; first-person Phil wording preserves the same fact. No human or independent canon verification claimed.",
+      "claims": [
+        {
+          "claim": "Ian wanted to become a caterer despite his father Pete\u2019s objections.",
+          "correct": true,
+          "grounded": true,
+          "citation_supported": true
+        }
+      ],
+      "required_facts": [
+        {
+          "fact": "Ian wanted to become a caterer.",
+          "covered": true
+        }
+      ],
+      "answerability": true,
+      "critical_failures": []
+    },
+    {
+      "case_id": "kathy-beale-profile",
+      "response_sha256": "5162b6ff2df0f4175bd07c40534bcba261db256203d5a26e506822acbf239697",
+      "reference_sha256": "ef64eabfe3168fcebddcba87a892f7c4e1b21e7c2f9e61d80c7fe16cefb0179c",
+      "reviewer": "Codex source/response inspection, 17 October 2026; independently rechecked by Spec reviewer",
+      "rationale": "Read actual answer and citation against retained source and assembled context. Each listed assertion is explicit in the cited passage; first-person Phil wording preserves the same fact. No human or independent canon verification claimed.",
+      "claims": [
+        {
+          "claim": "Kathy worked as a barmaid with Angie Watts at The Queen Victoria.",
+          "correct": true,
+          "grounded": true,
+          "citation_supported": true
+        }
+      ],
+      "required_facts": [
+        {
+          "fact": "Kathy worked in The Queen Victoria.",
+          "covered": true
+        }
+      ],
+      "answerability": true,
+      "critical_failures": []
+    },
+    {
+      "case_id": "cindy-beale-profile",
+      "response_sha256": "5a0e89f9c9e721ec0e7aa167b0cdb475868dbd40a30a9a47946ca0660dc1bc0a",
+      "reference_sha256": "4d1e1728b5b7f261d73c2e0a09b9894e6d102d835ac2cb24f5f652d03941ae30",
+      "reviewer": "Codex source/response inspection, 17 October 2026; independently rechecked by Spec reviewer",
+      "rationale": "Read actual answer and citation against retained source and assembled context. Each listed assertion is explicit in the cited passage; first-person Phil wording preserves the same fact. No human or independent canon verification claimed.",
+      "claims": [
+        {
+          "claim": "Cindy sold hats on her mother\u2019s market stall when she first arrived.",
+          "correct": true,
+          "grounded": true,
+          "citation_supported": true
+        }
+      ],
+      "required_facts": [
+        {
+          "fact": "Cindy sold hats.",
+          "covered": true
+        }
+      ],
+      "answerability": true,
+      "critical_failures": []
+    },
+    {
+      "case_id": "lucy-beale-profile",
+      "response_sha256": "0e329d2a736b9fb3180c592eb73b745d093d86d3b4f5cdd7d18097ba85af57d6",
+      "reference_sha256": "6692047973b17d8e8b69e90c59dbfb60c31f0f38aee1c173229755305e9d946e",
+      "reviewer": "Codex source/response inspection, 17 October 2026; independently rechecked by Spec reviewer",
+      "rationale": "Read actual answer and citation against retained source and assembled context. Each listed assertion is explicit in the cited passage; first-person Phil wording preserves the same fact. No human or independent canon verification claimed.",
+      "claims": [
+        {
+          "claim": "Lucy\u2019s twin brother is Peter Beale.",
+          "correct": true,
+          "grounded": true,
+          "citation_supported": true
+        }
+      ],
+      "required_facts": [
+        {
+          "fact": "Peter Beale is Lucy\u2019s twin brother.",
+          "covered": true
+        }
+      ],
+      "answerability": true,
+      "critical_failures": []
+    },
+    {
+      "case_id": "bobby-beale-profile",
+      "response_sha256": "25fa42c5dfb8372682f3d29adc15c96c006bcce6b553bda4c679a9698d02982a",
+      "reference_sha256": "c4ae56e86bf7957e5a96158a7a14d29f757e74c4fa2f80dd49579703624d515a",
+      "reviewer": "Codex source/response inspection, 17 October 2026; independently rechecked by Spec reviewer",
+      "rationale": "Read actual answer and citation against retained source and assembled context. Each listed assertion is explicit in the cited passage; first-person Phil wording preserves the same fact. No human or independent canon verification claimed.",
+      "claims": [
+        {
+          "claim": "Ian is proved to be Bobby\u2019s father when Bobby needs a blood transfusion.",
+          "correct": true,
+          "grounded": true,
+          "citation_supported": true
+        }
+      ],
+      "required_facts": [
+        {
+          "fact": "Ian Beale is established as Bobby\u2019s father.",
+          "covered": true
+        }
+      ],
+      "answerability": true,
+      "critical_failures": []
+    },
+    {
+      "case_id": "martin-fowler-profile",
+      "response_sha256": "23810c01577d28acacd51143882af729881929dc6be0a375a0a37e4068925243",
+      "reference_sha256": "5070bf23839a48ac1f39df29b3612c61461fc45cd150d242efe8afa55677d837",
+      "reviewer": "Codex source/response inspection, 17 October 2026; independently rechecked by Spec reviewer",
+      "rationale": "Read actual answer and citation against retained source and assembled context. Each listed assertion is explicit in the cited passage; first-person Phil wording preserves the same fact. No human or independent canon verification claimed.",
+      "claims": [
+        {
+          "claim": "Gastroenteritis postponed Martin\u2019s first christening.",
+          "correct": true,
+          "grounded": true,
+          "citation_supported": true
+        }
+      ],
+      "required_facts": [
+        {
+          "fact": "Gastroenteritis postponed Martin\u2019s christening.",
+          "covered": true
+        }
+      ],
+      "answerability": true,
+      "critical_failures": []
+    },
+    {
+      "case_id": "kat-slater-profile",
+      "response_sha256": "500012a8816a317900d0f1f6dda0b4ae97915a92dabed28f283caf2613120b74",
+      "reference_sha256": "2a2aa6b5636d5b4d0be1495fa369cc220a321a15d3fce8e8fd3890b56d0786e4",
+      "reviewer": "Codex source/response inspection, 17 October 2026; independently rechecked by Spec reviewer",
+      "rationale": "Read actual answer and citation against retained source and assembled context. Each listed assertion is explicit in the cited passage; first-person Phil wording preserves the same fact. No human or independent canon verification claimed.",
+      "claims": [
+        {
+          "claim": "Kat\u2019s father is Charlie Slater.",
+          "correct": true,
+          "grounded": true,
+          "citation_supported": true
+        }
+      ],
+      "required_facts": [
+        {
+          "fact": "Charlie Slater is Kat\u2019s father.",
+          "covered": true
+        }
+      ],
+      "answerability": true,
+      "critical_failures": []
+    },
+    {
+      "case_id": "stacey-slater-profile",
+      "response_sha256": "58e3594b88cd7068c6a70ce532ee69ea20454f7e1c1f77e6cb70aae0b819697c",
+      "reference_sha256": "2491844193102993ad3af9087ee6459aaede9ee5e62c0485db72b2a6055dfa1b",
+      "reviewer": "Codex source/response inspection, 17 October 2026; independently rechecked by Spec reviewer",
+      "rationale": "Read actual answer and citation against retained source and assembled context. Each listed assertion is explicit in the cited passage; first-person Phil wording preserves the same fact. No human or independent canon verification claimed.",
+      "claims": [
+        {
+          "claim": "Stacey\u2019s father was Brian.",
+          "correct": true,
+          "grounded": true,
+          "citation_supported": true
+        },
+        {
+          "claim": "Brian died when Stacey was eleven.",
+          "correct": true,
+          "grounded": true,
+          "citation_supported": true
+        }
+      ],
+      "required_facts": [
+        {
+          "fact": "Stacey\u2019s father was Brian.",
+          "covered": true
+        }
+      ],
+      "answerability": true,
+      "critical_failures": []
+    },
+    {
+      "case_id": "alfie-moon-profile",
+      "response_sha256": "6c0961a53174ded542485c687691beb868e41cec893aca7d9dd55415a7c903a6",
+      "reference_sha256": "a8d345c1a35164dfbe7c59a20922a9793fe22f15cfab1f0c22a28e0efa63cb24",
+      "reviewer": "Codex source/response inspection, 17 October 2026; independently rechecked by Spec reviewer",
+      "rationale": "Read actual answer and citation against retained source and assembled context. Each listed assertion is explicit in the cited passage; first-person Phil wording preserves the same fact. No human or independent canon verification claimed.",
+      "claims": [
+        {
+          "claim": "Alfie was ejected from Walford East tube station for fare evasion.",
+          "correct": true,
+          "grounded": true,
+          "citation_supported": true
+        }
+      ],
+      "required_facts": [
+        {
+          "fact": "Alfie was ejected for fare evasion.",
+          "covered": true
+        }
+      ],
+      "answerability": true,
+      "critical_failures": []
+    },
+    {
+      "case_id": "pat-butcher-profile",
+      "response_sha256": "26dc6f4d4f46887e1dc2aa2444ad382f743089877867ff6f14a3ac4d5a69e3af",
+      "reference_sha256": "4ff5d3e3f8a1981292d0d484ea6d96f06541aac69420d0942672920a29917069",
+      "reviewer": "Codex source/response inspection, 17 October 2026; independently rechecked by Spec reviewer",
+      "rationale": "Read actual answer and citation against retained source and assembled context. Each listed assertion is explicit in the cited passage; first-person Phil wording preserves the same fact. No human or independent canon verification claimed.",
+      "claims": [
+        {
+          "claim": "Pat\u2019s sister was Joan.",
+          "correct": true,
+          "grounded": true,
+          "citation_supported": true
+        }
+      ],
+      "required_facts": [
+        {
+          "fact": "Pat\u2019s sister was Joan.",
+          "covered": true
+        }
+      ],
+      "answerability": true,
+      "critical_failures": []
+    },
+    {
+      "case_id": "janine-butcher-profile",
+      "response_sha256": "549ac6e4a19aba3d2b48709c8d093698f74e4f1f30ddce19d0278b93a1577297",
+      "reference_sha256": "63be00c09e3945d325d116b92105dd7d207d5566f7bda21097ac3133cc8e2c3a",
+      "reviewer": "Codex source/response inspection, 17 October 2026; independently rechecked by Spec reviewer",
+      "rationale": "The globally answerable fact is absent from actual context: selected Janine paragraph is rank 3 and dropped by the whole-span budget. Safe abstention is appropriate to supplied context, but the required fact and end-to-end reference outcome are missed. Retain as retrieval/context failure, not an answer-generation success.",
+      "claims": [],
+      "required_facts": [
+        {
+          "fact": "Janine stayed with Pat.",
+          "covered": false
+        }
+      ],
+      "answerability": true,
+      "critical_failures": []
+    },
+    {
+      "case_id": "dot-cotton-profile",
+      "response_sha256": "1999fda33d6e226534dbcd7c84d55827cb400d62cf4570fcad65d2ad5c86477b",
+      "reference_sha256": "6c03e88bc81689c64f16b7989633402d0e21e7f51071cd076387e11d0356d519",
+      "reviewer": "Codex source/response inspection, 17 October 2026; independently rechecked by Spec reviewer",
+      "rationale": "Read actual answer and citation against retained source and assembled context. Each listed assertion is explicit in the cited passage; first-person Phil wording preserves the same fact. No human or independent canon verification claimed.",
+      "claims": [
+        {
+          "claim": "Dot was evacuated to Wales as a child during World War II.",
+          "correct": true,
+          "grounded": true,
+          "citation_supported": true
+        }
+      ],
+      "required_facts": [
+        {
+          "fact": "Dot was evacuated to Wales.",
+          "covered": true
+        }
+      ],
+      "answerability": true,
+      "critical_failures": []
+    },
+    {
+      "case_id": "denise-fox-profile",
+      "response_sha256": "a0ecdca7db6a8ce90bb1103fe68f89c4ac3990f524db07b9819e713f1860484a",
+      "reference_sha256": "5be9dc63d411a50837377ebbeb47ea691bc6e9bc280ed9cdefd8b6ed2d5c1764",
+      "reviewer": "Codex source/response inspection, 17 October 2026; independently rechecked by Spec reviewer",
+      "rationale": "Read actual answer and citation against retained source and assembled context. Each listed assertion is explicit in the cited passage; first-person Phil wording preserves the same fact. No human or independent canon verification claimed.",
+      "claims": [
+        {
+          "claim": "The DNA test establishes Patrick is not Denise\u2019s biological father.",
+          "correct": true,
+          "grounded": true,
+          "citation_supported": true
+        }
+      ],
+      "required_facts": [
+        {
+          "fact": "The DNA test establishes that Patrick is not Denise\u2019s biological father.",
+          "covered": true
+        }
+      ],
+      "answerability": true,
+      "critical_failures": []
+    },
+    {
+      "case_id": "max-branning-profile",
+      "response_sha256": "f3271cb6b37e36b1b47353b7662db1c6652edb433e22ea20c5b3dcc18633f7fa",
+      "reference_sha256": "9c84e0941954cdf8cbd3d4db2e02b2995df293c5a99ae08e7525eaa4d30e1167",
+      "reviewer": "Codex source/response inspection, 17 October 2026; independently rechecked by Spec reviewer",
+      "rationale": "Read actual answer and citation against retained source and assembled context. Each listed assertion is explicit in the cited passage; first-person Phil wording preserves the same fact. No human or independent canon verification claimed.",
+      "claims": [
+        {
+          "claim": "Max reunited with his son Bradley when he arrived in Walford in 2006.",
+          "correct": true,
+          "grounded": true,
+          "citation_supported": true
+        }
+      ],
+      "required_facts": [
+        {
+          "fact": "Max reunited with Bradley.",
+          "covered": true
+        }
+      ],
+      "answerability": true,
+      "critical_failures": []
+    },
+    {
+      "case_id": "linda-carter-profile",
+      "response_sha256": "e84f25e559b0640619fae962fb697ac0fa5c18f56b7fd7af382f4a5350d71998",
+      "reference_sha256": "a42ccf8ba6a28f3374ffbc63c5aac40a2a8ae9df240f003bb575311076d3aa96",
+      "reviewer": "Codex source/response inspection, 17 October 2026; independently rechecked by Spec reviewer",
+      "rationale": "Read actual answer and citation against retained source and assembled context. Each listed assertion is explicit in the cited passage; first-person Phil wording preserves the same fact. No human or independent canon verification claimed.",
+      "claims": [
+        {
+          "claim": "Linda\u2019s partner was Mick Carter.",
+          "correct": true,
+          "grounded": true,
+          "citation_supported": true
+        }
+      ],
+      "required_facts": [
+        {
+          "fact": "Linda\u2019s partner was Mick Carter.",
+          "covered": true
+        }
+      ],
+      "answerability": true,
+      "critical_failures": []
+    },
+    {
+      "case_id": "janine-family-therapy",
+      "response_sha256": "31fe6d947bf6d0a5ceb3ac40053e1dbec7b57c9e76a510318172087ec4d8bed5",
+      "reference_sha256": "c0fe40ccd05fe06a5a70145e340baa84e9c9f0329a84986c84a34840b9b05d0a",
+      "reviewer": "Codex source/response inspection, 17 October 2026; independently rechecked by Spec reviewer",
+      "rationale": "Read actual answer and citation against retained source and assembled context. Each listed assertion is explicit in the cited passage; first-person Phil wording preserves the same fact. No human or independent canon verification claimed.",
+      "claims": [
+        {
+          "claim": "Pat forced Frank to take Janine to family therapy.",
+          "correct": true,
+          "grounded": true,
+          "citation_supported": true
+        }
+      ],
+      "required_facts": [
+        {
+          "fact": "Pat forced Frank to take Janine to family therapy.",
+          "covered": true
+        }
+      ],
+      "answerability": true,
+      "critical_failures": []
+    },
+    {
+      "case_id": "cross-ben-parents",
+      "response_sha256": "21ea14d29d47ca6a10ccb0ea3a1330b2bc355841434279d7fea47547a1ba09c3",
+      "reference_sha256": "04dbfc70291380fefb36ee4c744e8651f40c5a498851ddfaeeaa1479bfcd2f79",
+      "reviewer": "Codex source/response inspection, 17 October 2026; independently rechecked by Spec reviewer",
+      "rationale": "Read actual answer and citation against retained source and assembled context. Each listed assertion is explicit in the cited passage; first-person Phil wording preserves the same fact. No human or independent canon verification claimed.",
+      "claims": [
+        {
+          "claim": "Phil Mitchell and Kathy Beale are Ben\u2019s parents.",
+          "correct": true,
+          "grounded": true,
+          "citation_supported": true
+        }
+      ],
+      "required_facts": [
+        {
+          "fact": "Phil Mitchell and Kathy Beale are Ben\u2019s parents.",
+          "covered": true
+        }
+      ],
+      "answerability": true,
+      "critical_failures": []
+    },
+    {
+      "case_id": "cross-mitchell-garage",
+      "response_sha256": "3f4075334000af555b27e5f57232f26d111baca325e517b5d56130279d4a0c66",
+      "reference_sha256": "0a7d1045f95ebc9d9ea9a331c40fb7f134811bbf74c3d791bb775f8a8af5eddb",
+      "reviewer": "Codex source/response inspection, 17 October 2026; independently rechecked by Spec reviewer",
+      "rationale": "Phil\u2019s cited passage supports the garage name, his opening it and Grant joining him; all actual assertions are correct and grounded. It does not explicitly establish co-ownership. Conservatively mark the full frozen co-ownership fact uncovered and preserve selected-context failure; do not substitute the weaker answer for that complete reference requirement.",
+      "claims": [
+        {
+          "claim": "The named garage is The Arches.",
+          "correct": true,
+          "grounded": true,
+          "citation_supported": true
+        },
+        {
+          "claim": "Phil arrived in Walford to open the repair shop.",
+          "correct": true,
+          "grounded": true,
+          "citation_supported": true
+        },
+        {
+          "claim": "Grant joined Phil.",
+          "correct": true,
+          "grounded": true,
+          "citation_supported": true
+        }
+      ],
+      "required_facts": [
+        {
+          "fact": "Phil and Grant co-owned The Arches.",
+          "covered": false
+        }
+      ],
+      "answerability": true,
+      "critical_failures": []
+    },
+    {
+      "case_id": "phil-mitchell-missing",
+      "response_sha256": "719b339477c198528b4f3e1c80e77dffef49f30cce2188bceed6a4065ecc0da9",
+      "reference_sha256": "c32ec9b7fb17e30312d25bab023d553c67496476d01db9bade5fa9b11ade42d3",
+      "reviewer": "Codex source/response inspection, 17 October 2026; independently rechecked by Spec reviewer",
+      "rationale": "The actual supplied context contains no requested identifier. Response qualifies this as lack of captured evidence, not a negative canon assertion; it abstains without padding or citations. Correct outcome; factual claim/completeness denominators remain unavailable.",
+      "claims": [],
+      "required_facts": [],
+      "answerability": true,
+      "critical_failures": []
+    },
+    {
+      "case_id": "linda-carter-missing",
+      "response_sha256": "a9e9e273344c62aaa80e9f31ee6423ad8eeb21e81627f2f3eeb2e81c5d5b83ac",
+      "reference_sha256": "7dad87e39c91c64c0e906d4dafab1f70c26d559a961f7ae712286b930beaa693",
+      "reviewer": "Codex source/response inspection, 17 October 2026; independently rechecked by Spec reviewer",
+      "rationale": "The actual supplied context contains no requested identifier. Response qualifies this as lack of captured evidence, not a negative canon assertion; it abstains without padding or citations. Correct outcome; factual claim/completeness denominators remain unavailable.",
+      "claims": [],
+      "required_facts": [],
+      "answerability": true,
+      "critical_failures": []
+    }
+  ]
+}

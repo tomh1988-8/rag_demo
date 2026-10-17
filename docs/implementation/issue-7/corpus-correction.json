@@ -1,0 +1,112 @@
+{
+  "reason": "Independent Spec review found daughter links falsely attributed to mother through ambiguous alias. V2 removes that alias without adding a family-specific code path.",
+  "before_batch_sha256": "b14f97f00cc14b51e6eb8a89958d875c33a24bb94b43c226e3efd84cfca3a5c7",
+  "after_batch_sha256": "1cebb5169b4f36b12f900e3d73f43b4c483c6903b02a566c8f8dee96e5eba457",
+  "before_plan": "data/sources/core-profiles-plan-v1.json",
+  "after_plan": "data/sources/core-profiles-plan-v2.json",
+  "unchanged_captures": [
+    {
+      "source_id": "phil-mitchell-wiki",
+      "sha256": "a338d3065203be54e383f2c9c141bca22ae9aedbb950e2e1eada601bcccfe313",
+      "captured_at": "2026-10-17T13:07:31.014189+00:00"
+    },
+    {
+      "source_id": "grant-mitchell-wiki",
+      "sha256": "2548b2c8780b1bda430939378a28ab3b7f98eca424480b7cccfaf2eb76f42ebf",
+      "captured_at": "2026-10-17T13:08:22.582778+00:00"
+    },
+    {
+      "source_id": "peggy-mitchell-wiki",
+      "sha256": "d777ce7a2fffc8e7cb1da6ccd3a87aca45590147a348b5ef5eb6361fb685cacb",
+      "captured_at": "2026-10-17T13:07:31.253971+00:00"
+    },
+    {
+      "source_id": "sharon-watts-wiki",
+      "sha256": "9ccef3de99353ff737101d9d00561c217608dd4fa6fba0c8200f80ac0114ea85",
+      "captured_at": "2026-10-17T13:07:31.327518+00:00"
+    },
+    {
+      "source_id": "ben-mitchell-wiki",
+      "sha256": "8ae0fbabb19cf12b2bdf46d7a85e15eea4462b8559584c770224a54a9e47d128",
+      "captured_at": "2026-10-17T13:07:31.530421+00:00"
+    },
+    {
+      "source_id": "ian-beale-wiki",
+      "sha256": "1a2acfeb93556aa93a0cece8f32be2aba0165b09b383b11d55d823b5b9c4f2fd",
+      "captured_at": "2026-10-17T13:07:31.584616+00:00"
+    },
+    {
+      "source_id": "kathy-beale-wiki",
+      "sha256": "f62a3a5df813c271597fbb984c405ecbd43c08ccd6d863cd7bb4f7c3a184b2c5",
+      "captured_at": "2026-10-17T13:07:31.789877+00:00"
+    },
+    {
+      "source_id": "cindy-beale-wiki",
+      "sha256": "a6f18a70890f11a9fae1e53f9a7779598b48241fffc0341cbf9c05b1d6631626",
+      "captured_at": "2026-10-17T13:07:31.847644+00:00"
+    },
+    {
+      "source_id": "lucy-beale-wiki",
+      "sha256": "9936ed0d7447cbd3d2ecd1c57897adc9d6eada5b4bf9c9a9644cf08a09af3109",
+      "captured_at": "2026-10-17T13:07:32.327559+00:00"
+    },
+    {
+      "source_id": "bobby-beale-wiki",
+      "sha256": "e88dce74d995d7b4eddcf67a34199d41b8b3cfb1033480df16387788fc3527f0",
+      "captured_at": "2026-10-17T13:08:22.656156+00:00"
+    },
+    {
+      "source_id": "martin-fowler-wiki",
+      "sha256": "b4ad40a6df4c4033d8f33d08e9d06d260b20bb285b9121fbbf4d9cc2634a331d",
+      "captured_at": "2026-10-17T13:07:33.007379+00:00"
+    },
+    {
+      "source_id": "kat-slater-wiki",
+      "sha256": "f3852a9f1c3fa3f0c254f123fa8ed739d6f6a4388eb5f19c7de975858a537bd7",
+      "captured_at": "2026-10-17T13:07:33.048959+00:00"
+    },
+    {
+      "source_id": "stacey-slater-wiki",
+      "sha256": "ace10a05bd4b522f599fd8a463295c9238e55c992a94e7f364132f61c2ec896b",
+      "captured_at": "2026-10-17T13:07:33.108719+00:00"
+    },
+    {
+      "source_id": "alfie-moon-wiki",
+      "sha256": "4a370be846519594e9a393e031129532257645f67c15b41dc9837a27c4ee4308",
+      "captured_at": "2026-10-17T13:07:33.172953+00:00"
+    },
+    {
+      "source_id": "pat-butcher-wiki",
+      "sha256": "3d3cccb3f94e0904f3aa96316665b70df7bbf096054e15c36a8609f22535caed",
+      "captured_at": "2026-10-17T13:07:33.232513+00:00"
+    },
+    {
+      "source_id": "janine-butcher-wiki",
+      "sha256": "1edd6bcd906c84e4ebd9f78235ea8857ad1a117e67475baf675dd7b51fa56eb8",
+      "captured_at": "2026-10-17T13:07:34.191734+00:00"
+    },
+    {
+      "source_id": "dot-cotton-wiki",
+      "sha256": "e2defd4dcd1e52942e636b02e701b9e42e9d4b2c346cfd675fe4def8aa61574b",
+      "captured_at": "2026-10-17T13:07:34.598847+00:00"
+    },
+    {
+      "source_id": "denise-fox-wiki",
+      "sha256": "2545a525bd8f3338a51ed788e0c88658b60503df4a025557ff78ef046168476c",
+      "captured_at": "2026-10-17T13:07:34.640123+00:00"
+    },
+    {
+      "source_id": "max-branning-wiki",
+      "sha256": "48c3bdd9d5f7110e9cbcd9e6cbc7f32970c519fee14c1a32b231b42c639dc615",
+      "captured_at": "2026-10-17T13:07:34.684245+00:00"
+    },
+    {
+      "source_id": "linda-carter-wiki",
+      "sha256": "ae80ce98997723c92e8985e2710c8f7eccf92ed6703b79ee6099a29999b9f7a6",
+      "captured_at": "2026-10-17T13:07:34.761741+00:00"
+    }
+  ],
+  "final_snapshot_id": "sources-b5bf51ce2c754a5c349834cc87954524d6c89cb20e38fcdafeea815b0760212e",
+  "final_snapshot_sha256": "f654d98336a75ac96ff8a38c4213429f1800775f73169811387560020dd9f218",
+  "reconstruction": "Rebuild the initial SourceBatch using captures from core-profiles-v2.json.gz and catalogue/policies from core-profiles-plan-v1.json; model_dump_json plus gzip.compress(mtime=0) reproduces the original batch. The raw captures are identical, so a redundant binary is not published."
+}

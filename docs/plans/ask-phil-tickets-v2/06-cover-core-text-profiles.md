@@ -1,6 +1,6 @@
 # 06: Answer from all 20 core character profiles
 
-Status: approved and published as [GitHub #7](https://github.com/tomh1988-8/rag_demo/issues/7), labelled ready-for-agent; body and label verified on 23 September 2026. Plan version: 2. Implementation has not started.
+Status: implemented and independently reviewed for [GitHub #7](https://github.com/tomh1988-8/rag_demo/issues/7), awaiting exact-tree GitHub publication and closure. [Acceptance evidence](../../implementation/issue-7/README.md) records 149 passing tests, sourced API/CLI success for all 20 core profiles, the 25-case live matrix and retained context-coverage failures. Plan version: 2.
 
 Spec stories: S05, S11, S12, S13, S14, S15, S16, S19, S38, S41, S42, S55, S56, S57, S62, S64, S76, S80, S86, S88. Checklist evidence owner for: AD-03.4, RAG-01.
 
@@ -16,13 +16,13 @@ Use the established import and text-answer paths for the complete agreed roster 
 
 ## Acceptance criteria
 
-- [ ] Process Phil Mitchell, Grant Mitchell, Peggy Mitchell, Sharon Watts, Ben Mitchell, Ian Beale, Kathy Beale, Cindy Beale, Lucy Beale, Bobby Beale, Martin Fowler, Kat Slater, Stacey Slater, Alfie Moon, Pat Butcher, Janine Butcher, Dot Cotton, Denise Fox, Max Branning and Linda Carter through the same import process.
-- [ ] Include evidenced supporting characters and relevant earlier history without expanding the definition of the curated core roster. Record this as a prominence-based selection, not a proven ranking or exhaustive canon.
-- [ ] Produce a per-character inventory of captured sources, identity resolution, relevant content retention, source-check dates, known coverage and gaps. Examine duplicates and inconsistent accounts across pages; a recent fetch alone does not establish current storyline completeness.
-- [ ] Through the API and CLI, demonstrate at least one independently reviewed sourced question for each core profile and representative cross-profile and missing-evidence cases. Measure retrieval/context sufficiency on these cases without claiming exhaustive character histories.
-- [ ] Use bounded, restartable import batches under configured limits. Reuse the generic pipeline so adding a further character does not require a family-specific code path.
-- [ ] Expand reviewed cases with stable story-event groups before splitting overlapping biographies or paraphrases. Keep deterministic fixture/integration checks separate from budgeted real-source/model results and publish failures alongside coverage.
-- [ ] Record applicable checklist results and revision-linked evidence in the project register, including failures, limitations and follow-up regressions. A documented plan alone does not pass an implementation check.
+- [x] Process Phil Mitchell, Grant Mitchell, Peggy Mitchell, Sharon Watts, Ben Mitchell, Ian Beale, Kathy Beale, Cindy Beale, Lucy Beale, Bobby Beale, Martin Fowler, Kat Slater, Stacey Slater, Alfie Moon, Pat Butcher, Janine Butcher, Dot Cotton, Denise Fox, Max Branning and Linda Carter through the same import process.
+- [x] Include evidenced supporting characters and relevant earlier history without expanding the definition of the curated core roster. Record this as a prominence-based selection, not a proven ranking or exhaustive canon.
+- [x] Produce a per-character inventory of captured sources, identity resolution, relevant content retention, source-check dates, known coverage and gaps. Examine duplicates and inconsistent accounts across pages; a recent fetch alone does not establish current storyline completeness.
+- [x] Through the API and CLI, demonstrate at least one independently reviewed sourced question for each core profile and representative cross-profile and missing-evidence cases. Measure retrieval/context sufficiency on these cases without claiming exhaustive character histories.
+- [x] Use bounded, restartable import batches under configured limits. Reuse the generic pipeline so adding a further character does not require a family-specific code path.
+- [x] Expand reviewed cases with stable story-event groups before splitting overlapping biographies or paraphrases. Keep deterministic fixture/integration checks separate from budgeted real-source/model results and publish failures alongside coverage.
+- [x] Record applicable checklist results and revision-linked evidence in the project register, including failures, limitations and follow-up regressions. A documented plan alone does not pass an implementation check.
 
 ## Checklist evidence
 
