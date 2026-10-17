@@ -1,19 +1,32 @@
 """Exercise the evaluation CLI's public lineage guard without calling a model."""
 
+import hashlib
 import json
 import subprocess
 import sys
 from pathlib import Path
 
+import pytest
 
-def test_evaluation_cli_rejects_a_review_of_a_different_response(tmp_path: Path) -> None:
+
+@pytest.mark.parametrize(
+    "script", ["evaluate_answer_policy.py", "evaluate_text_corpus.py", "evaluate_conversation.py"]
+)
+def test_evaluation_cli_rejects_a_review_of_a_different_response(
+    tmp_path: Path, script: str
+) -> None:
     capture = tmp_path / "capture.json"
     reviews = tmp_path / "reviews.json"
     output = tmp_path / "scores.json"
+    references = tmp_path / "references.json"
+    references.write_text(
+        json.dumps({"cases": [{"case_id": "changed", "required_facts": ["A fact"]}]})
+    )
     capture.write_text(
         json.dumps(
             {
                 "state": "complete",
+                "reference_file_sha256": hashlib.sha256(references.read_bytes()).hexdigest(),
                 "cases": [
                     {
                         "reference": {"case_id": "changed", "required_facts": ["A fact"]},
@@ -44,7 +57,7 @@ def test_evaluation_cli_rejects_a_review_of_a_different_response(tmp_path: Path)
     result = subprocess.run(
         [
             sys.executable,
-            "scripts/evaluate_answer_policy.py",
+            "scripts/" + script,
             "score",
             "--capture",
             str(capture),
@@ -52,6 +65,8 @@ def test_evaluation_cli_rejects_a_review_of_a_different_response(tmp_path: Path)
             str(reviews),
             "--output",
             str(output),
+            "--references",
+            str(references),
         ],
         capture_output=True,
         text=True,

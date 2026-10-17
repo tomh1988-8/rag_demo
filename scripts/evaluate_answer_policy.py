@@ -4,7 +4,7 @@ import argparse
 import hashlib
 import json
 import os
-from datetime import UTC, datetime
+from functools import partial
 from pathlib import Path
 from typing import Any
 
@@ -13,12 +13,9 @@ from mlflow import MlflowClient
 from ask_phil.answering import AnswerService, application_fingerprint
 from ask_phil.answers import AskRequest
 from ask_phil.evaluation import (
-    QualityReview,
-    log_review_metrics,
-    score_captured_answer,
-)
-from ask_phil.evaluation import (
-    document_fingerprint as fingerprint,
+    EvaluationRun,
+    EvaluationTracking,
+    review_capture,
 )
 from ask_phil.evidence import SourceSnapshot
 from ask_phil.models import Models
@@ -26,11 +23,6 @@ from ask_phil.openrouter import OpenRouterChat
 from ask_phil.storage import EvidenceStore
 
 REFERENCE = Path("data/references/answer-policy-v2.json")
-
-
-def save(path: Path, document: Any) -> None:
-    path.parent.mkdir(parents=True, exist_ok=True)
-    path.write_text(json.dumps(document, indent=2, ensure_ascii=True) + "\n")
 
 
 def capture(output: Path, case_ids: list[str], limit: int) -> None:
@@ -59,24 +51,7 @@ def capture(output: Path, case_ids: list[str], limit: int) -> None:
         if snapshot.snapshot_id in {case["snapshot_id"] for case in cases}:
             EvidenceStore(database).load(snapshot)
             index_traces.append(service.prepare(snapshot.snapshot_id))
-    experiment = service.tracking.get_experiment_by_name("ask-phil-offline_evaluation")
-    experiment_id = (
-        experiment.experiment_id
-        if experiment
-        else service.tracking.create_experiment(
-            "ask-phil-offline_evaluation",
-            artifact_location=Path("artifacts/mlflow").resolve().as_uri(),
-        )
-    )
-    run = service.tracking.create_run(
-        experiment_id,
-        tags={
-            "kind": "answer-policy-development-smoke",
-            "expenditure_category": "offline_evaluation",
-        },
-    )
     document: dict[str, Any] = {
-        "recorded_at": datetime.now(UTC).isoformat(),
         "kind": "provider-development-smoke"
         if isinstance(models.llm, OpenRouterChat)
         else "local-development-smoke",
@@ -85,10 +60,8 @@ def capture(output: Path, case_ids: list[str], limit: int) -> None:
             " or independently corroborated canon claim. Reviews are separate from generated "
             "answers."
         ),
-        "run_id": run.info.run_id,
         "index_trace_ids": index_traces,
         "application_sha256": application_fingerprint(),
-        "reference_file_sha256": hashlib.sha256(REFERENCE.read_bytes()).hexdigest(),
         "lock_sha256": hashlib.sha256(Path("uv.lock").read_bytes()).hexdigest(),
         "model_settings": models.settings.model_dump(mode="json"),
         "budget": {
@@ -98,12 +71,24 @@ def capture(output: Path, case_ids: list[str], limit: int) -> None:
             "shared_trial_limit_usd": 5 if isinstance(models.llm, OpenRouterChat) else None,
             "retries": 0,
         },
-        "cases": [],
-        "state": "running",
     }
-    save(output, document)
-    try:
-        for case in cases:
+    tracking = EvaluationTracking(
+        service.tracking,
+        "ask-phil-offline_evaluation",
+        {
+            "kind": "answer-policy-development-smoke",
+            "expenditure_category": "offline_evaluation",
+        },
+    )
+    with EvaluationRun(
+        output,
+        REFERENCE,
+        [case["case_id"] for case in cases],
+        metadata=document,
+        tracking=tracking,
+    ) as run:
+
+        def execute(case: dict[str, Any]) -> dict[str, Any]:
             receipt = service.ask(
                 AskRequest(snapshot_id=case["snapshot_id"], question=case["question"]),
                 category="offline_evaluation",
@@ -111,72 +96,39 @@ def capture(output: Path, case_ids: list[str], limit: int) -> None:
             response = receipt.response.model_dump(mode="json")
             if receipt.response.provider_usage:
                 document["budget"]["paid_api_calls"] += 1
+            run.annotate(budget=document["budget"])
             trace = service.tracking.get_trace(receipt.response.trace_id, flush=True)
-            document["cases"].append(
-                {
-                    "reference": case,
-                    "reference_sha256": fingerprint(case),
-                    "response": response,
-                    "response_sha256": fingerprint(response),
-                    "trace": trace.to_dict(),
-                }
-            )
-            save(output, document)
+            return {"response": response, "trace": trace.to_dict()}
+
+        for case in cases:
+            row = run.capture(case["case_id"], partial(execute, case))
+            response = row["response"]
             print(
                 f"{case['case_id']}: {response['status']} ({response['elapsed_ms']:.0f} ms)",
                 flush=True,
             )
-        document["state"] = "complete"
-        save(output, document)
-        for key in ("application_sha256", "reference_file_sha256", "lock_sha256"):
-            service.tracking.log_param(run.info.run_id, key, document[key])
-        service.tracking.log_artifact(run.info.run_id, str(output))
-        service.tracking.set_terminated(run.info.run_id)
-    except BaseException:
-        document["state"] = "failed"
-        save(output, document)
-        service.tracking.set_terminated(run.info.run_id, status="FAILED")
-        raise
 
 
-def score(capture_path: Path, reviews_path: Path, output: Path) -> None:
-    document = json.loads(capture_path.read_text())
-    reviews = [
-        QualityReview.model_validate(r) for r in json.loads(reviews_path.read_text())["reviews"]
-    ]
-    rows = {row["reference"]["case_id"]: row for row in document["cases"]}
-    if (
-        document["state"] != "complete"
-        or len(reviews) != len(rows)
-        or {r.case_id for r in reviews} != rows.keys()
-    ):
-        raise ValueError("Review must cover every case exactly once in a completed capture.")
-    results = []
-    for review in reviews:
-        row = rows[review.case_id]
-        results.append(
-            score_captured_answer(
-                review, row["response"], row["reference"], tuple(row["reference"]["required_facts"])
-            )
-        )
-    result = {
-        "capture_sha256": hashlib.sha256(capture_path.read_bytes()).hexdigest(),
-        "review_sha256": hashlib.sha256(reviews_path.read_bytes()).hexdigest(),
-        "run_id": document["run_id"],
-        "scorer": "reviewed-binary-dimensions-v1",
-        "cases": [r.model_dump(mode="json") for r in results],
-    }
+def score(
+    capture_path: Path, reviews_path: Path, output: Path, references: Path = REFERENCE
+) -> None:
     client = MlflowClient(
         tracking_uri=os.environ.get("MLFLOW_TRACKING_URI", "sqlite:///artifacts/issue-4-mlflow.db")
     )
-    client.get_run(document["run_id"])
-    log_review_metrics(client, document["run_id"], tuple(results))
-    save(output, result)
-    client.log_artifact(document["run_id"], str(reviews_path))
-    client.log_artifact(document["run_id"], str(output))
+    result = review_capture(
+        capture_path,
+        reviews_path,
+        references,
+        output,
+        tracking=EvaluationTracking(
+            client,
+            "ask-phil-policy-response-review",
+            {"kind": "answer-policy-response-review", "expenditure_category": "offline_evaluation"},
+        ),
+    )
     print(
-        f"Saved separate reviewed dimensions for {len(results)} cases; "
-        f"MLflow run {document['run_id']}"
+        f"Saved separate reviewed dimensions for {len(result['cases'])} cases; "
+        f"MLflow run {result['run_id']}"
     )
 
 
@@ -191,13 +143,14 @@ def main() -> None:
     assess.add_argument("--capture", type=Path, required=True)
     assess.add_argument("--reviews", type=Path, required=True)
     assess.add_argument("--output", type=Path, required=True)
+    assess.add_argument("--references", type=Path, default=REFERENCE)
     args = parser.parse_args()
     if args.output.exists():
         parser.error("Choose a fresh output path; recorded evidence cannot be overwritten.")
     if args.command == "capture":
         capture(args.output, args.case, args.limit)
     else:
-        score(args.capture, args.reviews, args.output)
+        score(args.capture, args.reviews, args.output, args.references)
 
 
 if __name__ == "__main__":

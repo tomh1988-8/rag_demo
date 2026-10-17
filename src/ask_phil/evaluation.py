@@ -1,17 +1,44 @@
-"""Reference-labelled retrieval and assembled-context scoring, independent of model outputs."""
+"""Frozen evaluation runs and independently reviewed answer/retrieval scoring."""
 
 import hashlib
 import json
-from typing import TYPE_CHECKING, Literal
+import os
+import tempfile
+from collections.abc import Callable, Sequence
+from dataclasses import dataclass
+from datetime import UTC, datetime
+from functools import partial
+from pathlib import Path
+from types import TracebackType
+from typing import TYPE_CHECKING, Any, Literal, Self
 
 if TYPE_CHECKING:
     from mlflow import MlflowClient
 
-from pydantic import Field, StrictBool
+from pydantic import Field, StrictBool, TypeAdapter
 
 from ask_phil.evidence import Fingerprint, Identifier, NonEmpty, Record
 
 CriticalFailure = Literal["false_premise", "unsupported_negative", "false_citation"]
+_CASE_IDENTIFIER = TypeAdapter(Identifier)
+_RUN_FIELDS = {
+    "recorded_at",
+    "reference_file_sha256",
+    "case_ids",
+    "cases",
+    "state",
+    "run_id",
+    "failure_type",
+    "tracking_failure_type",
+}
+_CASE_FIELDS = {
+    "case_id",
+    "reference",
+    "reference_sha256",
+    "response_sha256",
+    "state",
+    "failure_type",
+}
 
 
 class ClaimReview(Record):
@@ -61,10 +88,315 @@ class ScoredReview(Record):
     scores: AnswerQuality
 
 
+@dataclass(frozen=True)
+class EvaluationTracking:
+    client: "MlflowClient"
+    experiment: str
+    tags: dict[str, str]
+
+
+class EvaluationRun:
+    """Journal a selected frozen case before executing it, and own run completion."""
+
+    def __init__(
+        self,
+        output: Path,
+        references: Path,
+        case_ids: Sequence[str],
+        *,
+        metadata: dict[str, Any] | None = None,
+        tracking: EvaluationTracking | None = None,
+        artifacts: Sequence[Path] = (),
+    ) -> None:
+        self.output = output
+        self._references, reference_sha256 = _references(references)
+        if (
+            not case_ids
+            or len(set(case_ids)) != len(case_ids)
+            or any(identifier not in self._references for identifier in case_ids)
+        ):
+            raise ValueError("Select unique, known frozen cases for the evaluation.")
+        if _RUN_FIELDS.intersection(metadata or {}):
+            raise ValueError("Run identity and state belong to the evaluation module.")
+        self._references_path = references
+        self._tracking = tracking
+        self._artifacts = (references, *artifacts)
+        self._active = False
+        self._document: dict[str, Any] = {
+            **(metadata or {}),
+            "recorded_at": datetime.now(UTC).isoformat(),
+            "reference_file_sha256": reference_sha256,
+            "recorder_version": "frozen-evaluation-run-v1",
+            "case_ids": list(case_ids),
+            "cases": [],
+            "state": "running",
+        }
+
+    def __enter__(self) -> Self:
+        self.output.parent.mkdir(parents=True, exist_ok=True)
+        with self.output.open("x") as destination:
+            destination.write(json.dumps(self._document, indent=2, ensure_ascii=True) + "\n")
+        try:
+            if self._tracking:
+                client = self._tracking.client
+                experiment = client.get_experiment_by_name(self._tracking.experiment)
+                experiment_id = (
+                    experiment.experiment_id
+                    if experiment
+                    else client.create_experiment(
+                        self._tracking.experiment,
+                        artifact_location=Path("artifacts/mlflow").resolve().as_uri(),
+                    )
+                )
+                self._document["run_id"] = client.create_run(
+                    experiment_id, tags=self._tracking.tags
+                ).info.run_id
+                self._save()
+            self._active = True
+        except BaseException as exc:
+            self._fail(exc)
+            raise
+        return self
+
+    def annotate(self, **metadata: Any) -> None:
+        """Retain measured expenditure and case-specific run metadata."""
+        if not self._active or _RUN_FIELDS.intersection(metadata):
+            raise ValueError("Run identity and state belong to the evaluation module.")
+        self._document.update(metadata)
+        self._save()
+
+    def capture(self, case_id: str, execute: Callable[[], dict[str, Any]]) -> dict[str, Any]:
+        if not self._active or case_id not in self._document["case_ids"]:
+            raise ValueError("Case is not selected for this evaluation run.")
+        if any(row["case_id"] == case_id for row in self._document["cases"]):
+            raise ValueError("Duplicate captured case identifier.")
+        reference = self._references[case_id]
+        row = {
+            "case_id": case_id,
+            "reference": reference,
+            "reference_sha256": document_fingerprint(reference),
+            "state": "attempting",
+        }
+        self._document["cases"].append(row)
+        self._save()
+        try:
+            result = execute()
+            if _CASE_FIELDS.intersection(result):
+                raise ValueError("Case identity and state belong to the evaluation module.")
+            row.update(result)
+            if "response" in row:
+                row["response_sha256"] = document_fingerprint(row["response"])
+            row["state"] = "complete"
+            self._save()
+            return row
+        except BaseException as exc:
+            row.update(state="failed", failure_type=type(exc).__name__)
+            self._save()
+            raise
+
+    def __exit__(
+        self,
+        exc_type: type[BaseException] | None,
+        exc: BaseException | None,
+        traceback: TracebackType | None,
+    ) -> None:
+        self._active = False
+        if exc is not None:
+            self._fail(exc)
+            return
+        try:
+            if _file_fingerprint(self._references_path) != self._document["reference_file_sha256"]:
+                raise ValueError("The frozen references changed during this evaluation.")
+            if [row["case_id"] for row in self._document["cases"]] != self._document[
+                "case_ids"
+            ] or any(row["state"] != "complete" for row in self._document["cases"]):
+                raise ValueError(
+                    "Evaluation must complete all declared cases exactly once in order."
+                )
+            self._document["state"] = "finalizing" if self._tracking else "complete"
+            self._save()
+            self._publish()
+            if self._tracking:
+                self._document["state"] = "complete"
+                self._save()
+        except BaseException as failure:
+            self._fail(failure)
+            raise
+
+    def _publish(self) -> None:
+        if self._tracking is None:
+            return
+        client = self._tracking.client
+        run_id = self._document["run_id"]
+        for key, value in self._document.items():
+            if key not in {"run_id", "state"} and isinstance(value, (str, int, float, bool)):
+                client.log_param(run_id, key, value)
+        scored = tuple(
+            ScoredReview.model_validate({"review": row["review"], "scores": row["scores"]})
+            for row in self._document["cases"]
+            if "review" in row
+        )
+        log_review_metrics(client, run_id, scored)
+        for path in dict.fromkeys(self._artifacts):
+            client.log_artifact(run_id, str(path))
+        # Keep the local journal unreviewable until artifacts and tracking finish.
+        with tempfile.TemporaryDirectory(prefix="ask-phil-evaluation-publish-") as directory:
+            published = Path(directory) / self.output.name
+            published.write_text(
+                json.dumps({**self._document, "state": "complete"}, indent=2, ensure_ascii=True)
+                + "\n",
+                encoding="utf-8",
+            )
+            client.log_artifact(run_id, str(published))
+        client.set_terminated(run_id)
+
+    def _fail(self, exc: BaseException) -> None:
+        self._document.update(state="failed", failure_type=type(exc).__name__)
+        if self._tracking and "run_id" in self._document:
+            try:
+                self._tracking.client.set_terminated(self._document["run_id"], status="FAILED")
+            except BaseException as failure:
+                self._document["tracking_failure_type"] = type(failure).__name__
+        self._save()
+
+    def _save(self) -> None:
+        with tempfile.NamedTemporaryFile(
+            mode="w", encoding="utf-8", dir=self.output.parent, delete=False
+        ) as destination:
+            temporary = Path(destination.name)
+            try:
+                json.dump(self._document, destination, indent=2, ensure_ascii=True)
+                destination.write("\n")
+                destination.flush()
+                os.fsync(destination.fileno())
+                os.replace(temporary, self.output)
+            finally:
+                temporary.unlink(missing_ok=True)
+
+
 def document_fingerprint(document: object) -> str:
     return hashlib.sha256(
         json.dumps(document, sort_keys=True, separators=(",", ":")).encode()
     ).hexdigest()
+
+
+def review_capture(
+    capture_path: Path,
+    reviews_path: Path,
+    references_path: Path,
+    output: Path,
+    *,
+    tracking: EvaluationTracking | None = None,
+) -> dict[str, Any]:
+    """Review a frozen capture once, preserving the identity of every recorded case."""
+    capture, capture_sha256 = _read_document(capture_path)
+    references, reference_sha256 = _references(references_path)
+    if capture.get("state") != "complete":
+        raise ValueError("Capture must be complete before review.")
+    if capture.get("reference_file_sha256") != reference_sha256:
+        raise ValueError("Capture must match these frozen references.")
+    identifiers = [_case_id(row) for row in capture["cases"]]
+    if len(set(identifiers)) != len(identifiers):
+        raise ValueError("Duplicate captured case identifiers.")
+    if any(identifier not in references for identifier in identifiers):
+        raise ValueError("Unknown captured case identifier.")
+    if "case_ids" in capture and capture["case_ids"] != identifiers:
+        raise ValueError("Capture must contain all declared cases exactly once in order.")
+    rows = {}
+    for row in capture["cases"]:
+        identifier = _case_id(row)
+        reference = references[identifier]
+        if row.get("state", "complete") != "complete":
+            raise ValueError("Every captured case must be complete before review.")
+        if "reference" in row and row["reference"] != reference:
+            raise ValueError("Captured reference differs from these frozen references.")
+        if "reference_sha256" in row and row["reference_sha256"] != document_fingerprint(reference):
+            raise ValueError("Captured reference fingerprint differs.")
+        if references[identifier].get("operation") == "reset":
+            if "reset" not in row or "response" in row:
+                raise ValueError("A reset case must record its reset outcome.")
+            continue
+        if "response" not in row:
+            raise ValueError("A captured case is missing its served response.")
+        if "response_sha256" in row and row["response_sha256"] != document_fingerprint(
+            row["response"]
+        ):
+            raise ValueError("Captured response fingerprint differs.")
+        rows[identifier] = row
+    if not rows:
+        raise ValueError("Capture has no served responses to review.")
+    annotations, reviews_sha256 = _read_document(reviews_path)
+    reviews = [QualityReview.model_validate(row) for row in annotations["reviews"]]
+    if len(reviews) != len(rows) or {review.case_id for review in reviews} != rows.keys():
+        raise ValueError("Review every captured response exactly once.")
+    scored = tuple(
+        score_captured_answer(
+            review,
+            rows[review.case_id]["response"],
+            references[review.case_id],
+            _required_facts(references[review.case_id]),
+        )
+        for review in reviews
+    )
+    metadata = {
+        "kind": "captured-answer-review",
+        "expenditure_category": "offline_evaluation",
+        "source_run_id": capture.get("run_id"),
+        "answer_model_calls_in_review": 0,
+        "review_model_cost_usd": 0,
+        "model_calls": 0,
+        "cost_usd": "0",
+        "capture_sha256": capture_sha256,
+        "reviews_sha256": reviews_sha256,
+        "scorer": "reviewed-binary-dimensions-v1",
+    }
+    with EvaluationRun(
+        output,
+        references_path,
+        tuple(review.case_id for review in reviews),
+        metadata=metadata,
+        tracking=tracking,
+        artifacts=(capture_path, reviews_path),
+    ) as run:
+        for result in scored:
+            run.capture(result.review.case_id, partial(result.model_dump, mode="json"))
+    result_document: dict[str, Any] = json.loads(output.read_bytes())
+    return result_document
+
+
+def _file_fingerprint(path: Path) -> str:
+    return hashlib.sha256(path.read_bytes()).hexdigest()
+
+
+def _read_document(path: Path) -> tuple[dict[str, Any], str]:
+    data = path.read_bytes()
+    document = json.loads(data)
+    if not isinstance(document, dict):
+        raise ValueError("Evaluation artifacts must be JSON objects.")
+    return document, hashlib.sha256(data).hexdigest()
+
+
+def _case_id(row: dict[str, Any]) -> str:
+    identifier = row.get("case_id", row.get("reference", {}).get("case_id"))
+    if not isinstance(identifier, str):
+        raise ValueError("Every captured case needs an identifier.")
+    if "case_id" in row and "reference" in row and row["reference"].get("case_id") != identifier:
+        raise ValueError("Captured case and reference identifiers differ.")
+    return _CASE_IDENTIFIER.validate_python(identifier)
+
+
+def _references(path: Path) -> tuple[dict[str, dict[str, Any]], str]:
+    document, fingerprint = _read_document(path)
+    rows = document.get("steps", document.get("cases", []))
+    identifiers = [_case_id(row) for row in rows]
+    if len(set(identifiers)) != len(identifiers):
+        raise ValueError("Duplicate frozen reference case identifiers.")
+    return dict(zip(identifiers, rows, strict=True)), fingerprint
+
+
+def _required_facts(reference: dict[str, Any]) -> tuple[str, ...]:
+    facts = reference.get("expected_facts", reference.get("required_facts", []))
+    return tuple(fact["fact"] if isinstance(fact, dict) else fact for fact in facts)
 
 
 def score_captured_answer(
