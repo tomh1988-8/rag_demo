@@ -1,6 +1,6 @@
 # 08: Inspect calibrated quality comparisons
 
-Status: implemented and runtime evidence complete for [GitHub #9](https://github.com/tomh1988-8/rag_demo/issues/9). [Acceptance evidence](../../implementation/issue-9/README.md) records actual controlled public API comparisons, human-approved synthetic calibration, independent reviews and retained quality failures. [Publication/closure receipt](../../implementation/issue-9/publication.json) records the verified tracker state. Full-product held-out acceptance remains #21.
+Status: complete and closed after verified publication for [GitHub #9](https://github.com/tomh1988-8/rag_demo/issues/9). [Acceptance evidence](../../implementation/issue-9/README.md) records actual controlled public API comparisons, human-approved synthetic calibration, independent reviews and retained quality failures. [Publication/closure receipt](../../implementation/issue-9/publication.json) records the verified tracker state. Full-product held-out acceptance remains #21.
 
 Spec stories: S71, S74, S79, S80, S83, S84, S86, S87, S88, S89, S90, S91, S92, S93, S94, S95, S97, S103, S106, S111, S115, S121, S127, S130.
 

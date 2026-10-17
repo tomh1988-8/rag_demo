@@ -1,26 +1,31 @@
 {
-  "verified_at": "2026-10-17T18:03:45.300312+00:00",
+  "verified_at": "2026-10-17T19:53:02.620152+00:00",
   "method": "native_git_push",
   "repository": "tomh1988-8/rag_demo",
   "branch": "main",
-  "implementation_commit": "928c0fb6d12d5178aad25716dfe4146bb94cda32",
-  "commit_url": "https://github.com/tomh1988-8/rag_demo/commit/928c0fb6d12d5178aad25716dfe4146bb94cda32",
-  "local_tree": "55c4003b6ff5532b97ccfd50efec165b78017d60",
-  "remote_tree": "55c4003b6ff5532b97ccfd50efec165b78017d60",
+  "implementation_commit": "28c765ae8c89556931beb0599e86113ec73cb94e",
+  "commit_url": "https://github.com/tomh1988-8/rag_demo/commit/28c765ae8c89556931beb0599e86113ec73cb94e",
+  "local_tree": "f3744e03c6dd6e9eb5573c932dea7002d5c4f6a2",
+  "remote_tree": "f3744e03c6dd6e9eb5573c932dea7002d5c4f6a2",
   "exact_tree_match": true,
+  "github_api_commit_tree_readback": "f3744e03c6dd6e9eb5573c932dea7002d5c4f6a2",
   "verification": [
-    "git ls-remote origin refs/heads/main",
+    "git push origin HEAD:main",
     "git fetch origin main",
-    "git diff --exit-code LOCAL_IMPLEMENTATION FETCH_HEAD",
-    "GitHub Git-commit API tree readback"
+    "git diff --exit-code 28c765ae8c89556931beb0599e86113ec73cb94e FETCH_HEAD",
+    "GitHub Git-commit API SHA and tree readback",
+    "Exact issue body and nine checked criteria read back before and after closure"
   ],
   "issue_number": 9,
-  "issue_state_readback": "OPEN",
-  "acceptance": "software validated; live payload authorization and human label review pending",
-  "unrelated_workspace_changes": "Preserved unstaged/untracked; excluded from implementation publication.",
-  "record_scope": "Initial software publication before explicit live approval; see live_acceptance for continuation state.",
+  "issue_state_readback": "CLOSED",
+  "issue_state_reason": "COMPLETED",
+  "closed_at": "2026-10-17T19:52:06Z",
+  "checked_criteria": 9,
+  "issue_body_sha256": "c6fee7e4123edcbf8a20586231549db618e34abc5d52a37298e74f6f4d61e18f",
+  "live_validation_sha256": "e83e85fcffe0d2cd7c3b73dc10f106f6f6667c1abb485291901e6a5a77d764f3",
+  "acceptance": "Completed development quality-comparison workflow and narrow human-approved synthetic calibration. Both product-quality gates remain failed; full-product/held-out and broader automatic judge acceptance remain open.",
   "live_acceptance": {
-    "status": "runtime_evidence_complete_pending_final_publication",
+    "status": "complete",
     "serving_code_revision": "e21e43d39b48c7a18800c67b80c233ced6da2765",
     "approval": "docs/implementation/issue-9/approval.json",
     "evidence": "docs/implementation/issue-9/README.md",
@@ -30,7 +35,43 @@
       "candidate": "failed"
     },
     "scope": "Evaluation workflow; scoped synthetic calibration. Product failures remain open regressions, final release acceptance remains #21.",
+    "issue_state_readback": "CLOSED",
+    "publication_and_closure_pending": false,
+    "issue_state_reason": "COMPLETED",
+    "human_approved_labels": 8,
+    "public_api_responses": 28,
+    "judge_calibration_observations": 24,
+    "independent_remaining_findings": {
+      "standards": 0,
+      "spec": 0
+    },
+    "software_tests_passed": 248,
+    "continuation_reported_cost_usd": "0.1012312",
+    "shared_ledger_usd": "0.343084",
+    "unsettled_reservations": 0,
+    "temporary_evaluation_apis": "Stopped after final artifact/trace readback"
+  },
+  "initial_software_publication": {
+    "verified_at": "2026-10-17T18:03:45.300312+00:00",
+    "method": "native_git_push",
+    "repository": "tomh1988-8/rag_demo",
+    "branch": "main",
+    "implementation_commit": "928c0fb6d12d5178aad25716dfe4146bb94cda32",
+    "commit_url": "https://github.com/tomh1988-8/rag_demo/commit/928c0fb6d12d5178aad25716dfe4146bb94cda32",
+    "local_tree": "55c4003b6ff5532b97ccfd50efec165b78017d60",
+    "remote_tree": "55c4003b6ff5532b97ccfd50efec165b78017d60",
+    "exact_tree_match": true,
+    "verification": [
+      "git ls-remote origin refs/heads/main",
+      "git fetch origin main",
+      "git diff --exit-code LOCAL_IMPLEMENTATION FETCH_HEAD",
+      "GitHub Git-commit API tree readback"
+    ],
+    "issue_number": 9,
     "issue_state_readback": "OPEN",
-    "publication_and_closure_pending": true
-  }
+    "acceptance": "software validated; live payload authorization and human label review pending",
+    "unrelated_workspace_changes": "Preserved unstaged/untracked; excluded from implementation publication."
+  },
+  "receipt_publication": "This receipt and final handoff are a subsequent metadata commit; its remote tree is verified separately before reporting completion.",
+  "unrelated_workspace_changes": "Preserved unstaged/untracked and excluded from all issue-9 publication."
 }
