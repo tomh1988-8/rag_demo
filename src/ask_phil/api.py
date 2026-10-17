@@ -2,6 +2,8 @@
 
 import os
 import threading
+from collections.abc import Callable
+from datetime import UTC, datetime
 from pathlib import Path
 from typing import Annotated
 from uuid import UUID
@@ -13,6 +15,7 @@ from pydantic import StringConstraints
 
 from ask_phil.answering import AnswerService
 from ask_phil.answers import AnswerReceipt, AnswerRecord, AskRequest
+from ask_phil.conversation import ReferenceTurn, TurnIdentity
 from ask_phil.evidence import Identifier, Inspection
 from ask_phil.identity import IdentityResolution
 from ask_phil.models import ModelConfigurationError, Models
@@ -25,6 +28,7 @@ from ask_phil.publications import (
 )
 from ask_phil.responses import ResponseLedger
 from ask_phil.retrieval import IndexNotReady
+from ask_phil.sessions import SessionNotFound, SessionReceipt, SessionState, SessionStore
 from ask_phil.source_records import CapturedSource, ImportedSources, ImportSummary, SourceInspection
 from ask_phil.storage import EvidenceStore, SnapshotNotFound
 
@@ -36,10 +40,12 @@ def create_app(
     *,
     models: Models | None = None,
     tracking_uri: str | None = None,
+    session_clock: Callable[[], datetime] = lambda: datetime.now(UTC),
 ) -> FastAPI:
     database_url = database_url or os.environ["DATABASE_URL"]
     store = EvidenceStore(database_url)
     publications = PublicationStore(database_url)
+    sessions = SessionStore(database_url, clock=session_clock)
     app = FastAPI(title="Ask Phil evidence inspection", version="0.1.0")
     service = (
         AnswerService(database_url, models, tracking_uri or "sqlite:///artifacts/mlflow.db")
@@ -47,6 +53,47 @@ def create_app(
         else None
     )
     service_lock = threading.Lock()
+
+    @app.exception_handler(SessionNotFound)
+    async def session_missing(request: Request, exc: SessionNotFound) -> JSONResponse:
+        return JSONResponse(status_code=404, content={"detail": str(exc)})
+
+    @app.post("/v1/sessions", status_code=201)
+    def start_session() -> SessionReceipt:
+        return sessions.create()
+
+    @app.get("/v1/sessions/{session_id}")
+    def inspect_session(
+        session_id: UUID,
+        authorization: Annotated[str | None, Header()] = None,
+    ) -> SessionState:
+        return sessions.get(session_id, bearer_token(authorization))
+
+    @app.post("/v1/sessions/{session_id}/reset")
+    def reset_session(
+        session_id: UUID,
+        authorization: Annotated[str | None, Header()] = None,
+    ) -> SessionState:
+        return sessions.reset(session_id, bearer_token(authorization))
+
+    @app.post("/v1/sessions/{session_id}/turns")
+    def conversation_turn(
+        session_id: UUID,
+        request: AskRequest,
+        authorization: Annotated[str | None, Header()] = None,
+    ) -> AnswerReceipt:
+        with sessions.locked(session_id, bearer_token(authorization)) as (conn, state):
+            result = answer(request, state.next_turn(), state.history)
+            assert result.response.conversation is not None
+            sessions.save(
+                conn,
+                state.after_turn(
+                    result.response.conversation,
+                    result.response.conversation.reference,
+                    now=sessions.clock(),
+                ),
+            )
+            return result
 
     @app.exception_handler(PublicationNotFound)
     async def publication_missing(request: Request, exc: PublicationNotFound) -> JSONResponse:
@@ -81,7 +128,14 @@ def create_app(
         return result.model_copy(update={"publication": pinned.reference})
 
     @app.post("/v1/answers")
-    def answer(request: AskRequest) -> AnswerReceipt:
+    def standalone_answer(request: AskRequest) -> AnswerReceipt:
+        return answer(request)
+
+    def answer(
+        request: AskRequest,
+        turn: TurnIdentity | None = None,
+        history: tuple[ReferenceTurn, ...] = (),
+    ) -> AnswerReceipt:
         nonlocal service
         try:
             with service_lock:
@@ -93,7 +147,7 @@ def create_app(
                         tracking_uri
                         or os.environ.get("MLFLOW_TRACKING_URI", "sqlite:///artifacts/mlflow.db"),
                     )
-            return service.ask(request)
+            return service.ask(request, turn=turn, history=history)
         except (ModelConfigurationError, ProviderError) as exc:
             raise HTTPException(status_code=503, detail=str(exc)) from exc
         except SnapshotNotFound as exc:
@@ -172,3 +226,7 @@ def create_app(
         )
 
     return app
+
+
+def bearer_token(authorization: str | None) -> str:
+    return authorization.removeprefix("Bearer ") if authorization else ""

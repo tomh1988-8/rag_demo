@@ -66,6 +66,13 @@ def main() -> int:
     ask = commands.add_parser("ask", help="Ask a question using the captured snapshot.")
     ask.add_argument("query")
     ask.add_argument("--snapshot", help="Defaults to the active publication.")
+    ask.add_argument("--session", type=Path, help="Private receipt from start-session.")
+    session = commands.add_parser("start-session", help="Create a bounded anonymous conversation.")
+    session.add_argument("receipt", type=Path, help="New private local session receipt file.")
+    reset = commands.add_parser("reset", help="Clear reference context, keeping saved answers.")
+    reset.add_argument("receipt", type=Path)
+    chat = commands.add_parser("chat", help="Talk to Ask Phil; use /reset or /quit.")
+    chat.add_argument("--snapshot", help="Defaults to the active publication on each turn.")
     response = commands.add_parser(
         "response", help="Read the original answer using a saved receipt."
     )
@@ -178,11 +185,47 @@ def main() -> int:
                 trace_id = service.prepare(args.snapshot)
                 print(json.dumps({"snapshot_id": args.snapshot, "trace_id": trace_id}))
         else:
-            timeout = 400 if args.command == "ask" else 10
+            timeout = 400 if args.command in {"ask", "chat"} else 10
             with httpx.Client(base_url=args.api_url, timeout=timeout, trust_env=False) as client:
-                if args.command == "ask":
+                if args.command == "chat":
+                    return chat_session(client, args.snapshot)
+                elif args.command == "start-session":
+                    from ask_phil.sessions import SessionReceipt
+
+                    # Refuse an existing file before creating a remote session.
+                    with os.fdopen(
+                        os.open(args.receipt, os.O_CREAT | os.O_EXCL | os.O_WRONLY, 0o600), "w"
+                    ) as output:
+                        try:
+                            created = client.post("/v1/sessions")
+                            created.raise_for_status()
+                            session_receipt = SessionReceipt.model_validate(created.json())
+                            output.write(session_receipt.model_dump_json())
+                        except Exception:
+                            args.receipt.unlink(missing_ok=True)
+                            raise
+                    print(
+                        json.dumps(
+                            {
+                                "session": session_receipt.session.model_dump(mode="json"),
+                                "receipt": str(args.receipt),
+                                "feedback_expires_at": (
+                                    session_receipt.feedback_expires_at.isoformat()
+                                ),
+                            }
+                        )
+                    )
+                    return 0
+                elif args.command == "reset":
+                    session_path, session_headers = session_access(args.receipt)
+                    result = client.post(session_path + "/reset", headers=session_headers)
+                elif args.command == "ask":
+                    ask_path, session_headers = (
+                        session_access(args.session) if args.session else (None, {})
+                    )
                     result = client.post(
-                        "/v1/answers",
+                        ask_path + "/turns" if ask_path else "/v1/answers",
+                        headers=session_headers,
                         json={
                             "question": args.query,
                             "snapshot_id": args.snapshot,
@@ -237,6 +280,49 @@ def main() -> int:
         print(f"Invalid fixture or configuration: {exc}", file=sys.stderr)
         return 1
     return 0
+
+
+def session_access(path: Path) -> tuple[str, dict[str, str]]:
+    from ask_phil.sessions import SessionReceipt
+
+    try:
+        receipt = SessionReceipt.model_validate_json(path.read_text())
+    except ValueError:
+        raise ValueError("Invalid private session receipt.") from None
+    return (
+        f"/v1/sessions/{receipt.session.session_id}",
+        {"Authorization": f"Bearer {receipt.session_token}"},
+    )
+
+
+def chat_session(client: httpx.Client, snapshot_id: str | None) -> int:
+    from ask_phil.sessions import SessionReceipt
+
+    created = client.post("/v1/sessions")
+    created.raise_for_status()
+    receipt = SessionReceipt.model_validate(created.json())
+    path = f"/v1/sessions/{receipt.session.session_id}"
+    headers = {"Authorization": f"Bearer {receipt.session_token}"}
+    print("Ask Phil. Use /reset to clear context, /quit to leave.")
+    while True:
+        try:
+            question = input("You> ").strip()
+        except EOFError:
+            return 0
+        if question == "/quit":
+            return 0
+        if not question:
+            continue
+        if question == "/reset":
+            result = client.post(path + "/reset", headers=headers)
+        else:
+            result = client.post(
+                path + "/turns",
+                headers=headers,
+                json={"question": question, "snapshot_id": snapshot_id},
+            )
+        result.raise_for_status()
+        print(json.dumps(result.json(), indent=2, ensure_ascii=True))
 
 
 if __name__ == "__main__":

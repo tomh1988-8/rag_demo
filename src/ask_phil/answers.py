@@ -5,6 +5,7 @@ from uuid import UUID
 
 from pydantic import Field, StringConstraints, field_validator
 
+from ask_phil.conversation import ConversationReference
 from ask_phil.evidence import Fingerprint, Identifier, Passage, PublicationRef, Record, Source
 from ask_phil.models import LOCAL_COST_SCOPE, LOCAL_LIMITATION, ModelSettings, OpenRouterSettings
 from ask_phil.models import TokenUsage as TokenUsage
@@ -96,6 +97,7 @@ class AskRequest(Record):
 class AnswerRecord(Record):
     response_id: UUID
     question: str
+    conversation: ConversationReference | None = Field(default=None, exclude_if=lambda v: v is None)
     status: Outcome | Literal["failed"]
     answer: str
     unanswered: tuple[QuestionPart, ...] = Field(

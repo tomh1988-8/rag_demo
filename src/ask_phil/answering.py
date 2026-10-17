@@ -22,11 +22,19 @@ from ask_phil.answers import (
     cite_answer,
     context_text,
 )
-from ask_phil.models import Models
+from ask_phil.conversation import (
+    ConversationReference,
+    ReferenceTurn,
+    TurnIdentity,
+    resolve_reference,
+)
+from ask_phil.identity import IdentityCatalogue
+from ask_phil.models import Models, TokenUsage
 from ask_phil.passage_context import CONTEXT_BYTE_BUDGET
 from ask_phil.publications import PublicationStore
 from ask_phil.responses import ResponseLedger
-from ask_phil.retrieval import IndexNotReady, TextRetriever
+from ask_phil.retrieval import IndexNotReady, Retrieval, TextRetriever
+from ask_phil.storage import EvidenceStore
 
 
 def application_fingerprint() -> str:
@@ -48,6 +56,7 @@ class AnswerService:
             models.settings.embedding_dimensions,
         )
         self.ledger = ResponseLedger(database_url)
+        self.evidence = EvidenceStore(database_url)
         # One configured MLflow backend per API process; experiments separate costs.
         mlflow.set_tracking_uri(tracking_uri)
         self.tracking = MlflowClient(tracking_uri=tracking_uri)
@@ -85,7 +94,12 @@ class AnswerService:
         return trace_id
 
     def ask(
-        self, request: AskRequest, *, category: Literal["serving", "offline_evaluation"] = "serving"
+        self,
+        request: AskRequest,
+        *,
+        category: Literal["serving", "offline_evaluation"] = "serving",
+        turn: TurnIdentity | None = None,
+        history: tuple[ReferenceTurn, ...] = (),
     ) -> AnswerReceipt:
         started = time.perf_counter()
         publication = self.publications.pin(request.snapshot_id)
@@ -95,12 +109,27 @@ class AnswerService:
         if publication and self.retriever.manifest(snapshot_id) != publication.manifest.index:
             raise IndexNotReady("The configured retrieval index differs from the publication.")
         self.models.verify()
+        conversation = None
+        question = request.question
+        if turn:
+            snapshot = self.evidence.snapshot(snapshot_id)
+            reference = resolve_reference(
+                question,
+                snapshot.imported.catalogue
+                if snapshot.imported
+                else IdentityCatalogue(characters=()),
+                history,
+            )
+            conversation = ConversationReference(**turn.model_dump(), reference=reference)
+            question = reference.question
         response_id = uuid4()
         experiment_id = self._experiment(category)
         with mlflow.start_span(
             "text_rag", trace_destination=MlflowExperimentLocation(experiment_id)
         ) as root:
             root.set_inputs(request.model_dump())
+            if conversation:
+                root.set_attribute("conversation", conversation.model_dump(mode="json"))
             if publication:
                 root.set_attribute("publication", publication.reference.model_dump(mode="json"))
             root.set_attributes(
@@ -116,10 +145,20 @@ class AnswerService:
                     ),
                 }
             )
-            with mlflow.start_span("text_retrieval", span_type="RETRIEVER") as span:
-                span.set_inputs({"question": request.question, "k": 3})
-                retrieved = self.retriever.retrieve(snapshot_id, request.question, k=3)
-                span.set_outputs(retrieved.model_dump(mode="json"))
+            clarification = conversation.reference.clarification if conversation else None
+            if clarification:
+                retrieved = Retrieval(
+                    snapshot=self.evidence.snapshot(snapshot_id),
+                    hits=(),
+                    k=0,
+                    embedding_id=self.models.settings.embedding_id,
+                )
+                root.set_attribute("retrieval_skipped", "unresolved_reference")
+            else:
+                with mlflow.start_span("text_retrieval", span_type="RETRIEVER") as span:
+                    span.set_inputs({"question": question, "k": 3})
+                    retrieved = self.retriever.retrieve(snapshot_id, question, k=3)
+                    span.set_outputs(retrieved.model_dump(mode="json"))
             with mlflow.start_span("assembled_context") as span:
                 context = assemble_context(retrieved.hits)
                 span.set_outputs(
@@ -130,7 +169,21 @@ class AnswerService:
                 )
             failure = False
             citations: tuple[Citation, ...] = ()
-            if not context:
+            if clarification:
+                execution = self.models.skipped_answer().model_copy(
+                    update={
+                        "usage": TokenUsage(input_tokens=0, output_tokens=0, embedding_tokens=0)
+                    }
+                )
+                draft = Draft(
+                    answer=clarification,
+                    status="clarification",
+                    evidence_ids=(),
+                    unanswered=("Which character is intended?",),
+                    qualifications=(),
+                )
+                root.set_attribute("answer_model_skipped", "unresolved_reference")
+            elif not context:
                 execution = self.models.skipped_answer()
                 draft = Draft(
                     answer=(
@@ -150,7 +203,7 @@ class AnswerService:
                         ChatMessage(
                             role="user",
                             content=(
-                                f"Question: {request.question}\n"
+                                f"Question: {question}\n"
                                 f"Snapshot provenance: {retrieved.snapshot.source.title} "
                                 f"({retrieved.snapshot.source.support_status})\n"
                                 f"Captured evidence: {context_text(context)}"
@@ -192,6 +245,7 @@ class AnswerService:
             response = AnswerRecord(
                 response_id=response_id,
                 question=request.question,
+                conversation=conversation,
                 status="failed" if failure else draft.status,
                 answer=draft.answer,
                 unanswered=draft.unanswered,
@@ -203,7 +257,7 @@ class AnswerService:
                 source=retrieved.snapshot.source,
                 retrieved=retrieved.hits,
                 context=context,
-                retrieval_k=3,
+                retrieval_k=retrieved.k,
                 baseline_version="single-query-uncached-v2",
                 model_settings=self.models.settings,
                 prompt_sha256=hashlib.sha256(SYSTEM_PROMPT.encode()).hexdigest(),
