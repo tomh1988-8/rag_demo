@@ -1,0 +1,27 @@
+{
+  "probe": "Same retained first passage, unchanged model/input; exposed local timing probe, not a quality comparison.",
+  "observations": [
+    {
+      "keep_alive_seconds": 0,
+      "total_duration_ns": 2120353478,
+      "load_duration_ns": 1358430077,
+      "dimensions": 768,
+      "prompt_tokens": 210
+    },
+    {
+      "keep_alive_seconds": 300,
+      "total_duration_ns": 2437748121,
+      "load_duration_ns": 1908348182,
+      "dimensions": 768,
+      "prompt_tokens": 210
+    },
+    {
+      "keep_alive_seconds": 300,
+      "total_duration_ns": 1376619960,
+      "load_duration_ns": 1271043,
+      "dimensions": 768,
+      "prompt_tokens": 210
+    }
+  ],
+  "limitation": "Exposed serial probe while a development import was also active; contention can affect elapsed time. This records load overhead rather than a controlled speedup estimate."
+}

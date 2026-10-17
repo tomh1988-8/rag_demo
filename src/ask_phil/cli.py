@@ -13,7 +13,7 @@ import httpx
 import psycopg
 
 from ask_phil.evidence import SourceSnapshot
-from ask_phil.ingestion import build_snapshot, capture_sources, read_batch
+from ask_phil.ingestion import build_snapshot, capture_plan, capture_sources, read_batch
 from ask_phil.openrouter import KEY_PATH, ProviderError, save_key
 from ask_phil.source_records import CapturePlan, SourceBatch
 from ask_phil.storage import EvidenceStore
@@ -39,6 +39,11 @@ def main() -> int:
     )
     capture.add_argument("plan", type=Path)
     capture.add_argument("output", type=Path)
+    capture.add_argument(
+        "--checkpoint-dir",
+        type=Path,
+        help="Retain successful captures and resume this exact plan after interruption.",
+    )
     ingest = commands.add_parser(
         "import-sources", help="Maintainer: import a reviewed captured source batch."
     )
@@ -99,11 +104,15 @@ def main() -> int:
                 raise ValueError("Capture output already exists; choose a new path.")
             plan = CapturePlan.model_validate_json(args.plan.read_bytes())
             with httpx.Client(trust_env=False) as client:
-                batch = SourceBatch(
-                    format_version=1,
-                    catalogue=plan.catalogue,
-                    policies=plan.policies,
-                    captures=capture_sources(plan.requests, client),
+                batch = (
+                    capture_plan(plan, client, args.checkpoint_dir)
+                    if args.checkpoint_dir
+                    else SourceBatch(
+                        format_version=1,
+                        catalogue=plan.catalogue,
+                        policies=plan.policies,
+                        captures=capture_sources(plan.requests, client),
+                    )
                 )
             data = batch.model_dump_json().encode()
             with args.output.open("xb") as output:

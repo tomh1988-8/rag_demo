@@ -1,0 +1,67 @@
+{
+  "capture_sha256": "8521fdf49ce94050e998523b31c530d960168e77e969301518a0e085347e1f6c",
+  "reviews_sha256": "15e9c12047e20dd525f4793f9b6a2819f34dbee16ade5e02ded405425df331e6",
+  "reference_file_sha256": "8127346fb4e31f9bb844b6bf2f6c447655ee0c40d61e86e8715636588538ab5e",
+  "scorer": "reviewed-binary-dimensions-v1",
+  "cases": [
+    {
+      "review": {
+        "case_id": "phil-mitchell-profile",
+        "response_sha256": "5258ae6ab35ef06c902d32299c7b6307e288f5a78d817fa657f77c6fb6a3fb9e",
+        "reference_sha256": "3f2445a0ef18d7673d18fb56c4ae71a1bac228c228dc8685a2ef3915ceeefdd5",
+        "reviewer": "Codex source/response inspection, 17 October 2026",
+        "rationale": "The answer says Phil opened The Arches on arrival, explicitly supported by his first retained paragraph and its cited passage. Persona first person preserves the source fact. Exposed initial-snapshot pilot, before the Cindy catalogue correction.",
+        "claims": [
+          {
+            "claim": "Phil opened The Arches when he first arrived in Walford.",
+            "correct": true,
+            "grounded": true,
+            "citation_supported": true
+          }
+        ],
+        "required_facts": [
+          {
+            "fact": "Phil opens the automobile repair shop The Arches.",
+            "covered": true
+          }
+        ],
+        "answerability": true,
+        "critical_failures": []
+      },
+      "scores": {
+        "correctness": {
+          "passed": 1,
+          "assessed": 1,
+          "unassessed": 0,
+          "value": 1.0
+        },
+        "groundedness": {
+          "passed": 1,
+          "assessed": 1,
+          "unassessed": 0,
+          "value": 1.0
+        },
+        "completeness": {
+          "passed": 1,
+          "assessed": 1,
+          "unassessed": 0,
+          "value": 1.0
+        },
+        "citation_support": {
+          "passed": 1,
+          "assessed": 1,
+          "unassessed": 0,
+          "value": 1.0
+        },
+        "answerability": {
+          "passed": 1,
+          "assessed": 1,
+          "unassessed": 0,
+          "value": 1.0
+        },
+        "critical_failures": []
+      }
+    }
+  ],
+  "run_id": "20608473ffb14d07ae60d995745932e0"
+}

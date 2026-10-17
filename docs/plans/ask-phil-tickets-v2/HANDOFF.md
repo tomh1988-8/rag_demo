@@ -2,6 +2,33 @@
 
 Updated 17 October 2026. The user approved the initial checklist/ticket breakdown, authorised publication, and subsequently required user feedback and online evaluation. Checklist v1.1 and the amended 24-ticket breakdown are published. Issues #2, #3, #4, #5 and #6 are complete and closed. Issues #5 and #6 passed their full software suites, independent reviews, exact-tree publication verification and closure readback. Issue #4 passed its scoped cloud policy acceptance.
 
+## Issue #7: all 20 core text profiles
+
+[Issue #7](https://github.com/tomh1988-8/rag_demo/issues/7) is implemented and
+independently reviewed; exact-tree publication and issue closure are pending.
+[Acceptance evidence](../../implementation/issue-7/README.md) records the generic,
+restartable 20-source capture/import, per-character retention/gap inventory,
+immutable corrected snapshot and 149 passing tests. Source checks and prominence
+do not establish exhaustive or current canon. The corrected Cindy alias collision,
+duplicates, inconsistent accounts and untouched raw captures remain documented.
+
+The real Sol API/CLI matrix has 25 development cases in 21 story groups. All 20
+core profiles have a correct sourced answer; both missing-identifier cases abstain.
+All 26 actual factual assertions are correct, grounded and citation-supported.
+Selected evidence is retrieved at k=3 for 23/23 answerable questions, but full
+required-fact coverage and supplied-context sufficiency pass 21/23. The original
+Janine question safely abstains and the garage answer omits explicit co-ownership
+because rank-3 passages are dropped by the context budget. Both failures remain
+reviewed regressions for #24/#9. No held-out or human-calibrated claim applies.
+
+The retained pilot plus final matrix used 26 paid calls costing $0.0999804; the
+shared non-resetting $5 ledger now totals $0.208899 after upward rounding, with
+zero unsettled reservations. Offline reviews use zero model calls and separate
+MLflow runs. Preserve the private key and ledger. AD-03.4 and RAG-01 pass for this
+scope: 20 current checks pass and 31 remain Pending. Graph, fusion, caching and
+online-feedback acceptance remain later work. #8 is recommended after publication;
+wait for another implementation instruction before starting it.
+
 ## Issue #6: source/text refresh and recovery
 
 [Issue #6](https://github.com/tomh1988-8/rag_demo/issues/6) adds manual Prefect
@@ -87,7 +114,7 @@ The [to-spec skill](../../../.agents/skills/to-spec/SKILL.md) authorised specifi
 
 ## First available work
 
-**[#7 — Answer from all 20 core character profiles](https://github.com/tomh1988-8/rag_demo/issues/7)** is recommended next after #6. #8 (follow-ups), #9 (calibrated comparisons), #10 (execution boundaries), #11 (biological claims) and #24 (fusion/context expansion) are also unblocked. Wait for the next implementation instruction before starting another ticket. Specification #1 remains parent context.
+**[#8 — Ground follow-ups and reset conversation](https://github.com/tomh1988-8/rag_demo/issues/8)** is recommended after #7 publication. #9 (calibrated comparisons), #10 (execution boundaries), #11 (biological claims) and #24 (fusion/context expansion) are also unblocked. Wait for the next implementation instruction before starting another ticket. Specification #1 remains parent context.
 
 For subsequent work, read the current issue and comments, the relevant domain/ADR decisions and the checklist profile. Work the dependency frontier; the shared `ready-for-agent` label does not mean a blocked ticket can begin. Existing approved decisions and the six public test boundaries do not need another design interview.
 
@@ -126,7 +153,7 @@ The “Blocked by” column contains **GitHub issue numbers**, which differ from
 
 - [Approved ticket breakdown](README.md), including rationale and the common evidence-completion pattern.
 - [Reusable checklist v1.1](../../checklists/agent-development.md).
-- [Ask Phil applicability profile and evidence register](../../checklists/ask-phil-profile.md): 51 current items, one deployment deferral and 12 N/A items. Eighteen pass: three on design evidence, five on inspection, five on initial text RAG, two on #4 software counterexamples/quality measurement, two on #5 source inventory/retention and one on #6 source/text refresh; 33 current obligations remain Pending. Scoped acceptance does not discharge full-product comparison, calibration, graph, fusion, cache or online-feedback obligations.
+- [Ask Phil applicability profile and evidence register](../../checklists/ask-phil-profile.md): 51 current items, one deployment deferral and 12 N/A items. Twenty pass: three on design evidence, five on inspection, five on initial text RAG, two on #4 software counterexamples/quality measurement, two on #5 source inventory/retention, one on #6 source/text refresh and two on #7 broad text/source coverage; 31 current obligations remain Pending. Scoped acceptance does not discharge full-product comparison, calibration, graph, fusion, cache or online-feedback obligations.
 - [All 130 specification stories mapped to tickets](spec-coverage.md).
 - [Local specification](../../specs/ask-phil.md), [test/evaluation strategy](../../design/testing-and-evaluation.md), [domain glossary](../../../CONTEXT.md) and [architecture decisions](../../adr/).
 - [Publication manifest](publication.json), including issue IDs/URLs, approval, source fingerprints, readback verification and the outstanding native relationship operations.
@@ -153,7 +180,7 @@ The user requested fusion/context expansion and repeated-question caching before
 the next implementation. [Research](../../research/rag-fusion-and-answer-caching.md)
 and [scope validation](fusion-cache-amendment.json) describe the changes. GitHub #24
 and #25 own the new behavior; #18 and #21 include their actual prerequisites.
-After completion of #6, #7 is recommended next. Neither fusion nor caching is implemented.
+After publication of #7, #8 is recommended next. Neither fusion nor caching is implemented.
 
 Historical issue #2 publication: the validated code was published on GitHub `main` at `1a186fd1c6cbf306742a7ef6868f5b2cded58df2`,
 whose tree exactly matches local `e5ac34c`. Publication used the authenticated GitHub

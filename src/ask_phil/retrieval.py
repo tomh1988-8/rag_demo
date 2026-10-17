@@ -92,6 +92,7 @@ class TextRetriever:
     def prepare(self, snapshot_id: str) -> TextIndex:
         """Maintainer operation: publish embeddings only after the complete index is ready."""
         snapshot = EvidenceStore(self.database_url).snapshot(snapshot_id)
+        fingerprint = snapshot.fingerprint
         if any(len(p.text.encode()) > 1800 for p in snapshot.passages):
             raise ValueError(
                 "Passage exceeds the 1800-byte embedding input budget; split it first."
@@ -117,7 +118,7 @@ class TextRetriever:
                         REFERENCES text_indexes(snapshot_sha256, embedding_id, dimensions)
                 )
             """)
-            key = (snapshot.fingerprint, self.embedding_id, self.dimensions)
+            key = (fingerprint, self.embedding_id, self.dimensions)
             if conn.execute(
                 """SELECT 1 FROM text_indexes WHERE
                    snapshot_sha256 = %s AND embedding_id = %s AND dimensions = %s""",
@@ -140,17 +141,17 @@ class TextRetriever:
             vectors = self._vectors(setup=True)
             # A failed preparation never publishes a manifest; its orphan nodes are
             # replaced on retry while the maintainer lock prevents duplicate writes.
-            vectors.delete_nodes(filters=self._filter(snapshot.fingerprint))
+            vectors.delete_nodes(filters=self._filter(fingerprint))
             for passage in snapshot.passages:
                 vector = self.embedding.get_text_embedding(passage.text)
                 vectors.add(
                     [
                         TextNode(
-                            id_=f"{snapshot.fingerprint}:{passage.evidence_id}",
+                            id_=f"{fingerprint}:{passage.evidence_id}",
                             text=passage.text,
                             embedding=vector,
                             metadata={
-                                "snapshot_sha256": snapshot.fingerprint,
+                                "snapshot_sha256": fingerprint,
                                 "evidence_id": passage.evidence_id,
                             },
                         )
@@ -165,8 +166,9 @@ class TextRetriever:
         return artifact
 
     def _artifact(self, snapshot: SourceSnapshot) -> TextIndex:
-        nodes = self._vectors().get_nodes(filters=self._filter(snapshot.fingerprint))
-        expected = {f"{snapshot.fingerprint}:{p.evidence_id}": p for p in snapshot.passages}
+        fingerprint = snapshot.fingerprint
+        nodes = self._vectors().get_nodes(filters=self._filter(fingerprint))
+        expected = {f"{fingerprint}:{p.evidence_id}": p for p in snapshot.passages}
         if len(nodes) != len(expected) or {node.node_id for node in nodes} != set(expected):
             raise IndexNotReady("The text index is incomplete or has duplicate logical passages.")
         records = []
@@ -185,7 +187,7 @@ class TextRetriever:
                 )
             records.append((passage.evidence_id, passage.sha256, vector))
         return TextIndex(
-            snapshot_sha256=snapshot.fingerprint,
+            snapshot_sha256=fingerprint,
             embedding_id=self.embedding_id,
             dimensions=self.dimensions,
             passages=len(nodes),

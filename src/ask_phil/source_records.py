@@ -13,7 +13,7 @@ from pydantic import (
     model_validator,
 )
 
-from ask_phil.identity import IdentityCatalogue
+from ask_phil.identity import Character, IdentityCatalogue, IdentityResolution
 
 Scope = Literal["main_series", "other_media", "production", "review_required"]
 
@@ -137,6 +137,12 @@ class ImportPlan(ImportRecord):
 class CapturePlan(ImportPlan):
     requests: tuple[SourceRequest, ...] = Field(min_length=1, max_length=20)
 
+    @model_validator(mode="after")
+    def unique_requests(self) -> Self:
+        if len({r.source_id for r in self.requests}) != len(self.requests):
+            raise ValueError("Capture request identifiers must be unique.")
+        return self
+
 
 class SourceBatch(ImportPlan):
     captures: tuple[CapturedSource, ...] = Field(min_length=1, max_length=20)
@@ -198,11 +204,36 @@ class SourceSummary(SourceUse):
     structured_records: int
 
 
+class CharacterCoverage(ImportRecord):
+    character: Character
+    identity_resolution: IdentityResolution
+    primary_source_ids: tuple[str, ...]
+    mentioned_in_source_ids: tuple[str, ...]
+    admitted_paragraphs: int
+    excluded_paragraphs: int
+    review_required_paragraphs: int
+    retained_narrative_characters: int
+    admitted_sections: tuple[tuple[str, ...], ...]
+    gaps: tuple[str, ...]
+
+
+class ParagraphLocation(ImportRecord):
+    source_id: str
+    paragraph_ordinal: int
+
+
+class DuplicateParagraphs(ImportRecord):
+    sha256: str
+    locations: tuple[ParagraphLocation, ...]
+
+
 class ImportSummary(ImportRecord):
     parser_version: str
     sources: tuple[SourceSummary, ...]
     catalogue: IdentityCatalogue
     issues: tuple[ImportIssue, ...]
+    characters: tuple[CharacterCoverage, ...] = ()
+    duplicate_paragraphs: tuple[DuplicateParagraphs, ...] = ()
     limitation: str = (
         "Counts describe captured paragraphs and metadata, not extracted claims or canon accuracy. "
         "Unreviewed paragraphs stay outside retrieval. Capture time is not storyline coverage. "
@@ -251,11 +282,60 @@ class ImportedSources(SourceBatch):
                     structured_records=len(records),
                 )
             )
+        paragraphs: dict[str, list[ParagraphLocation]] = {}
+        for document in self.documents:
+            for span in document.spans:
+                paragraphs.setdefault(span.sha256, []).append(
+                    ParagraphLocation(source_id=document.source_id, paragraph_ordinal=span.ordinal)
+                )
         return ImportSummary(
             parser_version=self.parser_version,
             sources=tuple(sources),
             catalogue=self.catalogue,
             issues=self.issues,
+            characters=tuple(self.character_coverage(c) for c in self.catalogue.characters),
+            duplicate_paragraphs=tuple(
+                DuplicateParagraphs(sha256=sha256, locations=tuple(locations))
+                for sha256, locations in paragraphs.items()
+                if len(locations) > 1
+            ),
+        )
+
+    def character_coverage(self, character: Character) -> CharacterCoverage:
+        primary = tuple(
+            c.source_id
+            for c in self.captures
+            if c.character_id == character.character_id and c.kind == "wikipedia"
+        )
+        spans = tuple(s for d in self.documents if d.source_id in primary for s in d.spans)
+        admitted = tuple(s for s in spans if s.scope == "main_series")
+        mentioned = tuple(
+            d.source_id
+            for d in self.documents
+            if any(
+                character.character_id
+                in self.catalogue.resolve(title.removesuffix(" (EastEnders)")).character_ids
+                for s in d.spans
+                if s.scope == "main_series"
+                for title in s.linked_titles
+            )
+        )
+        return CharacterCoverage(
+            character=character,
+            identity_resolution=self.catalogue.resolve(character.name),
+            primary_source_ids=primary,
+            mentioned_in_source_ids=mentioned,
+            admitted_paragraphs=len(admitted),
+            excluded_paragraphs=sum(s.scope in {"production", "other_media"} for s in spans),
+            review_required_paragraphs=sum(s.scope == "review_required" for s in spans),
+            retained_narrative_characters=sum(len(s.text) for s in admitted),
+            admitted_sections=tuple(dict.fromkeys(s.section for s in admitted)),
+            gaps=(
+                *(("No admitted primary narrative history.",) if not admitted else ()),
+                "Partial captured history; unreviewed sections are excluded from retrieval.",
+                "Capture time does not establish current storyline completeness.",
+                "Matching identities and repeated accounts do not independently corroborate facts.",
+            ),
         )
 
     def inspect(self, source_id: str) -> SourceInspection:

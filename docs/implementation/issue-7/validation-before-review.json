@@ -1,0 +1,63 @@
+{
+  "baseline": "2d559ad6bf70c1520745bb876cfc0b5de115a258",
+  "tested_at": "2026-10-17",
+  "environment": "Native Python virtual environment; isolated real PostgreSQL/pgvector Docker databases; real Prefect; external model/source transports controlled in software tests.",
+  "application_sha256": "861c7c53ef52907287d9ab8cecc5bbfe4b54a6462f97e0bfce363db6c5cdcb0c",
+  "lock_sha256": "983d5a644e3289e6b79d92dc251b5029c199a497ac33c14f504a3c9ee3763152",
+  "corpus_sha256": "b14f97f00cc14b51e6eb8a89958d875c33a24bb94b43c226e3efd84cfca3a5c7",
+  "reference_sha256": "8127346fb4e31f9bb844b6bf2f6c447655ee0c40d61e86e8715636588538ab5e",
+  "software_result": {
+    "name": "pytest",
+    "errors": "0",
+    "failures": "0",
+    "skipped": "0",
+    "tests": "145",
+    "time": "303.192",
+    "timestamp": "2026-10-17T14:21:32.078120+01:00",
+    "hostname": "tom-Latitude-3510"
+  },
+  "checks": {
+    "ruff": "pass",
+    "strict_mypy": "pass, 41 files"
+  },
+  "paid_calls_in_software_suite": 0,
+  "tdd_red_observations": [
+    "Coverage API lacked per-character inventory (KeyError: characters).",
+    "Restartable capture interface absent (ImportError: capture_plan).",
+    "Cross-source duplicate groups absent (KeyError: duplicate_paragraphs).",
+    "Duplicate capture request identifiers accepted (expected ValidationError not raised)."
+  ],
+  "warnings": [
+    "Existing upstream Starlette/httpx test-client deprecation."
+  ],
+  "limitations": [
+    "Controlled external transports and software results do not measure model quality. Live retrieval/answer evidence is separate."
+  ],
+  "database_image": {
+    "reference": "pgvector/pgvector:0.8.6-pg18-trixie",
+    "image_id": "sha256:78bf48b801e792f99e3ac62b5036fd3876e9be48afda16c1e331af1c75ceb2ff"
+  },
+  "embedding_service_image": {
+    "reference": "ollama/ollama:0.34.4",
+    "image_id": "sha256:8262851b2846b87c649eddf3e76beb270c52f4d1bc94559f47efde16b0841551"
+  },
+  "test_file_sha256": {
+    "tests/conftest.py": "a1aae41c260f6b4a1acfaec6ce0e383d176ac51765a13faebf6835288f7bb719",
+    "tests/test_answer_rules.py": "dc14a86340fc34e0dcbc3638089c89f7b9cb2f232f6f5c5dbc060fc7cf61a8c3",
+    "tests/test_answers_api.py": "0379c915eb27d1f537055075ef0e4d3f2f2b8a1ab5192dbfd533e4b29339cab0",
+    "tests/test_cli.py": "0cad3933454e67628c06a73bd1c4fe2cfc803feef9f642727ffed5b9b369a6c8",
+    "tests/test_core_coverage.py": "ea60ffba64f7f500c027d59215849cdaab1553c466f691a74ddfcd0324082f37",
+    "tests/test_evaluation.py": "896c740f595a0cb3cc222e05741e21fd705d3c475198cc04c6c01e6390f851a3",
+    "tests/test_identity.py": "6b551edb254f6209f90234ebc5a9844c1273b42f26503ef8ebe6c7e9d0c66999",
+    "tests/test_import_api.py": "1541c6791b658e2c00d6cb8d61065a8d929a7c4ab9d11ecb79569a8ec056688a",
+    "tests/test_inspection.py": "97b460517280da1202a7c8cc1019a167bfd764d6cf3a31108758b838ac9ee1e6",
+    "tests/test_openrouter.py": "bcb9a2398232c2281025f873c46f11d59496853ebc2bfef8c27d7bb4eba9061c",
+    "tests/test_openrouter_answers.py": "2cfd3615a6db5349af925f16318aa01d4162b2b1b88b6ddf50c5598d5ab8ad3d",
+    "tests/test_policy_evaluation.py": "1606fb2fe9fa11b4b0b7d5194b0f7c0530cb92e2fb03bd6915484a351528ff0e",
+    "tests/test_provenance.py": "1c6a3c916a4c28413c0fb957dbb283e3a38bcec8012414ceea0d79fcdf4c8eaa",
+    "tests/test_refresh.py": "b1c4e5b7d1983baf61bb157d4a0a4a6d9efb38922bbf18242d22b0332803e2f5",
+    "tests/test_retrieval.py": "812685fe4a40c03c4e6b6bf264fdf478a5d65a5a4fb487613a1e37603351748f",
+    "tests/test_source_capture.py": "20f115f83a783753450aab05a90cb5a66b8c795eb42914654789728cdf9c92e4",
+    "tests/test_source_ingestion.py": "fa0d709ba329cf0b074df616a9065eedb5b4a17cdf7d4aa943912fcdddb490ba"
+  }
+}
