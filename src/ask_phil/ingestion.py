@@ -14,6 +14,7 @@ from bs4 import BeautifulSoup
 from pydantic import HttpUrl
 
 from ask_phil.evidence import Passage, Source, SourceSnapshot
+from ask_phil.passage_context import PROJECTION_VERSION, project_passages
 from ask_phil.source_records import CapturedSource as CapturedSource
 from ask_phil.source_records import (
     ImportedSources,
@@ -38,6 +39,19 @@ def read_batch(path: Path) -> SourceBatch:
     if len(content) > 25_000_000:
         raise ValueError("Source batch exceeds the decoded file limit.")
     return SourceBatch.model_validate_json(content)
+
+
+def source_input_fingerprint(batch: SourceBatch) -> str:
+    """Identify captured input and projection policy, independent of check timestamps."""
+    input_data = batch.model_dump(mode="json")
+    input_data["projection_version"] = PROJECTION_VERSION
+    input_data["captures"] = [
+        capture.model_dump(mode="json", exclude={"captured_at", "content"})
+        for capture in batch.captures
+    ]
+    return hashlib.sha256(
+        json.dumps(input_data, sort_keys=True, separators=(",", ":")).encode()
+    ).hexdigest()
 
 
 def capture_sources(
@@ -214,35 +228,23 @@ def build_snapshot(batch: SourceBatch, snapshot_id: str) -> SourceSnapshot:
                     "Identity and episode metadata do not independently corroborate story claims.",
                 ),
             )
-            # Preserve exact offsets in the full paragraph projection, including gaps.
-            start = span.start
-            while start < span.end:
-                remaining = document.text[start : span.end]
-                prefix = remaining.encode()[:1200].decode("utf-8", errors="ignore")
-                if len(prefix) < len(remaining) and " " in prefix:
-                    prefix = prefix[: prefix.rfind(" ") + 1]
-                end = start + len(prefix)
-                passages.append(
-                    Passage(
-                        evidence_id=f"{capture.source_id}-{span.ordinal:04d}-{start}",
-                        text=prefix,
-                        sha256=hashlib.sha256(prefix.encode()).hexdigest(),
-                        start=start,
-                        end=end,
-                        source=source,
-                        location=SourceLocation(
-                            source_id=capture.source_id,
-                            paragraph_ordinal=span.ordinal,
-                            section_id=span.section_id,
-                            character_ids=tuple(sorted(links)),
-                        ),
-                    )
+            passages.extend(
+                project_passages(
+                    span,
+                    source,
+                    SourceLocation(
+                        source_id=capture.source_id,
+                        paragraph_ordinal=span.ordinal,
+                        section_id=span.section_id,
+                        character_ids=tuple(sorted(links)),
+                    ),
                 )
-                start = end
+            )
     if not passages:
         raise ValueError("Import has no admitted main-series narrative evidence.")
     imported = ImportedSources(
         **batch.model_dump(),
+        parser_version=PROJECTION_VERSION,
         documents=tuple(documents),
         records=tuple(records),
         issues=tuple(issues),

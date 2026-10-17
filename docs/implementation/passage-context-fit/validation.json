@@ -1,0 +1,97 @@
+{
+  "recorded_at": "2026-10-17T12:58:29.667989+00:00",
+  "review_baseline": "acfad8a635cb8d0d71dbb42b82a9133716c872de",
+  "application_sha256": "d2d184a25b2f532998e000d57a6838fde9c759e144162b69b903f2e30d20144d",
+  "inputs_sha256": {
+    "src/ask_phil/__init__.py": "c4be197720058e2c86d4a79594bf60163b9bef1578b8e0e99650ec5e8b114a3d",
+    "src/ask_phil/answering.py": "70bc3c0ba1b1a68e56277a7386bfa06b1cc9354993a64c297566bfa3fe35fde6",
+    "src/ask_phil/answers.py": "aae2b35aa11b8b127fd1a5b471daa2c2adf0574346970d63d49a246284d96be8",
+    "src/ask_phil/api.py": "f780c59caa094cad4823ed12753c93caa3097d29a8494b8cc949cbf99f64ed33",
+    "src/ask_phil/cli.py": "9e2d0b337329ee514b6ce7967c1102b3c85781f062d366c59680f37780b6c02d",
+    "src/ask_phil/evaluation.py": "58d3f30db8e44220a5b9a66ab7ee27959b3b82ffd51da04ca22cb06c19956bfc",
+    "src/ask_phil/evidence.py": "321f6a3ba913ca8be26a4ab171e263ab1da9fc208b12432f5dbcf54c2f83ea9f",
+    "src/ask_phil/identity.py": "f7277f6206c35dcb5e5cb91806f98c5142c09175d86f0fd7fa5b962f20f0d2c9",
+    "src/ask_phil/ingestion.py": "902d23ffe685b489761732afad111b6a7dfce897b6a2253f722aa172dc293952",
+    "src/ask_phil/models.py": "e570e270194dbda4ad7e035c9c9f9c74c44e90c11bda766d77c20e5c3f27e3db",
+    "src/ask_phil/openrouter.py": "a94c3f04091c5acd8ad9bbdd73549af7c83ad782869cfec2472caf808161f98f",
+    "src/ask_phil/passage_context.py": "4d7f9bf6e4937308a5142f12f35036feff35c87a054acb088af6b14e7810f6e0",
+    "src/ask_phil/publications.py": "72fdb5e948b08e52c974e03a20d218f0659cb60aea0efec8d9cfb2bb9e7bf6fa",
+    "src/ask_phil/refresh.py": "54674b463c0d84698a0302a8a49374c941a52892fffaa7b36bdf4b98b371c41e",
+    "src/ask_phil/responses.py": "a51474b03f35ffec016760d31754fc4eae4e19447e2f8ffd7719f81794222f73",
+    "src/ask_phil/retrieval.py": "bd90fbfc5653bb25c3cda4f9cfce0b69fdf6b14205971f3ac91c26f3b580490b",
+    "src/ask_phil/source_records.py": "be16fe7df211483e24db04ab81500641c919fc66b75ec32f4f939b4065e9bfba",
+    "src/ask_phil/storage.py": "32e5be5e11813d8c36d81a2ff5d292645967d1f646bcb45f43e50088afb25f74",
+    "tests/conftest.py": "a1aae41c260f6b4a1acfaec6ce0e383d176ac51765a13faebf6835288f7bb719",
+    "tests/test_answer_rules.py": "dc14a86340fc34e0dcbc3638089c89f7b9cb2f232f6f5c5dbc060fc7cf61a8c3",
+    "tests/test_answers_api.py": "0379c915eb27d1f537055075ef0e4d3f2f2b8a1ab5192dbfd533e4b29339cab0",
+    "tests/test_cli.py": "0cad3933454e67628c06a73bd1c4fe2cfc803feef9f642727ffed5b9b369a6c8",
+    "tests/test_evaluation.py": "896c740f595a0cb3cc222e05741e21fd705d3c475198cc04c6c01e6390f851a3",
+    "tests/test_identity.py": "6b551edb254f6209f90234ebc5a9844c1273b42f26503ef8ebe6c7e9d0c66999",
+    "tests/test_import_api.py": "1541c6791b658e2c00d6cb8d61065a8d929a7c4ab9d11ecb79569a8ec056688a",
+    "tests/test_inspection.py": "97b460517280da1202a7c8cc1019a167bfd764d6cf3a31108758b838ac9ee1e6",
+    "tests/test_openrouter.py": "bcb9a2398232c2281025f873c46f11d59496853ebc2bfef8c27d7bb4eba9061c",
+    "tests/test_openrouter_answers.py": "2cfd3615a6db5349af925f16318aa01d4162b2b1b88b6ddf50c5598d5ab8ad3d",
+    "tests/test_policy_evaluation.py": "1606fb2fe9fa11b4b0b7d5194b0f7c0530cb92e2fb03bd6915484a351528ff0e",
+    "tests/test_provenance.py": "1c6a3c916a4c28413c0fb957dbb283e3a38bcec8012414ceea0d79fcdf4c8eaa",
+    "tests/test_refresh.py": "b1c4e5b7d1983baf61bb157d4a0a4a6d9efb38922bbf18242d22b0332803e2f5",
+    "tests/test_retrieval.py": "812685fe4a40c03c4e6b6bf264fdf478a5d65a5a4fb487613a1e37603351748f",
+    "tests/test_source_ingestion.py": "fa0d709ba329cf0b074df616a9065eedb5b4a17cdf7d4aa943912fcdddb490ba",
+    "data/seed/context-fit-legacy-v1.json": "e4ab629482f779302dcd05d1aa22d71402bfcca27fe0860fcaab1535452c8973",
+    "data/sources/real-sources-v1.json.gz": "bfcaae65ecd30c4ebee805a71d02910ce85db636aa0d5f1ef2a08368a06eb76a",
+    "pyproject.toml": "f740c8e894e07d179ff7aa5b07ebd055b5e5e9be97e9c7cbcc0765b519216538",
+    "uv.lock": "983d5a644e3289e6b79d92dc251b5029c199a497ac33c14f504a3c9ee3763152"
+  },
+  "sizing": {
+    "answer_context_byte_budget": 1200,
+    "embedding_input_byte_budget": 1800,
+    "before": {
+      "passages": 138,
+      "cannot_fit_alone": 67,
+      "largest_serialized_passage_bytes": 1286,
+      "projection_version": "html-paragraphs-v1"
+    },
+    "after": {
+      "passages": 147,
+      "cannot_fit_alone": 0,
+      "largest_serialized_passage_bytes": 1200,
+      "projection_version": "html-context-fit-v2"
+    },
+    "admitted_source_spans_preserved": 79
+  },
+  "legacy_fixture": {
+    "snapshot_id": "sources-a6e074077873fff9f846f75c56ebf19cadfff72a0d04a6a16623acb5480fecd6",
+    "fingerprint": "63c5b8980ed148a5cf15b2bddbe507f8ef2b403ce5504c259af1c39180973fbb",
+    "projection_version": "html-paragraphs-v1"
+  },
+  "software": {
+    "tests": 137,
+    "failures": 0,
+    "errors": 0,
+    "skipped": 0,
+    "seconds": 197.206,
+    "junit": "software-tests.xml",
+    "command": "MLFLOW_DISABLE_AGENT_HINT=1 .venv/bin/pytest -q -p no:cacheprovider --junitxml=/tmp/passage-context-fit-tests-20261017.xml --test-database-url <disposable-local-db>",
+    "runner": "Local Python virtual environment; real isolated PostgreSQL/pgvector and Prefect; external model/source transport controlled by tests.",
+    "junit_sha256": "261e9a7de8ce34491f3db65610b00477df2c7da7d36ee8574f2c452d7703fce2"
+  },
+  "database": {
+    "image": "pgvector/pgvector@sha256:78bf48b801e792f99e3ac62b5036fd3876e9be48afda16c1e331af1c75ceb2ff",
+    "shared_memory_mib": 256,
+    "scope": "Separate disposable container; no demo volumes mounted."
+  },
+  "static_checks": {
+    "ruff": "passed",
+    "strict_mypy": "passed: 38 source files",
+    "staged_diff_check": "passed"
+  },
+  "review": {
+    "standards_findings": 0,
+    "spec_findings": 0,
+    "record": "review.md"
+  },
+  "limitations": [
+    "Software checks use controlled external responses and do not measure retrieval ranking or factual answer quality.",
+    "No paid model calls or live source capture.",
+    "Retained v1 snapshots preserve their old passage projection; run a new refresh to publish v2 passages."
+  ]
+}

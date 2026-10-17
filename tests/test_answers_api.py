@@ -515,6 +515,85 @@ def test_empty_context_abstains_without_model_inference_or_a_negative_fact(
         assert not any(s.span_type == "LLM" for s in trace.data.spans)
 
 
+@pytest.mark.parametrize(
+    "models",
+    [
+        {
+            "draft": {
+                "answer": (
+                    "Right, listen. This synthetic fixture says Sharon opens the blue workshop."
+                ),
+                "evidence_ids": ["sharon-wiki-0000-0"],
+                "status": "answered",
+            }
+        }
+    ],
+    indirect=True,
+)
+def test_answer_can_cite_a_long_imported_source_passage(
+    database_url: str, models: Models, tracking_uri: str
+) -> None:
+    from ask_phil.ingestion import SourceBatch, build_snapshot
+    from ask_phil.models import LocalEmbedding
+
+    legacy = SourceSnapshot.model_validate_json(
+        Path("data/seed/context-fit-legacy-v1.json").read_text()
+    )
+    assert legacy.imported is not None
+    batch = SourceBatch(
+        format_version=legacy.imported.format_version,
+        catalogue=legacy.imported.catalogue,
+        policies=legacy.imported.policies,
+        captures=legacy.imported.captures,
+    )
+    snapshot = build_snapshot(batch, "long-source-answer")
+    first = snapshot.passages[0]
+
+    def embedding_provider(request: httpx.Request) -> httpx.Response:
+        text = json.loads(request.content)["input"]
+        # Give the first source passage a distinct direction, then query that direction.
+        preferred = text.startswith("task: search result | query:") or text.endswith(
+            first.text.strip()
+        )
+        return httpx.Response(
+            200, json={"embeddings": [[1.0, 0.0, 0.0] if preferred else [0.0, 1.0, 0.0]]}
+        )
+
+    models = replace(
+        models,
+        embedding=LocalEmbedding(
+            model_name="test-embedding",
+            client=Client(
+                host="http://model.invalid", transport=httpx.MockTransport(embedding_provider)
+            ),
+        ),
+    )
+    EvidenceStore(database_url).load(snapshot)
+    TextRetriever(database_url, models.embedding, models.settings.embedding_id, 3).prepare(
+        snapshot.snapshot_id
+    )
+    with TestClient(create_app(database_url, models=models, tracking_uri=tracking_uri)) as client:
+        result = client.post(
+            "/v1/answers",
+            json={"snapshot_id": snapshot.snapshot_id, "question": "Which workshop opens?"},
+        )
+        assert result.status_code == 200, result.text
+        receipt = result.json()
+        answer = receipt["response"]
+        assert answer["status"] == "answered"
+        assert answer["context"][0]["text"] == first.text
+        citation = answer["citations"][0]
+        assert citation["start"] == first.start and citation["end"] == first.end
+        assert client.get(citation["resolve_path"]).json()["matches"] == [
+            first.model_dump(mode="json")
+        ]
+        saved = client.get(
+            f"/v1/responses/{answer['response_id']}",
+            headers={"Authorization": f"Bearer {receipt['read_token']}"},
+        )
+        assert saved.json() == answer
+
+
 def test_answer_has_resolvable_citations_real_trace_and_durable_private_receipt(
     database_url: str, seed: SourceSnapshot, models: Models, tracking_uri: str
 ) -> None:

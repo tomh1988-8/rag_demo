@@ -27,3 +27,11 @@ Reviewer identity and lack of human/independent-canon review are explicit. These
 are deterministic retrieval references, not evidence of generative-answer quality.
 Keep both cases and their derivatives in the same development group; they are
 already exposed and must not become an undisclosed held-out test.
+
+`context-fit-legacy-v1.json` is an authored synthetic refresh fixture, not
+EastEnders canon. It was generated with the ingestion implementation at
+`acfad8a635cb8d0d71dbb42b82a9133716c872de` from a long, repeated workshop paragraph.
+It retains the original `html-paragraphs-v1` projection and pre-versioned refresh
+input identity. The passage-fit regression publishes it before refreshing the
+same captured bytes under the revised projection, then checks retained evidence,
+unchanged reruns and recovery to the original source/index pair.
