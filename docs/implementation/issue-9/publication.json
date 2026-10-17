@@ -17,5 +17,20 @@
   "issue_number": 9,
   "issue_state_readback": "OPEN",
   "acceptance": "software validated; live payload authorization and human label review pending",
-  "unrelated_workspace_changes": "Preserved unstaged/untracked; excluded from implementation publication."
+  "unrelated_workspace_changes": "Preserved unstaged/untracked; excluded from implementation publication.",
+  "record_scope": "Initial software publication before explicit live approval; see live_acceptance for continuation state.",
+  "live_acceptance": {
+    "status": "runtime_evidence_complete_pending_final_publication",
+    "serving_code_revision": "e21e43d39b48c7a18800c67b80c233ced6da2765",
+    "approval": "docs/implementation/issue-9/approval.json",
+    "evidence": "docs/implementation/issue-9/README.md",
+    "validation": "docs/implementation/issue-9/live-validation.json",
+    "critical_answer_quality_gates": {
+      "baseline": "failed",
+      "candidate": "failed"
+    },
+    "scope": "Evaluation workflow; scoped synthetic calibration. Product failures remain open regressions, final release acceptance remains #21.",
+    "issue_state_readback": "OPEN",
+    "publication_and_closure_pending": true
+  }
 }

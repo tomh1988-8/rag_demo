@@ -2,20 +2,39 @@
 
 Updated 17 October 2026. The user approved the initial checklist/ticket breakdown, authorised publication, and subsequently required user feedback and online evaluation. Checklist v1.1 and the amended 24-ticket breakdown are published. Issues #2, #3, #4, #5, #6, #7 and #8 are complete and closed. Issues #5–#8 passed their full software suites, independent reviews, exact-tree publication verification and closure readback. Issue #4 passed its scoped cloud policy acceptance.
 
-## Issue #9: implementation in progress
+## Issue #9: actual quality comparison and calibration
 
-[The quality-comparison workflow](../../implementation/issue-9/README.md) adds
-grouped references, relevance scoring, paired reports, public API capture and a
-narrow support judge. A failed two-call pilot cost $0.009182; its clarification
-recorder error now has a passing API regression. The shared ledger is $0.241848
-with no unsettled reservations. All 248 software tests, strict mypy and Ruff pass;
-the independent Standards and Spec reviews have zero remaining software findings.
-[Published 928c0fb](https://github.com/tomh1988-8/rag_demo/commit/928c0fb6d12d5178aad25716dfe4146bb94cda32)
-was pushed through native Git and its exact tree verified by remote readback.
-Human review of eight synthetic support labels
-and explicit authorization for the corrected OpenRouter evaluation payloads are
-pending. Complete the live comparison/calibration and actual MLflow readback
-before closing #9. Its code and protocol alone do not pass runtime acceptance.
+[The completed runtime evidence](../../implementation/issue-9/README.md) contains
+two controlled 14-response public API runs over seven exposed cases in three
+story groups, six independent answer dimensions, separate retrieval/context
+measurements and actual MLflow stage spans. Both configurations fail critical
+quality gates: Janine's original question is wrongly rewritten/corrected and its
+required context is dropped; the shared-surname garage question unnecessarily
+clarifies. These are retained [regressions](../../implementation/issue-9/regressions.json),
+not broad answer-quality acceptance.
+
+Tom approved all eight unchanged synthetic support labels and the specified
+OpenRouter payloads/costs before execution. The judge completes all 24 planned
+calibration observations with zero false passes or repeat/order/verbosity flips.
+Applying it to the saved answers agrees with eight positive labels, while four
+identity gaps and four no-assertion/null-policy mismatches require review and stay
+unscored. The actual development application has no negative-label denominator.
+#23 must add adjudicated controls before broader automatic support use.
+
+[Final validation](../../implementation/issue-9/live-validation.json) records
+software checks, independent review and exact MLflow artifact readback.
+[The publication receipt](../../implementation/issue-9/publication.json) records
+the verified commit and tracker closure state. Native Git publication now works;
+older credential limitations below are historical. The continuation uses 52 paid
+calls costing $0.1012312; including the retained failed pilot, #9 has 54 paid calls
+costing $0.1104132. Preserve the shared non-resetting $5 ledger at $0.343084 with
+zero unsettled reservations. No key or private session tokens are published.
+
+AD-04.3/4, AD-06.4, AD-08.1/2 and AD-09.2 pass for the scoped measurement workflow:
+27 current checks Pass and 24 remain Pending. These are measurement passes;
+answer quality, held-out release acceptance and automatic online feedback retain
+their separate gates. After #9 closure, #10 is next; #11, #19 and #24 are also
+unblocked. Wait for the user's next implementation instruction.
 
 ## Issue #8: grounded follow-ups and reset accepted and closed
 
@@ -48,7 +67,7 @@ records closure readback with all eight criteria checked. The authenticated GitH
 connector published without forcing because native Git has no push credentials;
 both histories are retained locally. The user explicitly approved live execution
 and publication; earlier automatic review denials are historical.
-#9 is now in progress as recorded above.
+#9 runtime acceptance is recorded above.
 
 ## Issue #7: all 20 core text profiles
 
@@ -79,7 +98,7 @@ zero unsettled reservations. Offline reviews use zero model calls and separate
 MLflow runs. Preserve the private key and ledger. AD-03.4 and RAG-01 pass for this
 scope: 20 checks passed and 31 remained Pending at #7. Graph, fusion, caching and
 online-feedback acceptance remain later work. #8 subsequently completed above;
-#9 is now in progress as recorded above.
+#9 runtime acceptance is recorded above.
 
 ## Issue #6: source/text refresh and recovery
 
@@ -158,7 +177,7 @@ use #3. A persistent cloud deployment has not been configured.
 ## Published and verified
 
 - [Specification #1](https://github.com/tomh1988-8/rag_demo/issues/1) contains the agreed specification with the feedback/online-evaluation and fusion/cache amendments (130 stories).
-- Implementation tickets **#2–#25** are published and labelled `ready-for-agent`. **#2, #3, #4, #5, #6, #7 and #8 are closed as completed**; #9–#25 remain open.
+- Implementation tickets **#2–#25** are published and labelled `ready-for-agent`. **#2–#8 are closed as completed**; the current #9 publication/closure state is in its receipt above. #10–#25 remain open.
 - All 25 remote bodies, states and ready-for-agent labels were read back and checked against the intended content after the fusion/cache amendment.
 - The 41 blocking relationships are recorded as real issue references in ticket bodies and as a machine-readable mapping in [publication.json](publication.json).
 - Issue #2 has a reviewed captured seed, CLI/API/PostgreSQL behavior, 17 passing tests in both native and Docker environments, and recorded deterministic baseline outputs. [Fresh Compose startup and database/API restart passed](../../implementation/issue-2/README.md); no generative model quality is claimed. GitHub closure and all seven checked criteria were read back and verified.
@@ -167,7 +186,7 @@ The [to-spec skill](../../../.agents/skills/to-spec/SKILL.md) authorised specifi
 
 ## First available work
 
-**[#9 — Inspect calibrated quality comparisons](https://github.com/tomh1988-8/rag_demo/issues/9)** is in progress. #10 (execution boundaries), #11 (biological claims) and #24 (fusion/context expansion) are also unblocked. Wait for the next implementation instruction before starting another ticket. Specification #1 remains parent context.
+After verified #9 closure, **[#10 — Bound requests and enforce read-only execution](https://github.com/tomh1988-8/rag_demo/issues/10)** is next. #11 (biological claims), #19 (Phil voice) and #24 (fusion/context expansion) are also unblocked. Wait for the next implementation instruction before starting another ticket. Specification #1 remains parent context.
 
 For subsequent work, read the current issue and comments, the relevant domain/ADR decisions and the checklist profile. Work the dependency frontier; the shared `ready-for-agent` label does not mean a blocked ticket can begin. Existing approved decisions and the six public test boundaries do not need another design interview.
 
@@ -206,7 +225,7 @@ The “Blocked by” column contains **GitHub issue numbers**, which differ from
 
 - [Approved ticket breakdown](README.md), including rationale and the common evidence-completion pattern.
 - [Reusable checklist v1.1](../../checklists/agent-development.md).
-- [Ask Phil applicability profile and evidence register](../../checklists/ask-phil-profile.md): 51 current items, one deployment deferral and 12 N/A items. Twenty pass: three on design evidence, five on inspection, five on initial text RAG, two on #4 software counterexamples/quality measurement, two on #5 source inventory/retention, one on #6 source/text refresh and two on #7 broad text/source coverage; 31 current obligations remain Pending. Scoped acceptance does not discharge full-product comparison, calibration, graph, fusion, cache or online-feedback obligations.
+- [Ask Phil applicability profile and evidence register](../../checklists/ask-phil-profile.md): 51 current items, one deployment deferral and 12 N/A items. Twenty-seven pass, including the scoped conversation and quality-comparison additions; 24 current obligations remain Pending. Actual quality failures, graph, fusion, cache, final held-out acceptance and automatic online-feedback obligations remain visible.
 - [All 130 specification stories mapped to tickets](spec-coverage.md).
 - [Local specification](../../specs/ask-phil.md), [test/evaluation strategy](../../design/testing-and-evaluation.md), [domain glossary](../../../CONTEXT.md) and [architecture decisions](../../adr/).
 - [Publication manifest](publication.json), including issue IDs/URLs, approval, source fingerprints, readback verification and the outstanding native relationship operations.
@@ -233,7 +252,7 @@ The user requested fusion/context expansion and repeated-question caching before
 the next implementation. [Research](../../research/rag-fusion-and-answer-caching.md)
 and [scope validation](fusion-cache-amendment.json) describe the changes. GitHub #24
 and #25 own the new behavior; #18 and #21 include their actual prerequisites.
-#9 is now in progress after completion of #8. Neither fusion nor caching is implemented.
+#9 runtime acceptance is recorded above after completion of #8. Neither fusion nor caching is implemented.
 
 Historical issue #2 publication: the validated code was published on GitHub `main` at `1a186fd1c6cbf306742a7ef6868f5b2cded58df2`,
 whose tree exactly matches local `e5ac34c`. Publication used the authenticated GitHub

@@ -1,0 +1,1016 @@
+{
+  "kind": "support-judge-calibration-v1",
+  "rubric_sha256": "99271033de9a536ea3b9b93e9efd15ad2a57f1ff0b7df54071578f141808bd1d",
+  "judge_profile": {
+    "provider_type": "openrouter",
+    "answer_model": "openai/gpt-6-sol",
+    "canonical_slug": "openai/gpt-6-sol-20260922",
+    "provider": "openai",
+    "input_price_per_million": "2",
+    "output_price_per_million": "10",
+    "output_tokens": 8192,
+    "reasoning_effort": "low",
+    "request_timeout_seconds": 180
+  },
+  "expenditure_category": "offline_evaluation",
+  "cost_usd": "0.020680",
+  "implementation_sha256": "351d12d97cdbd8185c1c028b49a487b5777cc33d8c72d696a37f8f458dcda8e4",
+  "recorded_at": "2026-10-17T19:35:13.480519+00:00",
+  "reference_file_sha256": "0db75900f8365f00aecefbd3e765bd15c3a50fc7e0fcb400e33bcf42ccb411e6",
+  "recorder_version": "frozen-evaluation-run-v1",
+  "input_artifacts": [
+    {
+      "artifact_path": "inputs/0/judge-calibration.references.json",
+      "sha256": "0db75900f8365f00aecefbd3e765bd15c3a50fc7e0fcb400e33bcf42ccb411e6"
+    },
+    {
+      "artifact_path": "inputs/1/support-judge-v1.json",
+      "sha256": "5b7cab78ae1cd8b125e2e90ad8f65b7f787fc99b437853aab76092533c049f89"
+    },
+    {
+      "artifact_path": "inputs/2/judge-calibration.rubric.txt",
+      "sha256": "99271033de9a536ea3b9b93e9efd15ad2a57f1ff0b7df54071578f141808bd1d"
+    },
+    {
+      "artifact_path": "inputs/3/uv.lock",
+      "sha256": "983d5a644e3289e6b79d92dc251b5029c199a497ac33c14f504a3c9ee3763152"
+    },
+    {
+      "artifact_path": "inputs/4/semantic_judge.py",
+      "sha256": "351d12d97cdbd8185c1c028b49a487b5777cc33d8c72d696a37f8f458dcda8e4"
+    }
+  ],
+  "result_artifact": "result/judge-calibration.json",
+  "case_ids": [
+    "chairs-supported-original-r0",
+    "chairs-supported-original-r1",
+    "chairs-supported-reversed-r0",
+    "chairs-supported-verbose-r0",
+    "chairs-wrong-colour-original-r0",
+    "chairs-wrong-colour-original-r1",
+    "chairs-wrong-colour-reversed-r0",
+    "chairs-wrong-colour-verbose-r0",
+    "chairs-incomplete-original-r0",
+    "chairs-incomplete-original-r1",
+    "chairs-missing-input-original-r0",
+    "chairs-missing-input-original-r1",
+    "books-supported-original-r0",
+    "books-supported-original-r1",
+    "books-supported-reversed-r0",
+    "books-supported-verbose-r0",
+    "books-wrong-day-original-r0",
+    "books-wrong-day-original-r1",
+    "books-wrong-day-reversed-r0",
+    "books-wrong-day-verbose-r0",
+    "books-invented-fine-original-r0",
+    "books-invented-fine-original-r1",
+    "books-missing-input-original-r0",
+    "books-missing-input-original-r1"
+  ],
+  "cases": [
+    {
+      "case_id": "chairs-supported-original-r0",
+      "reference": {
+        "case_id": "chairs-supported-original-r0",
+        "example_id": "chairs-supported",
+        "variant": "original",
+        "repeat": 0
+      },
+      "reference_sha256": "c5ef56f2132b3dc982009ca1bbbbd69dab271d869bbbd93263b98851f09fc012",
+      "state": "complete",
+      "observation": {
+        "case_id": "chairs-supported",
+        "variant": "original",
+        "repeat": 0,
+        "assessment": {
+          "supported": true,
+          "evidence_ids": [
+            "chairs-delivery"
+          ],
+          "reason": "The delivery passage states that Phil delivers three red chairs.",
+          "input_sha256": "05be02509f495107e3d8cc7fc221eaea30a1f75cb1444bec5246e56e12bbc3fa",
+          "rubric_sha256": "99271033de9a536ea3b9b93e9efd15ad2a57f1ff0b7df54071578f141808bd1d",
+          "rubric_version": "all-assertions-supported-v1",
+          "judge_settings_sha256": "1c91a994d2d659eba99ed65f4011dc81421bcbe7ff1e5218667bbbdcd196f567",
+          "usage": {
+            "reservation_id": "fdc39b11bb8f4abaab4d4680ec81eae8",
+            "reserved_usd": 0.094026,
+            "cost_usd": 0.000926,
+            "request_id": "gen-1792265713-olbEzSWQJA60SRensXkO",
+            "returned_model": "openai/gpt-6-sol",
+            "provider": "OpenAI",
+            "input_tokens": 288,
+            "output_tokens": 35,
+            "reasoning_tokens": 0
+          },
+          "cost_usd": 0.000926
+        }
+      }
+    },
+    {
+      "case_id": "chairs-supported-original-r1",
+      "reference": {
+        "case_id": "chairs-supported-original-r1",
+        "example_id": "chairs-supported",
+        "variant": "original",
+        "repeat": 1
+      },
+      "reference_sha256": "6a172d3e35c2c2e182948b29018124ca00a764db14276a1179ed74887a4355c2",
+      "state": "complete",
+      "observation": {
+        "case_id": "chairs-supported",
+        "variant": "original",
+        "repeat": 1,
+        "assessment": {
+          "supported": true,
+          "evidence_ids": [
+            "chairs-delivery"
+          ],
+          "reason": "The delivery passage explicitly says Phil delivers three red chairs.",
+          "input_sha256": "05be02509f495107e3d8cc7fc221eaea30a1f75cb1444bec5246e56e12bbc3fa",
+          "rubric_sha256": "99271033de9a536ea3b9b93e9efd15ad2a57f1ff0b7df54071578f141808bd1d",
+          "rubric_version": "all-assertions-supported-v1",
+          "judge_settings_sha256": "1c91a994d2d659eba99ed65f4011dc81421bcbe7ff1e5218667bbbdcd196f567",
+          "usage": {
+            "reservation_id": "ddf91081e0014eadb4f55f0c7dbf3d5d",
+            "reserved_usd": 0.094026,
+            "cost_usd": 0.000926,
+            "request_id": "gen-1792265716-lZZTsMisL1eypkvAyioj",
+            "returned_model": "openai/gpt-6-sol",
+            "provider": "OpenAI",
+            "input_tokens": 288,
+            "output_tokens": 35,
+            "reasoning_tokens": 0
+          },
+          "cost_usd": 0.000926
+        }
+      }
+    },
+    {
+      "case_id": "chairs-supported-reversed-r0",
+      "reference": {
+        "case_id": "chairs-supported-reversed-r0",
+        "example_id": "chairs-supported",
+        "variant": "reversed",
+        "repeat": 0
+      },
+      "reference_sha256": "154a70ee5b79d79310261f05d8ecd1ee485edb28cc081ffed23718b5e0669a4d",
+      "state": "complete",
+      "observation": {
+        "case_id": "chairs-supported",
+        "variant": "reversed",
+        "repeat": 0,
+        "assessment": {
+          "supported": true,
+          "evidence_ids": [
+            "chairs-delivery"
+          ],
+          "reason": "The delivery passage explicitly says Phil delivers three red chairs.",
+          "input_sha256": "c2cc4a4336616802b4f9e9ff8efcf8f3e87c8d9fe0f481d7b162fb4c74095696",
+          "rubric_sha256": "99271033de9a536ea3b9b93e9efd15ad2a57f1ff0b7df54071578f141808bd1d",
+          "rubric_version": "all-assertions-supported-v1",
+          "judge_settings_sha256": "1c91a994d2d659eba99ed65f4011dc81421bcbe7ff1e5218667bbbdcd196f567",
+          "usage": {
+            "reservation_id": "55e903e5f0ae4bd19fbd153e5efff040",
+            "reserved_usd": 0.094026,
+            "cost_usd": 0.000926,
+            "request_id": "gen-1792265717-0X6T07y3X62kJazzVKBJ",
+            "returned_model": "openai/gpt-6-sol",
+            "provider": "OpenAI",
+            "input_tokens": 288,
+            "output_tokens": 35,
+            "reasoning_tokens": 0
+          },
+          "cost_usd": 0.000926
+        }
+      }
+    },
+    {
+      "case_id": "chairs-supported-verbose-r0",
+      "reference": {
+        "case_id": "chairs-supported-verbose-r0",
+        "example_id": "chairs-supported",
+        "variant": "verbose",
+        "repeat": 0
+      },
+      "reference_sha256": "67702495a837d1fc656460c0b20c0465b024249d6ffa5c44640d16e890b8e39d",
+      "state": "complete",
+      "observation": {
+        "case_id": "chairs-supported",
+        "variant": "verbose",
+        "repeat": 0,
+        "assessment": {
+          "supported": true,
+          "evidence_ids": [
+            "chairs-delivery"
+          ],
+          "reason": "The delivery passage states that Phil delivers three red chairs; the repeated claim adds no new factual assertion.",
+          "input_sha256": "2c21963f8ff0f72cd6e6506b42445be154406b8be4d3ff4eedb4d1dce59ae561",
+          "rubric_sha256": "99271033de9a536ea3b9b93e9efd15ad2a57f1ff0b7df54071578f141808bd1d",
+          "rubric_version": "all-assertions-supported-v1",
+          "judge_settings_sha256": "1c91a994d2d659eba99ed65f4011dc81421bcbe7ff1e5218667bbbdcd196f567",
+          "usage": {
+            "reservation_id": "2055a2f3f60343ffaceaa2001340f8b2",
+            "reserved_usd": 0.094226,
+            "cost_usd": 0.001056,
+            "request_id": "gen-1792265719-qtbnTPCAv5fXuGIPCAR3",
+            "returned_model": "openai/gpt-6-sol",
+            "provider": "OpenAI",
+            "input_tokens": 308,
+            "output_tokens": 44,
+            "reasoning_tokens": 0
+          },
+          "cost_usd": 0.001056
+        }
+      }
+    },
+    {
+      "case_id": "chairs-wrong-colour-original-r0",
+      "reference": {
+        "case_id": "chairs-wrong-colour-original-r0",
+        "example_id": "chairs-wrong-colour",
+        "variant": "original",
+        "repeat": 0
+      },
+      "reference_sha256": "3272b93c87947f9dce8b8f9004766fa9bc45ecf29d93f938b15fce56daaac627",
+      "state": "complete",
+      "observation": {
+        "case_id": "chairs-wrong-colour",
+        "variant": "original",
+        "repeat": 0,
+        "assessment": {
+          "supported": false,
+          "evidence_ids": [
+            "chairs-delivery"
+          ],
+          "reason": "The passage says Phil delivers three red chairs, not blue chairs.",
+          "input_sha256": "7f4812bd1b0b9fc84fbad52395ad520fd3e8185d4fd823e7f5a01f13fd652dfd",
+          "rubric_sha256": "99271033de9a536ea3b9b93e9efd15ad2a57f1ff0b7df54071578f141808bd1d",
+          "rubric_version": "all-assertions-supported-v1",
+          "judge_settings_sha256": "1c91a994d2d659eba99ed65f4011dc81421bcbe7ff1e5218667bbbdcd196f567",
+          "usage": {
+            "reservation_id": "72e32aa905dc409f8b883d36ce9aa516",
+            "reserved_usd": 0.094028,
+            "cost_usd": 0.000946,
+            "request_id": "gen-1792265720-HdQuHx3dekIuu5LMFrmK",
+            "returned_model": "openai/gpt-6-sol",
+            "provider": "OpenAI",
+            "input_tokens": 288,
+            "output_tokens": 37,
+            "reasoning_tokens": 0
+          },
+          "cost_usd": 0.000946
+        }
+      }
+    },
+    {
+      "case_id": "chairs-wrong-colour-original-r1",
+      "reference": {
+        "case_id": "chairs-wrong-colour-original-r1",
+        "example_id": "chairs-wrong-colour",
+        "variant": "original",
+        "repeat": 1
+      },
+      "reference_sha256": "bf064927ed82746f8502f7a2d6fff81388900fe577b31dcf1c36aba2f0636aa9",
+      "state": "complete",
+      "observation": {
+        "case_id": "chairs-wrong-colour",
+        "variant": "original",
+        "repeat": 1,
+        "assessment": {
+          "supported": false,
+          "evidence_ids": [
+            "chairs-delivery"
+          ],
+          "reason": "The passage says Phil delivers three red chairs, not blue chairs.",
+          "input_sha256": "7f4812bd1b0b9fc84fbad52395ad520fd3e8185d4fd823e7f5a01f13fd652dfd",
+          "rubric_sha256": "99271033de9a536ea3b9b93e9efd15ad2a57f1ff0b7df54071578f141808bd1d",
+          "rubric_version": "all-assertions-supported-v1",
+          "judge_settings_sha256": "1c91a994d2d659eba99ed65f4011dc81421bcbe7ff1e5218667bbbdcd196f567",
+          "usage": {
+            "reservation_id": "a98d355f62a34c969622f09111b15db4",
+            "reserved_usd": 0.094028,
+            "cost_usd": 0.000946,
+            "request_id": "gen-1792265722-dWEFlXkpjTqpq5urTfWq",
+            "returned_model": "openai/gpt-6-sol",
+            "provider": "OpenAI",
+            "input_tokens": 288,
+            "output_tokens": 37,
+            "reasoning_tokens": 0
+          },
+          "cost_usd": 0.000946
+        }
+      }
+    },
+    {
+      "case_id": "chairs-wrong-colour-reversed-r0",
+      "reference": {
+        "case_id": "chairs-wrong-colour-reversed-r0",
+        "example_id": "chairs-wrong-colour",
+        "variant": "reversed",
+        "repeat": 0
+      },
+      "reference_sha256": "ca545c741721997260c8014d5b5885aff6212582d8df4947f8a6e5e90db92460",
+      "state": "complete",
+      "observation": {
+        "case_id": "chairs-wrong-colour",
+        "variant": "reversed",
+        "repeat": 0,
+        "assessment": {
+          "supported": false,
+          "evidence_ids": [
+            "chairs-delivery"
+          ],
+          "reason": "The passage says Phil delivers three red chairs, not blue ones.",
+          "input_sha256": "8311dbb4b735dfa963381ce363f64b9ab7cc31cf86efc2b0a9e4f3526a67f8d7",
+          "rubric_sha256": "99271033de9a536ea3b9b93e9efd15ad2a57f1ff0b7df54071578f141808bd1d",
+          "rubric_version": "all-assertions-supported-v1",
+          "judge_settings_sha256": "1c91a994d2d659eba99ed65f4011dc81421bcbe7ff1e5218667bbbdcd196f567",
+          "usage": {
+            "reservation_id": "c39ba6a1c6c444c6856401764adeef21",
+            "reserved_usd": 0.094028,
+            "cost_usd": 0.000946,
+            "request_id": "gen-1792265724-NJlNQxRIqgRgdiDXh0Nu",
+            "returned_model": "openai/gpt-6-sol",
+            "provider": "OpenAI",
+            "input_tokens": 288,
+            "output_tokens": 37,
+            "reasoning_tokens": 0
+          },
+          "cost_usd": 0.000946
+        }
+      }
+    },
+    {
+      "case_id": "chairs-wrong-colour-verbose-r0",
+      "reference": {
+        "case_id": "chairs-wrong-colour-verbose-r0",
+        "example_id": "chairs-wrong-colour",
+        "variant": "verbose",
+        "repeat": 0
+      },
+      "reference_sha256": "c8b673faa776a37aa4314aaa53f26e720a7a095f271538408c036c97e9b718d7",
+      "state": "complete",
+      "observation": {
+        "case_id": "chairs-wrong-colour",
+        "variant": "verbose",
+        "repeat": 0,
+        "assessment": {
+          "supported": false,
+          "evidence_ids": [
+            "chairs-delivery"
+          ],
+          "reason": "The passage says Phil delivers three red chairs, not blue chairs.",
+          "input_sha256": "68db2714a8a132fb88760e50d5311894877e28b769a74d96038e5ede1587a76f",
+          "rubric_sha256": "99271033de9a536ea3b9b93e9efd15ad2a57f1ff0b7df54071578f141808bd1d",
+          "rubric_version": "all-assertions-supported-v1",
+          "judge_settings_sha256": "1c91a994d2d659eba99ed65f4011dc81421bcbe7ff1e5218667bbbdcd196f567",
+          "usage": {
+            "reservation_id": "d01fad2c46bf46f79253575c561b6daa",
+            "reserved_usd": 0.09423,
+            "cost_usd": 0.000986,
+            "request_id": "gen-1792265726-zAQuBOq5WQJ2AHHvCYDh",
+            "returned_model": "openai/gpt-6-sol",
+            "provider": "OpenAI",
+            "input_tokens": 308,
+            "output_tokens": 37,
+            "reasoning_tokens": 0
+          },
+          "cost_usd": 0.000986
+        }
+      }
+    },
+    {
+      "case_id": "chairs-incomplete-original-r0",
+      "reference": {
+        "case_id": "chairs-incomplete-original-r0",
+        "example_id": "chairs-incomplete",
+        "variant": "original",
+        "repeat": 0
+      },
+      "reference_sha256": "4afd13250b02a1e87d02706b56b2d23a5863e20db9e4be6617afb849f0b1e009",
+      "state": "complete",
+      "observation": {
+        "case_id": "chairs-incomplete",
+        "variant": "original",
+        "repeat": 0,
+        "assessment": {
+          "supported": true,
+          "evidence_ids": [
+            "chairs-delivery"
+          ],
+          "reason": "The passage states that Phil delivers three red chairs.",
+          "input_sha256": "12f69089957750ac231f775f2857c0468570862b678e8772f6db029e4cbd4c26",
+          "rubric_sha256": "99271033de9a536ea3b9b93e9efd15ad2a57f1ff0b7df54071578f141808bd1d",
+          "rubric_version": "all-assertions-supported-v1",
+          "judge_settings_sha256": "1c91a994d2d659eba99ed65f4011dc81421bcbe7ff1e5218667bbbdcd196f567",
+          "usage": {
+            "reservation_id": "1cc0929c6fcd45a28331e219ed98c6df",
+            "reserved_usd": 0.094006,
+            "cost_usd": 0.000912,
+            "request_id": "gen-1792265727-mDIEkxsRoLF56KypSElr",
+            "returned_model": "openai/gpt-6-sol",
+            "provider": "OpenAI",
+            "input_tokens": 286,
+            "output_tokens": 34,
+            "reasoning_tokens": 0
+          },
+          "cost_usd": 0.000912
+        }
+      }
+    },
+    {
+      "case_id": "chairs-incomplete-original-r1",
+      "reference": {
+        "case_id": "chairs-incomplete-original-r1",
+        "example_id": "chairs-incomplete",
+        "variant": "original",
+        "repeat": 1
+      },
+      "reference_sha256": "1f93196acbc4196471f7a59838dbf993f9fc25f8a99ca079b52e1ddd0e4f3394",
+      "state": "complete",
+      "observation": {
+        "case_id": "chairs-incomplete",
+        "variant": "original",
+        "repeat": 1,
+        "assessment": {
+          "supported": true,
+          "evidence_ids": [
+            "chairs-delivery"
+          ],
+          "reason": "The passage states that Phil delivers three red chairs, supporting the claim that he delivers chairs.",
+          "input_sha256": "12f69089957750ac231f775f2857c0468570862b678e8772f6db029e4cbd4c26",
+          "rubric_sha256": "99271033de9a536ea3b9b93e9efd15ad2a57f1ff0b7df54071578f141808bd1d",
+          "rubric_version": "all-assertions-supported-v1",
+          "judge_settings_sha256": "1c91a994d2d659eba99ed65f4011dc81421bcbe7ff1e5218667bbbdcd196f567",
+          "usage": {
+            "reservation_id": "bab41386043e4afe8eb02013794ad0eb",
+            "reserved_usd": 0.094006,
+            "cost_usd": 0.000992,
+            "request_id": "gen-1792265729-TYOIMl99GmR60YJq4Juj",
+            "returned_model": "openai/gpt-6-sol",
+            "provider": "OpenAI",
+            "input_tokens": 286,
+            "output_tokens": 42,
+            "reasoning_tokens": 0
+          },
+          "cost_usd": 0.000992
+        }
+      }
+    },
+    {
+      "case_id": "chairs-missing-input-original-r0",
+      "reference": {
+        "case_id": "chairs-missing-input-original-r0",
+        "example_id": "chairs-missing-input",
+        "variant": "original",
+        "repeat": 0
+      },
+      "reference_sha256": "a149c01200c0e56eb5293c817cee55a9e35e66a9772697ac939e1ffc7bf5320e",
+      "state": "complete",
+      "observation": {
+        "case_id": "chairs-missing-input",
+        "variant": "original",
+        "repeat": 0,
+        "assessment": {
+          "supported": null,
+          "evidence_ids": [],
+          "reason": "Missing supplied context.",
+          "input_sha256": "b0d701bb771c8aebc0d717f5376997c990da22036f6167c87f8b612d89178c4b",
+          "rubric_sha256": "99271033de9a536ea3b9b93e9efd15ad2a57f1ff0b7df54071578f141808bd1d",
+          "rubric_version": "all-assertions-supported-v1",
+          "judge_settings_sha256": "1c91a994d2d659eba99ed65f4011dc81421bcbe7ff1e5218667bbbdcd196f567",
+          "usage": null,
+          "cost_usd": 0.0
+        }
+      }
+    },
+    {
+      "case_id": "chairs-missing-input-original-r1",
+      "reference": {
+        "case_id": "chairs-missing-input-original-r1",
+        "example_id": "chairs-missing-input",
+        "variant": "original",
+        "repeat": 1
+      },
+      "reference_sha256": "9902c1961e4991b22e75fbf5ff81464147cd383ca0d432dbe5b9c722807db30a",
+      "state": "complete",
+      "observation": {
+        "case_id": "chairs-missing-input",
+        "variant": "original",
+        "repeat": 1,
+        "assessment": {
+          "supported": null,
+          "evidence_ids": [],
+          "reason": "Missing supplied context.",
+          "input_sha256": "b0d701bb771c8aebc0d717f5376997c990da22036f6167c87f8b612d89178c4b",
+          "rubric_sha256": "99271033de9a536ea3b9b93e9efd15ad2a57f1ff0b7df54071578f141808bd1d",
+          "rubric_version": "all-assertions-supported-v1",
+          "judge_settings_sha256": "1c91a994d2d659eba99ed65f4011dc81421bcbe7ff1e5218667bbbdcd196f567",
+          "usage": null,
+          "cost_usd": 0.0
+        }
+      }
+    },
+    {
+      "case_id": "books-supported-original-r0",
+      "reference": {
+        "case_id": "books-supported-original-r0",
+        "example_id": "books-supported",
+        "variant": "original",
+        "repeat": 0
+      },
+      "reference_sha256": "a3163521e373146fc731f66d04cbd9e7fe37ec2bdbed8c92929bf18370a5ffc0",
+      "state": "complete",
+      "observation": {
+        "case_id": "books-supported",
+        "variant": "original",
+        "repeat": 0,
+        "assessment": {
+          "supported": true,
+          "evidence_ids": [
+            "books-borrow",
+            "books-return"
+          ],
+          "reason": "Ben borrows two history books, and the passage says he returns both books on Tuesday.",
+          "input_sha256": "85ed95f0f51ef0b832bf0a0309dcb61d86321336546cd17fbcd660af60ffa90e",
+          "rubric_sha256": "99271033de9a536ea3b9b93e9efd15ad2a57f1ff0b7df54071578f141808bd1d",
+          "rubric_version": "all-assertions-supported-v1",
+          "judge_settings_sha256": "1c91a994d2d659eba99ed65f4011dc81421bcbe7ff1e5218667bbbdcd196f567",
+          "usage": {
+            "reservation_id": "c54f3f21f0334363ae7daa7e6d2a2991",
+            "reserved_usd": 0.093994,
+            "cost_usd": 0.001202,
+            "request_id": "gen-1792265731-cNLwTSTKvuSVR6qlPb8z",
+            "returned_model": "openai/gpt-6-sol",
+            "provider": "OpenAI",
+            "input_tokens": 286,
+            "output_tokens": 63,
+            "reasoning_tokens": 16
+          },
+          "cost_usd": 0.001202
+        }
+      }
+    },
+    {
+      "case_id": "books-supported-original-r1",
+      "reference": {
+        "case_id": "books-supported-original-r1",
+        "example_id": "books-supported",
+        "variant": "original",
+        "repeat": 1
+      },
+      "reference_sha256": "abafa380f889db4a785cef1b6f7fe22005c9114c57834d08330dcb340066be0f",
+      "state": "complete",
+      "observation": {
+        "case_id": "books-supported",
+        "variant": "original",
+        "repeat": 1,
+        "assessment": {
+          "supported": true,
+          "evidence_ids": [
+            "books-borrow",
+            "books-return"
+          ],
+          "reason": "Ben borrows two history books, and the next passage says he returns both on Tuesday.",
+          "input_sha256": "85ed95f0f51ef0b832bf0a0309dcb61d86321336546cd17fbcd660af60ffa90e",
+          "rubric_sha256": "99271033de9a536ea3b9b93e9efd15ad2a57f1ff0b7df54071578f141808bd1d",
+          "rubric_version": "all-assertions-supported-v1",
+          "judge_settings_sha256": "1c91a994d2d659eba99ed65f4011dc81421bcbe7ff1e5218667bbbdcd196f567",
+          "usage": {
+            "reservation_id": "4be1ad3a617443479c36ff93cf5cc356",
+            "reserved_usd": 0.093994,
+            "cost_usd": 0.001172,
+            "request_id": "gen-1792265733-JnwYjO0PMlHeMjh4sUOK",
+            "returned_model": "openai/gpt-6-sol",
+            "provider": "OpenAI",
+            "input_tokens": 286,
+            "output_tokens": 60,
+            "reasoning_tokens": 13
+          },
+          "cost_usd": 0.001172
+        }
+      }
+    },
+    {
+      "case_id": "books-supported-reversed-r0",
+      "reference": {
+        "case_id": "books-supported-reversed-r0",
+        "example_id": "books-supported",
+        "variant": "reversed",
+        "repeat": 0
+      },
+      "reference_sha256": "921d552b3f42713b710be0ba43acbfc34e94ccfe5ecb8a32db277afc3cabc87c",
+      "state": "complete",
+      "observation": {
+        "case_id": "books-supported",
+        "variant": "reversed",
+        "repeat": 0,
+        "assessment": {
+          "supported": true,
+          "evidence_ids": [
+            "books-borrow",
+            "books-return"
+          ],
+          "reason": "Ben borrows two history books, and the account says he returns both books on Tuesday.",
+          "input_sha256": "9924e7ba3f8b9acb89a47bd53e9b2774fb1ed95f5a65828a02e75fd590dabd35",
+          "rubric_sha256": "99271033de9a536ea3b9b93e9efd15ad2a57f1ff0b7df54071578f141808bd1d",
+          "rubric_version": "all-assertions-supported-v1",
+          "judge_settings_sha256": "1c91a994d2d659eba99ed65f4011dc81421bcbe7ff1e5218667bbbdcd196f567",
+          "usage": {
+            "reservation_id": "28f0f09b11dc4b4d816b57ce0c8fc1bc",
+            "reserved_usd": 0.093994,
+            "cost_usd": 0.001192,
+            "request_id": "gen-1792265734-zbs13whLaCgCNkUHG6uV",
+            "returned_model": "openai/gpt-6-sol",
+            "provider": "OpenAI",
+            "input_tokens": 286,
+            "output_tokens": 62,
+            "reasoning_tokens": 15
+          },
+          "cost_usd": 0.001192
+        }
+      }
+    },
+    {
+      "case_id": "books-supported-verbose-r0",
+      "reference": {
+        "case_id": "books-supported-verbose-r0",
+        "example_id": "books-supported",
+        "variant": "verbose",
+        "repeat": 0
+      },
+      "reference_sha256": "c2e90be09fb25cf15074c193b9a79c3573cf67ec391982a65527677637310667",
+      "state": "complete",
+      "observation": {
+        "case_id": "books-supported",
+        "variant": "verbose",
+        "repeat": 0,
+        "assessment": {
+          "supported": true,
+          "evidence_ids": [
+            "books-borrow",
+            "books-return"
+          ],
+          "reason": "Ben borrowed two history books, and the context says he returned both on Tuesday.",
+          "input_sha256": "ce361110ceb8019b06a43c052d28d87ddc22fe57f9fbbfafdc50bc74562b335d",
+          "rubric_sha256": "99271033de9a536ea3b9b93e9efd15ad2a57f1ff0b7df54071578f141808bd1d",
+          "rubric_version": "all-assertions-supported-v1",
+          "judge_settings_sha256": "1c91a994d2d659eba99ed65f4011dc81421bcbe7ff1e5218667bbbdcd196f567",
+          "usage": {
+            "reservation_id": "973a7238cca0440894d44965f6ca0b03",
+            "reserved_usd": 0.094216,
+            "cost_usd": 0.001206,
+            "request_id": "gen-1792265736-M37N7qSZCP1DEsxOleUc",
+            "returned_model": "openai/gpt-6-sol",
+            "provider": "OpenAI",
+            "input_tokens": 308,
+            "output_tokens": 59,
+            "reasoning_tokens": 14
+          },
+          "cost_usd": 0.001206
+        }
+      }
+    },
+    {
+      "case_id": "books-wrong-day-original-r0",
+      "reference": {
+        "case_id": "books-wrong-day-original-r0",
+        "example_id": "books-wrong-day",
+        "variant": "original",
+        "repeat": 0
+      },
+      "reference_sha256": "3e4718dddf09714f4552cf721a078f79000fe7de8bcda6753b238ed758faee3c",
+      "state": "complete",
+      "observation": {
+        "case_id": "books-wrong-day",
+        "variant": "original",
+        "repeat": 0,
+        "assessment": {
+          "supported": false,
+          "evidence_ids": [
+            "books-borrow",
+            "books-return"
+          ],
+          "reason": "The passages identify Ben and his books, but say he returns them on Tuesday, not Friday.",
+          "input_sha256": "707a4eeaea9f9e72471acc57321c5a87e04b266f909b805e4d486ef049dfb658",
+          "rubric_sha256": "99271033de9a536ea3b9b93e9efd15ad2a57f1ff0b7df54071578f141808bd1d",
+          "rubric_version": "all-assertions-supported-v1",
+          "judge_settings_sha256": "1c91a994d2d659eba99ed65f4011dc81421bcbe7ff1e5218667bbbdcd196f567",
+          "usage": {
+            "reservation_id": "a972f8169e7f4904b61b728253164de2",
+            "reserved_usd": 0.093974,
+            "cost_usd": 0.00103,
+            "request_id": "gen-1792265738-hJfTVUGytnYfJOoh1ObD",
+            "returned_model": "openai/gpt-6-sol",
+            "provider": "OpenAI",
+            "input_tokens": 285,
+            "output_tokens": 46,
+            "reasoning_tokens": 0
+          },
+          "cost_usd": 0.00103
+        }
+      }
+    },
+    {
+      "case_id": "books-wrong-day-original-r1",
+      "reference": {
+        "case_id": "books-wrong-day-original-r1",
+        "example_id": "books-wrong-day",
+        "variant": "original",
+        "repeat": 1
+      },
+      "reference_sha256": "539b3500c6aac75f0ea776babe0e4d63aaedcacfac74b0ab76de6b0ea15a46ed",
+      "state": "complete",
+      "observation": {
+        "case_id": "books-wrong-day",
+        "variant": "original",
+        "repeat": 1,
+        "assessment": {
+          "supported": false,
+          "evidence_ids": [
+            "books-borrow",
+            "books-return"
+          ],
+          "reason": "The passages identify Ben as the borrower and say he returns both books on Tuesday, not Friday.",
+          "input_sha256": "707a4eeaea9f9e72471acc57321c5a87e04b266f909b805e4d486ef049dfb658",
+          "rubric_sha256": "99271033de9a536ea3b9b93e9efd15ad2a57f1ff0b7df54071578f141808bd1d",
+          "rubric_version": "all-assertions-supported-v1",
+          "judge_settings_sha256": "1c91a994d2d659eba99ed65f4011dc81421bcbe7ff1e5218667bbbdcd196f567",
+          "usage": {
+            "reservation_id": "b22b730ffcf44f1ea809f19d5d0b99da",
+            "reserved_usd": 0.093974,
+            "cost_usd": 0.00103,
+            "request_id": "gen-1792265740-hmsNoGV8lLOcWHnGSkry",
+            "returned_model": "openai/gpt-6-sol",
+            "provider": "OpenAI",
+            "input_tokens": 285,
+            "output_tokens": 46,
+            "reasoning_tokens": 0
+          },
+          "cost_usd": 0.00103
+        }
+      }
+    },
+    {
+      "case_id": "books-wrong-day-reversed-r0",
+      "reference": {
+        "case_id": "books-wrong-day-reversed-r0",
+        "example_id": "books-wrong-day",
+        "variant": "reversed",
+        "repeat": 0
+      },
+      "reference_sha256": "16464f8c9496189a1612f71f561e30132907251dac76a1da19dd619e57e8cd53",
+      "state": "complete",
+      "observation": {
+        "case_id": "books-wrong-day",
+        "variant": "reversed",
+        "repeat": 0,
+        "assessment": {
+          "supported": false,
+          "evidence_ids": [
+            "books-return",
+            "books-borrow"
+          ],
+          "reason": "Ben borrows the books, but the return passage says they are returned on Tuesday, not Friday.",
+          "input_sha256": "8fb57f3601f2105c47af988839b1562d759335781b717b683fb66ed8ad47f68d",
+          "rubric_sha256": "99271033de9a536ea3b9b93e9efd15ad2a57f1ff0b7df54071578f141808bd1d",
+          "rubric_version": "all-assertions-supported-v1",
+          "judge_settings_sha256": "1c91a994d2d659eba99ed65f4011dc81421bcbe7ff1e5218667bbbdcd196f567",
+          "usage": {
+            "reservation_id": "baa605e7b95a4231ad297dbdab1fa9be",
+            "reserved_usd": 0.093974,
+            "cost_usd": 0.00123,
+            "request_id": "gen-1792265741-ccYjL7mUXOuPV5MS1snw",
+            "returned_model": "openai/gpt-6-sol",
+            "provider": "OpenAI",
+            "input_tokens": 285,
+            "output_tokens": 66,
+            "reasoning_tokens": 17
+          },
+          "cost_usd": 0.00123
+        }
+      }
+    },
+    {
+      "case_id": "books-wrong-day-verbose-r0",
+      "reference": {
+        "case_id": "books-wrong-day-verbose-r0",
+        "example_id": "books-wrong-day",
+        "variant": "verbose",
+        "repeat": 0
+      },
+      "reference_sha256": "f42b22bcca10158aee858d111563624ce1381b0422b7de569567cf1d4491e97f",
+      "state": "complete",
+      "observation": {
+        "case_id": "books-wrong-day",
+        "variant": "verbose",
+        "repeat": 0,
+        "assessment": {
+          "supported": false,
+          "evidence_ids": [
+            "books-return"
+          ],
+          "reason": "The passage says Ben returns both books on Tuesday, not Friday.",
+          "input_sha256": "70234e41b528f0880cc3feb8ff4cf20d2021e848f5c963de34f98ae54ef5a66e",
+          "rubric_sha256": "99271033de9a536ea3b9b93e9efd15ad2a57f1ff0b7df54071578f141808bd1d",
+          "rubric_version": "all-assertions-supported-v1",
+          "judge_settings_sha256": "1c91a994d2d659eba99ed65f4011dc81421bcbe7ff1e5218667bbbdcd196f567",
+          "usage": {
+            "reservation_id": "39b39dc79c5543c598ed290064175c2e",
+            "reserved_usd": 0.094176,
+            "cost_usd": 0.000972,
+            "request_id": "gen-1792265743-ZKcJeX3J65mSdzpC6TRP",
+            "returned_model": "openai/gpt-6-sol",
+            "provider": "OpenAI",
+            "input_tokens": 306,
+            "output_tokens": 36,
+            "reasoning_tokens": 0
+          },
+          "cost_usd": 0.000972
+        }
+      }
+    },
+    {
+      "case_id": "books-invented-fine-original-r0",
+      "reference": {
+        "case_id": "books-invented-fine-original-r0",
+        "example_id": "books-invented-fine",
+        "variant": "original",
+        "repeat": 0
+      },
+      "reference_sha256": "417860d7b0c5506f952b69c9623ced3b83e5010f4307fc5a3bf35d57566fad34",
+      "state": "complete",
+      "observation": {
+        "case_id": "books-invented-fine",
+        "variant": "original",
+        "repeat": 0,
+        "assessment": {
+          "supported": false,
+          "evidence_ids": [
+            "books-borrow",
+            "books-return"
+          ],
+          "reason": "The passages say Ben borrowed and returned library books, but give no information about a fine or payment.",
+          "input_sha256": "f631c963eb9da91d58239f04eeebf816e797f8fa9f5af60a049cb5415b08e5fb",
+          "rubric_sha256": "99271033de9a536ea3b9b93e9efd15ad2a57f1ff0b7df54071578f141808bd1d",
+          "rubric_version": "all-assertions-supported-v1",
+          "judge_settings_sha256": "1c91a994d2d659eba99ed65f4011dc81421bcbe7ff1e5218667bbbdcd196f567",
+          "usage": {
+            "reservation_id": "7c300de8cb5343bd9014b576d4b2621e",
+            "reserved_usd": 0.093978,
+            "cost_usd": 0.001042,
+            "request_id": "gen-1792265744-uPmkcBGSknITIoHUFGNw",
+            "returned_model": "openai/gpt-6-sol",
+            "provider": "OpenAI",
+            "input_tokens": 286,
+            "output_tokens": 47,
+            "reasoning_tokens": 0
+          },
+          "cost_usd": 0.001042
+        }
+      }
+    },
+    {
+      "case_id": "books-invented-fine-original-r1",
+      "reference": {
+        "case_id": "books-invented-fine-original-r1",
+        "example_id": "books-invented-fine",
+        "variant": "original",
+        "repeat": 1
+      },
+      "reference_sha256": "a903752d023657618ad8f598b80cf578946ed9b662a0746d9902bee064da53d4",
+      "state": "complete",
+      "observation": {
+        "case_id": "books-invented-fine",
+        "variant": "original",
+        "repeat": 1,
+        "assessment": {
+          "supported": false,
+          "evidence_ids": [
+            "books-borrow",
+            "books-return"
+          ],
+          "reason": "The passages say Ben borrowed and returned library books, but give no information about a fine or payment.",
+          "input_sha256": "f631c963eb9da91d58239f04eeebf816e797f8fa9f5af60a049cb5415b08e5fb",
+          "rubric_sha256": "99271033de9a536ea3b9b93e9efd15ad2a57f1ff0b7df54071578f141808bd1d",
+          "rubric_version": "all-assertions-supported-v1",
+          "judge_settings_sha256": "1c91a994d2d659eba99ed65f4011dc81421bcbe7ff1e5218667bbbdcd196f567",
+          "usage": {
+            "reservation_id": "96318f7498d549bbb055944a6770ce8d",
+            "reserved_usd": 0.093978,
+            "cost_usd": 0.001042,
+            "request_id": "gen-1792265746-ss8VNE9tiVhrpNOiIOlK",
+            "returned_model": "openai/gpt-6-sol",
+            "provider": "OpenAI",
+            "input_tokens": 286,
+            "output_tokens": 47,
+            "reasoning_tokens": 0
+          },
+          "cost_usd": 0.001042
+        }
+      }
+    },
+    {
+      "case_id": "books-missing-input-original-r0",
+      "reference": {
+        "case_id": "books-missing-input-original-r0",
+        "example_id": "books-missing-input",
+        "variant": "original",
+        "repeat": 0
+      },
+      "reference_sha256": "8f6dbe339ab36bfbf3af53338cb31ae1005f68eb9e4a14cac4d28b698a6d9bc8",
+      "state": "complete",
+      "observation": {
+        "case_id": "books-missing-input",
+        "variant": "original",
+        "repeat": 0,
+        "assessment": {
+          "supported": null,
+          "evidence_ids": [],
+          "reason": "Missing supplied context.",
+          "input_sha256": "b86bd55822843f43c52588bf079e515f90f015baa21d09255ebb16291446ca1e",
+          "rubric_sha256": "99271033de9a536ea3b9b93e9efd15ad2a57f1ff0b7df54071578f141808bd1d",
+          "rubric_version": "all-assertions-supported-v1",
+          "judge_settings_sha256": "1c91a994d2d659eba99ed65f4011dc81421bcbe7ff1e5218667bbbdcd196f567",
+          "usage": null,
+          "cost_usd": 0.0
+        }
+      }
+    },
+    {
+      "case_id": "books-missing-input-original-r1",
+      "reference": {
+        "case_id": "books-missing-input-original-r1",
+        "example_id": "books-missing-input",
+        "variant": "original",
+        "repeat": 1
+      },
+      "reference_sha256": "03a032fc1faeedab3b070827d0b715529b16bda033363622b21ad8692d8dfa4c",
+      "state": "complete",
+      "observation": {
+        "case_id": "books-missing-input",
+        "variant": "original",
+        "repeat": 1,
+        "assessment": {
+          "supported": null,
+          "evidence_ids": [],
+          "reason": "Missing supplied context.",
+          "input_sha256": "b86bd55822843f43c52588bf079e515f90f015baa21d09255ebb16291446ca1e",
+          "rubric_sha256": "99271033de9a536ea3b9b93e9efd15ad2a57f1ff0b7df54071578f141808bd1d",
+          "rubric_version": "all-assertions-supported-v1",
+          "judge_settings_sha256": "1c91a994d2d659eba99ed65f4011dc81421bcbe7ff1e5218667bbbdcd196f567",
+          "usage": null,
+          "cost_usd": 0.0
+        }
+      }
+    }
+  ],
+  "state": "complete",
+  "run_id": "d023a3114cb94781ba264c62e0eee2fe",
+  "calibration": {
+    "dataset_sha256": "9d19266cf7e3d4dc7ff9b6a8d2d38d37c4eef98cd028543b9f815790cc9db356",
+    "rubric_version": "all-assertions-supported-v1",
+    "rubric_sha256": "99271033de9a536ea3b9b93e9efd15ad2a57f1ff0b7df54071578f141808bd1d",
+    "judge_settings_sha256": "1c91a994d2d659eba99ed65f4011dc81421bcbe7ff1e5218667bbbdcd196f567",
+    "judge_calibration": {
+      "selected_cases": 4,
+      "reviewed_labels": 3,
+      "valid_judge_scores": 3,
+      "agreement": 1.0,
+      "negative_labels": 1,
+      "positive_labels": 2,
+      "false_passes": 0,
+      "false_pass_rate": 0.0,
+      "missing_inputs": 1,
+      "correctly_unavailable": 1
+    },
+    "judge_validation": {
+      "selected_cases": 4,
+      "reviewed_labels": 3,
+      "valid_judge_scores": 3,
+      "agreement": 1.0,
+      "negative_labels": 2,
+      "positive_labels": 1,
+      "false_passes": 0,
+      "false_pass_rate": 0.0,
+      "missing_inputs": 1,
+      "correctly_unavailable": 1
+    },
+    "disagreements": [],
+    "human_reviewed": true,
+    "coverage_complete": true,
+    "repeat_changes": 0,
+    "order_changes": 0,
+    "verbosity_changes": 0,
+    "sensitivity_counts": {
+      "repeat": 8,
+      "reversed": 4,
+      "verbose": 4
+    },
+    "offline_evaluation_cost_usd": 0.02068,
+    "eligible_to_enable": true,
+    "limitation": "Small synthetic support controls only; no canon, completeness, or general judge reliability claim. Unresolved disagreements require review."
+  },
+  "tracking_status": "FINISHED"
+}

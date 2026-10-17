@@ -1,0 +1,1449 @@
+{
+  "kind": "captured-answer-review",
+  "expenditure_category": "offline_evaluation",
+  "source_run_id": "ede40b6aedcb467f9bc5b10a19740104",
+  "answer_model_calls_in_review": 0,
+  "review_model_cost_usd": 0,
+  "model_calls": 0,
+  "cost_usd": "0",
+  "capture_sha256": "740db33ca015f65e3e2206e3587351406bf2f43ad399bc5e8e4f1fe0f6b6a6ca",
+  "reviews_sha256": "f07f2dbd1c9159c26eceec486b1ee954096ed3d87ca3cb490b5ce3b5b5348579",
+  "scorer": "reviewed-binary-dimensions-v2",
+  "recorded_at": "2026-10-17T19:39:05.667903+00:00",
+  "reference_file_sha256": "7490fc036d3c542aae6c2fb43052b323c1f6f831e228f47e81fb8a1266e187df",
+  "recorder_version": "frozen-evaluation-run-v1",
+  "input_artifacts": [
+    {
+      "artifact_path": "inputs/0/baseline-capture-v2.references.json",
+      "sha256": "7490fc036d3c542aae6c2fb43052b323c1f6f831e228f47e81fb8a1266e187df"
+    },
+    {
+      "artifact_path": "inputs/1/baseline-capture-v2.json",
+      "sha256": "740db33ca015f65e3e2206e3587351406bf2f43ad399bc5e8e4f1fe0f6b6a6ca"
+    },
+    {
+      "artifact_path": "inputs/2/baseline-annotations.json",
+      "sha256": "f07f2dbd1c9159c26eceec486b1ee954096ed3d87ca3cb490b5ce3b5b5348579"
+    }
+  ],
+  "result_artifact": "result/baseline-review.json",
+  "case_ids": [
+    "phil-intro-r0",
+    "phil-followup-r0",
+    "ambiguous-r0",
+    "isolated-r0",
+    "janine-butcher-profile-r0",
+    "phil-mitchell-missing-r0",
+    "cross-mitchell-garage-r0",
+    "phil-intro-r1",
+    "phil-followup-r1",
+    "ambiguous-r1",
+    "isolated-r1",
+    "janine-butcher-profile-r1",
+    "phil-mitchell-missing-r1",
+    "cross-mitchell-garage-r1"
+  ],
+  "cases": [
+    {
+      "case_id": "phil-intro-r0",
+      "reference": {
+        "case_id": "phil-intro-r0",
+        "group_ids": [
+          "mitchell-arrival-1990",
+          "phil-arrival-february-1990"
+        ],
+        "split": "development",
+        "category": "supported",
+        "question": "When did Phil Mitchell first arrive in Walford?",
+        "snapshot_id": "sources-b5bf51ce2c754a5c349834cc87954524d6c89cb20e38fcdafeea815b0760212e",
+        "session": "phil-sequence",
+        "derived_from": [],
+        "expected_status": "answered",
+        "required_facts": [
+          {
+            "fact": "Phil first arrives in Walford in February 1990.",
+            "sufficient_sets": [
+              [
+                "phil-mitchell-wiki-0018-15527"
+              ]
+            ]
+          }
+        ],
+        "allowed_alternatives": [
+          "Equivalent factual wording; Phil may use first person."
+        ],
+        "forbidden_assertions": [
+          "Phil first arrived in 2001."
+        ],
+        "evidence": [
+          {
+            "evidence_id": "phil-mitchell-wiki-0018-15527",
+            "text": "Phil Mitchell first arrives in Walford in February 1990 to open an automobile repair shop, known as The Arches; he is joined by his younger brother Grant (Ross Kemp). Two years later, Phil goes into partnership at The Queen Victoria public house with Grant and his wife Sharon Watts (Letitia Dean) \u2013 up to the point where he moves in with them. Phil grows close to Sharon, who turns to him for comfort during Grant's violent outbursts. Sharon and Phil have sex but she stays with Grant, who is unaware of their betrayal. Sharon and Grant's reconciliation is brief, and amidst more rowing and physical violence, Grant is arrested and imprisoned. In his absence, Phil and Sharon continue their affair but when Grant is released, Sharon reconciles with him, leaving Phil heartbroken. On the rebound, Phil enters into a marriage of convenience with Nadia Borovac (Anna Barkan) - a Romanian refugee - enabling her to stay in Britain, with Nadia departing after the wedding.",
+            "source_revision": "1379872347",
+            "sha256": "9a13fe3539b69694d88ab06a1bd85cf898f46d65ca5ac1d958d0e0ff026bd263"
+          }
+        ],
+        "review_note": "Source-derived expectations retained from conversation-v1 before this comparison. Previously exposed development data; no human or canon corroboration claim.",
+        "synthetic_provenance": null,
+        "comparison_case_id": "phil-intro",
+        "repeat": 0
+      },
+      "reference_sha256": "7d5559df5431291914dbb7520e7333e131abab410afe513b61429ade8fe6199c",
+      "state": "complete",
+      "review": {
+        "case_id": "phil-intro-r0",
+        "response_sha256": "5b1c8d075a971d0e70050dfa2fbff9275345d2a042e082db233af3d3dfd6cc34",
+        "reference_sha256": "7d5559df5431291914dbb7520e7333e131abab410afe513b61429ade8fe6199c",
+        "reviewer": "Independent Codex AGENT source review (/root/issue9_spec); not human adjudication",
+        "rationale": "The original named-character question is answered at the exact month/year precision supplied by the frozen independent arrival reference. The first-person persona refers to Phil. Both the factual answer and timing qualification agree with the retained Phil paragraph 18 and the actual cited final context; no day is invented.",
+        "claims": [
+          {
+            "claim": "Phil first arrived in Walford in February 1990.",
+            "correct": true,
+            "grounded": true,
+            "citation_supported": true
+          },
+          {
+            "claim": "The cited arrival passage gives the month and year without an arrival day.",
+            "correct": true,
+            "grounded": true,
+            "citation_supported": true
+          }
+        ],
+        "required_facts": [
+          {
+            "fact": "Phil first arrives in Walford in February 1990.",
+            "covered": true
+          }
+        ],
+        "answerability": true,
+        "relevance": true,
+        "critical_failures": []
+      },
+      "scores": {
+        "correctness": {
+          "passed": 2,
+          "assessed": 2,
+          "unassessed": 0,
+          "value": 1.0
+        },
+        "groundedness": {
+          "passed": 2,
+          "assessed": 2,
+          "unassessed": 0,
+          "value": 1.0
+        },
+        "completeness": {
+          "passed": 1,
+          "assessed": 1,
+          "unassessed": 0,
+          "value": 1.0
+        },
+        "citation_support": {
+          "passed": 2,
+          "assessed": 2,
+          "unassessed": 0,
+          "value": 1.0
+        },
+        "answerability": {
+          "passed": 1,
+          "assessed": 1,
+          "unassessed": 0,
+          "value": 1.0
+        },
+        "relevance": {
+          "passed": 1,
+          "assessed": 1,
+          "unassessed": 0,
+          "value": 1.0
+        },
+        "critical_failures": []
+      }
+    },
+    {
+      "case_id": "phil-followup-r0",
+      "reference": {
+        "case_id": "phil-followup-r0",
+        "group_ids": [
+          "mitchell-arrival-1990",
+          "phil-arrival-february-1990"
+        ],
+        "split": "development",
+        "category": "followup",
+        "question": "What did he open when he first arrived?",
+        "snapshot_id": "sources-b5bf51ce2c754a5c349834cc87954524d6c89cb20e38fcdafeea815b0760212e",
+        "session": "phil-sequence",
+        "derived_from": [],
+        "expected_status": "answered",
+        "required_facts": [
+          {
+            "fact": "Phil opens the automobile repair shop The Arches.",
+            "sufficient_sets": [
+              [
+                "phil-mitchell-wiki-0018-15527"
+              ]
+            ]
+          }
+        ],
+        "allowed_alternatives": [
+          "Equivalent factual wording; Phil may use first person."
+        ],
+        "forbidden_assertions": [],
+        "evidence": [
+          {
+            "evidence_id": "phil-mitchell-wiki-0018-15527",
+            "text": "Phil Mitchell first arrives in Walford in February 1990 to open an automobile repair shop, known as The Arches; he is joined by his younger brother Grant (Ross Kemp). Two years later, Phil goes into partnership at The Queen Victoria public house with Grant and his wife Sharon Watts (Letitia Dean) \u2013 up to the point where he moves in with them. Phil grows close to Sharon, who turns to him for comfort during Grant's violent outbursts. Sharon and Phil have sex but she stays with Grant, who is unaware of their betrayal. Sharon and Grant's reconciliation is brief, and amidst more rowing and physical violence, Grant is arrested and imprisoned. In his absence, Phil and Sharon continue their affair but when Grant is released, Sharon reconciles with him, leaving Phil heartbroken. On the rebound, Phil enters into a marriage of convenience with Nadia Borovac (Anna Barkan) - a Romanian refugee - enabling her to stay in Britain, with Nadia departing after the wedding.",
+            "source_revision": "1379872347",
+            "sha256": "9a13fe3539b69694d88ab06a1bd85cf898f46d65ca5ac1d958d0e0ff026bd263"
+          }
+        ],
+        "review_note": "Source-derived expectations retained from conversation-v1 before this comparison. Previously exposed development data; no human or canon corroboration claim.",
+        "synthetic_provenance": null,
+        "comparison_case_id": "phil-followup",
+        "repeat": 0
+      },
+      "reference_sha256": "2e86728a1871ea849337fa26feb43aabc18f0fc5070057a7c098f6c59e6b8192",
+      "state": "complete",
+      "review": {
+        "case_id": "phil-followup-r0",
+        "response_sha256": "f9461e9a8fb010e5505127c5d9da21214d3a7ca00435af814b0148f2eab94321",
+        "reference_sha256": "2e86728a1871ea849337fa26feb43aabc18f0fc5070057a7c098f6c59e6b8192",
+        "reviewer": "Independent Codex AGENT source review (/root/issue9_spec); not human adjudication",
+        "rationale": "The preceding original user turn explicitly names Phil in this same session/repeat. The original follow-up therefore concerns Phil, and the retained Phil paragraph 18 independently states that he arrived to open the automobile repair shop The Arches. The returned answer covers the frozen fact and cites that exact final-context passage. The extra Mitchells fragment adds no factual support.",
+        "claims": [
+          {
+            "claim": "Phil opened the automobile repair shop called The Arches on arriving in Walford.",
+            "correct": true,
+            "grounded": true,
+            "citation_supported": true
+          }
+        ],
+        "required_facts": [
+          {
+            "fact": "Phil opens the automobile repair shop The Arches.",
+            "covered": true
+          }
+        ],
+        "answerability": true,
+        "relevance": true,
+        "critical_failures": []
+      },
+      "scores": {
+        "correctness": {
+          "passed": 1,
+          "assessed": 1,
+          "unassessed": 0,
+          "value": 1.0
+        },
+        "groundedness": {
+          "passed": 1,
+          "assessed": 1,
+          "unassessed": 0,
+          "value": 1.0
+        },
+        "completeness": {
+          "passed": 1,
+          "assessed": 1,
+          "unassessed": 0,
+          "value": 1.0
+        },
+        "citation_support": {
+          "passed": 1,
+          "assessed": 1,
+          "unassessed": 0,
+          "value": 1.0
+        },
+        "answerability": {
+          "passed": 1,
+          "assessed": 1,
+          "unassessed": 0,
+          "value": 1.0
+        },
+        "relevance": {
+          "passed": 1,
+          "assessed": 1,
+          "unassessed": 0,
+          "value": 1.0
+        },
+        "critical_failures": []
+      }
+    },
+    {
+      "case_id": "ambiguous-r0",
+      "reference": {
+        "case_id": "ambiguous-r0",
+        "group_ids": [
+          "mitchell-arrival-1990",
+          "phil-arrival-february-1990"
+        ],
+        "split": "development",
+        "category": "clarification",
+        "question": "When did he first arrive in Walford?",
+        "snapshot_id": "sources-b5bf51ce2c754a5c349834cc87954524d6c89cb20e38fcdafeea815b0760212e",
+        "session": "ambiguous",
+        "derived_from": [],
+        "expected_status": "clarification",
+        "required_facts": [],
+        "allowed_alternatives": [
+          "Ask which character is intended."
+        ],
+        "forbidden_assertions": [],
+        "evidence": [],
+        "review_note": "Source-derived expectations retained from conversation-v1 before this comparison. Previously exposed development data; no human or canon corroboration claim.",
+        "synthetic_provenance": null,
+        "comparison_case_id": "ambiguous",
+        "repeat": 0
+      },
+      "reference_sha256": "3a51a3280b543a84dda310ede9adf60b0f1b6c0230f19ac6844cdcf2ffa253e6",
+      "state": "complete",
+      "review": {
+        "case_id": "ambiguous-r0",
+        "response_sha256": "5166c935869260e582af3696ceb7520715679e2490131bc2d39a8597e025fd3f",
+        "reference_sha256": "3a51a3280b543a84dda310ede9adf60b0f1b6c0230f19ac6844cdcf2ffa253e6",
+        "reviewer": "Independent Codex AGENT source review (/root/issue9_spec); not human adjudication",
+        "rationale": "This is a fresh session with an unnamed pronoun and no antecedent. The frozen expected outcome is clarification, which the actual response requests. There are no EastEnders factual assertions, references requiring coverage, or citations; claim-level dimensions and completeness therefore remain unavailable with zero denominators, rather than receiving vacuous passes.",
+        "claims": [],
+        "required_facts": [],
+        "answerability": true,
+        "relevance": true,
+        "critical_failures": []
+      },
+      "scores": {
+        "correctness": {
+          "passed": 0,
+          "assessed": 0,
+          "unassessed": 0,
+          "value": null
+        },
+        "groundedness": {
+          "passed": 0,
+          "assessed": 0,
+          "unassessed": 0,
+          "value": null
+        },
+        "completeness": {
+          "passed": 0,
+          "assessed": 0,
+          "unassessed": 0,
+          "value": null
+        },
+        "citation_support": {
+          "passed": 0,
+          "assessed": 0,
+          "unassessed": 0,
+          "value": null
+        },
+        "answerability": {
+          "passed": 1,
+          "assessed": 1,
+          "unassessed": 0,
+          "value": 1.0
+        },
+        "relevance": {
+          "passed": 1,
+          "assessed": 1,
+          "unassessed": 0,
+          "value": 1.0
+        },
+        "critical_failures": []
+      }
+    },
+    {
+      "case_id": "isolated-r0",
+      "reference": {
+        "case_id": "isolated-r0",
+        "group_ids": [
+          "mitchell-arrival-1990",
+          "phil-arrival-february-1990"
+        ],
+        "split": "development",
+        "category": "clarification",
+        "question": "What is her father's name?",
+        "snapshot_id": "sources-b5bf51ce2c754a5c349834cc87954524d6c89cb20e38fcdafeea815b0760212e",
+        "session": "isolated",
+        "derived_from": [],
+        "expected_status": "clarification",
+        "required_facts": [],
+        "allowed_alternatives": [
+          "Ask which character is intended."
+        ],
+        "forbidden_assertions": [],
+        "evidence": [],
+        "review_note": "Source-derived expectations retained from conversation-v1 before this comparison. Previously exposed development data; no human or canon corroboration claim.",
+        "synthetic_provenance": null,
+        "comparison_case_id": "isolated",
+        "repeat": 0
+      },
+      "reference_sha256": "bf9df69073e3ad523515ec9afa4cb63050e45764825873eb3f089ec5cefc2183",
+      "state": "complete",
+      "review": {
+        "case_id": "isolated-r0",
+        "response_sha256": "95d04540b5d6b3bfe34f8be4cb914b6a4450b0a19bd32f4b709d7e130a4494e3",
+        "reference_sha256": "bf9df69073e3ad523515ec9afa4cb63050e45764825873eb3f089ec5cefc2183",
+        "reviewer": "Independent Codex AGENT source review (/root/issue9_spec); not human adjudication",
+        "rationale": "This is a fresh session with an unnamed pronoun and no antecedent. The frozen expected outcome is clarification, which the actual response requests. There are no EastEnders factual assertions, references requiring coverage, or citations; claim-level dimensions and completeness therefore remain unavailable with zero denominators, rather than receiving vacuous passes.",
+        "claims": [],
+        "required_facts": [],
+        "answerability": true,
+        "relevance": true,
+        "critical_failures": []
+      },
+      "scores": {
+        "correctness": {
+          "passed": 0,
+          "assessed": 0,
+          "unassessed": 0,
+          "value": null
+        },
+        "groundedness": {
+          "passed": 0,
+          "assessed": 0,
+          "unassessed": 0,
+          "value": null
+        },
+        "completeness": {
+          "passed": 0,
+          "assessed": 0,
+          "unassessed": 0,
+          "value": null
+        },
+        "citation_support": {
+          "passed": 0,
+          "assessed": 0,
+          "unassessed": 0,
+          "value": null
+        },
+        "answerability": {
+          "passed": 1,
+          "assessed": 1,
+          "unassessed": 0,
+          "value": 1.0
+        },
+        "relevance": {
+          "passed": 1,
+          "assessed": 1,
+          "unassessed": 0,
+          "value": 1.0
+        },
+        "critical_failures": []
+      }
+    },
+    {
+      "case_id": "janine-butcher-profile-r0",
+      "reference": {
+        "case_id": "janine-butcher-profile-r0",
+        "group_ids": [
+          "frank-disappearance-1994"
+        ],
+        "split": "development",
+        "category": "context-gap",
+        "question": "Who did Janine Butcher stay with when Frank disappeared after his 1994 breakdown?",
+        "snapshot_id": "sources-b5bf51ce2c754a5c349834cc87954524d6c89cb20e38fcdafeea815b0760212e",
+        "session": null,
+        "derived_from": [],
+        "expected_status": "answered",
+        "required_facts": [
+          {
+            "fact": "Janine stayed with Pat.",
+            "sufficient_sets": [
+              [
+                "janine-butcher-wiki-0021-13057"
+              ]
+            ]
+          }
+        ],
+        "allowed_alternatives": [
+          "Equivalent factual wording without inventing missing evidence."
+        ],
+        "forbidden_assertions": [],
+        "evidence": [
+          {
+            "evidence_id": "janine-butcher-wiki-0021-13057",
+            "text": "A troublesome child, Janine throws tantrums, runs away, is a bed-wetter, a sleep-walker, a thief, a compulsive liar and a self-harmer, and hates Pat. Unable to discipline her, Pat forces Frank to take Janine to family therapy, which somehow helps. Janine refuses to go to school and Ricky finds out she is being bullied. When Frank has a breakdown and disappears in 1994, Janine stays with Pat but finds Frank's absence upsetting.",
+            "source_revision": "1378379064",
+            "sha256": "0d31a9bc75ad1b67ae815fc39d34c80b6ea61d74be726ba9d32dc8d6b6098319"
+          }
+        ],
+        "review_note": "Expected fact read from this retained main-series passage before model output. Source-supported, not independently corroborated canon.",
+        "synthetic_provenance": null,
+        "comparison_case_id": "janine-butcher-profile",
+        "repeat": 0
+      },
+      "reference_sha256": "6ccae293c2179a707caedf4235ea30306ebea91401994a4d33eb808f4de65894",
+      "state": "complete",
+      "review": {
+        "case_id": "janine-butcher-profile-r0",
+        "response_sha256": "ab6dca821d3635b302b6cef06762b2473eb2aca2fdb2a796215d2cbb801e17af",
+        "reference_sha256": "6ccae293c2179a707caedf4235ea30306ebea91401994a4d33eb808f4de65894",
+        "reviewer": "Independent Codex AGENT source review (/root/issue9_spec); not human adjudication",
+        "rationale": "The original question explicitly concerns Frank and his 1994 breakdown; the resolver rewrote his to Janine Butcher's. The false_premise qualification therefore wrongly rebukes the original question, despite the factual statement that Frank had the breakdown being supported. Independent frozen Janine paragraph 21 says Janine stayed with Pat. It was retrieved at rank 3 but excluded from the final context. Neither the answer nor the appendix states Pat as the caretaker; the 1998 answer substitutes another event, so completeness, original-question relevance and expected answerability fail. The Pat paragraph supports Frank's April 1994 departure, while Janine paragraph 22 supports a 1998 departure leaving Janine with an unqualified Clare. The added Bates identity is not independently annotated by the frozen reference, and the retained HTML also identifies a sister Clare Butcher elsewhere. The 1998 sentence has no explicit Clare identity link. No new canonical answer key is derived from the output: correctness and contextual/citation support for the full Clare Bates claim remain unassessed, rather than being manufactured passes or a definitive external-canon failure. The answered outcome gives no explicit acknowledgment that the requested 1994 caretaker remains unanswered. ",
+        "claims": [
+          {
+            "claim": "Frank, rather than Janine, had the breakdown in 1994.",
+            "correct": true,
+            "grounded": true,
+            "citation_supported": true
+          },
+          {
+            "claim": "Frank abandoned Pat and his children in April 1994.",
+            "correct": true,
+            "grounded": true,
+            "citation_supported": true
+          },
+          {
+            "claim": "The original user question wrongly attributes the 1994 breakdown to Janine, as asserted by the false_premise qualification.",
+            "correct": false,
+            "grounded": false,
+            "citation_supported": false
+          },
+          {
+            "claim": "Frank left Janine with Clare Bates in 1998.",
+            "correct": null,
+            "grounded": null,
+            "citation_supported": null
+          }
+        ],
+        "required_facts": [
+          {
+            "fact": "Janine stayed with Pat.",
+            "covered": false
+          }
+        ],
+        "answerability": false,
+        "relevance": false,
+        "critical_failures": [
+          "false_premise"
+        ]
+      },
+      "scores": {
+        "correctness": {
+          "passed": 2,
+          "assessed": 3,
+          "unassessed": 1,
+          "value": 0.6666666666666666
+        },
+        "groundedness": {
+          "passed": 2,
+          "assessed": 3,
+          "unassessed": 1,
+          "value": 0.6666666666666666
+        },
+        "completeness": {
+          "passed": 0,
+          "assessed": 1,
+          "unassessed": 0,
+          "value": 0.0
+        },
+        "citation_support": {
+          "passed": 2,
+          "assessed": 3,
+          "unassessed": 1,
+          "value": 0.6666666666666666
+        },
+        "answerability": {
+          "passed": 0,
+          "assessed": 1,
+          "unassessed": 0,
+          "value": 0.0
+        },
+        "relevance": {
+          "passed": 0,
+          "assessed": 1,
+          "unassessed": 0,
+          "value": 0.0
+        },
+        "critical_failures": [
+          "false_premise"
+        ]
+      }
+    },
+    {
+      "case_id": "phil-mitchell-missing-r0",
+      "reference": {
+        "case_id": "phil-mitchell-missing-r0",
+        "group_ids": [
+          "unavailable-contact-detail"
+        ],
+        "split": "development",
+        "category": "missing-evidence",
+        "question": "What is Phil Mitchell\u2019s current mobile phone number?",
+        "snapshot_id": "sources-b5bf51ce2c754a5c349834cc87954524d6c89cb20e38fcdafeea815b0760212e",
+        "session": null,
+        "derived_from": [],
+        "expected_status": "insufficient_evidence",
+        "required_facts": [],
+        "allowed_alternatives": [
+          "Equivalent factual wording; preserve missing-evidence qualifications."
+        ],
+        "forbidden_assertions": [
+          "Invented contact details."
+        ],
+        "evidence": [],
+        "review_note": "Retained main-series text inspected for the requested identifier; no supporting record. Absence is an evidence limitation, never a negative fact.",
+        "synthetic_provenance": null,
+        "comparison_case_id": "phil-mitchell-missing",
+        "repeat": 0
+      },
+      "reference_sha256": "a17ceb96ebb7fb12d0eb645d0d772a7b76b765841413b3470a996927ccab8cc5",
+      "state": "complete",
+      "review": {
+        "case_id": "phil-mitchell-missing-r0",
+        "response_sha256": "a8a129ca63e01f3712360d5eea7692c673900457b026be9b7c2afaf7d5d8d1ce",
+        "reference_sha256": "a17ceb96ebb7fb12d0eb645d0d772a7b76b765841413b3470a996927ccab8cc5",
+        "reviewer": "Independent Codex AGENT source review (/root/issue9_spec); not human adjudication",
+        "rationale": "The frozen independently established outcome is insufficient evidence for a current mobile phone number. The actual final-context passages do not contain that identifier. The response appropriately abstains, invents no number and makes no assertion that Phil has no number. There are no canon assertions or required facts to score; correctness, grounding, completeness and citation-support denominators stay zero. The independently expected abstention and question relevance pass.",
+        "claims": [],
+        "required_facts": [],
+        "answerability": true,
+        "relevance": true,
+        "critical_failures": []
+      },
+      "scores": {
+        "correctness": {
+          "passed": 0,
+          "assessed": 0,
+          "unassessed": 0,
+          "value": null
+        },
+        "groundedness": {
+          "passed": 0,
+          "assessed": 0,
+          "unassessed": 0,
+          "value": null
+        },
+        "completeness": {
+          "passed": 0,
+          "assessed": 0,
+          "unassessed": 0,
+          "value": null
+        },
+        "citation_support": {
+          "passed": 0,
+          "assessed": 0,
+          "unassessed": 0,
+          "value": null
+        },
+        "answerability": {
+          "passed": 1,
+          "assessed": 1,
+          "unassessed": 0,
+          "value": 1.0
+        },
+        "relevance": {
+          "passed": 1,
+          "assessed": 1,
+          "unassessed": 0,
+          "value": 1.0
+        },
+        "critical_failures": []
+      }
+    },
+    {
+      "case_id": "cross-mitchell-garage-r0",
+      "reference": {
+        "case_id": "cross-mitchell-garage-r0",
+        "group_ids": [
+          "mitchell-arrival-1990"
+        ],
+        "split": "development",
+        "category": "context-gap",
+        "question": "What garage did Phil and Grant Mitchell co-own on arriving in Walford?",
+        "snapshot_id": "sources-b5bf51ce2c754a5c349834cc87954524d6c89cb20e38fcdafeea815b0760212e",
+        "session": null,
+        "derived_from": [],
+        "expected_status": "answered",
+        "required_facts": [
+          {
+            "fact": "Phil and Grant co-owned The Arches.",
+            "sufficient_sets": [
+              [
+                "grant-mitchell-wiki-0023-19694"
+              ]
+            ]
+          }
+        ],
+        "allowed_alternatives": [
+          "Equivalent factual wording; preserve missing-evidence qualifications."
+        ],
+        "forbidden_assertions": [
+          "Inferring co-ownership without supporting context."
+        ],
+        "evidence": [
+          {
+            "evidence_id": "grant-mitchell-wiki-0023-19694",
+            "text": "Grant Mitchell arrives in Albert Square in February 1990 with his older brother Phil (Steve McFadden), and the pair become co-owners of the local garage, The Arches. Grant had returned to civilian life in London having been a paratrooper in the Army, which included serving in the Falklands War at the age of 19. After a brief fling with Julie Cooper (Louise Plowright) and getting involved in various dodgy deals, Grant starts wooing the local barmaid, Sharon Watts (Letitia Dean). She grows attracted to his machismo, and soon their flirting progresses into a relationship. Fiercely protective of his girlfriend, most of Grant's initial problems in the Square revolve around his over-possessive nature and jealousy. He puts Sharon's boss Eddie Royle (Michael Melia), the landlord of The Queen Victoria public house, in hospital after he makes a pass at Sharon; he later becomes prime suspect for Royle's murder, but is proved not guilty when the killer is revealed to be Nick Cotton (John Altman), the well established local villain who eventually owns up to the crime but is found not guilty in court. In ",
+            "source_revision": "1370914760",
+            "sha256": "f7310c97b375bba45eb990105ba5073186a1bdf402d515002f13704d506a977a"
+          }
+        ],
+        "review_note": "Grant\u2019s narrative explicitly names the two co-owners; no graph inference.",
+        "synthetic_provenance": null,
+        "comparison_case_id": "cross-mitchell-garage",
+        "repeat": 0
+      },
+      "reference_sha256": "a8a0b41662a3c0d490e1fc97ddded5f30f9e5f785311661b23029123bbaf3bbe",
+      "state": "complete",
+      "review": {
+        "case_id": "cross-mitchell-garage-r0",
+        "response_sha256": "d30c9443924e414b9f95f8b63d32e84752b9ae0d0bad2eed3792af6d9aff18b3",
+        "reference_sha256": "a8a0b41662a3c0d490e1fc97ddded5f30f9e5f785311661b23029123bbaf3bbe",
+        "reviewer": "Independent Codex AGENT source review (/root/issue9_spec); not human adjudication",
+        "rationale": "The original question names Phil and Grant Mitchell and asks for their co-owned garage. The frozen Grant paragraph 23 explicitly names The Arches and both co-owners. The resolver instead requests a character name, skips retrieval and supplies no garage answer: expected answerability, completeness and relevance fail. With no factual assertion or citation, the claim-level dimensions remain unavailable. This observed serving/reference-resolution failure is retained; no question rewrite or weaker reference replaces it.",
+        "claims": [],
+        "required_facts": [
+          {
+            "fact": "Phil and Grant co-owned The Arches.",
+            "covered": false
+          }
+        ],
+        "answerability": false,
+        "relevance": false,
+        "critical_failures": []
+      },
+      "scores": {
+        "correctness": {
+          "passed": 0,
+          "assessed": 0,
+          "unassessed": 0,
+          "value": null
+        },
+        "groundedness": {
+          "passed": 0,
+          "assessed": 0,
+          "unassessed": 0,
+          "value": null
+        },
+        "completeness": {
+          "passed": 0,
+          "assessed": 1,
+          "unassessed": 0,
+          "value": 0.0
+        },
+        "citation_support": {
+          "passed": 0,
+          "assessed": 0,
+          "unassessed": 0,
+          "value": null
+        },
+        "answerability": {
+          "passed": 0,
+          "assessed": 1,
+          "unassessed": 0,
+          "value": 0.0
+        },
+        "relevance": {
+          "passed": 0,
+          "assessed": 1,
+          "unassessed": 0,
+          "value": 0.0
+        },
+        "critical_failures": []
+      }
+    },
+    {
+      "case_id": "phil-intro-r1",
+      "reference": {
+        "case_id": "phil-intro-r1",
+        "group_ids": [
+          "mitchell-arrival-1990",
+          "phil-arrival-february-1990"
+        ],
+        "split": "development",
+        "category": "supported",
+        "question": "When did Phil Mitchell first arrive in Walford?",
+        "snapshot_id": "sources-b5bf51ce2c754a5c349834cc87954524d6c89cb20e38fcdafeea815b0760212e",
+        "session": "phil-sequence",
+        "derived_from": [],
+        "expected_status": "answered",
+        "required_facts": [
+          {
+            "fact": "Phil first arrives in Walford in February 1990.",
+            "sufficient_sets": [
+              [
+                "phil-mitchell-wiki-0018-15527"
+              ]
+            ]
+          }
+        ],
+        "allowed_alternatives": [
+          "Equivalent factual wording; Phil may use first person."
+        ],
+        "forbidden_assertions": [
+          "Phil first arrived in 2001."
+        ],
+        "evidence": [
+          {
+            "evidence_id": "phil-mitchell-wiki-0018-15527",
+            "text": "Phil Mitchell first arrives in Walford in February 1990 to open an automobile repair shop, known as The Arches; he is joined by his younger brother Grant (Ross Kemp). Two years later, Phil goes into partnership at The Queen Victoria public house with Grant and his wife Sharon Watts (Letitia Dean) \u2013 up to the point where he moves in with them. Phil grows close to Sharon, who turns to him for comfort during Grant's violent outbursts. Sharon and Phil have sex but she stays with Grant, who is unaware of their betrayal. Sharon and Grant's reconciliation is brief, and amidst more rowing and physical violence, Grant is arrested and imprisoned. In his absence, Phil and Sharon continue their affair but when Grant is released, Sharon reconciles with him, leaving Phil heartbroken. On the rebound, Phil enters into a marriage of convenience with Nadia Borovac (Anna Barkan) - a Romanian refugee - enabling her to stay in Britain, with Nadia departing after the wedding.",
+            "source_revision": "1379872347",
+            "sha256": "9a13fe3539b69694d88ab06a1bd85cf898f46d65ca5ac1d958d0e0ff026bd263"
+          }
+        ],
+        "review_note": "Source-derived expectations retained from conversation-v1 before this comparison. Previously exposed development data; no human or canon corroboration claim.",
+        "synthetic_provenance": null,
+        "comparison_case_id": "phil-intro",
+        "repeat": 1
+      },
+      "reference_sha256": "6a42518ec9611ad68f7f8ff53daaa4e807ea7e12d3ecdd11b345c7f759a21abe",
+      "state": "complete",
+      "review": {
+        "case_id": "phil-intro-r1",
+        "response_sha256": "07ab43db87a5a76b79838ce180bbd4ccb4a73f3d22138a02885f33ff6db0c2af",
+        "reference_sha256": "6a42518ec9611ad68f7f8ff53daaa4e807ea7e12d3ecdd11b345c7f759a21abe",
+        "reviewer": "Independent Codex AGENT source review (/root/issue9_spec); not human adjudication",
+        "rationale": "The original named-character question is answered at the exact month/year precision supplied by the frozen independent arrival reference. The first-person persona refers to Phil. Both the factual answer and timing qualification agree with the retained Phil paragraph 18 and the actual cited final context; no day is invented.",
+        "claims": [
+          {
+            "claim": "Phil first arrived in Walford in February 1990.",
+            "correct": true,
+            "grounded": true,
+            "citation_supported": true
+          },
+          {
+            "claim": "The cited arrival passage gives the month and year without an arrival day.",
+            "correct": true,
+            "grounded": true,
+            "citation_supported": true
+          }
+        ],
+        "required_facts": [
+          {
+            "fact": "Phil first arrives in Walford in February 1990.",
+            "covered": true
+          }
+        ],
+        "answerability": true,
+        "relevance": true,
+        "critical_failures": []
+      },
+      "scores": {
+        "correctness": {
+          "passed": 2,
+          "assessed": 2,
+          "unassessed": 0,
+          "value": 1.0
+        },
+        "groundedness": {
+          "passed": 2,
+          "assessed": 2,
+          "unassessed": 0,
+          "value": 1.0
+        },
+        "completeness": {
+          "passed": 1,
+          "assessed": 1,
+          "unassessed": 0,
+          "value": 1.0
+        },
+        "citation_support": {
+          "passed": 2,
+          "assessed": 2,
+          "unassessed": 0,
+          "value": 1.0
+        },
+        "answerability": {
+          "passed": 1,
+          "assessed": 1,
+          "unassessed": 0,
+          "value": 1.0
+        },
+        "relevance": {
+          "passed": 1,
+          "assessed": 1,
+          "unassessed": 0,
+          "value": 1.0
+        },
+        "critical_failures": []
+      }
+    },
+    {
+      "case_id": "phil-followup-r1",
+      "reference": {
+        "case_id": "phil-followup-r1",
+        "group_ids": [
+          "mitchell-arrival-1990",
+          "phil-arrival-february-1990"
+        ],
+        "split": "development",
+        "category": "followup",
+        "question": "What did he open when he first arrived?",
+        "snapshot_id": "sources-b5bf51ce2c754a5c349834cc87954524d6c89cb20e38fcdafeea815b0760212e",
+        "session": "phil-sequence",
+        "derived_from": [],
+        "expected_status": "answered",
+        "required_facts": [
+          {
+            "fact": "Phil opens the automobile repair shop The Arches.",
+            "sufficient_sets": [
+              [
+                "phil-mitchell-wiki-0018-15527"
+              ]
+            ]
+          }
+        ],
+        "allowed_alternatives": [
+          "Equivalent factual wording; Phil may use first person."
+        ],
+        "forbidden_assertions": [],
+        "evidence": [
+          {
+            "evidence_id": "phil-mitchell-wiki-0018-15527",
+            "text": "Phil Mitchell first arrives in Walford in February 1990 to open an automobile repair shop, known as The Arches; he is joined by his younger brother Grant (Ross Kemp). Two years later, Phil goes into partnership at The Queen Victoria public house with Grant and his wife Sharon Watts (Letitia Dean) \u2013 up to the point where he moves in with them. Phil grows close to Sharon, who turns to him for comfort during Grant's violent outbursts. Sharon and Phil have sex but she stays with Grant, who is unaware of their betrayal. Sharon and Grant's reconciliation is brief, and amidst more rowing and physical violence, Grant is arrested and imprisoned. In his absence, Phil and Sharon continue their affair but when Grant is released, Sharon reconciles with him, leaving Phil heartbroken. On the rebound, Phil enters into a marriage of convenience with Nadia Borovac (Anna Barkan) - a Romanian refugee - enabling her to stay in Britain, with Nadia departing after the wedding.",
+            "source_revision": "1379872347",
+            "sha256": "9a13fe3539b69694d88ab06a1bd85cf898f46d65ca5ac1d958d0e0ff026bd263"
+          }
+        ],
+        "review_note": "Source-derived expectations retained from conversation-v1 before this comparison. Previously exposed development data; no human or canon corroboration claim.",
+        "synthetic_provenance": null,
+        "comparison_case_id": "phil-followup",
+        "repeat": 1
+      },
+      "reference_sha256": "7d5ce491d6563d897fb056eb394295f666ef93af88e1a900c8d21ab9a87defac",
+      "state": "complete",
+      "review": {
+        "case_id": "phil-followup-r1",
+        "response_sha256": "2aa5849df72d9c672605f5eb266f2e5aab41c70fb63261f064408eb0244cca9d",
+        "reference_sha256": "7d5ce491d6563d897fb056eb394295f666ef93af88e1a900c8d21ab9a87defac",
+        "reviewer": "Independent Codex AGENT source review (/root/issue9_spec); not human adjudication",
+        "rationale": "The preceding original user turn explicitly names Phil in this same session/repeat. The original follow-up therefore concerns Phil, and the retained Phil paragraph 18 independently states that he arrived to open the automobile repair shop The Arches. The returned answer covers the frozen fact and cites that exact final-context passage. The extra Mitchells fragment adds no factual support.",
+        "claims": [
+          {
+            "claim": "Phil opened the automobile repair shop called The Arches on arriving in Walford.",
+            "correct": true,
+            "grounded": true,
+            "citation_supported": true
+          }
+        ],
+        "required_facts": [
+          {
+            "fact": "Phil opens the automobile repair shop The Arches.",
+            "covered": true
+          }
+        ],
+        "answerability": true,
+        "relevance": true,
+        "critical_failures": []
+      },
+      "scores": {
+        "correctness": {
+          "passed": 1,
+          "assessed": 1,
+          "unassessed": 0,
+          "value": 1.0
+        },
+        "groundedness": {
+          "passed": 1,
+          "assessed": 1,
+          "unassessed": 0,
+          "value": 1.0
+        },
+        "completeness": {
+          "passed": 1,
+          "assessed": 1,
+          "unassessed": 0,
+          "value": 1.0
+        },
+        "citation_support": {
+          "passed": 1,
+          "assessed": 1,
+          "unassessed": 0,
+          "value": 1.0
+        },
+        "answerability": {
+          "passed": 1,
+          "assessed": 1,
+          "unassessed": 0,
+          "value": 1.0
+        },
+        "relevance": {
+          "passed": 1,
+          "assessed": 1,
+          "unassessed": 0,
+          "value": 1.0
+        },
+        "critical_failures": []
+      }
+    },
+    {
+      "case_id": "ambiguous-r1",
+      "reference": {
+        "case_id": "ambiguous-r1",
+        "group_ids": [
+          "mitchell-arrival-1990",
+          "phil-arrival-february-1990"
+        ],
+        "split": "development",
+        "category": "clarification",
+        "question": "When did he first arrive in Walford?",
+        "snapshot_id": "sources-b5bf51ce2c754a5c349834cc87954524d6c89cb20e38fcdafeea815b0760212e",
+        "session": "ambiguous",
+        "derived_from": [],
+        "expected_status": "clarification",
+        "required_facts": [],
+        "allowed_alternatives": [
+          "Ask which character is intended."
+        ],
+        "forbidden_assertions": [],
+        "evidence": [],
+        "review_note": "Source-derived expectations retained from conversation-v1 before this comparison. Previously exposed development data; no human or canon corroboration claim.",
+        "synthetic_provenance": null,
+        "comparison_case_id": "ambiguous",
+        "repeat": 1
+      },
+      "reference_sha256": "662fb9f42e268c838bb3ab9b47c9a02a243b2e124d927d399a8a06b1e9e7546b",
+      "state": "complete",
+      "review": {
+        "case_id": "ambiguous-r1",
+        "response_sha256": "037056c660a507c6c55dd363e43578b984b67081aca0dd3900603c240e94bdb6",
+        "reference_sha256": "662fb9f42e268c838bb3ab9b47c9a02a243b2e124d927d399a8a06b1e9e7546b",
+        "reviewer": "Independent Codex AGENT source review (/root/issue9_spec); not human adjudication",
+        "rationale": "This is a fresh session with an unnamed pronoun and no antecedent. The frozen expected outcome is clarification, which the actual response requests. There are no EastEnders factual assertions, references requiring coverage, or citations; claim-level dimensions and completeness therefore remain unavailable with zero denominators, rather than receiving vacuous passes.",
+        "claims": [],
+        "required_facts": [],
+        "answerability": true,
+        "relevance": true,
+        "critical_failures": []
+      },
+      "scores": {
+        "correctness": {
+          "passed": 0,
+          "assessed": 0,
+          "unassessed": 0,
+          "value": null
+        },
+        "groundedness": {
+          "passed": 0,
+          "assessed": 0,
+          "unassessed": 0,
+          "value": null
+        },
+        "completeness": {
+          "passed": 0,
+          "assessed": 0,
+          "unassessed": 0,
+          "value": null
+        },
+        "citation_support": {
+          "passed": 0,
+          "assessed": 0,
+          "unassessed": 0,
+          "value": null
+        },
+        "answerability": {
+          "passed": 1,
+          "assessed": 1,
+          "unassessed": 0,
+          "value": 1.0
+        },
+        "relevance": {
+          "passed": 1,
+          "assessed": 1,
+          "unassessed": 0,
+          "value": 1.0
+        },
+        "critical_failures": []
+      }
+    },
+    {
+      "case_id": "isolated-r1",
+      "reference": {
+        "case_id": "isolated-r1",
+        "group_ids": [
+          "mitchell-arrival-1990",
+          "phil-arrival-february-1990"
+        ],
+        "split": "development",
+        "category": "clarification",
+        "question": "What is her father's name?",
+        "snapshot_id": "sources-b5bf51ce2c754a5c349834cc87954524d6c89cb20e38fcdafeea815b0760212e",
+        "session": "isolated",
+        "derived_from": [],
+        "expected_status": "clarification",
+        "required_facts": [],
+        "allowed_alternatives": [
+          "Ask which character is intended."
+        ],
+        "forbidden_assertions": [],
+        "evidence": [],
+        "review_note": "Source-derived expectations retained from conversation-v1 before this comparison. Previously exposed development data; no human or canon corroboration claim.",
+        "synthetic_provenance": null,
+        "comparison_case_id": "isolated",
+        "repeat": 1
+      },
+      "reference_sha256": "94e8a3cfc8566ad757cf5a01de27c2a88a21e66e24704b6adfebce32d58a448a",
+      "state": "complete",
+      "review": {
+        "case_id": "isolated-r1",
+        "response_sha256": "91e4883eb7fad8eb6806dce6bc070e03bdf7385b0fb9414cf04e995b11488f54",
+        "reference_sha256": "94e8a3cfc8566ad757cf5a01de27c2a88a21e66e24704b6adfebce32d58a448a",
+        "reviewer": "Independent Codex AGENT source review (/root/issue9_spec); not human adjudication",
+        "rationale": "This is a fresh session with an unnamed pronoun and no antecedent. The frozen expected outcome is clarification, which the actual response requests. There are no EastEnders factual assertions, references requiring coverage, or citations; claim-level dimensions and completeness therefore remain unavailable with zero denominators, rather than receiving vacuous passes.",
+        "claims": [],
+        "required_facts": [],
+        "answerability": true,
+        "relevance": true,
+        "critical_failures": []
+      },
+      "scores": {
+        "correctness": {
+          "passed": 0,
+          "assessed": 0,
+          "unassessed": 0,
+          "value": null
+        },
+        "groundedness": {
+          "passed": 0,
+          "assessed": 0,
+          "unassessed": 0,
+          "value": null
+        },
+        "completeness": {
+          "passed": 0,
+          "assessed": 0,
+          "unassessed": 0,
+          "value": null
+        },
+        "citation_support": {
+          "passed": 0,
+          "assessed": 0,
+          "unassessed": 0,
+          "value": null
+        },
+        "answerability": {
+          "passed": 1,
+          "assessed": 1,
+          "unassessed": 0,
+          "value": 1.0
+        },
+        "relevance": {
+          "passed": 1,
+          "assessed": 1,
+          "unassessed": 0,
+          "value": 1.0
+        },
+        "critical_failures": []
+      }
+    },
+    {
+      "case_id": "janine-butcher-profile-r1",
+      "reference": {
+        "case_id": "janine-butcher-profile-r1",
+        "group_ids": [
+          "frank-disappearance-1994"
+        ],
+        "split": "development",
+        "category": "context-gap",
+        "question": "Who did Janine Butcher stay with when Frank disappeared after his 1994 breakdown?",
+        "snapshot_id": "sources-b5bf51ce2c754a5c349834cc87954524d6c89cb20e38fcdafeea815b0760212e",
+        "session": null,
+        "derived_from": [],
+        "expected_status": "answered",
+        "required_facts": [
+          {
+            "fact": "Janine stayed with Pat.",
+            "sufficient_sets": [
+              [
+                "janine-butcher-wiki-0021-13057"
+              ]
+            ]
+          }
+        ],
+        "allowed_alternatives": [
+          "Equivalent factual wording without inventing missing evidence."
+        ],
+        "forbidden_assertions": [],
+        "evidence": [
+          {
+            "evidence_id": "janine-butcher-wiki-0021-13057",
+            "text": "A troublesome child, Janine throws tantrums, runs away, is a bed-wetter, a sleep-walker, a thief, a compulsive liar and a self-harmer, and hates Pat. Unable to discipline her, Pat forces Frank to take Janine to family therapy, which somehow helps. Janine refuses to go to school and Ricky finds out she is being bullied. When Frank has a breakdown and disappears in 1994, Janine stays with Pat but finds Frank's absence upsetting.",
+            "source_revision": "1378379064",
+            "sha256": "0d31a9bc75ad1b67ae815fc39d34c80b6ea61d74be726ba9d32dc8d6b6098319"
+          }
+        ],
+        "review_note": "Expected fact read from this retained main-series passage before model output. Source-supported, not independently corroborated canon.",
+        "synthetic_provenance": null,
+        "comparison_case_id": "janine-butcher-profile",
+        "repeat": 1
+      },
+      "reference_sha256": "a71200ceb02d40107a93d90c1004911549153cc43a051dacccb2d04cfea1bfc0",
+      "state": "complete",
+      "review": {
+        "case_id": "janine-butcher-profile-r1",
+        "response_sha256": "3c991b0e28a7643a679b74511028b9db9a0a91c679c1ccbbc2d14f9e19f8544e",
+        "reference_sha256": "a71200ceb02d40107a93d90c1004911549153cc43a051dacccb2d04cfea1bfc0",
+        "reviewer": "Independent Codex AGENT source review (/root/issue9_spec); not human adjudication",
+        "rationale": "The original question explicitly concerns Frank and his 1994 breakdown; the resolver rewrote his to Janine Butcher's. The false_premise qualification therefore wrongly rebukes the original question, despite the factual statement that Frank had the breakdown being supported. Independent frozen Janine paragraph 21 says Janine stayed with Pat. It was retrieved at rank 3 but excluded from the final context. Neither the answer nor the appendix states Pat as the caretaker; the 1998 answer substitutes another event, so completeness, original-question relevance and expected answerability fail. The Pat paragraph supports Frank's April 1994 departure, while Janine paragraph 22 supports a 1998 departure leaving Janine with an unqualified Clare. The added Bates identity is not independently annotated by the frozen reference, and the retained HTML also identifies a sister Clare Butcher elsewhere. The 1998 sentence has no explicit Clare identity link. No new canonical answer key is derived from the output: correctness and contextual/citation support for the full Clare Bates claim remain unassessed, rather than being manufactured passes or a definitive external-canon failure. The partial response acknowledges that the requested 1994 caretaker is unavailable from its supplied final context; that narrow limitation is grounded. Its broader evidence wording is not endorsed as a corpus-wide absence claim: the original snapshot/reference contains the Pat answer. This acknowledgment still cannot pass completeness or expected answerability. ",
+        "claims": [
+          {
+            "claim": "Frank, rather than Janine, had the breakdown in 1994.",
+            "correct": true,
+            "grounded": true,
+            "citation_supported": true
+          },
+          {
+            "claim": "Frank abandoned Pat and his children in April 1994.",
+            "correct": true,
+            "grounded": true,
+            "citation_supported": true
+          },
+          {
+            "claim": "The original user question wrongly attributes the 1994 breakdown to Janine, as asserted by the false_premise qualification.",
+            "correct": false,
+            "grounded": false,
+            "citation_supported": false
+          },
+          {
+            "claim": "Frank left Janine with Clare Bates in 1998.",
+            "correct": null,
+            "grounded": null,
+            "citation_supported": null
+          },
+          {
+            "claim": "The evidence supplied in the final model context does not identify who Janine stayed with after the 1994 disappearance.",
+            "correct": null,
+            "grounded": true,
+            "citation_supported": null
+          }
+        ],
+        "required_facts": [
+          {
+            "fact": "Janine stayed with Pat.",
+            "covered": false
+          }
+        ],
+        "answerability": false,
+        "relevance": false,
+        "critical_failures": [
+          "false_premise"
+        ]
+      },
+      "scores": {
+        "correctness": {
+          "passed": 2,
+          "assessed": 3,
+          "unassessed": 2,
+          "value": 0.6666666666666666
+        },
+        "groundedness": {
+          "passed": 3,
+          "assessed": 4,
+          "unassessed": 1,
+          "value": 0.75
+        },
+        "completeness": {
+          "passed": 0,
+          "assessed": 1,
+          "unassessed": 0,
+          "value": 0.0
+        },
+        "citation_support": {
+          "passed": 2,
+          "assessed": 3,
+          "unassessed": 2,
+          "value": 0.6666666666666666
+        },
+        "answerability": {
+          "passed": 0,
+          "assessed": 1,
+          "unassessed": 0,
+          "value": 0.0
+        },
+        "relevance": {
+          "passed": 0,
+          "assessed": 1,
+          "unassessed": 0,
+          "value": 0.0
+        },
+        "critical_failures": [
+          "false_premise"
+        ]
+      }
+    },
+    {
+      "case_id": "phil-mitchell-missing-r1",
+      "reference": {
+        "case_id": "phil-mitchell-missing-r1",
+        "group_ids": [
+          "unavailable-contact-detail"
+        ],
+        "split": "development",
+        "category": "missing-evidence",
+        "question": "What is Phil Mitchell\u2019s current mobile phone number?",
+        "snapshot_id": "sources-b5bf51ce2c754a5c349834cc87954524d6c89cb20e38fcdafeea815b0760212e",
+        "session": null,
+        "derived_from": [],
+        "expected_status": "insufficient_evidence",
+        "required_facts": [],
+        "allowed_alternatives": [
+          "Equivalent factual wording; preserve missing-evidence qualifications."
+        ],
+        "forbidden_assertions": [
+          "Invented contact details."
+        ],
+        "evidence": [],
+        "review_note": "Retained main-series text inspected for the requested identifier; no supporting record. Absence is an evidence limitation, never a negative fact.",
+        "synthetic_provenance": null,
+        "comparison_case_id": "phil-mitchell-missing",
+        "repeat": 1
+      },
+      "reference_sha256": "2da933807ae300718977b6f4eea63bfdc3e9412fc26baf5a35568f9f8deef7d0",
+      "state": "complete",
+      "review": {
+        "case_id": "phil-mitchell-missing-r1",
+        "response_sha256": "6c141f33ceaa7ecced6635ab1dbdfdc2c4d151392e7af50657d62a12a59bd10c",
+        "reference_sha256": "2da933807ae300718977b6f4eea63bfdc3e9412fc26baf5a35568f9f8deef7d0",
+        "reviewer": "Independent Codex AGENT source review (/root/issue9_spec); not human adjudication",
+        "rationale": "The frozen independently established outcome is insufficient evidence for a current mobile phone number. The actual final-context passages do not contain that identifier. The response appropriately abstains, invents no number and makes no assertion that Phil has no number. There are no canon assertions or required facts to score; correctness, grounding, completeness and citation-support denominators stay zero. The independently expected abstention and question relevance pass.",
+        "claims": [],
+        "required_facts": [],
+        "answerability": true,
+        "relevance": true,
+        "critical_failures": []
+      },
+      "scores": {
+        "correctness": {
+          "passed": 0,
+          "assessed": 0,
+          "unassessed": 0,
+          "value": null
+        },
+        "groundedness": {
+          "passed": 0,
+          "assessed": 0,
+          "unassessed": 0,
+          "value": null
+        },
+        "completeness": {
+          "passed": 0,
+          "assessed": 0,
+          "unassessed": 0,
+          "value": null
+        },
+        "citation_support": {
+          "passed": 0,
+          "assessed": 0,
+          "unassessed": 0,
+          "value": null
+        },
+        "answerability": {
+          "passed": 1,
+          "assessed": 1,
+          "unassessed": 0,
+          "value": 1.0
+        },
+        "relevance": {
+          "passed": 1,
+          "assessed": 1,
+          "unassessed": 0,
+          "value": 1.0
+        },
+        "critical_failures": []
+      }
+    },
+    {
+      "case_id": "cross-mitchell-garage-r1",
+      "reference": {
+        "case_id": "cross-mitchell-garage-r1",
+        "group_ids": [
+          "mitchell-arrival-1990"
+        ],
+        "split": "development",
+        "category": "context-gap",
+        "question": "What garage did Phil and Grant Mitchell co-own on arriving in Walford?",
+        "snapshot_id": "sources-b5bf51ce2c754a5c349834cc87954524d6c89cb20e38fcdafeea815b0760212e",
+        "session": null,
+        "derived_from": [],
+        "expected_status": "answered",
+        "required_facts": [
+          {
+            "fact": "Phil and Grant co-owned The Arches.",
+            "sufficient_sets": [
+              [
+                "grant-mitchell-wiki-0023-19694"
+              ]
+            ]
+          }
+        ],
+        "allowed_alternatives": [
+          "Equivalent factual wording; preserve missing-evidence qualifications."
+        ],
+        "forbidden_assertions": [
+          "Inferring co-ownership without supporting context."
+        ],
+        "evidence": [
+          {
+            "evidence_id": "grant-mitchell-wiki-0023-19694",
+            "text": "Grant Mitchell arrives in Albert Square in February 1990 with his older brother Phil (Steve McFadden), and the pair become co-owners of the local garage, The Arches. Grant had returned to civilian life in London having been a paratrooper in the Army, which included serving in the Falklands War at the age of 19. After a brief fling with Julie Cooper (Louise Plowright) and getting involved in various dodgy deals, Grant starts wooing the local barmaid, Sharon Watts (Letitia Dean). She grows attracted to his machismo, and soon their flirting progresses into a relationship. Fiercely protective of his girlfriend, most of Grant's initial problems in the Square revolve around his over-possessive nature and jealousy. He puts Sharon's boss Eddie Royle (Michael Melia), the landlord of The Queen Victoria public house, in hospital after he makes a pass at Sharon; he later becomes prime suspect for Royle's murder, but is proved not guilty when the killer is revealed to be Nick Cotton (John Altman), the well established local villain who eventually owns up to the crime but is found not guilty in court. In ",
+            "source_revision": "1370914760",
+            "sha256": "f7310c97b375bba45eb990105ba5073186a1bdf402d515002f13704d506a977a"
+          }
+        ],
+        "review_note": "Grant\u2019s narrative explicitly names the two co-owners; no graph inference.",
+        "synthetic_provenance": null,
+        "comparison_case_id": "cross-mitchell-garage",
+        "repeat": 1
+      },
+      "reference_sha256": "8fa163d938d6cc049fbb269c3d40a01e983b9f1dbdfb30ca8286324f878dc7f7",
+      "state": "complete",
+      "review": {
+        "case_id": "cross-mitchell-garage-r1",
+        "response_sha256": "3f01eed87d764550111ae20a4963a7c12a8298b64c826c4229e01e7131215702",
+        "reference_sha256": "8fa163d938d6cc049fbb269c3d40a01e983b9f1dbdfb30ca8286324f878dc7f7",
+        "reviewer": "Independent Codex AGENT source review (/root/issue9_spec); not human adjudication",
+        "rationale": "The original question names Phil and Grant Mitchell and asks for their co-owned garage. The frozen Grant paragraph 23 explicitly names The Arches and both co-owners. The resolver instead requests a character name, skips retrieval and supplies no garage answer: expected answerability, completeness and relevance fail. With no factual assertion or citation, the claim-level dimensions remain unavailable. This observed serving/reference-resolution failure is retained; no question rewrite or weaker reference replaces it.",
+        "claims": [],
+        "required_facts": [
+          {
+            "fact": "Phil and Grant co-owned The Arches.",
+            "covered": false
+          }
+        ],
+        "answerability": false,
+        "relevance": false,
+        "critical_failures": []
+      },
+      "scores": {
+        "correctness": {
+          "passed": 0,
+          "assessed": 0,
+          "unassessed": 0,
+          "value": null
+        },
+        "groundedness": {
+          "passed": 0,
+          "assessed": 0,
+          "unassessed": 0,
+          "value": null
+        },
+        "completeness": {
+          "passed": 0,
+          "assessed": 1,
+          "unassessed": 0,
+          "value": 0.0
+        },
+        "citation_support": {
+          "passed": 0,
+          "assessed": 0,
+          "unassessed": 0,
+          "value": null
+        },
+        "answerability": {
+          "passed": 0,
+          "assessed": 1,
+          "unassessed": 0,
+          "value": 0.0
+        },
+        "relevance": {
+          "passed": 0,
+          "assessed": 1,
+          "unassessed": 0,
+          "value": 0.0
+        },
+        "critical_failures": []
+      }
+    }
+  ],
+  "state": "complete",
+  "run_id": "768aba8f77e7400e9bb8202c981483ef",
+  "tracking_status": "FINISHED"
+}

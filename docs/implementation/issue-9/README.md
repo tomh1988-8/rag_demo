@@ -1,101 +1,153 @@
 # Issue #9: calibrated quality comparisons
 
+The implemented workflow has now run against actual public API conversations and
+human-approved synthetic support controls. It captures and reviews six answer
+dimensions separately, compares controlled development runs, and retains judge
+decisions, source identities, costs and self-hosted MLflow artifacts. The measured
+Janine and garage failures remain visible; both answer configurations fail their
+critical quality gate. This ticket establishes the evaluation workflow, while
+full-product answer acceptance remains #21.
+
 Implementation starts at `07a4be2f405051da8ce5edf46957a2590f657d40`.
-The ticket remains **open**. Software implementation and deterministic checks
-are separate from the pending live comparison and human-reviewed calibration.
+Both live captures used published revision
+`e21e43d39b48c7a18800c67b80c233ced6da2765` and application fingerprint
+`69b746440ddd0be345175581ce3e178b8f85a8bb088e92e39d8aefea0dda081c`.
+The [publication receipt](publication.json) retains the initial verified software
+publication and the final acceptance publication/closure state.
 
-[Published implementation 928c0fb](https://github.com/tomh1988-8/rag_demo/commit/928c0fb6d12d5178aad25716dfe4146bb94cda32)
-was pushed with native Git. Remote object/API readback and an empty full-tree
-diff confirm the exact local tree. [The receipt](publication.json) records the
-verification and that #9 remains open. Unrelated workspace changes are preserved.
+## Actual development comparison
 
-The workflow adds grouped, versioned references; six separately reviewed answer
-dimensions; paired development comparisons with repeat ranges; public API capture
-with fresh session state; a narrow context-support judge; and self-hosted MLflow
-artifacts. Existing retained-capture scoring stays available. Relevance is
-unavailable on old reviews unless it was actually annotated.
+[Baseline](baseline-capture-v2.json) and [candidate](candidate-capture.json) each
+contain 14 public API responses: seven previously exposed cases repeated twice,
+covering three story groups. The pinned Sol model, prompt, source snapshot, k=3
+retrieval and 1,200-byte context configuration are identical. Only reasoning effort
+changes, from medium to low. Both runs disable answer caching, use separate
+namespaces, and start fresh sessions except the explicit Phil follow-up sequence.
+No held-out answers were opened.
 
-The [protocol](protocol.md) defines metrics, scorer inputs, cadence, critical
-gates, baseline-informed threshold selection and limits on interpretation.
-[The split manifest](splits.json) keeps historical cases in development and the
-two synthetic judge story groups separate. Final held-out comparison is reserved
-for later acceptance. [The human review package](label-review.md) records eight
-proposed support labels; approval is still pending.
+Independent AGENT [baseline annotations](baseline-annotations.json) and
+[candidate annotations](candidate-annotations.json) inspect the original question,
+every answer and qualification, required facts, actual context and citations.
+They preserve unassessed claims and distinguish source-based agent review from
+human adjudication. Deterministic [baseline scores](baseline-review.json) and
+[candidate scores](candidate-review.json) bind those reviews to exact responses
+and references. Missing labels produce null values.
 
-## Software validation
+[The controlled comparison](comparison.json) reports the same six case-macro
+means for both configurations; the paired change is zero in every dimension:
 
-All **248 tests pass**, with zero failures, errors or skips, using native Python
-and disposable real PostgreSQL plus MLflow. Strict mypy passes all 53 source
-files, and Ruff passes. Both independent review axes have zero remaining
-software findings. The [validation record](validation.json) binds the full
-[test report](software-tests.xml) to unchanged implementation/input hashes and
-the [independent review](review.md). External model HTTP is substituted in routine
-software tests; these results make no model-quality claim.
+| Dimension | Mean in each run | Assessed cases per run |
+| --- | --- | --- |
+| Correctness | 0.8889 | 3 |
+| Grounding | 0.9028 | 3 |
+| Completeness | 0.5000 | 4 |
+| Citation support | 0.8889 | 3 |
+| Answerability | 0.7143 | 7 |
+| Relevance | 0.7143 | 7 |
 
-The earlier full-suite run was interrupted after 121 passes to apply review
-fixes. Its separate [report](software-tests-before-review.xml) is retained and
-excluded from final validation.
+These means exclude unassessed case dimensions. They are not a claim-level
+accuracy estimate. Two repeats give observed ranges, not confidence intervals;
+three story groups do not establish broad model reliability. Janine's grounding
+varies from 2/3 to 3/4 across repeats because the partial response adds a supported
+context-limitation statement. Both repeats still fail the original task.
 
-## Execution state
+Retrieval and context results explain different failures. The required Janine
+passage is retrieved at rank 3 in every run but omitted from final context. The
+session resolver also wrongly rewrites Frank's pronoun to Janine, causing a
+false-premise correction of an originally correct question. The garage question
+receives an unnecessary clarification with no retrieval: its shared-surname
+character reference is unresolved. Neither outcome supplies its required fact.
+The Phil arrival/follow-up answers pass source review; the ambiguous/isolated
+questions appropriately clarify, and the mobile-number question abstains.
+[The regression register](regressions.json) preserves the failures and follow-ups.
 
-The first live pilot captured two factual API responses before a recorder error
-on a deterministic clarification. The recorder confused configured k=3 with the
-clarification's zero retrieval work. The public API regression now covers that
-case, and preserves both repeats and downloadable MLflow artifacts. The failed
-pilot remains in [baseline-capture.json](baseline-capture.json), with its exact
-[reference manifest](baseline-capture.references.json). Its two paid calls cost
-$0.009182; the preserved shared ledger is $0.241848 with no unsettled reservations.
+Stage timings come from the actual MLflow spans, with missing stages left null.
+Answer-model spans exist for eight responses per run; their observed means are
+3,202.9 ms baseline and 2,583.1 ms candidate. The captures were sequential small
+development runs, so the difference does not establish a latency improvement.
 
-Automatic approval review rejected the corrected paid capture because it sends
-questions and source passages to OpenRouter without explicit authorization for
-this payload/destination. The user was asked to approve the seven frozen
-development questions with their retrieved passages and the synthetic support
-examples, using the pinned OpenAI endpoint under the existing shared $5 cap and
-at most $1 per command. That answer remains pending. No corrected capture or
-judge calls have been made after the rejection.
+## Calibrated support judge and observed limits
 
-The eight human support labels were also requested separately. Until the user
-reviews them, the fixture records `human_reviewed: false`; the judge command
-refuses calibrated execution. Synthetic controls cannot establish broad canon
-quality even if they pass.
+Tom explicitly approved all eight unchanged synthetic labels and the specified
+OpenRouter payloads and costs with “continue, i approve”. The [approval receipt](approval.json)
+and [human review package](label-review.md) record that approval before paid work.
+Historical automatic denials are superseded permission events.
 
-## Run the workflow after the pending inputs arrive
+[Calibration](judge-calibration.json) freezes rubric `all-assertions-supported-v1`
+and the low-reasoning pinned Sol profile. All 24 planned observations complete:
+20 paid calls and four missing-context no-call results. Calibration and validation
+each cover four examples in separate story groups, including positive, negative
+and unavailable labels. All six boolean labels agree, all unavailable inputs stay
+unavailable, and the observed eight repeats, four order probes and four verbosity
+probes show no decision changes. Both partitions have zero false passes. This
+supports only the declared small synthetic scope.
 
-Use `.venv/bin/python scripts/evaluate_quality.py --help` for all arguments.
-The live serving APIs must use the exact reviewed source publication and the
-specified profile. The medium-reasoning baseline and low-reasoning candidate
-share the model, prompt, corpus and retrieval/context settings. Their separate
-local servers can use ports 8009 and 8010. Use fresh output paths and namespaces.
+[Application to saved answers](support-application.json) uses the same rubric and
+settings, with [independent support-only labels frozen before calls](support-application.references.json).
+The [retained acceptance harness](apply_support.py) uses the public judge and
+journal interfaces; it regenerates no answers. The judge agrees with 8/8 reviewed
+positive labels. Twenty observations have no boolean reference label. It returns
+true for four unresolved Janine identities, with reasons saying “Clare” without
+resolving the added “Bates” surname, and for four phone abstentions whose frozen
+agent review treats them as no-factual-assertion/unavailable. These are eight
+decisions requiring review: four identity-adjudication gaps and four null-policy
+mismatches. They remain unscored. Twelve missing-context cases stay unavailable
+without calls. There are no reviewed negative development labels, so the live
+false-pass rate is unavailable.
 
-```sh
-export MLFLOW_TRACKING_URI=sqlite:///artifacts/issue-9-mlflow.db
-.venv/bin/python scripts/evaluate_quality.py capture --model-profile config/openrouter-sol.json --namespace issue9-baseline-v2-development --api-url http://127.0.0.1:8009 --output docs/implementation/issue-9/baseline-capture-v2.json --max-cost-usd 1
-.venv/bin/python scripts/evaluate_quality.py capture --model-profile config/evaluation-sol-low.json --namespace issue9-candidate-development --api-url http://127.0.0.1:8010 --output docs/implementation/issue-9/candidate-capture.json --max-cost-usd 1
-```
+The context-only judge cannot detect the original-question rewrite or assess
+completeness. Broader automatic support use remains pending fresh adjudicated
+controls and review in #23; these decisions do not broaden eligibility or replace
+independent correctness, relevance or answerability labels. Raw helpfulness votes
+and corrections remain human reports, never answer keys.
 
-Review assertions, facts and outcomes against the frozen references and actual
-context. Record relevance independently. Bind every review to the exact response
-and expanded reference fingerprints; inspect safe-but-incomplete answers as
-failures of completeness/expected answerability where applicable.
+## Cost and preserved failures
 
-```sh
-.venv/bin/python scripts/evaluate_quality.py score --references docs/implementation/issue-9/baseline-capture-v2.references.json --capture docs/implementation/issue-9/baseline-capture-v2.json --reviews artifacts/issue9-baseline-reviews.json --output docs/implementation/issue-9/baseline-review.json
-.venv/bin/python scripts/evaluate_quality.py score --references docs/implementation/issue-9/candidate-capture.references.json --capture docs/implementation/issue-9/candidate-capture.json --reviews artifacts/issue9-candidate-reviews.json --output docs/implementation/issue-9/candidate-review.json
-.venv/bin/python scripts/evaluate_quality.py judge --references data/references/support-judge-v1.json --model-profile config/evaluation-sol-low.json --output docs/implementation/issue-9/judge-calibration.json --max-cost-usd 1
-.venv/bin/python scripts/evaluate_quality.py compare --baseline-capture docs/implementation/issue-9/baseline-capture-v2.json --baseline-review docs/implementation/issue-9/baseline-review.json --candidate-capture docs/implementation/issue-9/candidate-capture.json --candidate-review docs/implementation/issue-9/candidate-review.json --changed-factor answer_settings --judge-calibration docs/implementation/issue-9/judge-calibration.json --software-tests docs/implementation/issue-9/software-tests.xml --output docs/implementation/issue-9/comparison.json
-```
+| Expenditure | Paid calls | Reported USD |
+| --- | --- | --- |
+| Earlier failed capture pilot | 2 | 0.0091820 |
+| Completed baseline serving | 8 | 0.0274956 |
+| Completed candidate serving | 8 | 0.0247656 |
+| Offline synthetic calibration | 20 | 0.0206800 |
+| Offline saved-answer support check | 16 | 0.0282900 |
+| Issue #9 total | 54 | 0.1104132 |
 
-Scoring retained answers uses no answer-model calls. Semantic judge calls use the
-existing private key and shared persistent ledger; no separate spending account
-or retry loop is introduced. A failed judge preserves known billing or unknown
-usage/reservation state. Public artifacts exclude private response/session tokens.
+The continuation costs $0.1012312: $0.0522612 serving and $0.0489700 offline
+evaluation. The preserved shared non-resetting $5 ledger is $0.343084, with zero
+unsettled reservations; per-call upward rounding explains its slight difference
+from reported sums. Every paid command stayed within its approved $1 ceiling.
+Independent annotations, deterministic scoring and software tests add no model
+calls. The original [failed pilot](baseline-capture.json) and its references remain
+retained. Its configured-k/zero-work clarification recorder bug has a passing
+public API regression; it is excluded from the completed paired comparison.
 
-## Acceptance still required
+## Software, lineage and reproduction
 
-Complete the corrected live baseline/candidate capture, independent source-based
-answer reviews, human label adjudication, actual judge false-pass/sensitivity
-analysis, and MLflow comparison/readback. Link the final software XML and code
-identity. Update checklist evidence from actual results, verify publication and
-then close the ticket. The current prototype and protocol do not pass those
-runtime checks by themselves. Fusion ablations, real cache experiments and the
-automatic online-feedback workflow remain their respective later tickets.
+The final [software report](software-tests-live.xml) and [validation/readback record](live-validation.json)
+record **248 passed**, zero failures/errors/skips, strict mypy passing 54 files
+including the retained harness, Ruff passing, and zero remaining findings on both
+independent review axes. They are associated with the same comparison in MLflow.
+Routine tests use disposable
+real PostgreSQL and MLflow and substitute external-model HTTP. The earlier
+248-test [software report](software-tests.xml) and its [historical validation](validation.json)
+remain intact; that validation predates human-approval metadata. The interrupted
+121-pass report is historical and excluded from final validation. Strict mypy,
+Ruff and the two independent review axes are recorded in [review.md](review.md).
+
+The [protocol](protocol.md), [split manifest](splits.json) and
+[scorer contracts](../../../data/references/quality-scorer-contracts-v1.json)
+define input requirements, cadence, critical gates and the procedure for choosing
+numeric thresholds after baseline measurement and before opening fresh held-out
+candidate results. No final release threshold or held-out acceptance is claimed.
+Fusion ablations, cache experiments and automatic online evaluation remain their
+later tickets.
+
+Use `scripts/evaluate_quality.py --help` for capture, score, compare and judge
+arguments. The completed command inputs and MLflow run IDs are retained in
+[live-validation.json](live-validation.json). Reproduction uses fresh output paths,
+namespaces and private session directories because retained artifacts cannot be
+overwritten. Scoring and comparison use saved responses without answer calls.
+Paid reproduction uses the existing private key and preserved shared ledger,
+bounded slice budgets and no automatic retries. Final MLflow readback verifies
+seven finished results, 41 declared frozen inputs, 16 related comparison inputs
+and all 28 actual stage measurements against the retained local evidence.

@@ -1,0 +1,1813 @@
+{
+  "kind": "controlled-development-comparison-v1",
+  "code_revision": "e21e43d39b48c7a18800c67b80c233ced6da2765",
+  "application_sha256": "69b746440ddd0be345175581ce3e178b8f85a8bb088e92e39d8aefea0dda081c",
+  "dataset_sha256": "2bfadd630b831108c150acd44f1161586474e2e4512ec8820d97b8c4339045fd",
+  "changed_factor": "answer_settings",
+  "case_count": 7,
+  "independent_groups": 3,
+  "paired_observations": 14,
+  "dimensions": {
+    "correctness": {
+      "baseline_mean": 0.8888888888888888,
+      "baseline_mean_cases": 3,
+      "candidate_mean": 0.8888888888888888,
+      "candidate_mean_cases": 3,
+      "paired_delta": 0.0,
+      "paired_delta_cases": 3
+    },
+    "groundedness": {
+      "baseline_mean": 0.9027777777777778,
+      "baseline_mean_cases": 3,
+      "candidate_mean": 0.9027777777777778,
+      "candidate_mean_cases": 3,
+      "paired_delta": 0.0,
+      "paired_delta_cases": 3
+    },
+    "completeness": {
+      "baseline_mean": 0.5,
+      "baseline_mean_cases": 4,
+      "candidate_mean": 0.5,
+      "candidate_mean_cases": 4,
+      "paired_delta": 0.0,
+      "paired_delta_cases": 4
+    },
+    "citation_support": {
+      "baseline_mean": 0.8888888888888888,
+      "baseline_mean_cases": 3,
+      "candidate_mean": 0.8888888888888888,
+      "candidate_mean_cases": 3,
+      "paired_delta": 0.0,
+      "paired_delta_cases": 3
+    },
+    "answerability": {
+      "baseline_mean": 0.7142857142857143,
+      "baseline_mean_cases": 7,
+      "candidate_mean": 0.7142857142857143,
+      "candidate_mean_cases": 7,
+      "paired_delta": 0.0,
+      "paired_delta_cases": 7
+    },
+    "relevance": {
+      "baseline_mean": 0.7142857142857143,
+      "baseline_mean_cases": 7,
+      "candidate_mean": 0.7142857142857143,
+      "candidate_mean_cases": 7,
+      "paired_delta": 0.0,
+      "paired_delta_cases": 7
+    }
+  },
+  "categories": {
+    "clarification": [
+      "ambiguous",
+      "isolated"
+    ],
+    "context-gap": [
+      "cross-mitchell-garage",
+      "janine-butcher-profile"
+    ],
+    "followup": [
+      "phil-followup"
+    ],
+    "supported": [
+      "phil-intro"
+    ],
+    "missing-evidence": [
+      "phil-mitchell-missing"
+    ]
+  },
+  "failures": [
+    {
+      "case_id": "cross-mitchell-garage",
+      "category": "context-gap",
+      "dimension": "completeness",
+      "run": "baseline"
+    },
+    {
+      "case_id": "cross-mitchell-garage",
+      "category": "context-gap",
+      "dimension": "completeness",
+      "run": "candidate"
+    },
+    {
+      "case_id": "cross-mitchell-garage",
+      "category": "context-gap",
+      "dimension": "answerability",
+      "run": "baseline"
+    },
+    {
+      "case_id": "cross-mitchell-garage",
+      "category": "context-gap",
+      "dimension": "answerability",
+      "run": "candidate"
+    },
+    {
+      "case_id": "cross-mitchell-garage",
+      "category": "context-gap",
+      "dimension": "relevance",
+      "run": "baseline"
+    },
+    {
+      "case_id": "cross-mitchell-garage",
+      "category": "context-gap",
+      "dimension": "relevance",
+      "run": "candidate"
+    },
+    {
+      "case_id": "janine-butcher-profile",
+      "category": "context-gap",
+      "dimension": "correctness",
+      "run": "baseline"
+    },
+    {
+      "case_id": "janine-butcher-profile",
+      "category": "context-gap",
+      "dimension": "correctness",
+      "run": "candidate"
+    },
+    {
+      "case_id": "janine-butcher-profile",
+      "category": "context-gap",
+      "dimension": "groundedness",
+      "run": "baseline"
+    },
+    {
+      "case_id": "janine-butcher-profile",
+      "category": "context-gap",
+      "dimension": "groundedness",
+      "run": "candidate"
+    },
+    {
+      "case_id": "janine-butcher-profile",
+      "category": "context-gap",
+      "dimension": "completeness",
+      "run": "baseline"
+    },
+    {
+      "case_id": "janine-butcher-profile",
+      "category": "context-gap",
+      "dimension": "completeness",
+      "run": "candidate"
+    },
+    {
+      "case_id": "janine-butcher-profile",
+      "category": "context-gap",
+      "dimension": "citation_support",
+      "run": "baseline"
+    },
+    {
+      "case_id": "janine-butcher-profile",
+      "category": "context-gap",
+      "dimension": "citation_support",
+      "run": "candidate"
+    },
+    {
+      "case_id": "janine-butcher-profile",
+      "category": "context-gap",
+      "dimension": "answerability",
+      "run": "baseline"
+    },
+    {
+      "case_id": "janine-butcher-profile",
+      "category": "context-gap",
+      "dimension": "answerability",
+      "run": "candidate"
+    },
+    {
+      "case_id": "janine-butcher-profile",
+      "category": "context-gap",
+      "dimension": "relevance",
+      "run": "baseline"
+    },
+    {
+      "case_id": "janine-butcher-profile",
+      "category": "context-gap",
+      "dimension": "relevance",
+      "run": "candidate"
+    },
+    {
+      "case_id": "janine-butcher-profile",
+      "category": "context-gap",
+      "dimension": "critical_failures",
+      "run": "baseline",
+      "failures": [
+        "false_premise"
+      ]
+    },
+    {
+      "case_id": "janine-butcher-profile",
+      "category": "context-gap",
+      "dimension": "critical_failures",
+      "run": "candidate",
+      "failures": [
+        "false_premise"
+      ]
+    }
+  ],
+  "critical_gates": {
+    "baseline": "failed",
+    "candidate": "failed"
+  },
+  "stage_measurements": {
+    "baseline": [
+      {
+        "case_id": "phil-intro",
+        "repeat": 0,
+        "response_sha256": "5b1c8d075a971d0e70050dfa2fbff9275345d2a042e082db233af3d3dfd6cc34",
+        "retrieval": {
+          "k": 3,
+          "relevant_passage_count": 1,
+          "recall_at_k": 1.0,
+          "hit_at_k": 1.0,
+          "mrr_at_k": 1.0,
+          "required_fact_count": 1,
+          "context_fact_coverage": 1.0,
+          "context_sufficient": true
+        },
+        "serving_cost_usd": 0.004876,
+        "elapsed_ms": 8363.308176005376,
+        "stage_ms": {
+          "text_retrieval": 2602.95146,
+          "assembled_context": 0.443804,
+          "answer_model": 4178.669115
+        }
+      },
+      {
+        "case_id": "phil-followup",
+        "repeat": 0,
+        "response_sha256": "f9461e9a8fb010e5505127c5d9da21214d3a7ca00435af814b0148f2eab94321",
+        "retrieval": {
+          "k": 3,
+          "relevant_passage_count": 1,
+          "recall_at_k": 1.0,
+          "hit_at_k": 1.0,
+          "mrr_at_k": 1.0,
+          "required_fact_count": 1,
+          "context_fact_coverage": 1.0,
+          "context_sufficient": true
+        },
+        "serving_cost_usd": 0.003826,
+        "elapsed_ms": 4351.834378991043,
+        "stage_ms": {
+          "text_retrieval": 1059.271227,
+          "assembled_context": 0.501944,
+          "answer_model": 1780.535919
+        }
+      },
+      {
+        "case_id": "ambiguous",
+        "repeat": 0,
+        "response_sha256": "5166c935869260e582af3696ceb7520715679e2490131bc2d39a8597e025fd3f",
+        "retrieval": {
+          "k": 3,
+          "relevant_passage_count": 0,
+          "recall_at_k": null,
+          "hit_at_k": null,
+          "mrr_at_k": null,
+          "required_fact_count": 0,
+          "context_fact_coverage": null,
+          "context_sufficient": false
+        },
+        "serving_cost_usd": 0.0,
+        "elapsed_ms": 1724.0451309917262,
+        "stage_ms": {
+          "text_retrieval": null,
+          "assembled_context": 0.218119,
+          "answer_model": null
+        }
+      },
+      {
+        "case_id": "isolated",
+        "repeat": 0,
+        "response_sha256": "95d04540b5d6b3bfe34f8be4cb914b6a4450b0a19bd32f4b709d7e130a4494e3",
+        "retrieval": {
+          "k": 3,
+          "relevant_passage_count": 0,
+          "recall_at_k": null,
+          "hit_at_k": null,
+          "mrr_at_k": null,
+          "required_fact_count": 0,
+          "context_fact_coverage": null,
+          "context_sufficient": false
+        },
+        "serving_cost_usd": 0.0,
+        "elapsed_ms": 1917.8935719974106,
+        "stage_ms": {
+          "text_retrieval": null,
+          "assembled_context": 0.318281,
+          "answer_model": null
+        }
+      },
+      {
+        "case_id": "janine-butcher-profile",
+        "repeat": 0,
+        "response_sha256": "ab6dca821d3635b302b6cef06762b2473eb2aca2fdb2a796215d2cbb801e17af",
+        "retrieval": {
+          "k": 3,
+          "relevant_passage_count": 1,
+          "recall_at_k": 1.0,
+          "hit_at_k": 1.0,
+          "mrr_at_k": 0.3333333333333333,
+          "required_fact_count": 1,
+          "context_fact_coverage": 0.0,
+          "context_sufficient": false
+        },
+        "serving_cost_usd": 0.0060235,
+        "elapsed_ms": 6706.997526998748,
+        "stage_ms": {
+          "text_retrieval": 990.981988,
+          "assembled_context": 0.491828,
+          "answer_model": 4047.67809
+        }
+      },
+      {
+        "case_id": "phil-mitchell-missing",
+        "repeat": 0,
+        "response_sha256": "a8a129ca63e01f3712360d5eea7692c673900457b026be9b7c2afaf7d5d8d1ce",
+        "retrieval": {
+          "k": 3,
+          "relevant_passage_count": 0,
+          "recall_at_k": null,
+          "hit_at_k": null,
+          "mrr_at_k": null,
+          "required_fact_count": 0,
+          "context_fact_coverage": null,
+          "context_sufficient": false
+        },
+        "serving_cost_usd": 0.0035285,
+        "elapsed_ms": 4353.490766996401,
+        "stage_ms": {
+          "text_retrieval": 957.398264,
+          "assembled_context": 0.558458,
+          "answer_model": 1740.486413
+        }
+      },
+      {
+        "case_id": "cross-mitchell-garage",
+        "repeat": 0,
+        "response_sha256": "d30c9443924e414b9f95f8b63d32e84752b9ae0d0bad2eed3792af6d9aff18b3",
+        "retrieval": {
+          "k": 3,
+          "relevant_passage_count": 1,
+          "recall_at_k": 0.0,
+          "hit_at_k": 0.0,
+          "mrr_at_k": 0.0,
+          "required_fact_count": 1,
+          "context_fact_coverage": 0.0,
+          "context_sufficient": false
+        },
+        "serving_cost_usd": 0.0,
+        "elapsed_ms": 1905.4009889950976,
+        "stage_ms": {
+          "text_retrieval": null,
+          "assembled_context": 0.318115,
+          "answer_model": null
+        }
+      },
+      {
+        "case_id": "phil-intro",
+        "repeat": 1,
+        "response_sha256": "07ab43db87a5a76b79838ce180bbd4ccb4a73f3d22138a02885f33ff6db0c2af",
+        "retrieval": {
+          "k": 3,
+          "relevant_passage_count": 1,
+          "recall_at_k": 1.0,
+          "hit_at_k": 1.0,
+          "mrr_at_k": 1.0,
+          "required_fact_count": 1,
+          "context_fact_coverage": 1.0,
+          "context_sufficient": true
+        },
+        "serving_cost_usd": 0.0016256,
+        "elapsed_ms": 5679.015456989873,
+        "stage_ms": {
+          "text_retrieval": 1095.204922,
+          "assembled_context": 0.458203,
+          "answer_model": 3051.421784
+        }
+      },
+      {
+        "case_id": "phil-followup",
+        "repeat": 1,
+        "response_sha256": "2aa5849df72d9c672605f5eb266f2e5aab41c70fb63261f064408eb0244cca9d",
+        "retrieval": {
+          "k": 3,
+          "relevant_passage_count": 1,
+          "recall_at_k": 1.0,
+          "hit_at_k": 1.0,
+          "mrr_at_k": 1.0,
+          "required_fact_count": 1,
+          "context_fact_coverage": 1.0,
+          "context_sufficient": true
+        },
+        "serving_cost_usd": 0.001072,
+        "elapsed_ms": 4599.872602993855,
+        "stage_ms": {
+          "text_retrieval": 1102.541864,
+          "assembled_context": 0.686989,
+          "answer_model": 1974.172068
+        }
+      },
+      {
+        "case_id": "ambiguous",
+        "repeat": 1,
+        "response_sha256": "037056c660a507c6c55dd363e43578b984b67081aca0dd3900603c240e94bdb6",
+        "retrieval": {
+          "k": 3,
+          "relevant_passage_count": 0,
+          "recall_at_k": null,
+          "hit_at_k": null,
+          "mrr_at_k": null,
+          "required_fact_count": 0,
+          "context_fact_coverage": null,
+          "context_sufficient": false
+        },
+        "serving_cost_usd": 0.0,
+        "elapsed_ms": 1754.0299810061697,
+        "stage_ms": {
+          "text_retrieval": null,
+          "assembled_context": 0.231679,
+          "answer_model": null
+        }
+      },
+      {
+        "case_id": "isolated",
+        "repeat": 1,
+        "response_sha256": "91e4883eb7fad8eb6806dce6bc070e03bdf7385b0fb9414cf04e995b11488f54",
+        "retrieval": {
+          "k": 3,
+          "relevant_passage_count": 0,
+          "recall_at_k": null,
+          "hit_at_k": null,
+          "mrr_at_k": null,
+          "required_fact_count": 0,
+          "context_fact_coverage": null,
+          "context_sufficient": false
+        },
+        "serving_cost_usd": 0.0,
+        "elapsed_ms": 1948.7263500050176,
+        "stage_ms": {
+          "text_retrieval": null,
+          "assembled_context": 0.295712,
+          "answer_model": null
+        }
+      },
+      {
+        "case_id": "janine-butcher-profile",
+        "repeat": 1,
+        "response_sha256": "3c991b0e28a7643a679b74511028b9db9a0a91c679c1ccbbc2d14f9e19f8544e",
+        "retrieval": {
+          "k": 3,
+          "relevant_passage_count": 1,
+          "recall_at_k": 1.0,
+          "hit_at_k": 1.0,
+          "mrr_at_k": 0.3333333333333333,
+          "required_fact_count": 1,
+          "context_fact_coverage": 0.0,
+          "context_sufficient": false
+        },
+        "serving_cost_usd": 0.0056542,
+        "elapsed_ms": 8712.927651999053,
+        "stage_ms": {
+          "text_retrieval": 1149.196794,
+          "assembled_context": 0.651448,
+          "answer_model": 6053.884979
+        }
+      },
+      {
+        "case_id": "phil-mitchell-missing",
+        "repeat": 1,
+        "response_sha256": "6c141f33ceaa7ecced6635ab1dbdfdc2c4d151392e7af50657d62a12a59bd10c",
+        "retrieval": {
+          "k": 3,
+          "relevant_passage_count": 0,
+          "recall_at_k": null,
+          "hit_at_k": null,
+          "mrr_at_k": null,
+          "required_fact_count": 0,
+          "context_fact_coverage": null,
+          "context_sufficient": false
+        },
+        "serving_cost_usd": 0.0008898,
+        "elapsed_ms": 5404.514173002099,
+        "stage_ms": {
+          "text_retrieval": 1130.169816,
+          "assembled_context": 0.547315,
+          "answer_model": 2796.542447
+        }
+      },
+      {
+        "case_id": "cross-mitchell-garage",
+        "repeat": 1,
+        "response_sha256": "3f01eed87d764550111ae20a4963a7c12a8298b64c826c4229e01e7131215702",
+        "retrieval": {
+          "k": 3,
+          "relevant_passage_count": 1,
+          "recall_at_k": 0.0,
+          "hit_at_k": 0.0,
+          "mrr_at_k": 0.0,
+          "required_fact_count": 1,
+          "context_fact_coverage": 0.0,
+          "context_sufficient": false
+        },
+        "serving_cost_usd": 0.0,
+        "elapsed_ms": 1710.6039989885176,
+        "stage_ms": {
+          "text_retrieval": null,
+          "assembled_context": 0.225965,
+          "answer_model": null
+        }
+      }
+    ],
+    "candidate": [
+      {
+        "case_id": "phil-intro",
+        "repeat": 0,
+        "response_sha256": "9fea3bc6f3f320fb21e618033423b39fc6bd982aab93ba6e29ed806730a4f21b",
+        "retrieval": {
+          "k": 3,
+          "relevant_passage_count": 1,
+          "recall_at_k": 1.0,
+          "hit_at_k": 1.0,
+          "mrr_at_k": 1.0,
+          "required_fact_count": 1,
+          "context_fact_coverage": 1.0,
+          "context_sufficient": true
+        },
+        "serving_cost_usd": 0.004326,
+        "elapsed_ms": 5599.127079010941,
+        "stage_ms": {
+          "text_retrieval": 1139.087715,
+          "assembled_context": 0.550399,
+          "answer_model": 2605.456912
+        }
+      },
+      {
+        "case_id": "phil-followup",
+        "repeat": 0,
+        "response_sha256": "114f4d0b51678f5eec7b102f8039f5c2999c0a308fe2514128e33bb9bc5881e3",
+        "retrieval": {
+          "k": 3,
+          "relevant_passage_count": 1,
+          "recall_at_k": 1.0,
+          "hit_at_k": 1.0,
+          "mrr_at_k": 1.0,
+          "required_fact_count": 1,
+          "context_fact_coverage": 1.0,
+          "context_sufficient": true
+        },
+        "serving_cost_usd": 0.003806,
+        "elapsed_ms": 4313.832790998276,
+        "stage_ms": {
+          "text_retrieval": 1072.172215,
+          "assembled_context": 0.59933,
+          "answer_model": 1744.878128
+        }
+      },
+      {
+        "case_id": "ambiguous",
+        "repeat": 0,
+        "response_sha256": "5f9838fb34ed3a36f3da2041f8916ca475b48c75f18ec6bcedefc155f5d7f62a",
+        "retrieval": {
+          "k": 3,
+          "relevant_passage_count": 0,
+          "recall_at_k": null,
+          "hit_at_k": null,
+          "mrr_at_k": null,
+          "required_fact_count": 0,
+          "context_fact_coverage": null,
+          "context_sufficient": false
+        },
+        "serving_cost_usd": 0.0,
+        "elapsed_ms": 1921.292639002786,
+        "stage_ms": {
+          "text_retrieval": null,
+          "assembled_context": 0.316861,
+          "answer_model": null
+        }
+      },
+      {
+        "case_id": "isolated",
+        "repeat": 0,
+        "response_sha256": "02c3e16ff21aebc478df4bb5e3adf63e8ae25cd2b058e95337435738dde4da8b",
+        "retrieval": {
+          "k": 3,
+          "relevant_passage_count": 0,
+          "recall_at_k": null,
+          "hit_at_k": null,
+          "mrr_at_k": null,
+          "required_fact_count": 0,
+          "context_fact_coverage": null,
+          "context_sufficient": false
+        },
+        "serving_cost_usd": 0.0,
+        "elapsed_ms": 1736.6524319950258,
+        "stage_ms": {
+          "text_retrieval": null,
+          "assembled_context": 0.213837,
+          "answer_model": null
+        }
+      },
+      {
+        "case_id": "janine-butcher-profile",
+        "repeat": 0,
+        "response_sha256": "de8efce92594d435c05018613ab1e6d5b84ac7aa9f02ec332fd7cafb15e7cf0d",
+        "retrieval": {
+          "k": 3,
+          "relevant_passage_count": 1,
+          "recall_at_k": 1.0,
+          "hit_at_k": 1.0,
+          "mrr_at_k": 0.3333333333333333,
+          "required_fact_count": 1,
+          "context_fact_coverage": 0.0,
+          "context_sufficient": false
+        },
+        "serving_cost_usd": 0.0066035,
+        "elapsed_ms": 6777.738523000153,
+        "stage_ms": {
+          "text_retrieval": 921.509828,
+          "assembled_context": 0.536563,
+          "answer_model": 4149.451373
+        }
+      },
+      {
+        "case_id": "phil-mitchell-missing",
+        "repeat": 0,
+        "response_sha256": "d372727e0e295707171ddd130d40e908586fb7511e548ec4f3d3814a2782a90b",
+        "retrieval": {
+          "k": 3,
+          "relevant_passage_count": 0,
+          "recall_at_k": null,
+          "hit_at_k": null,
+          "mrr_at_k": null,
+          "required_fact_count": 0,
+          "context_fact_coverage": null,
+          "context_sufficient": false
+        },
+        "serving_cost_usd": 0.0034385,
+        "elapsed_ms": 4841.547465999611,
+        "stage_ms": {
+          "text_retrieval": 924.533141,
+          "assembled_context": 0.840692,
+          "answer_model": 2204.452921
+        }
+      },
+      {
+        "case_id": "cross-mitchell-garage",
+        "repeat": 0,
+        "response_sha256": "76271cff9d069c050c0a9dd37c98db10d97725afc91b9324e6a939512c225bb4",
+        "retrieval": {
+          "k": 3,
+          "relevant_passage_count": 1,
+          "recall_at_k": 0.0,
+          "hit_at_k": 0.0,
+          "mrr_at_k": 0.0,
+          "required_fact_count": 1,
+          "context_fact_coverage": 0.0,
+          "context_sufficient": false
+        },
+        "serving_cost_usd": 0.0,
+        "elapsed_ms": 1913.967546002823,
+        "stage_ms": {
+          "text_retrieval": null,
+          "assembled_context": 0.203133,
+          "answer_model": null
+        }
+      },
+      {
+        "case_id": "phil-intro",
+        "repeat": 1,
+        "response_sha256": "6c418c8278786fcd5a8ed35135c0c64134e84e1cc67137653169eec67e588349",
+        "retrieval": {
+          "k": 3,
+          "relevant_passage_count": 1,
+          "recall_at_k": 1.0,
+          "hit_at_k": 1.0,
+          "mrr_at_k": 1.0,
+          "required_fact_count": 1,
+          "context_fact_coverage": 1.0,
+          "context_sufficient": true
+        },
+        "serving_cost_usd": 0.0014656,
+        "elapsed_ms": 5366.391894000117,
+        "stage_ms": {
+          "text_retrieval": 1108.466835,
+          "assembled_context": 0.905169,
+          "answer_model": 2722.23996
+        }
+      },
+      {
+        "case_id": "phil-followup",
+        "repeat": 1,
+        "response_sha256": "9d9f1d7fc234644170aa9d3264336306ad85ee19fdf66c444383034c28517574",
+        "retrieval": {
+          "k": 3,
+          "relevant_passage_count": 1,
+          "recall_at_k": 1.0,
+          "hit_at_k": 1.0,
+          "mrr_at_k": 1.0,
+          "required_fact_count": 1,
+          "context_fact_coverage": 1.0,
+          "context_sufficient": true
+        },
+        "serving_cost_usd": 0.000862,
+        "elapsed_ms": 4513.534652011003,
+        "stage_ms": {
+          "text_retrieval": 1083.48662,
+          "assembled_context": 0.520351,
+          "answer_model": 1916.538995
+        }
+      },
+      {
+        "case_id": "ambiguous",
+        "repeat": 1,
+        "response_sha256": "7d8686683318b4983604f3cff4dcfc52ef56b4ead5094b19d46a777edd821b70",
+        "retrieval": {
+          "k": 3,
+          "relevant_passage_count": 0,
+          "recall_at_k": null,
+          "hit_at_k": null,
+          "mrr_at_k": null,
+          "required_fact_count": 0,
+          "context_fact_coverage": null,
+          "context_sufficient": false
+        },
+        "serving_cost_usd": 0.0,
+        "elapsed_ms": 1753.6121719895164,
+        "stage_ms": {
+          "text_retrieval": null,
+          "assembled_context": 0.248641,
+          "answer_model": null
+        }
+      },
+      {
+        "case_id": "isolated",
+        "repeat": 1,
+        "response_sha256": "60b4c3372b34a59bb54bad6c1588009e4c86e577a390f148578e501b5db78bba",
+        "retrieval": {
+          "k": 3,
+          "relevant_passage_count": 0,
+          "recall_at_k": null,
+          "hit_at_k": null,
+          "mrr_at_k": null,
+          "required_fact_count": 0,
+          "context_fact_coverage": null,
+          "context_sufficient": false
+        },
+        "serving_cost_usd": 0.0,
+        "elapsed_ms": 1920.1029449905036,
+        "stage_ms": {
+          "text_retrieval": null,
+          "assembled_context": 0.236858,
+          "answer_model": null
+        }
+      },
+      {
+        "case_id": "janine-butcher-profile",
+        "repeat": 1,
+        "response_sha256": "400635977a8d24501a2dbc5dc6a32846fde6320fd7b21e2e07c0632546d35033",
+        "retrieval": {
+          "k": 3,
+          "relevant_passage_count": 1,
+          "recall_at_k": 1.0,
+          "hit_at_k": 1.0,
+          "mrr_at_k": 0.3333333333333333,
+          "required_fact_count": 1,
+          "context_fact_coverage": 0.0,
+          "context_sufficient": false
+        },
+        "serving_cost_usd": 0.0035242,
+        "elapsed_ms": 6240.777158993296,
+        "stage_ms": {
+          "text_retrieval": 1130.422677,
+          "assembled_context": 0.525407,
+          "answer_model": 3588.759578
+        }
+      },
+      {
+        "case_id": "phil-mitchell-missing",
+        "repeat": 1,
+        "response_sha256": "4c894c05c4547b96065ea140719c968f29a598eaf710aec38103001831f63caf",
+        "retrieval": {
+          "k": 3,
+          "relevant_passage_count": 0,
+          "recall_at_k": null,
+          "hit_at_k": null,
+          "mrr_at_k": null,
+          "required_fact_count": 0,
+          "context_fact_coverage": null,
+          "context_sufficient": false
+        },
+        "serving_cost_usd": 0.0007398,
+        "elapsed_ms": 4552.081614005147,
+        "stage_ms": {
+          "text_retrieval": 1116.8749,
+          "assembled_context": 0.537641,
+          "answer_model": 1732.687691
+        }
+      },
+      {
+        "case_id": "cross-mitchell-garage",
+        "repeat": 1,
+        "response_sha256": "5afec21cc1237ab1396bca2c4921a3076f25a9ca0062343c2cf3d0241a3c3152",
+        "retrieval": {
+          "k": 3,
+          "relevant_passage_count": 1,
+          "recall_at_k": 0.0,
+          "hit_at_k": 0.0,
+          "mrr_at_k": 0.0,
+          "required_fact_count": 1,
+          "context_fact_coverage": 0.0,
+          "context_sufficient": false
+        },
+        "serving_cost_usd": 0.0,
+        "elapsed_ms": 1942.0587269996759,
+        "stage_ms": {
+          "text_retrieval": null,
+          "assembled_context": 0.207094,
+          "answer_model": null
+        }
+      }
+    ]
+  },
+  "serving_cost_usd": {
+    "baseline": 0.027495600000000002,
+    "candidate": 0.0247656
+  },
+  "offline_evaluation_cost_usd": {
+    "baseline": 0,
+    "candidate": 0
+  },
+  "limitation": "Development only. Repeats are dependent; ranges are observed variation, not confidence intervals. Story groups, not repeats, bound independent sample size.",
+  "judge_calibration_run_id": "d023a3114cb94781ba264c62e0eee2fe",
+  "judge_calibration": {
+    "dataset_sha256": "9d19266cf7e3d4dc7ff9b6a8d2d38d37c4eef98cd028543b9f815790cc9db356",
+    "rubric_version": "all-assertions-supported-v1",
+    "rubric_sha256": "99271033de9a536ea3b9b93e9efd15ad2a57f1ff0b7df54071578f141808bd1d",
+    "judge_settings_sha256": "1c91a994d2d659eba99ed65f4011dc81421bcbe7ff1e5218667bbbdcd196f567",
+    "judge_calibration": {
+      "selected_cases": 4,
+      "reviewed_labels": 3,
+      "valid_judge_scores": 3,
+      "agreement": 1.0,
+      "negative_labels": 1,
+      "positive_labels": 2,
+      "false_passes": 0,
+      "false_pass_rate": 0.0,
+      "missing_inputs": 1,
+      "correctly_unavailable": 1
+    },
+    "judge_validation": {
+      "selected_cases": 4,
+      "reviewed_labels": 3,
+      "valid_judge_scores": 3,
+      "agreement": 1.0,
+      "negative_labels": 2,
+      "positive_labels": 1,
+      "false_passes": 0,
+      "false_pass_rate": 0.0,
+      "missing_inputs": 1,
+      "correctly_unavailable": 1
+    },
+    "disagreements": [],
+    "human_reviewed": true,
+    "coverage_complete": true,
+    "repeat_changes": 0,
+    "order_changes": 0,
+    "verbosity_changes": 0,
+    "sensitivity_counts": {
+      "repeat": 8,
+      "reversed": 4,
+      "verbose": 4
+    },
+    "offline_evaluation_cost_usd": 0.02068,
+    "eligible_to_enable": true,
+    "limitation": "Small synthetic support controls only; no canon, completeness, or general judge reliability claim. Unresolved disagreements require review."
+  },
+  "recorded_at": "2026-10-17T19:48:54.999781+00:00",
+  "reference_file_sha256": "dfc4e22247cef79faea55ebfca325239cfcef0c4fba0f4ddc21be5503bd8bcf1",
+  "recorder_version": "frozen-evaluation-run-v1",
+  "input_artifacts": [
+    {
+      "artifact_path": "inputs/0/quality-comparison-v1.json",
+      "sha256": "dfc4e22247cef79faea55ebfca325239cfcef0c4fba0f4ddc21be5503bd8bcf1"
+    },
+    {
+      "artifact_path": "inputs/1/baseline-capture-v2.json",
+      "sha256": "740db33ca015f65e3e2206e3587351406bf2f43ad399bc5e8e4f1fe0f6b6a6ca"
+    },
+    {
+      "artifact_path": "inputs/2/baseline-review.json",
+      "sha256": "6e15bb77caeec7419c8df461b32844fec8fec478954d414382dd8120cbea0c2c"
+    },
+    {
+      "artifact_path": "inputs/3/candidate-capture.json",
+      "sha256": "0cdcf19d80be3d0817a8c4996b2368cf4883097c229636b1b3a8f9c0f56b529e"
+    },
+    {
+      "artifact_path": "inputs/4/candidate-review.json",
+      "sha256": "568ab7f7bcb9e08a3cf64ce5d32ff272fdd3fdb4407940824b359908428e0c73"
+    },
+    {
+      "artifact_path": "inputs/5/software-tests-live.xml",
+      "sha256": "fd6e812922cd90d2c710d7fdaeb8216210db028453079672de5934df6fe093c3"
+    },
+    {
+      "artifact_path": "inputs/6/judge-calibration.json",
+      "sha256": "f34cffd1e971193b0a7e64a90f3f97d4b8961a4d425333840dd20eee49bdfe8b"
+    },
+    {
+      "artifact_path": "inputs/7/uv.lock",
+      "sha256": "983d5a644e3289e6b79d92dc251b5029c199a497ac33c14f504a3c9ee3763152"
+    },
+    {
+      "artifact_path": "inputs/8/evaluate_quality.py",
+      "sha256": "1bbf60ff0d71d602ebf28341859e66f824e7bc19e56aa4a39d9763abf5115b84"
+    },
+    {
+      "artifact_path": "inputs/9/quality-scorer-contracts-v1.json",
+      "sha256": "430fee618c6fcb8cce661ab818474ddf059fc4da5f9897d5d0392ceda12fb1ca"
+    }
+  ],
+  "result_artifact": "result/comparison.json",
+  "case_ids": [
+    "ambiguous",
+    "cross-mitchell-garage",
+    "isolated",
+    "janine-butcher-profile",
+    "phil-followup",
+    "phil-intro",
+    "phil-mitchell-missing"
+  ],
+  "cases": [
+    {
+      "case_id": "ambiguous",
+      "reference": {
+        "case_id": "ambiguous",
+        "group_ids": [
+          "mitchell-arrival-1990",
+          "phil-arrival-february-1990"
+        ],
+        "split": "development",
+        "category": "clarification",
+        "question": "When did he first arrive in Walford?",
+        "snapshot_id": "sources-b5bf51ce2c754a5c349834cc87954524d6c89cb20e38fcdafeea815b0760212e",
+        "session": "ambiguous",
+        "derived_from": [],
+        "expected_status": "clarification",
+        "required_facts": [],
+        "allowed_alternatives": [
+          "Ask which character is intended."
+        ],
+        "forbidden_assertions": [],
+        "evidence": [],
+        "review_note": "Source-derived expectations retained from conversation-v1 before this comparison. Previously exposed development data; no human or canon corroboration claim.",
+        "synthetic_provenance": null
+      },
+      "reference_sha256": "b59d68a8da934d66a28f67664e6fff59b5697617a83377418aac202e43939ed7",
+      "state": "complete",
+      "comparison": {
+        "category": "clarification",
+        "repeats": 2,
+        "correctness": {
+          "baseline_mean": null,
+          "candidate_mean": null,
+          "paired_delta": null,
+          "paired_assessed": 0,
+          "baseline_assessed": 0,
+          "candidate_assessed": 0,
+          "baseline_range": null,
+          "candidate_range": null
+        },
+        "groundedness": {
+          "baseline_mean": null,
+          "candidate_mean": null,
+          "paired_delta": null,
+          "paired_assessed": 0,
+          "baseline_assessed": 0,
+          "candidate_assessed": 0,
+          "baseline_range": null,
+          "candidate_range": null
+        },
+        "completeness": {
+          "baseline_mean": null,
+          "candidate_mean": null,
+          "paired_delta": null,
+          "paired_assessed": 0,
+          "baseline_assessed": 0,
+          "candidate_assessed": 0,
+          "baseline_range": null,
+          "candidate_range": null
+        },
+        "citation_support": {
+          "baseline_mean": null,
+          "candidate_mean": null,
+          "paired_delta": null,
+          "paired_assessed": 0,
+          "baseline_assessed": 0,
+          "candidate_assessed": 0,
+          "baseline_range": null,
+          "candidate_range": null
+        },
+        "answerability": {
+          "baseline_mean": 1.0,
+          "candidate_mean": 1.0,
+          "paired_delta": 0.0,
+          "paired_assessed": 2,
+          "baseline_assessed": 2,
+          "candidate_assessed": 2,
+          "baseline_range": [
+            1.0,
+            1.0
+          ],
+          "candidate_range": [
+            1.0,
+            1.0
+          ]
+        },
+        "relevance": {
+          "baseline_mean": 1.0,
+          "candidate_mean": 1.0,
+          "paired_delta": 0.0,
+          "paired_assessed": 2,
+          "baseline_assessed": 2,
+          "candidate_assessed": 2,
+          "baseline_range": [
+            1.0,
+            1.0
+          ],
+          "candidate_range": [
+            1.0,
+            1.0
+          ]
+        }
+      }
+    },
+    {
+      "case_id": "cross-mitchell-garage",
+      "reference": {
+        "case_id": "cross-mitchell-garage",
+        "group_ids": [
+          "mitchell-arrival-1990"
+        ],
+        "split": "development",
+        "category": "context-gap",
+        "question": "What garage did Phil and Grant Mitchell co-own on arriving in Walford?",
+        "snapshot_id": "sources-b5bf51ce2c754a5c349834cc87954524d6c89cb20e38fcdafeea815b0760212e",
+        "session": null,
+        "derived_from": [],
+        "expected_status": "answered",
+        "required_facts": [
+          {
+            "fact": "Phil and Grant co-owned The Arches.",
+            "sufficient_sets": [
+              [
+                "grant-mitchell-wiki-0023-19694"
+              ]
+            ]
+          }
+        ],
+        "allowed_alternatives": [
+          "Equivalent factual wording; preserve missing-evidence qualifications."
+        ],
+        "forbidden_assertions": [
+          "Inferring co-ownership without supporting context."
+        ],
+        "evidence": [
+          {
+            "evidence_id": "grant-mitchell-wiki-0023-19694",
+            "text": "Grant Mitchell arrives in Albert Square in February 1990 with his older brother Phil (Steve McFadden), and the pair become co-owners of the local garage, The Arches. Grant had returned to civilian life in London having been a paratrooper in the Army, which included serving in the Falklands War at the age of 19. After a brief fling with Julie Cooper (Louise Plowright) and getting involved in various dodgy deals, Grant starts wooing the local barmaid, Sharon Watts (Letitia Dean). She grows attracted to his machismo, and soon their flirting progresses into a relationship. Fiercely protective of his girlfriend, most of Grant's initial problems in the Square revolve around his over-possessive nature and jealousy. He puts Sharon's boss Eddie Royle (Michael Melia), the landlord of The Queen Victoria public house, in hospital after he makes a pass at Sharon; he later becomes prime suspect for Royle's murder, but is proved not guilty when the killer is revealed to be Nick Cotton (John Altman), the well established local villain who eventually owns up to the crime but is found not guilty in court. In ",
+            "source_revision": "1370914760",
+            "sha256": "f7310c97b375bba45eb990105ba5073186a1bdf402d515002f13704d506a977a"
+          }
+        ],
+        "review_note": "Grant\u2019s narrative explicitly names the two co-owners; no graph inference.",
+        "synthetic_provenance": null
+      },
+      "reference_sha256": "d47bb58870f0cd4990d3e879f15394f769d6de4e2f321903b274d9f9e9dbdb38",
+      "state": "complete",
+      "comparison": {
+        "category": "context-gap",
+        "repeats": 2,
+        "correctness": {
+          "baseline_mean": null,
+          "candidate_mean": null,
+          "paired_delta": null,
+          "paired_assessed": 0,
+          "baseline_assessed": 0,
+          "candidate_assessed": 0,
+          "baseline_range": null,
+          "candidate_range": null
+        },
+        "groundedness": {
+          "baseline_mean": null,
+          "candidate_mean": null,
+          "paired_delta": null,
+          "paired_assessed": 0,
+          "baseline_assessed": 0,
+          "candidate_assessed": 0,
+          "baseline_range": null,
+          "candidate_range": null
+        },
+        "completeness": {
+          "baseline_mean": 0.0,
+          "candidate_mean": 0.0,
+          "paired_delta": 0.0,
+          "paired_assessed": 2,
+          "baseline_assessed": 2,
+          "candidate_assessed": 2,
+          "baseline_range": [
+            0.0,
+            0.0
+          ],
+          "candidate_range": [
+            0.0,
+            0.0
+          ]
+        },
+        "citation_support": {
+          "baseline_mean": null,
+          "candidate_mean": null,
+          "paired_delta": null,
+          "paired_assessed": 0,
+          "baseline_assessed": 0,
+          "candidate_assessed": 0,
+          "baseline_range": null,
+          "candidate_range": null
+        },
+        "answerability": {
+          "baseline_mean": 0.0,
+          "candidate_mean": 0.0,
+          "paired_delta": 0.0,
+          "paired_assessed": 2,
+          "baseline_assessed": 2,
+          "candidate_assessed": 2,
+          "baseline_range": [
+            0.0,
+            0.0
+          ],
+          "candidate_range": [
+            0.0,
+            0.0
+          ]
+        },
+        "relevance": {
+          "baseline_mean": 0.0,
+          "candidate_mean": 0.0,
+          "paired_delta": 0.0,
+          "paired_assessed": 2,
+          "baseline_assessed": 2,
+          "candidate_assessed": 2,
+          "baseline_range": [
+            0.0,
+            0.0
+          ],
+          "candidate_range": [
+            0.0,
+            0.0
+          ]
+        }
+      }
+    },
+    {
+      "case_id": "isolated",
+      "reference": {
+        "case_id": "isolated",
+        "group_ids": [
+          "mitchell-arrival-1990",
+          "phil-arrival-february-1990"
+        ],
+        "split": "development",
+        "category": "clarification",
+        "question": "What is her father's name?",
+        "snapshot_id": "sources-b5bf51ce2c754a5c349834cc87954524d6c89cb20e38fcdafeea815b0760212e",
+        "session": "isolated",
+        "derived_from": [],
+        "expected_status": "clarification",
+        "required_facts": [],
+        "allowed_alternatives": [
+          "Ask which character is intended."
+        ],
+        "forbidden_assertions": [],
+        "evidence": [],
+        "review_note": "Source-derived expectations retained from conversation-v1 before this comparison. Previously exposed development data; no human or canon corroboration claim.",
+        "synthetic_provenance": null
+      },
+      "reference_sha256": "450e04207fb4de3c06cff620e32a7f42b8e75503fdc06b55bc0b2d429d9b8916",
+      "state": "complete",
+      "comparison": {
+        "category": "clarification",
+        "repeats": 2,
+        "correctness": {
+          "baseline_mean": null,
+          "candidate_mean": null,
+          "paired_delta": null,
+          "paired_assessed": 0,
+          "baseline_assessed": 0,
+          "candidate_assessed": 0,
+          "baseline_range": null,
+          "candidate_range": null
+        },
+        "groundedness": {
+          "baseline_mean": null,
+          "candidate_mean": null,
+          "paired_delta": null,
+          "paired_assessed": 0,
+          "baseline_assessed": 0,
+          "candidate_assessed": 0,
+          "baseline_range": null,
+          "candidate_range": null
+        },
+        "completeness": {
+          "baseline_mean": null,
+          "candidate_mean": null,
+          "paired_delta": null,
+          "paired_assessed": 0,
+          "baseline_assessed": 0,
+          "candidate_assessed": 0,
+          "baseline_range": null,
+          "candidate_range": null
+        },
+        "citation_support": {
+          "baseline_mean": null,
+          "candidate_mean": null,
+          "paired_delta": null,
+          "paired_assessed": 0,
+          "baseline_assessed": 0,
+          "candidate_assessed": 0,
+          "baseline_range": null,
+          "candidate_range": null
+        },
+        "answerability": {
+          "baseline_mean": 1.0,
+          "candidate_mean": 1.0,
+          "paired_delta": 0.0,
+          "paired_assessed": 2,
+          "baseline_assessed": 2,
+          "candidate_assessed": 2,
+          "baseline_range": [
+            1.0,
+            1.0
+          ],
+          "candidate_range": [
+            1.0,
+            1.0
+          ]
+        },
+        "relevance": {
+          "baseline_mean": 1.0,
+          "candidate_mean": 1.0,
+          "paired_delta": 0.0,
+          "paired_assessed": 2,
+          "baseline_assessed": 2,
+          "candidate_assessed": 2,
+          "baseline_range": [
+            1.0,
+            1.0
+          ],
+          "candidate_range": [
+            1.0,
+            1.0
+          ]
+        }
+      }
+    },
+    {
+      "case_id": "janine-butcher-profile",
+      "reference": {
+        "case_id": "janine-butcher-profile",
+        "group_ids": [
+          "frank-disappearance-1994"
+        ],
+        "split": "development",
+        "category": "context-gap",
+        "question": "Who did Janine Butcher stay with when Frank disappeared after his 1994 breakdown?",
+        "snapshot_id": "sources-b5bf51ce2c754a5c349834cc87954524d6c89cb20e38fcdafeea815b0760212e",
+        "session": null,
+        "derived_from": [],
+        "expected_status": "answered",
+        "required_facts": [
+          {
+            "fact": "Janine stayed with Pat.",
+            "sufficient_sets": [
+              [
+                "janine-butcher-wiki-0021-13057"
+              ]
+            ]
+          }
+        ],
+        "allowed_alternatives": [
+          "Equivalent factual wording without inventing missing evidence."
+        ],
+        "forbidden_assertions": [],
+        "evidence": [
+          {
+            "evidence_id": "janine-butcher-wiki-0021-13057",
+            "text": "A troublesome child, Janine throws tantrums, runs away, is a bed-wetter, a sleep-walker, a thief, a compulsive liar and a self-harmer, and hates Pat. Unable to discipline her, Pat forces Frank to take Janine to family therapy, which somehow helps. Janine refuses to go to school and Ricky finds out she is being bullied. When Frank has a breakdown and disappears in 1994, Janine stays with Pat but finds Frank's absence upsetting.",
+            "source_revision": "1378379064",
+            "sha256": "0d31a9bc75ad1b67ae815fc39d34c80b6ea61d74be726ba9d32dc8d6b6098319"
+          }
+        ],
+        "review_note": "Expected fact read from this retained main-series passage before model output. Source-supported, not independently corroborated canon.",
+        "synthetic_provenance": null
+      },
+      "reference_sha256": "a0ef523687b5fc9dd2070c0d1216d17c0089dc62532674abbb4473ddebc9e820",
+      "state": "complete",
+      "comparison": {
+        "category": "context-gap",
+        "repeats": 2,
+        "correctness": {
+          "baseline_mean": 0.6666666666666666,
+          "candidate_mean": 0.6666666666666666,
+          "paired_delta": 0.0,
+          "paired_assessed": 2,
+          "baseline_assessed": 2,
+          "candidate_assessed": 2,
+          "baseline_range": [
+            0.6666666666666666,
+            0.6666666666666666
+          ],
+          "candidate_range": [
+            0.6666666666666666,
+            0.6666666666666666
+          ]
+        },
+        "groundedness": {
+          "baseline_mean": 0.7083333333333333,
+          "candidate_mean": 0.7083333333333333,
+          "paired_delta": 0.0,
+          "paired_assessed": 2,
+          "baseline_assessed": 2,
+          "candidate_assessed": 2,
+          "baseline_range": [
+            0.6666666666666666,
+            0.75
+          ],
+          "candidate_range": [
+            0.6666666666666666,
+            0.75
+          ]
+        },
+        "completeness": {
+          "baseline_mean": 0.0,
+          "candidate_mean": 0.0,
+          "paired_delta": 0.0,
+          "paired_assessed": 2,
+          "baseline_assessed": 2,
+          "candidate_assessed": 2,
+          "baseline_range": [
+            0.0,
+            0.0
+          ],
+          "candidate_range": [
+            0.0,
+            0.0
+          ]
+        },
+        "citation_support": {
+          "baseline_mean": 0.6666666666666666,
+          "candidate_mean": 0.6666666666666666,
+          "paired_delta": 0.0,
+          "paired_assessed": 2,
+          "baseline_assessed": 2,
+          "candidate_assessed": 2,
+          "baseline_range": [
+            0.6666666666666666,
+            0.6666666666666666
+          ],
+          "candidate_range": [
+            0.6666666666666666,
+            0.6666666666666666
+          ]
+        },
+        "answerability": {
+          "baseline_mean": 0.0,
+          "candidate_mean": 0.0,
+          "paired_delta": 0.0,
+          "paired_assessed": 2,
+          "baseline_assessed": 2,
+          "candidate_assessed": 2,
+          "baseline_range": [
+            0.0,
+            0.0
+          ],
+          "candidate_range": [
+            0.0,
+            0.0
+          ]
+        },
+        "relevance": {
+          "baseline_mean": 0.0,
+          "candidate_mean": 0.0,
+          "paired_delta": 0.0,
+          "paired_assessed": 2,
+          "baseline_assessed": 2,
+          "candidate_assessed": 2,
+          "baseline_range": [
+            0.0,
+            0.0
+          ],
+          "candidate_range": [
+            0.0,
+            0.0
+          ]
+        }
+      }
+    },
+    {
+      "case_id": "phil-followup",
+      "reference": {
+        "case_id": "phil-followup",
+        "group_ids": [
+          "mitchell-arrival-1990",
+          "phil-arrival-february-1990"
+        ],
+        "split": "development",
+        "category": "followup",
+        "question": "What did he open when he first arrived?",
+        "snapshot_id": "sources-b5bf51ce2c754a5c349834cc87954524d6c89cb20e38fcdafeea815b0760212e",
+        "session": "phil-sequence",
+        "derived_from": [],
+        "expected_status": "answered",
+        "required_facts": [
+          {
+            "fact": "Phil opens the automobile repair shop The Arches.",
+            "sufficient_sets": [
+              [
+                "phil-mitchell-wiki-0018-15527"
+              ]
+            ]
+          }
+        ],
+        "allowed_alternatives": [
+          "Equivalent factual wording; Phil may use first person."
+        ],
+        "forbidden_assertions": [],
+        "evidence": [
+          {
+            "evidence_id": "phil-mitchell-wiki-0018-15527",
+            "text": "Phil Mitchell first arrives in Walford in February 1990 to open an automobile repair shop, known as The Arches; he is joined by his younger brother Grant (Ross Kemp). Two years later, Phil goes into partnership at The Queen Victoria public house with Grant and his wife Sharon Watts (Letitia Dean) \u2013 up to the point where he moves in with them. Phil grows close to Sharon, who turns to him for comfort during Grant's violent outbursts. Sharon and Phil have sex but she stays with Grant, who is unaware of their betrayal. Sharon and Grant's reconciliation is brief, and amidst more rowing and physical violence, Grant is arrested and imprisoned. In his absence, Phil and Sharon continue their affair but when Grant is released, Sharon reconciles with him, leaving Phil heartbroken. On the rebound, Phil enters into a marriage of convenience with Nadia Borovac (Anna Barkan) - a Romanian refugee - enabling her to stay in Britain, with Nadia departing after the wedding.",
+            "source_revision": "1379872347",
+            "sha256": "9a13fe3539b69694d88ab06a1bd85cf898f46d65ca5ac1d958d0e0ff026bd263"
+          }
+        ],
+        "review_note": "Source-derived expectations retained from conversation-v1 before this comparison. Previously exposed development data; no human or canon corroboration claim.",
+        "synthetic_provenance": null
+      },
+      "reference_sha256": "0932ff36906e2611abba31d6af9d5db2b5572c7ef37f7c7f18b19bbbffb51ffb",
+      "state": "complete",
+      "comparison": {
+        "category": "followup",
+        "repeats": 2,
+        "correctness": {
+          "baseline_mean": 1.0,
+          "candidate_mean": 1.0,
+          "paired_delta": 0.0,
+          "paired_assessed": 2,
+          "baseline_assessed": 2,
+          "candidate_assessed": 2,
+          "baseline_range": [
+            1.0,
+            1.0
+          ],
+          "candidate_range": [
+            1.0,
+            1.0
+          ]
+        },
+        "groundedness": {
+          "baseline_mean": 1.0,
+          "candidate_mean": 1.0,
+          "paired_delta": 0.0,
+          "paired_assessed": 2,
+          "baseline_assessed": 2,
+          "candidate_assessed": 2,
+          "baseline_range": [
+            1.0,
+            1.0
+          ],
+          "candidate_range": [
+            1.0,
+            1.0
+          ]
+        },
+        "completeness": {
+          "baseline_mean": 1.0,
+          "candidate_mean": 1.0,
+          "paired_delta": 0.0,
+          "paired_assessed": 2,
+          "baseline_assessed": 2,
+          "candidate_assessed": 2,
+          "baseline_range": [
+            1.0,
+            1.0
+          ],
+          "candidate_range": [
+            1.0,
+            1.0
+          ]
+        },
+        "citation_support": {
+          "baseline_mean": 1.0,
+          "candidate_mean": 1.0,
+          "paired_delta": 0.0,
+          "paired_assessed": 2,
+          "baseline_assessed": 2,
+          "candidate_assessed": 2,
+          "baseline_range": [
+            1.0,
+            1.0
+          ],
+          "candidate_range": [
+            1.0,
+            1.0
+          ]
+        },
+        "answerability": {
+          "baseline_mean": 1.0,
+          "candidate_mean": 1.0,
+          "paired_delta": 0.0,
+          "paired_assessed": 2,
+          "baseline_assessed": 2,
+          "candidate_assessed": 2,
+          "baseline_range": [
+            1.0,
+            1.0
+          ],
+          "candidate_range": [
+            1.0,
+            1.0
+          ]
+        },
+        "relevance": {
+          "baseline_mean": 1.0,
+          "candidate_mean": 1.0,
+          "paired_delta": 0.0,
+          "paired_assessed": 2,
+          "baseline_assessed": 2,
+          "candidate_assessed": 2,
+          "baseline_range": [
+            1.0,
+            1.0
+          ],
+          "candidate_range": [
+            1.0,
+            1.0
+          ]
+        }
+      }
+    },
+    {
+      "case_id": "phil-intro",
+      "reference": {
+        "case_id": "phil-intro",
+        "group_ids": [
+          "mitchell-arrival-1990",
+          "phil-arrival-february-1990"
+        ],
+        "split": "development",
+        "category": "supported",
+        "question": "When did Phil Mitchell first arrive in Walford?",
+        "snapshot_id": "sources-b5bf51ce2c754a5c349834cc87954524d6c89cb20e38fcdafeea815b0760212e",
+        "session": "phil-sequence",
+        "derived_from": [],
+        "expected_status": "answered",
+        "required_facts": [
+          {
+            "fact": "Phil first arrives in Walford in February 1990.",
+            "sufficient_sets": [
+              [
+                "phil-mitchell-wiki-0018-15527"
+              ]
+            ]
+          }
+        ],
+        "allowed_alternatives": [
+          "Equivalent factual wording; Phil may use first person."
+        ],
+        "forbidden_assertions": [
+          "Phil first arrived in 2001."
+        ],
+        "evidence": [
+          {
+            "evidence_id": "phil-mitchell-wiki-0018-15527",
+            "text": "Phil Mitchell first arrives in Walford in February 1990 to open an automobile repair shop, known as The Arches; he is joined by his younger brother Grant (Ross Kemp). Two years later, Phil goes into partnership at The Queen Victoria public house with Grant and his wife Sharon Watts (Letitia Dean) \u2013 up to the point where he moves in with them. Phil grows close to Sharon, who turns to him for comfort during Grant's violent outbursts. Sharon and Phil have sex but she stays with Grant, who is unaware of their betrayal. Sharon and Grant's reconciliation is brief, and amidst more rowing and physical violence, Grant is arrested and imprisoned. In his absence, Phil and Sharon continue their affair but when Grant is released, Sharon reconciles with him, leaving Phil heartbroken. On the rebound, Phil enters into a marriage of convenience with Nadia Borovac (Anna Barkan) - a Romanian refugee - enabling her to stay in Britain, with Nadia departing after the wedding.",
+            "source_revision": "1379872347",
+            "sha256": "9a13fe3539b69694d88ab06a1bd85cf898f46d65ca5ac1d958d0e0ff026bd263"
+          }
+        ],
+        "review_note": "Source-derived expectations retained from conversation-v1 before this comparison. Previously exposed development data; no human or canon corroboration claim.",
+        "synthetic_provenance": null
+      },
+      "reference_sha256": "fafdc434d080fb9abde6057eb55579a5701487def4b2419e6155c29fe1adbab4",
+      "state": "complete",
+      "comparison": {
+        "category": "supported",
+        "repeats": 2,
+        "correctness": {
+          "baseline_mean": 1.0,
+          "candidate_mean": 1.0,
+          "paired_delta": 0.0,
+          "paired_assessed": 2,
+          "baseline_assessed": 2,
+          "candidate_assessed": 2,
+          "baseline_range": [
+            1.0,
+            1.0
+          ],
+          "candidate_range": [
+            1.0,
+            1.0
+          ]
+        },
+        "groundedness": {
+          "baseline_mean": 1.0,
+          "candidate_mean": 1.0,
+          "paired_delta": 0.0,
+          "paired_assessed": 2,
+          "baseline_assessed": 2,
+          "candidate_assessed": 2,
+          "baseline_range": [
+            1.0,
+            1.0
+          ],
+          "candidate_range": [
+            1.0,
+            1.0
+          ]
+        },
+        "completeness": {
+          "baseline_mean": 1.0,
+          "candidate_mean": 1.0,
+          "paired_delta": 0.0,
+          "paired_assessed": 2,
+          "baseline_assessed": 2,
+          "candidate_assessed": 2,
+          "baseline_range": [
+            1.0,
+            1.0
+          ],
+          "candidate_range": [
+            1.0,
+            1.0
+          ]
+        },
+        "citation_support": {
+          "baseline_mean": 1.0,
+          "candidate_mean": 1.0,
+          "paired_delta": 0.0,
+          "paired_assessed": 2,
+          "baseline_assessed": 2,
+          "candidate_assessed": 2,
+          "baseline_range": [
+            1.0,
+            1.0
+          ],
+          "candidate_range": [
+            1.0,
+            1.0
+          ]
+        },
+        "answerability": {
+          "baseline_mean": 1.0,
+          "candidate_mean": 1.0,
+          "paired_delta": 0.0,
+          "paired_assessed": 2,
+          "baseline_assessed": 2,
+          "candidate_assessed": 2,
+          "baseline_range": [
+            1.0,
+            1.0
+          ],
+          "candidate_range": [
+            1.0,
+            1.0
+          ]
+        },
+        "relevance": {
+          "baseline_mean": 1.0,
+          "candidate_mean": 1.0,
+          "paired_delta": 0.0,
+          "paired_assessed": 2,
+          "baseline_assessed": 2,
+          "candidate_assessed": 2,
+          "baseline_range": [
+            1.0,
+            1.0
+          ],
+          "candidate_range": [
+            1.0,
+            1.0
+          ]
+        }
+      }
+    },
+    {
+      "case_id": "phil-mitchell-missing",
+      "reference": {
+        "case_id": "phil-mitchell-missing",
+        "group_ids": [
+          "unavailable-contact-detail"
+        ],
+        "split": "development",
+        "category": "missing-evidence",
+        "question": "What is Phil Mitchell\u2019s current mobile phone number?",
+        "snapshot_id": "sources-b5bf51ce2c754a5c349834cc87954524d6c89cb20e38fcdafeea815b0760212e",
+        "session": null,
+        "derived_from": [],
+        "expected_status": "insufficient_evidence",
+        "required_facts": [],
+        "allowed_alternatives": [
+          "Equivalent factual wording; preserve missing-evidence qualifications."
+        ],
+        "forbidden_assertions": [
+          "Invented contact details."
+        ],
+        "evidence": [],
+        "review_note": "Retained main-series text inspected for the requested identifier; no supporting record. Absence is an evidence limitation, never a negative fact.",
+        "synthetic_provenance": null
+      },
+      "reference_sha256": "c008aaaccc48b3bc39b49e80c06aab42dbf93920b10ef7e42a4eaf217115ce51",
+      "state": "complete",
+      "comparison": {
+        "category": "missing-evidence",
+        "repeats": 2,
+        "correctness": {
+          "baseline_mean": null,
+          "candidate_mean": null,
+          "paired_delta": null,
+          "paired_assessed": 0,
+          "baseline_assessed": 0,
+          "candidate_assessed": 0,
+          "baseline_range": null,
+          "candidate_range": null
+        },
+        "groundedness": {
+          "baseline_mean": null,
+          "candidate_mean": null,
+          "paired_delta": null,
+          "paired_assessed": 0,
+          "baseline_assessed": 0,
+          "candidate_assessed": 0,
+          "baseline_range": null,
+          "candidate_range": null
+        },
+        "completeness": {
+          "baseline_mean": null,
+          "candidate_mean": null,
+          "paired_delta": null,
+          "paired_assessed": 0,
+          "baseline_assessed": 0,
+          "candidate_assessed": 0,
+          "baseline_range": null,
+          "candidate_range": null
+        },
+        "citation_support": {
+          "baseline_mean": null,
+          "candidate_mean": null,
+          "paired_delta": null,
+          "paired_assessed": 0,
+          "baseline_assessed": 0,
+          "candidate_assessed": 0,
+          "baseline_range": null,
+          "candidate_range": null
+        },
+        "answerability": {
+          "baseline_mean": 1.0,
+          "candidate_mean": 1.0,
+          "paired_delta": 0.0,
+          "paired_assessed": 2,
+          "baseline_assessed": 2,
+          "candidate_assessed": 2,
+          "baseline_range": [
+            1.0,
+            1.0
+          ],
+          "candidate_range": [
+            1.0,
+            1.0
+          ]
+        },
+        "relevance": {
+          "baseline_mean": 1.0,
+          "candidate_mean": 1.0,
+          "paired_delta": 0.0,
+          "paired_assessed": 2,
+          "baseline_assessed": 2,
+          "candidate_assessed": 2,
+          "baseline_range": [
+            1.0,
+            1.0
+          ],
+          "candidate_range": [
+            1.0,
+            1.0
+          ]
+        }
+      }
+    }
+  ],
+  "state": "complete",
+  "run_id": "9663ae8413e949928349a50263b4f32a",
+  "tracking_status": "FINISHED"
+}

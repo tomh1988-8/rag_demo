@@ -23,17 +23,9 @@ permission blockers. The published tree exactly matched local acceptance commit
 `319de84` before closure; all eight checked criteria and the completed state were
 read back. [The receipt](../implementation/issue-8/publication.json) records the
 authenticated connector publication and native Git credential limitation.
-#9 is now in progress. [Implementation and execution status](../implementation/issue-9/README.md)
-records the quality-comparison workflow, failed live pilot and corrected API
-regression. All 248 software tests, strict mypy and Ruff pass; both independent
-reviews have zero remaining software findings. [Published implementation 928c0fb](https://github.com/tomh1988-8/rag_demo/commit/928c0fb6d12d5178aad25716dfe4146bb94cda32)
-was pushed with native Git and its exact tree read back. Human review of eight
-support labels and authorization for the corrected OpenRouter payloads are
-pending in this session. The ticket remains
-open; finish its actual comparison/calibration evidence before selecting another
-ticket. Preserve the $0.241848 shared ledger and zero unsettled reservations.
+Issue #9 has completed its implementation and runtime evidence. [The comparison record](../implementation/issue-9/README.md) contains 28 public API responses, six independent dimensions, human approval of eight synthetic labels, 24 calibration observations and the saved-answer support application. Both answer configurations fail critical quality gates; [regressions](../implementation/issue-9/regressions.json) retain resolver/context failures and eight unscored judge decisions needing review. Software validation and independent reviews are separate from those model-quality failures. The [publication receipt](../implementation/issue-9/publication.json) records verified publication and tracker closure state. The continuation costs $0.1012312; preserve the shared $0.343084 ledger and zero unsettled reservations. Approval is explicit in [the receipt](../implementation/issue-9/approval.json); historical automatic denials are superseded. #10 is the next implementation ticket after #9 closure; #11, #19 and #24 are also unblocked. Wait for the user's next implementation instruction.
 
-The approved specification is [issue #1](https://github.com/tomh1988-8/rag_demo/issues/1). The 24 implementation tickets are issues #2–#25, with ready-for-agent labels and explicit blocker references. Do not recreate them. The user's feedback/online-evaluation amendment is included in specification #1 and tickets #22–#23; final acceptance #21 requires the full loop. Fusion/context expansion is #24 and repeated-question caching is #25; #21 requires both, with #23 inherited through #25. See the [saved handoff](../plans/ask-phil-tickets-v2/HANDOFF.md) and publication manifest for the exact mapping and remaining native-link work. Issues #2 and #3 are completed and closed. Issue #4 is completed and closed after scoped Sol acceptance and [verified publication](https://github.com/tomh1988-8/rag_demo/commit/a5062593449a941d28248614e1f3977d14fc9a57). #5 is completed and closed after 115 passing Docker tests, zero remaining review findings and [verified publication](https://github.com/tomh1988-8/rag_demo/commit/b6b45cb5eea3402ffe2be466e1693ef91af4ecf5). See its [acceptance evidence](../implementation/issue-5/README.md). #6 is completed and closed after 131 passing Docker tests, zero remaining review findings and [verified publication](https://github.com/tomh1988-8/rag_demo/commit/408012156c55d040bc69a22bff034f87dd9a5dbd). See its [refresh/recovery evidence](../implementation/issue-6/README.md). #7 is complete and closed after 149 passing tests, independently reviewed sourced API/CLI success for all 20 profiles and [verified publication](https://github.com/tomh1988-8/rag_demo/commit/55616db5ad07f686dce5d4ec96193ab73b1f0eaf); #8 is complete and closed as recorded above. #9 is in progress; #10, #11 and #24 are also unblocked. The laptop model remains development-only. See the handoff before selecting subsequent work.
+The approved specification is [issue #1](https://github.com/tomh1988-8/rag_demo/issues/1). The 24 implementation tickets are issues #2–#25, with ready-for-agent labels and explicit blocker references. Do not recreate them. The user's feedback/online-evaluation amendment is included in specification #1 and tickets #22–#23; final acceptance #21 requires the full loop. Fusion/context expansion is #24 and repeated-question caching is #25; #21 requires both, with #23 inherited through #25. See the [saved handoff](../plans/ask-phil-tickets-v2/HANDOFF.md) and publication manifest for the exact mapping and remaining native-link work. Issues #2 and #3 are completed and closed. Issue #4 is completed and closed after scoped Sol acceptance and [verified publication](https://github.com/tomh1988-8/rag_demo/commit/a5062593449a941d28248614e1f3977d14fc9a57). #5 is completed and closed after 115 passing Docker tests, zero remaining review findings and [verified publication](https://github.com/tomh1988-8/rag_demo/commit/b6b45cb5eea3402ffe2be466e1693ef91af4ecf5). See its [acceptance evidence](../implementation/issue-5/README.md). #6 is completed and closed after 131 passing Docker tests, zero remaining review findings and [verified publication](https://github.com/tomh1988-8/rag_demo/commit/408012156c55d040bc69a22bff034f87dd9a5dbd). See its [refresh/recovery evidence](../implementation/issue-6/README.md). #7 is complete and closed after 149 passing tests, independently reviewed sourced API/CLI success for all 20 profiles and [verified publication](https://github.com/tomh1988-8/rag_demo/commit/55616db5ad07f686dce5d4ec96193ab73b1f0eaf); #8 is complete and closed as recorded above. #9 runtime acceptance is complete as recorded above; #10, #11, #19 and #24 are the next dependency frontier after closure. The laptop model remains development-only. See the handoff before selecting subsequent work.
 
 The connector exposes issue creation/read/update and label operations but no native dependency/sub-issue mutation. Until that capability is available, consult each issue's Blocked by references and the saved graph before selecting work. Do not claim that native links have been installed. The [alternative-access review](../research/github-issue-dependency-access.md) records the official MCP/API/CLI options and the recommendation to retain the working references for now; do not repeat the investigation on each implementation turn.
 
@@ -51,11 +43,11 @@ Issue #4 now has 85 passing software tests, an independently reviewed 13-case
 cloud policy matrix and five actual CLI/API/restart checks. Use
 `config/openrouter-sol.json` for this accepted slice. Qwen's smoke was rejected;
 GLM is untested. The shared non-resetting $5 trial remains in force; recorded spend
-for that historical slice was $0.10890587; see the latest #8 total above. Preserve the private key and shared ledger. See the
+for that historical slice was $0.10890587; see the current #9 ledger above. Preserve the private key and shared ledger. See the
 [private setup](../implementation/openrouter-setup.md) and
 [cloud evidence](../implementation/issue-4/cloud/README.md). Run the staged-secret
-scan before every publication. Broader calibrated quality remains #9; scoped
-acceptance does not establish broad canon accuracy. Wait for the user's next
+scan before every publication. The scoped #9 comparison and synthetic calibration above
+do not establish broad canon accuracy or held-out release acceptance. Wait for the user's next
 implementation instruction before starting another issue.
 
 For multiline bodies, write the exact text to a temporary file and
@@ -102,4 +94,4 @@ Janine/context and garage/co-ownership gaps (21/23 full required-fact coverage).
 The 26 live serving calls cost $0.0999804. Total reported trial spend at #7 was
 $0.20888627; the preserved shared ledger was $0.208899 after upward rounding,
 with zero unsettled reservations. #8 subsequently completed and closed above;
-#9 is now in progress as recorded in the current handoff above.
+#9 runtime acceptance is recorded in the current handoff above.

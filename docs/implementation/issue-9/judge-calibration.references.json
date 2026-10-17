@@ -1,0 +1,148 @@
+{
+  "cases": [
+    {
+      "case_id": "chairs-supported-original-r0",
+      "example_id": "chairs-supported",
+      "variant": "original",
+      "repeat": 0
+    },
+    {
+      "case_id": "chairs-supported-original-r1",
+      "example_id": "chairs-supported",
+      "variant": "original",
+      "repeat": 1
+    },
+    {
+      "case_id": "chairs-supported-reversed-r0",
+      "example_id": "chairs-supported",
+      "variant": "reversed",
+      "repeat": 0
+    },
+    {
+      "case_id": "chairs-supported-verbose-r0",
+      "example_id": "chairs-supported",
+      "variant": "verbose",
+      "repeat": 0
+    },
+    {
+      "case_id": "chairs-wrong-colour-original-r0",
+      "example_id": "chairs-wrong-colour",
+      "variant": "original",
+      "repeat": 0
+    },
+    {
+      "case_id": "chairs-wrong-colour-original-r1",
+      "example_id": "chairs-wrong-colour",
+      "variant": "original",
+      "repeat": 1
+    },
+    {
+      "case_id": "chairs-wrong-colour-reversed-r0",
+      "example_id": "chairs-wrong-colour",
+      "variant": "reversed",
+      "repeat": 0
+    },
+    {
+      "case_id": "chairs-wrong-colour-verbose-r0",
+      "example_id": "chairs-wrong-colour",
+      "variant": "verbose",
+      "repeat": 0
+    },
+    {
+      "case_id": "chairs-incomplete-original-r0",
+      "example_id": "chairs-incomplete",
+      "variant": "original",
+      "repeat": 0
+    },
+    {
+      "case_id": "chairs-incomplete-original-r1",
+      "example_id": "chairs-incomplete",
+      "variant": "original",
+      "repeat": 1
+    },
+    {
+      "case_id": "chairs-missing-input-original-r0",
+      "example_id": "chairs-missing-input",
+      "variant": "original",
+      "repeat": 0
+    },
+    {
+      "case_id": "chairs-missing-input-original-r1",
+      "example_id": "chairs-missing-input",
+      "variant": "original",
+      "repeat": 1
+    },
+    {
+      "case_id": "books-supported-original-r0",
+      "example_id": "books-supported",
+      "variant": "original",
+      "repeat": 0
+    },
+    {
+      "case_id": "books-supported-original-r1",
+      "example_id": "books-supported",
+      "variant": "original",
+      "repeat": 1
+    },
+    {
+      "case_id": "books-supported-reversed-r0",
+      "example_id": "books-supported",
+      "variant": "reversed",
+      "repeat": 0
+    },
+    {
+      "case_id": "books-supported-verbose-r0",
+      "example_id": "books-supported",
+      "variant": "verbose",
+      "repeat": 0
+    },
+    {
+      "case_id": "books-wrong-day-original-r0",
+      "example_id": "books-wrong-day",
+      "variant": "original",
+      "repeat": 0
+    },
+    {
+      "case_id": "books-wrong-day-original-r1",
+      "example_id": "books-wrong-day",
+      "variant": "original",
+      "repeat": 1
+    },
+    {
+      "case_id": "books-wrong-day-reversed-r0",
+      "example_id": "books-wrong-day",
+      "variant": "reversed",
+      "repeat": 0
+    },
+    {
+      "case_id": "books-wrong-day-verbose-r0",
+      "example_id": "books-wrong-day",
+      "variant": "verbose",
+      "repeat": 0
+    },
+    {
+      "case_id": "books-invented-fine-original-r0",
+      "example_id": "books-invented-fine",
+      "variant": "original",
+      "repeat": 0
+    },
+    {
+      "case_id": "books-invented-fine-original-r1",
+      "example_id": "books-invented-fine",
+      "variant": "original",
+      "repeat": 1
+    },
+    {
+      "case_id": "books-missing-input-original-r0",
+      "example_id": "books-missing-input",
+      "variant": "original",
+      "repeat": 0
+    },
+    {
+      "case_id": "books-missing-input-original-r1",
+      "example_id": "books-missing-input",
+      "variant": "original",
+      "repeat": 1
+    }
+  ]
+}

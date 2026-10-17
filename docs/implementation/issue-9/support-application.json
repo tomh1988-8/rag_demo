@@ -1,0 +1,1707 @@
+{
+  "kind": "retained-development-support-application-v1",
+  "expenditure_category": "offline_evaluation",
+  "cost_usd": "0.028290",
+  "rubric_sha256": "99271033de9a536ea3b9b93e9efd15ad2a57f1ff0b7df54071578f141808bd1d",
+  "judge_profile": {
+    "provider_type": "openrouter",
+    "answer_model": "openai/gpt-6-sol",
+    "canonical_slug": "openai/gpt-6-sol-20260922",
+    "provider": "openai",
+    "input_price_per_million": "2",
+    "output_price_per_million": "10",
+    "output_tokens": 8192,
+    "reasoning_effort": "low",
+    "request_timeout_seconds": 180
+  },
+  "calibration_run_id": "d023a3114cb94781ba264c62e0eee2fe",
+  "reviewer_type": "AGENT",
+  "human_reviewed_answers": false,
+  "limitation": "Context-only support; original question, correctness and completeness are outside this judge input. Null references cannot establish agreement or a false pass. This application does not broaden calibration.",
+  "recorded_at": "2026-10-17T19:40:41.821241+00:00",
+  "reference_file_sha256": "444945f8a69da452a88b0be851afe74e9b7ee7bd95713ba2004fd6fc33224fb9",
+  "recorder_version": "frozen-evaluation-run-v1",
+  "input_artifacts": [
+    {
+      "artifact_path": "inputs/0/support-application.references.json",
+      "sha256": "444945f8a69da452a88b0be851afe74e9b7ee7bd95713ba2004fd6fc33224fb9"
+    },
+    {
+      "artifact_path": "inputs/1/judge-calibration.json",
+      "sha256": "f34cffd1e971193b0a7e64a90f3f97d4b8961a4d425333840dd20eee49bdfe8b"
+    },
+    {
+      "artifact_path": "inputs/2/evaluation-sol-low.json",
+      "sha256": "0d3d7abaee592cd541bc23bf133e3a8af2042df7778f303a634c73cce8683bd1"
+    },
+    {
+      "artifact_path": "inputs/3/apply_support.py",
+      "sha256": "e2ba8cd354dd54561a5696f622f0788f124144153817b768dffb0dd45fb23222"
+    },
+    {
+      "artifact_path": "inputs/4/uv.lock",
+      "sha256": "983d5a644e3289e6b79d92dc251b5029c199a497ac33c14f504a3c9ee3763152"
+    },
+    {
+      "artifact_path": "inputs/5/semantic_judge.py",
+      "sha256": "351d12d97cdbd8185c1c028b49a487b5777cc33d8c72d696a37f8f458dcda8e4"
+    },
+    {
+      "artifact_path": "inputs/6/baseline-annotations.json",
+      "sha256": "f07f2dbd1c9159c26eceec486b1ee954096ed3d87ca3cb490b5ce3b5b5348579"
+    },
+    {
+      "artifact_path": "inputs/7/candidate-annotations.json",
+      "sha256": "51397479b48d0fc6eb8fee16f7333698d52c0698ca4494adc784db8c42604268"
+    },
+    {
+      "artifact_path": "inputs/8/baseline-capture-v2.json",
+      "sha256": "740db33ca015f65e3e2206e3587351406bf2f43ad399bc5e8e4f1fe0f6b6a6ca"
+    },
+    {
+      "artifact_path": "inputs/9/candidate-capture.json",
+      "sha256": "0cdcf19d80be3d0817a8c4996b2368cf4883097c229636b1b3a8f9c0f56b529e"
+    },
+    {
+      "artifact_path": "inputs/10/core-profiles-v2.json.gz",
+      "sha256": "1cebb5169b4f36b12f900e3d73f43b4c483c6903b02a566c8f8dee96e5eba457"
+    },
+    {
+      "artifact_path": "inputs/11/quality-comparison-v1.json",
+      "sha256": "dfc4e22247cef79faea55ebfca325239cfcef0c4fba0f4ddc21be5503bd8bcf1"
+    }
+  ],
+  "result_artifact": "result/support-application.json",
+  "case_ids": [
+    "baseline-phil-intro-r0",
+    "baseline-phil-followup-r0",
+    "baseline-ambiguous-r0",
+    "baseline-isolated-r0",
+    "baseline-janine-butcher-profile-r0",
+    "baseline-phil-mitchell-missing-r0",
+    "baseline-cross-mitchell-garage-r0",
+    "baseline-phil-intro-r1",
+    "baseline-phil-followup-r1",
+    "baseline-ambiguous-r1",
+    "baseline-isolated-r1",
+    "baseline-janine-butcher-profile-r1",
+    "baseline-phil-mitchell-missing-r1",
+    "baseline-cross-mitchell-garage-r1",
+    "candidate-phil-intro-r0",
+    "candidate-phil-followup-r0",
+    "candidate-ambiguous-r0",
+    "candidate-isolated-r0",
+    "candidate-janine-butcher-profile-r0",
+    "candidate-phil-mitchell-missing-r0",
+    "candidate-cross-mitchell-garage-r0",
+    "candidate-phil-intro-r1",
+    "candidate-phil-followup-r1",
+    "candidate-ambiguous-r1",
+    "candidate-isolated-r1",
+    "candidate-janine-butcher-profile-r1",
+    "candidate-phil-mitchell-missing-r1",
+    "candidate-cross-mitchell-garage-r1"
+  ],
+  "cases": [
+    {
+      "case_id": "baseline-phil-intro-r0",
+      "reference": {
+        "case_id": "baseline-phil-intro-r0",
+        "capture_path": "docs/implementation/issue-9/baseline-capture-v2.json",
+        "capture_sha256": "740db33ca015f65e3e2206e3587351406bf2f43ad399bc5e8e4f1fe0f6b6a6ca",
+        "capture_case_id": "phil-intro-r0",
+        "response_sha256": "5b1c8d075a971d0e70050dfa2fbff9275345d2a042e082db233af3d3dfd6cc34",
+        "reference_sha256": "7d5559df5431291914dbb7520e7333e131abab410afe513b61429ade8fe6199c",
+        "supplied": {
+          "answer": "Right, listen. I first arrived in Walford in February 1990.\n\nQualification: The source gives the month and year, not a day.",
+          "context": [
+            {
+              "evidence_id": "phil-mitchell-wiki-0018-15527",
+              "text": "Phil Mitchell first arrives in Walford in February 1990 to open an automobile repair shop, known as The Arches; he is joined by his younger brother Grant (Ross Kemp). Two years later, Phil goes into partnership at The Queen Victoria public house with Grant and his wife Sharon Watts (Letitia Dean) \u2013 up to the point where he moves in with them. Phil grows close to Sharon, who turns to him for comfort during Grant's violent outbursts. Sharon and Phil have sex but she stays with Grant, who is unaware of their betrayal. Sharon and Grant's reconciliation is brief, and amidst more rowing and physical violence, Grant is arrested and imprisoned. In his absence, Phil and Sharon continue their affair but when Grant is released, Sharon reconciles with him, leaving Phil heartbroken. On the rebound, Phil enters into a marriage of convenience with Nadia Borovac (Anna Barkan) - a Romanian refugee - enabling her to stay in Britain, with Nadia departing after the wedding."
+            }
+          ]
+        },
+        "input_sha256": "4ec130c11034b3dc7cdac9a262e08dc4894ddd31578cbde4b89e856b21e693c6",
+        "reviewed_label": true,
+        "review_note": "Every factual assertion in this exact answer-plus-qualification input is directly supported by the supplied Phil arrival/Arches passage. First person denotes Phil. Month/year precision and absence of a day are supported by the passage. No completeness or original-question relevance judgment is encoded in this support label.",
+        "reviewer": "Independent Codex AGENT source/support-input review (/root/issue9_spec); not human adjudication",
+        "reviewer_type": "AGENT",
+        "human_reviewed": false
+      },
+      "reference_sha256": "5d448b4b705bb8c1ad8a26e06f579fe3079801c2fb11ffd17e2c19dffd393aa3",
+      "state": "complete",
+      "assessment": {
+        "supported": true,
+        "evidence_ids": [
+          "phil-mitchell-wiki-0018-15527"
+        ],
+        "reason": "The passage states that Phil Mitchell first arrives in Walford in February 1990 and gives no specific day.",
+        "input_sha256": "4ec130c11034b3dc7cdac9a262e08dc4894ddd31578cbde4b89e856b21e693c6",
+        "rubric_sha256": "99271033de9a536ea3b9b93e9efd15ad2a57f1ff0b7df54071578f141808bd1d",
+        "rubric_version": "all-assertions-supported-v1",
+        "judge_settings_sha256": "1c91a994d2d659eba99ed65f4011dc81421bcbe7ff1e5218667bbbdcd196f567",
+        "usage": {
+          "reservation_id": "3c5650240fe046db927a20e072ffb8f3",
+          "reserved_usd": 0.095802,
+          "cost_usd": 0.00152,
+          "request_id": "gen-1792266042-EVfv43sbdQw5pBwkCMxd",
+          "returned_model": "openai/gpt-6-sol",
+          "provider": "OpenAI",
+          "input_tokens": 485,
+          "output_tokens": 55,
+          "reasoning_tokens": 0
+        },
+        "cost_usd": 0.00152
+      },
+      "reviewed_label": true,
+      "agrees": true
+    },
+    {
+      "case_id": "baseline-phil-followup-r0",
+      "reference": {
+        "case_id": "baseline-phil-followup-r0",
+        "capture_path": "docs/implementation/issue-9/baseline-capture-v2.json",
+        "capture_sha256": "740db33ca015f65e3e2206e3587351406bf2f43ad399bc5e8e4f1fe0f6b6a6ca",
+        "capture_case_id": "phil-followup-r0",
+        "response_sha256": "f9461e9a8fb010e5505127c5d9da21214d3a7ca00435af814b0148f2eab94321",
+        "reference_sha256": "2e86728a1871ea849337fa26feb43aabc18f0fc5070057a7c098f6c59e6b8192",
+        "supplied": {
+          "answer": "Right, listen. I opened an automobile repair shop called The Arches when I first arrived in Walford.",
+          "context": [
+            {
+              "evidence_id": "phil-mitchell-wiki-0018-15527",
+              "text": "Phil Mitchell first arrives in Walford in February 1990 to open an automobile repair shop, known as The Arches; he is joined by his younger brother Grant (Ross Kemp). Two years later, Phil goes into partnership at The Queen Victoria public house with Grant and his wife Sharon Watts (Letitia Dean) \u2013 up to the point where he moves in with them. Phil grows close to Sharon, who turns to him for comfort during Grant's violent outbursts. Sharon and Phil have sex but she stays with Grant, who is unaware of their betrayal. Sharon and Grant's reconciliation is brief, and amidst more rowing and physical violence, Grant is arrested and imprisoned. In his absence, Phil and Sharon continue their affair but when Grant is released, Sharon reconciles with him, leaving Phil heartbroken. On the rebound, Phil enters into a marriage of convenience with Nadia Borovac (Anna Barkan) - a Romanian refugee - enabling her to stay in Britain, with Nadia departing after the wedding."
+            },
+            {
+              "evidence_id": "janine-butcher-wiki-0028-19802",
+              "text": "Mitchells."
+            }
+          ]
+        },
+        "input_sha256": "bb638756e096fda027ab558e6f5b198d67774af8093f082c44504c153eb75e20",
+        "reviewed_label": true,
+        "review_note": "Every factual assertion in this exact answer-plus-qualification input is directly supported by the supplied Phil arrival/Arches passage. First person denotes Phil. Month/year precision and absence of a day are supported by the passage. No completeness or original-question relevance judgment is encoded in this support label.",
+        "reviewer": "Independent Codex AGENT source/support-input review (/root/issue9_spec); not human adjudication",
+        "reviewer_type": "AGENT",
+        "human_reviewed": false
+      },
+      "reference_sha256": "b571f56ac6a761355fc1c66c7710be3d16ed9db7da49170ce41b1fe5221c2d33",
+      "state": "complete",
+      "assessment": {
+        "supported": true,
+        "evidence_ids": [
+          "phil-mitchell-wiki-0018-15527"
+        ],
+        "reason": "The passage states that Phil Mitchell first arrived in Walford to open an automobile repair shop known as The Arches.",
+        "input_sha256": "bb638756e096fda027ab558e6f5b198d67774af8093f082c44504c153eb75e20",
+        "rubric_sha256": "99271033de9a536ea3b9b93e9efd15ad2a57f1ff0b7df54071578f141808bd1d",
+        "rubric_version": "all-assertions-supported-v1",
+        "judge_settings_sha256": "1c91a994d2d659eba99ed65f4011dc81421bcbe7ff1e5218667bbbdcd196f567",
+        "usage": {
+          "reservation_id": "3b4e415f4eab45d1a8d6be1dda1a8ac5",
+          "reserved_usd": 0.09591,
+          "cost_usd": 0.001566,
+          "request_id": "gen-1792266044-qK5tafr1BmT2GB0wx6s5",
+          "returned_model": "openai/gpt-6-sol",
+          "provider": "OpenAI",
+          "input_tokens": 503,
+          "output_tokens": 56,
+          "reasoning_tokens": 0
+        },
+        "cost_usd": 0.001566
+      },
+      "reviewed_label": true,
+      "agrees": true
+    },
+    {
+      "case_id": "baseline-ambiguous-r0",
+      "reference": {
+        "case_id": "baseline-ambiguous-r0",
+        "capture_path": "docs/implementation/issue-9/baseline-capture-v2.json",
+        "capture_sha256": "740db33ca015f65e3e2206e3587351406bf2f43ad399bc5e8e4f1fe0f6b6a6ca",
+        "capture_case_id": "ambiguous-r0",
+        "response_sha256": "5166c935869260e582af3696ceb7520715679e2490131bc2d39a8597e025fd3f",
+        "reference_sha256": "3a51a3280b543a84dda310ede9adf60b0f1b6c0230f19ac6844cdcf2ffa253e6",
+        "supplied": {
+          "answer": "Which character do you mean? Please give their full name; the reference is unresolved in the available context.",
+          "context": []
+        },
+        "input_sha256": "d3f20785f55276cae217770ebd2f7af163e3ea68a798c984c8a67b0e525588b8",
+        "reviewed_label": null,
+        "review_note": "Missing supplied final context and no canon factual assertion: unavailable without a support-model call. The garage clarification is an original-question answerability/relevance failure in the independent answer review; this context-only input cannot assess that failure.",
+        "reviewer": "Independent Codex AGENT source/support-input review (/root/issue9_spec); not human adjudication",
+        "reviewer_type": "AGENT",
+        "human_reviewed": false
+      },
+      "reference_sha256": "88163a5f79a290bf06f444ea3f026d947191172b6dfb995439f3567d576d6451",
+      "state": "complete",
+      "assessment": {
+        "supported": null,
+        "evidence_ids": [],
+        "reason": "Missing supplied context.",
+        "input_sha256": "d3f20785f55276cae217770ebd2f7af163e3ea68a798c984c8a67b0e525588b8",
+        "rubric_sha256": "99271033de9a536ea3b9b93e9efd15ad2a57f1ff0b7df54071578f141808bd1d",
+        "rubric_version": "all-assertions-supported-v1",
+        "judge_settings_sha256": "1c91a994d2d659eba99ed65f4011dc81421bcbe7ff1e5218667bbbdcd196f567",
+        "usage": null,
+        "cost_usd": 0.0
+      },
+      "reviewed_label": null,
+      "agrees": null
+    },
+    {
+      "case_id": "baseline-isolated-r0",
+      "reference": {
+        "case_id": "baseline-isolated-r0",
+        "capture_path": "docs/implementation/issue-9/baseline-capture-v2.json",
+        "capture_sha256": "740db33ca015f65e3e2206e3587351406bf2f43ad399bc5e8e4f1fe0f6b6a6ca",
+        "capture_case_id": "isolated-r0",
+        "response_sha256": "95d04540b5d6b3bfe34f8be4cb914b6a4450b0a19bd32f4b709d7e130a4494e3",
+        "reference_sha256": "bf9df69073e3ad523515ec9afa4cb63050e45764825873eb3f089ec5cefc2183",
+        "supplied": {
+          "answer": "Which character do you mean? Please give their full name; the reference is unresolved in the available context.",
+          "context": []
+        },
+        "input_sha256": "d3f20785f55276cae217770ebd2f7af163e3ea68a798c984c8a67b0e525588b8",
+        "reviewed_label": null,
+        "review_note": "Missing supplied final context and no canon factual assertion: unavailable without a support-model call. The garage clarification is an original-question answerability/relevance failure in the independent answer review; this context-only input cannot assess that failure.",
+        "reviewer": "Independent Codex AGENT source/support-input review (/root/issue9_spec); not human adjudication",
+        "reviewer_type": "AGENT",
+        "human_reviewed": false
+      },
+      "reference_sha256": "f06f43200dbe0b5249624bf01577b8e0c92db6327f13090dafe8806d50d33ac3",
+      "state": "complete",
+      "assessment": {
+        "supported": null,
+        "evidence_ids": [],
+        "reason": "Missing supplied context.",
+        "input_sha256": "d3f20785f55276cae217770ebd2f7af163e3ea68a798c984c8a67b0e525588b8",
+        "rubric_sha256": "99271033de9a536ea3b9b93e9efd15ad2a57f1ff0b7df54071578f141808bd1d",
+        "rubric_version": "all-assertions-supported-v1",
+        "judge_settings_sha256": "1c91a994d2d659eba99ed65f4011dc81421bcbe7ff1e5218667bbbdcd196f567",
+        "usage": null,
+        "cost_usd": 0.0
+      },
+      "reviewed_label": null,
+      "agrees": null
+    },
+    {
+      "case_id": "baseline-janine-butcher-profile-r0",
+      "reference": {
+        "case_id": "baseline-janine-butcher-profile-r0",
+        "capture_path": "docs/implementation/issue-9/baseline-capture-v2.json",
+        "capture_sha256": "740db33ca015f65e3e2206e3587351406bf2f43ad399bc5e8e4f1fe0f6b6a6ca",
+        "capture_case_id": "janine-butcher-profile-r0",
+        "response_sha256": "ab6dca821d3635b302b6cef06762b2473eb2aca2fdb2a796215d2cbb801e17af",
+        "reference_sha256": "6ccae293c2179a707caedf4235ea30306ebea91401994a4d33eb808f4de65894",
+        "supplied": {
+          "answer": "Right, listen. Frank left Janine with Clare Bates in 1998. The premise is wrong: it was Frank, not Janine, who had a breakdown before he abandoned Pat and his children in April 1994.\n\nQualification: Frank had the 1994 breakdown; the account says he left Janine with Clare in 1998.",
+          "context": [
+            {
+              "evidence_id": "pat-butcher-wiki-0024-17192",
+              "text": "Pat returns in the autumn, but by then the Butchers are in financial ruin. In desperation, Frank pays local hardman Phil Mitchell (Steve McFadden) to torch the car lot in an insurance scam. When this goes wrong and a homeless boy dies, Frank has a breakdown and in April 1994, he abandons Pat and his children, leaving Pat destitute and heartbroken. Eventually, Frank's eldest daughter Diane (Sophie Lawrence) brings news that Frank is alive and so Pat begins getting on with her life."
+            },
+            {
+              "evidence_id": "janine-butcher-wiki-0022-13489",
+              "text": "Janine makes friends with Clare Bates (Gemma Bissix) and Sonia Jackson (Natalie Cassidy) and they cause trouble for Felix Kawalski (Harry Landis), when they spread rumours that he is a pervert who murdered his wife, and keeps her body in his cellar. She is overjoyed when Frank returns, and they move to Manchester in 1996. However, Frank returns to Walford in 1998, leaving Janine with Clare."
+            }
+          ]
+        },
+        "input_sha256": "33d514af8f130f9f806635ff474f5e784a44dfd1a6fd1596b14cb80ac52a15a6",
+        "reviewed_label": null,
+        "review_note": "Unresolved contextual support, not a negative reference label. The supplied passages support Frank's 1994 breakdown/April departure and a 1998 departure leaving Janine with an unqualified Clare. The answer adds the Bates identity, but the 1998 sentence does not explicitly disambiguate it; retained HTML elsewhere also identifies sister Clare Butcher. The entire exact support input therefore remains unavailable pending identity adjudication. The original question is absent from this judge input, so its false-premise correction failure in the six-dimensional answer review does not become a context-only failure label. Qualifying statements that the requested caretaker is absent from the supplied final context concern that narrow context only; no corpus-wide absence is endorsed.",
+        "reviewer": "Independent Codex AGENT source/support-input review (/root/issue9_spec); not human adjudication",
+        "reviewer_type": "AGENT",
+        "human_reviewed": false
+      },
+      "reference_sha256": "ad250fe5f45e0e7c3878473a8887e0753e6ed302ec514f477e8c25ae37b9deed",
+      "state": "complete",
+      "assessment": {
+        "supported": true,
+        "evidence_ids": [
+          "pat-butcher-wiki-0024-17192",
+          "janine-butcher-wiki-0022-13489"
+        ],
+        "reason": "The passages state that Frank had a breakdown before abandoning Pat and his children in April 1994, and that he left Janine with Clare when he returned to Walford in 1998.",
+        "input_sha256": "33d514af8f130f9f806635ff474f5e784a44dfd1a6fd1596b14cb80ac52a15a6",
+        "rubric_sha256": "99271033de9a536ea3b9b93e9efd15ad2a57f1ff0b7df54071578f141808bd1d",
+        "rubric_version": "all-assertions-supported-v1",
+        "judge_settings_sha256": "1c91a994d2d659eba99ed65f4011dc81421bcbe7ff1e5218667bbbdcd196f567",
+        "usage": {
+          "reservation_id": "146359bafd80454a96ddf539cc41a580",
+          "reserved_usd": 0.096062,
+          "cost_usd": 0.001938,
+          "request_id": "gen-1792266045-AXIPTigjGbS5GWDHUfwZ",
+          "returned_model": "openai/gpt-6-sol",
+          "provider": "OpenAI",
+          "input_tokens": 549,
+          "output_tokens": 84,
+          "reasoning_tokens": 0
+        },
+        "cost_usd": 0.001938
+      },
+      "reviewed_label": null,
+      "agrees": null
+    },
+    {
+      "case_id": "baseline-phil-mitchell-missing-r0",
+      "reference": {
+        "case_id": "baseline-phil-mitchell-missing-r0",
+        "capture_path": "docs/implementation/issue-9/baseline-capture-v2.json",
+        "capture_sha256": "740db33ca015f65e3e2206e3587351406bf2f43ad399bc5e8e4f1fe0f6b6a6ca",
+        "capture_case_id": "phil-mitchell-missing-r0",
+        "response_sha256": "a8a129ca63e01f3712360d5eea7692c673900457b026be9b7c2afaf7d5d8d1ce",
+        "reference_sha256": "a17ceb96ebb7fb12d0eb645d0d772a7b76b765841413b3470a996927ccab8cc5",
+        "supplied": {
+          "answer": "This captured evidence cannot tell you my current mobile phone number.",
+          "context": [
+            {
+              "evidence_id": "phil-mitchell-wiki-0062-77727",
+              "text": "Mitchell's, Keeble eventually agrees to this deal and retires from the police force and Phil is a free man."
+            },
+            {
+              "evidence_id": "janine-butcher-wiki-0028-19802",
+              "text": "Mitchells."
+            },
+            {
+              "evidence_id": "phil-mitchell-wiki-0064-79876",
+              "text": "from the family after a fight with Teddy's son Harry Mitchell (Elijah Holloway) in the aftermath of Stevie's departure; now isolated from all of his children, Phil descends into a depression."
+            }
+          ]
+        },
+        "input_sha256": "97bd24be68d333148e7d9eccf5af71fdaffedd071df9248c8e872742c22cd10d",
+        "reviewed_label": null,
+        "review_note": "This is a limitation/abstention, with no substantive factual assertion about EastEnders or a phone number. The rubric returns null for no factual assertions. The final context has no current mobile number, but the response is not promoted into a factual claim that no phone number exists. No completeness, answerability or original-question relevance label is inferred by this context-only check.",
+        "reviewer": "Independent Codex AGENT source/support-input review (/root/issue9_spec); not human adjudication",
+        "reviewer_type": "AGENT",
+        "human_reviewed": false
+      },
+      "reference_sha256": "7bbbdfbf2d78f4e87796dea3e2b4a713ff423d834ddeb35b6ebbdf0078db4450",
+      "state": "complete",
+      "assessment": {
+        "supported": true,
+        "evidence_ids": [
+          "phil-mitchell-wiki-0062-77727",
+          "janine-butcher-wiki-0028-19802",
+          "phil-mitchell-wiki-0064-79876"
+        ],
+        "reason": "None of the supplied passages contains a mobile phone number or information that identifies the user's current number.",
+        "input_sha256": "97bd24be68d333148e7d9eccf5af71fdaffedd071df9248c8e872742c22cd10d",
+        "rubric_sha256": "99271033de9a536ea3b9b93e9efd15ad2a57f1ff0b7df54071578f141808bd1d",
+        "rubric_version": "all-assertions-supported-v1",
+        "judge_settings_sha256": "1c91a994d2d659eba99ed65f4011dc81421bcbe7ff1e5218667bbbdcd196f567",
+        "usage": {
+          "reservation_id": "e8f048bc64d0480291bd5457c220e137",
+          "reserved_usd": 0.094638,
+          "cost_usd": 0.001868,
+          "request_id": "gen-1792266047-X46MZSvxEQHSRoi8DEHW",
+          "returned_model": "openai/gpt-6-sol",
+          "provider": "OpenAI",
+          "input_tokens": 379,
+          "output_tokens": 111,
+          "reasoning_tokens": 31
+        },
+        "cost_usd": 0.001868
+      },
+      "reviewed_label": null,
+      "agrees": null
+    },
+    {
+      "case_id": "baseline-cross-mitchell-garage-r0",
+      "reference": {
+        "case_id": "baseline-cross-mitchell-garage-r0",
+        "capture_path": "docs/implementation/issue-9/baseline-capture-v2.json",
+        "capture_sha256": "740db33ca015f65e3e2206e3587351406bf2f43ad399bc5e8e4f1fe0f6b6a6ca",
+        "capture_case_id": "cross-mitchell-garage-r0",
+        "response_sha256": "d30c9443924e414b9f95f8b63d32e84752b9ae0d0bad2eed3792af6d9aff18b3",
+        "reference_sha256": "a8a0b41662a3c0d490e1fc97ddded5f30f9e5f785311661b23029123bbaf3bbe",
+        "supplied": {
+          "answer": "Which character do you mean? Please give their full name; the reference is unresolved in the available context.",
+          "context": []
+        },
+        "input_sha256": "d3f20785f55276cae217770ebd2f7af163e3ea68a798c984c8a67b0e525588b8",
+        "reviewed_label": null,
+        "review_note": "Missing supplied final context and no canon factual assertion: unavailable without a support-model call. The garage clarification is an original-question answerability/relevance failure in the independent answer review; this context-only input cannot assess that failure.",
+        "reviewer": "Independent Codex AGENT source/support-input review (/root/issue9_spec); not human adjudication",
+        "reviewer_type": "AGENT",
+        "human_reviewed": false
+      },
+      "reference_sha256": "139ea28f035460f6c2116b44cc5abd36f5bb7473e85b85b58be770f76d1588f4",
+      "state": "complete",
+      "assessment": {
+        "supported": null,
+        "evidence_ids": [],
+        "reason": "Missing supplied context.",
+        "input_sha256": "d3f20785f55276cae217770ebd2f7af163e3ea68a798c984c8a67b0e525588b8",
+        "rubric_sha256": "99271033de9a536ea3b9b93e9efd15ad2a57f1ff0b7df54071578f141808bd1d",
+        "rubric_version": "all-assertions-supported-v1",
+        "judge_settings_sha256": "1c91a994d2d659eba99ed65f4011dc81421bcbe7ff1e5218667bbbdcd196f567",
+        "usage": null,
+        "cost_usd": 0.0
+      },
+      "reviewed_label": null,
+      "agrees": null
+    },
+    {
+      "case_id": "baseline-phil-intro-r1",
+      "reference": {
+        "case_id": "baseline-phil-intro-r1",
+        "capture_path": "docs/implementation/issue-9/baseline-capture-v2.json",
+        "capture_sha256": "740db33ca015f65e3e2206e3587351406bf2f43ad399bc5e8e4f1fe0f6b6a6ca",
+        "capture_case_id": "phil-intro-r1",
+        "response_sha256": "07ab43db87a5a76b79838ce180bbd4ccb4a73f3d22138a02885f33ff6db0c2af",
+        "reference_sha256": "6a42518ec9611ad68f7f8ff53daaa4e807ea7e12d3ecdd11b345c7f759a21abe",
+        "supplied": {
+          "answer": "Right, listen. I first arrived in Walford in February 1990.\n\nQualification: The source gives February 1990, without a day.",
+          "context": [
+            {
+              "evidence_id": "phil-mitchell-wiki-0018-15527",
+              "text": "Phil Mitchell first arrives in Walford in February 1990 to open an automobile repair shop, known as The Arches; he is joined by his younger brother Grant (Ross Kemp). Two years later, Phil goes into partnership at The Queen Victoria public house with Grant and his wife Sharon Watts (Letitia Dean) \u2013 up to the point where he moves in with them. Phil grows close to Sharon, who turns to him for comfort during Grant's violent outbursts. Sharon and Phil have sex but she stays with Grant, who is unaware of their betrayal. Sharon and Grant's reconciliation is brief, and amidst more rowing and physical violence, Grant is arrested and imprisoned. In his absence, Phil and Sharon continue their affair but when Grant is released, Sharon reconciles with him, leaving Phil heartbroken. On the rebound, Phil enters into a marriage of convenience with Nadia Borovac (Anna Barkan) - a Romanian refugee - enabling her to stay in Britain, with Nadia departing after the wedding."
+            }
+          ]
+        },
+        "input_sha256": "2ac0d01446a30260bc74f4e0892bd82010ae9eee1bb985e7b79041292f05a950",
+        "reviewed_label": true,
+        "review_note": "Every factual assertion in this exact answer-plus-qualification input is directly supported by the supplied Phil arrival/Arches passage. First person denotes Phil. Month/year precision and absence of a day are supported by the passage. No completeness or original-question relevance judgment is encoded in this support label.",
+        "reviewer": "Independent Codex AGENT source/support-input review (/root/issue9_spec); not human adjudication",
+        "reviewer_type": "AGENT",
+        "human_reviewed": false
+      },
+      "reference_sha256": "ceb0a7557d31cee3fd79d41cd644ffc2eb1c85598d4f778fdc3466e1f3c3ea5e",
+      "state": "complete",
+      "assessment": {
+        "supported": true,
+        "evidence_ids": [
+          "phil-mitchell-wiki-0018-15527"
+        ],
+        "reason": "The passage says Phil Mitchell first arrived in Walford in February 1990 and gives no specific day.",
+        "input_sha256": "2ac0d01446a30260bc74f4e0892bd82010ae9eee1bb985e7b79041292f05a950",
+        "rubric_sha256": "99271033de9a536ea3b9b93e9efd15ad2a57f1ff0b7df54071578f141808bd1d",
+        "rubric_version": "all-assertions-supported-v1",
+        "judge_settings_sha256": "1c91a994d2d659eba99ed65f4011dc81421bcbe7ff1e5218667bbbdcd196f567",
+        "usage": {
+          "reservation_id": "fd537c813ea04d949fdd8b1cfa4aff0c",
+          "reserved_usd": 0.0958,
+          "cost_usd": 0.00151,
+          "request_id": "gen-1792266049-70Jm5Ql07XuBwXf34MJB",
+          "returned_model": "openai/gpt-6-sol",
+          "provider": "OpenAI",
+          "input_tokens": 485,
+          "output_tokens": 54,
+          "reasoning_tokens": 0
+        },
+        "cost_usd": 0.00151
+      },
+      "reviewed_label": true,
+      "agrees": true
+    },
+    {
+      "case_id": "baseline-phil-followup-r1",
+      "reference": {
+        "case_id": "baseline-phil-followup-r1",
+        "capture_path": "docs/implementation/issue-9/baseline-capture-v2.json",
+        "capture_sha256": "740db33ca015f65e3e2206e3587351406bf2f43ad399bc5e8e4f1fe0f6b6a6ca",
+        "capture_case_id": "phil-followup-r1",
+        "response_sha256": "2aa5849df72d9c672605f5eb266f2e5aab41c70fb63261f064408eb0244cca9d",
+        "reference_sha256": "7d5ce491d6563d897fb056eb394295f666ef93af88e1a900c8d21ab9a87defac",
+        "supplied": {
+          "answer": "Right, listen. I opened an automobile repair shop called The Arches.",
+          "context": [
+            {
+              "evidence_id": "phil-mitchell-wiki-0018-15527",
+              "text": "Phil Mitchell first arrives in Walford in February 1990 to open an automobile repair shop, known as The Arches; he is joined by his younger brother Grant (Ross Kemp). Two years later, Phil goes into partnership at The Queen Victoria public house with Grant and his wife Sharon Watts (Letitia Dean) \u2013 up to the point where he moves in with them. Phil grows close to Sharon, who turns to him for comfort during Grant's violent outbursts. Sharon and Phil have sex but she stays with Grant, who is unaware of their betrayal. Sharon and Grant's reconciliation is brief, and amidst more rowing and physical violence, Grant is arrested and imprisoned. In his absence, Phil and Sharon continue their affair but when Grant is released, Sharon reconciles with him, leaving Phil heartbroken. On the rebound, Phil enters into a marriage of convenience with Nadia Borovac (Anna Barkan) - a Romanian refugee - enabling her to stay in Britain, with Nadia departing after the wedding."
+            },
+            {
+              "evidence_id": "janine-butcher-wiki-0028-19802",
+              "text": "Mitchells."
+            }
+          ]
+        },
+        "input_sha256": "1e54aa32645b470a8911948df5a17fa29bf73c33e2d89113ef099e19a1112297",
+        "reviewed_label": true,
+        "review_note": "Every factual assertion in this exact answer-plus-qualification input is directly supported by the supplied Phil arrival/Arches passage. First person denotes Phil. Month/year precision and absence of a day are supported by the passage. No completeness or original-question relevance judgment is encoded in this support label.",
+        "reviewer": "Independent Codex AGENT source/support-input review (/root/issue9_spec); not human adjudication",
+        "reviewer_type": "AGENT",
+        "human_reviewed": false
+      },
+      "reference_sha256": "a4b563904833af8baba6f54dc5acacefbb133cae9b222d1098a45bfb8f7b5074",
+      "state": "complete",
+      "assessment": {
+        "supported": true,
+        "evidence_ids": [
+          "phil-mitchell-wiki-0018-15527"
+        ],
+        "reason": "The passage states that Phil Mitchell arrived in Walford to open an automobile repair shop known as The Arches.",
+        "input_sha256": "1e54aa32645b470a8911948df5a17fa29bf73c33e2d89113ef099e19a1112297",
+        "rubric_sha256": "99271033de9a536ea3b9b93e9efd15ad2a57f1ff0b7df54071578f141808bd1d",
+        "rubric_version": "all-assertions-supported-v1",
+        "judge_settings_sha256": "1c91a994d2d659eba99ed65f4011dc81421bcbe7ff1e5218667bbbdcd196f567",
+        "usage": {
+          "reservation_id": "a98eab6c5cb74b59b711f4f9e71230cf",
+          "reserved_usd": 0.095846,
+          "cost_usd": 0.001542,
+          "request_id": "gen-1792266051-p3MSCheaa7aGQylkXW01",
+          "returned_model": "openai/gpt-6-sol",
+          "provider": "OpenAI",
+          "input_tokens": 496,
+          "output_tokens": 55,
+          "reasoning_tokens": 0
+        },
+        "cost_usd": 0.001542
+      },
+      "reviewed_label": true,
+      "agrees": true
+    },
+    {
+      "case_id": "baseline-ambiguous-r1",
+      "reference": {
+        "case_id": "baseline-ambiguous-r1",
+        "capture_path": "docs/implementation/issue-9/baseline-capture-v2.json",
+        "capture_sha256": "740db33ca015f65e3e2206e3587351406bf2f43ad399bc5e8e4f1fe0f6b6a6ca",
+        "capture_case_id": "ambiguous-r1",
+        "response_sha256": "037056c660a507c6c55dd363e43578b984b67081aca0dd3900603c240e94bdb6",
+        "reference_sha256": "662fb9f42e268c838bb3ab9b47c9a02a243b2e124d927d399a8a06b1e9e7546b",
+        "supplied": {
+          "answer": "Which character do you mean? Please give their full name; the reference is unresolved in the available context.",
+          "context": []
+        },
+        "input_sha256": "d3f20785f55276cae217770ebd2f7af163e3ea68a798c984c8a67b0e525588b8",
+        "reviewed_label": null,
+        "review_note": "Missing supplied final context and no canon factual assertion: unavailable without a support-model call. The garage clarification is an original-question answerability/relevance failure in the independent answer review; this context-only input cannot assess that failure.",
+        "reviewer": "Independent Codex AGENT source/support-input review (/root/issue9_spec); not human adjudication",
+        "reviewer_type": "AGENT",
+        "human_reviewed": false
+      },
+      "reference_sha256": "70bd704021dbac258e08af1bde73f6532d40a17972b96949f0d8649425ef5ade",
+      "state": "complete",
+      "assessment": {
+        "supported": null,
+        "evidence_ids": [],
+        "reason": "Missing supplied context.",
+        "input_sha256": "d3f20785f55276cae217770ebd2f7af163e3ea68a798c984c8a67b0e525588b8",
+        "rubric_sha256": "99271033de9a536ea3b9b93e9efd15ad2a57f1ff0b7df54071578f141808bd1d",
+        "rubric_version": "all-assertions-supported-v1",
+        "judge_settings_sha256": "1c91a994d2d659eba99ed65f4011dc81421bcbe7ff1e5218667bbbdcd196f567",
+        "usage": null,
+        "cost_usd": 0.0
+      },
+      "reviewed_label": null,
+      "agrees": null
+    },
+    {
+      "case_id": "baseline-isolated-r1",
+      "reference": {
+        "case_id": "baseline-isolated-r1",
+        "capture_path": "docs/implementation/issue-9/baseline-capture-v2.json",
+        "capture_sha256": "740db33ca015f65e3e2206e3587351406bf2f43ad399bc5e8e4f1fe0f6b6a6ca",
+        "capture_case_id": "isolated-r1",
+        "response_sha256": "91e4883eb7fad8eb6806dce6bc070e03bdf7385b0fb9414cf04e995b11488f54",
+        "reference_sha256": "94e8a3cfc8566ad757cf5a01de27c2a88a21e66e24704b6adfebce32d58a448a",
+        "supplied": {
+          "answer": "Which character do you mean? Please give their full name; the reference is unresolved in the available context.",
+          "context": []
+        },
+        "input_sha256": "d3f20785f55276cae217770ebd2f7af163e3ea68a798c984c8a67b0e525588b8",
+        "reviewed_label": null,
+        "review_note": "Missing supplied final context and no canon factual assertion: unavailable without a support-model call. The garage clarification is an original-question answerability/relevance failure in the independent answer review; this context-only input cannot assess that failure.",
+        "reviewer": "Independent Codex AGENT source/support-input review (/root/issue9_spec); not human adjudication",
+        "reviewer_type": "AGENT",
+        "human_reviewed": false
+      },
+      "reference_sha256": "74624ceae32b6f44335aeab0ee80b24a95d884f379cc81f255369ce556c66905",
+      "state": "complete",
+      "assessment": {
+        "supported": null,
+        "evidence_ids": [],
+        "reason": "Missing supplied context.",
+        "input_sha256": "d3f20785f55276cae217770ebd2f7af163e3ea68a798c984c8a67b0e525588b8",
+        "rubric_sha256": "99271033de9a536ea3b9b93e9efd15ad2a57f1ff0b7df54071578f141808bd1d",
+        "rubric_version": "all-assertions-supported-v1",
+        "judge_settings_sha256": "1c91a994d2d659eba99ed65f4011dc81421bcbe7ff1e5218667bbbdcd196f567",
+        "usage": null,
+        "cost_usd": 0.0
+      },
+      "reviewed_label": null,
+      "agrees": null
+    },
+    {
+      "case_id": "baseline-janine-butcher-profile-r1",
+      "reference": {
+        "case_id": "baseline-janine-butcher-profile-r1",
+        "capture_path": "docs/implementation/issue-9/baseline-capture-v2.json",
+        "capture_sha256": "740db33ca015f65e3e2206e3587351406bf2f43ad399bc5e8e4f1fe0f6b6a6ca",
+        "capture_case_id": "janine-butcher-profile-r1",
+        "response_sha256": "3c991b0e28a7643a679b74511028b9db9a0a91c679c1ccbbc2d14f9e19f8544e",
+        "reference_sha256": "a71200ceb02d40107a93d90c1004911549153cc43a051dacccb2d04cfea1bfc0",
+        "supplied": {
+          "answer": "Right, listen. It was Frank, not Janine, who had the breakdown in 1994. He abandoned his family that April. The evidence doesn\u2019t say who Janine stayed with then. It says he left her with Clare Bates in 1998, when he returned to Walford.\n\nQualification: Frank, not Janine, had the 1994 breakdown; he left Janine with Clare Bates in 1998.",
+          "context": [
+            {
+              "evidence_id": "pat-butcher-wiki-0024-17192",
+              "text": "Pat returns in the autumn, but by then the Butchers are in financial ruin. In desperation, Frank pays local hardman Phil Mitchell (Steve McFadden) to torch the car lot in an insurance scam. When this goes wrong and a homeless boy dies, Frank has a breakdown and in April 1994, he abandons Pat and his children, leaving Pat destitute and heartbroken. Eventually, Frank's eldest daughter Diane (Sophie Lawrence) brings news that Frank is alive and so Pat begins getting on with her life."
+            },
+            {
+              "evidence_id": "janine-butcher-wiki-0022-13489",
+              "text": "Janine makes friends with Clare Bates (Gemma Bissix) and Sonia Jackson (Natalie Cassidy) and they cause trouble for Felix Kawalski (Harry Landis), when they spread rumours that he is a pervert who murdered his wife, and keeps her body in his cellar. She is overjoyed when Frank returns, and they move to Manchester in 1996. However, Frank returns to Walford in 1998, leaving Janine with Clare."
+            }
+          ]
+        },
+        "input_sha256": "3a09e175a31673efb49689480a7aee30e0532e3c3ae9c2da29cf48f14f234f32",
+        "reviewed_label": null,
+        "review_note": "Unresolved contextual support, not a negative reference label. The supplied passages support Frank's 1994 breakdown/April departure and a 1998 departure leaving Janine with an unqualified Clare. The answer adds the Bates identity, but the 1998 sentence does not explicitly disambiguate it; retained HTML elsewhere also identifies sister Clare Butcher. The entire exact support input therefore remains unavailable pending identity adjudication. The original question is absent from this judge input, so its false-premise correction failure in the six-dimensional answer review does not become a context-only failure label. Qualifying statements that the requested caretaker is absent from the supplied final context concern that narrow context only; no corpus-wide absence is endorsed.",
+        "reviewer": "Independent Codex AGENT source/support-input review (/root/issue9_spec); not human adjudication",
+        "reviewer_type": "AGENT",
+        "human_reviewed": false
+      },
+      "reference_sha256": "71e234cce654b352d46e154138e77cd481c4f990bf669e5fec39806da6170661",
+      "state": "complete",
+      "assessment": {
+        "supported": true,
+        "evidence_ids": [
+          "pat-butcher-wiki-0024-17192",
+          "janine-butcher-wiki-0022-13489"
+        ],
+        "reason": "The passages say Frank had a breakdown and abandoned Pat and his children in April 1994. They do not identify whom Janine stayed with then. The second passage says Frank returned to Walford in 1998, leaving Janine with Clare.",
+        "input_sha256": "3a09e175a31673efb49689480a7aee30e0532e3c3ae9c2da29cf48f14f234f32",
+        "rubric_sha256": "99271033de9a536ea3b9b93e9efd15ad2a57f1ff0b7df54071578f141808bd1d",
+        "rubric_version": "all-assertions-supported-v1",
+        "judge_settings_sha256": "1c91a994d2d659eba99ed65f4011dc81421bcbe7ff1e5218667bbbdcd196f567",
+        "usage": {
+          "reservation_id": "a1bf8e7234aa44fe8e2be1fdc25a2b2d",
+          "reserved_usd": 0.096186,
+          "cost_usd": 0.002088,
+          "request_id": "gen-1792266052-IkmVrZwN1SmFekZzdpaS",
+          "returned_model": "openai/gpt-6-sol",
+          "provider": "OpenAI",
+          "input_tokens": 569,
+          "output_tokens": 95,
+          "reasoning_tokens": 0
+        },
+        "cost_usd": 0.002088
+      },
+      "reviewed_label": null,
+      "agrees": null
+    },
+    {
+      "case_id": "baseline-phil-mitchell-missing-r1",
+      "reference": {
+        "case_id": "baseline-phil-mitchell-missing-r1",
+        "capture_path": "docs/implementation/issue-9/baseline-capture-v2.json",
+        "capture_sha256": "740db33ca015f65e3e2206e3587351406bf2f43ad399bc5e8e4f1fe0f6b6a6ca",
+        "capture_case_id": "phil-mitchell-missing-r1",
+        "response_sha256": "6c141f33ceaa7ecced6635ab1dbdfdc2c4d151392e7af50657d62a12a59bd10c",
+        "reference_sha256": "2da933807ae300718977b6f4eea63bfdc3e9412fc26baf5a35568f9f8deef7d0",
+        "supplied": {
+          "answer": "This captured evidence cannot answer what my current mobile phone number is.",
+          "context": [
+            {
+              "evidence_id": "phil-mitchell-wiki-0062-77727",
+              "text": "Mitchell's, Keeble eventually agrees to this deal and retires from the police force and Phil is a free man."
+            },
+            {
+              "evidence_id": "janine-butcher-wiki-0028-19802",
+              "text": "Mitchells."
+            },
+            {
+              "evidence_id": "phil-mitchell-wiki-0064-79876",
+              "text": "from the family after a fight with Teddy's son Harry Mitchell (Elijah Holloway) in the aftermath of Stevie's departure; now isolated from all of his children, Phil descends into a depression."
+            }
+          ]
+        },
+        "input_sha256": "09f5eb80cff92bcd80c717edb8cc30a60bbe1ec110c2be3e6f1c827fe01ad702",
+        "reviewed_label": null,
+        "review_note": "This is a limitation/abstention, with no substantive factual assertion about EastEnders or a phone number. The rubric returns null for no factual assertions. The final context has no current mobile number, but the response is not promoted into a factual claim that no phone number exists. No completeness, answerability or original-question relevance label is inferred by this context-only check.",
+        "reviewer": "Independent Codex AGENT source/support-input review (/root/issue9_spec); not human adjudication",
+        "reviewer_type": "AGENT",
+        "human_reviewed": false
+      },
+      "reference_sha256": "112dff31a0beed05daed07d78c327db5a602b1a838dcf16374f83b86fd87f679",
+      "state": "complete",
+      "assessment": {
+        "supported": true,
+        "evidence_ids": [
+          "phil-mitchell-wiki-0062-77727",
+          "janine-butcher-wiki-0028-19802",
+          "phil-mitchell-wiki-0064-79876"
+        ],
+        "reason": "The supplied passages contain no mobile phone number or information identifying the user's number.",
+        "input_sha256": "09f5eb80cff92bcd80c717edb8cc30a60bbe1ec110c2be3e6f1c827fe01ad702",
+        "rubric_sha256": "99271033de9a536ea3b9b93e9efd15ad2a57f1ff0b7df54071578f141808bd1d",
+        "rubric_version": "all-assertions-supported-v1",
+        "judge_settings_sha256": "1c91a994d2d659eba99ed65f4011dc81421bcbe7ff1e5218667bbbdcd196f567",
+        "usage": {
+          "reservation_id": "0205e060f6d3402f9234500e25445c30",
+          "reserved_usd": 0.09465,
+          "cost_usd": 0.0015,
+          "request_id": "gen-1792266054-ZEAN1KgJSdGeqb4Q65IF",
+          "returned_model": "openai/gpt-6-sol",
+          "provider": "OpenAI",
+          "input_tokens": 380,
+          "output_tokens": 74,
+          "reasoning_tokens": 0
+        },
+        "cost_usd": 0.0015
+      },
+      "reviewed_label": null,
+      "agrees": null
+    },
+    {
+      "case_id": "baseline-cross-mitchell-garage-r1",
+      "reference": {
+        "case_id": "baseline-cross-mitchell-garage-r1",
+        "capture_path": "docs/implementation/issue-9/baseline-capture-v2.json",
+        "capture_sha256": "740db33ca015f65e3e2206e3587351406bf2f43ad399bc5e8e4f1fe0f6b6a6ca",
+        "capture_case_id": "cross-mitchell-garage-r1",
+        "response_sha256": "3f01eed87d764550111ae20a4963a7c12a8298b64c826c4229e01e7131215702",
+        "reference_sha256": "8fa163d938d6cc049fbb269c3d40a01e983b9f1dbdfb30ca8286324f878dc7f7",
+        "supplied": {
+          "answer": "Which character do you mean? Please give their full name; the reference is unresolved in the available context.",
+          "context": []
+        },
+        "input_sha256": "d3f20785f55276cae217770ebd2f7af163e3ea68a798c984c8a67b0e525588b8",
+        "reviewed_label": null,
+        "review_note": "Missing supplied final context and no canon factual assertion: unavailable without a support-model call. The garage clarification is an original-question answerability/relevance failure in the independent answer review; this context-only input cannot assess that failure.",
+        "reviewer": "Independent Codex AGENT source/support-input review (/root/issue9_spec); not human adjudication",
+        "reviewer_type": "AGENT",
+        "human_reviewed": false
+      },
+      "reference_sha256": "9a8caaeb07c57c1c11ccde823ab0da2923867ad8f21ad80cb0eef32fc7b7e24a",
+      "state": "complete",
+      "assessment": {
+        "supported": null,
+        "evidence_ids": [],
+        "reason": "Missing supplied context.",
+        "input_sha256": "d3f20785f55276cae217770ebd2f7af163e3ea68a798c984c8a67b0e525588b8",
+        "rubric_sha256": "99271033de9a536ea3b9b93e9efd15ad2a57f1ff0b7df54071578f141808bd1d",
+        "rubric_version": "all-assertions-supported-v1",
+        "judge_settings_sha256": "1c91a994d2d659eba99ed65f4011dc81421bcbe7ff1e5218667bbbdcd196f567",
+        "usage": null,
+        "cost_usd": 0.0
+      },
+      "reviewed_label": null,
+      "agrees": null
+    },
+    {
+      "case_id": "candidate-phil-intro-r0",
+      "reference": {
+        "case_id": "candidate-phil-intro-r0",
+        "capture_path": "docs/implementation/issue-9/candidate-capture.json",
+        "capture_sha256": "0cdcf19d80be3d0817a8c4996b2368cf4883097c229636b1b3a8f9c0f56b529e",
+        "capture_case_id": "phil-intro-r0",
+        "response_sha256": "9fea3bc6f3f320fb21e618033423b39fc6bd982aab93ba6e29ed806730a4f21b",
+        "reference_sha256": "7d5559df5431291914dbb7520e7333e131abab410afe513b61429ade8fe6199c",
+        "supplied": {
+          "answer": "Right, listen. I first arrived in Walford in February 1990.\n\nQualification: The source gives a month and year, not a day.",
+          "context": [
+            {
+              "evidence_id": "phil-mitchell-wiki-0018-15527",
+              "text": "Phil Mitchell first arrives in Walford in February 1990 to open an automobile repair shop, known as The Arches; he is joined by his younger brother Grant (Ross Kemp). Two years later, Phil goes into partnership at The Queen Victoria public house with Grant and his wife Sharon Watts (Letitia Dean) \u2013 up to the point where he moves in with them. Phil grows close to Sharon, who turns to him for comfort during Grant's violent outbursts. Sharon and Phil have sex but she stays with Grant, who is unaware of their betrayal. Sharon and Grant's reconciliation is brief, and amidst more rowing and physical violence, Grant is arrested and imprisoned. In his absence, Phil and Sharon continue their affair but when Grant is released, Sharon reconciles with him, leaving Phil heartbroken. On the rebound, Phil enters into a marriage of convenience with Nadia Borovac (Anna Barkan) - a Romanian refugee - enabling her to stay in Britain, with Nadia departing after the wedding."
+            }
+          ]
+        },
+        "input_sha256": "3b35c34ddd10717c0399f752da2a2b9ea266838f3618af1a9612ff35f278a1c3",
+        "reviewed_label": true,
+        "review_note": "Every factual assertion in this exact answer-plus-qualification input is directly supported by the supplied Phil arrival/Arches passage. First person denotes Phil. Month/year precision and absence of a day are supported by the passage. No completeness or original-question relevance judgment is encoded in this support label.",
+        "reviewer": "Independent Codex AGENT source/support-input review (/root/issue9_spec); not human adjudication",
+        "reviewer_type": "AGENT",
+        "human_reviewed": false
+      },
+      "reference_sha256": "61b3271c823bc928bea821c6edb54ac5a16c15ca718e31b5ddd17f7418fca030",
+      "state": "complete",
+      "assessment": {
+        "supported": true,
+        "evidence_ids": [
+          "phil-mitchell-wiki-0018-15527"
+        ],
+        "reason": "The passage states that Phil Mitchell first arrives in Walford in February 1990 and gives no specific day.",
+        "input_sha256": "3b35c34ddd10717c0399f752da2a2b9ea266838f3618af1a9612ff35f278a1c3",
+        "rubric_sha256": "99271033de9a536ea3b9b93e9efd15ad2a57f1ff0b7df54071578f141808bd1d",
+        "rubric_version": "all-assertions-supported-v1",
+        "judge_settings_sha256": "1c91a994d2d659eba99ed65f4011dc81421bcbe7ff1e5218667bbbdcd196f567",
+        "usage": {
+          "reservation_id": "fea8e34ace81436398aef0a0f95385b9",
+          "reserved_usd": 0.095798,
+          "cost_usd": 0.00152,
+          "request_id": "gen-1792266056-6ahMRdJdcJuCCYKzAeQX",
+          "returned_model": "openai/gpt-6-sol",
+          "provider": "OpenAI",
+          "input_tokens": 485,
+          "output_tokens": 55,
+          "reasoning_tokens": 0
+        },
+        "cost_usd": 0.00152
+      },
+      "reviewed_label": true,
+      "agrees": true
+    },
+    {
+      "case_id": "candidate-phil-followup-r0",
+      "reference": {
+        "case_id": "candidate-phil-followup-r0",
+        "capture_path": "docs/implementation/issue-9/candidate-capture.json",
+        "capture_sha256": "0cdcf19d80be3d0817a8c4996b2368cf4883097c229636b1b3a8f9c0f56b529e",
+        "capture_case_id": "phil-followup-r0",
+        "response_sha256": "114f4d0b51678f5eec7b102f8039f5c2999c0a308fe2514128e33bb9bc5881e3",
+        "reference_sha256": "2e86728a1871ea849337fa26feb43aabc18f0fc5070057a7c098f6c59e6b8192",
+        "supplied": {
+          "answer": "Right, listen. I arrived in Walford to open an automobile repair shop called The Arches.",
+          "context": [
+            {
+              "evidence_id": "phil-mitchell-wiki-0018-15527",
+              "text": "Phil Mitchell first arrives in Walford in February 1990 to open an automobile repair shop, known as The Arches; he is joined by his younger brother Grant (Ross Kemp). Two years later, Phil goes into partnership at The Queen Victoria public house with Grant and his wife Sharon Watts (Letitia Dean) \u2013 up to the point where he moves in with them. Phil grows close to Sharon, who turns to him for comfort during Grant's violent outbursts. Sharon and Phil have sex but she stays with Grant, who is unaware of their betrayal. Sharon and Grant's reconciliation is brief, and amidst more rowing and physical violence, Grant is arrested and imprisoned. In his absence, Phil and Sharon continue their affair but when Grant is released, Sharon reconciles with him, leaving Phil heartbroken. On the rebound, Phil enters into a marriage of convenience with Nadia Borovac (Anna Barkan) - a Romanian refugee - enabling her to stay in Britain, with Nadia departing after the wedding."
+            },
+            {
+              "evidence_id": "janine-butcher-wiki-0028-19802",
+              "text": "Mitchells."
+            }
+          ]
+        },
+        "input_sha256": "55b37e6f6b05ba2b8a7f154b83678d05c66abf3f145ca24465cd63421ace3da2",
+        "reviewed_label": true,
+        "review_note": "Every factual assertion in this exact answer-plus-qualification input is directly supported by the supplied Phil arrival/Arches passage. First person denotes Phil. Month/year precision and absence of a day are supported by the passage. No completeness or original-question relevance judgment is encoded in this support label.",
+        "reviewer": "Independent Codex AGENT source/support-input review (/root/issue9_spec); not human adjudication",
+        "reviewer_type": "AGENT",
+        "human_reviewed": false
+      },
+      "reference_sha256": "2533918d6866632607fc630e2bcac4ebc7749f9b100ae4bfcd5d1f0d806ce0c0",
+      "state": "complete",
+      "assessment": {
+        "supported": true,
+        "evidence_ids": [
+          "phil-mitchell-wiki-0018-15527"
+        ],
+        "reason": "The passage states that Phil Mitchell arrived in Walford to open an automobile repair shop known as The Arches.",
+        "input_sha256": "55b37e6f6b05ba2b8a7f154b83678d05c66abf3f145ca24465cd63421ace3da2",
+        "rubric_sha256": "99271033de9a536ea3b9b93e9efd15ad2a57f1ff0b7df54071578f141808bd1d",
+        "rubric_version": "all-assertions-supported-v1",
+        "judge_settings_sha256": "1c91a994d2d659eba99ed65f4011dc81421bcbe7ff1e5218667bbbdcd196f567",
+        "usage": {
+          "reservation_id": "d71ed43a2eba42839df7b9ecf3862f29",
+          "reserved_usd": 0.095886,
+          "cost_usd": 0.001552,
+          "request_id": "gen-1792266058-SI2VSSYeAbHNMioGUDBr",
+          "returned_model": "openai/gpt-6-sol",
+          "provider": "OpenAI",
+          "input_tokens": 501,
+          "output_tokens": 55,
+          "reasoning_tokens": 0
+        },
+        "cost_usd": 0.001552
+      },
+      "reviewed_label": true,
+      "agrees": true
+    },
+    {
+      "case_id": "candidate-ambiguous-r0",
+      "reference": {
+        "case_id": "candidate-ambiguous-r0",
+        "capture_path": "docs/implementation/issue-9/candidate-capture.json",
+        "capture_sha256": "0cdcf19d80be3d0817a8c4996b2368cf4883097c229636b1b3a8f9c0f56b529e",
+        "capture_case_id": "ambiguous-r0",
+        "response_sha256": "5f9838fb34ed3a36f3da2041f8916ca475b48c75f18ec6bcedefc155f5d7f62a",
+        "reference_sha256": "3a51a3280b543a84dda310ede9adf60b0f1b6c0230f19ac6844cdcf2ffa253e6",
+        "supplied": {
+          "answer": "Which character do you mean? Please give their full name; the reference is unresolved in the available context.",
+          "context": []
+        },
+        "input_sha256": "d3f20785f55276cae217770ebd2f7af163e3ea68a798c984c8a67b0e525588b8",
+        "reviewed_label": null,
+        "review_note": "Missing supplied final context and no canon factual assertion: unavailable without a support-model call. The garage clarification is an original-question answerability/relevance failure in the independent answer review; this context-only input cannot assess that failure.",
+        "reviewer": "Independent Codex AGENT source/support-input review (/root/issue9_spec); not human adjudication",
+        "reviewer_type": "AGENT",
+        "human_reviewed": false
+      },
+      "reference_sha256": "94f21463d59c8b32f5b0280542c20e7a0be191c411c864321c9f295766c4262e",
+      "state": "complete",
+      "assessment": {
+        "supported": null,
+        "evidence_ids": [],
+        "reason": "Missing supplied context.",
+        "input_sha256": "d3f20785f55276cae217770ebd2f7af163e3ea68a798c984c8a67b0e525588b8",
+        "rubric_sha256": "99271033de9a536ea3b9b93e9efd15ad2a57f1ff0b7df54071578f141808bd1d",
+        "rubric_version": "all-assertions-supported-v1",
+        "judge_settings_sha256": "1c91a994d2d659eba99ed65f4011dc81421bcbe7ff1e5218667bbbdcd196f567",
+        "usage": null,
+        "cost_usd": 0.0
+      },
+      "reviewed_label": null,
+      "agrees": null
+    },
+    {
+      "case_id": "candidate-isolated-r0",
+      "reference": {
+        "case_id": "candidate-isolated-r0",
+        "capture_path": "docs/implementation/issue-9/candidate-capture.json",
+        "capture_sha256": "0cdcf19d80be3d0817a8c4996b2368cf4883097c229636b1b3a8f9c0f56b529e",
+        "capture_case_id": "isolated-r0",
+        "response_sha256": "02c3e16ff21aebc478df4bb5e3adf63e8ae25cd2b058e95337435738dde4da8b",
+        "reference_sha256": "bf9df69073e3ad523515ec9afa4cb63050e45764825873eb3f089ec5cefc2183",
+        "supplied": {
+          "answer": "Which character do you mean? Please give their full name; the reference is unresolved in the available context.",
+          "context": []
+        },
+        "input_sha256": "d3f20785f55276cae217770ebd2f7af163e3ea68a798c984c8a67b0e525588b8",
+        "reviewed_label": null,
+        "review_note": "Missing supplied final context and no canon factual assertion: unavailable without a support-model call. The garage clarification is an original-question answerability/relevance failure in the independent answer review; this context-only input cannot assess that failure.",
+        "reviewer": "Independent Codex AGENT source/support-input review (/root/issue9_spec); not human adjudication",
+        "reviewer_type": "AGENT",
+        "human_reviewed": false
+      },
+      "reference_sha256": "3a33aa493b59c678b7fb9cd858f8479821b2d21aac929a9db4f79a6e2dbe494d",
+      "state": "complete",
+      "assessment": {
+        "supported": null,
+        "evidence_ids": [],
+        "reason": "Missing supplied context.",
+        "input_sha256": "d3f20785f55276cae217770ebd2f7af163e3ea68a798c984c8a67b0e525588b8",
+        "rubric_sha256": "99271033de9a536ea3b9b93e9efd15ad2a57f1ff0b7df54071578f141808bd1d",
+        "rubric_version": "all-assertions-supported-v1",
+        "judge_settings_sha256": "1c91a994d2d659eba99ed65f4011dc81421bcbe7ff1e5218667bbbdcd196f567",
+        "usage": null,
+        "cost_usd": 0.0
+      },
+      "reviewed_label": null,
+      "agrees": null
+    },
+    {
+      "case_id": "candidate-janine-butcher-profile-r0",
+      "reference": {
+        "case_id": "candidate-janine-butcher-profile-r0",
+        "capture_path": "docs/implementation/issue-9/candidate-capture.json",
+        "capture_sha256": "0cdcf19d80be3d0817a8c4996b2368cf4883097c229636b1b3a8f9c0f56b529e",
+        "capture_case_id": "janine-butcher-profile-r0",
+        "response_sha256": "de8efce92594d435c05018613ab1e6d5b84ac7aa9f02ec332fd7cafb15e7cf0d",
+        "reference_sha256": "6ccae293c2179a707caedf4235ea30306ebea91401994a4d33eb808f4de65894",
+        "supplied": {
+          "answer": "Right, listen. It was Frank, not Janine, who had the 1994 breakdown. When Frank returned to Walford in 1998, he left Janine with Clare Bates.\n\nQualification: Frank had the 1994 breakdown; the account of Janine being left with Clare concerns 1998.\n\nQualification: Frank's breakdown and disappearance occurred in April 1994.\n\nQualification: Frank left Janine with Clare in 1998; no month or day is stated.",
+          "context": [
+            {
+              "evidence_id": "pat-butcher-wiki-0024-17192",
+              "text": "Pat returns in the autumn, but by then the Butchers are in financial ruin. In desperation, Frank pays local hardman Phil Mitchell (Steve McFadden) to torch the car lot in an insurance scam. When this goes wrong and a homeless boy dies, Frank has a breakdown and in April 1994, he abandons Pat and his children, leaving Pat destitute and heartbroken. Eventually, Frank's eldest daughter Diane (Sophie Lawrence) brings news that Frank is alive and so Pat begins getting on with her life."
+            },
+            {
+              "evidence_id": "janine-butcher-wiki-0022-13489",
+              "text": "Janine makes friends with Clare Bates (Gemma Bissix) and Sonia Jackson (Natalie Cassidy) and they cause trouble for Felix Kawalski (Harry Landis), when they spread rumours that he is a pervert who murdered his wife, and keeps her body in his cellar. She is overjoyed when Frank returns, and they move to Manchester in 1996. However, Frank returns to Walford in 1998, leaving Janine with Clare."
+            }
+          ]
+        },
+        "input_sha256": "9e69ec2604005ca67b5479a6baaba0571a5e00c3876f35391cae43913ebb75af",
+        "reviewed_label": null,
+        "review_note": "Unresolved contextual support, not a negative reference label. The supplied passages support Frank's 1994 breakdown/April departure and a 1998 departure leaving Janine with an unqualified Clare. The answer adds the Bates identity, but the 1998 sentence does not explicitly disambiguate it; retained HTML elsewhere also identifies sister Clare Butcher. The entire exact support input therefore remains unavailable pending identity adjudication. The original question is absent from this judge input, so its false-premise correction failure in the six-dimensional answer review does not become a context-only failure label. Qualifying statements that the requested caretaker is absent from the supplied final context concern that narrow context only; no corpus-wide absence is endorsed.",
+        "reviewer": "Independent Codex AGENT source/support-input review (/root/issue9_spec); not human adjudication",
+        "reviewer_type": "AGENT",
+        "human_reviewed": false
+      },
+      "reference_sha256": "7b38f341c892e307becd258e31412968e979d71e443bc5220eec0a73963828dd",
+      "state": "complete",
+      "assessment": {
+        "supported": true,
+        "evidence_ids": [
+          "pat-butcher-wiki-0024-17192",
+          "janine-butcher-wiki-0022-13489"
+        ],
+        "reason": "The first passage says Frank had a breakdown and abandoned his family in April 1994. The second says Frank returned to Walford in 1998, leaving Janine with Clare; it gives no month or day for that event.",
+        "input_sha256": "9e69ec2604005ca67b5479a6baaba0571a5e00c3876f35391cae43913ebb75af",
+        "rubric_sha256": "99271033de9a536ea3b9b93e9efd15ad2a57f1ff0b7df54071578f141808bd1d",
+        "rubric_version": "all-assertions-supported-v1",
+        "judge_settings_sha256": "1c91a994d2d659eba99ed65f4011dc81421bcbe7ff1e5218667bbbdcd196f567",
+        "usage": {
+          "reservation_id": "942c1cf7889c4e86b103ebac1192beab",
+          "reserved_usd": 0.096324,
+          "cost_usd": 0.00208,
+          "request_id": "gen-1792266061-AKElqgBhs6N9sKrNGBNf",
+          "returned_model": "openai/gpt-6-sol",
+          "provider": "OpenAI",
+          "input_tokens": 580,
+          "output_tokens": 92,
+          "reasoning_tokens": 0
+        },
+        "cost_usd": 0.00208
+      },
+      "reviewed_label": null,
+      "agrees": null
+    },
+    {
+      "case_id": "candidate-phil-mitchell-missing-r0",
+      "reference": {
+        "case_id": "candidate-phil-mitchell-missing-r0",
+        "capture_path": "docs/implementation/issue-9/candidate-capture.json",
+        "capture_sha256": "0cdcf19d80be3d0817a8c4996b2368cf4883097c229636b1b3a8f9c0f56b529e",
+        "capture_case_id": "phil-mitchell-missing-r0",
+        "response_sha256": "d372727e0e295707171ddd130d40e908586fb7511e548ec4f3d3814a2782a90b",
+        "reference_sha256": "a17ceb96ebb7fb12d0eb645d0d772a7b76b765841413b3470a996927ccab8cc5",
+        "supplied": {
+          "answer": "This captured evidence cannot answer what my current mobile phone number is.",
+          "context": [
+            {
+              "evidence_id": "phil-mitchell-wiki-0062-77727",
+              "text": "Mitchell's, Keeble eventually agrees to this deal and retires from the police force and Phil is a free man."
+            },
+            {
+              "evidence_id": "janine-butcher-wiki-0028-19802",
+              "text": "Mitchells."
+            },
+            {
+              "evidence_id": "phil-mitchell-wiki-0064-79876",
+              "text": "from the family after a fight with Teddy's son Harry Mitchell (Elijah Holloway) in the aftermath of Stevie's departure; now isolated from all of his children, Phil descends into a depression."
+            }
+          ]
+        },
+        "input_sha256": "09f5eb80cff92bcd80c717edb8cc30a60bbe1ec110c2be3e6f1c827fe01ad702",
+        "reviewed_label": null,
+        "review_note": "This is a limitation/abstention, with no substantive factual assertion about EastEnders or a phone number. The rubric returns null for no factual assertions. The final context has no current mobile number, but the response is not promoted into a factual claim that no phone number exists. No completeness, answerability or original-question relevance label is inferred by this context-only check.",
+        "reviewer": "Independent Codex AGENT source/support-input review (/root/issue9_spec); not human adjudication",
+        "reviewer_type": "AGENT",
+        "human_reviewed": false
+      },
+      "reference_sha256": "da8ba0b626b65decb7d21f0f7658f1f8a14d433fcc3686ad50b812bc1e4257a1",
+      "state": "complete",
+      "assessment": {
+        "supported": true,
+        "evidence_ids": [
+          "phil-mitchell-wiki-0062-77727",
+          "janine-butcher-wiki-0028-19802",
+          "phil-mitchell-wiki-0064-79876"
+        ],
+        "reason": "The supplied passages discuss the Mitchell family and contain no information about the user's current mobile phone number.",
+        "input_sha256": "09f5eb80cff92bcd80c717edb8cc30a60bbe1ec110c2be3e6f1c827fe01ad702",
+        "rubric_sha256": "99271033de9a536ea3b9b93e9efd15ad2a57f1ff0b7df54071578f141808bd1d",
+        "rubric_version": "all-assertions-supported-v1",
+        "judge_settings_sha256": "1c91a994d2d659eba99ed65f4011dc81421bcbe7ff1e5218667bbbdcd196f567",
+        "usage": {
+          "reservation_id": "ce39651737064f9d9302031e77d48687",
+          "reserved_usd": 0.09465,
+          "cost_usd": 0.00154,
+          "request_id": "gen-1792266064-d4Q4RuC6wYUGVkLe0N6C",
+          "returned_model": "openai/gpt-6-sol",
+          "provider": "OpenAI",
+          "input_tokens": 380,
+          "output_tokens": 78,
+          "reasoning_tokens": 0
+        },
+        "cost_usd": 0.00154
+      },
+      "reviewed_label": null,
+      "agrees": null
+    },
+    {
+      "case_id": "candidate-cross-mitchell-garage-r0",
+      "reference": {
+        "case_id": "candidate-cross-mitchell-garage-r0",
+        "capture_path": "docs/implementation/issue-9/candidate-capture.json",
+        "capture_sha256": "0cdcf19d80be3d0817a8c4996b2368cf4883097c229636b1b3a8f9c0f56b529e",
+        "capture_case_id": "cross-mitchell-garage-r0",
+        "response_sha256": "76271cff9d069c050c0a9dd37c98db10d97725afc91b9324e6a939512c225bb4",
+        "reference_sha256": "a8a0b41662a3c0d490e1fc97ddded5f30f9e5f785311661b23029123bbaf3bbe",
+        "supplied": {
+          "answer": "Which character do you mean? Please give their full name; the reference is unresolved in the available context.",
+          "context": []
+        },
+        "input_sha256": "d3f20785f55276cae217770ebd2f7af163e3ea68a798c984c8a67b0e525588b8",
+        "reviewed_label": null,
+        "review_note": "Missing supplied final context and no canon factual assertion: unavailable without a support-model call. The garage clarification is an original-question answerability/relevance failure in the independent answer review; this context-only input cannot assess that failure.",
+        "reviewer": "Independent Codex AGENT source/support-input review (/root/issue9_spec); not human adjudication",
+        "reviewer_type": "AGENT",
+        "human_reviewed": false
+      },
+      "reference_sha256": "c9345f22e79a48e3dd944fc104718157c8b5aba82176c394ad67f6d1962b3be5",
+      "state": "complete",
+      "assessment": {
+        "supported": null,
+        "evidence_ids": [],
+        "reason": "Missing supplied context.",
+        "input_sha256": "d3f20785f55276cae217770ebd2f7af163e3ea68a798c984c8a67b0e525588b8",
+        "rubric_sha256": "99271033de9a536ea3b9b93e9efd15ad2a57f1ff0b7df54071578f141808bd1d",
+        "rubric_version": "all-assertions-supported-v1",
+        "judge_settings_sha256": "1c91a994d2d659eba99ed65f4011dc81421bcbe7ff1e5218667bbbdcd196f567",
+        "usage": null,
+        "cost_usd": 0.0
+      },
+      "reviewed_label": null,
+      "agrees": null
+    },
+    {
+      "case_id": "candidate-phil-intro-r1",
+      "reference": {
+        "case_id": "candidate-phil-intro-r1",
+        "capture_path": "docs/implementation/issue-9/candidate-capture.json",
+        "capture_sha256": "0cdcf19d80be3d0817a8c4996b2368cf4883097c229636b1b3a8f9c0f56b529e",
+        "capture_case_id": "phil-intro-r1",
+        "response_sha256": "6c418c8278786fcd5a8ed35135c0c64134e84e1cc67137653169eec67e588349",
+        "reference_sha256": "6a42518ec9611ad68f7f8ff53daaa4e807ea7e12d3ecdd11b345c7f759a21abe",
+        "supplied": {
+          "answer": "Right, listen. I first arrived in Walford in February 1990.\n\nQualification: The source gives the month and year, not a day.",
+          "context": [
+            {
+              "evidence_id": "phil-mitchell-wiki-0018-15527",
+              "text": "Phil Mitchell first arrives in Walford in February 1990 to open an automobile repair shop, known as The Arches; he is joined by his younger brother Grant (Ross Kemp). Two years later, Phil goes into partnership at The Queen Victoria public house with Grant and his wife Sharon Watts (Letitia Dean) \u2013 up to the point where he moves in with them. Phil grows close to Sharon, who turns to him for comfort during Grant's violent outbursts. Sharon and Phil have sex but she stays with Grant, who is unaware of their betrayal. Sharon and Grant's reconciliation is brief, and amidst more rowing and physical violence, Grant is arrested and imprisoned. In his absence, Phil and Sharon continue their affair but when Grant is released, Sharon reconciles with him, leaving Phil heartbroken. On the rebound, Phil enters into a marriage of convenience with Nadia Borovac (Anna Barkan) - a Romanian refugee - enabling her to stay in Britain, with Nadia departing after the wedding."
+            }
+          ]
+        },
+        "input_sha256": "4ec130c11034b3dc7cdac9a262e08dc4894ddd31578cbde4b89e856b21e693c6",
+        "reviewed_label": true,
+        "review_note": "Every factual assertion in this exact answer-plus-qualification input is directly supported by the supplied Phil arrival/Arches passage. First person denotes Phil. Month/year precision and absence of a day are supported by the passage. No completeness or original-question relevance judgment is encoded in this support label.",
+        "reviewer": "Independent Codex AGENT source/support-input review (/root/issue9_spec); not human adjudication",
+        "reviewer_type": "AGENT",
+        "human_reviewed": false
+      },
+      "reference_sha256": "c27e62e85e0b0ca27b8c17a2801f20cc382791acd2db1d7cfa95999e9738a81c",
+      "state": "complete",
+      "assessment": {
+        "supported": true,
+        "evidence_ids": [
+          "phil-mitchell-wiki-0018-15527"
+        ],
+        "reason": "The passage states that Phil Mitchell first arrives in Walford in February 1990 and gives no specific day.",
+        "input_sha256": "4ec130c11034b3dc7cdac9a262e08dc4894ddd31578cbde4b89e856b21e693c6",
+        "rubric_sha256": "99271033de9a536ea3b9b93e9efd15ad2a57f1ff0b7df54071578f141808bd1d",
+        "rubric_version": "all-assertions-supported-v1",
+        "judge_settings_sha256": "1c91a994d2d659eba99ed65f4011dc81421bcbe7ff1e5218667bbbdcd196f567",
+        "usage": {
+          "reservation_id": "9357a7b3c7f046f0bfec0d575af363e3",
+          "reserved_usd": 0.095802,
+          "cost_usd": 0.00152,
+          "request_id": "gen-1792266065-wRjPUdbqRpLuVcjJix86",
+          "returned_model": "openai/gpt-6-sol",
+          "provider": "OpenAI",
+          "input_tokens": 485,
+          "output_tokens": 55,
+          "reasoning_tokens": 0
+        },
+        "cost_usd": 0.00152
+      },
+      "reviewed_label": true,
+      "agrees": true
+    },
+    {
+      "case_id": "candidate-phil-followup-r1",
+      "reference": {
+        "case_id": "candidate-phil-followup-r1",
+        "capture_path": "docs/implementation/issue-9/candidate-capture.json",
+        "capture_sha256": "0cdcf19d80be3d0817a8c4996b2368cf4883097c229636b1b3a8f9c0f56b529e",
+        "capture_case_id": "phil-followup-r1",
+        "response_sha256": "9d9f1d7fc234644170aa9d3264336306ad85ee19fdf66c444383034c28517574",
+        "reference_sha256": "7d5ce491d6563d897fb056eb394295f666ef93af88e1a900c8d21ab9a87defac",
+        "supplied": {
+          "answer": "Right, listen. I arrived in Walford to open an automobile repair shop called The Arches.",
+          "context": [
+            {
+              "evidence_id": "phil-mitchell-wiki-0018-15527",
+              "text": "Phil Mitchell first arrives in Walford in February 1990 to open an automobile repair shop, known as The Arches; he is joined by his younger brother Grant (Ross Kemp). Two years later, Phil goes into partnership at The Queen Victoria public house with Grant and his wife Sharon Watts (Letitia Dean) \u2013 up to the point where he moves in with them. Phil grows close to Sharon, who turns to him for comfort during Grant's violent outbursts. Sharon and Phil have sex but she stays with Grant, who is unaware of their betrayal. Sharon and Grant's reconciliation is brief, and amidst more rowing and physical violence, Grant is arrested and imprisoned. In his absence, Phil and Sharon continue their affair but when Grant is released, Sharon reconciles with him, leaving Phil heartbroken. On the rebound, Phil enters into a marriage of convenience with Nadia Borovac (Anna Barkan) - a Romanian refugee - enabling her to stay in Britain, with Nadia departing after the wedding."
+            },
+            {
+              "evidence_id": "janine-butcher-wiki-0028-19802",
+              "text": "Mitchells."
+            }
+          ]
+        },
+        "input_sha256": "55b37e6f6b05ba2b8a7f154b83678d05c66abf3f145ca24465cd63421ace3da2",
+        "reviewed_label": true,
+        "review_note": "Every factual assertion in this exact answer-plus-qualification input is directly supported by the supplied Phil arrival/Arches passage. First person denotes Phil. Month/year precision and absence of a day are supported by the passage. No completeness or original-question relevance judgment is encoded in this support label.",
+        "reviewer": "Independent Codex AGENT source/support-input review (/root/issue9_spec); not human adjudication",
+        "reviewer_type": "AGENT",
+        "human_reviewed": false
+      },
+      "reference_sha256": "f495e0e7fe79e9d3aca84ce7feebaeb1949834381fd0125a037dec81de842a35",
+      "state": "complete",
+      "assessment": {
+        "supported": true,
+        "evidence_ids": [
+          "phil-mitchell-wiki-0018-15527"
+        ],
+        "reason": "The passage states that Phil Mitchell arrived in Walford to open an automobile repair shop called The Arches.",
+        "input_sha256": "55b37e6f6b05ba2b8a7f154b83678d05c66abf3f145ca24465cd63421ace3da2",
+        "rubric_sha256": "99271033de9a536ea3b9b93e9efd15ad2a57f1ff0b7df54071578f141808bd1d",
+        "rubric_version": "all-assertions-supported-v1",
+        "judge_settings_sha256": "1c91a994d2d659eba99ed65f4011dc81421bcbe7ff1e5218667bbbdcd196f567",
+        "usage": {
+          "reservation_id": "d03f0998da8b4a02bee50fd431ea77c1",
+          "reserved_usd": 0.095886,
+          "cost_usd": 0.001542,
+          "request_id": "gen-1792266067-7NsKMCcbBsPekL3CkvIy",
+          "returned_model": "openai/gpt-6-sol",
+          "provider": "OpenAI",
+          "input_tokens": 501,
+          "output_tokens": 54,
+          "reasoning_tokens": 0
+        },
+        "cost_usd": 0.001542
+      },
+      "reviewed_label": true,
+      "agrees": true
+    },
+    {
+      "case_id": "candidate-ambiguous-r1",
+      "reference": {
+        "case_id": "candidate-ambiguous-r1",
+        "capture_path": "docs/implementation/issue-9/candidate-capture.json",
+        "capture_sha256": "0cdcf19d80be3d0817a8c4996b2368cf4883097c229636b1b3a8f9c0f56b529e",
+        "capture_case_id": "ambiguous-r1",
+        "response_sha256": "7d8686683318b4983604f3cff4dcfc52ef56b4ead5094b19d46a777edd821b70",
+        "reference_sha256": "662fb9f42e268c838bb3ab9b47c9a02a243b2e124d927d399a8a06b1e9e7546b",
+        "supplied": {
+          "answer": "Which character do you mean? Please give their full name; the reference is unresolved in the available context.",
+          "context": []
+        },
+        "input_sha256": "d3f20785f55276cae217770ebd2f7af163e3ea68a798c984c8a67b0e525588b8",
+        "reviewed_label": null,
+        "review_note": "Missing supplied final context and no canon factual assertion: unavailable without a support-model call. The garage clarification is an original-question answerability/relevance failure in the independent answer review; this context-only input cannot assess that failure.",
+        "reviewer": "Independent Codex AGENT source/support-input review (/root/issue9_spec); not human adjudication",
+        "reviewer_type": "AGENT",
+        "human_reviewed": false
+      },
+      "reference_sha256": "8eb4b94db6200f6361a12356a22b4184eb65db00212992c99ba6b20def616dcb",
+      "state": "complete",
+      "assessment": {
+        "supported": null,
+        "evidence_ids": [],
+        "reason": "Missing supplied context.",
+        "input_sha256": "d3f20785f55276cae217770ebd2f7af163e3ea68a798c984c8a67b0e525588b8",
+        "rubric_sha256": "99271033de9a536ea3b9b93e9efd15ad2a57f1ff0b7df54071578f141808bd1d",
+        "rubric_version": "all-assertions-supported-v1",
+        "judge_settings_sha256": "1c91a994d2d659eba99ed65f4011dc81421bcbe7ff1e5218667bbbdcd196f567",
+        "usage": null,
+        "cost_usd": 0.0
+      },
+      "reviewed_label": null,
+      "agrees": null
+    },
+    {
+      "case_id": "candidate-isolated-r1",
+      "reference": {
+        "case_id": "candidate-isolated-r1",
+        "capture_path": "docs/implementation/issue-9/candidate-capture.json",
+        "capture_sha256": "0cdcf19d80be3d0817a8c4996b2368cf4883097c229636b1b3a8f9c0f56b529e",
+        "capture_case_id": "isolated-r1",
+        "response_sha256": "60b4c3372b34a59bb54bad6c1588009e4c86e577a390f148578e501b5db78bba",
+        "reference_sha256": "94e8a3cfc8566ad757cf5a01de27c2a88a21e66e24704b6adfebce32d58a448a",
+        "supplied": {
+          "answer": "Which character do you mean? Please give their full name; the reference is unresolved in the available context.",
+          "context": []
+        },
+        "input_sha256": "d3f20785f55276cae217770ebd2f7af163e3ea68a798c984c8a67b0e525588b8",
+        "reviewed_label": null,
+        "review_note": "Missing supplied final context and no canon factual assertion: unavailable without a support-model call. The garage clarification is an original-question answerability/relevance failure in the independent answer review; this context-only input cannot assess that failure.",
+        "reviewer": "Independent Codex AGENT source/support-input review (/root/issue9_spec); not human adjudication",
+        "reviewer_type": "AGENT",
+        "human_reviewed": false
+      },
+      "reference_sha256": "5cc4f8f07968209eeec5bf876e9b388a721f039dae8f4b55fdfa795dc380beca",
+      "state": "complete",
+      "assessment": {
+        "supported": null,
+        "evidence_ids": [],
+        "reason": "Missing supplied context.",
+        "input_sha256": "d3f20785f55276cae217770ebd2f7af163e3ea68a798c984c8a67b0e525588b8",
+        "rubric_sha256": "99271033de9a536ea3b9b93e9efd15ad2a57f1ff0b7df54071578f141808bd1d",
+        "rubric_version": "all-assertions-supported-v1",
+        "judge_settings_sha256": "1c91a994d2d659eba99ed65f4011dc81421bcbe7ff1e5218667bbbdcd196f567",
+        "usage": null,
+        "cost_usd": 0.0
+      },
+      "reviewed_label": null,
+      "agrees": null
+    },
+    {
+      "case_id": "candidate-janine-butcher-profile-r1",
+      "reference": {
+        "case_id": "candidate-janine-butcher-profile-r1",
+        "capture_path": "docs/implementation/issue-9/candidate-capture.json",
+        "capture_sha256": "0cdcf19d80be3d0817a8c4996b2368cf4883097c229636b1b3a8f9c0f56b529e",
+        "capture_case_id": "janine-butcher-profile-r1",
+        "response_sha256": "400635977a8d24501a2dbc5dc6a32846fde6320fd7b21e2e07c0632546d35033",
+        "reference_sha256": "a71200ceb02d40107a93d90c1004911549153cc43a051dacccb2d04cfea1bfc0",
+        "supplied": {
+          "answer": "Right, listen. It was Frank who had the breakdown in 1994, not Janine. When Frank returned to Walford in 1998, he left Janine with Clare Bates. The captured evidence doesn\u2019t say who Janine stayed with when he disappeared in 1994.\n\nQualification: Frank, not Janine, had the 1994 breakdown; Janine was left with Clare in 1998.\n\nQualification: The accounts specify April 1994 for Frank's departure and 1998 for Janine being left with Clare.",
+          "context": [
+            {
+              "evidence_id": "pat-butcher-wiki-0024-17192",
+              "text": "Pat returns in the autumn, but by then the Butchers are in financial ruin. In desperation, Frank pays local hardman Phil Mitchell (Steve McFadden) to torch the car lot in an insurance scam. When this goes wrong and a homeless boy dies, Frank has a breakdown and in April 1994, he abandons Pat and his children, leaving Pat destitute and heartbroken. Eventually, Frank's eldest daughter Diane (Sophie Lawrence) brings news that Frank is alive and so Pat begins getting on with her life."
+            },
+            {
+              "evidence_id": "janine-butcher-wiki-0022-13489",
+              "text": "Janine makes friends with Clare Bates (Gemma Bissix) and Sonia Jackson (Natalie Cassidy) and they cause trouble for Felix Kawalski (Harry Landis), when they spread rumours that he is a pervert who murdered his wife, and keeps her body in his cellar. She is overjoyed when Frank returns, and they move to Manchester in 1996. However, Frank returns to Walford in 1998, leaving Janine with Clare."
+            }
+          ]
+        },
+        "input_sha256": "ebb0c2de3e1b3ff29ad5016a2cf37014bb7b5d3a54d9a01d324b42d10a833c49",
+        "reviewed_label": null,
+        "review_note": "Unresolved contextual support, not a negative reference label. The supplied passages support Frank's 1994 breakdown/April departure and a 1998 departure leaving Janine with an unqualified Clare. The answer adds the Bates identity, but the 1998 sentence does not explicitly disambiguate it; retained HTML elsewhere also identifies sister Clare Butcher. The entire exact support input therefore remains unavailable pending identity adjudication. The original question is absent from this judge input, so its false-premise correction failure in the six-dimensional answer review does not become a context-only failure label. Qualifying statements that the requested caretaker is absent from the supplied final context concern that narrow context only; no corpus-wide absence is endorsed.",
+        "reviewer": "Independent Codex AGENT source/support-input review (/root/issue9_spec); not human adjudication",
+        "reviewer_type": "AGENT",
+        "human_reviewed": false
+      },
+      "reference_sha256": "945c07a0ed4396d14b3f7ed98bf5aed18a7d018bba3bda035fcd66b4f81c5c64",
+      "state": "complete",
+      "assessment": {
+        "supported": true,
+        "evidence_ids": [
+          "pat-butcher-wiki-0024-17192",
+          "janine-butcher-wiki-0022-13489"
+        ],
+        "reason": "The passages say Frank had a breakdown and left in April 1994, and that he returned to Walford in 1998, leaving Janine with Clare. They do not specify who Janine stayed with when Frank left in 1994.",
+        "input_sha256": "ebb0c2de3e1b3ff29ad5016a2cf37014bb7b5d3a54d9a01d324b42d10a833c49",
+        "rubric_sha256": "99271033de9a536ea3b9b93e9efd15ad2a57f1ff0b7df54071578f141808bd1d",
+        "rubric_version": "all-assertions-supported-v1",
+        "judge_settings_sha256": "1c91a994d2d659eba99ed65f4011dc81421bcbe7ff1e5218667bbbdcd196f567",
+        "usage": {
+          "reservation_id": "01da81fd14794743a8b93a340a9e83c3",
+          "reserved_usd": 0.096396,
+          "cost_usd": 0.002916,
+          "request_id": "gen-1792266069-64qoivqAKMEctmYPA1dO",
+          "returned_model": "openai/gpt-6-sol",
+          "provider": "OpenAI",
+          "input_tokens": 593,
+          "output_tokens": 173,
+          "reasoning_tokens": 76
+        },
+        "cost_usd": 0.002916
+      },
+      "reviewed_label": null,
+      "agrees": null
+    },
+    {
+      "case_id": "candidate-phil-mitchell-missing-r1",
+      "reference": {
+        "case_id": "candidate-phil-mitchell-missing-r1",
+        "capture_path": "docs/implementation/issue-9/candidate-capture.json",
+        "capture_sha256": "0cdcf19d80be3d0817a8c4996b2368cf4883097c229636b1b3a8f9c0f56b529e",
+        "capture_case_id": "phil-mitchell-missing-r1",
+        "response_sha256": "4c894c05c4547b96065ea140719c968f29a598eaf710aec38103001831f63caf",
+        "reference_sha256": "2da933807ae300718977b6f4eea63bfdc3e9412fc26baf5a35568f9f8deef7d0",
+        "supplied": {
+          "answer": "This captured evidence cannot tell you my current mobile phone number.",
+          "context": [
+            {
+              "evidence_id": "phil-mitchell-wiki-0062-77727",
+              "text": "Mitchell's, Keeble eventually agrees to this deal and retires from the police force and Phil is a free man."
+            },
+            {
+              "evidence_id": "janine-butcher-wiki-0028-19802",
+              "text": "Mitchells."
+            },
+            {
+              "evidence_id": "phil-mitchell-wiki-0064-79876",
+              "text": "from the family after a fight with Teddy's son Harry Mitchell (Elijah Holloway) in the aftermath of Stevie's departure; now isolated from all of his children, Phil descends into a depression."
+            }
+          ]
+        },
+        "input_sha256": "97bd24be68d333148e7d9eccf5af71fdaffedd071df9248c8e872742c22cd10d",
+        "reviewed_label": null,
+        "review_note": "This is a limitation/abstention, with no substantive factual assertion about EastEnders or a phone number. The rubric returns null for no factual assertions. The final context has no current mobile number, but the response is not promoted into a factual claim that no phone number exists. No completeness, answerability or original-question relevance label is inferred by this context-only check.",
+        "reviewer": "Independent Codex AGENT source/support-input review (/root/issue9_spec); not human adjudication",
+        "reviewer_type": "AGENT",
+        "human_reviewed": false
+      },
+      "reference_sha256": "c03182684593aa73b4b0b04b940a61be1bebf9dd16ff60a9c8d4be372163674d",
+      "state": "complete",
+      "assessment": {
+        "supported": true,
+        "evidence_ids": [
+          "phil-mitchell-wiki-0062-77727",
+          "janine-butcher-wiki-0028-19802",
+          "phil-mitchell-wiki-0064-79876"
+        ],
+        "reason": "The supplied passages contain no mobile phone number or information identifying the user's current number.",
+        "input_sha256": "97bd24be68d333148e7d9eccf5af71fdaffedd071df9248c8e872742c22cd10d",
+        "rubric_sha256": "99271033de9a536ea3b9b93e9efd15ad2a57f1ff0b7df54071578f141808bd1d",
+        "rubric_version": "all-assertions-supported-v1",
+        "judge_settings_sha256": "1c91a994d2d659eba99ed65f4011dc81421bcbe7ff1e5218667bbbdcd196f567",
+        "usage": {
+          "reservation_id": "3568eab5c7c64839835b8464be247140",
+          "reserved_usd": 0.094638,
+          "cost_usd": 0.002088,
+          "request_id": "gen-1792266071-0y3sJQqe5lCJVK7mbRnw",
+          "returned_model": "openai/gpt-6-sol",
+          "provider": "OpenAI",
+          "input_tokens": 379,
+          "output_tokens": 133,
+          "reasoning_tokens": 56
+        },
+        "cost_usd": 0.002088
+      },
+      "reviewed_label": null,
+      "agrees": null
+    },
+    {
+      "case_id": "candidate-cross-mitchell-garage-r1",
+      "reference": {
+        "case_id": "candidate-cross-mitchell-garage-r1",
+        "capture_path": "docs/implementation/issue-9/candidate-capture.json",
+        "capture_sha256": "0cdcf19d80be3d0817a8c4996b2368cf4883097c229636b1b3a8f9c0f56b529e",
+        "capture_case_id": "cross-mitchell-garage-r1",
+        "response_sha256": "5afec21cc1237ab1396bca2c4921a3076f25a9ca0062343c2cf3d0241a3c3152",
+        "reference_sha256": "8fa163d938d6cc049fbb269c3d40a01e983b9f1dbdfb30ca8286324f878dc7f7",
+        "supplied": {
+          "answer": "Which character do you mean? Please give their full name; the reference is unresolved in the available context.",
+          "context": []
+        },
+        "input_sha256": "d3f20785f55276cae217770ebd2f7af163e3ea68a798c984c8a67b0e525588b8",
+        "reviewed_label": null,
+        "review_note": "Missing supplied final context and no canon factual assertion: unavailable without a support-model call. The garage clarification is an original-question answerability/relevance failure in the independent answer review; this context-only input cannot assess that failure.",
+        "reviewer": "Independent Codex AGENT source/support-input review (/root/issue9_spec); not human adjudication",
+        "reviewer_type": "AGENT",
+        "human_reviewed": false
+      },
+      "reference_sha256": "aaca482bbd604ffcd3d4037e3c828c418970f059fc362c0a07f51cde6a02fa5a",
+      "state": "complete",
+      "assessment": {
+        "supported": null,
+        "evidence_ids": [],
+        "reason": "Missing supplied context.",
+        "input_sha256": "d3f20785f55276cae217770ebd2f7af163e3ea68a798c984c8a67b0e525588b8",
+        "rubric_sha256": "99271033de9a536ea3b9b93e9efd15ad2a57f1ff0b7df54071578f141808bd1d",
+        "rubric_version": "all-assertions-supported-v1",
+        "judge_settings_sha256": "1c91a994d2d659eba99ed65f4011dc81421bcbe7ff1e5218667bbbdcd196f567",
+        "usage": null,
+        "cost_usd": 0.0
+      },
+      "reviewed_label": null,
+      "agrees": null
+    }
+  ],
+  "state": "complete",
+  "run_id": "41f3acec8e6441cf80d7cbe483734c54",
+  "summary": {
+    "observations": 28,
+    "reviewed_boolean_labels": 8,
+    "unassessed_labels": 20,
+    "agreement": 1.0,
+    "disagreements": [],
+    "decisions_without_reference_label": [
+      {
+        "case_id": "baseline-janine-butcher-profile-r0",
+        "assessment": {
+          "supported": true,
+          "evidence_ids": [
+            "pat-butcher-wiki-0024-17192",
+            "janine-butcher-wiki-0022-13489"
+          ],
+          "reason": "The passages state that Frank had a breakdown before abandoning Pat and his children in April 1994, and that he left Janine with Clare when he returned to Walford in 1998.",
+          "input_sha256": "33d514af8f130f9f806635ff474f5e784a44dfd1a6fd1596b14cb80ac52a15a6",
+          "rubric_sha256": "99271033de9a536ea3b9b93e9efd15ad2a57f1ff0b7df54071578f141808bd1d",
+          "rubric_version": "all-assertions-supported-v1",
+          "judge_settings_sha256": "1c91a994d2d659eba99ed65f4011dc81421bcbe7ff1e5218667bbbdcd196f567",
+          "usage": {
+            "reservation_id": "146359bafd80454a96ddf539cc41a580",
+            "reserved_usd": 0.096062,
+            "cost_usd": 0.001938,
+            "request_id": "gen-1792266045-AXIPTigjGbS5GWDHUfwZ",
+            "returned_model": "openai/gpt-6-sol",
+            "provider": "OpenAI",
+            "input_tokens": 549,
+            "output_tokens": 84,
+            "reasoning_tokens": 0
+          },
+          "cost_usd": 0.001938
+        },
+        "disposition": "requires_review_not_scored"
+      },
+      {
+        "case_id": "baseline-phil-mitchell-missing-r0",
+        "assessment": {
+          "supported": true,
+          "evidence_ids": [
+            "phil-mitchell-wiki-0062-77727",
+            "janine-butcher-wiki-0028-19802",
+            "phil-mitchell-wiki-0064-79876"
+          ],
+          "reason": "None of the supplied passages contains a mobile phone number or information that identifies the user's current number.",
+          "input_sha256": "97bd24be68d333148e7d9eccf5af71fdaffedd071df9248c8e872742c22cd10d",
+          "rubric_sha256": "99271033de9a536ea3b9b93e9efd15ad2a57f1ff0b7df54071578f141808bd1d",
+          "rubric_version": "all-assertions-supported-v1",
+          "judge_settings_sha256": "1c91a994d2d659eba99ed65f4011dc81421bcbe7ff1e5218667bbbdcd196f567",
+          "usage": {
+            "reservation_id": "e8f048bc64d0480291bd5457c220e137",
+            "reserved_usd": 0.094638,
+            "cost_usd": 0.001868,
+            "request_id": "gen-1792266047-X46MZSvxEQHSRoi8DEHW",
+            "returned_model": "openai/gpt-6-sol",
+            "provider": "OpenAI",
+            "input_tokens": 379,
+            "output_tokens": 111,
+            "reasoning_tokens": 31
+          },
+          "cost_usd": 0.001868
+        },
+        "disposition": "requires_review_not_scored"
+      },
+      {
+        "case_id": "baseline-janine-butcher-profile-r1",
+        "assessment": {
+          "supported": true,
+          "evidence_ids": [
+            "pat-butcher-wiki-0024-17192",
+            "janine-butcher-wiki-0022-13489"
+          ],
+          "reason": "The passages say Frank had a breakdown and abandoned Pat and his children in April 1994. They do not identify whom Janine stayed with then. The second passage says Frank returned to Walford in 1998, leaving Janine with Clare.",
+          "input_sha256": "3a09e175a31673efb49689480a7aee30e0532e3c3ae9c2da29cf48f14f234f32",
+          "rubric_sha256": "99271033de9a536ea3b9b93e9efd15ad2a57f1ff0b7df54071578f141808bd1d",
+          "rubric_version": "all-assertions-supported-v1",
+          "judge_settings_sha256": "1c91a994d2d659eba99ed65f4011dc81421bcbe7ff1e5218667bbbdcd196f567",
+          "usage": {
+            "reservation_id": "a1bf8e7234aa44fe8e2be1fdc25a2b2d",
+            "reserved_usd": 0.096186,
+            "cost_usd": 0.002088,
+            "request_id": "gen-1792266052-IkmVrZwN1SmFekZzdpaS",
+            "returned_model": "openai/gpt-6-sol",
+            "provider": "OpenAI",
+            "input_tokens": 569,
+            "output_tokens": 95,
+            "reasoning_tokens": 0
+          },
+          "cost_usd": 0.002088
+        },
+        "disposition": "requires_review_not_scored"
+      },
+      {
+        "case_id": "baseline-phil-mitchell-missing-r1",
+        "assessment": {
+          "supported": true,
+          "evidence_ids": [
+            "phil-mitchell-wiki-0062-77727",
+            "janine-butcher-wiki-0028-19802",
+            "phil-mitchell-wiki-0064-79876"
+          ],
+          "reason": "The supplied passages contain no mobile phone number or information identifying the user's number.",
+          "input_sha256": "09f5eb80cff92bcd80c717edb8cc30a60bbe1ec110c2be3e6f1c827fe01ad702",
+          "rubric_sha256": "99271033de9a536ea3b9b93e9efd15ad2a57f1ff0b7df54071578f141808bd1d",
+          "rubric_version": "all-assertions-supported-v1",
+          "judge_settings_sha256": "1c91a994d2d659eba99ed65f4011dc81421bcbe7ff1e5218667bbbdcd196f567",
+          "usage": {
+            "reservation_id": "0205e060f6d3402f9234500e25445c30",
+            "reserved_usd": 0.09465,
+            "cost_usd": 0.0015,
+            "request_id": "gen-1792266054-ZEAN1KgJSdGeqb4Q65IF",
+            "returned_model": "openai/gpt-6-sol",
+            "provider": "OpenAI",
+            "input_tokens": 380,
+            "output_tokens": 74,
+            "reasoning_tokens": 0
+          },
+          "cost_usd": 0.0015
+        },
+        "disposition": "requires_review_not_scored"
+      },
+      {
+        "case_id": "candidate-janine-butcher-profile-r0",
+        "assessment": {
+          "supported": true,
+          "evidence_ids": [
+            "pat-butcher-wiki-0024-17192",
+            "janine-butcher-wiki-0022-13489"
+          ],
+          "reason": "The first passage says Frank had a breakdown and abandoned his family in April 1994. The second says Frank returned to Walford in 1998, leaving Janine with Clare; it gives no month or day for that event.",
+          "input_sha256": "9e69ec2604005ca67b5479a6baaba0571a5e00c3876f35391cae43913ebb75af",
+          "rubric_sha256": "99271033de9a536ea3b9b93e9efd15ad2a57f1ff0b7df54071578f141808bd1d",
+          "rubric_version": "all-assertions-supported-v1",
+          "judge_settings_sha256": "1c91a994d2d659eba99ed65f4011dc81421bcbe7ff1e5218667bbbdcd196f567",
+          "usage": {
+            "reservation_id": "942c1cf7889c4e86b103ebac1192beab",
+            "reserved_usd": 0.096324,
+            "cost_usd": 0.00208,
+            "request_id": "gen-1792266061-AKElqgBhs6N9sKrNGBNf",
+            "returned_model": "openai/gpt-6-sol",
+            "provider": "OpenAI",
+            "input_tokens": 580,
+            "output_tokens": 92,
+            "reasoning_tokens": 0
+          },
+          "cost_usd": 0.00208
+        },
+        "disposition": "requires_review_not_scored"
+      },
+      {
+        "case_id": "candidate-phil-mitchell-missing-r0",
+        "assessment": {
+          "supported": true,
+          "evidence_ids": [
+            "phil-mitchell-wiki-0062-77727",
+            "janine-butcher-wiki-0028-19802",
+            "phil-mitchell-wiki-0064-79876"
+          ],
+          "reason": "The supplied passages discuss the Mitchell family and contain no information about the user's current mobile phone number.",
+          "input_sha256": "09f5eb80cff92bcd80c717edb8cc30a60bbe1ec110c2be3e6f1c827fe01ad702",
+          "rubric_sha256": "99271033de9a536ea3b9b93e9efd15ad2a57f1ff0b7df54071578f141808bd1d",
+          "rubric_version": "all-assertions-supported-v1",
+          "judge_settings_sha256": "1c91a994d2d659eba99ed65f4011dc81421bcbe7ff1e5218667bbbdcd196f567",
+          "usage": {
+            "reservation_id": "ce39651737064f9d9302031e77d48687",
+            "reserved_usd": 0.09465,
+            "cost_usd": 0.00154,
+            "request_id": "gen-1792266064-d4Q4RuC6wYUGVkLe0N6C",
+            "returned_model": "openai/gpt-6-sol",
+            "provider": "OpenAI",
+            "input_tokens": 380,
+            "output_tokens": 78,
+            "reasoning_tokens": 0
+          },
+          "cost_usd": 0.00154
+        },
+        "disposition": "requires_review_not_scored"
+      },
+      {
+        "case_id": "candidate-janine-butcher-profile-r1",
+        "assessment": {
+          "supported": true,
+          "evidence_ids": [
+            "pat-butcher-wiki-0024-17192",
+            "janine-butcher-wiki-0022-13489"
+          ],
+          "reason": "The passages say Frank had a breakdown and left in April 1994, and that he returned to Walford in 1998, leaving Janine with Clare. They do not specify who Janine stayed with when Frank left in 1994.",
+          "input_sha256": "ebb0c2de3e1b3ff29ad5016a2cf37014bb7b5d3a54d9a01d324b42d10a833c49",
+          "rubric_sha256": "99271033de9a536ea3b9b93e9efd15ad2a57f1ff0b7df54071578f141808bd1d",
+          "rubric_version": "all-assertions-supported-v1",
+          "judge_settings_sha256": "1c91a994d2d659eba99ed65f4011dc81421bcbe7ff1e5218667bbbdcd196f567",
+          "usage": {
+            "reservation_id": "01da81fd14794743a8b93a340a9e83c3",
+            "reserved_usd": 0.096396,
+            "cost_usd": 0.002916,
+            "request_id": "gen-1792266069-64qoivqAKMEctmYPA1dO",
+            "returned_model": "openai/gpt-6-sol",
+            "provider": "OpenAI",
+            "input_tokens": 593,
+            "output_tokens": 173,
+            "reasoning_tokens": 76
+          },
+          "cost_usd": 0.002916
+        },
+        "disposition": "requires_review_not_scored"
+      },
+      {
+        "case_id": "candidate-phil-mitchell-missing-r1",
+        "assessment": {
+          "supported": true,
+          "evidence_ids": [
+            "phil-mitchell-wiki-0062-77727",
+            "janine-butcher-wiki-0028-19802",
+            "phil-mitchell-wiki-0064-79876"
+          ],
+          "reason": "The supplied passages contain no mobile phone number or information identifying the user's current number.",
+          "input_sha256": "97bd24be68d333148e7d9eccf5af71fdaffedd071df9248c8e872742c22cd10d",
+          "rubric_sha256": "99271033de9a536ea3b9b93e9efd15ad2a57f1ff0b7df54071578f141808bd1d",
+          "rubric_version": "all-assertions-supported-v1",
+          "judge_settings_sha256": "1c91a994d2d659eba99ed65f4011dc81421bcbe7ff1e5218667bbbdcd196f567",
+          "usage": {
+            "reservation_id": "3568eab5c7c64839835b8464be247140",
+            "reserved_usd": 0.094638,
+            "cost_usd": 0.002088,
+            "request_id": "gen-1792266071-0y3sJQqe5lCJVK7mbRnw",
+            "returned_model": "openai/gpt-6-sol",
+            "provider": "OpenAI",
+            "input_tokens": 379,
+            "output_tokens": 133,
+            "reasoning_tokens": 56
+          },
+          "cost_usd": 0.002088
+        },
+        "disposition": "requires_review_not_scored"
+      }
+    ],
+    "false_passes": 0,
+    "negative_labels": 0,
+    "paid_calls": 16,
+    "unavailable": 12
+  },
+  "tracking_status": "FINISHED"
+}

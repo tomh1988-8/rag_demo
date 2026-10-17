@@ -1,0 +1,301 @@
+{
+  "kind": "completed-quality-workflow-validation-v1",
+  "recorded_at": "2026-10-17T19:49:16.123113+00:00",
+  "status": "runtime_validated",
+  "code_revision": "e21e43d39b48c7a18800c67b80c233ced6da2765",
+  "application_sha256": "69b746440ddd0be345175581ce3e178b8f85a8bb088e92e39d8aefea0dda081c",
+  "software_tests": {
+    "tests": 248,
+    "failures": 0,
+    "errors": 0,
+    "skipped": 0,
+    "passed": 248,
+    "elapsed_seconds": 456.413,
+    "path": "docs/implementation/issue-9/software-tests-live.xml",
+    "sha256": "fd6e812922cd90d2c710d7fdaeb8216210db028453079672de5934df6fe093c3",
+    "command": ".venv/bin/pytest -q --test-database-url DISPOSABLE_POSTGRES --junitxml docs/implementation/issue-9/software-tests-live.xml",
+    "real_postgresql_and_mlflow": true,
+    "paid_model_calls": 0
+  },
+  "mypy": {
+    "exit_code": 0,
+    "source_files": 54,
+    "command": ".venv/bin/mypy src tests scripts docs/implementation/issue-9/apply_support.py"
+  },
+  "ruff": {
+    "exit_code": 0,
+    "command": ".venv/bin/ruff check src tests scripts docs/implementation/issue-9/apply_support.py"
+  },
+  "prior_software_validation": "docs/implementation/issue-9/validation.json",
+  "prior_source_input_hashes_rechecked": 75,
+  "only_changed_prior_input": "Human approval metadata for unchanged support examples/labels",
+  "acceptance_manifest": {
+    "path": "docs/implementation/issue-9/acceptance-manifest.json",
+    "sha256": "45acef98ef995eff675f0b8e109d2e9eaf60c8be6b6f6c42260e84b5cc144538"
+  },
+  "tracking_uri": "sqlite:///artifacts/issue-9-mlflow.db",
+  "mlflow_readback": [
+    {
+      "name": "baseline-capture-v2",
+      "run_id": "ede40b6aedcb467f9bc5b10a19740104",
+      "status": "FINISHED",
+      "result_sha256": "740db33ca015f65e3e2206e3587351406bf2f43ad399bc5e8e4f1fe0f6b6a6ca",
+      "verified_declared_inputs": 4
+    },
+    {
+      "name": "candidate-capture",
+      "run_id": "69a8fd3dddaa4e2d898fbadd3f30ff4c",
+      "status": "FINISHED",
+      "result_sha256": "0cdcf19d80be3d0817a8c4996b2368cf4883097c229636b1b3a8f9c0f56b529e",
+      "verified_declared_inputs": 4
+    },
+    {
+      "name": "baseline-review",
+      "run_id": "768aba8f77e7400e9bb8202c981483ef",
+      "status": "FINISHED",
+      "result_sha256": "6e15bb77caeec7419c8df461b32844fec8fec478954d414382dd8120cbea0c2c",
+      "verified_declared_inputs": 3
+    },
+    {
+      "name": "candidate-review",
+      "run_id": "0e59a1fd2acc4086a953fb4688585654",
+      "status": "FINISHED",
+      "result_sha256": "568ab7f7bcb9e08a3cf64ce5d32ff272fdd3fdb4407940824b359908428e0c73",
+      "verified_declared_inputs": 3
+    },
+    {
+      "name": "judge-calibration",
+      "run_id": "d023a3114cb94781ba264c62e0eee2fe",
+      "status": "FINISHED",
+      "result_sha256": "f34cffd1e971193b0a7e64a90f3f97d4b8961a4d425333840dd20eee49bdfe8b",
+      "verified_declared_inputs": 5
+    },
+    {
+      "name": "support-application",
+      "run_id": "41f3acec8e6441cf80d7cbe483734c54",
+      "status": "FINISHED",
+      "result_sha256": "57af2c3facd9f89503d4046f9f710ee04179a1013058055c42623c997facd314",
+      "verified_declared_inputs": 12
+    },
+    {
+      "name": "comparison",
+      "run_id": "9663ae8413e949928349a50263b4f32a",
+      "status": "FINISHED",
+      "result_sha256": "fc1e2e599f849b8032a37b6e064766da9e56566204383eabb4f6e9a51f8c8ab2",
+      "verified_declared_inputs": 10
+    }
+  ],
+  "related_comparison_inputs_verified": 16,
+  "serving_trace_stage_readback": [
+    {
+      "capture": "baseline-capture-v2",
+      "case_id": "phil-intro-r0",
+      "trace_id": "tr-a7948991ffb7a8182c444a76ec8ff3cc",
+      "stage_ms_match": true
+    },
+    {
+      "capture": "baseline-capture-v2",
+      "case_id": "phil-followup-r0",
+      "trace_id": "tr-8db5cc5fa20c6f81451952f8b6f2d920",
+      "stage_ms_match": true
+    },
+    {
+      "capture": "baseline-capture-v2",
+      "case_id": "ambiguous-r0",
+      "trace_id": "tr-0cded483566d7971e054ff8f2f7354ed",
+      "stage_ms_match": true
+    },
+    {
+      "capture": "baseline-capture-v2",
+      "case_id": "isolated-r0",
+      "trace_id": "tr-a6fb881e794fd3dd98fbcc871298cf01",
+      "stage_ms_match": true
+    },
+    {
+      "capture": "baseline-capture-v2",
+      "case_id": "janine-butcher-profile-r0",
+      "trace_id": "tr-8f2098ecfc0897743efcda5351e8e2de",
+      "stage_ms_match": true
+    },
+    {
+      "capture": "baseline-capture-v2",
+      "case_id": "phil-mitchell-missing-r0",
+      "trace_id": "tr-6c88d7c1c12820573318ca7d2b5ec164",
+      "stage_ms_match": true
+    },
+    {
+      "capture": "baseline-capture-v2",
+      "case_id": "cross-mitchell-garage-r0",
+      "trace_id": "tr-62b6cf31219ee0e4755e1fc5e30a3a75",
+      "stage_ms_match": true
+    },
+    {
+      "capture": "baseline-capture-v2",
+      "case_id": "phil-intro-r1",
+      "trace_id": "tr-76a4b362909cc4753d661aac15c4fcc5",
+      "stage_ms_match": true
+    },
+    {
+      "capture": "baseline-capture-v2",
+      "case_id": "phil-followup-r1",
+      "trace_id": "tr-a929e1ae319de2b1015bb7bc8f31e8d7",
+      "stage_ms_match": true
+    },
+    {
+      "capture": "baseline-capture-v2",
+      "case_id": "ambiguous-r1",
+      "trace_id": "tr-930d800c9853787d2cbb35662aaa7d35",
+      "stage_ms_match": true
+    },
+    {
+      "capture": "baseline-capture-v2",
+      "case_id": "isolated-r1",
+      "trace_id": "tr-f8fecb181c0d68638e150dcd8a7dbc9a",
+      "stage_ms_match": true
+    },
+    {
+      "capture": "baseline-capture-v2",
+      "case_id": "janine-butcher-profile-r1",
+      "trace_id": "tr-688d4d9bf1d3de8d9eb650e44ca929c0",
+      "stage_ms_match": true
+    },
+    {
+      "capture": "baseline-capture-v2",
+      "case_id": "phil-mitchell-missing-r1",
+      "trace_id": "tr-62bbe76066e75d3eebc72466e2729b7a",
+      "stage_ms_match": true
+    },
+    {
+      "capture": "baseline-capture-v2",
+      "case_id": "cross-mitchell-garage-r1",
+      "trace_id": "tr-db0697b935c13e597c4ea9f3f78d6304",
+      "stage_ms_match": true
+    },
+    {
+      "capture": "candidate-capture",
+      "case_id": "phil-intro-r0",
+      "trace_id": "tr-e641cee29f486e7dea6f53cfcab90902",
+      "stage_ms_match": true
+    },
+    {
+      "capture": "candidate-capture",
+      "case_id": "phil-followup-r0",
+      "trace_id": "tr-69447c4e79ca7aa81b10f478cd035a36",
+      "stage_ms_match": true
+    },
+    {
+      "capture": "candidate-capture",
+      "case_id": "ambiguous-r0",
+      "trace_id": "tr-1c407d0c101d539050fe4520ed939ac7",
+      "stage_ms_match": true
+    },
+    {
+      "capture": "candidate-capture",
+      "case_id": "isolated-r0",
+      "trace_id": "tr-962831cf33a52ff5a7a259d497cfd026",
+      "stage_ms_match": true
+    },
+    {
+      "capture": "candidate-capture",
+      "case_id": "janine-butcher-profile-r0",
+      "trace_id": "tr-20fea65aa1dcb40a85913c14a805a9ac",
+      "stage_ms_match": true
+    },
+    {
+      "capture": "candidate-capture",
+      "case_id": "phil-mitchell-missing-r0",
+      "trace_id": "tr-1ef78a941f22f7bd790e382dc42dd034",
+      "stage_ms_match": true
+    },
+    {
+      "capture": "candidate-capture",
+      "case_id": "cross-mitchell-garage-r0",
+      "trace_id": "tr-495aeb6e98b8b291632844f4f2dfd940",
+      "stage_ms_match": true
+    },
+    {
+      "capture": "candidate-capture",
+      "case_id": "phil-intro-r1",
+      "trace_id": "tr-22d220a12df677fc276b7368f7bf075a",
+      "stage_ms_match": true
+    },
+    {
+      "capture": "candidate-capture",
+      "case_id": "phil-followup-r1",
+      "trace_id": "tr-03c796ddab2335c232138ef0b5e5a5f0",
+      "stage_ms_match": true
+    },
+    {
+      "capture": "candidate-capture",
+      "case_id": "ambiguous-r1",
+      "trace_id": "tr-7cd7485646f304cdafe7ebec911b9e47",
+      "stage_ms_match": true
+    },
+    {
+      "capture": "candidate-capture",
+      "case_id": "isolated-r1",
+      "trace_id": "tr-ac69fb3cac5d7e08e9293bc2f7f981de",
+      "stage_ms_match": true
+    },
+    {
+      "capture": "candidate-capture",
+      "case_id": "janine-butcher-profile-r1",
+      "trace_id": "tr-9a0950b4613a75908b77b32f1ed3959d",
+      "stage_ms_match": true
+    },
+    {
+      "capture": "candidate-capture",
+      "case_id": "phil-mitchell-missing-r1",
+      "trace_id": "tr-bd205d8eaffc3419620f1400d2be4b37",
+      "stage_ms_match": true
+    },
+    {
+      "capture": "candidate-capture",
+      "case_id": "cross-mitchell-garage-r1",
+      "trace_id": "tr-2cd18dc3467596a8df9f9c5a27496535",
+      "stage_ms_match": true
+    }
+  ],
+  "commands": {
+    "baseline": "scripts/evaluate_quality.py capture --references data/references/quality-comparison-v1.json --model-profile config/openrouter-sol.json --api-url http://127.0.0.1:8009 --namespace issue9-baseline-v2-development --output docs/implementation/issue-9/baseline-capture-v2.json --max-cost-usd 1 --repeats 2",
+    "candidate": "scripts/evaluate_quality.py capture --references data/references/quality-comparison-v1.json --model-profile config/evaluation-sol-low.json --api-url http://127.0.0.1:8010 --namespace issue9-candidate-development --output docs/implementation/issue-9/candidate-capture.json --max-cost-usd 1 --repeats 2",
+    "calibration": "scripts/evaluate_quality.py judge --references data/references/support-judge-v1.json --model-profile config/evaluation-sol-low.json --output docs/implementation/issue-9/judge-calibration.json --max-cost-usd 1",
+    "support_application": "docs/implementation/issue-9/apply_support.py --references docs/implementation/issue-9/support-application.references.json --calibration docs/implementation/issue-9/judge-calibration.json --profile config/evaluation-sol-low.json --output docs/implementation/issue-9/support-application.json --max-cost-usd 1",
+    "score": "scripts/evaluate_quality.py score --references CAPTURE.references.json --capture CAPTURE.json --reviews ANNOTATIONS.json --output REVIEW.json",
+    "comparison": "scripts/evaluate_quality.py compare --baseline-capture docs/implementation/issue-9/baseline-capture-v2.json --baseline-review docs/implementation/issue-9/baseline-review.json --candidate-capture docs/implementation/issue-9/candidate-capture.json --candidate-review docs/implementation/issue-9/candidate-review.json --changed-factor answer_settings --judge-calibration docs/implementation/issue-9/judge-calibration.json --software-tests docs/implementation/issue-9/software-tests-live.xml --output docs/implementation/issue-9/comparison.json"
+  },
+  "independent_review": {
+    "report": "docs/implementation/issue-9/review.md",
+    "standards_findings": 0,
+    "spec_findings": 0,
+    "live_response_reviewer_type": "AGENT",
+    "human_approval_scope": "Eight unchanged synthetic labels and specified evaluation payloads/costs",
+    "final_evidence_review": "Both independent agents verified all nine scoped criteria, recomputed comparison, checked all76 hashes, read7 FINISHED MLflow results/41 declared/16 related inputs and28 actual stage dictionaries. Zero remaining material findings; publication verification is separate."
+  },
+  "cost_usd": {
+    "baseline-capture-v2": "0.0274956",
+    "candidate-capture": "0.0247656",
+    "judge-calibration": "0.020680",
+    "support-application": "0.028290"
+  },
+  "continuation_reported_cost_usd": "0.1012312",
+  "issue9_reported_cost_including_failed_pilot_usd": "0.1104132",
+  "shared_ledger_usd": "0.343084",
+  "unsettled_reservations": 0,
+  "preserved_reservation_count": 118,
+  "release_quality_status": {
+    "baseline": "failed",
+    "candidate": "failed"
+  },
+  "held_out_outputs_inspected": 0,
+  "support_application_limitations": {
+    "positive_labels": 8,
+    "negative_labels": 0,
+    "false_pass_rate": null,
+    "unassessed_labels": 20,
+    "null_policy_mismatches": 4,
+    "unresolved_identity_boolean_decisions": 4,
+    "broader_automatic_support_enabled": false
+  },
+  "publication_and_closure_receipt": "docs/implementation/issue-9/publication.json"
+}

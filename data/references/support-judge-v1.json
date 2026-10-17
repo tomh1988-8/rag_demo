@@ -1,8 +1,8 @@
 {
   "dataset_id": "support-judge-v1",
-  "reviewer": "Codex; proposed labels awaiting Tom",
-  "human_reviewed": false,
-  "adjudication_note": "Eight proposed labels sent for human review in this implementation session; pending. User helpfulness/correction text is not an answer key.",
+  "reviewer": "Tom (human approval of all eight supplied labels); Codex (fixture author)",
+  "human_reviewed": true,
+  "adjudication_note": "Tom explicitly approved all eight supplied support labels and the described live OpenRouter evaluation in this conversation: \"continue, i approve\". Labels and examples are unchanged. Approval provenance is docs/implementation/issue-9/approval.json. User helpfulness/correction text remains a report, not an answer key.",
   "examples": [
     {
       "case_id": "chairs-supported",

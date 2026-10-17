@@ -1,0 +1,471 @@
+{
+  "review_scope": {
+    "kind": "independent-agent-source-review-v1",
+    "reviewer_type": "AGENT",
+    "human_reviewed": false,
+    "recorded_at": "2026-10-17T19:38:09.248687+00:00",
+    "original_question_controls_relevance_and_answerability": true,
+    "includes": "All original questions, actual answers, qualifications, unanswered portions, frozen required facts, actual final contexts and citations in all 14 outcomes of this run.",
+    "capture": {
+      "path": "docs/implementation/issue-9/candidate-capture.json",
+      "sha256": "0cdcf19d80be3d0817a8c4996b2368cf4883097c229636b1b3a8f9c0f56b529e"
+    },
+    "raw_references": {
+      "path": "docs/implementation/issue-9/candidate-capture.references.json",
+      "sha256": "7490fc036d3c542aae6c2fb43052b323c1f6f831e228f47e81fb8a1266e187df"
+    },
+    "development_cases": 7,
+    "repeats": 2,
+    "observations_reviewed": 14,
+    "verified_context_and_citation_instances": 24,
+    "human_approval_scope": "Tom approved the eight synthetic support labels and specified paid payloads; Tom has not adjudicated these answer annotations."
+  },
+  "source_hashes": {
+    "retained_source_batch": {
+      "path": "data/sources/core-profiles-v2.json.gz",
+      "sha256": "1cebb5169b4f36b12f900e3d73f43b4c483c6903b02a566c8f8dee96e5eba457"
+    },
+    "decompressed_source_batch_sha256": "46c33c347dbc20ee892c484982512452ba7611858ea1361de48007e1320041f5",
+    "rebuilt_snapshot_sha256": "f654d98336a75ac96ff8a38c4213429f1800775f73169811387560020dd9f218",
+    "frozen_dataset": {
+      "path": "data/references/quality-comparison-v1.json",
+      "sha256": "dfc4e22247cef79faea55ebfca325239cfcef0c4fba0f4ddc21be5503bd8bcf1"
+    }
+  },
+  "references_used": [
+    {
+      "source_id": "phil-mitchell-wiki",
+      "source_revision": "1379872347",
+      "capture_sha256": "a338d3065203be54e383f2c9c141bca22ae9aedbb950e2e1eada601bcccfe313",
+      "paragraph_ordinal": 18,
+      "paragraph_sha256": "9a13fe3539b69694d88ab06a1bd85cf898f46d65ca5ac1d958d0e0ff026bd263",
+      "text": "Phil Mitchell first arrives in Walford in February 1990 to open an automobile repair shop, known as The Arches; he is joined by his younger brother Grant (Ross Kemp). Two years later, Phil goes into partnership at The Queen Victoria public house with Grant and his wife Sharon Watts (Letitia Dean) – up to the point where he moves in with them. Phil grows close to Sharon, who turns to him for comfort during Grant's violent outbursts. Sharon and Phil have sex but she stays with Grant, who is unaware of their betrayal. Sharon and Grant's reconciliation is brief, and amidst more rowing and physical violence, Grant is arrested and imprisoned. In his absence, Phil and Sharon continue their affair but when Grant is released, Sharon reconciles with him, leaving Phil heartbroken. On the rebound, Phil enters into a marriage of convenience with Nadia Borovac (Anna Barkan) - a Romanian refugee - enabling her to stay in Britain, with Nadia departing after the wedding.",
+      "linked_titles": [
+        "Walford",
+        "Grant Mitchell (EastEnders)",
+        "Ross Kemp",
+        "Public house",
+        "Sharon Watts",
+        "Letitia Dean",
+        "Marriage of convenience",
+        "Nadia Borovac",
+        "Romania",
+        "Refugee"
+      ]
+    },
+    {
+      "source_id": "janine-butcher-wiki",
+      "source_revision": "1378379064",
+      "capture_sha256": "1edd6bcd906c84e4ebd9f78235ea8857ad1a117e67475baf675dd7b51fa56eb8",
+      "paragraph_ordinal": 21,
+      "paragraph_sha256": "0d31a9bc75ad1b67ae815fc39d34c80b6ea61d74be726ba9d32dc8d6b6098319",
+      "text": "A troublesome child, Janine throws tantrums, runs away, is a bed-wetter, a sleep-walker, a thief, a compulsive liar and a self-harmer, and hates Pat. Unable to discipline her, Pat forces Frank to take Janine to family therapy, which somehow helps. Janine refuses to go to school and Ricky finds out she is being bullied. When Frank has a breakdown and disappears in 1994, Janine stays with Pat but finds Frank's absence upsetting.",
+      "linked_titles": []
+    },
+    {
+      "source_id": "janine-butcher-wiki",
+      "source_revision": "1378379064",
+      "capture_sha256": "1edd6bcd906c84e4ebd9f78235ea8857ad1a117e67475baf675dd7b51fa56eb8",
+      "paragraph_ordinal": 22,
+      "paragraph_sha256": "62ffaba2ecef3b0022c7d0c28ccb39c594f6a58451a703463867e9cade9d7623",
+      "text": "Janine makes friends with Clare Bates (Gemma Bissix) and Sonia Jackson (Natalie Cassidy) and they cause trouble for Felix Kawalski (Harry Landis), when they spread rumours that he is a pervert who murdered his wife, and keeps her body in his cellar. She is overjoyed when Frank returns, and they move to Manchester in 1996. However, Frank returns to Walford in 1998, leaving Janine with Clare.",
+      "linked_titles": [
+        "Clare Bates",
+        "Gemma Bissix",
+        "Sonia Jackson",
+        "Natalie Cassidy",
+        "Felix Kawalski",
+        "Harry Landis"
+      ]
+    },
+    {
+      "source_id": "pat-butcher-wiki",
+      "source_revision": "1375429106",
+      "capture_sha256": "3d3cccb3f94e0904f3aa96316665b70df7bbf096054e15c36a8609f22535caed",
+      "paragraph_ordinal": 24,
+      "paragraph_sha256": "14f6f2d9c9de65bafca5a7418b14f00c0e3af655b75511e33c81a009ac40037f",
+      "text": "Pat returns in the autumn, but by then the Butchers are in financial ruin. In desperation, Frank pays local hardman Phil Mitchell (Steve McFadden) to torch the car lot in an insurance scam. When this goes wrong and a homeless boy dies, Frank has a breakdown and in April 1994, he abandons Pat and his children, leaving Pat destitute and heartbroken. Eventually, Frank's eldest daughter Diane (Sophie Lawrence) brings news that Frank is alive and so Pat begins getting on with her life.",
+      "linked_titles": [
+        "Phil Mitchell",
+        "Steve McFadden",
+        "Diane Butcher",
+        "Sophie Lawrence"
+      ]
+    },
+    {
+      "source_id": "grant-mitchell-wiki",
+      "source_revision": "1370914760",
+      "capture_sha256": "2548b2c8780b1bda430939378a28ab3b7f98eca424480b7cccfaf2eb76f42ebf",
+      "paragraph_ordinal": 23,
+      "paragraph_sha256": "b20eb9efeb9d26d49b090be2b6ead22917ec3e99717a3b6fa70d698d512987c5",
+      "text": "Grant Mitchell arrives in Albert Square in February 1990 with his older brother Phil (Steve McFadden), and the pair become co-owners of the local garage, The Arches. Grant had returned to civilian life in London having been a paratrooper in the Army, which included serving in the Falklands War at the age of 19. After a brief fling with Julie Cooper (Louise Plowright) and getting involved in various dodgy deals, Grant starts wooing the local barmaid, Sharon Watts (Letitia Dean). She grows attracted to his machismo, and soon their flirting progresses into a relationship. Fiercely protective of his girlfriend, most of Grant's initial problems in the Square revolve around his over-possessive nature and jealousy. He puts Sharon's boss Eddie Royle (Michael Melia), the landlord of The Queen Victoria public house, in hospital after he makes a pass at Sharon; he later becomes prime suspect for Royle's murder, but is proved not guilty when the killer is revealed to be Nick Cotton (John Altman), the well established local villain who eventually owns up to the crime but is found not guilty in court. In the wake of this, Grant decides to re-enlist in the army; however, he is left despondent after getting rejected for failing their psychiatric tests.",
+      "linked_titles": [
+        "Albert Square",
+        "Phil Mitchell",
+        "Steve McFadden",
+        "Paratrooper",
+        "British Army",
+        "Falklands War",
+        "Julie Cooper (EastEnders)",
+        "Louise Plowright",
+        "Sharon Watts",
+        "Letitia Dean",
+        "Eddie Royle",
+        "Michael Melia",
+        "Public house",
+        "Nick Cotton",
+        "John Altman (actor)"
+      ]
+    }
+  ],
+  "clare_identity_inspection": [
+    {
+      "html_element_id": "mwhQ",
+      "text": "Janine's backstory states that she was born just four years before her mother, June, died from cancer, and Janine subsequently went to live with her sister Clare (Lucy Foxell; Caroline O'Neill). Eventually, Janine's father, Frank (Mike Reid), moved to Walford with her older siblings Ricky (Sid Owen) and Diane (Sophie Lawrence), as well as with his beloved wife Pat Wicks (Pam St Clement). Soon afterwards, Clare moved to Manchester in 1989, leaving Janine with Pat and Frank.",
+      "clare_links": [
+        {
+          "label": "Clare",
+          "href": "https://en.wikipedia.org/wiki/Clare_Butcher"
+        }
+      ]
+    },
+    {
+      "html_element_id": "mwATg",
+      "text": "Janine makes friends with Clare Bates (Gemma Bissix) and Sonia Jackson (Natalie Cassidy) and they cause trouble for Felix Kawalski (Harry Landis), when they spread rumours that he is a pervert who murdered his wife, and keeps her body in his cellar. She is overjoyed when Frank returns, and they move to Manchester in 1996. However, Frank returns to Walford in 1998, leaving Janine with Clare.",
+      "clare_links": [
+        {
+          "label": "Clare Bates",
+          "href": "https://en.wikipedia.org/wiki/Clare_Bates"
+        }
+      ]
+    }
+  ],
+  "review_policy": {
+    "correctness": "Reviewed reference agreement; no independent factual key is created from the answer. The unannotated, unresolved 1998 Clare Bates assertion stays null.",
+    "grounding": "Support against the actual supplied final context, independent of completeness. Unresolved Clare identity support stays null.",
+    "citation_support": "Semantic support of each assessed claim by the actual cited passages. Structural IDs, text hashes and source revisions were independently checked against the retained source snapshot.",
+    "completeness": "Every frozen required fact is assessed in its unchanged original order.",
+    "answerability": "Appropriateness against the original user request and the independent corpus reference, rather than merely matching the returned status string.",
+    "relevance": "Whether the returned content answers the original request or appropriately requests needed clarification.",
+    "empty_claims": "Pure clarification/abstention supplies no canon assertions: claim-level metrics remain null, while answerability/relevance are assessed separately.",
+    "critical_failures": "false_premise records the demonstrably wrong correction of the original Janine question. Ambiguous 1998 identity is not silently escalated into an invented adjudicated fact."
+  },
+  "limitations": [
+    "This is an independent agent review, not human answer adjudication or independent canon corroboration. The retained Wikipedia snapshot remains the source boundary.",
+    "Seven exposed development cases and their dependent repeats do not establish held-out quality or a provider-wide reliability distribution.",
+    "The complete 1998 Clare Bates assertion has insufficient frozen correctness annotation and unresolved contextual identity; null labels are intentional and must remain visible.",
+    "For the partial Janine outputs, evidence-limitation wording is assessed only against supplied final context; no absence from the entire captured corpus is endorsed.",
+    "No domain assertion is added solely to manufacture a nonzero scorer denominator for clarification or abstention cases.",
+    "Product failures in original-question resolution/context selection are recorded, not repaired or hidden under this evaluation ticket."
+  ],
+  "reviews": [
+    {
+      "case_id": "phil-intro-r0",
+      "response_sha256": "9fea3bc6f3f320fb21e618033423b39fc6bd982aab93ba6e29ed806730a4f21b",
+      "reference_sha256": "7d5559df5431291914dbb7520e7333e131abab410afe513b61429ade8fe6199c",
+      "reviewer": "Independent Codex AGENT source review (/root/issue9_spec); not human adjudication",
+      "rationale": "The original named-character question is answered at the exact month/year precision supplied by the frozen independent arrival reference. The first-person persona refers to Phil. Both the factual answer and timing qualification agree with the retained Phil paragraph 18 and the actual cited final context; no day is invented.",
+      "claims": [
+        {
+          "claim": "Phil first arrived in Walford in February 1990.",
+          "correct": true,
+          "grounded": true,
+          "citation_supported": true
+        },
+        {
+          "claim": "The cited arrival passage gives the month and year without an arrival day.",
+          "correct": true,
+          "grounded": true,
+          "citation_supported": true
+        }
+      ],
+      "required_facts": [
+        {
+          "fact": "Phil first arrives in Walford in February 1990.",
+          "covered": true
+        }
+      ],
+      "answerability": true,
+      "relevance": true,
+      "critical_failures": []
+    },
+    {
+      "case_id": "phil-followup-r0",
+      "response_sha256": "114f4d0b51678f5eec7b102f8039f5c2999c0a308fe2514128e33bb9bc5881e3",
+      "reference_sha256": "2e86728a1871ea849337fa26feb43aabc18f0fc5070057a7c098f6c59e6b8192",
+      "reviewer": "Independent Codex AGENT source review (/root/issue9_spec); not human adjudication",
+      "rationale": "The preceding original user turn explicitly names Phil in this same session/repeat. The original follow-up therefore concerns Phil, and the retained Phil paragraph 18 independently states that he arrived to open the automobile repair shop The Arches. The returned answer covers the frozen fact and cites that exact final-context passage. The extra Mitchells fragment adds no factual support.",
+      "claims": [
+        {
+          "claim": "Phil opened the automobile repair shop called The Arches on arriving in Walford.",
+          "correct": true,
+          "grounded": true,
+          "citation_supported": true
+        }
+      ],
+      "required_facts": [
+        {
+          "fact": "Phil opens the automobile repair shop The Arches.",
+          "covered": true
+        }
+      ],
+      "answerability": true,
+      "relevance": true,
+      "critical_failures": []
+    },
+    {
+      "case_id": "ambiguous-r0",
+      "response_sha256": "5f9838fb34ed3a36f3da2041f8916ca475b48c75f18ec6bcedefc155f5d7f62a",
+      "reference_sha256": "3a51a3280b543a84dda310ede9adf60b0f1b6c0230f19ac6844cdcf2ffa253e6",
+      "reviewer": "Independent Codex AGENT source review (/root/issue9_spec); not human adjudication",
+      "rationale": "This is a fresh session with an unnamed pronoun and no antecedent. The frozen expected outcome is clarification, which the actual response requests. There are no EastEnders factual assertions, references requiring coverage, or citations; claim-level dimensions and completeness therefore remain unavailable with zero denominators, rather than receiving vacuous passes.",
+      "claims": [],
+      "required_facts": [],
+      "answerability": true,
+      "relevance": true,
+      "critical_failures": []
+    },
+    {
+      "case_id": "isolated-r0",
+      "response_sha256": "02c3e16ff21aebc478df4bb5e3adf63e8ae25cd2b058e95337435738dde4da8b",
+      "reference_sha256": "bf9df69073e3ad523515ec9afa4cb63050e45764825873eb3f089ec5cefc2183",
+      "reviewer": "Independent Codex AGENT source review (/root/issue9_spec); not human adjudication",
+      "rationale": "This is a fresh session with an unnamed pronoun and no antecedent. The frozen expected outcome is clarification, which the actual response requests. There are no EastEnders factual assertions, references requiring coverage, or citations; claim-level dimensions and completeness therefore remain unavailable with zero denominators, rather than receiving vacuous passes.",
+      "claims": [],
+      "required_facts": [],
+      "answerability": true,
+      "relevance": true,
+      "critical_failures": []
+    },
+    {
+      "case_id": "janine-butcher-profile-r0",
+      "response_sha256": "de8efce92594d435c05018613ab1e6d5b84ac7aa9f02ec332fd7cafb15e7cf0d",
+      "reference_sha256": "6ccae293c2179a707caedf4235ea30306ebea91401994a4d33eb808f4de65894",
+      "reviewer": "Independent Codex AGENT source review (/root/issue9_spec); not human adjudication",
+      "rationale": "The original question explicitly concerns Frank and his 1994 breakdown; the resolver rewrote his to Janine Butcher's. The false_premise qualification therefore wrongly rebukes the original question, despite the factual statement that Frank had the breakdown being supported. Independent frozen Janine paragraph 21 says Janine stayed with Pat. It was retrieved at rank 3 but excluded from the final context. Neither the answer nor the appendix states Pat as the caretaker; the 1998 answer substitutes another event, so completeness, original-question relevance and expected answerability fail. The Pat paragraph supports Frank's April 1994 departure, while Janine paragraph 22 supports a 1998 departure leaving Janine with an unqualified Clare. The added Bates identity is not independently annotated by the frozen reference, and the retained HTML also identifies a sister Clare Butcher elsewhere. The 1998 sentence has no explicit Clare identity link. No new canonical answer key is derived from the output: correctness and contextual/citation support for the full Clare Bates claim remain unassessed, rather than being manufactured passes or a definitive external-canon failure. The answered outcome gives no explicit acknowledgment that the requested 1994 caretaker remains unanswered. ",
+      "claims": [
+        {
+          "claim": "Frank, rather than Janine, had the breakdown in 1994.",
+          "correct": true,
+          "grounded": true,
+          "citation_supported": true
+        },
+        {
+          "claim": "Frank abandoned Pat and his children in April 1994.",
+          "correct": true,
+          "grounded": true,
+          "citation_supported": true
+        },
+        {
+          "claim": "The original user question wrongly attributes the 1994 breakdown to Janine, as asserted by the false_premise qualification.",
+          "correct": false,
+          "grounded": false,
+          "citation_supported": false
+        },
+        {
+          "claim": "Frank left Janine with Clare Bates in 1998.",
+          "correct": null,
+          "grounded": null,
+          "citation_supported": null
+        }
+      ],
+      "required_facts": [
+        {
+          "fact": "Janine stayed with Pat.",
+          "covered": false
+        }
+      ],
+      "answerability": false,
+      "relevance": false,
+      "critical_failures": [
+        "false_premise"
+      ]
+    },
+    {
+      "case_id": "phil-mitchell-missing-r0",
+      "response_sha256": "d372727e0e295707171ddd130d40e908586fb7511e548ec4f3d3814a2782a90b",
+      "reference_sha256": "a17ceb96ebb7fb12d0eb645d0d772a7b76b765841413b3470a996927ccab8cc5",
+      "reviewer": "Independent Codex AGENT source review (/root/issue9_spec); not human adjudication",
+      "rationale": "The frozen independently established outcome is insufficient evidence for a current mobile phone number. The actual final-context passages do not contain that identifier. The response appropriately abstains, invents no number and makes no assertion that Phil has no number. There are no canon assertions or required facts to score; correctness, grounding, completeness and citation-support denominators stay zero. The independently expected abstention and question relevance pass.",
+      "claims": [],
+      "required_facts": [],
+      "answerability": true,
+      "relevance": true,
+      "critical_failures": []
+    },
+    {
+      "case_id": "cross-mitchell-garage-r0",
+      "response_sha256": "76271cff9d069c050c0a9dd37c98db10d97725afc91b9324e6a939512c225bb4",
+      "reference_sha256": "a8a0b41662a3c0d490e1fc97ddded5f30f9e5f785311661b23029123bbaf3bbe",
+      "reviewer": "Independent Codex AGENT source review (/root/issue9_spec); not human adjudication",
+      "rationale": "The original question names Phil and Grant Mitchell and asks for their co-owned garage. The frozen Grant paragraph 23 explicitly names The Arches and both co-owners. The resolver instead requests a character name, skips retrieval and supplies no garage answer: expected answerability, completeness and relevance fail. With no factual assertion or citation, the claim-level dimensions remain unavailable. This observed serving/reference-resolution failure is retained; no question rewrite or weaker reference replaces it.",
+      "claims": [],
+      "required_facts": [
+        {
+          "fact": "Phil and Grant co-owned The Arches.",
+          "covered": false
+        }
+      ],
+      "answerability": false,
+      "relevance": false,
+      "critical_failures": []
+    },
+    {
+      "case_id": "phil-intro-r1",
+      "response_sha256": "6c418c8278786fcd5a8ed35135c0c64134e84e1cc67137653169eec67e588349",
+      "reference_sha256": "6a42518ec9611ad68f7f8ff53daaa4e807ea7e12d3ecdd11b345c7f759a21abe",
+      "reviewer": "Independent Codex AGENT source review (/root/issue9_spec); not human adjudication",
+      "rationale": "The original named-character question is answered at the exact month/year precision supplied by the frozen independent arrival reference. The first-person persona refers to Phil. Both the factual answer and timing qualification agree with the retained Phil paragraph 18 and the actual cited final context; no day is invented.",
+      "claims": [
+        {
+          "claim": "Phil first arrived in Walford in February 1990.",
+          "correct": true,
+          "grounded": true,
+          "citation_supported": true
+        },
+        {
+          "claim": "The cited arrival passage gives the month and year without an arrival day.",
+          "correct": true,
+          "grounded": true,
+          "citation_supported": true
+        }
+      ],
+      "required_facts": [
+        {
+          "fact": "Phil first arrives in Walford in February 1990.",
+          "covered": true
+        }
+      ],
+      "answerability": true,
+      "relevance": true,
+      "critical_failures": []
+    },
+    {
+      "case_id": "phil-followup-r1",
+      "response_sha256": "9d9f1d7fc234644170aa9d3264336306ad85ee19fdf66c444383034c28517574",
+      "reference_sha256": "7d5ce491d6563d897fb056eb394295f666ef93af88e1a900c8d21ab9a87defac",
+      "reviewer": "Independent Codex AGENT source review (/root/issue9_spec); not human adjudication",
+      "rationale": "The preceding original user turn explicitly names Phil in this same session/repeat. The original follow-up therefore concerns Phil, and the retained Phil paragraph 18 independently states that he arrived to open the automobile repair shop The Arches. The returned answer covers the frozen fact and cites that exact final-context passage. The extra Mitchells fragment adds no factual support.",
+      "claims": [
+        {
+          "claim": "Phil opened the automobile repair shop called The Arches on arriving in Walford.",
+          "correct": true,
+          "grounded": true,
+          "citation_supported": true
+        }
+      ],
+      "required_facts": [
+        {
+          "fact": "Phil opens the automobile repair shop The Arches.",
+          "covered": true
+        }
+      ],
+      "answerability": true,
+      "relevance": true,
+      "critical_failures": []
+    },
+    {
+      "case_id": "ambiguous-r1",
+      "response_sha256": "7d8686683318b4983604f3cff4dcfc52ef56b4ead5094b19d46a777edd821b70",
+      "reference_sha256": "662fb9f42e268c838bb3ab9b47c9a02a243b2e124d927d399a8a06b1e9e7546b",
+      "reviewer": "Independent Codex AGENT source review (/root/issue9_spec); not human adjudication",
+      "rationale": "This is a fresh session with an unnamed pronoun and no antecedent. The frozen expected outcome is clarification, which the actual response requests. There are no EastEnders factual assertions, references requiring coverage, or citations; claim-level dimensions and completeness therefore remain unavailable with zero denominators, rather than receiving vacuous passes.",
+      "claims": [],
+      "required_facts": [],
+      "answerability": true,
+      "relevance": true,
+      "critical_failures": []
+    },
+    {
+      "case_id": "isolated-r1",
+      "response_sha256": "60b4c3372b34a59bb54bad6c1588009e4c86e577a390f148578e501b5db78bba",
+      "reference_sha256": "94e8a3cfc8566ad757cf5a01de27c2a88a21e66e24704b6adfebce32d58a448a",
+      "reviewer": "Independent Codex AGENT source review (/root/issue9_spec); not human adjudication",
+      "rationale": "This is a fresh session with an unnamed pronoun and no antecedent. The frozen expected outcome is clarification, which the actual response requests. There are no EastEnders factual assertions, references requiring coverage, or citations; claim-level dimensions and completeness therefore remain unavailable with zero denominators, rather than receiving vacuous passes.",
+      "claims": [],
+      "required_facts": [],
+      "answerability": true,
+      "relevance": true,
+      "critical_failures": []
+    },
+    {
+      "case_id": "janine-butcher-profile-r1",
+      "response_sha256": "400635977a8d24501a2dbc5dc6a32846fde6320fd7b21e2e07c0632546d35033",
+      "reference_sha256": "a71200ceb02d40107a93d90c1004911549153cc43a051dacccb2d04cfea1bfc0",
+      "reviewer": "Independent Codex AGENT source review (/root/issue9_spec); not human adjudication",
+      "rationale": "The original question explicitly concerns Frank and his 1994 breakdown; the resolver rewrote his to Janine Butcher's. The false_premise qualification therefore wrongly rebukes the original question, despite the factual statement that Frank had the breakdown being supported. Independent frozen Janine paragraph 21 says Janine stayed with Pat. It was retrieved at rank 3 but excluded from the final context. Neither the answer nor the appendix states Pat as the caretaker; the 1998 answer substitutes another event, so completeness, original-question relevance and expected answerability fail. The Pat paragraph supports Frank's April 1994 departure, while Janine paragraph 22 supports a 1998 departure leaving Janine with an unqualified Clare. The added Bates identity is not independently annotated by the frozen reference, and the retained HTML also identifies a sister Clare Butcher elsewhere. The 1998 sentence has no explicit Clare identity link. No new canonical answer key is derived from the output: correctness and contextual/citation support for the full Clare Bates claim remain unassessed, rather than being manufactured passes or a definitive external-canon failure. The partial response acknowledges that the requested 1994 caretaker is unavailable from its supplied final context; that narrow limitation is grounded. Its broader evidence wording is not endorsed as a corpus-wide absence claim: the original snapshot/reference contains the Pat answer. This acknowledgment still cannot pass completeness or expected answerability. The timing appendix labels specified April 1994/year 1998 as approximate; these literal calendar values are source-supported, while that precision metadata is less accurate than the source granularity.",
+      "claims": [
+        {
+          "claim": "Frank, rather than Janine, had the breakdown in 1994.",
+          "correct": true,
+          "grounded": true,
+          "citation_supported": true
+        },
+        {
+          "claim": "Frank abandoned Pat and his children in April 1994.",
+          "correct": true,
+          "grounded": true,
+          "citation_supported": true
+        },
+        {
+          "claim": "The original user question wrongly attributes the 1994 breakdown to Janine, as asserted by the false_premise qualification.",
+          "correct": false,
+          "grounded": false,
+          "citation_supported": false
+        },
+        {
+          "claim": "Frank left Janine with Clare Bates in 1998.",
+          "correct": null,
+          "grounded": null,
+          "citation_supported": null
+        },
+        {
+          "claim": "The evidence supplied in the final model context does not identify who Janine stayed with after the 1994 disappearance.",
+          "correct": null,
+          "grounded": true,
+          "citation_supported": null
+        }
+      ],
+      "required_facts": [
+        {
+          "fact": "Janine stayed with Pat.",
+          "covered": false
+        }
+      ],
+      "answerability": false,
+      "relevance": false,
+      "critical_failures": [
+        "false_premise"
+      ]
+    },
+    {
+      "case_id": "phil-mitchell-missing-r1",
+      "response_sha256": "4c894c05c4547b96065ea140719c968f29a598eaf710aec38103001831f63caf",
+      "reference_sha256": "2da933807ae300718977b6f4eea63bfdc3e9412fc26baf5a35568f9f8deef7d0",
+      "reviewer": "Independent Codex AGENT source review (/root/issue9_spec); not human adjudication",
+      "rationale": "The frozen independently established outcome is insufficient evidence for a current mobile phone number. The actual final-context passages do not contain that identifier. The response appropriately abstains, invents no number and makes no assertion that Phil has no number. There are no canon assertions or required facts to score; correctness, grounding, completeness and citation-support denominators stay zero. The independently expected abstention and question relevance pass.",
+      "claims": [],
+      "required_facts": [],
+      "answerability": true,
+      "relevance": true,
+      "critical_failures": []
+    },
+    {
+      "case_id": "cross-mitchell-garage-r1",
+      "response_sha256": "5afec21cc1237ab1396bca2c4921a3076f25a9ca0062343c2cf3d0241a3c3152",
+      "reference_sha256": "8fa163d938d6cc049fbb269c3d40a01e983b9f1dbdfb30ca8286324f878dc7f7",
+      "reviewer": "Independent Codex AGENT source review (/root/issue9_spec); not human adjudication",
+      "rationale": "The original question names Phil and Grant Mitchell and asks for their co-owned garage. The frozen Grant paragraph 23 explicitly names The Arches and both co-owners. The resolver instead requests a character name, skips retrieval and supplies no garage answer: expected answerability, completeness and relevance fail. With no factual assertion or citation, the claim-level dimensions remain unavailable. This observed serving/reference-resolution failure is retained; no question rewrite or weaker reference replaces it.",
+      "claims": [],
+      "required_facts": [
+        {
+          "fact": "Phil and Grant co-owned The Arches.",
+          "covered": false
+        }
+      ],
+      "answerability": false,
+      "relevance": false,
+      "critical_failures": []
+    }
+  ]
+}

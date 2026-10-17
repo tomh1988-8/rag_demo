@@ -1,0 +1,30 @@
+{
+  "recorded_at": "2026-10-17T19:31:07.831369+00:00",
+  "user_statement": "continue, i approve",
+  "context": "Approval responds to the request for acceptance of all eight proposed support labels and authorization of the specified OpenRouter evaluation payloads/costs.",
+  "human_reviewer": "Tom",
+  "approved_support_labels": {
+    "chairs-supported": true,
+    "chairs-wrong-colour": false,
+    "chairs-incomplete": true,
+    "chairs-missing-input": null,
+    "books-supported": true,
+    "books-wrong-day": false,
+    "books-invented-fine": false,
+    "books-missing-input": null
+  },
+  "examples_sha256": "fadb2b0198287b9894edf200774fb5dd5230bad3c7b1501cc39f27d3711a9bb1",
+  "proposed_dataset_file_sha256": "a77c3f194b2ece9cd53006273f2484a29930d9457dd7c2b591c3783afeb02745",
+  "proposed_review_package_sha256": "35e64ba372a39e472d302d9256479a65907ac5742e1a30ef32393edff5803c51",
+  "proposed_revision": "e21e43d39b48c7a18800c67b80c233ced6da2765",
+  "authorized_payloads": [
+    "Seven frozen development questions and their retrieved Wikipedia passages",
+    "Eight synthetic support examples and planned repeat/order/verbosity variants"
+  ],
+  "destination": "OpenRouter API, pinned OpenAI GPT-6 Sol endpoint from the checked-in profiles",
+  "maximum_usd_per_command": "1",
+  "shared_nonresetting_trial_cap_usd": "5",
+  "starting_shared_ledger_usd": "0.241848",
+  "starting_unsettled_reservations": 0,
+  "prior_automatic_denial": "Historical; this explicit approval authorizes the specified execution."
+}

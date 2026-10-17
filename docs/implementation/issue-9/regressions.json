@@ -1,0 +1,170 @@
+{
+  "kind": "quality-development-regressions-v1",
+  "recorded_at": "2026-10-17T19:43:41.324586+00:00",
+  "code_revision": "e21e43d39b48c7a18800c67b80c233ced6da2765",
+  "split": "development",
+  "human_reviewed_live_answers": false,
+  "reviewer_type": "AGENT",
+  "critical_quality_gates": {
+    "baseline": "failed",
+    "candidate": "failed"
+  },
+  "input_artifacts": [
+    {
+      "path": "docs/implementation/issue-9/baseline-capture-v2.json",
+      "sha256": "740db33ca015f65e3e2206e3587351406bf2f43ad399bc5e8e4f1fe0f6b6a6ca"
+    },
+    {
+      "path": "docs/implementation/issue-9/candidate-capture.json",
+      "sha256": "0cdcf19d80be3d0817a8c4996b2368cf4883097c229636b1b3a8f9c0f56b529e"
+    },
+    {
+      "path": "docs/implementation/issue-9/baseline-annotations.json",
+      "sha256": "f07f2dbd1c9159c26eceec486b1ee954096ed3d87ca3cb490b5ce3b5b5348579"
+    },
+    {
+      "path": "docs/implementation/issue-9/candidate-annotations.json",
+      "sha256": "51397479b48d0fc6eb8fee16f7333698d52c0698ca4494adc784db8c42604268"
+    },
+    {
+      "path": "docs/implementation/issue-9/support-application.references.json",
+      "sha256": "444945f8a69da452a88b0be851afe74e9b7ee7bd95713ba2004fd6fc33224fb9"
+    },
+    {
+      "path": "docs/implementation/issue-9/support-application.json",
+      "sha256": "57af2c3facd9f89503d4046f9f710ee04179a1013058055c42623c997facd314"
+    }
+  ],
+  "affected_response_identities": {
+    "baseline": [
+      {
+        "case_id": "janine-butcher-profile-r0",
+        "response_sha256": "ab6dca821d3635b302b6cef06762b2473eb2aca2fdb2a796215d2cbb801e17af",
+        "reference_sha256": "6ccae293c2179a707caedf4235ea30306ebea91401994a4d33eb808f4de65894"
+      },
+      {
+        "case_id": "cross-mitchell-garage-r0",
+        "response_sha256": "d30c9443924e414b9f95f8b63d32e84752b9ae0d0bad2eed3792af6d9aff18b3",
+        "reference_sha256": "a8a0b41662a3c0d490e1fc97ddded5f30f9e5f785311661b23029123bbaf3bbe"
+      },
+      {
+        "case_id": "janine-butcher-profile-r1",
+        "response_sha256": "3c991b0e28a7643a679b74511028b9db9a0a91c679c1ccbbc2d14f9e19f8544e",
+        "reference_sha256": "a71200ceb02d40107a93d90c1004911549153cc43a051dacccb2d04cfea1bfc0"
+      },
+      {
+        "case_id": "cross-mitchell-garage-r1",
+        "response_sha256": "3f01eed87d764550111ae20a4963a7c12a8298b64c826c4229e01e7131215702",
+        "reference_sha256": "8fa163d938d6cc049fbb269c3d40a01e983b9f1dbdfb30ca8286324f878dc7f7"
+      }
+    ],
+    "candidate": [
+      {
+        "case_id": "janine-butcher-profile-r0",
+        "response_sha256": "de8efce92594d435c05018613ab1e6d5b84ac7aa9f02ec332fd7cafb15e7cf0d",
+        "reference_sha256": "6ccae293c2179a707caedf4235ea30306ebea91401994a4d33eb808f4de65894"
+      },
+      {
+        "case_id": "cross-mitchell-garage-r0",
+        "response_sha256": "76271cff9d069c050c0a9dd37c98db10d97725afc91b9324e6a939512c225bb4",
+        "reference_sha256": "a8a0b41662a3c0d490e1fc97ddded5f30f9e5f785311661b23029123bbaf3bbe"
+      },
+      {
+        "case_id": "janine-butcher-profile-r1",
+        "response_sha256": "400635977a8d24501a2dbc5dc6a32846fde6320fd7b21e2e07c0632546d35033",
+        "reference_sha256": "a71200ceb02d40107a93d90c1004911549153cc43a051dacccb2d04cfea1bfc0"
+      },
+      {
+        "case_id": "cross-mitchell-garage-r1",
+        "response_sha256": "5afec21cc1237ab1396bca2c4921a3076f25a9ca0062343c2cf3d0241a3c3152",
+        "reference_sha256": "8fa163d938d6cc049fbb269c3d40a01e983b9f1dbdfb30ca8286324f878dc7f7"
+      }
+    ]
+  },
+  "regressions": [
+    {
+      "regression_id": "original-question-owner-rewrite",
+      "state": "open",
+      "case_id": "janine-butcher-profile",
+      "observed": 4,
+      "expected": "The original question concerns Frank and his 1994 breakdown; Janine stayed with Pat.",
+      "actual": "The resolver rewrites his 1994 breakdown to Janine Butcher\u2019s 1994 breakdown. Every answer then wrongly corrects a false premise in the originally correct question and omits Pat.",
+      "critical_failure": "false_premise",
+      "follow_up": "Conversation-resolution maintenance before final acceptance #21. Recheck original-question semantics after any resolver repair; the narrower completed #8 matrix did not expose this construction."
+    },
+    {
+      "regression_id": "retrieved-required-span-dropped",
+      "state": "open",
+      "case_id": "janine-butcher-profile",
+      "observed": 4,
+      "retrieval": {
+        "required_passage_rank": 3,
+        "recall_at_3": 1.0,
+        "mrr_at_3": 0.3333333333333333
+      },
+      "context": {
+        "required_fact_coverage": 0.0,
+        "sufficient": false
+      },
+      "follow_up": "Retained context-budget regression for #24 fusion/context expansion. Preserve original question and independent required fact while comparing the four future ablations."
+    },
+    {
+      "regression_id": "shared-surname-reference-rejected",
+      "state": "open",
+      "case_id": "cross-mitchell-garage",
+      "observed": 4,
+      "expected": "Phil and Grant Mitchell co-owned The Arches on arriving in Walford.",
+      "actual": "The resolver finds no usable character IDs and requests clarification. Retrieval/model stages are absent and required-fact coverage is zero.",
+      "follow_up": "Conversation-resolution maintenance before #21; rerun before #24 ablations so a resolver bypass is not misattributed to retrieval quality. Historical #7 context failure remains retained separately."
+    },
+    {
+      "regression_id": "unresolved-caregiver-identity",
+      "state": "needs_adjudication",
+      "case_id": "janine-butcher-profile",
+      "observed": 4,
+      "actual": "Answers add Bates to the 1998 caregiver Clare. The supplied sentence leaves the identity unqualified; retained HTML identifies sister Clare Butcher elsewhere.",
+      "labels": {
+        "correctness": null,
+        "grounding": null,
+        "citation_support": null
+      },
+      "follow_up": "Obtain independent source-based identity adjudication before promoting a canon regression. Do not infer an answer key from candidate or judge output."
+    },
+    {
+      "regression_id": "context-judge-null-policy-mismatch",
+      "state": "requires_review_not_scored",
+      "observed": 4,
+      "case_ids": [
+        "baseline-phil-mitchell-missing-r0",
+        "baseline-phil-mitchell-missing-r1",
+        "candidate-phil-mitchell-missing-r0",
+        "candidate-phil-mitchell-missing-r1"
+      ],
+      "actual": "The judge returns true on phone abstentions whose frozen AGENT support-only review labels no-factual-assertion/unavailable.",
+      "follow_up": "#23 must retain these review dispositions and add independently adjudicated no-assertion controls; tune only with fresh validation labels. Existing synthetic calibration does not validate this outcome policy."
+    },
+    {
+      "regression_id": "context-judge-unresolved-identity-decisions",
+      "state": "requires_review_not_scored",
+      "observed": 4,
+      "case_ids": [
+        "baseline-janine-butcher-profile-r0",
+        "baseline-janine-butcher-profile-r1",
+        "candidate-janine-butcher-profile-r0",
+        "candidate-janine-butcher-profile-r1"
+      ],
+      "actual": "The judge returns true while explaining only Clare; it does not resolve the added Bates identity. The independent support label remains null.",
+      "follow_up": "#23/source review must adjudicate identity and uncertainty handling before broader automatic enablement. This is an unscored identity gap, not a measured false pass."
+    }
+  ],
+  "judge_disposition": {
+    "synthetic_calibration_eligible": true,
+    "broader_automatic_support_enabled": false,
+    "application_reviewed_positive_labels": 8,
+    "application_reviewed_negative_labels": 0,
+    "application_false_pass_rate": null,
+    "null_reference_boolean_decisions": 8,
+    "human_adjudication_required_before_promoting_unknown_labels": true
+  },
+  "split_policy": "All derivatives of these exposed development cases retain their original development story group; none becomes held-out through renaming."
+}

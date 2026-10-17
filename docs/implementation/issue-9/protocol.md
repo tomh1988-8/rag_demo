@@ -11,7 +11,7 @@ Real model results are separate from software-test results.
 development cases, with expected facts, alternative wording, forbidden assertions,
 source revisions, passage hashes, evidence sets and review notes. Repeated runs,
 paraphrases, follow-ups and source derivatives retain their story group. Historic
-group assignments remain development; Janine's therapy and garage co-ownership
+group assignments remain development; Janine's caregiver and garage co-ownership
 gaps remain regressions within that exposed partition. They cannot become a new
 holdout by changing a case ID.
 
@@ -90,6 +90,15 @@ The prototype enable gate requires complete reviewed coverage, human-reviewed
 labels, zero unresolved disagreements/false passes and no observed sensitivity
 changes. Passing eight controls would establish only this narrow synthetic scope.
 Do not treat it as a release-quality numeric threshold or broadly validated judge.
+
+The completed run in `judge-calibration.json` passes those controls. Subsequent
+application to preserved development answers uses independently frozen AGENT
+labels, not additional human calibration. It reveals four null-policy mismatches
+on no-assertion abstentions and four Boolean decisions on unresolved identity
+references. Keep those eight decisions unscored and requiring review; they do not
+broaden eligibility. No negative development support labels exist, so the live
+application has no false-pass-rate denominator. Before automatic reuse in #23,
+adjudicate these cases and add fresh validation controls for the changed scope.
 
 ## Cadence, critical gates and threshold selection
 

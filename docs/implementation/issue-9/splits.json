@@ -29,6 +29,7 @@
   "held_out_status": "Reserved for future fresh grouped comparison cases; no held-out candidate outputs inspected in this ticket.",
   "linked_regressions": [
     "docs/implementation/issue-7/regressions.json",
-    "docs/implementation/issue-8/regressions.json"
+    "docs/implementation/issue-8/regressions.json",
+    "docs/implementation/issue-9/regressions.json"
   ]
 }
