@@ -6,7 +6,8 @@ from uuid import UUID
 from pydantic import Field, StringConstraints, field_validator
 
 from ask_phil.evidence import Fingerprint, Identifier, Passage, PublicationRef, Record, Source
-from ask_phil.models import ModelSettings, OpenRouterSettings
+from ask_phil.models import LOCAL_COST_SCOPE, LOCAL_LIMITATION, ModelSettings, OpenRouterSettings
+from ask_phil.models import TokenUsage as TokenUsage
 from ask_phil.openrouter import ProviderUsage
 from ask_phil.passage_context import assemble_context as assemble_context
 from ask_phil.passage_context import context_text as context_text
@@ -92,12 +93,6 @@ class AskRequest(Record):
         return value
 
 
-class TokenUsage(Record):
-    input_tokens: int | None = None
-    output_tokens: int | None = None
-    embedding_tokens: int | None = None
-
-
 class AnswerRecord(Record):
     response_id: UUID
     question: str
@@ -130,12 +125,8 @@ class AnswerRecord(Record):
     expenditure_category: Literal["serving", "offline_evaluation"]
     estimated_api_cost_usd: float | None = 0.0
     provider_usage: ProviderUsage | None = Field(default=None, exclude_if=lambda v: v is None)
-    cost_scope: str = "Local Ollama API only; hardware, electricity and hosting are unmeasured."
-    limitation: str = (
-        "Source-supported is not independently cross-checked. Coverage is limited to the "
-        "captured snapshot. Local-model results are development smoke evidence, not a "
-        "deployment or representative quality assessment."
-    )
+    cost_scope: str = LOCAL_COST_SCOPE
+    limitation: str = LOCAL_LIMITATION
 
 
 class AnswerReceipt(Record):

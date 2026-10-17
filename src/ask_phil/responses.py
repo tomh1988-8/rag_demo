@@ -17,7 +17,8 @@ class ResponseLedger:
     def save(self, response: AnswerRecord) -> AnswerReceipt:
         token = secrets.token_urlsafe(32)
         with psycopg.connect(self.database_url, connect_timeout=5) as conn:
-            conn.execute("SELECT pg_advisory_xact_lock(728194)")
+            # Serialize first-time receipt creation independently of the refresh writer.
+            conn.execute("SELECT pg_advisory_xact_lock(728195)")
             conn.execute("""
                 CREATE TABLE IF NOT EXISTS answer_responses (
                     response_id uuid PRIMARY KEY,

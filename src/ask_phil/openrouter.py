@@ -281,10 +281,7 @@ class OpenRouterChat:
                 raise ProviderError("Provider returned no usable answer.")
             return ChatResponse(
                 message=ChatMessage(role="assistant", content=content),
-                raw={
-                    "prompt_eval_count": usage.get("prompt_tokens"),
-                    "eval_count": usage.get("completion_tokens"),
-                },
+                raw=accounting.model_dump(mode="json"),
             )
         except ProviderError:
             raise

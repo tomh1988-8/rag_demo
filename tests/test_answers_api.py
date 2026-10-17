@@ -5,6 +5,7 @@ import subprocess
 import sys
 import threading
 import time
+from concurrent.futures import ThreadPoolExecutor
 from dataclasses import replace
 from pathlib import Path
 
@@ -637,6 +638,46 @@ def test_answer_has_resolvable_citations_real_trace_and_durable_private_receipt(
         "answer_model",
     }
     assert receipt["read_token"] not in trace.to_json()
+
+
+def test_answer_receipts_return_while_a_source_refresh_writer_is_active(
+    database_url: str, seed: SourceSnapshot, models: Models, tracking_uri: str
+) -> None:
+    from ask_phil.publications import PublicationStore
+
+    EvidenceStore(database_url).load(seed)
+    TextRetriever(database_url, models.embedding, models.settings.embedding_id, 3).prepare(
+        seed.snapshot_id
+    )
+    tracking = MlflowClient(tracking_uri=tracking_uri)
+    if tracking.get_experiment_by_name("ask-phil-serving") is None:
+        tracking.create_experiment("ask-phil-serving")
+    app = create_app(database_url, models=models, tracking_uri=tracking_uri)
+    with TestClient(app) as client, ThreadPoolExecutor(max_workers=2) as pool:
+        # This is the writer held throughout source capture, indexing and publication.
+        with PublicationStore(database_url).writer():
+            pending = [
+                pool.submit(
+                    client.post,
+                    "/v1/answers",
+                    json={"snapshot_id": seed.snapshot_id, "question": "When did Phil arrive?"},
+                )
+                for _ in range(2)
+            ]
+            response_ids = set()
+            for future in pending:
+                response = future.result(timeout=15)
+                assert response.status_code == 200, response.text
+                receipt = response.json()
+                answer = receipt["response"]
+                assert answer["status"] == "answered"
+                response_ids.add(answer["response_id"])
+                saved = client.get(
+                    f"/v1/responses/{answer['response_id']}",
+                    headers={"Authorization": f"Bearer {receipt['read_token']}"},
+                )
+                assert saved.json() == answer
+            assert len(response_ids) == 2
 
 
 def test_invalid_model_citation_becomes_a_traced_failure_with_a_response_identifier(

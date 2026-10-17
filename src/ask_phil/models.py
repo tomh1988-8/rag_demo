@@ -3,24 +3,33 @@
 import asyncio
 import hashlib
 import os
+from collections.abc import Sequence
 from contextlib import nullcontext
 from contextvars import ContextVar
 from dataclasses import dataclass
 from pathlib import Path
+from typing import Any
 from urllib.parse import urlparse
 
 import httpx
 import mlflow
 from llama_index.core.base.embeddings.base import BaseEmbedding
+from llama_index.core.llms import ChatMessage
 from llama_index.llms.ollama import Ollama
 from ollama import Client, ResponseError
 from pydantic import Field, PrivateAttr, TypeAdapter
 
 from ask_phil.evidence import Fingerprint, Record
-from ask_phil.openrouter import Budget, OpenRouterChat, OpenRouterProfile, read_key
+from ask_phil.openrouter import Budget, OpenRouterChat, OpenRouterProfile, ProviderUsage, read_key
 
 QUERY_PREFIX = "task: search result | query:"
 DOCUMENT_PREFIX = "title: none | text:"
+LOCAL_COST_SCOPE = "Local Ollama API only; hardware, electricity and hosting are unmeasured."
+LOCAL_LIMITATION = (
+    "Source-supported is not independently cross-checked. Coverage is limited to the "
+    "captured snapshot. Local-model results are development smoke evidence, not a "
+    "deployment or representative quality assessment."
+)
 
 
 class ModelConfigurationError(RuntimeError):
@@ -148,6 +157,47 @@ class OpenRouterSettings(OpenRouterProfile, EmbeddingSettings):
     pass
 
 
+class TokenUsage(Record):
+    input_tokens: int | None = None
+    output_tokens: int | None = None
+    embedding_tokens: int | None = None
+
+
+class ModelExecution(Record):
+    """One call's content and accounting, including failed or skipped inference."""
+
+    content: str | None
+    usage: TokenUsage
+    provider_usage: ProviderUsage | None
+    failure_type: str | None
+    estimated_api_cost_usd: float | None
+    cost_scope: str
+    limitation: str
+
+    @property
+    def usage_complete(self) -> bool:
+        return all(value is not None for value in self.usage.model_dump().values())
+
+    @property
+    def trace_attributes(self) -> dict[str, Any]:
+        attributes: dict[str, Any] = {"observed_usage": self.usage.model_dump()}
+        available = {
+            name: value
+            for name, value in {
+                "input_tokens": self.usage.input_tokens,
+                "output_tokens": self.usage.output_tokens,
+            }.items()
+            if value is not None
+        }
+        if self.usage.input_tokens is not None and self.usage.output_tokens is not None:
+            available["total_tokens"] = self.usage.input_tokens + self.usage.output_tokens
+        if available:
+            attributes["mlflow.chat.tokenUsage"] = available
+        if self.provider_usage is not None:
+            attributes["provider_usage"] = self.provider_usage.model_dump(mode="json")
+        return attributes
+
+
 @dataclass(frozen=True)
 class Models:
     settings: ModelSettings | OpenRouterSettings
@@ -155,8 +205,80 @@ class Models:
     llm: Ollama | OpenRouterChat
 
     @property
-    def embedding_tokens(self) -> int | None:
+    def _embedding_tokens(self) -> int | None:
         return self.embedding.input_tokens if isinstance(self.embedding, LocalEmbedding) else None
+
+    def skipped_answer(self) -> ModelExecution:
+        """Report zero answer tokens without reading accounting from a previous call."""
+        return self._execution(
+            TokenUsage(input_tokens=0, output_tokens=0, embedding_tokens=self._embedding_tokens)
+        )
+
+    def generate_answer(
+        self, messages: Sequence[ChatMessage], *, schema: dict[str, Any]
+    ) -> ModelExecution:
+        """Keep provider failures and their measured or unknown spend in the same result."""
+        content = None
+        usage = TokenUsage(embedding_tokens=self._embedding_tokens)
+        failure_type = None
+        provider_usage = None
+        try:
+            result = self.llm.chat(messages, format=schema)
+            content = result.message.content
+            if not isinstance(self.llm, OpenRouterChat):
+                raw = result.raw if isinstance(result.raw, dict) else {}
+                usage = TokenUsage(
+                    input_tokens=raw.get("prompt_eval_count"),
+                    output_tokens=raw.get("eval_count"),
+                    embedding_tokens=self._embedding_tokens,
+                )
+        except (ValueError, ResponseError, httpx.HTTPError, ConnectionError) as exc:
+            failure_type = type(exc).__name__
+        if isinstance(self.llm, OpenRouterChat):
+            provider_usage = self.llm.last_call
+            if provider_usage is not None:
+                usage = TokenUsage(
+                    input_tokens=provider_usage.input_tokens,
+                    output_tokens=provider_usage.output_tokens,
+                    embedding_tokens=self._embedding_tokens,
+                )
+        return self._execution(
+            usage, content=content, provider_usage=provider_usage, failure_type=failure_type
+        )
+
+    def _execution(
+        self,
+        usage: TokenUsage,
+        *,
+        content: str | None = None,
+        provider_usage: ProviderUsage | None = None,
+        failure_type: str | None = None,
+    ) -> ModelExecution:
+        cloud = isinstance(self.llm, OpenRouterChat)
+        return ModelExecution(
+            content=content,
+            usage=usage,
+            provider_usage=provider_usage,
+            failure_type=failure_type,
+            estimated_api_cost_usd=(
+                provider_usage.cost_usd
+                if provider_usage is not None
+                else (None if cloud and failure_type is not None else 0.0)
+            ),
+            cost_scope=(
+                "OpenRouter reported inference credits only. Null means unknown cost; "
+                "the local budget retains a reservation. Credit purchase fees, tax, "
+                "local embeddings and hosting are excluded."
+                if cloud
+                else LOCAL_COST_SCOPE
+            ),
+            limitation=(
+                "Source-supported is not independently cross-checked. Coverage is limited "
+                "to the captured snapshot; this provider baseline is not deployment approval."
+                if cloud
+                else LOCAL_LIMITATION
+            ),
+        )
 
     def verify(self) -> None:
         """Reject mutable tags whose current content differs from the recorded configuration."""
