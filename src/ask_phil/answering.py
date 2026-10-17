@@ -6,12 +6,10 @@ from pathlib import Path
 from typing import Literal
 from uuid import uuid4
 
-import httpx
 import mlflow
 from llama_index.core.llms import ChatMessage
 from mlflow import MlflowClient
 from mlflow.entities import MlflowExperimentLocation
-from ollama import ResponseError
 
 from ask_phil.answers import (
     SYSTEM_PROMPT,
@@ -20,13 +18,11 @@ from ask_phil.answers import (
     AskRequest,
     Citation,
     Draft,
-    TokenUsage,
     assemble_context,
     cite_answer,
     context_text,
 )
 from ask_phil.models import Models
-from ask_phil.openrouter import OpenRouterChat, ProviderUsage
 from ask_phil.passage_context import CONTEXT_BYTE_BUDGET
 from ask_phil.publications import PublicationStore
 from ask_phil.responses import ResponseLedger
@@ -132,11 +128,10 @@ class AnswerService:
                         "byte_budget": CONTEXT_BYTE_BUDGET,
                     }
                 )
-            usage = TokenUsage(embedding_tokens=self.models.embedding_tokens)
             failure = False
-            provider_usage: ProviderUsage | None = None
             citations: tuple[Citation, ...] = ()
             if not context:
+                execution = self.models.skipped_answer()
                 draft = Draft(
                     answer=(
                         "I can't answer from the available captured context. "
@@ -146,9 +141,6 @@ class AnswerService:
                     status="insufficient_evidence",
                     qualifications=(),
                     unanswered=("The question cannot be answered from the available context.",),
-                )
-                usage = TokenUsage(
-                    input_tokens=0, output_tokens=0, embedding_tokens=self.models.embedding_tokens
                 )
                 root.set_attribute("answer_model_skipped", "empty_context")
             else:
@@ -166,34 +158,24 @@ class AnswerService:
                         ),
                     ]
                     span.set_inputs([m.model_dump(mode="json") for m in messages])
-                    try:
-                        result = self.models.llm.chat(messages, format=Draft.model_json_schema())
-                        span.set_outputs({"content": result.message.content})
-                        raw = result.raw if isinstance(result.raw, dict) else {}
-                        usage = TokenUsage(
-                            input_tokens=raw.get("prompt_eval_count"),
-                            output_tokens=raw.get("eval_count"),
-                            embedding_tokens=self.models.embedding_tokens,
-                        )
-                        span.set_attributes({"observed_usage": usage.model_dump()})
-                        available = {
-                            key: value
-                            for key, value in {
-                                "input_tokens": usage.input_tokens,
-                                "output_tokens": usage.output_tokens,
-                            }.items()
-                            if value is not None
-                        }
-                        if usage.input_tokens is not None and usage.output_tokens is not None:
-                            available["total_tokens"] = usage.input_tokens + usage.output_tokens
-                        if available:
-                            span.set_attribute("mlflow.chat.tokenUsage", available)
-                        draft = Draft.model_validate_json(result.message.content or "")
-                        citations = cite_answer(draft, context, snapshot_id)
-                    except (ValueError, ResponseError, httpx.HTTPError, ConnectionError) as exc:
+                    execution = self.models.generate_answer(
+                        messages, schema=Draft.model_json_schema()
+                    )
+                    span.set_outputs({"content": execution.content})
+                    span.set_attributes(execution.trace_attributes)
+                    validated: Draft | None = None
+                    failure_type = execution.failure_type
+                    if failure_type is None:
+                        try:
+                            candidate = Draft.model_validate_json(execution.content or "")
+                            citations = cite_answer(candidate, context, snapshot_id)
+                            validated = candidate
+                        except ValueError as exc:
+                            failure_type = type(exc).__name__
+                    if validated is None:
                         failure = True
                         span.set_status("ERROR")
-                        span.set_attributes({"failure_type": type(exc).__name__})
+                        span.set_attributes({"failure_type": failure_type})
                         root.set_status("ERROR")
                         draft = Draft(
                             answer=(
@@ -204,30 +186,9 @@ class AnswerService:
                             unanswered=(),
                             qualifications=(),
                         )
-                    if isinstance(self.models.llm, OpenRouterChat):
-                        provider_usage = self.models.llm.last_call
-                        if provider_usage:
-                            usage = TokenUsage(
-                                input_tokens=provider_usage.input_tokens,
-                                output_tokens=provider_usage.output_tokens,
-                                embedding_tokens=self.models.embedding_tokens,
-                            )
-                            span.set_attribute(
-                                "provider_usage", provider_usage.model_dump(mode="json")
-                            )
-                            span.set_attribute("observed_usage", usage.model_dump())
-                            if usage.input_tokens is not None and usage.output_tokens is not None:
-                                span.set_attribute(
-                                    "mlflow.chat.tokenUsage",
-                                    {
-                                        "input_tokens": usage.input_tokens,
-                                        "output_tokens": usage.output_tokens,
-                                        "total_tokens": usage.input_tokens + usage.output_tokens,
-                                    },
-                                )
-            root.set_attribute(
-                "usage_complete", all(value is not None for value in usage.model_dump().values())
-            )
+                    else:
+                        draft = validated
+            root.set_attribute("usage_complete", execution.usage_complete)
             response = AnswerRecord(
                 response_id=response_id,
                 question=request.question,
@@ -249,27 +210,12 @@ class AnswerService:
                 application_sha256=application_fingerprint(),
                 trace_id=root.trace_id,
                 elapsed_ms=(time.perf_counter() - started) * 1000,
-                usage=usage,
+                usage=execution.usage,
                 expenditure_category=category,
-                provider_usage=provider_usage,
-                estimated_api_cost_usd=(
-                    provider_usage.cost_usd
-                    if provider_usage
-                    else (None if failure and isinstance(self.models.llm, OpenRouterChat) else 0.0)
-                ),
-                cost_scope=(
-                    "OpenRouter reported inference credits only. Null means unknown cost; "
-                    "the local budget retains a reservation. Credit purchase fees, tax, "
-                    "local embeddings and hosting are excluded."
-                    if isinstance(self.models.llm, OpenRouterChat)
-                    else AnswerRecord.model_fields["cost_scope"].default
-                ),
-                limitation=(
-                    "Source-supported is not independently cross-checked. Coverage is limited "
-                    "to the captured snapshot; this provider baseline is not deployment approval."
-                    if isinstance(self.models.llm, OpenRouterChat)
-                    else AnswerRecord.model_fields["limitation"].default
-                ),
+                provider_usage=execution.provider_usage,
+                estimated_api_cost_usd=execution.estimated_api_cost_usd,
+                cost_scope=execution.cost_scope,
+                limitation=execution.limitation,
             )
             root.set_outputs(response.model_dump(mode="json"))
         # A returned reference must resolve to a completed trace, not just an allocated ID.

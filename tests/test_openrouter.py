@@ -194,9 +194,9 @@ def test_cloud_call_is_bounded_and_records_billing_without_secrets(
     else:
         result = chat.chat([ChatMessage(role="user", content="Hello")], format={"type": "object"})
         assert result.message.content == '{"answer":"yes"}'
-        assert isinstance(result.raw, dict)
-        assert result.raw["eval_count"] == 50
         assert chat.last_call is not None and chat.last_call.cost_usd == 0.00003
+        assert chat.last_call.input_tokens == 20
+        assert chat.last_call.output_tokens == 50
         assert chat.last_call.reasoning_tokens == 30
     assert len(paid_requests) == 1  # No retries, including ambiguous timeouts.
     assert "secret-test-key" not in chat.last_call.model_dump_json()
