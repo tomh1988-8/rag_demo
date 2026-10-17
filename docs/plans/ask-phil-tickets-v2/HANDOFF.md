@@ -2,6 +2,35 @@
 
 Updated 17 October 2026. The user approved the initial checklist/ticket breakdown, authorised publication, and subsequently required user feedback and online evaluation. Checklist v1.1 and the amended 24-ticket breakdown are published. Issues #2, #3, #4, #5, #6 and #7 are complete and closed. Issues #5 and #6 passed their full software suites, independent reviews, exact-tree publication verification and closure readback. Issue #4 passed its scoped cloud policy acceptance.
 
+## Issue #8: implementation ready; live acceptance awaiting approval
+
+The user selected the next ticket on 17 October 2026, and #8 was the next open
+unblocked ticket. [Implementation and operating contract](../../implementation/issue-8/README.md)
+cover shared API/CLI sessions, fresh retrieval per factual turn, safe reference
+clarification/selection, bounded context/lifetime, reset, immutable turn/response
+identity and an independent anonymous future-feedback capability.
+
+Twenty public reference/state regressions pass. Independent Standards and Spec
+reviews report zero remaining findings at product revision `2c99a56`; actual
+software results and their exact hashes are linked from the acceptance evidence.
+Earlier question-corruption, partial/performer identity, lost pending questions and
+relative-owner errors remain recorded as repaired regressions. No new test seam
+or account/personal-memory capability was introduced.
+
+**#8 remains open.** Its final public-path live model matrix is prepared but has
+not run: automatic approval review rejected paid OpenRouter/OpenAI calls twice,
+including reassessment with the historical $5 authorization. It requires specific
+trusted approval for this destination and spend. The sample uses only captured
+public Wikipedia evidence and frozen fictional-character questions, maximum twelve
+paid calls and $0.25 additional reported inference cost, inside the unchanged $5
+shared ledger. No paid #8 calls occurred; $0.208899 and zero unsettled reservations
+remain. Do not manufacture live quality or close #8 from software results.
+
+After approval, run the recorder documented in the acceptance evidence, independently
+review persona/facts/context/citations/outcomes/reset, record separate offline
+review results, then publish and verify the exact tree before closing #8. #9 is the
+next recommended ticket after this remaining acceptance, not a replacement for it.
+
 ## Issue #7: all 20 core text profiles
 
 [Issue #7](https://github.com/tomh1988-8/rag_demo/issues/7) is complete and closed.

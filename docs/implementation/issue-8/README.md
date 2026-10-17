@@ -43,6 +43,9 @@ and optional snapshot contract. Missing, wrong and expired credentials return
   a pending choice. Full reviewed aliases work regardless of case. Performer names
   never create character-reference state. Object pronouns need retained context;
   naming a subject does not establish who an unnamed object is.
+  A relationship question does not establish a relative's identity: later turns
+  must name the character. This context barrier prevents confusing a relative
+  with the named owner of the relationship.
 - Context expires after thirty idle minutes. Session access expires two hours
   after creation, including across API restarts. New sessions prune expired rows;
   expired rows are inaccessible before pruning. Reset immediately removes all
@@ -70,6 +73,61 @@ the next request's source retrieval, prompt and factual answer independently.
 These software checks do not establish semantic model quality.
 
 The implementation began at `f864d3570170a65b986ba0a090247f7a1167c033`.
-Separate live results, software artifacts and review findings are recorded below
-when completed. All conversation cases are exposed development data; no human
-adjudication, held-out calibration or complete canon claim applies.
+[Independent review](review.md) has zero remaining Standards and Spec findings
+at product revision `2c99a56`. Twenty public reference/state rules pass, including
+the review repairs. [The regression register](regressions.json) preserves those
+failures, the conservative scope, and earlier #7 retrieval/context limitations.
+
+## Software results
+
+The [full final suite](software-tests.xml) passes **182 tests**, zero failures,
+errors or skips, in 393.99 seconds. Ruff and strict mypy (46 source files) pass.
+[Validation](validation.json) binds the software report to the tested product
+revision, exact source/test/script/dependency/model-profile/reference hashes and
+the existing shared budget. The existing upstream Starlette/httpx TestClient
+deprecation is the only warning. Software tests used no paid model calls.
+
+The suite covers fresh retrieval after deliberately misleading output, actual
+MLflow retrieval/context/generation spans, clarification/selection, reset and
+unchanged historical responses, idle/absolute expiry, anonymous feedback lifetime,
+session isolation/recreation, concurrent turns, bounded truncation and real CLI
+HTTP transport, including interactive chat. Twenty focused reference/state cases
+include all independent review failures. The remaining live result is explicit.
+
+## Live acceptance awaiting authorization
+
+No paid model calls have run for #8. Automatic approval review rejected the capture
+command and its evidence-backed reassessment: it requires trusted authorization
+for this specific external destination and paid spend, and did not accept the
+repository's historical $5 trial authorization as sufficient. No workaround was
+attempted. The shared ledger remains **$0.208899**, zero unsettled reservations.
+
+The concrete proposed sample is [conversation development v1](../../../data/references/conversation-v1.json):
+nine real CLI/API turns plus a reset, with six factual generations expected and
+three zero-model clarifications. It uses only retained public Wikipedia passages
+and the fixed fictional-character questions, the existing OpenRouter/OpenAI Sol
+profile and the same non-resetting ledger. Its maximum is twelve paid calls and
+$0.25 additional reported inference spend within the original $5 cap. The alias
+introduction was amended before execution so the later father question has an
+unambiguous subject; this is disclosed in the frozen dataset.
+
+After specific approval, start the local API with the retained core-profile
+database and `ASK_PHIL_MODELS=config/openrouter-sol.json`, then run:
+
+```sh
+uv run python scripts/evaluate_conversation.py capture \
+  --api-url http://127.0.0.1:8008 \
+  --output docs/implementation/issue-8/serving-matrix.json
+```
+
+The recorder retains private session/read receipts under ignored `artifacts/`
+and publishes only response/trace/evidence records. Independently review every
+actual factual claim, context support, citations, required facts, persona wording,
+clarification, selection and reset; then score hash-bound `QualityReview` annotations
+using the recorder's `score --capture ... --reviews ... --output ...` mode. Serving
+generation costs remain serving; offline review has separate MLflow artifacts and
+zero answer-model calls. Do not mark #8 complete or close it before this review.
+
+All cases are exposed development data; no human adjudication, held-out calibration
+or complete canon claim applies. A passing software suite does not fill the missing
+live-model acceptance result.
