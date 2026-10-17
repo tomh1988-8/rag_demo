@@ -1,0 +1,25 @@
+{
+  "scope": "Exposed conversation development regressions; no held-out or calibrated-judge claim.",
+  "reviewed_revision": "2c99a56",
+  "fixed": [
+    "Misleading generated history never enters later source retrieval or prompts.",
+    "Former-wife wording and object/possessive pronouns preserve the requested meaning.",
+    "Lowercase withheld aliases and performer names never become the wrong character IDs.",
+    "An explicit subject cannot invent a missing unnamed object.",
+    "Named objects cannot overwrite a preceding retained subject pronoun.",
+    "A single clarification choice cannot collapse distinct unnamed participants.",
+    "Surname, supported partial-name and demonstrative selections resume the retained user question.",
+    "Unknown full names retain clarification even after a matching partial-name choice.",
+    "Relationship references create a context barrier so a relative is never inferred to be its named owner.",
+    "Reset, context expiry and truncation cannot recover older identities from saved responses.",
+    "Concurrent turns retain unique UUIDs and monotonic session turn numbers."
+  ],
+  "limits": [
+    "Deterministic English reference rules cover the reviewed cases. They are not unrestricted natural-language coreference resolution.",
+    "Use complete reviewed names/aliases in free text. Unique partial names are accepted as bare clarification choices.",
+    "Questions with distinct unnamed participants, unsupported relationship/event references or uncertain context require an explicit question with names.",
+    "A relationship question can be answered from fresh evidence, but later references require names; generated answers do not supply a relative's identity.",
+    "The earlier #7 Janine/context and explicit garage co-ownership gaps remain unchanged under #24/#9.",
+    "The approved #8 live development sample passes separate factual/support/outcome review; this does not establish broad or held-out quality."
+  ]
+}

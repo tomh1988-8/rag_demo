@@ -2,6 +2,35 @@
 
 Updated 17 October 2026. The user approved the initial checklist/ticket breakdown, authorised publication, and subsequently required user feedback and online evaluation. Checklist v1.1 and the amended 24-ticket breakdown are published. Issues #2, #3, #4, #5, #6 and #7 are complete and closed. Issues #5 and #6 passed their full software suites, independent reviews, exact-tree publication verification and closure readback. Issue #4 passed its scoped cloud policy acceptance.
 
+## Issue #8: acceptance passed; publication and closure next
+
+[Conversation implementation and acceptance](../../implementation/issue-8/README.md)
+now pass 182 software tests and the approved live public CLI/API sequence. Twenty
+reference/state regressions include all independently reviewed identity, pronoun,
+clarification-selection and relative-owner repairs. Final Standards and Spec
+reviews have zero remaining findings; no implementation changed after product
+revision `2c99a56` and its full test pass.
+
+[The live matrix](../../implementation/issue-8/serving-matrix.json) has six factual
+answers, three deterministic clarifications and a reset. Independent source-based
+reviews pass all 15 actual assertions separately for correctness, grounding and
+citation support, all seven required facts and all nine outcomes. [Actual traces](../../implementation/issue-8/execution-review.json)
+show fresh retrieval for every factual turn and zero model work for clarifications.
+[Lifecycle readback](../../implementation/issue-8/lifecycle.json) verifies original
+responses after reset/restart, session isolation and resolvable citations.
+
+Six serving calls cost $0.0237656 within the approved $0.25 slice; the unchanged
+non-resetting $5 ledger is $0.232666 with no unsettled reservations. Offline review
+uses zero answer-model calls and a separate MLflow run. All cases remain exposed
+development data in two related story groups. No human adjudication, held-out
+calibration or broad canon reliability is claimed; prior #7 context gaps remain.
+AD-05.3 now passes: 21 current checks Pass and 30 remain Pending.
+
+The user explicitly approved live execution and publication after the earlier
+automatic review denials. Those denials are no longer permission blockers. Verify
+the exact published tree before closing #8; #9 is recommended after that closure.
+Wait for the next implementation instruction before starting #9 or another ticket.
+
 ## Issue #7: all 20 core text profiles
 
 [Issue #7](https://github.com/tomh1988-8/rag_demo/issues/7) is complete and closed.
@@ -119,7 +148,7 @@ The [to-spec skill](../../../.agents/skills/to-spec/SKILL.md) authorised specifi
 
 ## First available work
 
-**[#8 — Ground follow-ups and reset conversation](https://github.com/tomh1988-8/rag_demo/issues/8)** is recommended next after #7. #9 (calibrated comparisons), #10 (execution boundaries), #11 (biological claims) and #24 (fusion/context expansion) are also unblocked. Wait for the next implementation instruction before starting another ticket. Specification #1 remains parent context.
+**[#9 — Inspect calibrated quality comparisons](https://github.com/tomh1988-8/rag_demo/issues/9)** is recommended after the accepted #8 is published and closed. #10 (execution boundaries), #11 (biological claims) and #24 (fusion/context expansion) are also unblocked. Wait for the next implementation instruction before starting another ticket. Specification #1 remains parent context.
 
 For subsequent work, read the current issue and comments, the relevant domain/ADR decisions and the checklist profile. Work the dependency frontier; the shared `ready-for-agent` label does not mean a blocked ticket can begin. Existing approved decisions and the six public test boundaries do not need another design interview.
 

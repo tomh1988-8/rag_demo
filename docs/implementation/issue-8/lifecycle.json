@@ -1,0 +1,32 @@
+{
+  "original_response_after_reset_unchanged": true,
+  "other_session_access_status": 404,
+  "session_after_reset": {
+    "session_id": "92b5d4a1-3238-4531-911e-2c8a274660ac",
+    "created_at": "2026-10-17T15:23:13.757617Z",
+    "expires_at": "2026-10-17T17:23:13.757617Z",
+    "context_expires_at": "2026-10-17T15:54:20.608461Z",
+    "generation": 1,
+    "turn_number": 8,
+    "history": [
+      {
+        "turn_id": "f0704bf6-e1a3-4f18-9aeb-86e736991455",
+        "character_ids": [],
+        "pending_question": "When did he first arrive in Walford?",
+        "reference_barrier": false
+      }
+    ]
+  },
+  "original_response_id": "c22f26bb-a431-482d-b834-22e699dd5377",
+  "original_trace_id": "tr-9291a41b718b3bb032f9b9badd88a293",
+  "application_restarted": true,
+  "session_state_survives_restart": true,
+  "original_response_after_restart_unchanged": true,
+  "other_session_after_restart_status": 404,
+  "live_citations_resolve_to_retained_text_and_hash": [
+    "/v1/snapshots/sources-b5bf51ce2c754a5c349834cc87954524d6c89cb20e38fcdafeea815b0760212e/evidence/phil-mitchell-wiki-0018-15527",
+    "/v1/snapshots/sources-b5bf51ce2c754a5c349834cc87954524d6c89cb20e38fcdafeea815b0760212e/evidence/kat-slater-wiki-0041-30971"
+  ],
+  "capture_sha256": "508466ce571fea0823055777a9dd1cc34421795aa74195312b26e860f73e447b",
+  "model_calls_in_persistence_check": 0
+}

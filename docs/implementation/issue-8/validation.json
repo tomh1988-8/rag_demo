@@ -1,0 +1,162 @@
+{
+  "recorded_at": "2026-10-17T15:15:00.265156+00:00",
+  "implementation_base": "f864d3570170a65b986ba0a090247f7a1167c033",
+  "tested_product_revision": "2c99a5602c3ecb540b54fdc992df1a0e9d6712f9",
+  "application_sha256": "6b80889c046292fdcb7360d2a9aa23374c665f01aa8a4f32aa7fa0589a1605bb",
+  "python": "3.12.3",
+  "environment": "Native Python; disposable real PostgreSQL/pgvector; real MLflow and Prefect; only external source/model HTTP transports controlled in software tests.",
+  "software_result": {
+    "name": "pytest",
+    "errors": "0",
+    "failures": "0",
+    "skipped": "0",
+    "tests": "182",
+    "time": "393.977",
+    "timestamp": "2026-10-17T16:07:14.834295+01:00",
+    "hostname": "tom-Latitude-3510"
+  },
+  "software_report_sha256": "85ab3fca00000aad1b32f406d7e25532106a54bd62d89bf8e661fd056b75d2a2",
+  "checks": {
+    "ruff": "pass",
+    "strict_mypy": "pass, 46 source files",
+    "standards_review_remaining": 0,
+    "spec_review_remaining": 0
+  },
+  "reference_sha256": "71e6bfa28f8c09bd0a79bacf617d577bf93ffc868b42539de9f27d87fe73958d",
+  "lock_sha256": "983d5a644e3289e6b79d92dc251b5029c199a497ac33c14f504a3c9ee3763152",
+  "model_profile_sha256": "cf00b685a27cda04d01efa5d41a8ff7ec4a39239b0214956321f3b8edd1b335b",
+  "source_file_sha256": {
+    "src/ask_phil/__init__.py": "c4be197720058e2c86d4a79594bf60163b9bef1578b8e0e99650ec5e8b114a3d",
+    "src/ask_phil/answering.py": "a7b5c6f4eb6755122401360cbfdbfea88b50524f52a9ff03a9382fe8ae03cbd9",
+    "src/ask_phil/answers.py": "243c2b62ae1256d5fdf6f211dd6a37a1ac17389155cbad50e29126d5e3d1e449",
+    "src/ask_phil/api.py": "1f8c808b4692b711f29e34a31f484ec8a8a9d4e079d5e2d39cdd87874cedf1f0",
+    "src/ask_phil/cli.py": "c844e39d07faeb16b698f06cac10592c8f9ec614c45abede68b252d25ad411f7",
+    "src/ask_phil/conversation.py": "c577bbb8697d9851d82064ca70b0ffeddb9ee03fae3a441420da56cde3ad01a6",
+    "src/ask_phil/evaluation.py": "0805fdc57c99f276c2bb311b33fb8bf9ae99499284b42dd09391e3152196a65f",
+    "src/ask_phil/evidence.py": "321f6a3ba913ca8be26a4ab171e263ab1da9fc208b12432f5dbcf54c2f83ea9f",
+    "src/ask_phil/identity.py": "f7277f6206c35dcb5e5cb91806f98c5142c09175d86f0fd7fa5b962f20f0d2c9",
+    "src/ask_phil/ingestion.py": "efee54598cb5048152375d679091dfaae5e77d56741ac0347dd6e49e1e088a85",
+    "src/ask_phil/models.py": "182bc4a9c6cdde42bb2263a72ff8510532ea904ef5c2862a5f1b9f2cb1b0b152",
+    "src/ask_phil/openrouter.py": "544ca09598032ce1e7b997f44b68cfbdc67877d9a25681a9ecc96591504bd44f",
+    "src/ask_phil/passage_context.py": "4d7f9bf6e4937308a5142f12f35036feff35c87a054acb088af6b14e7810f6e0",
+    "src/ask_phil/publications.py": "72fdb5e948b08e52c974e03a20d218f0659cb60aea0efec8d9cfb2bb9e7bf6fa",
+    "src/ask_phil/refresh.py": "54674b463c0d84698a0302a8a49374c941a52892fffaa7b36bdf4b98b371c41e",
+    "src/ask_phil/responses.py": "ea8b9abd5e1f952f1cb7d1822aff9c972bdb435adac3065c93eef633b6b3df0e",
+    "src/ask_phil/retrieval.py": "2846d7a827e4c64cd36152b8464f81a7b1a85b6edb17965f06926933341ef9c7",
+    "src/ask_phil/sessions.py": "d03105268b6874d2620c890d98dfac376f393f9f4d249de2dc9f46052a959e32",
+    "src/ask_phil/source_records.py": "b0e3b27bed3dc045a50c488a4ebd7a0709902651e0a44cf2ad496ca95d30a2a1",
+    "src/ask_phil/storage.py": "32e5be5e11813d8c36d81a2ff5d292645967d1f646bcb45f43e50088afb25f74"
+  },
+  "test_file_sha256": {
+    "tests/conftest.py": "a1aae41c260f6b4a1acfaec6ce0e383d176ac51765a13faebf6835288f7bb719",
+    "tests/test_answer_rules.py": "dc14a86340fc34e0dcbc3638089c89f7b9cb2f232f6f5c5dbc060fc7cf61a8c3",
+    "tests/test_answers_api.py": "9198055fe9d7eab6f23d94dd4bf630f785b749fb8455e644ecdd326a8c8eb867",
+    "tests/test_cli.py": "0cad3933454e67628c06a73bd1c4fe2cfc803feef9f642727ffed5b9b369a6c8",
+    "tests/test_conversation_api.py": "8fca6ca5375e4a345fc9f9d8da6131967309ca8844b9a813d308e8f5842b79a5",
+    "tests/test_conversation_rules.py": "8e6b2a0d813d9d4d27e5fb70090d0006d2bbdf39286ee3553fe1f804392a48c9",
+    "tests/test_core_coverage.py": "5f2eccc152895b7b2a3bd6f80e8c57b5010caea8c75f410fb2d520853fc068eb",
+    "tests/test_evaluation.py": "816386a824a48219f0369b6dc705642f00022b3d4799313c37f913a78270c14b",
+    "tests/test_identity.py": "6b551edb254f6209f90234ebc5a9844c1273b42f26503ef8ebe6c7e9d0c66999",
+    "tests/test_import_api.py": "1541c6791b658e2c00d6cb8d61065a8d929a7c4ab9d11ecb79569a8ec056688a",
+    "tests/test_inspection.py": "97b460517280da1202a7c8cc1019a167bfd764d6cf3a31108758b838ac9ee1e6",
+    "tests/test_openrouter.py": "a2fb2b6267a9611d6ff666af8f69fa8258f3d869f513f880202466f8f7db3661",
+    "tests/test_openrouter_answers.py": "12c96406f9e1a3474f9b18a88543ac0031cde692871911f1ffc6c33148de4c2a",
+    "tests/test_policy_evaluation.py": "1606fb2fe9fa11b4b0b7d5194b0f7c0530cb92e2fb03bd6915484a351528ff0e",
+    "tests/test_provenance.py": "1c6a3c916a4c28413c0fb957dbb283e3a38bcec8012414ceea0d79fcdf4c8eaa",
+    "tests/test_refresh.py": "b1c4e5b7d1983baf61bb157d4a0a4a6d9efb38922bbf18242d22b0332803e2f5",
+    "tests/test_retrieval.py": "812685fe4a40c03c4e6b6bf264fdf478a5d65a5a4fb487613a1e37603351748f",
+    "tests/test_source_capture.py": "20f115f83a783753450aab05a90cb5a66b8c795eb42914654789728cdf9c92e4",
+    "tests/test_source_ingestion.py": "fa0d709ba329cf0b074df616a9065eedb5b4a17cdf7d4aa943912fcdddb490ba"
+  },
+  "script_file_sha256": {
+    "scripts/check_secrets.py": "921478f224d9fc8586431446404beab6bdd0cd5953a3370ec12afe0cb5e1264f",
+    "scripts/evaluate_answer_policy.py": "68b378effc665476b13f622fc4523db236c66ae4bd0a37716b4c9e461e826e79",
+    "scripts/evaluate_conversation.py": "eb528162a1e36c71cdb795b501a5dddb0864dfa0f1dcc4fb99fb4bdcd0f76bb0",
+    "scripts/evaluate_text_baseline.py": "f642d4ec9307083ecf113e456cc5beaf201a65866eadb363baeaf530df7209b8",
+    "scripts/evaluate_text_corpus.py": "8b66189fa66ad527c21e6a01e5ffbceab9246ec2282c5f0d899c22cd87a38bb3",
+    "scripts/record_baseline.py": "2c6f0cf4fa7b074d5123df9c93c68bb9c84c8322cbecc20a2ecc5e3347f2e419",
+    "scripts/record_refresh_acceptance.py": "1f017e758d5165168a4ab21cc04e51ec7fb8a05e8b0d25803834682d0cf4584d"
+  },
+  "tdd_red_observations": [
+    "Reference module absent; public rule test failed to import.",
+    "Session and reset endpoints absent; public API returned 404.",
+    "Missing and ambiguous references reached the controlled model provider before deterministic clarification.",
+    "Idle session inspection absent; API returned 404 before expiry contract implementation.",
+    "Separate feedback capability absent; receipt lacked feedback_token.",
+    "CLI start-session and chat commands rejected by argparse before implementation.",
+    "Reference expansion exceeded input budget before bounded clarification.",
+    "Independent reviews reproduced former-wife corruption, invented object referents, partial/performer collisions, lost pending requests, mixed subject/object collapse and relative-owner substitution; public regressions failed before repair."
+  ],
+  "software_model_calls_paid": 0,
+  "live_acceptance": {
+    "state": "passed",
+    "user_authorization": {
+      "message": "i approve, continue",
+      "scope": "OpenRouter/OpenAI public-evidence live sample up to $0.25 and publication to tomh1988-8/rag_demo main."
+    },
+    "historical_automatic_approval_rejections": 2,
+    "historical_rejection_reason": "Paid OpenRouter/OpenAI egress and spend need specific trusted authorization; historical repository budget records were not accepted by automatic review.",
+    "paid_calls": 6,
+    "additional_spend_usd": "0.0237656",
+    "approved_maximum_paid_calls": 12,
+    "approved_maximum_additional_spend_usd": 0.25,
+    "shared_trial_cap_usd": 5,
+    "shared_ledger_microdollars": 232666,
+    "unsettled_reservations": 0,
+    "semantic_quality": {
+      "correctness": {
+        "passed": 15,
+        "assessed": 15,
+        "unassessed": 0
+      },
+      "groundedness": {
+        "passed": 15,
+        "assessed": 15,
+        "unassessed": 0
+      },
+      "citation_support": {
+        "passed": 15,
+        "assessed": 15,
+        "unassessed": 0
+      },
+      "completeness": {
+        "passed": 7,
+        "assessed": 7,
+        "unassessed": 0
+      },
+      "answerability": {
+        "passed": 9,
+        "assessed": 9,
+        "unassessed": 0
+      }
+    },
+    "critical_failures": 0,
+    "capture_run_id": "f18676adf93f4cfc82480dfd62633f0e",
+    "offline_review_run_id": "89ff8370f85840dba252beea04353aa0",
+    "capture_sha256": "508466ce571fea0823055777a9dd1cc34421795aa74195312b26e860f73e447b",
+    "review_sha256": "e174f545f4ffc55b66bfa69259b8b38171da41ebe373bd81625cbebe08ed6011",
+    "quality_sha256": "96acf84e1ad629c1280607c714f3650f23100ede78a1f5026969df0d6d7a71b4",
+    "execution_review_sha256": "01ccabda4edf20630f8876da4aa74de32dfd51b8c5ef115d634a53504c71a916",
+    "lifecycle_sha256": "5811b973d834f9f1f6db31aa2bd0e786bcb63ba9fde9fd35c43c16becf91a761"
+  },
+  "warnings": [
+    "Existing upstream Starlette/httpx TestClient deprecation."
+  ],
+  "limitations": [
+    "All cases are exposed development data; no human adjudication, held-out calibration or independent canon corroboration.",
+    "Source-supported development acceptance for #8; publication/tree verification and closure follow separately."
+  ],
+  "publication": {
+    "state": "authorized_ready_for_publication",
+    "attempted_action": "git push origin main",
+    "attempted_local_commit": "e8bd51ecce21cee32e7bd188aa573ff9d7fc2fd3",
+    "automatic_approval_rejections": 1,
+    "reason": "Remote default-branch publication requires explicit trusted user authorization; implementation and local commits alone were not accepted as authorization.",
+    "connector_workaround_attempted": false,
+    "issue_closed": false,
+    "user_authorization": {
+      "message": "i approve, continue",
+      "scope": "OpenRouter/OpenAI public-evidence live sample up to $0.25 and publication to tomh1988-8/rag_demo main."
+    }
+  }
+}

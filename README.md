@@ -1,11 +1,16 @@
 # Ask Phil
 
 An evidence-backed EastEnders demo under development. The CLI and FastAPI expose
-captured evidence inspection and a single-query text-RAG answer using LlamaIndex,
-PostgreSQL/pgvector and local Ollama models. Answers include resolvable citations,
-snapshot coverage, actual MLflow traces and a durable original-response identifier.
-Fusion, caching, graph/investigative routes, conversational history and the online
-feedback/evaluation loop remain later tickets.
+captured evidence inspection, text-RAG answers and bounded conversations using
+LlamaIndex, PostgreSQL/pgvector, local embeddings and a configured answer provider.
+Answers include resolvable citations, snapshot coverage, actual MLflow traces and
+a durable original-response identifier. Fusion, caching, graph/investigative routes
+and the online feedback/evaluation loop remain later tickets.
+
+Issue #8 implements [grounded follow-ups, clarification and reset](docs/implementation/issue-8/README.md)
+through the API and CLI, with isolated session context and preserved historical
+response identities. Its 182-test suite and reviewed nine-response live sample pass;
+all factual claims retain source support through follow-ups and reset.
 
 Issue #4 adds partial/clarification outcomes, evidence-linked qualifications and
 separate quality scoring. Its [scoped Sol acceptance](docs/implementation/issue-4/cloud/README.md)

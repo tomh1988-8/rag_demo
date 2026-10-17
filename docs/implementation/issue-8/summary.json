@@ -1,0 +1,89 @@
+{
+  "state": "acceptance_passed_publication_pending",
+  "recorded_at": "2026-10-17T15:32:21.372157+00:00",
+  "user_authorization": {
+    "message": "i approve, continue",
+    "scope": "OpenRouter/OpenAI public-evidence live sample up to $0.25 and publication to tomh1988-8/rag_demo main."
+  },
+  "software_tests": 182,
+  "standards_findings_remaining": 0,
+  "spec_findings_remaining": 0,
+  "dataset_id": "conversation-development-v1",
+  "split": "development",
+  "story_group_count": 2,
+  "served_responses": 9,
+  "factual_responses": 6,
+  "clarifications": 3,
+  "reset_operations": 1,
+  "paid_serving_calls": 6,
+  "serving_reported_cost_usd": "0.0237656",
+  "offline_answer_model_calls": 0,
+  "offline_answer_model_cost_usd": "0",
+  "shared_trial_cap_usd": "5",
+  "approved_slice_limit_usd": "0.25",
+  "shared_ledger_microdollars": 232666,
+  "unsettled_reservations": 0,
+  "total_reported_trial_spend_usd": "0.23265187",
+  "metrics": {
+    "correctness": {
+      "passed": 15,
+      "assessed": 15,
+      "unassessed": 0
+    },
+    "groundedness": {
+      "passed": 15,
+      "assessed": 15,
+      "unassessed": 0
+    },
+    "citation_support": {
+      "passed": 15,
+      "assessed": 15,
+      "unassessed": 0
+    },
+    "completeness": {
+      "passed": 7,
+      "assessed": 7,
+      "unassessed": 0
+    },
+    "answerability": {
+      "passed": 9,
+      "assessed": 9,
+      "unassessed": 0
+    }
+  },
+  "critical_failures": 0,
+  "selected_reference_passage_hit_at_3": {
+    "passed": 6,
+    "assessed": 6
+  },
+  "supplied_reference_context_sufficient": {
+    "passed": 6,
+    "assessed": 6
+  },
+  "actual_trace_count": 9,
+  "actual_span_count": 36,
+  "application_elapsed_ms": {
+    "min": 1733.264505994157,
+    "median": 4607.370521000121,
+    "max": 7545.938470997498
+  },
+  "elapsed_scope": "Server application interval; one exposed sequence including deterministic clarifications, not complete CLI wall time or a controlled performance comparison.",
+  "capture_run_id": "f18676adf93f4cfc82480dfd62633f0e",
+  "offline_review_run_id": "89ff8370f85840dba252beea04353aa0",
+  "application_sha256": "6b80889c046292fdcb7360d2a9aa23374c665f01aa8a4f32aa7fa0589a1605bb",
+  "artifacts_sha256": {
+    "serving-matrix.json": "508466ce571fea0823055777a9dd1cc34421795aa74195312b26e860f73e447b",
+    "answer-reviews.json": "e174f545f4ffc55b66bfa69259b8b38171da41ebe373bd81625cbebe08ed6011",
+    "answer-quality.json": "96acf84e1ad629c1280607c714f3650f23100ede78a1f5026969df0d6d7a71b4",
+    "execution-review.json": "01ccabda4edf20630f8876da4aa74de32dfd51b8c5ef115d634a53504c71a916",
+    "lifecycle.json": "5811b973d834f9f1f6db31aa2bd0e786bcb63ba9fde9fd35c43c16becf91a761",
+    "software-tests.xml": "85ab3fca00000aad1b32f406d7e25532106a54bd62d89bf8e661fd056b75d2a2"
+  },
+  "limitations": [
+    "Small exposed development sample in two related story groups, no held-out or calibrated-judge conclusion.",
+    "Agent source-based review, no human adjudication or independent canon corroboration.",
+    "Persona range and serious-harm scenarios are limited in this sample; prior source-policy regressions remain.",
+    "Earlier #7 Janine/context and explicit garage co-ownership gaps remain under #24/#9.",
+    "Feedback submission and online evaluation are later tickets; #8 provides identity/lifetime only."
+  ]
+}
