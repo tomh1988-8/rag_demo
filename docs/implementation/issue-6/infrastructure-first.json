@@ -1,0 +1,23 @@
+{
+  "observation": "The disposable PostgreSQL container exited during the first full Docker acceptance run.",
+  "docker_event": {
+    "Type": "container",
+    "Action": "die",
+    "Actor": {
+      "ID": "ec1efd772920e3f13da80b2f0b4aa31eb01722db776a2d12a513ca676e5741f6",
+      "Attributes": {
+        "execDuration": "1256",
+        "exitCode": "139",
+        "image": "pgvector/pgvector:0.8.6-pg18-trixie",
+        "name": "ask-phil-issue6-checks"
+      }
+    },
+    "scope": "local",
+    "time": 1792236057,
+    "timeNano": 1792236057367719700
+  },
+  "diagnosis": "Exit 139 was observed; root cause is unknown. The container used --rm, so its logs were unavailable after exit. This was not a clean acceptance run.",
+  "response": "Preserved the failed JUnit result, fixed the independently observed empty-database API regression, and repeated acceptance with a retained disposable database and 256 MiB shared memory.",
+  "final_database_container": "ask-phil-issue6-db-final",
+  "unchanged_database_image": "pgvector/pgvector@sha256:78bf48b801e792f99e3ac62b5036fd3876e9be48afda16c1e331af1c75ceb2ff"
+}

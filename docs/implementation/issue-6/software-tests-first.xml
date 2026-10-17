@@ -1,0 +1,1047 @@
+<?xml version="1.0" encoding="utf-8"?><testsuites name="pytest tests"><testsuite name="pytest" errors="11" failures="2" skipped="0" tests="132" time="331.944" timestamp="2026-10-17T11:15:40.919559+00:00" hostname="ec1efd772920"><testcase classname="tests.test_answer_rules" name="test_schema_sent_to_model_rejects_a_timing_note_without_precision" time="0.019" /><testcase classname="tests.test_answer_rules" name="test_generated_drafts_cannot_omit_policy_fields[status]" time="0.001" /><testcase classname="tests.test_answer_rules" name="test_generated_drafts_cannot_omit_policy_fields[unanswered]" time="0.001" /><testcase classname="tests.test_answer_rules" name="test_generated_drafts_cannot_omit_policy_fields[qualifications]" time="0.002" /><testcase classname="tests.test_answer_rules" name="test_answer_cannot_cite_a_retrieved_passage_excluded_from_final_context" time="0.002" /><testcase classname="tests.test_answer_rules" name="test_multibyte_question_cannot_exceed_the_context_input_budget" time="0.001" /><testcase classname="tests.test_answer_rules" name="test_invalid_outcome_citation_combinations_are_rejected[answered-ids0-unanswered0]" time="0.002" /><testcase classname="tests.test_answer_rules" name="test_invalid_outcome_citation_combinations_are_rejected[answered-ids1-unanswered1]" time="0.002" /><testcase classname="tests.test_answer_rules" name="test_invalid_outcome_citation_combinations_are_rejected[partial-ids2-unanswered2]" time="0.002" /><testcase classname="tests.test_answer_rules" name="test_invalid_outcome_citation_combinations_are_rejected[clarification-ids3-unanswered3]" time="0.002" /><testcase classname="tests.test_answer_rules" name="test_invalid_outcome_citation_combinations_are_rejected[insufficient_evidence-ids4-unanswered4]" time="0.002" /><testcase classname="tests.test_answer_rules" name="test_invalid_outcome_citation_combinations_are_rejected[answered-ids5-unanswered5]" time="0.002" /><testcase classname="tests.test_answer_rules" name="test_qualifications_cannot_fabricate_citations_or_omit_required_information[qualification0]" time="0.002" /><testcase classname="tests.test_answer_rules" name="test_qualifications_cannot_fabricate_citations_or_omit_required_information[qualification1]" time="0.002" /><testcase classname="tests.test_answer_rules" name="test_qualifications_cannot_fabricate_citations_or_omit_required_information[qualification2]" time="0.002" /><testcase classname="tests.test_answer_rules" name="test_qualifications_cannot_fabricate_citations_or_omit_required_information[qualification3]" time="0.002" /><testcase classname="tests.test_answer_rules" name="test_saved_v1_response_keeps_its_original_document_shape" time="0.006" /><testcase classname="tests.test_answers_api" name="test_partial_answer_preserves_supported_fact_and_unanswered_part[models0]" time="6.273" /><testcase classname="tests.test_answers_api" name="test_unresolved_intent_is_distinct_from_absent_evidence[models0-clarification]" time="1.835" /><testcase classname="tests.test_answers_api" name="test_unresolved_intent_is_distinct_from_absent_evidence[models1-failed]" time="1.916" /><testcase classname="tests.test_answers_api" name="test_unresolved_intent_is_distinct_from_absent_evidence[models2-insufficient_evidence]" time="1.819" /><testcase classname="tests.test_answers_api" name="test_false_premise_and_explicit_negative_have_evidence_in_the_neutral_appendix[models0-data/seed/phil-arrival-v1.json-false_premise]" time="1.957" /><testcase classname="tests.test_answers_api" name="test_false_premise_and_explicit_negative_have_evidence_in_the_neutral_appendix[models1-data/seed/policy/negative-v1.json-explicit_negative]" time="2.200" /><testcase classname="tests.test_answers_api" name="test_conflicting_accounts_keep_both_source_attributions_and_citations[models0]" time="3.932" /><testcase classname="tests.test_answers_api" name="test_story_time_precision_survives_answer_appendix_and_saved_receipt[models0-exact-3 March 2001]" time="1.795" /><testcase classname="tests.test_answers_api" name="test_story_time_precision_survives_answer_appendix_and_saved_receipt[models1-approximate-around spring 2004]" time="1.847" /><testcase classname="tests.test_answers_api" name="test_story_time_precision_survives_answer_appendix_and_saved_receipt[models2-relative-two weeks after the wedding]" time="1.852" /><testcase classname="tests.test_answers_api" name="test_story_time_precision_survives_answer_appendix_and_saved_receipt[models3-unknown-doesn't state the hearing's story date]" time="1.872" /><testcase classname="tests.test_answers_api" name="test_empty_context_abstains_without_model_inference_or_a_negative_fact[models0]" time="3.905" /><testcase classname="tests.test_answers_api" name="test_answer_has_resolvable_citations_real_trace_and_durable_private_receipt" time="3.770" /><testcase classname="tests.test_answers_api" name="test_invalid_model_citation_becomes_a_traced_failure_with_a_response_identifier" time="3.927" /><testcase classname="tests.test_answers_api" name="test_cli_asks_and_resolves_the_original_response_over_http[models0-When did Phil arrive?-answered]" time="22.500" /><testcase classname="tests.test_answers_api" name="test_cli_asks_and_resolves_the_original_response_over_http[models1-When did Phil arrive, and who is his mother?-partial]" time="21.813" /><testcase classname="tests.test_answers_api" name="test_cli_asks_and_resolves_the_original_response_over_http[models2-When did they arrive?-clarification]" time="21.810" /><testcase classname="tests.test_answers_api" name="test_cli_asks_and_resolves_the_original_response_over_http[models3-Who is Phil's mother?-insufficient_evidence]" time="21.850" /><testcase classname="tests.test_answers_api" name="test_changed_model_digest_requires_an_explicit_configuration_and_baseline_update" time="0.495" /><testcase classname="tests.test_answers_api" name="test_unknown_or_unindexed_snapshot_returns_an_explicit_api_error[missing-404]" time="0.293" /><testcase classname="tests.test_answers_api" name="test_unknown_or_unindexed_snapshot_returns_an_explicit_api_error[phil-arrival-v1-503]" time="0.281" /><testcase classname="tests.test_answers_api" name="test_embedding_usage_is_reported_separately_from_answer_tokens[models0-None-None]" time="4.057" /><testcase classname="tests.test_answers_api" name="test_embedding_usage_is_reported_separately_from_answer_tokens[models1-40-5]" time="3.519" /><testcase classname="tests.test_cli" name="test_cli_inspects_evidence_via_http_without_database_credentials" time="7.611" /><testcase classname="tests.test_cli" name="test_cli_reports_an_empty_fixture_result_and_exits_nonzero_on_http_failure" time="14.354" /><testcase classname="tests.test_cli" name="test_maintainer_imports_sources_and_reader_inspects_them_over_http" time="30.028" /><testcase classname="tests.test_cli" name="test_rejected_import_does_not_publish_partial_sources_or_disturb_existing_evidence" time="8.744" /><testcase classname="tests.test_evaluation" name="test_reviewed_answer_scores_keep_correctness_support_completeness_and_outcome_separate" time="0.005" /><testcase classname="tests.test_evaluation" name="test_no_factual_claims_or_unassessed_labels_do_not_manufacture_quality_passes" time="0.003" /><testcase classname="tests.test_evaluation" name="test_retrieval_success_does_not_hide_evidence_lost_from_assembled_context" time="0.003" /><testcase classname="tests.test_evaluation" name="test_absent_evidence_has_no_positive_recall_denominator_or_sufficient_context" time="0.003" /><testcase classname="tests.test_identity" name="test_reviewed_alias_resolves_to_character" time="0.003" /><testcase classname="tests.test_identity" name="test_performers_are_not_character_aliases[Letitia Dean]" time="0.004" /><testcase classname="tests.test_identity" name="test_performers_are_not_character_aliases[Charlie Jones]" time="0.004" /><testcase classname="tests.test_identity" name="test_performers_are_not_character_aliases[Max Bowden]" time="0.003" /><testcase classname="tests.test_identity" name="test_unreviewed_name_is_unknown" time="0.003" /><testcase classname="tests.test_identity" name="test_shared_alias_requires_clarification" time="0.003" /><testcase classname="tests.test_identity" name="test_duplicate_identifiers_are_rejected" time="0.004" /><testcase classname="tests.test_import_api" name="test_imported_sources_are_inspectable_after_reimport_and_application_restart" time="3.388" /><testcase classname="tests.test_inspection" name="test_captured_arrival_passage_can_be_inspected_through_the_api" time="0.204" /><testcase classname="tests.test_inspection" name="test_original_evidence_resolves_after_reimport_and_application_restart" time="0.251" /><testcase classname="tests.test_inspection" name="test_reviewed_seed_cases_include_an_honest_empty_result" time="0.245" /><testcase classname="tests.test_inspection" name="test_snapshot_identifier_cannot_be_reassigned_to_changed_evidence" time="0.276" /><testcase classname="tests.test_inspection" name="test_invalid_search_is_rejected[   -10]" time="0.178" /><testcase classname="tests.test_inspection" name="test_invalid_search_is_rejected[xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx-10]" time="0.145" /><testcase classname="tests.test_inspection" name="test_invalid_search_is_rejected[Phil-0]" time="0.157" /><testcase classname="tests.test_inspection" name="test_invalid_search_is_rejected[Phil-21]" time="0.185" /><testcase classname="tests.test_inspection" name="test_unknown_snapshot_and_evidence_are_not_reported_as_empty_searches" time="0.256" /><testcase classname="tests.test_inspection" name="test_empty_database_reports_unavailable_instead_of_fabricating_evidence" time="0.159"><failure message="assert 404 == 503&#10; +  where 404 = &lt;Response [404 Not Found]&gt;.status_code">database_url = 'user=ask_phil password=local-demo-only dbname=ask_phil_test_87c7fc1553be4431961317be774a8af8 host=127.0.0.1 port=5432'
+
+    def test_empty_database_reports_unavailable_instead_of_fabricating_evidence(
+        database_url: str,
+    ) -&gt; None:
+        with TestClient(create_app(database_url)) as client:
+            response = client.get("/v1/snapshots/phil-arrival-v1/inspect", params={"query": "Phil"})
+&gt;       assert response.status_code == 503
+E       assert 404 == 503
+E        +  where 404 = &lt;Response [404 Not Found]&gt;.status_code
+
+tests/test_inspection.py:110: AssertionError</failure></testcase><testcase classname="tests.test_openrouter" name="test_uncapped_or_resetting_key_is_rejected[None-None]" time="0.002" /><testcase classname="tests.test_openrouter" name="test_uncapped_or_resetting_key_is_rejected[6-None]" time="0.002" /><testcase classname="tests.test_openrouter" name="test_uncapped_or_resetting_key_is_rejected[5-monthly]" time="0.002" /><testcase classname="tests.test_openrouter" name="test_uncapped_or_resetting_key_is_rejected[0-None]" time="0.002" /><testcase classname="tests.test_openrouter" name="test_only_verified_key_is_saved_privately[True]" time="0.004" /><testcase classname="tests.test_openrouter" name="test_only_verified_key_is_saved_privately[False]" time="0.003" /><testcase classname="tests.test_openrouter" name="test_only_verified_key_is_saved_privately[None]" time="0.003" /><testcase classname="tests.test_openrouter" name="test_only_verified_key_is_saved_privately[absent]" time="0.003" /><testcase classname="tests.test_openrouter" name="test_provider_errors_do_not_disclose_key" time="0.002" /><testcase classname="tests.test_openrouter" name="test_budget_survives_restart_and_concurrent_reservations" time="0.073" /><testcase classname="tests.test_openrouter" name="test_known_cost_settles_but_unknown_call_keeps_reservation" time="0.026" /><testcase classname="tests.test_openrouter" name="test_cloud_call_is_bounded_and_records_billing_without_secrets[False]" time="0.025" /><testcase classname="tests.test_openrouter" name="test_cloud_call_is_bounded_and_records_billing_without_secrets[True]" time="0.019" /><testcase classname="tests.test_openrouter" name="test_provider_cap_is_checked_before_every_paid_request" time="0.012" /><testcase classname="tests.test_openrouter" name="test_depleted_budget_is_rejected" time="0.004" /><testcase classname="tests.test_openrouter" name="test_key_setup_refuses_noninteractive_input" time="6.710" /><testcase classname="tests.test_openrouter_answers" name="test_cloud_answer_retains_usage_and_receipt_without_credentials[none]" time="7.951" /><testcase classname="tests.test_openrouter_answers" name="test_cloud_answer_retains_usage_and_receipt_without_credentials[http]" time="7.998" /><testcase classname="tests.test_openrouter_answers" name="test_cloud_answer_retains_usage_and_receipt_without_credentials[truncated]" time="8.107" /><testcase classname="tests.test_policy_evaluation" name="test_evaluation_cli_rejects_a_review_of_a_different_response" time="12.947" /><testcase classname="tests.test_provenance" name="test_new_contract_preserves_the_published_single_source_fingerprint" time="0.002" /><testcase classname="tests.test_provenance" name="test_changed_passage_cannot_keep_the_original_evidence_fingerprint" time="0.002" /><testcase classname="tests.test_provenance" name="test_seed_cannot_claim_unrecorded_provenance[captured_at-2026-09-23T14:18:05]" time="0.002" /><testcase classname="tests.test_provenance" name="test_seed_cannot_claim_unrecorded_provenance[scope-spin_off]" time="0.002" /><testcase classname="tests.test_provenance" name="test_seed_cannot_claim_unrecorded_provenance[support_status-cross_checked]" time="0.002" /><testcase classname="tests.test_provenance" name="test_citation_span_cannot_extend_beyond_retained_text" time="0.002" /><testcase classname="tests.test_refresh" name="test_prefect_refresh_publishes_a_complete_inspectable_source_and_index_pair" time="30.426" /><testcase classname="tests.test_refresh" name="test_repeated_capture_reuses_logical_snapshot_and_index_without_republication" time="4.088" /><testcase classname="tests.test_refresh" name="test_killed_refresh_releases_writer_and_retry_records_interruption_and_rebuilds_index" time="14.644" /><testcase classname="tests.test_refresh" name="test_failed_embedding_withholds_publication_and_retry_replaces_incomplete_artifacts[provider-unavailable]" time="4.151" /><testcase classname="tests.test_refresh" name="test_failed_embedding_withholds_publication_and_retry_replaces_incomplete_artifacts[zero-vector]" time="4.378" /><testcase classname="tests.test_refresh" name="test_changed_review_policy_gets_a_new_identity_even_for_unchanged_capture" time="2.573" /><testcase classname="tests.test_refresh" name="test_source_revert_reactivates_retained_compatible_artifacts_and_advances_generation" time="3.928" /><testcase classname="tests.test_refresh" name="test_refresh_reports_duplicate_metadata_without_duplicating_logical_records" time="2.705" /><testcase classname="tests.test_refresh" name="test_missing_required_source_record_withholds_publication_and_records_partial_failure" time="2.770"><failure message="psycopg.OperationalError: connection failed: connection to server at &quot;127.0.0.1&quot;, port 5432 failed: server closed the connection unexpectedly&#10;&#09;This probably means the server terminated abnormally&#10;&#09;before or while processing the request.">@flow(
+        name="ask-phil-source-refresh",
+        version="source-text-v1",
+        retries=0,
+        persist_result=False,
+        timeout_seconds=1200,
+        log_prints=False,
+    )
+    def execute() -&gt; RefreshRun:
+        run = RefreshRun(
+            run_id=uuid4(),
+            flow_run_id=UUID(str(flow_run.id)),
+            started_at=datetime.now(UTC),
+            status="running",
+            phase="capturing",
+        )
+        with self.publications.writer() as conn:
+            self.publications.save_run(run, conn)
+            try:
+                batch = self._capture(source, client, run, conn)
+                run = self.publications.run(run.run_id)
+                input_data = batch.model_dump(mode="json")
+                input_data["captures"] = [
+                    capture.model_dump(mode="json", exclude={"captured_at", "content"})
+                    for capture in batch.captures
+                ]
+                input_id = hashlib.sha256(
+                    json.dumps(input_data, sort_keys=True, separators=(",", ":")).encode()
+                ).hexdigest()
+                run = run.model_copy(update={"input_sha256": input_id, "phase": "validating"})
+                self.publications.save_run(run, conn)
+                try:
+                    snapshot = self.store.snapshot("sources-" + input_id)
+                except SnapshotNotFound:
+                    snapshot = build_snapshot(batch, "sources-" + input_id)
+                assert snapshot.imported is not None
+                run = run.model_copy(
+                    update={
+                        "snapshot_id": snapshot.snapshot_id,
+                        "issues": snapshot.imported.issues,
+                    }
+                )
+                self.publications.save_run(run, conn)
+                if any(i.code in {"missing_record", "missing_section"} for i in run.issues):
+&gt;                   raise IncompleteImport("Required source content is missing.")
+E                   ask_phil.refresh.IncompleteImport: Required source content is missing.
+
+.venv/lib/python3.12/site-packages/ask_phil/refresh.py:88: IncompleteImport
+
+During handling of the above exception, another exception occurred:
+
+database_url = 'user=ask_phil password=local-demo-only dbname=ask_phil_test_8d9518b5a8f24a83a4d13367afa895b8 host=127.0.0.1 port=5432'
+source_batch = SourceBatch(format_version=1, catalogue=IdentityCatalogue(characters=(Character(character_id='sharon-watts', name='Sha... workshop.&lt;/p&gt;\n    &lt;/div&gt;&lt;/div&gt;&lt;/html&gt;', sha256='6f46affab11f6610d80bbf360678af9be09f4193e3e43619e1e408bba76d8c19'),))
+
+    def test_missing_required_source_record_withholds_publication_and_records_partial_failure(
+        database_url: str, source_batch: SourceBatch
+    ) -&gt; None:
+        from prefect.client.orchestration import get_client
+    
+        from ask_phil.publications import PublicationStore
+        from ask_phil.refresh import RefreshFailed, SourceRefresh
+    
+        refresh = SourceRefresh(database_url, MockEmbedding(embed_dim=3), "test-embedding-v1", 3)
+        refresh.run(source_batch)
+        publications = PublicationStore(database_url)
+        before = publications.active()
+        missing = '{"entities":{}}'
+        incomplete = source_batch.model_copy(
+            update={
+                "captures": (
+                    *source_batch.captures,
+                    CapturedSource(
+                        source_id="sharon-identity",
+                        character_id="sharon-watts",
+                        kind="wikidata",
+                        url=HttpUrl("https://www.wikidata.org/wiki/Special:EntityData/Q7490258.json"),
+                        captured_at=source_batch.captures[0].captured_at,
+                        content=missing,
+                        sha256=hashlib.sha256(missing.encode()).hexdigest(),
+                    ),
+                )
+            }
+        )
+    
+        with pytest.raises(RefreshFailed) as failure:
+&gt;           refresh.run(incomplete)
+
+tests/test_refresh.py:435: 
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ 
+.venv/lib/python3.12/site-packages/ask_phil/refresh.py:112: in run
+    return execute()
+           ^^^^^^^^^
+.venv/lib/python3.12/site-packages/prefect/flows.py:1887: in __call__
+    return run_flow(
+.venv/lib/python3.12/site-packages/prefect/flow_engine.py:2246: in run_flow
+    ret_val = run_flow_sync(**kwargs)
+              ^^^^^^^^^^^^^^^^^^^^^^^
+.venv/lib/python3.12/site-packages/prefect/flow_engine.py:2091: in run_flow_sync
+    return engine.state if return_type == "state" else engine.result()
+                                                       ^^^^^^^^^^^^^^^
+.venv/lib/python3.12/site-packages/prefect/flow_engine.py:788: in result
+    raise self._raised
+.venv/lib/python3.12/site-packages/prefect/flow_engine.py:1319: in run_context
+    yield self
+.venv/lib/python3.12/site-packages/prefect/flow_engine.py:2089: in run_flow_sync
+    engine.call_flow_fn()
+.venv/lib/python3.12/site-packages/prefect/flow_engine.py:1339: in call_flow_fn
+    result = call_with_parameters(self.flow.fn, self.parameters)
+             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+.venv/lib/python3.12/site-packages/prefect/utilities/callables/__init__.py:348: in call_with_parameters
+    return fn(*args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^
+.venv/lib/python3.12/site-packages/ask_phil/refresh.py:97: in execute
+    run = self.publications.run(run.run_id)
+          ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+.venv/lib/python3.12/site-packages/ask_phil/publications.py:244: in run
+    with psycopg.connect(self.database_url, connect_timeout=5) as conn:
+         ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ 
+
+cls = &lt;class 'psycopg.Connection'&gt;
+conninfo = 'user=ask_phil password=local-demo-only dbname=ask_phil_test_8d9518b5a8f24a83a4d13367afa895b8 host=127.0.0.1 port=5432 connect_timeout=5 hostaddr=127.0.0.1'
+autocommit = False, prepare_threshold = 5, context = None, row_factory = None
+cursor_factory = None, kwargs = {'connect_timeout': 5}
+
+    @classmethod
+    def connect(
+        cls,
+        conninfo: str = "",
+        *,
+        autocommit: bool = False,
+        prepare_threshold: int | None = 5,
+        context: AdaptContext | None = None,
+        row_factory: RowFactory[Row] | None = None,
+        cursor_factory: type[Cursor[Row]] | None = None,
+        **kwargs: ConnParam,
+    ) -&gt; Self:
+        """
+        Connect to a database server and return a new `Connection` instance.
+        """
+    
+        params = cls._get_connection_params(conninfo, **kwargs)
+        timeout = timeout_from_conninfo(params)
+        rv = None
+        attempts = conninfo_attempts(params)
+        conn_errors: list[tuple[e.Error, str]] = []
+        for attempt in attempts:
+            tdescr = (attempt.get("host"), attempt.get("port"), attempt.get("hostaddr"))
+            descr = "host: %r, port: %r, hostaddr: %r" % tdescr
+            logger.debug("connection attempt: %s", descr)
+            try:
+                conninfo = make_conninfo("", **attempt)
+                gen = cls._connect_gen(conninfo)
+                rv = waiting.wait_conn(gen, interval=_WAIT_INTERVAL, timeout=timeout)
+            except e._WaitTimeout:
+                tex = e.ConnectionTimeout("connection timeout expired")
+                logger.debug("connection failed: %s: %s", descr, str(tex))
+                conn_errors.append((tex, descr))
+            except e.Error as ex:
+                logger.debug("connection failed: %s: %s", descr, str(ex))
+                conn_errors.append((ex, descr))
+            except e._NO_TRACEBACK as ex:
+                raise ex.with_traceback(None)
+            else:
+                logger.debug("connection succeeded: %s", descr)
+                break
+    
+        if not rv:
+            last_ex = conn_errors[-1][0]
+            if len(conn_errors) == 1:
+&gt;               raise last_ex.with_traceback(None)
+E               psycopg.OperationalError: connection failed: connection to server at "127.0.0.1", port 5432 failed: server closed the connection unexpectedly
+E               	This probably means the server terminated abnormally
+E               	before or while processing the request.
+
+.venv/lib/python3.12/site-packages/psycopg/connection.py:126: OperationalError</failure></testcase><testcase classname="tests.test_refresh" name="test_missing_required_source_record_withholds_publication_and_records_partial_failure" time="0.001"><error message="failed on teardown with &quot;psycopg.OperationalError: consuming input failed: server closed the connection unexpectedly&#10;&#09;This probably means the server terminated abnormally&#10;&#09;before or while processing the request.&quot;">request = &lt;SubRequest 'database_url' for &lt;Function test_missing_required_source_record_withholds_publication_and_records_partial_failure&gt;&gt;
+
+    @pytest.fixture
+    def database_url(request: pytest.FixtureRequest) -&gt; Iterator[str]:
+        admin_url = request.config.getoption("--test-database-url")
+        if not isinstance(admin_url, str) or not admin_url:
+            pytest.fail("Set ASK_PHIL_TEST_DATABASE_URL to a disposable PostgreSQL admin connection.")
+        name = "ask_phil_test_" + uuid4().hex
+        with psycopg.connect(admin_url, autocommit=True) as conn:
+            conn.execute(sql.SQL("CREATE DATABASE {} TEMPLATE template0").format(sql.Identifier(name)))
+            try:
+                yield make_conninfo(admin_url, dbname=name)
+            finally:
+&gt;               conn.execute(sql.SQL("DROP DATABASE {} WITH (FORCE)").format(sql.Identifier(name)))
+
+tests/conftest.py:82: 
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ 
+
+self = &lt;psycopg.Connection [BAD] at 0x70d9b1692e40&gt;
+query = Composed([SQL('DROP DATABASE '), Identifier('ask_phil_test_8d9518b5a8f24a83a4d13367afa895b8'), SQL(' WITH (FORCE)')])
+params = None, prepare = None, binary = False
+
+    def execute(
+        self,
+        query: Query,
+        params: Params | None = None,
+        *,
+        prepare: bool | None = None,
+        binary: bool = False,
+    ) -&gt; Cursor[Row]:
+        """Execute a query and return a cursor to read its results."""
+        try:
+            cur = self.cursor()
+            if binary:
+                cur.format = BINARY
+    
+            if isinstance(query, Template):
+                if params is not None:
+                    raise TypeError(
+                        "'execute()' with string template query doesn't support parameters"
+                    )
+                return cur.execute(query, prepare=prepare)
+            else:
+                return cur.execute(query, params, prepare=prepare)
+        except e._NO_TRACEBACK as ex:
+&gt;           raise ex.with_traceback(None)
+E           psycopg.OperationalError: consuming input failed: server closed the connection unexpectedly
+E           	This probably means the server terminated abnormally
+E           	before or while processing the request.
+
+.venv/lib/python3.12/site-packages/psycopg/connection.py:304: OperationalError</error></testcase><testcase classname="tests.test_refresh" name="test_partial_live_capture_retains_received_source_and_keeps_prior_publication" time="0.003"><error message="failed on setup with &quot;psycopg.OperationalError: connection failed: connection to server at &quot;127.0.0.1&quot;, port 5432 failed: Connection refused&#10;&#09;Is the server running on that host and accepting TCP/IP connections?&quot;">fixturedef = &lt;FixtureDef argname='database_url' scope='function' baseid='tests'&gt;
+request = &lt;SubRequest 'database_url' for &lt;Function test_partial_live_capture_retains_received_source_and_keeps_prior_publication&gt;&gt;
+
+    @pytest.hookimpl(wrapper=True)
+    def pytest_fixture_setup(fixturedef: FixtureDef, request) -&gt; object | None:
+        if (
+            fixturedef.argname == "event_loop_policy"
+            and fixturedef.func.__module__ != __name__
+        ):
+            warnings.warn(
+                PytestDeprecationWarning(_EVENT_LOOP_POLICY_FIXTURE_DEPRECATION_WARNING),
+            )
+        asyncio_mode = _get_asyncio_mode(request.config)
+        if not _is_asyncio_fixture_function(fixturedef.func):
+            if asyncio_mode == Mode.STRICT:
+                # Ignore async fixtures without explicit asyncio mark in strict mode
+                # This applies to pytest_trio fixtures, for example
+&gt;               return (yield)
+                        ^^^^^
+
+.venv/lib/python3.12/site-packages/pytest_asyncio/plugin.py:924: 
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ 
+tests/conftest.py:77: in database_url
+    with psycopg.connect(admin_url, autocommit=True) as conn:
+         ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ 
+
+cls = &lt;class 'psycopg.Connection'&gt;
+conninfo = 'user=ask_phil password=local-demo-only dbname=postgres host=127.0.0.1 port=5432 hostaddr=127.0.0.1'
+autocommit = True, prepare_threshold = 5, context = None, row_factory = None
+cursor_factory = None, kwargs = {}
+
+    @classmethod
+    def connect(
+        cls,
+        conninfo: str = "",
+        *,
+        autocommit: bool = False,
+        prepare_threshold: int | None = 5,
+        context: AdaptContext | None = None,
+        row_factory: RowFactory[Row] | None = None,
+        cursor_factory: type[Cursor[Row]] | None = None,
+        **kwargs: ConnParam,
+    ) -&gt; Self:
+        """
+        Connect to a database server and return a new `Connection` instance.
+        """
+    
+        params = cls._get_connection_params(conninfo, **kwargs)
+        timeout = timeout_from_conninfo(params)
+        rv = None
+        attempts = conninfo_attempts(params)
+        conn_errors: list[tuple[e.Error, str]] = []
+        for attempt in attempts:
+            tdescr = (attempt.get("host"), attempt.get("port"), attempt.get("hostaddr"))
+            descr = "host: %r, port: %r, hostaddr: %r" % tdescr
+            logger.debug("connection attempt: %s", descr)
+            try:
+                conninfo = make_conninfo("", **attempt)
+                gen = cls._connect_gen(conninfo)
+                rv = waiting.wait_conn(gen, interval=_WAIT_INTERVAL, timeout=timeout)
+            except e._WaitTimeout:
+                tex = e.ConnectionTimeout("connection timeout expired")
+                logger.debug("connection failed: %s: %s", descr, str(tex))
+                conn_errors.append((tex, descr))
+            except e.Error as ex:
+                logger.debug("connection failed: %s: %s", descr, str(ex))
+                conn_errors.append((ex, descr))
+            except e._NO_TRACEBACK as ex:
+                raise ex.with_traceback(None)
+            else:
+                logger.debug("connection succeeded: %s", descr)
+                break
+    
+        if not rv:
+            last_ex = conn_errors[-1][0]
+            if len(conn_errors) == 1:
+&gt;               raise last_ex.with_traceback(None)
+E               psycopg.OperationalError: connection failed: connection to server at "127.0.0.1", port 5432 failed: Connection refused
+E               	Is the server running on that host and accepting TCP/IP connections?
+
+.venv/lib/python3.12/site-packages/psycopg/connection.py:126: OperationalError</error></testcase><testcase classname="tests.test_refresh" name="test_rollback_restores_compatible_pair_and_withdraws_newer_version_for_new_requests" time="0.002"><error message="failed on setup with &quot;psycopg.OperationalError: connection failed: connection to server at &quot;127.0.0.1&quot;, port 5432 failed: Connection refused&#10;&#09;Is the server running on that host and accepting TCP/IP connections?&quot;">fixturedef = &lt;FixtureDef argname='database_url' scope='function' baseid='tests'&gt;
+request = &lt;SubRequest 'database_url' for &lt;Function test_rollback_restores_compatible_pair_and_withdraws_newer_version_for_new_requests&gt;&gt;
+
+    @pytest.hookimpl(wrapper=True)
+    def pytest_fixture_setup(fixturedef: FixtureDef, request) -&gt; object | None:
+        if (
+            fixturedef.argname == "event_loop_policy"
+            and fixturedef.func.__module__ != __name__
+        ):
+            warnings.warn(
+                PytestDeprecationWarning(_EVENT_LOOP_POLICY_FIXTURE_DEPRECATION_WARNING),
+            )
+        asyncio_mode = _get_asyncio_mode(request.config)
+        if not _is_asyncio_fixture_function(fixturedef.func):
+            if asyncio_mode == Mode.STRICT:
+                # Ignore async fixtures without explicit asyncio mark in strict mode
+                # This applies to pytest_trio fixtures, for example
+&gt;               return (yield)
+                        ^^^^^
+
+.venv/lib/python3.12/site-packages/pytest_asyncio/plugin.py:924: 
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ 
+tests/conftest.py:77: in database_url
+    with psycopg.connect(admin_url, autocommit=True) as conn:
+         ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ 
+
+cls = &lt;class 'psycopg.Connection'&gt;
+conninfo = 'user=ask_phil password=local-demo-only dbname=postgres host=127.0.0.1 port=5432 hostaddr=127.0.0.1'
+autocommit = True, prepare_threshold = 5, context = None, row_factory = None
+cursor_factory = None, kwargs = {}
+
+    @classmethod
+    def connect(
+        cls,
+        conninfo: str = "",
+        *,
+        autocommit: bool = False,
+        prepare_threshold: int | None = 5,
+        context: AdaptContext | None = None,
+        row_factory: RowFactory[Row] | None = None,
+        cursor_factory: type[Cursor[Row]] | None = None,
+        **kwargs: ConnParam,
+    ) -&gt; Self:
+        """
+        Connect to a database server and return a new `Connection` instance.
+        """
+    
+        params = cls._get_connection_params(conninfo, **kwargs)
+        timeout = timeout_from_conninfo(params)
+        rv = None
+        attempts = conninfo_attempts(params)
+        conn_errors: list[tuple[e.Error, str]] = []
+        for attempt in attempts:
+            tdescr = (attempt.get("host"), attempt.get("port"), attempt.get("hostaddr"))
+            descr = "host: %r, port: %r, hostaddr: %r" % tdescr
+            logger.debug("connection attempt: %s", descr)
+            try:
+                conninfo = make_conninfo("", **attempt)
+                gen = cls._connect_gen(conninfo)
+                rv = waiting.wait_conn(gen, interval=_WAIT_INTERVAL, timeout=timeout)
+            except e._WaitTimeout:
+                tex = e.ConnectionTimeout("connection timeout expired")
+                logger.debug("connection failed: %s: %s", descr, str(tex))
+                conn_errors.append((tex, descr))
+            except e.Error as ex:
+                logger.debug("connection failed: %s: %s", descr, str(ex))
+                conn_errors.append((ex, descr))
+            except e._NO_TRACEBACK as ex:
+                raise ex.with_traceback(None)
+            else:
+                logger.debug("connection succeeded: %s", descr)
+                break
+    
+        if not rv:
+            last_ex = conn_errors[-1][0]
+            if len(conn_errors) == 1:
+&gt;               raise last_ex.with_traceback(None)
+E               psycopg.OperationalError: connection failed: connection to server at "127.0.0.1", port 5432 failed: Connection refused
+E               	Is the server running on that host and accepting TCP/IP connections?
+
+.venv/lib/python3.12/site-packages/psycopg/connection.py:126: OperationalError</error></testcase><testcase classname="tests.test_refresh" name="test_incompatible_embedding_contract_cannot_answer_or_replace_the_active_publication" time="0.002"><error message="failed on setup with &quot;psycopg.OperationalError: connection failed: connection to server at &quot;127.0.0.1&quot;, port 5432 failed: Connection refused&#10;&#09;Is the server running on that host and accepting TCP/IP connections?&quot;">fixturedef = &lt;FixtureDef argname='database_url' scope='function' baseid='tests'&gt;
+request = &lt;SubRequest 'database_url' for &lt;Function test_incompatible_embedding_contract_cannot_answer_or_replace_the_active_publication&gt;&gt;
+
+    @pytest.hookimpl(wrapper=True)
+    def pytest_fixture_setup(fixturedef: FixtureDef, request) -&gt; object | None:
+        if (
+            fixturedef.argname == "event_loop_policy"
+            and fixturedef.func.__module__ != __name__
+        ):
+            warnings.warn(
+                PytestDeprecationWarning(_EVENT_LOOP_POLICY_FIXTURE_DEPRECATION_WARNING),
+            )
+        asyncio_mode = _get_asyncio_mode(request.config)
+        if not _is_asyncio_fixture_function(fixturedef.func):
+            if asyncio_mode == Mode.STRICT:
+                # Ignore async fixtures without explicit asyncio mark in strict mode
+                # This applies to pytest_trio fixtures, for example
+&gt;               return (yield)
+                        ^^^^^
+
+.venv/lib/python3.12/site-packages/pytest_asyncio/plugin.py:924: 
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ 
+tests/conftest.py:77: in database_url
+    with psycopg.connect(admin_url, autocommit=True) as conn:
+         ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ 
+
+cls = &lt;class 'psycopg.Connection'&gt;
+conninfo = 'user=ask_phil password=local-demo-only dbname=postgres host=127.0.0.1 port=5432 hostaddr=127.0.0.1'
+autocommit = True, prepare_threshold = 5, context = None, row_factory = None
+cursor_factory = None, kwargs = {}
+
+    @classmethod
+    def connect(
+        cls,
+        conninfo: str = "",
+        *,
+        autocommit: bool = False,
+        prepare_threshold: int | None = 5,
+        context: AdaptContext | None = None,
+        row_factory: RowFactory[Row] | None = None,
+        cursor_factory: type[Cursor[Row]] | None = None,
+        **kwargs: ConnParam,
+    ) -&gt; Self:
+        """
+        Connect to a database server and return a new `Connection` instance.
+        """
+    
+        params = cls._get_connection_params(conninfo, **kwargs)
+        timeout = timeout_from_conninfo(params)
+        rv = None
+        attempts = conninfo_attempts(params)
+        conn_errors: list[tuple[e.Error, str]] = []
+        for attempt in attempts:
+            tdescr = (attempt.get("host"), attempt.get("port"), attempt.get("hostaddr"))
+            descr = "host: %r, port: %r, hostaddr: %r" % tdescr
+            logger.debug("connection attempt: %s", descr)
+            try:
+                conninfo = make_conninfo("", **attempt)
+                gen = cls._connect_gen(conninfo)
+                rv = waiting.wait_conn(gen, interval=_WAIT_INTERVAL, timeout=timeout)
+            except e._WaitTimeout:
+                tex = e.ConnectionTimeout("connection timeout expired")
+                logger.debug("connection failed: %s: %s", descr, str(tex))
+                conn_errors.append((tex, descr))
+            except e.Error as ex:
+                logger.debug("connection failed: %s: %s", descr, str(ex))
+                conn_errors.append((ex, descr))
+            except e._NO_TRACEBACK as ex:
+                raise ex.with_traceback(None)
+            else:
+                logger.debug("connection succeeded: %s", descr)
+                break
+    
+        if not rv:
+            last_ex = conn_errors[-1][0]
+            if len(conn_errors) == 1:
+&gt;               raise last_ex.with_traceback(None)
+E               psycopg.OperationalError: connection failed: connection to server at "127.0.0.1", port 5432 failed: Connection refused
+E               	Is the server running on that host and accepting TCP/IP connections?
+
+.venv/lib/python3.12/site-packages/psycopg/connection.py:126: OperationalError</error></testcase><testcase classname="tests.test_refresh" name="test_api_exposes_active_manifest_run_details_and_pinned_current_inspection" time="0.002"><error message="failed on setup with &quot;psycopg.OperationalError: connection failed: connection to server at &quot;127.0.0.1&quot;, port 5432 failed: Connection refused&#10;&#09;Is the server running on that host and accepting TCP/IP connections?&quot;">fixturedef = &lt;FixtureDef argname='database_url' scope='function' baseid='tests'&gt;
+request = &lt;SubRequest 'database_url' for &lt;Function test_api_exposes_active_manifest_run_details_and_pinned_current_inspection&gt;&gt;
+
+    @pytest.hookimpl(wrapper=True)
+    def pytest_fixture_setup(fixturedef: FixtureDef, request) -&gt; object | None:
+        if (
+            fixturedef.argname == "event_loop_policy"
+            and fixturedef.func.__module__ != __name__
+        ):
+            warnings.warn(
+                PytestDeprecationWarning(_EVENT_LOOP_POLICY_FIXTURE_DEPRECATION_WARNING),
+            )
+        asyncio_mode = _get_asyncio_mode(request.config)
+        if not _is_asyncio_fixture_function(fixturedef.func):
+            if asyncio_mode == Mode.STRICT:
+                # Ignore async fixtures without explicit asyncio mark in strict mode
+                # This applies to pytest_trio fixtures, for example
+&gt;               return (yield)
+                        ^^^^^
+
+.venv/lib/python3.12/site-packages/pytest_asyncio/plugin.py:924: 
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ 
+tests/conftest.py:77: in database_url
+    with psycopg.connect(admin_url, autocommit=True) as conn:
+         ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ 
+
+cls = &lt;class 'psycopg.Connection'&gt;
+conninfo = 'user=ask_phil password=local-demo-only dbname=postgres host=127.0.0.1 port=5432 hostaddr=127.0.0.1'
+autocommit = True, prepare_threshold = 5, context = None, row_factory = None
+cursor_factory = None, kwargs = {}
+
+    @classmethod
+    def connect(
+        cls,
+        conninfo: str = "",
+        *,
+        autocommit: bool = False,
+        prepare_threshold: int | None = 5,
+        context: AdaptContext | None = None,
+        row_factory: RowFactory[Row] | None = None,
+        cursor_factory: type[Cursor[Row]] | None = None,
+        **kwargs: ConnParam,
+    ) -&gt; Self:
+        """
+        Connect to a database server and return a new `Connection` instance.
+        """
+    
+        params = cls._get_connection_params(conninfo, **kwargs)
+        timeout = timeout_from_conninfo(params)
+        rv = None
+        attempts = conninfo_attempts(params)
+        conn_errors: list[tuple[e.Error, str]] = []
+        for attempt in attempts:
+            tdescr = (attempt.get("host"), attempt.get("port"), attempt.get("hostaddr"))
+            descr = "host: %r, port: %r, hostaddr: %r" % tdescr
+            logger.debug("connection attempt: %s", descr)
+            try:
+                conninfo = make_conninfo("", **attempt)
+                gen = cls._connect_gen(conninfo)
+                rv = waiting.wait_conn(gen, interval=_WAIT_INTERVAL, timeout=timeout)
+            except e._WaitTimeout:
+                tex = e.ConnectionTimeout("connection timeout expired")
+                logger.debug("connection failed: %s: %s", descr, str(tex))
+                conn_errors.append((tex, descr))
+            except e.Error as ex:
+                logger.debug("connection failed: %s: %s", descr, str(ex))
+                conn_errors.append((ex, descr))
+            except e._NO_TRACEBACK as ex:
+                raise ex.with_traceback(None)
+            else:
+                logger.debug("connection succeeded: %s", descr)
+                break
+    
+        if not rv:
+            last_ex = conn_errors[-1][0]
+            if len(conn_errors) == 1:
+&gt;               raise last_ex.with_traceback(None)
+E               psycopg.OperationalError: connection failed: connection to server at "127.0.0.1", port 5432 failed: Connection refused
+E               	Is the server running on that host and accepting TCP/IP connections?
+
+.venv/lib/python3.12/site-packages/psycopg/connection.py:126: OperationalError</error></testcase><testcase classname="tests.test_refresh" name="test_cli_refreshes_recovers_and_inspects_current_publication_over_http" time="0.002"><error message="failed on setup with &quot;psycopg.OperationalError: connection failed: connection to server at &quot;127.0.0.1&quot;, port 5432 failed: Connection refused&#10;&#09;Is the server running on that host and accepting TCP/IP connections?&quot;">fixturedef = &lt;FixtureDef argname='database_url' scope='function' baseid='tests'&gt;
+request = &lt;SubRequest 'database_url' for &lt;Function test_cli_refreshes_recovers_and_inspects_current_publication_over_http&gt;&gt;
+
+    @pytest.hookimpl(wrapper=True)
+    def pytest_fixture_setup(fixturedef: FixtureDef, request) -&gt; object | None:
+        if (
+            fixturedef.argname == "event_loop_policy"
+            and fixturedef.func.__module__ != __name__
+        ):
+            warnings.warn(
+                PytestDeprecationWarning(_EVENT_LOOP_POLICY_FIXTURE_DEPRECATION_WARNING),
+            )
+        asyncio_mode = _get_asyncio_mode(request.config)
+        if not _is_asyncio_fixture_function(fixturedef.func):
+            if asyncio_mode == Mode.STRICT:
+                # Ignore async fixtures without explicit asyncio mark in strict mode
+                # This applies to pytest_trio fixtures, for example
+&gt;               return (yield)
+                        ^^^^^
+
+.venv/lib/python3.12/site-packages/pytest_asyncio/plugin.py:924: 
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ 
+tests/conftest.py:77: in database_url
+    with psycopg.connect(admin_url, autocommit=True) as conn:
+         ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ 
+
+cls = &lt;class 'psycopg.Connection'&gt;
+conninfo = 'user=ask_phil password=local-demo-only dbname=postgres host=127.0.0.1 port=5432 hostaddr=127.0.0.1'
+autocommit = True, prepare_threshold = 5, context = None, row_factory = None
+cursor_factory = None, kwargs = {}
+
+    @classmethod
+    def connect(
+        cls,
+        conninfo: str = "",
+        *,
+        autocommit: bool = False,
+        prepare_threshold: int | None = 5,
+        context: AdaptContext | None = None,
+        row_factory: RowFactory[Row] | None = None,
+        cursor_factory: type[Cursor[Row]] | None = None,
+        **kwargs: ConnParam,
+    ) -&gt; Self:
+        """
+        Connect to a database server and return a new `Connection` instance.
+        """
+    
+        params = cls._get_connection_params(conninfo, **kwargs)
+        timeout = timeout_from_conninfo(params)
+        rv = None
+        attempts = conninfo_attempts(params)
+        conn_errors: list[tuple[e.Error, str]] = []
+        for attempt in attempts:
+            tdescr = (attempt.get("host"), attempt.get("port"), attempt.get("hostaddr"))
+            descr = "host: %r, port: %r, hostaddr: %r" % tdescr
+            logger.debug("connection attempt: %s", descr)
+            try:
+                conninfo = make_conninfo("", **attempt)
+                gen = cls._connect_gen(conninfo)
+                rv = waiting.wait_conn(gen, interval=_WAIT_INTERVAL, timeout=timeout)
+            except e._WaitTimeout:
+                tex = e.ConnectionTimeout("connection timeout expired")
+                logger.debug("connection failed: %s: %s", descr, str(tex))
+                conn_errors.append((tex, descr))
+            except e.Error as ex:
+                logger.debug("connection failed: %s: %s", descr, str(ex))
+                conn_errors.append((ex, descr))
+            except e._NO_TRACEBACK as ex:
+                raise ex.with_traceback(None)
+            else:
+                logger.debug("connection succeeded: %s", descr)
+                break
+    
+        if not rv:
+            last_ex = conn_errors[-1][0]
+            if len(conn_errors) == 1:
+&gt;               raise last_ex.with_traceback(None)
+E               psycopg.OperationalError: connection failed: connection to server at "127.0.0.1", port 5432 failed: Connection refused
+E               	Is the server running on that host and accepting TCP/IP connections?
+
+.venv/lib/python3.12/site-packages/psycopg/connection.py:126: OperationalError</error></testcase><testcase classname="tests.test_refresh" name="test_answer_pins_one_publication_while_a_concurrent_refresh_changes_the_active_version" time="0.002"><error message="failed on setup with &quot;psycopg.OperationalError: connection failed: connection to server at &quot;127.0.0.1&quot;, port 5432 failed: Connection refused&#10;&#09;Is the server running on that host and accepting TCP/IP connections?&quot;">fixturedef = &lt;FixtureDef argname='database_url' scope='function' baseid='tests'&gt;
+request = &lt;SubRequest 'database_url' for &lt;Function test_answer_pins_one_publication_while_a_concurrent_refresh_changes_the_active_version&gt;&gt;
+
+    @pytest.hookimpl(wrapper=True)
+    def pytest_fixture_setup(fixturedef: FixtureDef, request) -&gt; object | None:
+        if (
+            fixturedef.argname == "event_loop_policy"
+            and fixturedef.func.__module__ != __name__
+        ):
+            warnings.warn(
+                PytestDeprecationWarning(_EVENT_LOOP_POLICY_FIXTURE_DEPRECATION_WARNING),
+            )
+        asyncio_mode = _get_asyncio_mode(request.config)
+        if not _is_asyncio_fixture_function(fixturedef.func):
+            if asyncio_mode == Mode.STRICT:
+                # Ignore async fixtures without explicit asyncio mark in strict mode
+                # This applies to pytest_trio fixtures, for example
+&gt;               return (yield)
+                        ^^^^^
+
+.venv/lib/python3.12/site-packages/pytest_asyncio/plugin.py:924: 
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ 
+tests/conftest.py:77: in database_url
+    with psycopg.connect(admin_url, autocommit=True) as conn:
+         ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ 
+
+cls = &lt;class 'psycopg.Connection'&gt;
+conninfo = 'user=ask_phil password=local-demo-only dbname=postgres host=127.0.0.1 port=5432 hostaddr=127.0.0.1'
+autocommit = True, prepare_threshold = 5, context = None, row_factory = None
+cursor_factory = None, kwargs = {}
+
+    @classmethod
+    def connect(
+        cls,
+        conninfo: str = "",
+        *,
+        autocommit: bool = False,
+        prepare_threshold: int | None = 5,
+        context: AdaptContext | None = None,
+        row_factory: RowFactory[Row] | None = None,
+        cursor_factory: type[Cursor[Row]] | None = None,
+        **kwargs: ConnParam,
+    ) -&gt; Self:
+        """
+        Connect to a database server and return a new `Connection` instance.
+        """
+    
+        params = cls._get_connection_params(conninfo, **kwargs)
+        timeout = timeout_from_conninfo(params)
+        rv = None
+        attempts = conninfo_attempts(params)
+        conn_errors: list[tuple[e.Error, str]] = []
+        for attempt in attempts:
+            tdescr = (attempt.get("host"), attempt.get("port"), attempt.get("hostaddr"))
+            descr = "host: %r, port: %r, hostaddr: %r" % tdescr
+            logger.debug("connection attempt: %s", descr)
+            try:
+                conninfo = make_conninfo("", **attempt)
+                gen = cls._connect_gen(conninfo)
+                rv = waiting.wait_conn(gen, interval=_WAIT_INTERVAL, timeout=timeout)
+            except e._WaitTimeout:
+                tex = e.ConnectionTimeout("connection timeout expired")
+                logger.debug("connection failed: %s: %s", descr, str(tex))
+                conn_errors.append((tex, descr))
+            except e.Error as ex:
+                logger.debug("connection failed: %s: %s", descr, str(ex))
+                conn_errors.append((ex, descr))
+            except e._NO_TRACEBACK as ex:
+                raise ex.with_traceback(None)
+            else:
+                logger.debug("connection succeeded: %s", descr)
+                break
+    
+        if not rv:
+            last_ex = conn_errors[-1][0]
+            if len(conn_errors) == 1:
+&gt;               raise last_ex.with_traceback(None)
+E               psycopg.OperationalError: connection failed: connection to server at "127.0.0.1", port 5432 failed: Connection refused
+E               	Is the server running on that host and accepting TCP/IP connections?
+
+.venv/lib/python3.12/site-packages/psycopg/connection.py:126: OperationalError</error></testcase><testcase classname="tests.test_retrieval" name="test_prepared_index_exposes_reproducible_source_and_artifact_identity" time="0.002"><error message="failed on setup with &quot;psycopg.OperationalError: connection failed: connection to server at &quot;127.0.0.1&quot;, port 5432 failed: Connection refused&#10;&#09;Is the server running on that host and accepting TCP/IP connections?&quot;">fixturedef = &lt;FixtureDef argname='database_url' scope='function' baseid='tests'&gt;
+request = &lt;SubRequest 'database_url' for &lt;Function test_prepared_index_exposes_reproducible_source_and_artifact_identity&gt;&gt;
+
+    @pytest.hookimpl(wrapper=True)
+    def pytest_fixture_setup(fixturedef: FixtureDef, request) -&gt; object | None:
+        if (
+            fixturedef.argname == "event_loop_policy"
+            and fixturedef.func.__module__ != __name__
+        ):
+            warnings.warn(
+                PytestDeprecationWarning(_EVENT_LOOP_POLICY_FIXTURE_DEPRECATION_WARNING),
+            )
+        asyncio_mode = _get_asyncio_mode(request.config)
+        if not _is_asyncio_fixture_function(fixturedef.func):
+            if asyncio_mode == Mode.STRICT:
+                # Ignore async fixtures without explicit asyncio mark in strict mode
+                # This applies to pytest_trio fixtures, for example
+&gt;               return (yield)
+                        ^^^^^
+
+.venv/lib/python3.12/site-packages/pytest_asyncio/plugin.py:924: 
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ 
+tests/conftest.py:77: in database_url
+    with psycopg.connect(admin_url, autocommit=True) as conn:
+         ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ 
+
+cls = &lt;class 'psycopg.Connection'&gt;
+conninfo = 'user=ask_phil password=local-demo-only dbname=postgres host=127.0.0.1 port=5432 hostaddr=127.0.0.1'
+autocommit = True, prepare_threshold = 5, context = None, row_factory = None
+cursor_factory = None, kwargs = {}
+
+    @classmethod
+    def connect(
+        cls,
+        conninfo: str = "",
+        *,
+        autocommit: bool = False,
+        prepare_threshold: int | None = 5,
+        context: AdaptContext | None = None,
+        row_factory: RowFactory[Row] | None = None,
+        cursor_factory: type[Cursor[Row]] | None = None,
+        **kwargs: ConnParam,
+    ) -&gt; Self:
+        """
+        Connect to a database server and return a new `Connection` instance.
+        """
+    
+        params = cls._get_connection_params(conninfo, **kwargs)
+        timeout = timeout_from_conninfo(params)
+        rv = None
+        attempts = conninfo_attempts(params)
+        conn_errors: list[tuple[e.Error, str]] = []
+        for attempt in attempts:
+            tdescr = (attempt.get("host"), attempt.get("port"), attempt.get("hostaddr"))
+            descr = "host: %r, port: %r, hostaddr: %r" % tdescr
+            logger.debug("connection attempt: %s", descr)
+            try:
+                conninfo = make_conninfo("", **attempt)
+                gen = cls._connect_gen(conninfo)
+                rv = waiting.wait_conn(gen, interval=_WAIT_INTERVAL, timeout=timeout)
+            except e._WaitTimeout:
+                tex = e.ConnectionTimeout("connection timeout expired")
+                logger.debug("connection failed: %s: %s", descr, str(tex))
+                conn_errors.append((tex, descr))
+            except e.Error as ex:
+                logger.debug("connection failed: %s: %s", descr, str(ex))
+                conn_errors.append((ex, descr))
+            except e._NO_TRACEBACK as ex:
+                raise ex.with_traceback(None)
+            else:
+                logger.debug("connection succeeded: %s", descr)
+                break
+    
+        if not rv:
+            last_ex = conn_errors[-1][0]
+            if len(conn_errors) == 1:
+&gt;               raise last_ex.with_traceback(None)
+E               psycopg.OperationalError: connection failed: connection to server at "127.0.0.1", port 5432 failed: Connection refused
+E               	Is the server running on that host and accepting TCP/IP connections?
+
+.venv/lib/python3.12/site-packages/psycopg/connection.py:126: OperationalError</error></testcase><testcase classname="tests.test_retrieval" name="test_vector_retrieval_returns_resolvable_captured_passages_after_restart" time="0.002"><error message="failed on setup with &quot;psycopg.OperationalError: connection failed: connection to server at &quot;127.0.0.1&quot;, port 5432 failed: Connection refused&#10;&#09;Is the server running on that host and accepting TCP/IP connections?&quot;">fixturedef = &lt;FixtureDef argname='database_url' scope='function' baseid='tests'&gt;
+request = &lt;SubRequest 'database_url' for &lt;Function test_vector_retrieval_returns_resolvable_captured_passages_after_restart&gt;&gt;
+
+    @pytest.hookimpl(wrapper=True)
+    def pytest_fixture_setup(fixturedef: FixtureDef, request) -&gt; object | None:
+        if (
+            fixturedef.argname == "event_loop_policy"
+            and fixturedef.func.__module__ != __name__
+        ):
+            warnings.warn(
+                PytestDeprecationWarning(_EVENT_LOOP_POLICY_FIXTURE_DEPRECATION_WARNING),
+            )
+        asyncio_mode = _get_asyncio_mode(request.config)
+        if not _is_asyncio_fixture_function(fixturedef.func):
+            if asyncio_mode == Mode.STRICT:
+                # Ignore async fixtures without explicit asyncio mark in strict mode
+                # This applies to pytest_trio fixtures, for example
+&gt;               return (yield)
+                        ^^^^^
+
+.venv/lib/python3.12/site-packages/pytest_asyncio/plugin.py:924: 
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ 
+tests/conftest.py:77: in database_url
+    with psycopg.connect(admin_url, autocommit=True) as conn:
+         ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ 
+
+cls = &lt;class 'psycopg.Connection'&gt;
+conninfo = 'user=ask_phil password=local-demo-only dbname=postgres host=127.0.0.1 port=5432 hostaddr=127.0.0.1'
+autocommit = True, prepare_threshold = 5, context = None, row_factory = None
+cursor_factory = None, kwargs = {}
+
+    @classmethod
+    def connect(
+        cls,
+        conninfo: str = "",
+        *,
+        autocommit: bool = False,
+        prepare_threshold: int | None = 5,
+        context: AdaptContext | None = None,
+        row_factory: RowFactory[Row] | None = None,
+        cursor_factory: type[Cursor[Row]] | None = None,
+        **kwargs: ConnParam,
+    ) -&gt; Self:
+        """
+        Connect to a database server and return a new `Connection` instance.
+        """
+    
+        params = cls._get_connection_params(conninfo, **kwargs)
+        timeout = timeout_from_conninfo(params)
+        rv = None
+        attempts = conninfo_attempts(params)
+        conn_errors: list[tuple[e.Error, str]] = []
+        for attempt in attempts:
+            tdescr = (attempt.get("host"), attempt.get("port"), attempt.get("hostaddr"))
+            descr = "host: %r, port: %r, hostaddr: %r" % tdescr
+            logger.debug("connection attempt: %s", descr)
+            try:
+                conninfo = make_conninfo("", **attempt)
+                gen = cls._connect_gen(conninfo)
+                rv = waiting.wait_conn(gen, interval=_WAIT_INTERVAL, timeout=timeout)
+            except e._WaitTimeout:
+                tex = e.ConnectionTimeout("connection timeout expired")
+                logger.debug("connection failed: %s: %s", descr, str(tex))
+                conn_errors.append((tex, descr))
+            except e.Error as ex:
+                logger.debug("connection failed: %s: %s", descr, str(ex))
+                conn_errors.append((ex, descr))
+            except e._NO_TRACEBACK as ex:
+                raise ex.with_traceback(None)
+            else:
+                logger.debug("connection succeeded: %s", descr)
+                break
+    
+        if not rv:
+            last_ex = conn_errors[-1][0]
+            if len(conn_errors) == 1:
+&gt;               raise last_ex.with_traceback(None)
+E               psycopg.OperationalError: connection failed: connection to server at "127.0.0.1", port 5432 failed: Connection refused
+E               	Is the server running on that host and accepting TCP/IP connections?
+
+.venv/lib/python3.12/site-packages/psycopg/connection.py:126: OperationalError</error></testcase><testcase classname="tests.test_retrieval" name="test_index_rejects_passages_too_long_for_the_embedding_input_budget" time="0.002"><error message="failed on setup with &quot;psycopg.OperationalError: connection failed: connection to server at &quot;127.0.0.1&quot;, port 5432 failed: Connection refused&#10;&#09;Is the server running on that host and accepting TCP/IP connections?&quot;">fixturedef = &lt;FixtureDef argname='database_url' scope='function' baseid='tests'&gt;
+request = &lt;SubRequest 'database_url' for &lt;Function test_index_rejects_passages_too_long_for_the_embedding_input_budget&gt;&gt;
+
+    @pytest.hookimpl(wrapper=True)
+    def pytest_fixture_setup(fixturedef: FixtureDef, request) -&gt; object | None:
+        if (
+            fixturedef.argname == "event_loop_policy"
+            and fixturedef.func.__module__ != __name__
+        ):
+            warnings.warn(
+                PytestDeprecationWarning(_EVENT_LOOP_POLICY_FIXTURE_DEPRECATION_WARNING),
+            )
+        asyncio_mode = _get_asyncio_mode(request.config)
+        if not _is_asyncio_fixture_function(fixturedef.func):
+            if asyncio_mode == Mode.STRICT:
+                # Ignore async fixtures without explicit asyncio mark in strict mode
+                # This applies to pytest_trio fixtures, for example
+&gt;               return (yield)
+                        ^^^^^
+
+.venv/lib/python3.12/site-packages/pytest_asyncio/plugin.py:924: 
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ 
+tests/conftest.py:77: in database_url
+    with psycopg.connect(admin_url, autocommit=True) as conn:
+         ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ 
+
+cls = &lt;class 'psycopg.Connection'&gt;
+conninfo = 'user=ask_phil password=local-demo-only dbname=postgres host=127.0.0.1 port=5432 hostaddr=127.0.0.1'
+autocommit = True, prepare_threshold = 5, context = None, row_factory = None
+cursor_factory = None, kwargs = {}
+
+    @classmethod
+    def connect(
+        cls,
+        conninfo: str = "",
+        *,
+        autocommit: bool = False,
+        prepare_threshold: int | None = 5,
+        context: AdaptContext | None = None,
+        row_factory: RowFactory[Row] | None = None,
+        cursor_factory: type[Cursor[Row]] | None = None,
+        **kwargs: ConnParam,
+    ) -&gt; Self:
+        """
+        Connect to a database server and return a new `Connection` instance.
+        """
+    
+        params = cls._get_connection_params(conninfo, **kwargs)
+        timeout = timeout_from_conninfo(params)
+        rv = None
+        attempts = conninfo_attempts(params)
+        conn_errors: list[tuple[e.Error, str]] = []
+        for attempt in attempts:
+            tdescr = (attempt.get("host"), attempt.get("port"), attempt.get("hostaddr"))
+            descr = "host: %r, port: %r, hostaddr: %r" % tdescr
+            logger.debug("connection attempt: %s", descr)
+            try:
+                conninfo = make_conninfo("", **attempt)
+                gen = cls._connect_gen(conninfo)
+                rv = waiting.wait_conn(gen, interval=_WAIT_INTERVAL, timeout=timeout)
+            except e._WaitTimeout:
+                tex = e.ConnectionTimeout("connection timeout expired")
+                logger.debug("connection failed: %s: %s", descr, str(tex))
+                conn_errors.append((tex, descr))
+            except e.Error as ex:
+                logger.debug("connection failed: %s: %s", descr, str(ex))
+                conn_errors.append((ex, descr))
+            except e._NO_TRACEBACK as ex:
+                raise ex.with_traceback(None)
+            else:
+                logger.debug("connection succeeded: %s", descr)
+                break
+    
+        if not rv:
+            last_ex = conn_errors[-1][0]
+            if len(conn_errors) == 1:
+&gt;               raise last_ex.with_traceback(None)
+E               psycopg.OperationalError: connection failed: connection to server at "127.0.0.1", port 5432 failed: Connection refused
+E               	Is the server running on that host and accepting TCP/IP connections?
+
+.venv/lib/python3.12/site-packages/psycopg/connection.py:126: OperationalError</error></testcase><testcase classname="tests.test_retrieval" name="test_reindexing_is_idempotent_and_retrieval_cannot_cross_snapshot_or_model_identity" time="0.002"><error message="failed on setup with &quot;psycopg.OperationalError: connection failed: connection to server at &quot;127.0.0.1&quot;, port 5432 failed: Connection refused&#10;&#09;Is the server running on that host and accepting TCP/IP connections?&quot;">fixturedef = &lt;FixtureDef argname='database_url' scope='function' baseid='tests'&gt;
+request = &lt;SubRequest 'database_url' for &lt;Function test_reindexing_is_idempotent_and_retrieval_cannot_cross_snapshot_or_model_identity&gt;&gt;
+
+    @pytest.hookimpl(wrapper=True)
+    def pytest_fixture_setup(fixturedef: FixtureDef, request) -&gt; object | None:
+        if (
+            fixturedef.argname == "event_loop_policy"
+            and fixturedef.func.__module__ != __name__
+        ):
+            warnings.warn(
+                PytestDeprecationWarning(_EVENT_LOOP_POLICY_FIXTURE_DEPRECATION_WARNING),
+            )
+        asyncio_mode = _get_asyncio_mode(request.config)
+        if not _is_asyncio_fixture_function(fixturedef.func):
+            if asyncio_mode == Mode.STRICT:
+                # Ignore async fixtures without explicit asyncio mark in strict mode
+                # This applies to pytest_trio fixtures, for example
+&gt;               return (yield)
+                        ^^^^^
+
+.venv/lib/python3.12/site-packages/pytest_asyncio/plugin.py:924: 
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ 
+tests/conftest.py:77: in database_url
+    with psycopg.connect(admin_url, autocommit=True) as conn:
+         ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ 
+
+cls = &lt;class 'psycopg.Connection'&gt;
+conninfo = 'user=ask_phil password=local-demo-only dbname=postgres host=127.0.0.1 port=5432 hostaddr=127.0.0.1'
+autocommit = True, prepare_threshold = 5, context = None, row_factory = None
+cursor_factory = None, kwargs = {}
+
+    @classmethod
+    def connect(
+        cls,
+        conninfo: str = "",
+        *,
+        autocommit: bool = False,
+        prepare_threshold: int | None = 5,
+        context: AdaptContext | None = None,
+        row_factory: RowFactory[Row] | None = None,
+        cursor_factory: type[Cursor[Row]] | None = None,
+        **kwargs: ConnParam,
+    ) -&gt; Self:
+        """
+        Connect to a database server and return a new `Connection` instance.
+        """
+    
+        params = cls._get_connection_params(conninfo, **kwargs)
+        timeout = timeout_from_conninfo(params)
+        rv = None
+        attempts = conninfo_attempts(params)
+        conn_errors: list[tuple[e.Error, str]] = []
+        for attempt in attempts:
+            tdescr = (attempt.get("host"), attempt.get("port"), attempt.get("hostaddr"))
+            descr = "host: %r, port: %r, hostaddr: %r" % tdescr
+            logger.debug("connection attempt: %s", descr)
+            try:
+                conninfo = make_conninfo("", **attempt)
+                gen = cls._connect_gen(conninfo)
+                rv = waiting.wait_conn(gen, interval=_WAIT_INTERVAL, timeout=timeout)
+            except e._WaitTimeout:
+                tex = e.ConnectionTimeout("connection timeout expired")
+                logger.debug("connection failed: %s: %s", descr, str(tex))
+                conn_errors.append((tex, descr))
+            except e.Error as ex:
+                logger.debug("connection failed: %s: %s", descr, str(ex))
+                conn_errors.append((ex, descr))
+            except e._NO_TRACEBACK as ex:
+                raise ex.with_traceback(None)
+            else:
+                logger.debug("connection succeeded: %s", descr)
+                break
+    
+        if not rv:
+            last_ex = conn_errors[-1][0]
+            if len(conn_errors) == 1:
+&gt;               raise last_ex.with_traceback(None)
+E               psycopg.OperationalError: connection failed: connection to server at "127.0.0.1", port 5432 failed: Connection refused
+E               	Is the server running on that host and accepting TCP/IP connections?
+
+.venv/lib/python3.12/site-packages/psycopg/connection.py:126: OperationalError</error></testcase><testcase classname="tests.test_source_ingestion" name="test_mixed_page_retains_order_and_exclusions_without_losing_main_series_history" time="0.004" /><testcase classname="tests.test_source_ingestion" name="test_source_capture_preserves_response" time="0.002" /><testcase classname="tests.test_source_ingestion" name="test_source_capture_rejects_http_failure" time="0.002" /><testcase classname="tests.test_source_ingestion" name="test_source_request_rejects_wrong_host" time="0.002" /><testcase classname="tests.test_source_ingestion" name="test_real_inputs_preserve_narrative_provenance_and_keep_metadata_out_of_retrieval" time="1.208" /><testcase classname="tests.test_source_ingestion" name="test_imported_citation_cannot_be_reassigned_to_an_excluded_paragraph" time="1.768" /><testcase classname="tests.test_source_ingestion" name="test_malformed_nested_episode_input_is_an_explicit_import_failure" time="1.200" /><testcase classname="tests.test_source_ingestion" name="test_missing_sections_and_records_are_reported_separately_from_scope_exclusions" time="1.726" /><testcase classname="tests.test_source_ingestion" name="test_incompatible_or_malformed_source_cannot_create_a_snapshot[revision]" time="0.041" /><testcase classname="tests.test_source_ingestion" name="test_incompatible_or_malformed_source_cannot_create_a_snapshot[identity]" time="0.384" /><testcase classname="tests.test_source_ingestion" name="test_incompatible_or_malformed_source_cannot_create_a_snapshot[duplicate_rule]" time="0.039" /><testcase classname="tests.test_source_ingestion" name="test_incompatible_or_malformed_source_cannot_create_a_snapshot[html]" time="0.034" /><testcase classname="tests.test_source_ingestion" name="test_incompatible_or_malformed_source_cannot_create_a_snapshot[json]" time="1.708" /><testcase classname="tests.test_source_ingestion" name="test_incompatible_or_malformed_source_cannot_create_a_snapshot[sitelinks]" time="1.140" /><testcase classname="tests.test_source_ingestion" name="test_incompatible_or_malformed_source_cannot_create_a_snapshot[fingerprint]" time="0.040" /><testcase classname="tests.test_source_ingestion" name="test_duplicate_episode_records_are_reported_and_conflicting_duplicates_fail[False]" time="1.729" /><testcase classname="tests.test_source_ingestion" name="test_duplicate_episode_records_are_reported_and_conflicting_duplicates_fail[True]" time="1.163" /><testcase classname="tests.test_source_ingestion" name="test_capture_stops_on_oversized_response" time="0.002" /><testcase classname="tests.test_source_ingestion" name="test_capture_stops_on_interrupted_response" time="0.002" /><testcase classname="tests.test_source_ingestion" name="test_real_source_retention_matches_reviewed_ordered_paragraph_labels" time="1.989" /></testsuite></testsuites>

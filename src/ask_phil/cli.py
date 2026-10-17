@@ -7,6 +7,7 @@ import json
 import os
 import sys
 from pathlib import Path
+from uuid import UUID
 
 import httpx
 import psycopg
@@ -29,7 +30,7 @@ def main() -> int:
     )
     inspect = commands.add_parser("inspect", help="Retrieve matching passages through the API.")
     inspect.add_argument("query")
-    inspect.add_argument("--snapshot", required=True)
+    inspect.add_argument("--snapshot", help="Defaults to the active publication.")
     inspect.add_argument("--limit", type=int, default=10)
     load = commands.add_parser("load", help="Maintainer: load a captured fixture into PostgreSQL.")
     load.add_argument("fixture", type=Path)
@@ -59,7 +60,7 @@ def main() -> int:
     identity.add_argument("--snapshot", required=True)
     ask = commands.add_parser("ask", help="Ask a question using the captured snapshot.")
     ask.add_argument("query")
-    ask.add_argument("--snapshot", required=True)
+    ask.add_argument("--snapshot", help="Defaults to the active publication.")
     response = commands.add_parser(
         "response", help="Read the original answer using a saved receipt."
     )
@@ -68,6 +69,22 @@ def main() -> int:
         "index", help="Maintainer: embed a snapshot using configured models."
     )
     index.add_argument("--snapshot", required=True)
+    refresh = commands.add_parser(
+        "refresh-sources", help="Maintainer: run a reviewed refresh through Prefect and publish."
+    )
+    refresh.add_argument("input", type=Path)
+    refresh.add_argument("--live", action="store_true", help="Input is a capture plan to fetch.")
+    commands.add_parser(
+        "rollback-snapshot", help="Maintainer: restore the prior compatible source/index pair."
+    )
+    publication = commands.add_parser("publication", help="Inspect the active snapshot manifest.")
+    publication.add_argument("--previous", action="store_true")
+    runs = commands.add_parser("refresh-runs", help="Inspect recorded refresh/recovery outcomes.")
+    runs.add_argument("run_id", type=UUID, nargs="?")
+    runs.add_argument("--limit", type=int, default=20)
+    runs.add_argument(
+        "--captures", action="store_true", help="Inspect retained captures for a run."
+    )
     args = parser.parse_args()
     try:
         if args.command == "configure-openrouter":
@@ -92,11 +109,42 @@ def main() -> int:
             with args.output.open("xb") as output:
                 output.write(gzip.compress(data, mtime=0) if args.output.suffix == ".gz" else data)
             print(json.dumps({"output": str(args.output), "captured_sources": len(batch.captures)}))
-        elif args.command in {"load", "index", "import-sources"}:
+        elif args.command in {
+            "load",
+            "index",
+            "import-sources",
+            "refresh-sources",
+            "rollback-snapshot",
+        }:
             database_url = os.environ.get("DATABASE_URL")
             if not database_url:
                 parser.error("DATABASE_URL is required for the maintainer storage command.")
-            if args.command in {"load", "import-sources"}:
+            if args.command in {"refresh-sources", "rollback-snapshot"}:
+                from ask_phil.models import ModelConfigurationError, embedding_from_environment
+                from ask_phil.refresh import SourceRefresh
+
+                try:
+                    settings, embedding = embedding_from_environment()
+                    refresh_service = SourceRefresh(
+                        database_url,
+                        embedding,
+                        settings.embedding_id,
+                        settings.embedding_dimensions,
+                    )
+                    if args.command == "refresh-sources":
+                        embedding.verify(settings.embedding_digest)
+                        refresh_input = (
+                            CapturePlan.model_validate_json(args.input.read_bytes())
+                            if args.live
+                            else read_batch(args.input)
+                        )
+                        outcome = refresh_service.run(refresh_input)
+                    else:
+                        outcome = refresh_service.rollback()
+                except ModelConfigurationError as exc:
+                    raise ValueError(str(exc)) from None
+                print(outcome.model_dump_json())
+            elif args.command in {"load", "import-sources"}:
                 snapshot = (
                     build_snapshot(read_batch(args.batch), args.snapshot)
                     if args.command == "import-sources"
@@ -147,9 +195,22 @@ def main() -> int:
                     result = client.get(
                         f"/v1/snapshots/{args.snapshot}/identities", params={"name": args.name}
                     )
+                elif args.command == "publication":
+                    result = client.get(
+                        "/v1/publication/previous" if args.previous else "/v1/publication"
+                    )
+                elif args.command == "refresh-runs":
+                    if args.captures and args.run_id is None:
+                        parser.error("--captures requires a run ID.")
+                    path = f"/v1/refresh-runs/{args.run_id}" if args.run_id else "/v1/refresh-runs"
+                    result = client.get(
+                        path + ("/captures" if args.captures else ""), params={"limit": args.limit}
+                    )
                 else:
                     result = client.get(
-                        f"/v1/snapshots/{args.snapshot}/inspect",
+                        f"/v1/snapshots/{args.snapshot}/inspect"
+                        if args.snapshot
+                        else "/v1/inspect",
                         params={"query": args.query, "limit": args.limit},
                     )
                 result.raise_for_status()

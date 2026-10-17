@@ -17,9 +17,15 @@ from ask_phil.evidence import Identifier, Inspection
 from ask_phil.identity import IdentityResolution
 from ask_phil.models import ModelConfigurationError, Models
 from ask_phil.openrouter import ProviderError
+from ask_phil.publications import (
+    ActivePublication,
+    PublicationNotFound,
+    PublicationStore,
+    RefreshRun,
+)
 from ask_phil.responses import ResponseLedger
 from ask_phil.retrieval import IndexNotReady
-from ask_phil.source_records import ImportedSources, ImportSummary, SourceInspection
+from ask_phil.source_records import CapturedSource, ImportedSources, ImportSummary, SourceInspection
 from ask_phil.storage import EvidenceStore, SnapshotNotFound
 
 SearchText = Annotated[str, StringConstraints(strip_whitespace=True, min_length=1, max_length=500)]
@@ -33,6 +39,7 @@ def create_app(
 ) -> FastAPI:
     database_url = database_url or os.environ["DATABASE_URL"]
     store = EvidenceStore(database_url)
+    publications = PublicationStore(database_url)
     app = FastAPI(title="Ask Phil evidence inspection", version="0.1.0")
     service = (
         AnswerService(database_url, models, tracking_uri or "sqlite:///artifacts/mlflow.db")
@@ -40,6 +47,38 @@ def create_app(
         else None
     )
     service_lock = threading.Lock()
+
+    @app.exception_handler(PublicationNotFound)
+    async def publication_missing(request: Request, exc: PublicationNotFound) -> JSONResponse:
+        return JSONResponse(status_code=404, content={"detail": str(exc)})
+
+    @app.get("/v1/publication")
+    def active_publication() -> ActivePublication:
+        return publications.active()
+
+    @app.get("/v1/publication/previous")
+    def previous_publication() -> ActivePublication:
+        return publications.previous()
+
+    @app.get("/v1/refresh-runs")
+    def refresh_runs(limit: Annotated[int, Query(ge=1, le=100)] = 20) -> tuple[RefreshRun, ...]:
+        return publications.runs(limit)
+
+    @app.get("/v1/refresh-runs/{run_id}")
+    def refresh_run(run_id: UUID) -> RefreshRun:
+        return publications.run(run_id)
+
+    @app.get("/v1/refresh-runs/{run_id}/captures")
+    def refresh_captures(run_id: UUID) -> tuple[CapturedSource, ...]:
+        return publications.captures(run_id)
+
+    @app.get("/v1/inspect")
+    def inspect_current(
+        query: Annotated[SearchText, Query()], limit: Annotated[int, Query(ge=1, le=20)] = 10
+    ) -> Inspection:
+        pinned = publications.active()
+        result = store.inspect(pinned.manifest.snapshot_id, query, limit)
+        return result.model_copy(update={"publication": pinned.reference})
 
     @app.post("/v1/answers")
     def answer(request: AskRequest) -> AnswerReceipt:

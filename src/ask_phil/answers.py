@@ -6,7 +6,7 @@ from uuid import UUID
 
 from pydantic import Field, StringConstraints, field_validator
 
-from ask_phil.evidence import Fingerprint, Identifier, Passage, Record, Source
+from ask_phil.evidence import Fingerprint, Identifier, Passage, PublicationRef, Record, Source
 from ask_phil.models import ModelSettings, OpenRouterSettings
 from ask_phil.openrouter import ProviderUsage
 from ask_phil.retrieval import RetrievedPassage
@@ -80,7 +80,7 @@ Always call synthetic material synthetic; it is not EastEnders canon."""
 
 
 class AskRequest(Record):
-    snapshot_id: Identifier
+    snapshot_id: Identifier | None = None
     question: Annotated[str, StringConstraints(strip_whitespace=True, min_length=1, max_length=500)]
 
     @field_validator("question")
@@ -111,6 +111,7 @@ class AnswerRecord(Record):
     citations: tuple["Citation", ...]
     snapshot_id: Identifier
     snapshot_sha256: Fingerprint
+    publication: PublicationRef | None = Field(default=None, exclude_if=lambda value: value is None)
     source: Source
     retrieved: tuple[RetrievedPassage, ...]
     context: tuple[Passage, ...]

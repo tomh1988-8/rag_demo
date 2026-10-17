@@ -8,6 +8,23 @@ from ask_phil.storage import EvidenceStore
 pytestmark = pytest.mark.integration
 
 
+def test_prepared_index_exposes_reproducible_source_and_artifact_identity(
+    database_url: str, seed: SourceSnapshot
+) -> None:
+    EvidenceStore(database_url).load(seed)
+    retriever = TextRetriever(database_url, MockEmbedding(embed_dim=3), "test-embedding-v1", 3)
+
+    manifest = retriever.prepare(seed.snapshot_id)
+
+    assert manifest.snapshot_sha256 == seed.fingerprint
+    assert manifest.embedding_id == "test-embedding-v1"
+    assert manifest.dimensions == 3
+    assert manifest.passages == 1
+    restarted = TextRetriever(database_url, MockEmbedding(embed_dim=3), "test-embedding-v1", 3)
+    assert restarted.manifest(seed.snapshot_id) == manifest
+    assert restarted.prepare(seed.snapshot_id) == manifest
+
+
 def test_vector_retrieval_returns_resolvable_captured_passages_after_restart(
     database_url: str, seed: SourceSnapshot
 ) -> None:

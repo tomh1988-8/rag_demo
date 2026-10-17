@@ -1,43 +1,14 @@
 import gzip
 import json
 import os
-import socket
 import subprocess
 import sys
-import threading
-import time
-from collections.abc import Iterator
 from pathlib import Path
 
 import httpx
 import pytest
-import uvicorn
-
-from ask_phil.api import create_app
-from ask_phil.evidence import SourceSnapshot
-from ask_phil.storage import EvidenceStore
 
 pytestmark = pytest.mark.integration
-
-
-@pytest.fixture
-def live_api(database_url: str, seed: SourceSnapshot) -> Iterator[str]:
-    EvidenceStore(database_url).load(seed)
-    with socket.socket() as listener:
-        listener.bind(("127.0.0.1", 0))
-        server = uvicorn.Server(uvicorn.Config(create_app(database_url), log_level="error"))
-        thread = threading.Thread(target=server.run, kwargs={"sockets": [listener]}, daemon=True)
-        thread.start()
-        try:
-            deadline = time.monotonic() + 5
-            while not server.started and thread.is_alive() and time.monotonic() < deadline:
-                time.sleep(0.01)
-            assert server.started, "Test API did not start."
-            yield f"http://127.0.0.1:{listener.getsockname()[1]}"
-        finally:
-            server.should_exit = True
-            thread.join(timeout=5)
-            assert not thread.is_alive(), "Test API did not stop."
 
 
 def test_cli_inspects_evidence_via_http_without_database_credentials(live_api: str) -> None:

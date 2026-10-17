@@ -4,6 +4,7 @@ import gzip
 import hashlib
 import json
 import re
+from collections.abc import Iterator
 from datetime import UTC, datetime
 from pathlib import Path
 from urllib.parse import unquote, urljoin, urlsplit
@@ -43,9 +44,15 @@ def capture_sources(
     requests: tuple[SourceRequest, ...], client: httpx.Client
 ) -> tuple[CapturedSource, ...]:
     """Capture a small batch once. HTTP failure never becomes an empty source record."""
+    return tuple(iter_captures(requests, client))
+
+
+def iter_captures(
+    requests: tuple[SourceRequest, ...], client: httpx.Client
+) -> Iterator[CapturedSource]:
+    """Yield bounded captures so the refresh journal can retain partial progress."""
     if not 1 <= len(requests) <= 20:
         raise ValueError("Capture batches contain 1–20 sources.")
-    results: list[CapturedSource] = []
     total = 0
     for request in requests:
         try:
@@ -69,17 +76,14 @@ def capture_sources(
                         raise ValueError("Capture exceeds the per-source or batch byte limit.")
                     chunks.append(chunk)
                 raw = b"".join(chunks)
-                results.append(
-                    CapturedSource(
-                        **request.model_dump(),
-                        content=raw.decode("utf-8"),
-                        sha256=hashlib.sha256(raw).hexdigest(),
-                        captured_at=datetime.now(UTC),
-                    )
+                yield CapturedSource(
+                    **request.model_dump(),
+                    content=raw.decode("utf-8"),
+                    sha256=hashlib.sha256(raw).hexdigest(),
+                    captured_at=datetime.now(UTC),
                 )
         except httpx.HTTPError as exc:
             raise ValueError(f"{request.source_id}: source transport failed.") from exc
-    return tuple(results)
 
 
 def parse_wikipedia(capture: CapturedSource, policy: WikipediaPolicy) -> ParsedSource:

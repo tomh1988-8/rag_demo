@@ -27,8 +27,9 @@ from ask_phil.answers import (
 )
 from ask_phil.models import Models
 from ask_phil.openrouter import OpenRouterChat, ProviderUsage
+from ask_phil.publications import PublicationStore
 from ask_phil.responses import ResponseLedger
-from ask_phil.retrieval import TextRetriever
+from ask_phil.retrieval import IndexNotReady, TextRetriever
 
 
 def application_fingerprint() -> str:
@@ -42,6 +43,7 @@ def application_fingerprint() -> str:
 class AnswerService:
     def __init__(self, database_url: str, models: Models, tracking_uri: str) -> None:
         self.models = models
+        self.publications = PublicationStore(database_url)
         self.retriever = TextRetriever(
             database_url,
             models.embedding,
@@ -89,6 +91,12 @@ class AnswerService:
         self, request: AskRequest, *, category: Literal["serving", "offline_evaluation"] = "serving"
     ) -> AnswerReceipt:
         started = time.perf_counter()
+        publication = self.publications.pin(request.snapshot_id)
+        snapshot_id = publication.manifest.snapshot_id if publication else request.snapshot_id
+        if snapshot_id is None:
+            raise IndexNotReady("Publish a usable source/index snapshot before answering.")
+        if publication and self.retriever.manifest(snapshot_id) != publication.manifest.index:
+            raise IndexNotReady("The configured retrieval index differs from the publication.")
         self.models.verify()
         response_id = uuid4()
         experiment_id = self._experiment(category)
@@ -96,6 +104,8 @@ class AnswerService:
             "text_rag", trace_destination=MlflowExperimentLocation(experiment_id)
         ) as root:
             root.set_inputs(request.model_dump())
+            if publication:
+                root.set_attribute("publication", publication.reference.model_dump(mode="json"))
             root.set_attributes(
                 {
                     "response_id": str(response_id),
@@ -111,7 +121,7 @@ class AnswerService:
             )
             with mlflow.start_span("text_retrieval", span_type="RETRIEVER") as span:
                 span.set_inputs({"question": request.question, "k": 3})
-                retrieved = self.retriever.retrieve(request.snapshot_id, request.question, k=3)
+                retrieved = self.retriever.retrieve(snapshot_id, request.question, k=3)
                 span.set_outputs(retrieved.model_dump(mode="json"))
             with mlflow.start_span("assembled_context") as span:
                 context = assemble_context(retrieved.hits, 1200)
@@ -175,7 +185,7 @@ class AnswerService:
                         if available:
                             span.set_attribute("mlflow.chat.tokenUsage", available)
                         draft = Draft.model_validate_json(result.message.content or "")
-                        citations = cite_answer(draft, context, request.snapshot_id)
+                        citations = cite_answer(draft, context, snapshot_id)
                     except (ValueError, ResponseError, httpx.HTTPError, ConnectionError) as exc:
                         failure = True
                         span.set_status("ERROR")
@@ -222,8 +232,9 @@ class AnswerService:
                 unanswered=draft.unanswered,
                 qualifications=draft.qualifications,
                 citations=citations,
-                snapshot_id=request.snapshot_id,
+                snapshot_id=snapshot_id,
                 snapshot_sha256=retrieved.snapshot.fingerprint,
+                publication=publication.reference if publication else None,
                 source=retrieved.snapshot.source,
                 retrieved=retrieved.hits,
                 context=context,

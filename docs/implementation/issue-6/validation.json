@@ -1,0 +1,129 @@
+{
+  "recorded_at": "2026-10-17T11:32:35.664575+00:00",
+  "review_baseline": "f4d2c6a808b2002d2ac66f19105a02d409f79006",
+  "application_sha256": "400893e162f4b15a5eaf28dd7e41d78f4a52328b84a9a1f5ebb1ad56d89492f4",
+  "docker": {
+    "test_image": "ask-phil:issue6-check",
+    "test_image_digest": "sha256:75ef39b950a7236e585757de08e58d0211d421ddb52bfc51d55996e75ce32db9",
+    "application_sha256": "400893e162f4b15a5eaf28dd7e41d78f4a52328b84a9a1f5ebb1ad56d89492f4",
+    "database_image": "pgvector/pgvector@sha256:78bf48b801e792f99e3ac62b5036fd3876e9be48afda16c1e331af1c75ceb2ff",
+    "database_shared_memory_mib": 256
+  },
+  "input_sha256": {
+    "src/ask_phil/__init__.py": "c4be197720058e2c86d4a79594bf60163b9bef1578b8e0e99650ec5e8b114a3d",
+    "src/ask_phil/answering.py": "b38b322a81070fd2a23668a32f63b9a581251d5695afe1e38dbd607afd2ee964",
+    "src/ask_phil/answers.py": "3e0504189371277e1dd6247d18b67ed87b22ae761e4a60f7be8107b458e7004d",
+    "src/ask_phil/api.py": "f780c59caa094cad4823ed12753c93caa3097d29a8494b8cc949cbf99f64ed33",
+    "src/ask_phil/cli.py": "9e2d0b337329ee514b6ce7967c1102b3c85781f062d366c59680f37780b6c02d",
+    "src/ask_phil/evaluation.py": "58d3f30db8e44220a5b9a66ab7ee27959b3b82ffd51da04ca22cb06c19956bfc",
+    "src/ask_phil/evidence.py": "321f6a3ba913ca8be26a4ab171e263ab1da9fc208b12432f5dbcf54c2f83ea9f",
+    "src/ask_phil/identity.py": "f7277f6206c35dcb5e5cb91806f98c5142c09175d86f0fd7fa5b962f20f0d2c9",
+    "src/ask_phil/ingestion.py": "ae0c66e8b2f270e19ec7acf20d7daff5e12a589788aeec92101a2ba66a8511bc",
+    "src/ask_phil/models.py": "e570e270194dbda4ad7e035c9c9f9c74c44e90c11bda766d77c20e5c3f27e3db",
+    "src/ask_phil/openrouter.py": "a94c3f04091c5acd8ad9bbdd73549af7c83ad782869cfec2472caf808161f98f",
+    "src/ask_phil/publications.py": "72fdb5e948b08e52c974e03a20d218f0659cb60aea0efec8d9cfb2bb9e7bf6fa",
+    "src/ask_phil/refresh.py": "2398ccd691f39e3f78672dcdf77182aa11fd0d9af2a76fc411109d9c3a504405",
+    "src/ask_phil/responses.py": "a51474b03f35ffec016760d31754fc4eae4e19447e2f8ffd7719f81794222f73",
+    "src/ask_phil/retrieval.py": "bd90fbfc5653bb25c3cda4f9cfce0b69fdf6b14205971f3ac91c26f3b580490b",
+    "src/ask_phil/source_records.py": "9aa34eee7d2f49bd7b17c680f8f66f16cff3e22db7843667d58db782777904e9",
+    "src/ask_phil/storage.py": "32e5be5e11813d8c36d81a2ff5d292645967d1f646bcb45f43e50088afb25f74",
+    "tests/conftest.py": "a1aae41c260f6b4a1acfaec6ce0e383d176ac51765a13faebf6835288f7bb719",
+    "tests/test_answer_rules.py": "dc14a86340fc34e0dcbc3638089c89f7b9cb2f232f6f5c5dbc060fc7cf61a8c3",
+    "tests/test_answers_api.py": "71af142c81847c9d562de8b7ac91e8b151d2353583d9e9e702792de20b4343b8",
+    "tests/test_cli.py": "0cad3933454e67628c06a73bd1c4fe2cfc803feef9f642727ffed5b9b369a6c8",
+    "tests/test_evaluation.py": "896c740f595a0cb3cc222e05741e21fd705d3c475198cc04c6c01e6390f851a3",
+    "tests/test_identity.py": "6b551edb254f6209f90234ebc5a9844c1273b42f26503ef8ebe6c7e9d0c66999",
+    "tests/test_import_api.py": "1541c6791b658e2c00d6cb8d61065a8d929a7c4ab9d11ecb79569a8ec056688a",
+    "tests/test_inspection.py": "97b460517280da1202a7c8cc1019a167bfd764d6cf3a31108758b838ac9ee1e6",
+    "tests/test_openrouter.py": "bcb9a2398232c2281025f873c46f11d59496853ebc2bfef8c27d7bb4eba9061c",
+    "tests/test_openrouter_answers.py": "2cfd3615a6db5349af925f16318aa01d4162b2b1b88b6ddf50c5598d5ab8ad3d",
+    "tests/test_policy_evaluation.py": "1606fb2fe9fa11b4b0b7d5194b0f7c0530cb92e2fb03bd6915484a351528ff0e",
+    "tests/test_provenance.py": "1c6a3c916a4c28413c0fb957dbb283e3a38bcec8012414ceea0d79fcdf4c8eaa",
+    "tests/test_refresh.py": "58662a7a6cc172ed599f4adf0a64b1e3095ef60d22c93ef991c902c7db8e45f7",
+    "tests/test_retrieval.py": "812685fe4a40c03c4e6b6bf264fdf478a5d65a5a4fb487613a1e37603351748f",
+    "tests/test_source_ingestion.py": "62d0cf968e369850a7b475a7e0650fcec8985b5bde8f12cb0a47a6de7ca32c6a",
+    "scripts/record_refresh_acceptance.py": "1f017e758d5165168a4ab21cc04e51ec7fb8a05e8b0d25803834682d0cf4584d",
+    "pyproject.toml": "f740c8e894e07d179ff7aa5b07ebd055b5e5e9be97e9c7cbcc0765b519216538",
+    "uv.lock": "983d5a644e3289e6b79d92dc251b5029c199a497ac33c14f504a3c9ee3763152",
+    "Dockerfile": "b31f320d6bcc31440212d13ac52e40bb93a8373b51a38753cd7a4ded6b2c1cac",
+    ".dockerignore": "a6efb9be684c950cfc581e4cdc46eb770cb335ac6fee9f8df854d763f04fe7eb",
+    "compose.yaml": "88a8d03a76d13846926c7fc3af34e6a18a8c4c2f515f70da27dbef453c1069dc"
+  },
+  "software": {
+    "tests": 131,
+    "failures": 0,
+    "errors": 0,
+    "skipped": 0,
+    "seconds": 369.11,
+    "junit": "software-tests.xml",
+    "junit_sha256": "35732bffd1ee8aec00b503e1d113122ad81bb73fcc7a9fc2ce79959c60c54686",
+    "runner": "Docker test target; non-root UID 10001; disposable PostgreSQL/pgvector",
+    "command": "pytest -q -p no:cacheprovider --junitxml=/tmp/software-tests.xml"
+  },
+  "static_checks": {
+    "ruff": "passed",
+    "strict_mypy": "passed: 37 files",
+    "diff_check": "passed; raw captured JUnit XML excluded"
+  },
+  "lifecycle": {
+    "record": "lifecycle.json",
+    "sha256": "2cd7cabf7fa3d14260805819f21fefeaac99de962f67b9bb2bd8d283000cfd8b",
+    "statuses": [
+      "published",
+      "skipped",
+      "published",
+      "rolled_back"
+    ],
+    "prefect_states": [
+      "COMPLETED",
+      "COMPLETED",
+      "COMPLETED",
+      "COMPLETED"
+    ]
+  },
+  "review": {
+    "standards_remaining": 0,
+    "spec_initial": 1,
+    "spec_repaired": 1,
+    "spec_remaining": 0
+  },
+  "development_regressions": [
+    "Killed worker retried but its journal remained running; now recorded interrupted.",
+    "Maintainer refresh CLI was absent; public parser and HTTP lifecycle regression added.",
+    "Retained A after A\u2192B\u2192A incorrectly skipped; reviewed regression now reactivates A.",
+    "Uninitialized reader database regressed from 503 to 404; bootstrap handling now stays inside refresh.",
+    "Non-root Docker Prefect home was unwritable; now uses the existing owned artifacts directory.",
+    "External-model metadata and duplicate-episode fixtures corrected to their provider contracts."
+  ],
+  "limitations": [
+    "Authored blue/red lifecycle cases are exposed development fixtures, not canon or held-out data.",
+    "External sources/models are controlled substitutes in routine tests; real Prefect and storage.",
+    "Frozen real-source lifecycle uses constant embeddings and makes no answer-quality claim.",
+    "No paid provider calls or production deployment; weekly scheduling remains deployment-triggered.",
+    "Graph, all-roster coverage, fusion and end-to-end answer caching retain their existing tickets."
+  ],
+  "earlier_full_run": {
+    "record": "software-tests-first.xml",
+    "sha256": "5e7572c142757d0689ffcb5ed143dc67102dcbd90baf0c854739601fc6060c07",
+    "tests": 132,
+    "failures": 2,
+    "errors": 11,
+    "infrastructure_record": "infrastructure-first.json",
+    "infrastructure_sha256": "d9444d831a0436e8ceb31a21b775958ef0bb11fe86297ffc02adabeeb6aa3000",
+    "failed_cases": [
+      "test_empty_database_reports_unavailable_instead_of_fabricating_evidence",
+      "test_missing_required_source_record_withholds_publication_and_records_partial_failure",
+      "test_missing_required_source_record_withholds_publication_and_records_partial_failure",
+      "test_partial_live_capture_retains_received_source_and_keeps_prior_publication",
+      "test_rollback_restores_compatible_pair_and_withdraws_newer_version_for_new_requests",
+      "test_incompatible_embedding_contract_cannot_answer_or_replace_the_active_publication",
+      "test_api_exposes_active_manifest_run_details_and_pinned_current_inspection",
+      "test_cli_refreshes_recovers_and_inspects_current_publication_over_http",
+      "test_answer_pins_one_publication_while_a_concurrent_refresh_changes_the_active_version",
+      "test_prepared_index_exposes_reproducible_source_and_artifact_identity",
+      "test_vector_retrieval_returns_resolvable_captured_passages_after_restart",
+      "test_index_rejects_passages_too_long_for_the_embedding_input_budget",
+      "test_reindexing_is_idempotent_and_retrieval_cannot_cross_snapshot_or_model_identity"
+    ]
+  }
+}

@@ -20,6 +20,11 @@ trace passages to their captured revision and ordered source paragraphs. The sma
 batch covers three core identities plus one supporting identity. It does not yet
 provide the complete 20-character corpus.
 
+Issue #6 adds [manual snapshot refresh and recovery](docs/implementation/issue-6/README.md)
+through Prefect. Complete source/index manifests are activated atomically;
+answers pin one publication, failed refreshes preserve the prior version, and
+rollback restores compatible artifacts while retaining historical evidence.
+
 The default source snapshot contains **one reviewed passage**, not a complete EastEnders knowledge
 base. Gemma 4 E2B QAT is a laptop development convenience. Its smoke results are
 not deployment or representative quality evidence. Move to a more capable model
