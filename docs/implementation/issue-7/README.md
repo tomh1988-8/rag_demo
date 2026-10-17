@@ -193,5 +193,9 @@ performance comparison. The laptop answer model was not used for acceptance.
 All cases remain development data in 21 groups. No human review, independent canon
 corroboration, exhaustive history, held-out calibration, checked graph coverage,
 fusion, caching or online-feedback acceptance is claimed. The independent review
-is recorded with this slice; a publication receipt will follow exact-tree GitHub
-verification. The next ticket is #8 after publication.
+is recorded in [the separate reports](review.md). [Published implementation
+55616db](https://github.com/tomh1988-8/rag_demo/commit/55616db5ad07f686dce5d4ec96193ab73b1f0eaf) exactly matches local acceptance commit `4e34f29`
+and tree `2c23a08f6128b1b5dc8096193469a36b0f4bd4d1`. The [publication receipt](publication.json)
+records fetched-tree verification and closure readback with all seven criteria
+checked. Publication used the GitHub connector because native Git lacks push
+credentials. The next ticket is #8; it has not been started.

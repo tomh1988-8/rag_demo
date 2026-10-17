@@ -1,11 +1,15 @@
 # Ask Phil: publication and next-skill handoff
 
-Updated 17 October 2026. The user approved the initial checklist/ticket breakdown, authorised publication, and subsequently required user feedback and online evaluation. Checklist v1.1 and the amended 24-ticket breakdown are published. Issues #2, #3, #4, #5 and #6 are complete and closed. Issues #5 and #6 passed their full software suites, independent reviews, exact-tree publication verification and closure readback. Issue #4 passed its scoped cloud policy acceptance.
+Updated 17 October 2026. The user approved the initial checklist/ticket breakdown, authorised publication, and subsequently required user feedback and online evaluation. Checklist v1.1 and the amended 24-ticket breakdown are published. Issues #2, #3, #4, #5, #6 and #7 are complete and closed. Issues #5 and #6 passed their full software suites, independent reviews, exact-tree publication verification and closure readback. Issue #4 passed its scoped cloud policy acceptance.
 
 ## Issue #7: all 20 core text profiles
 
-[Issue #7](https://github.com/tomh1988-8/rag_demo/issues/7) is implemented and
-independently reviewed; exact-tree publication and issue closure are pending.
+[Issue #7](https://github.com/tomh1988-8/rag_demo/issues/7) is complete and closed.
+[Published implementation 55616db](https://github.com/tomh1988-8/rag_demo/commit/55616db5ad07f686dce5d4ec96193ab73b1f0eaf) exactly matches local acceptance
+commit `4e34f29`; the remote objects were fetched and compared before closure.
+[The receipt](../../implementation/issue-7/publication.json) records readback of
+closure and all seven checked criteria. The GitHub connector published the code
+because native Git lacks push credentials; both histories are retained locally.
 [Acceptance evidence](../../implementation/issue-7/README.md) records the generic,
 restartable 20-source capture/import, per-character retention/gap inventory,
 immutable corrected snapshot and 149 passing tests. Source checks and prominence
@@ -26,7 +30,7 @@ shared non-resetting $5 ledger now totals $0.208899 after upward rounding, with
 zero unsettled reservations. Offline reviews use zero model calls and separate
 MLflow runs. Preserve the private key and ledger. AD-03.4 and RAG-01 pass for this
 scope: 20 current checks pass and 31 remain Pending. Graph, fusion, caching and
-online-feedback acceptance remain later work. #8 is recommended after publication;
+online-feedback acceptance remain later work. #8 is recommended next;
 wait for another implementation instruction before starting it.
 
 ## Issue #6: source/text refresh and recovery
@@ -56,7 +60,8 @@ checked criteria were read back. The [publication receipt](../../implementation/
 records the implementation revision and closure. AD-03.3 passes for source/text;
 AD-09.2 and AD-10.2 retain their broader obligations. Rebuild the application image
 to use this workflow. Weekly scheduling remains the deployment trigger; full
-roster #7, graph lifecycle #15, fusion #24 and end-to-end caching #25 remain open.
+roster #7 was then pending and is now complete above; graph lifecycle #15,
+fusion #24 and end-to-end caching #25 remain open.
 
 ## Issue #5: reviewed real-source ingestion
 
@@ -105,7 +110,7 @@ use #3. A persistent cloud deployment has not been configured.
 ## Published and verified
 
 - [Specification #1](https://github.com/tomh1988-8/rag_demo/issues/1) contains the agreed specification with the feedback/online-evaluation and fusion/cache amendments (130 stories).
-- Implementation tickets **#2–#25** are published and labelled `ready-for-agent`. **#2, #3, #4, #5 and #6 are closed as completed**; #7–#25 remain open.
+- Implementation tickets **#2–#25** are published and labelled `ready-for-agent`. **#2, #3, #4, #5, #6 and #7 are closed as completed**; #8–#25 remain open.
 - All 25 remote bodies, states and ready-for-agent labels were read back and checked against the intended content after the fusion/cache amendment.
 - The 41 blocking relationships are recorded as real issue references in ticket bodies and as a machine-readable mapping in [publication.json](publication.json).
 - Issue #2 has a reviewed captured seed, CLI/API/PostgreSQL behavior, 17 passing tests in both native and Docker environments, and recorded deterministic baseline outputs. [Fresh Compose startup and database/API restart passed](../../implementation/issue-2/README.md); no generative model quality is claimed. GitHub closure and all seven checked criteria were read back and verified.
@@ -114,7 +119,7 @@ The [to-spec skill](../../../.agents/skills/to-spec/SKILL.md) authorised specifi
 
 ## First available work
 
-**[#8 — Ground follow-ups and reset conversation](https://github.com/tomh1988-8/rag_demo/issues/8)** is recommended after #7 publication. #9 (calibrated comparisons), #10 (execution boundaries), #11 (biological claims) and #24 (fusion/context expansion) are also unblocked. Wait for the next implementation instruction before starting another ticket. Specification #1 remains parent context.
+**[#8 — Ground follow-ups and reset conversation](https://github.com/tomh1988-8/rag_demo/issues/8)** is recommended next after #7. #9 (calibrated comparisons), #10 (execution boundaries), #11 (biological claims) and #24 (fusion/context expansion) are also unblocked. Wait for the next implementation instruction before starting another ticket. Specification #1 remains parent context.
 
 For subsequent work, read the current issue and comments, the relevant domain/ADR decisions and the checklist profile. Work the dependency frontier; the shared `ready-for-agent` label does not mean a blocked ticket can begin. Existing approved decisions and the six public test boundaries do not need another design interview.
 
@@ -180,7 +185,7 @@ The user requested fusion/context expansion and repeated-question caching before
 the next implementation. [Research](../../research/rag-fusion-and-answer-caching.md)
 and [scope validation](fusion-cache-amendment.json) describe the changes. GitHub #24
 and #25 own the new behavior; #18 and #21 include their actual prerequisites.
-After publication of #7, #8 is recommended next. Neither fusion nor caching is implemented.
+After completion of #7, #8 is recommended next. Neither fusion nor caching is implemented.
 
 Historical issue #2 publication: the validated code was published on GitHub `main` at `1a186fd1c6cbf306742a7ef6868f5b2cded58df2`,
 whose tree exactly matches local `e5ac34c`. Publication used the authenticated GitHub
