@@ -1,7 +1,8 @@
-"""Bounded conversation references; generated assertions are never reference state."""
+"""Bounded character references; generated assertions never become reference state."""
 
 import re
 import unicodedata
+from dataclasses import dataclass
 from uuid import UUID
 
 from pydantic import Field
@@ -10,8 +11,14 @@ from ask_phil.evidence import Record
 from ask_phil.identity import IdentityCatalogue
 
 MAX_CONTEXT_TURNS = 8
-REFERENCE_WORDS = re.compile(
-    r"\b(he|she|they|him|her|them|his|their|former|latter)\b|\b(?:that|this) character\b",
+PRONOUNS = re.compile(r"\b(he|she|they|him|her|them|his|their)\b", re.IGNORECASE)
+UNSUPPORTED_REFERENCE = re.compile(
+    r"\bthe (?:former|latter)\b(?!\s+\w)|\b(?:that|this) (?:character|person)\b", re.IGNORECASE
+)
+POSSESSIVE_HER = re.compile(
+    r"\s+(?:(?:first|second|former|current|biological|adoptive|older|younger|late|new)\s+)*"
+    r"(?:father|mother|parents?|brother|sister|sons?|daughters?|children|husband|wife|partner|"
+    r"family|name|age|arrival|departure|birth|death|story|marriage|career|history|relationship)\b",
     re.IGNORECASE,
 )
 
@@ -40,95 +47,172 @@ class ConversationReference(TurnIdentity):
     reference: ReferenceResolution
 
 
+@dataclass(frozen=True)
+class _NameMention:
+    start: int
+    end: int
+    character_ids: tuple[str, ...]
+    reviewed: bool
+
+
+def _pattern(name: str) -> str:
+    return r"(?<!\w)" + r"\s+".join(map(re.escape, name.split())) + r"(?!\w)"
+
+
+def _mentions(question: str, catalogue: IdentityCatalogue) -> tuple[_NameMention, ...]:
+    matches: dict[tuple[int, int, bool], list[str]] = {}
+    performers = [
+        m.span()
+        for c in catalogue.characters
+        for name in c.performers
+        for m in re.finditer(_pattern(name), question, re.IGNORECASE)
+    ]
+    for character in catalogue.characters:
+        for name in (character.name, *character.aliases):
+            # Partial names propose a clarification; they do not silently create
+            # an identity inside unknown full names, regardless of capitalization.
+            for alias, reviewed in (
+                (name, True),
+                (name.split()[0], False),
+                (name.split()[-1], False),
+            ):
+                for match in re.finditer(_pattern(alias), question, re.IGNORECASE):
+                    if not reviewed and any(
+                        a <= match.start() < match.end() <= b for a, b in performers
+                    ):
+                        continue
+                    matches.setdefault((*match.span(), reviewed), []).append(character.character_id)
+    selected: list[_NameMention] = []
+    for (start, end, reviewed), ids in sorted(
+        matches.items(), key=lambda item: (item[0][0], -(item[0][1] - item[0][0]), not item[0][2])
+    ):
+        if not selected or start >= selected[-1].end:
+            selected.append(_NameMention(start, end, tuple(dict.fromkeys(ids)), reviewed))
+    return tuple(selected)
+
+
+def _possessive(match: re.Match[str], text: str) -> bool:
+    word = match.group().casefold()
+    return word in {"his", "their"} or (
+        word == "her" and POSSESSIVE_HER.match(text[match.end() :]) is not None
+    )
+
+
+def _substitute(question: str, edits: list[tuple[int, int, str]]) -> str:
+    for start, end, replacement in sorted(edits, reverse=True):
+        question = question[:start] + replacement + question[end:]
+    return question
+
+
 def resolve_reference(
     question: str, catalogue: IdentityCatalogue, history: tuple[ReferenceTurn, ...]
 ) -> ReferenceResolution:
-    """Resolve names/aliases and singular follow-ups using only reviewed identities."""
+    """Use reviewed names or a single retained antecedent, otherwise clarify.
+
+    Full catalogue names/aliases resolve in free text. Unique partial names are
+    accepted only as a bare clarification choice. Subject/possessive pronouns may
+    refer to an explicit current subject; object pronouns require prior context.
+    No gender or relationship is inferred from an assistant answer.
+    """
     question = unicodedata.normalize("NFC", question)
     names = {c.character_id: c.name for c in catalogue.characters}
-    mentions: list[tuple[int, int, str]] = []
-    for character in catalogue.characters:
-        for alias in (
-            character.name,
-            *character.aliases,
-            *character.name.split()[:1],
-            character.name.split()[-1],
-        ):
-            pattern = r"(?<!\w)" + r"\s+".join(map(re.escape, alias.split())) + r"(?!\w)"
-            for match in re.finditer(pattern, question, re.IGNORECASE):
-                mentions.append((match.start(), match.end(), character.character_id))
-    # A complete name wins over its overlapping first name or surname. Preserve
-    # multiple identities sharing the exact same mention instead of picking one.
-    selected: list[tuple[int, int, tuple[str, ...]]] = []
-    for start, end, _ in sorted(mentions, key=lambda m: (m[0], -(m[1] - m[0]))):
-        if selected and start < selected[-1][1]:
-            continue
-        candidates = tuple(dict.fromkeys(m[2] for m in mentions if m[:2] == (start, end)))
-        selected.append((start, end, candidates))
-    ids = tuple(dict.fromkeys(c for _, _, candidates in selected for c in candidates))
-    resolved = question
-    ambiguous = any(len(candidates) != 1 for _, _, candidates in selected)
-    # A short known name inside an unreviewed full name must not silently turn
-    # that unknown person into the catalogue's character (e.g. Cindy Williams).
-    if any(
-        len(question[start:end].split()) == 1 and re.match(r"\s+[A-Z][\w-]+", question[end:])
-        for start, end, _ in selected
-    ):
-        ambiguous = True
-        ids = ()
-    for start, end, candidates in reversed(selected):
-        if len(candidates) == 1:
-            resolved = resolved[:start] + names[candidates[0]] + resolved[end:]
-    if (
-        len(selected) == 1
-        and len(ids) == 1
-        and not ambiguous
-        and history
-        and history[-1].pending_question
-        and question.strip(" .?!") == question[selected[0][0] : selected[0][1]]
-    ):
+    mentions = _mentions(question, catalogue)
+    bare = (
+        len(mentions) == 1
+        and question.strip(" .?!") == question[mentions[0].start : mentions[0].end]
+    )
+    if bare and len(mentions[0].character_ids) == 1 and history and history[-1].pending_question:
+        chosen = mentions[0].character_ids[0]
         pending = history[-1].pending_question
-        # A bare identity is an answer to the pending clarification. Only the
-        # retained user question is resumed; no generated assertion is consulted.
-        if REFERENCE_WORDS.search(pending):
-            selection = resolve_reference(
-                pending, catalogue, (ReferenceTurn(turn_id=history[-1].turn_id, character_ids=ids),)
-            )
-            return selection
+        edits = [
+            (m.start, m.end, names[chosen])
+            for m in _mentions(pending, catalogue)
+            if len(m.character_ids) > 1 and chosen in m.character_ids
+        ]
+        edits += [
+            (m.start(), m.end(), names[chosen] + ("'s" if _possessive(m, pending) else ""))
+            for m in PRONOUNS.finditer(pending)
+        ]
+        if edits:
+            resumed = resolve_reference(_substitute(pending, edits), catalogue, ())
+            return resumed.model_copy(update={"context_turn_id": history[-1].turn_id})
+
+    edits = []
+    ids: list[str] = []
+    ambiguous_ids: list[str] = []
+    missing = False
+    for mention in mentions:
+        if len(mention.character_ids) > 1:
+            ambiguous_ids.extend(mention.character_ids)
+        elif mention.reviewed or bare:
+            character_id = mention.character_ids[0]
+            ids.append(character_id)
+            edits.append((mention.start, mention.end, names[character_id]))
+        else:
+            missing = True
+    current = tuple(dict.fromkeys(ids))
+    # An unresolved clarification is a barrier, even if no candidate survived;
+    # do not revive an older identity across an unknown name or missing reference.
+    previous = next(
+        (
+            t
+            for t in reversed(history[-MAX_CONTEXT_TURNS:])
+            if t.character_ids or t.pending_question is not None
+        ),
+        None,
+    )
     context_turn_id = None
-    if REFERENCE_WORDS.search(question):
-        previous = next(
-            (t for t in reversed(history[-MAX_CONTEXT_TURNS:]) if t.character_ids), None
+    for pronoun in PRONOUNS.finditer(question):
+        object_pronoun = pronoun.group().casefold() in {"him", "her", "them"} and not _possessive(
+            pronoun, question
         )
-        if previous:
-            ids = tuple(dict.fromkeys((*ids, *previous.character_ids)))
-            context_turn_id = previous.turn_id
-        ambiguous = ambiguous or len(ids) != 1 or any(c not in names for c in ids)
-        if not ambiguous:
-
-            def replace(match: re.Match[str]) -> str:
-                possessive = match.group().lower() in {"his", "their"} or (
-                    match.group().lower() == "her"
-                    and re.match(r"\s+\w", question[match.end() :]) is not None
-                )
-                return names[ids[0]] + ("'s" if possessive else "")
-
-            resolved = REFERENCE_WORDS.sub(replace, question)
+        candidates = (
+            current
+            if current and not object_pronoun
+            else (previous.character_ids if previous else ())
+        )
+        if candidates != current or object_pronoun:
+            context_turn_id = previous.turn_id if previous else None
+        if (
+            len(candidates) != 1
+            or candidates[0] not in names
+            or (object_pronoun and candidates == current)
+        ):
+            ambiguous_ids.extend(candidates)
+            missing = missing or not candidates or (object_pronoun and candidates == current)
+            continue
+        ids.extend(candidates)
+        edits.append(
+            (
+                pronoun.start(),
+                pronoun.end(),
+                names[candidates[0]] + ("'s" if _possessive(pronoun, question) else ""),
+            )
+        )
+    performer = any(
+        re.search(_pattern(p), question, re.IGNORECASE)
+        for c in catalogue.characters
+        for p in c.performers
+    )
+    missing = missing or bool(UNSUPPORTED_REFERENCE.search(question)) or (performer and not current)
     clarification = None
-    if ambiguous:
-        choices = ", ".join(names[c] for c in ids if c in names)
+    if missing or ambiguous_ids:
+        choices = ", ".join(names[c] for c in dict.fromkeys(ambiguous_ids) if c in names)
         clarification = (
             f"Which character do you mean: {choices}?"
-            if choices
-            else "Which character do you mean? Please give their name; "
-            "earlier context is unavailable."
+            if choices and not missing
+            else (
+                "Which character do you mean? Please give their full name; "
+                "the reference is unresolved in the available context."
+            )
         )
+    resolved = _substitute(question, edits)
     if len(resolved) > 500 or len(resolved.encode()) > 1000:
         resolved = question
         clarification = "Please shorten the question and give the character's full name."
     return ReferenceResolution(
         question=resolved,
-        character_ids=ids,
+        character_ids=() if missing else tuple(dict.fromkeys((*ids, *ambiguous_ids))),
         context_turn_id=context_turn_id,
         clarification=clarification,
     )

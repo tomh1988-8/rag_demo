@@ -39,6 +39,10 @@ and optional snapshot contract. Missing, wrong and expired credentials return
   retained named turn, preserving all plausible identities. Do not infer gender
   or extract new reference facts from generated answers. Reviewed names/aliases
   use catalogue IDs. Unsupported relation/event deixis may require a full question.
+  Free-text partial names require clarification; a unique partial name can select
+  a pending choice. Full reviewed aliases work regardless of case. Performer names
+  never create character-reference state. Object pronouns need retained context;
+  naming a subject does not establish who an unnamed object is.
 - Context expires after thirty idle minutes. Session access expires two hours
   after creation, including across API restarts. New sessions prune expired rows;
   expired rows are inaccessible before pruning. Reset immediately removes all

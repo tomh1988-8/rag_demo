@@ -19,6 +19,7 @@ variants share one group. The software fixture is synthetic and labelled as such
 | lifetime | Thirty minutes idle, two hours absolute | Idle state clears; expired session credentials fail. No sliding absolute lifetime. |
 | feedback-lineage | Save answer, reset, inspect answer and anonymous feedback context | Immutable response links session/turn/generation to its trace. Separate feedback capability lasts thirty days and never feeds answer state. Submission is #22. |
 | restart / concurrency | Recreate API, concurrent turns/reset on same session | Reference state survives within lifetime; per-session operations serialize without crossing sessions. |
+| reviewed repairs | Former wife; object “her”; explicit new alias; lowercase Cindy Williams/Max Bowden; surname choice | Preserve relationship wording and pronoun roles; never infer an unknown character from a partial/performer name; resume the pending question after selection. These regressions reproduce independent review findings. |
 
 Seams: approved conversation API/CLI, public reference/state rules within that
 boundary, real PostgreSQL/pgvector, and controlled external model HTTP responses.

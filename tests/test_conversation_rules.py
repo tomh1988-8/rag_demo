@@ -97,3 +97,48 @@ def test_reference_expansion_cannot_exceed_the_question_budget() -> None:
     )
     assert result.clarification
     assert len(result.question.encode()) <= 1000
+
+
+def test_relationship_qualifiers_and_object_pronouns_keep_their_meaning() -> None:
+    former = resolve_reference("Who was Phil Mitchell's former wife?", catalogue(), ())
+    assert former.question == "Who was Phil Mitchell's former wife?"
+    assert former.clarification is None
+    former_noun = resolve_reference("Who was the former wife of Phil Mitchell?", catalogue(), ())
+    assert former_noun.clarification is None
+    kat = (ReferenceTurn(turn_id=uuid4(), character_ids=("kat-slater",)),)
+    object_reference = resolve_reference("Who married her before she left?", catalogue(), kat)
+    assert object_reference.question == "Who married Kat Slater before Kat Slater left?"
+    assert resolve_reference(
+        "When did Phil Mitchell first meet her?", catalogue(), ()
+    ).clarification
+
+
+def test_explicit_new_subject_preserves_aliases_and_resolves_its_possessive() -> None:
+    history = (ReferenceTurn(turn_id=uuid4(), character_ids=("phil-mitchell",)),)
+    result = resolve_reference("Who is Kat Moon and who is her father?", catalogue(), history)
+    assert result.question == "Who is Kat Slater and who is Kat Slater's father?"
+    assert result.character_ids == ("kat-slater",)
+    assert result.clarification is None
+
+
+@pytest.mark.parametrize("question", ["who is cindy williams?", "who is max bowden?"])
+def test_partial_and_performer_names_do_not_create_character_reference_state(question: str) -> None:
+    import gzip
+    import json
+    from pathlib import Path
+
+    batch = json.loads(gzip.decompress(Path("data/sources/core-profiles-v2.json.gz").read_bytes()))
+    result = resolve_reference(question, IdentityCatalogue.model_validate(batch["catalogue"]), ())
+    assert result.clarification
+    assert result.character_ids == ()
+
+
+def test_selection_replaces_ambiguous_surname_and_resumes_all_parts() -> None:
+    pending = ReferenceTurn(
+        turn_id=uuid4(),
+        character_ids=("phil-mitchell", "grant-mitchell"),
+        pending_question="When did Mitchell arrive and who is his mother?",
+    )
+    selected = resolve_reference("Phil Mitchell", catalogue(), (pending,))
+    assert selected.question == "When did Phil Mitchell arrive and who is Phil Mitchell's mother?"
+    assert selected.clarification is None
