@@ -1,6 +1,6 @@
 # 06: Answer from all 20 core character profiles
 
-Status: implemented and independently reviewed for [GitHub #7](https://github.com/tomh1988-8/rag_demo/issues/7), awaiting exact-tree GitHub publication and closure. [Acceptance evidence](../../implementation/issue-7/README.md) records 149 passing tests, sourced API/CLI success for all 20 core profiles, the 25-case live matrix and retained context-coverage failures. Plan version: 2.
+Status: completed and closed as [GitHub #7](https://github.com/tomh1988-8/rag_demo/issues/7). [Published implementation 55616db](https://github.com/tomh1988-8/rag_demo/commit/55616db5ad07f686dce5d4ec96193ab73b1f0eaf) exactly matches the reviewed local tree; closure and all seven checked criteria were read back. [Publication receipt](../../implementation/issue-7/publication.json). [Acceptance evidence](../../implementation/issue-7/README.md) records 149 passing tests, sourced API/CLI success for all 20 core profiles, the 25-case live matrix and retained context-coverage failures. Plan version: 2.
 
 Spec stories: S05, S11, S12, S13, S14, S15, S16, S19, S38, S41, S42, S55, S56, S57, S62, S64, S76, S80, S86, S88. Checklist evidence owner for: AD-03.4, RAG-01.
 
