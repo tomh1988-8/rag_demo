@@ -1,0 +1,28 @@
+{
+  "publication_method": "Authorised GitHub connector; native push lacked credentials.",
+  "implementation_local_commit": "ac3c5fd661226c9b7ce2e09b8d8b4dcbdef4f77c",
+  "implementation_published_commit": "408012156c55d040bc69a22bff034f87dd9a5dbd",
+  "implementation_tree": "9534a7d1f0f2193a7b3baa004be1ee9748531cf9",
+  "remote_revision_fetched": true,
+  "exact_local_remote_tree_match": true,
+  "issue": {
+    "url": "https://github.com/tomh1988-8/rag_demo/issues/6",
+    "state": "closed",
+    "state_reason": "completed",
+    "closed_at": "2026-10-17T12:04:56Z",
+    "checked_criteria": 8,
+    "closure_read_back": true
+  },
+  "acceptance": {
+    "record": "validation.json",
+    "tests_passed": 131,
+    "failures": 0,
+    "errors": 0,
+    "skipped": 0,
+    "standards_findings_remaining": 0,
+    "spec_findings_remaining": 0
+  },
+  "next_recommended_issue": 7,
+  "scope": "Source/text lifecycle; no subsequent ticket started. Separate skills setup files were excluded.",
+  "note": "This receipt records the implementation publication; the handoff and receipt are published in a following documentation commit."
+}
