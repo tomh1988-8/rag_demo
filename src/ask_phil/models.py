@@ -109,6 +109,29 @@ class EmbeddingSettings(Record):
         return hashlib.sha256(identity.encode()).hexdigest()
 
 
+def _local_ollama_url() -> str:
+    base_url = os.environ.get("ASK_PHIL_OLLAMA_URL", "http://127.0.0.1:11435")
+    if urlparse(base_url).hostname not in {"localhost", "127.0.0.1", "::1", "ollama"}:
+        raise ModelConfigurationError("This development baseline requires a local Ollama server.")
+    return base_url
+
+
+def embedding_from_environment() -> tuple[EmbeddingSettings, LocalEmbedding]:
+    """Configure maintainer retrieval without requiring an answer model or its credentials."""
+    base_url = _local_ollama_url()
+    path = Path(os.environ.get("ASK_PHIL_MODELS", "config/local-models.json"))
+    try:
+        settings = EmbeddingSettings.model_validate_json(path.read_text(), extra="ignore")
+    except (OSError, ValueError) as exc:
+        raise ModelConfigurationError("The embedding configuration could not be loaded.") from exc
+    if "cloud" in settings.embedding_model.lower():
+        raise ModelConfigurationError("Refresh requires the configured local embedding model.")
+    return settings, LocalEmbedding(
+        model_name=settings.embedding_model,
+        client=Client(host=base_url, timeout=180, trust_env=False),
+    )
+
+
 class ModelSettings(EmbeddingSettings):
     answer_model: str
     answer_digest: Fingerprint
@@ -159,11 +182,7 @@ class Models:
 
     @classmethod
     def from_environment(cls) -> "Models":
-        base_url = os.environ.get("ASK_PHIL_OLLAMA_URL", "http://127.0.0.1:11435")
-        if urlparse(base_url).hostname not in {"localhost", "127.0.0.1", "::1", "ollama"}:
-            raise ModelConfigurationError(
-                "This development baseline requires a local Ollama server."
-            )
+        base_url = _local_ollama_url()
         path = Path(os.environ.get("ASK_PHIL_MODELS", "config/local-models.json"))
         try:
             settings: ModelSettings | OpenRouterSettings = TypeAdapter(

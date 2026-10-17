@@ -19,7 +19,7 @@ class EvidenceStore:
         self.database_url = database_url
 
     def load(self, snapshot: SourceSnapshot) -> str:
-        """Atomically publish a fixture; an existing identifier cannot change meaning."""
+        """Atomically retain a fixture; an existing identifier cannot change meaning."""
         with psycopg.connect(self.database_url, connect_timeout=5) as conn:
             conn.execute("""
                 CREATE TABLE IF NOT EXISTS source_snapshots (

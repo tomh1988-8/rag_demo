@@ -1,0 +1,729 @@
+{
+  "format_version": "source-text-refresh-acceptance-v1",
+  "application_sha256": "d44769c84ae2ccab3cccfb11ef6e6d3fbd993170aa5b32ff101c6c8e04435e7b",
+  "inputs_sha256": {
+    "src/ask_phil/__init__.py": "c4be197720058e2c86d4a79594bf60163b9bef1578b8e0e99650ec5e8b114a3d",
+    "src/ask_phil/answering.py": "b38b322a81070fd2a23668a32f63b9a581251d5695afe1e38dbd607afd2ee964",
+    "src/ask_phil/answers.py": "3e0504189371277e1dd6247d18b67ed87b22ae761e4a60f7be8107b458e7004d",
+    "src/ask_phil/api.py": "f780c59caa094cad4823ed12753c93caa3097d29a8494b8cc949cbf99f64ed33",
+    "src/ask_phil/cli.py": "9e2d0b337329ee514b6ce7967c1102b3c85781f062d366c59680f37780b6c02d",
+    "src/ask_phil/evaluation.py": "58d3f30db8e44220a5b9a66ab7ee27959b3b82ffd51da04ca22cb06c19956bfc",
+    "src/ask_phil/evidence.py": "321f6a3ba913ca8be26a4ab171e263ab1da9fc208b12432f5dbcf54c2f83ea9f",
+    "src/ask_phil/identity.py": "f7277f6206c35dcb5e5cb91806f98c5142c09175d86f0fd7fa5b962f20f0d2c9",
+    "src/ask_phil/ingestion.py": "ae0c66e8b2f270e19ec7acf20d7daff5e12a589788aeec92101a2ba66a8511bc",
+    "src/ask_phil/models.py": "e570e270194dbda4ad7e035c9c9f9c74c44e90c11bda766d77c20e5c3f27e3db",
+    "src/ask_phil/openrouter.py": "a94c3f04091c5acd8ad9bbdd73549af7c83ad782869cfec2472caf808161f98f",
+    "src/ask_phil/publications.py": "72fdb5e948b08e52c974e03a20d218f0659cb60aea0efec8d9cfb2bb9e7bf6fa",
+    "src/ask_phil/refresh.py": "d5b5b340204fd5a59face40aa38216e793a01ca1e159728072c696bb0c59b6a0",
+    "src/ask_phil/responses.py": "a51474b03f35ffec016760d31754fc4eae4e19447e2f8ffd7719f81794222f73",
+    "src/ask_phil/retrieval.py": "bd90fbfc5653bb25c3cda4f9cfce0b69fdf6b14205971f3ac91c26f3b580490b",
+    "src/ask_phil/source_records.py": "9aa34eee7d2f49bd7b17c680f8f66f16cff3e22db7843667d58db782777904e9",
+    "src/ask_phil/storage.py": "56b438c7fa939ba89317f8827a74d21cfeb83a5614e84fd335c10ff9633c2df1",
+    "scripts/record_refresh_acceptance.py": "1f017e758d5165168a4ab21cc04e51ec7fb8a05e8b0d25803834682d0cf4584d",
+    "pyproject.toml": "f740c8e894e07d179ff7aa5b07ebd055b5e5e9be97e9c7cbcc0765b519216538",
+    "uv.lock": "983d5a644e3289e6b79d92dc251b5029c199a497ac33c14f504a3c9ee3763152",
+    "config/local-models.json": "ff72c39ebd66d029ed3b9fca7d7c302b8ed17c775bd74f6a743e3844a336eeb2",
+    "data/sources/real-sources-v1.json.gz": "bfcaae65ecd30c4ebee805a71d02910ce85db636aa0d5f1ef2a08368a06eb76a"
+  },
+  "python": "3.12.3",
+  "packages": {
+    "prefect": "3.8.6",
+    "psycopg": "3.3.6",
+    "llama-index-core": "0.14.25",
+    "llama-index-vector-stores-postgres": "0.9.0"
+  },
+  "limitations": [
+    "Frozen public source captures; no new live source fetch.",
+    "Controlled constant 3-dimensional embeddings; no retrieval or answer-quality claim.",
+    "Second publication changes review policy only; source-change cases are in test_refresh.",
+    "Disposable real PostgreSQL/pgvector and isolated real Prefect backend.",
+    "No paid provider calls; no credentials recorded."
+  ],
+  "runs": [
+    {
+      "run_id": "9472d020-f38d-4a53-b43d-4976cbbfefb5",
+      "flow_run_id": "d09b41a8-a1a4-4b6b-8036-9914ebfbb184",
+      "started_at": "2026-10-17T11:14:12.031581Z",
+      "finished_at": "2026-10-17T11:14:35.459498Z",
+      "status": "published",
+      "action": "refresh",
+      "input_sha256": "6b0f3478d4b8fdb8c4caeafc0702ef0eccee5f19105216f95a3e8334af6a3914",
+      "snapshot_id": "sources-6b0f3478d4b8fdb8c4caeafc0702ef0eccee5f19105216f95a3e8334af6a3914",
+      "compatibility_id": "afa6151757140f9497483d63d8810add5fa273ea8d0b39ed4f88223c0e40dd7a",
+      "sources": [
+        {
+          "source_id": "sharon-wiki",
+          "outcome": "new",
+          "capture_sha256": "86b90fe8e3816fdd7f6ee92c97f94ba65a650bfa7cbc48476dd01de4f6a6560d",
+          "checked_at": "2026-09-25T12:00:27.812293Z",
+          "detail": null
+        },
+        {
+          "source_id": "ben-wiki",
+          "outcome": "new",
+          "capture_sha256": "42038dc15e2c78b46205eebf354d85e8babcc67d1ab73ae8e45d73b469a3a9d6",
+          "checked_at": "2026-09-25T12:00:27.860635Z",
+          "detail": null
+        },
+        {
+          "source_id": "kat-wiki",
+          "outcome": "new",
+          "capture_sha256": "83963acfaf2513d675920178dd67974d4f69d9ec92fb2cf2cc2eb5bcd009d9b7",
+          "checked_at": "2026-09-25T12:04:27.187765Z",
+          "detail": null
+        },
+        {
+          "source_id": "den-wiki",
+          "outcome": "new",
+          "capture_sha256": "936560fd0b6c2a4c770afcc564448c8157cb9a99c18ee37d3428b9aff8a96cb8",
+          "checked_at": "2026-09-25T12:19:46.824222Z",
+          "detail": null
+        },
+        {
+          "source_id": "sharon-identity",
+          "outcome": "new",
+          "capture_sha256": "a582f41769377d615d2ad986202cf57d676052e50d6233cb66c76eb2e6c62924",
+          "checked_at": "2026-09-25T12:04:27.459980Z",
+          "detail": null
+        },
+        {
+          "source_id": "ben-identity",
+          "outcome": "new",
+          "capture_sha256": "e73721f684635755aeb61f0dca965e17c12ec368d2ca00612f2c4579ae9676fc",
+          "checked_at": "2026-09-25T12:04:27.867334Z",
+          "detail": null
+        },
+        {
+          "source_id": "kat-identity",
+          "outcome": "new",
+          "capture_sha256": "3b3d5b8ddb755e6fe6c5f7100998d8ab9a586248595245866f821487bde74869",
+          "checked_at": "2026-09-25T12:19:46.560986Z",
+          "detail": null
+        },
+        {
+          "source_id": "episode",
+          "outcome": "new",
+          "capture_sha256": "20333a0ec99c69b73434c5bbd7676a673ca18bed54f4c5c8b8535b751fe59dbe",
+          "checked_at": "2026-09-25T12:19:47.016548Z",
+          "detail": null
+        }
+      ],
+      "issues": [
+        {
+          "source_id": "episode",
+          "code": "missing_field",
+          "detail": "Episode 116520 has no summary."
+        }
+      ],
+      "phase": "complete",
+      "error": null
+    },
+    {
+      "run_id": "104c011a-b9a3-4a4e-b73b-fea3942385cc",
+      "flow_run_id": "2f921b53-3135-4c6f-987a-d284ecbba739",
+      "started_at": "2026-10-17T11:14:36.455836Z",
+      "finished_at": "2026-10-17T11:14:44.205528Z",
+      "status": "skipped",
+      "action": "refresh",
+      "input_sha256": "6b0f3478d4b8fdb8c4caeafc0702ef0eccee5f19105216f95a3e8334af6a3914",
+      "snapshot_id": "sources-6b0f3478d4b8fdb8c4caeafc0702ef0eccee5f19105216f95a3e8334af6a3914",
+      "compatibility_id": "afa6151757140f9497483d63d8810add5fa273ea8d0b39ed4f88223c0e40dd7a",
+      "sources": [
+        {
+          "source_id": "sharon-wiki",
+          "outcome": "unchanged",
+          "capture_sha256": "86b90fe8e3816fdd7f6ee92c97f94ba65a650bfa7cbc48476dd01de4f6a6560d",
+          "checked_at": "2026-09-25T12:00:27.812293Z",
+          "detail": null
+        },
+        {
+          "source_id": "ben-wiki",
+          "outcome": "unchanged",
+          "capture_sha256": "42038dc15e2c78b46205eebf354d85e8babcc67d1ab73ae8e45d73b469a3a9d6",
+          "checked_at": "2026-09-25T12:00:27.860635Z",
+          "detail": null
+        },
+        {
+          "source_id": "kat-wiki",
+          "outcome": "unchanged",
+          "capture_sha256": "83963acfaf2513d675920178dd67974d4f69d9ec92fb2cf2cc2eb5bcd009d9b7",
+          "checked_at": "2026-09-25T12:04:27.187765Z",
+          "detail": null
+        },
+        {
+          "source_id": "den-wiki",
+          "outcome": "unchanged",
+          "capture_sha256": "936560fd0b6c2a4c770afcc564448c8157cb9a99c18ee37d3428b9aff8a96cb8",
+          "checked_at": "2026-09-25T12:19:46.824222Z",
+          "detail": null
+        },
+        {
+          "source_id": "sharon-identity",
+          "outcome": "unchanged",
+          "capture_sha256": "a582f41769377d615d2ad986202cf57d676052e50d6233cb66c76eb2e6c62924",
+          "checked_at": "2026-09-25T12:04:27.459980Z",
+          "detail": null
+        },
+        {
+          "source_id": "ben-identity",
+          "outcome": "unchanged",
+          "capture_sha256": "e73721f684635755aeb61f0dca965e17c12ec368d2ca00612f2c4579ae9676fc",
+          "checked_at": "2026-09-25T12:04:27.867334Z",
+          "detail": null
+        },
+        {
+          "source_id": "kat-identity",
+          "outcome": "unchanged",
+          "capture_sha256": "3b3d5b8ddb755e6fe6c5f7100998d8ab9a586248595245866f821487bde74869",
+          "checked_at": "2026-09-25T12:19:46.560986Z",
+          "detail": null
+        },
+        {
+          "source_id": "episode",
+          "outcome": "unchanged",
+          "capture_sha256": "20333a0ec99c69b73434c5bbd7676a673ca18bed54f4c5c8b8535b751fe59dbe",
+          "checked_at": "2026-09-25T12:19:47.016548Z",
+          "detail": null
+        }
+      ],
+      "issues": [
+        {
+          "source_id": "episode",
+          "code": "missing_field",
+          "detail": "Episode 116520 has no summary."
+        }
+      ],
+      "phase": "complete",
+      "error": null
+    },
+    {
+      "run_id": "ee198a9e-7608-447b-bfb0-d634fb7046a3",
+      "flow_run_id": "27e95e82-6405-44db-a723-b7ac2a744d6b",
+      "started_at": "2026-10-17T11:14:44.663327Z",
+      "finished_at": "2026-10-17T11:15:06.193669Z",
+      "status": "published",
+      "action": "refresh",
+      "input_sha256": "5868185079bd95a9b4317242cb30393c45b89055ce9d11134827e4a2c2760826",
+      "snapshot_id": "sources-5868185079bd95a9b4317242cb30393c45b89055ce9d11134827e4a2c2760826",
+      "compatibility_id": "1c0f371743e2058f15a0848acb6a58407cb2b5539d8ef6d2fc273cd34280a67e",
+      "sources": [
+        {
+          "source_id": "sharon-wiki",
+          "outcome": "unchanged",
+          "capture_sha256": "86b90fe8e3816fdd7f6ee92c97f94ba65a650bfa7cbc48476dd01de4f6a6560d",
+          "checked_at": "2026-09-25T12:00:27.812293Z",
+          "detail": null
+        },
+        {
+          "source_id": "ben-wiki",
+          "outcome": "unchanged",
+          "capture_sha256": "42038dc15e2c78b46205eebf354d85e8babcc67d1ab73ae8e45d73b469a3a9d6",
+          "checked_at": "2026-09-25T12:00:27.860635Z",
+          "detail": null
+        },
+        {
+          "source_id": "kat-wiki",
+          "outcome": "unchanged",
+          "capture_sha256": "83963acfaf2513d675920178dd67974d4f69d9ec92fb2cf2cc2eb5bcd009d9b7",
+          "checked_at": "2026-09-25T12:04:27.187765Z",
+          "detail": null
+        },
+        {
+          "source_id": "den-wiki",
+          "outcome": "unchanged",
+          "capture_sha256": "936560fd0b6c2a4c770afcc564448c8157cb9a99c18ee37d3428b9aff8a96cb8",
+          "checked_at": "2026-09-25T12:19:46.824222Z",
+          "detail": null
+        },
+        {
+          "source_id": "sharon-identity",
+          "outcome": "unchanged",
+          "capture_sha256": "a582f41769377d615d2ad986202cf57d676052e50d6233cb66c76eb2e6c62924",
+          "checked_at": "2026-09-25T12:04:27.459980Z",
+          "detail": null
+        },
+        {
+          "source_id": "ben-identity",
+          "outcome": "unchanged",
+          "capture_sha256": "e73721f684635755aeb61f0dca965e17c12ec368d2ca00612f2c4579ae9676fc",
+          "checked_at": "2026-09-25T12:04:27.867334Z",
+          "detail": null
+        },
+        {
+          "source_id": "kat-identity",
+          "outcome": "unchanged",
+          "capture_sha256": "3b3d5b8ddb755e6fe6c5f7100998d8ab9a586248595245866f821487bde74869",
+          "checked_at": "2026-09-25T12:19:46.560986Z",
+          "detail": null
+        },
+        {
+          "source_id": "episode",
+          "outcome": "unchanged",
+          "capture_sha256": "20333a0ec99c69b73434c5bbd7676a673ca18bed54f4c5c8b8535b751fe59dbe",
+          "checked_at": "2026-09-25T12:19:47.016548Z",
+          "detail": null
+        }
+      ],
+      "issues": [
+        {
+          "source_id": "episode",
+          "code": "missing_field",
+          "detail": "Episode 116520 has no summary."
+        }
+      ],
+      "phase": "complete",
+      "error": null
+    },
+    {
+      "run_id": "2ccf5478-7540-4623-a220-cb3f24409964",
+      "flow_run_id": "b4f7e3a3-1f19-41a8-b452-9e85b3df1686",
+      "started_at": "2026-10-17T11:15:07.125339Z",
+      "finished_at": "2026-10-17T11:15:12.921093Z",
+      "status": "rolled_back",
+      "action": "rollback",
+      "input_sha256": null,
+      "snapshot_id": "sources-6b0f3478d4b8fdb8c4caeafc0702ef0eccee5f19105216f95a3e8334af6a3914",
+      "compatibility_id": "afa6151757140f9497483d63d8810add5fa273ea8d0b39ed4f88223c0e40dd7a",
+      "sources": [],
+      "issues": [],
+      "phase": "complete",
+      "error": null
+    }
+  ],
+  "prefect_states": {
+    "d09b41a8-a1a4-4b6b-8036-9914ebfbb184": "COMPLETED",
+    "2f921b53-3135-4c6f-987a-d284ecbba739": "COMPLETED",
+    "27e95e82-6405-44db-a723-b7ac2a744d6b": "COMPLETED",
+    "b4f7e3a3-1f19-41a8-b452-9e85b3df1686": "COMPLETED"
+  },
+  "original": {
+    "compatibility_id": "afa6151757140f9497483d63d8810add5fa273ea8d0b39ed4f88223c0e40dd7a",
+    "manifest": {
+      "format_version": "source-text-publication-v1",
+      "snapshot_id": "sources-6b0f3478d4b8fdb8c4caeafc0702ef0eccee5f19105216f95a3e8334af6a3914",
+      "snapshot_sha256": "ff443bf69e47f6a660681e31d5447f2c223d53d9a63556cd2eb5e36dc3e60cc0",
+      "input_sha256": "6b0f3478d4b8fdb8c4caeafc0702ef0eccee5f19105216f95a3e8334af6a3914",
+      "sources": [
+        {
+          "role": "narrative",
+          "license_url": "https://creativecommons.org/licenses/by-sa/4.0/",
+          "attribution": "Wikipedia contributors; markup removed and whitespace normalized.",
+          "source_id": "sharon-wiki",
+          "url": "https://en.wikipedia.org/wiki/Sharon_Watts",
+          "revision_id": "1372798905",
+          "captured_at": "2026-09-25T12:00:27.812293Z",
+          "sha256": "86b90fe8e3816fdd7f6ee92c97f94ba65a650bfa7cbc48476dd01de4f6a6560d",
+          "paragraphs": 95,
+          "admitted_paragraphs": 30,
+          "excluded_paragraphs": 0,
+          "review_required_paragraphs": 65,
+          "structured_records": 0
+        },
+        {
+          "role": "narrative",
+          "license_url": "https://creativecommons.org/licenses/by-sa/4.0/",
+          "attribution": "Wikipedia contributors; markup removed and whitespace normalized.",
+          "source_id": "ben-wiki",
+          "url": "https://en.wikipedia.org/wiki/Ben_Mitchell_(EastEnders)",
+          "revision_id": "1369268749",
+          "captured_at": "2026-09-25T12:00:27.860635Z",
+          "sha256": "42038dc15e2c78b46205eebf354d85e8babcc67d1ab73ae8e45d73b469a3a9d6",
+          "paragraphs": 48,
+          "admitted_paragraphs": 19,
+          "excluded_paragraphs": 0,
+          "review_required_paragraphs": 29,
+          "structured_records": 0
+        },
+        {
+          "role": "narrative",
+          "license_url": "https://creativecommons.org/licenses/by-sa/4.0/",
+          "attribution": "Wikipedia contributors; markup removed and whitespace normalized.",
+          "source_id": "kat-wiki",
+          "url": "https://en.wikipedia.org/wiki/Kat_Slater",
+          "revision_id": "1375940007",
+          "captured_at": "2026-09-25T12:04:27.187765Z",
+          "sha256": "83963acfaf2513d675920178dd67974d4f69d9ec92fb2cf2cc2eb5bcd009d9b7",
+          "paragraphs": 80,
+          "admitted_paragraphs": 30,
+          "excluded_paragraphs": 5,
+          "review_required_paragraphs": 45,
+          "structured_records": 0
+        },
+        {
+          "role": "narrative",
+          "license_url": "https://creativecommons.org/licenses/by-sa/4.0/",
+          "attribution": "Wikipedia contributors; markup removed and whitespace normalized.",
+          "source_id": "den-wiki",
+          "url": "https://en.wikipedia.org/wiki/Den_Watts",
+          "revision_id": "1371930128",
+          "captured_at": "2026-09-25T12:19:46.824222Z",
+          "sha256": "936560fd0b6c2a4c770afcc564448c8157cb9a99c18ee37d3428b9aff8a96cb8",
+          "paragraphs": 59,
+          "admitted_paragraphs": 0,
+          "excluded_paragraphs": 0,
+          "review_required_paragraphs": 59,
+          "structured_records": 0
+        },
+        {
+          "role": "identity_linkage",
+          "license_url": "https://creativecommons.org/publicdomain/zero/1.0/",
+          "attribution": "Wikidata contributors; structured identity data.",
+          "source_id": "sharon-identity",
+          "url": "https://www.wikidata.org/wiki/Special:EntityData/Q7490258.json",
+          "revision_id": "2531012756",
+          "captured_at": "2026-09-25T12:04:27.459980Z",
+          "sha256": "a582f41769377d615d2ad986202cf57d676052e50d6233cb66c76eb2e6c62924",
+          "paragraphs": 0,
+          "admitted_paragraphs": 0,
+          "excluded_paragraphs": 0,
+          "review_required_paragraphs": 0,
+          "structured_records": 1
+        },
+        {
+          "role": "identity_linkage",
+          "license_url": "https://creativecommons.org/publicdomain/zero/1.0/",
+          "attribution": "Wikidata contributors; structured identity data.",
+          "source_id": "ben-identity",
+          "url": "https://www.wikidata.org/wiki/Special:EntityData/Q2766568.json",
+          "revision_id": "2531020685",
+          "captured_at": "2026-09-25T12:04:27.867334Z",
+          "sha256": "e73721f684635755aeb61f0dca965e17c12ec368d2ca00612f2c4579ae9676fc",
+          "paragraphs": 0,
+          "admitted_paragraphs": 0,
+          "excluded_paragraphs": 0,
+          "review_required_paragraphs": 0,
+          "structured_records": 1
+        },
+        {
+          "role": "identity_linkage",
+          "license_url": "https://creativecommons.org/publicdomain/zero/1.0/",
+          "attribution": "Wikidata contributors; structured identity data.",
+          "source_id": "kat-identity",
+          "url": "https://www.wikidata.org/wiki/Special:EntityData/Q3955054.json",
+          "revision_id": "2531028992",
+          "captured_at": "2026-09-25T12:19:46.560986Z",
+          "sha256": "3b3d5b8ddb755e6fe6c5f7100998d8ab9a586248595245866f821487bde74869",
+          "paragraphs": 0,
+          "admitted_paragraphs": 0,
+          "excluded_paragraphs": 0,
+          "review_required_paragraphs": 0,
+          "structured_records": 1
+        },
+        {
+          "role": "episode_metadata",
+          "license_url": "https://creativecommons.org/licenses/by-sa/4.0/",
+          "attribution": "TVmaze, https://www.tvmaze.com/shows/793/eastenders; broadcast metadata.",
+          "source_id": "episode",
+          "url": "https://api.tvmaze.com/shows/793/episodesbydate?date=1985-02-19",
+          "revision_id": "20333a0ec99c69b73434c5bbd7676a673ca18bed54f4c5c8b8535b751fe59dbe",
+          "captured_at": "2026-09-25T12:19:47.016548Z",
+          "sha256": "20333a0ec99c69b73434c5bbd7676a673ca18bed54f4c5c8b8535b751fe59dbe",
+          "paragraphs": 0,
+          "admitted_paragraphs": 0,
+          "excluded_paragraphs": 0,
+          "review_required_paragraphs": 0,
+          "structured_records": 1
+        }
+      ],
+      "index": {
+        "format_version": "pgvector-exact-v1",
+        "snapshot_sha256": "ff443bf69e47f6a660681e31d5447f2c223d53d9a63556cd2eb5e36dc3e60cc0",
+        "embedding_id": "controlled-constant-v1",
+        "dimensions": 3,
+        "passages": 138,
+        "artifact_sha256": "d3f791de64190048f2f79e96d63ec11932d91c3b23b168f60cfb765279201dad"
+      }
+    },
+    "generation": 1,
+    "published_at": "2026-10-17T11:14:35.459498Z"
+  },
+  "newer": {
+    "compatibility_id": "1c0f371743e2058f15a0848acb6a58407cb2b5539d8ef6d2fc273cd34280a67e",
+    "manifest": {
+      "format_version": "source-text-publication-v1",
+      "snapshot_id": "sources-5868185079bd95a9b4317242cb30393c45b89055ce9d11134827e4a2c2760826",
+      "snapshot_sha256": "d7089f7f10278979e43b82d7876c7d3d9f9179693f049bd5e4ead9a33b2594bb",
+      "input_sha256": "5868185079bd95a9b4317242cb30393c45b89055ce9d11134827e4a2c2760826",
+      "sources": [
+        {
+          "role": "narrative",
+          "license_url": "https://creativecommons.org/licenses/by-sa/4.0/",
+          "attribution": "Wikipedia contributors; markup removed and whitespace normalized.",
+          "source_id": "sharon-wiki",
+          "url": "https://en.wikipedia.org/wiki/Sharon_Watts",
+          "revision_id": "1372798905",
+          "captured_at": "2026-09-25T12:00:27.812293Z",
+          "sha256": "86b90fe8e3816fdd7f6ee92c97f94ba65a650bfa7cbc48476dd01de4f6a6560d",
+          "paragraphs": 95,
+          "admitted_paragraphs": 30,
+          "excluded_paragraphs": 0,
+          "review_required_paragraphs": 65,
+          "structured_records": 0
+        },
+        {
+          "role": "narrative",
+          "license_url": "https://creativecommons.org/licenses/by-sa/4.0/",
+          "attribution": "Wikipedia contributors; markup removed and whitespace normalized.",
+          "source_id": "ben-wiki",
+          "url": "https://en.wikipedia.org/wiki/Ben_Mitchell_(EastEnders)",
+          "revision_id": "1369268749",
+          "captured_at": "2026-09-25T12:00:27.860635Z",
+          "sha256": "42038dc15e2c78b46205eebf354d85e8babcc67d1ab73ae8e45d73b469a3a9d6",
+          "paragraphs": 48,
+          "admitted_paragraphs": 19,
+          "excluded_paragraphs": 0,
+          "review_required_paragraphs": 29,
+          "structured_records": 0
+        },
+        {
+          "role": "narrative",
+          "license_url": "https://creativecommons.org/licenses/by-sa/4.0/",
+          "attribution": "Wikipedia contributors; markup removed and whitespace normalized.",
+          "source_id": "kat-wiki",
+          "url": "https://en.wikipedia.org/wiki/Kat_Slater",
+          "revision_id": "1375940007",
+          "captured_at": "2026-09-25T12:04:27.187765Z",
+          "sha256": "83963acfaf2513d675920178dd67974d4f69d9ec92fb2cf2cc2eb5bcd009d9b7",
+          "paragraphs": 80,
+          "admitted_paragraphs": 30,
+          "excluded_paragraphs": 5,
+          "review_required_paragraphs": 45,
+          "structured_records": 0
+        },
+        {
+          "role": "narrative",
+          "license_url": "https://creativecommons.org/licenses/by-sa/4.0/",
+          "attribution": "Wikipedia contributors; markup removed and whitespace normalized.",
+          "source_id": "den-wiki",
+          "url": "https://en.wikipedia.org/wiki/Den_Watts",
+          "revision_id": "1371930128",
+          "captured_at": "2026-09-25T12:19:46.824222Z",
+          "sha256": "936560fd0b6c2a4c770afcc564448c8157cb9a99c18ee37d3428b9aff8a96cb8",
+          "paragraphs": 59,
+          "admitted_paragraphs": 0,
+          "excluded_paragraphs": 0,
+          "review_required_paragraphs": 59,
+          "structured_records": 0
+        },
+        {
+          "role": "identity_linkage",
+          "license_url": "https://creativecommons.org/publicdomain/zero/1.0/",
+          "attribution": "Wikidata contributors; structured identity data.",
+          "source_id": "sharon-identity",
+          "url": "https://www.wikidata.org/wiki/Special:EntityData/Q7490258.json",
+          "revision_id": "2531012756",
+          "captured_at": "2026-09-25T12:04:27.459980Z",
+          "sha256": "a582f41769377d615d2ad986202cf57d676052e50d6233cb66c76eb2e6c62924",
+          "paragraphs": 0,
+          "admitted_paragraphs": 0,
+          "excluded_paragraphs": 0,
+          "review_required_paragraphs": 0,
+          "structured_records": 1
+        },
+        {
+          "role": "identity_linkage",
+          "license_url": "https://creativecommons.org/publicdomain/zero/1.0/",
+          "attribution": "Wikidata contributors; structured identity data.",
+          "source_id": "ben-identity",
+          "url": "https://www.wikidata.org/wiki/Special:EntityData/Q2766568.json",
+          "revision_id": "2531020685",
+          "captured_at": "2026-09-25T12:04:27.867334Z",
+          "sha256": "e73721f684635755aeb61f0dca965e17c12ec368d2ca00612f2c4579ae9676fc",
+          "paragraphs": 0,
+          "admitted_paragraphs": 0,
+          "excluded_paragraphs": 0,
+          "review_required_paragraphs": 0,
+          "structured_records": 1
+        },
+        {
+          "role": "identity_linkage",
+          "license_url": "https://creativecommons.org/publicdomain/zero/1.0/",
+          "attribution": "Wikidata contributors; structured identity data.",
+          "source_id": "kat-identity",
+          "url": "https://www.wikidata.org/wiki/Special:EntityData/Q3955054.json",
+          "revision_id": "2531028992",
+          "captured_at": "2026-09-25T12:19:46.560986Z",
+          "sha256": "3b3d5b8ddb755e6fe6c5f7100998d8ab9a586248595245866f821487bde74869",
+          "paragraphs": 0,
+          "admitted_paragraphs": 0,
+          "excluded_paragraphs": 0,
+          "review_required_paragraphs": 0,
+          "structured_records": 1
+        },
+        {
+          "role": "episode_metadata",
+          "license_url": "https://creativecommons.org/licenses/by-sa/4.0/",
+          "attribution": "TVmaze, https://www.tvmaze.com/shows/793/eastenders; broadcast metadata.",
+          "source_id": "episode",
+          "url": "https://api.tvmaze.com/shows/793/episodesbydate?date=1985-02-19",
+          "revision_id": "20333a0ec99c69b73434c5bbd7676a673ca18bed54f4c5c8b8535b751fe59dbe",
+          "captured_at": "2026-09-25T12:19:47.016548Z",
+          "sha256": "20333a0ec99c69b73434c5bbd7676a673ca18bed54f4c5c8b8535b751fe59dbe",
+          "paragraphs": 0,
+          "admitted_paragraphs": 0,
+          "excluded_paragraphs": 0,
+          "review_required_paragraphs": 0,
+          "structured_records": 1
+        }
+      ],
+      "index": {
+        "format_version": "pgvector-exact-v1",
+        "snapshot_sha256": "d7089f7f10278979e43b82d7876c7d3d9f9179693f049bd5e4ead9a33b2594bb",
+        "embedding_id": "controlled-constant-v1",
+        "dimensions": 3,
+        "passages": 138,
+        "artifact_sha256": "d3f791de64190048f2f79e96d63ec11932d91c3b23b168f60cfb765279201dad"
+      }
+    },
+    "generation": 2,
+    "published_at": "2026-10-17T11:15:06.193669Z"
+  },
+  "restored": {
+    "compatibility_id": "afa6151757140f9497483d63d8810add5fa273ea8d0b39ed4f88223c0e40dd7a",
+    "manifest": {
+      "format_version": "source-text-publication-v1",
+      "snapshot_id": "sources-6b0f3478d4b8fdb8c4caeafc0702ef0eccee5f19105216f95a3e8334af6a3914",
+      "snapshot_sha256": "ff443bf69e47f6a660681e31d5447f2c223d53d9a63556cd2eb5e36dc3e60cc0",
+      "input_sha256": "6b0f3478d4b8fdb8c4caeafc0702ef0eccee5f19105216f95a3e8334af6a3914",
+      "sources": [
+        {
+          "role": "narrative",
+          "license_url": "https://creativecommons.org/licenses/by-sa/4.0/",
+          "attribution": "Wikipedia contributors; markup removed and whitespace normalized.",
+          "source_id": "sharon-wiki",
+          "url": "https://en.wikipedia.org/wiki/Sharon_Watts",
+          "revision_id": "1372798905",
+          "captured_at": "2026-09-25T12:00:27.812293Z",
+          "sha256": "86b90fe8e3816fdd7f6ee92c97f94ba65a650bfa7cbc48476dd01de4f6a6560d",
+          "paragraphs": 95,
+          "admitted_paragraphs": 30,
+          "excluded_paragraphs": 0,
+          "review_required_paragraphs": 65,
+          "structured_records": 0
+        },
+        {
+          "role": "narrative",
+          "license_url": "https://creativecommons.org/licenses/by-sa/4.0/",
+          "attribution": "Wikipedia contributors; markup removed and whitespace normalized.",
+          "source_id": "ben-wiki",
+          "url": "https://en.wikipedia.org/wiki/Ben_Mitchell_(EastEnders)",
+          "revision_id": "1369268749",
+          "captured_at": "2026-09-25T12:00:27.860635Z",
+          "sha256": "42038dc15e2c78b46205eebf354d85e8babcc67d1ab73ae8e45d73b469a3a9d6",
+          "paragraphs": 48,
+          "admitted_paragraphs": 19,
+          "excluded_paragraphs": 0,
+          "review_required_paragraphs": 29,
+          "structured_records": 0
+        },
+        {
+          "role": "narrative",
+          "license_url": "https://creativecommons.org/licenses/by-sa/4.0/",
+          "attribution": "Wikipedia contributors; markup removed and whitespace normalized.",
+          "source_id": "kat-wiki",
+          "url": "https://en.wikipedia.org/wiki/Kat_Slater",
+          "revision_id": "1375940007",
+          "captured_at": "2026-09-25T12:04:27.187765Z",
+          "sha256": "83963acfaf2513d675920178dd67974d4f69d9ec92fb2cf2cc2eb5bcd009d9b7",
+          "paragraphs": 80,
+          "admitted_paragraphs": 30,
+          "excluded_paragraphs": 5,
+          "review_required_paragraphs": 45,
+          "structured_records": 0
+        },
+        {
+          "role": "narrative",
+          "license_url": "https://creativecommons.org/licenses/by-sa/4.0/",
+          "attribution": "Wikipedia contributors; markup removed and whitespace normalized.",
+          "source_id": "den-wiki",
+          "url": "https://en.wikipedia.org/wiki/Den_Watts",
+          "revision_id": "1371930128",
+          "captured_at": "2026-09-25T12:19:46.824222Z",
+          "sha256": "936560fd0b6c2a4c770afcc564448c8157cb9a99c18ee37d3428b9aff8a96cb8",
+          "paragraphs": 59,
+          "admitted_paragraphs": 0,
+          "excluded_paragraphs": 0,
+          "review_required_paragraphs": 59,
+          "structured_records": 0
+        },
+        {
+          "role": "identity_linkage",
+          "license_url": "https://creativecommons.org/publicdomain/zero/1.0/",
+          "attribution": "Wikidata contributors; structured identity data.",
+          "source_id": "sharon-identity",
+          "url": "https://www.wikidata.org/wiki/Special:EntityData/Q7490258.json",
+          "revision_id": "2531012756",
+          "captured_at": "2026-09-25T12:04:27.459980Z",
+          "sha256": "a582f41769377d615d2ad986202cf57d676052e50d6233cb66c76eb2e6c62924",
+          "paragraphs": 0,
+          "admitted_paragraphs": 0,
+          "excluded_paragraphs": 0,
+          "review_required_paragraphs": 0,
+          "structured_records": 1
+        },
+        {
+          "role": "identity_linkage",
+          "license_url": "https://creativecommons.org/publicdomain/zero/1.0/",
+          "attribution": "Wikidata contributors; structured identity data.",
+          "source_id": "ben-identity",
+          "url": "https://www.wikidata.org/wiki/Special:EntityData/Q2766568.json",
+          "revision_id": "2531020685",
+          "captured_at": "2026-09-25T12:04:27.867334Z",
+          "sha256": "e73721f684635755aeb61f0dca965e17c12ec368d2ca00612f2c4579ae9676fc",
+          "paragraphs": 0,
+          "admitted_paragraphs": 0,
+          "excluded_paragraphs": 0,
+          "review_required_paragraphs": 0,
+          "structured_records": 1
+        },
+        {
+          "role": "identity_linkage",
+          "license_url": "https://creativecommons.org/publicdomain/zero/1.0/",
+          "attribution": "Wikidata contributors; structured identity data.",
+          "source_id": "kat-identity",
+          "url": "https://www.wikidata.org/wiki/Special:EntityData/Q3955054.json",
+          "revision_id": "2531028992",
+          "captured_at": "2026-09-25T12:19:46.560986Z",
+          "sha256": "3b3d5b8ddb755e6fe6c5f7100998d8ab9a586248595245866f821487bde74869",
+          "paragraphs": 0,
+          "admitted_paragraphs": 0,
+          "excluded_paragraphs": 0,
+          "review_required_paragraphs": 0,
+          "structured_records": 1
+        },
+        {
+          "role": "episode_metadata",
+          "license_url": "https://creativecommons.org/licenses/by-sa/4.0/",
+          "attribution": "TVmaze, https://www.tvmaze.com/shows/793/eastenders; broadcast metadata.",
+          "source_id": "episode",
+          "url": "https://api.tvmaze.com/shows/793/episodesbydate?date=1985-02-19",
+          "revision_id": "20333a0ec99c69b73434c5bbd7676a673ca18bed54f4c5c8b8535b751fe59dbe",
+          "captured_at": "2026-09-25T12:19:47.016548Z",
+          "sha256": "20333a0ec99c69b73434c5bbd7676a673ca18bed54f4c5c8b8535b751fe59dbe",
+          "paragraphs": 0,
+          "admitted_paragraphs": 0,
+          "excluded_paragraphs": 0,
+          "review_required_paragraphs": 0,
+          "structured_records": 1
+        }
+      ],
+      "index": {
+        "format_version": "pgvector-exact-v1",
+        "snapshot_sha256": "ff443bf69e47f6a660681e31d5447f2c223d53d9a63556cd2eb5e36dc3e60cc0",
+        "embedding_id": "controlled-constant-v1",
+        "dimensions": 3,
+        "passages": 138,
+        "artifact_sha256": "d3f791de64190048f2f79e96d63ec11932d91c3b23b168f60cfb765279201dad"
+      }
+    },
+    "generation": 3,
+    "published_at": "2026-10-17T11:14:35.459498Z"
+  },
+  "withdrawn_rejected_for_new_answers": true,
+  "http": {
+    "current": 200,
+    "original_evidence": 200,
+    "withdrawn_evidence": 200,
+    "recorded_runs": 4
+  }
+}

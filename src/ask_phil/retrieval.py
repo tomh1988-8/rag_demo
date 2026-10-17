@@ -1,6 +1,9 @@
 """Snapshot-bound exact vector retrieval through LlamaIndex and PostgreSQL."""
 
 import hashlib
+import json
+import math
+from typing import Literal
 
 import psycopg
 from llama_index.core.base.embeddings.base import BaseEmbedding
@@ -8,15 +11,31 @@ from llama_index.core.schema import TextNode
 from llama_index.core.vector_stores import MetadataFilter, MetadataFilters, VectorStoreQuery
 from llama_index.vector_stores.postgres import PGVectorStore
 from psycopg.conninfo import conninfo_to_dict
+from psycopg.types.json import Jsonb
 from sqlalchemy.engine import URL
 from sqlalchemy.pool import NullPool
 
-from ask_phil.evidence import Passage, Record, SourceSnapshot
+from ask_phil.evidence import Fingerprint, Passage, Record, SourceSnapshot
 from ask_phil.storage import EvidenceStore
 
 
 class IndexNotReady(ValueError):
     pass
+
+
+class TextIndex(Record):
+    format_version: Literal["pgvector-exact-v1"] = "pgvector-exact-v1"
+    snapshot_sha256: Fingerprint
+    embedding_id: str
+    dimensions: int
+    passages: int
+    artifact_sha256: Fingerprint
+
+    @property
+    def fingerprint(self) -> str:
+        return hashlib.sha256(
+            json.dumps(self.model_dump(), sort_keys=True, separators=(",", ":")).encode()
+        ).hexdigest()
 
 
 class RetrievedPassage(Record):
@@ -70,7 +89,7 @@ class TextRetriever:
     def _filter(self, fingerprint: str) -> MetadataFilters:
         return MetadataFilters(filters=[MetadataFilter(key="snapshot_sha256", value=fingerprint)])
 
-    def prepare(self, snapshot_id: str) -> None:
+    def prepare(self, snapshot_id: str) -> TextIndex:
         """Maintainer operation: publish embeddings only after the complete index is ready."""
         snapshot = EvidenceStore(self.database_url).snapshot(snapshot_id)
         if any(len(p.text.encode()) > 1800 for p in snapshot.passages):
@@ -87,13 +106,37 @@ class TextRetriever:
                     PRIMARY KEY (snapshot_sha256, embedding_id, dimensions)
                 )
             """)
+            conn.execute("""
+                CREATE TABLE IF NOT EXISTS text_index_artifacts (
+                    snapshot_sha256 text NOT NULL,
+                    embedding_id text NOT NULL,
+                    dimensions integer NOT NULL,
+                    document jsonb NOT NULL,
+                    PRIMARY KEY (snapshot_sha256, embedding_id, dimensions),
+                    FOREIGN KEY (snapshot_sha256, embedding_id, dimensions)
+                        REFERENCES text_indexes(snapshot_sha256, embedding_id, dimensions)
+                )
+            """)
             key = (snapshot.fingerprint, self.embedding_id, self.dimensions)
             if conn.execute(
                 """SELECT 1 FROM text_indexes WHERE
                    snapshot_sha256 = %s AND embedding_id = %s AND dimensions = %s""",
                 key,
             ).fetchone():
-                return
+                artifact = self._artifact(snapshot)
+                existing = conn.execute(
+                    """SELECT document FROM text_index_artifacts WHERE
+                       snapshot_sha256 = %s AND embedding_id = %s AND dimensions = %s""",
+                    key,
+                ).fetchone()
+                if existing and TextIndex.model_validate(existing[0]) != artifact:
+                    raise IndexNotReady("The saved index manifest no longer matches its artifacts.")
+                conn.execute(
+                    "INSERT INTO text_index_artifacts VALUES (%s, %s, %s, %s) "
+                    "ON CONFLICT DO NOTHING",
+                    (*key, Jsonb(artifact.model_dump())),
+                )
+                return artifact
             vectors = self._vectors(setup=True)
             # A failed preparation never publishes a manifest; its orphan nodes are
             # replaced on retry while the maintainer lock prevents duplicate writes.
@@ -113,7 +156,61 @@ class TextRetriever:
                         )
                     ]
                 )
+            artifact = self._artifact(snapshot)
             conn.execute("INSERT INTO text_indexes VALUES (%s, %s, %s)", key)
+            conn.execute(
+                "INSERT INTO text_index_artifacts VALUES (%s, %s, %s, %s)",
+                (*key, Jsonb(artifact.model_dump())),
+            )
+        return artifact
+
+    def _artifact(self, snapshot: SourceSnapshot) -> TextIndex:
+        nodes = self._vectors().get_nodes(filters=self._filter(snapshot.fingerprint))
+        expected = {f"{snapshot.fingerprint}:{p.evidence_id}": p for p in snapshot.passages}
+        if len(nodes) != len(expected) or {node.node_id for node in nodes} != set(expected):
+            raise IndexNotReady("The text index is incomplete or has duplicate logical passages.")
+        records = []
+        for node in sorted(nodes, key=lambda n: n.node_id):
+            passage = expected[node.node_id]
+            vector = [float(value) for value in node.get_embedding()]
+            if (
+                node.get_content() != passage.text
+                or node.metadata.get("evidence_id") != passage.evidence_id
+                or len(vector) != self.dimensions
+                or not all(math.isfinite(value) for value in vector)
+                or not any(value != 0 for value in vector)
+            ):
+                raise IndexNotReady(
+                    "An index artifact does not match its source or vector contract."
+                )
+            records.append((passage.evidence_id, passage.sha256, vector))
+        return TextIndex(
+            snapshot_sha256=snapshot.fingerprint,
+            embedding_id=self.embedding_id,
+            dimensions=self.dimensions,
+            passages=len(nodes),
+            artifact_sha256=hashlib.sha256(
+                json.dumps(records, separators=(",", ":"), allow_nan=False).encode()
+            ).hexdigest(),
+        )
+
+    def manifest(self, snapshot_id: str) -> TextIndex:
+        """Resolve a complete index and verify its retained artifacts without model calls."""
+        snapshot = EvidenceStore(self.database_url).snapshot(snapshot_id)
+        with psycopg.connect(self.database_url, connect_timeout=5) as conn:
+            if conn.execute("SELECT to_regclass('text_index_artifacts')").fetchone() == (None,):
+                raise IndexNotReady("Prepare the snapshot to establish its index manifest.")
+            row = conn.execute(
+                """SELECT document FROM text_index_artifacts WHERE
+                   snapshot_sha256 = %s AND embedding_id = %s AND dimensions = %s""",
+                (snapshot.fingerprint, self.embedding_id, self.dimensions),
+            ).fetchone()
+        if row is None:
+            raise IndexNotReady("No compatible index manifest exists for this snapshot.")
+        manifest = TextIndex.model_validate(row[0])
+        if manifest != self._artifact(snapshot):
+            raise IndexNotReady("The saved index manifest no longer matches its artifacts.")
+        return manifest
 
     def retrieve(self, snapshot_id: str, query: str, *, k: int = 3) -> Retrieval:
         if not query.strip() or len(query) > 500 or not 1 <= k <= 20:

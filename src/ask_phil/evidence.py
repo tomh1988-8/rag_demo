@@ -102,12 +102,19 @@ class SourceSnapshot(Record):
         return hashlib.sha256(canonical.encode()).hexdigest()
 
 
+class PublicationRef(Record):
+    compatibility_id: Fingerprint
+    index_sha256: Fingerprint
+    generation: int = Field(ge=1)
+
+
 class Inspection(Record):
     snapshot_id: Identifier
     snapshot_sha256: Fingerprint
     source: Source
     query: str | None
     matches: tuple[Passage, ...]
+    publication: PublicationRef | None = Field(default=None, exclude_if=lambda value: value is None)
     method: Literal["postgresql_english_all_terms_v1", "evidence_id_lookup_v1"] = (
         "postgresql_english_all_terms_v1"
     )

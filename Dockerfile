@@ -11,6 +11,7 @@ RUN mkdir -p /app/artifacts && chown 10001:10001 /app/artifacts
 ENV PATH="/app/.venv/bin:$PATH"
 ENV PYTHONDONTWRITEBYTECODE=1
 ENV MLFLOW_DISABLE_AGENT_HINT=1
+ENV PREFECT_HOME=/app/artifacts/prefect
 USER 10001:10001
 CMD ["uvicorn", "ask_phil.api:create_app", "--factory", "--host", "0.0.0.0", "--port", "8000"]
 
