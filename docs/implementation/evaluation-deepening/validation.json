@@ -1,0 +1,210 @@
+{
+  "tested_revision": "48a01f53b0999e2464fa687d0e7ab516b7443f03",
+  "baseline_revision": "d8e7d8d7245ec5391014c8c7320d79aabc808ea9",
+  "started_at": "2026-10-17T17:03:07.385763+00:00",
+  "finished_at": "2026-10-17T17:13:00.769080+00:00",
+  "full_suite": {
+    "tests": 228,
+    "errors": 0,
+    "failures": 0,
+    "skipped": 0,
+    "passed": 228,
+    "pytest_seconds": 576.045,
+    "exit_code": 0,
+    "elapsed_seconds": 593.3351380370004,
+    "test_image_id": "sha256:498689f99f47812548758625f84285c49769946fcf22599838d2e52e0aed270c",
+    "command": "docker compose --profile test run --rm -T -e PYTHONUNBUFFERED=1 -v <validation-directory>:/validation test pytest -q -p no:cacheprovider --junitxml=/validation/tests.xml",
+    "report": "tests.xml",
+    "report_sha256": "2be9152d657ac807ff1a3e4b5b6725ad37720fab79998d1e8452a6592832b003",
+    "installed_evaluation_module": {
+      "path": "/app/.venv/lib/python3.12/site-packages/ask_phil/evaluation.py",
+      "sha256": "7d43778a0f54fea4c5b18da4848ab0dd715248e0d59df73e4efe6ad8122c4ebd",
+      "matches_tested_source": true
+    }
+  },
+  "static_checks": {
+    "completed_at": "2026-10-17T17:03:26.263718+00:00",
+    "checks": [
+      {
+        "command": [
+          ".venv/bin/mypy"
+        ],
+        "exit_code": 0,
+        "elapsed_seconds": 1.0934058520069811,
+        "stdout": "Success: no issues found in 47 source files\n",
+        "stderr": ""
+      },
+      {
+        "command": [
+          ".venv/bin/ruff",
+          "check",
+          "."
+        ],
+        "exit_code": 0,
+        "elapsed_seconds": 0.009003687999211252,
+        "stdout": "All checks passed!\n",
+        "stderr": ""
+      },
+      {
+        "command": [
+          "git",
+          "diff",
+          "--check"
+        ],
+        "exit_code": 0,
+        "elapsed_seconds": 0.006469353000284173,
+        "stdout": "",
+        "stderr": ""
+      }
+    ]
+  },
+  "compatibility": {
+    "tested_revision": "48a01f53b0999e2464fa687d0e7ab516b7443f03",
+    "completed_at": "2026-10-17T17:03:49.560560+00:00",
+    "total_cases": 47,
+    "runs": [
+      {
+        "kind": "policy",
+        "case_count": 13,
+        "all_dimensions_unchanged": true,
+        "model_calls": 0,
+        "cost_usd": "0",
+        "scores_sha256": "d6d0a75164bbb6af2164f306c21e206db4b6be7fc5c346a31af952553f996af1",
+        "inputs_sha256": {
+          "docs/implementation/issue-4/cloud/sol-policy-v2.json": "9f5c81287239a400fd78489ca7651c22e13ef26585a72779ade1240658ad0966",
+          "docs/implementation/issue-4/cloud/reviews-sol-policy-v2.json": "972bd197315a90c323d6108d8f85302b05e34d2eb0f6010ee5af3c8d38361877",
+          "data/references/answer-policy-v2.json": "6e5d81207393ec8c2b324ed790133432c5d8dac6ccdaeb8b63ce1b939fa7e8e7",
+          "docs/implementation/issue-4/cloud/scores-sol-policy-v2.json": "f5ee4c435cd877cf540727aac426bdb07cc3e701d53d92236d60580f56083181"
+        }
+      },
+      {
+        "kind": "corpus",
+        "case_count": 25,
+        "all_dimensions_unchanged": true,
+        "model_calls": 0,
+        "cost_usd": "0",
+        "scores_sha256": "922c55c409f0449ae630bc05fdac8eecf95a08523b569922acca9ae8540593b7",
+        "inputs_sha256": {
+          "docs/implementation/issue-7/serving-matrix.json": "2fc5461e7e06e13df2746c2d7923fa1fb2f0d913988ef6e3a52456b403022220",
+          "docs/implementation/issue-7/answer-reviews.json": "a4696aa95353b58bda1239c3f440508dc6096041d63f0d8aabcd8aba7c4b1594",
+          "data/references/core-profiles-v2.json": "c0a08239b5b01eafdc37fdf4b11632e57990d21327da2caf17eb2226e26d55c4",
+          "docs/implementation/issue-7/answer-quality.json": "0918e6ff04777b2cd51791bae1549a9a28d9f22950cf76390f123175f95a8e52"
+        }
+      },
+      {
+        "kind": "conversation",
+        "case_count": 9,
+        "all_dimensions_unchanged": true,
+        "model_calls": 0,
+        "cost_usd": "0",
+        "scores_sha256": "7bb187cc8fec3b442f2d4b1cc3a519bb0976ab1580af0e88a2843e5e94528f1d",
+        "inputs_sha256": {
+          "docs/implementation/issue-8/serving-matrix.json": "508466ce571fea0823055777a9dd1cc34421795aa74195312b26e860f73e447b",
+          "docs/implementation/issue-8/answer-reviews.json": "e174f545f4ffc55b66bfa69259b8b38171da41ebe373bd81625cbebe08ed6011",
+          "data/references/conversation-v1.json": "71e6bfa28f8c09bd0a79bacf617d577bf93ffc868b42539de9f27d87fe73958d",
+          "docs/implementation/issue-8/answer-quality.json": "96acf84e1ad629c1280607c714f3650f23100ede78a1f5026969df0d6d7a71b4"
+        }
+      }
+    ]
+  },
+  "independent_review": {
+    "fixed_point": "d8e7d8d7245ec5391014c8c7320d79aabc808ea9",
+    "reviewed_revision": "48a01f53b0999e2464fa687d0e7ab516b7443f03",
+    "report": "review.md",
+    "standards": {
+      "outstanding_findings": 0,
+      "resolved_findings": [
+        "MLflow artifact filename collisions"
+      ]
+    },
+    "spec": {
+      "outstanding_findings": 0,
+      "resolved_findings": [
+        "Downloaded complete artifacts exposed before termination succeeds",
+        "Null or unusable served answers accepted for review"
+      ],
+      "independently_verified_regressions": 9
+    }
+  },
+  "files_sha256": {
+    "Dockerfile": "e9112b91431514ca1063539d2697f115de7107b8f073e5d656081d662256ee60",
+    "compose.yaml": "88a8d03a76d13846926c7fc3af34e6a18a8c4c2f515f70da27dbef453c1069dc",
+    "config/local-models.json": "ff72c39ebd66d029ed3b9fca7d7c302b8ed17c775bd74f6a743e3844a336eeb2",
+    "config/openrouter-glm.json": "94082fba45706b46ff33cfde5d0f66c70e4d131ee647be0443bfea65886a1ee1",
+    "config/openrouter-qwen.json": "de97a1ace6454f1cf2c97292025306306ad605e0751bb483b07830ef21e08859",
+    "config/openrouter-sol.json": "cf00b685a27cda04d01efa5d41a8ff7ec4a39239b0214956321f3b8edd1b335b",
+    "data/references/answer-policy-regressions-v1.json": "d54c0d0e6495e37ebcadcdb3ad8eb25cb8ab28c0e812da3755482a6bea5e569b",
+    "data/references/answer-policy-regressions-v2.json": "a8974cdae1eed084ee6398540de304c9d57ff0c2b0cb6971877037127aa469eb",
+    "data/references/answer-policy-v1.json": "131c84ceafa7c730c5854f220a6b28b3441a40aa3cd0c657363c315ad73ae4f9",
+    "data/references/answer-policy-v2.json": "6e5d81207393ec8c2b324ed790133432c5d8dac6ccdaeb8b63ce1b939fa7e8e7",
+    "data/references/conversation-v1.json": "71e6bfa28f8c09bd0a79bacf617d577bf93ffc868b42539de9f27d87fe73958d",
+    "data/references/core-profiles-v1.json": "8127346fb4e31f9bb844b6bf2f6c447655ee0c40d61e86e8715636588538ab5e",
+    "data/references/core-profiles-v2.json": "c0a08239b5b01eafdc37fdf4b11632e57990d21327da2caf17eb2226e26d55c4",
+    "data/references/phil-arrival-rag-v1.json": "a19df8459191b27e355f246afeab3640d2f3086424d4e2deeb88494f8a0840aa",
+    "data/references/phil-arrival-v1.json": "0afb6859fbb655f42b7b5c0756f3f07f9895027c69536c95369d642cece519de",
+    "data/references/source-ingestion-v1.json": "1bb00dc59f4b4f34c57a12453dc7135fb7f589dd2c258a876b54ae174a43f86b",
+    "data/seed/README.md": "c595b5de07bb90adb95726dbec35796e1531d9c5d0d8bed29d49ce04a08f58ee",
+    "data/seed/context-fit-legacy-v1.json": "e4ab629482f779302dcd05d1aa22d71402bfcca27fe0860fcaab1535452c8973",
+    "data/seed/phil-arrival-v1.json": "7ee9a1c5676adbdfbb4a38ffebad5a5d01a118d09f1ed43d0d8297edb8e25fc0",
+    "data/seed/policy/conflict-v1.json": "ac4b18ed9c5c5dd6f894215754e9b53f0b9f3c3c7ebe4f94f9a96dd282082b8e",
+    "data/seed/policy/negative-v1.json": "def36c8d8f48e15d39612a96ccec835ae8cbabdfbdf3911ae5a735cc0eb0c682",
+    "data/seed/policy/no-context-v1.json": "f860bbbb538dfec96fd4839eb774e2e202a5f9ee20140398e541a39a017b428a",
+    "data/seed/policy/timing-v1.json": "9607bdab2788de3693366fb765173ce2c8fdafaf0fcd76490bcf16a8ead1e2cc",
+    "data/sources/README.md": "de84fd8297548690dd013c0c2d0631a0ab42eb2df41e6f0df8b30aee9736f16c",
+    "data/sources/core-profiles-plan-v1.json": "839c60b18868cc895a755198168ae9f0ec62611e5e67466c7f45399c6232fe83",
+    "data/sources/core-profiles-plan-v2.json": "090c81e429393683ee785c2dbe485264c384fec91e4338f0a37ff574c9076bef",
+    "data/sources/core-profiles-v2.json.gz": "1cebb5169b4f36b12f900e3d73f43b4c483c6903b02a566c8f8dee96e5eba457",
+    "data/sources/real-sources-plan-v1.json": "f26d1b1c409e5e27e0d603cd22128e013939c7869255fff6b6e921c3a9d220b5",
+    "data/sources/real-sources-v1.json.gz": "bfcaae65ecd30c4ebee805a71d02910ce85db636aa0d5f1ef2a08368a06eb76a",
+    "pyproject.toml": "f740c8e894e07d179ff7aa5b07ebd055b5e5e9be97e9c7cbcc0765b519216538",
+    "scripts/check_secrets.py": "921478f224d9fc8586431446404beab6bdd0cd5953a3370ec12afe0cb5e1264f",
+    "scripts/evaluate_answer_policy.py": "5a61af5570a80b70c29005e7a4ab075bf4998cd875850f58ace8841753648b49",
+    "scripts/evaluate_conversation.py": "9ea2fc2f6dd81e62a0c551dc663d28bc04636e070929a4fd6af0275a0c1239e0",
+    "scripts/evaluate_text_baseline.py": "f642d4ec9307083ecf113e456cc5beaf201a65866eadb363baeaf530df7209b8",
+    "scripts/evaluate_text_corpus.py": "25c6306c0750ead03246e6e05563547b7ae158d4e6ef83051c7a0afa2fb34be1",
+    "scripts/install-docker-ubuntu.sh": "a5ade78c1587a927973e2d5e4c1c314b589f3d60fe6beacdce19b56f1388fc02",
+    "scripts/record_baseline.py": "2c6f0cf4fa7b074d5123df9c93c68bb9c84c8322cbecc20a2ecc5e3347f2e419",
+    "scripts/record_refresh_acceptance.py": "1f017e758d5165168a4ab21cc04e51ec7fb8a05e8b0d25803834682d0cf4584d",
+    "src/ask_phil/__init__.py": "c4be197720058e2c86d4a79594bf60163b9bef1578b8e0e99650ec5e8b114a3d",
+    "src/ask_phil/answering.py": "a7b5c6f4eb6755122401360cbfdbfea88b50524f52a9ff03a9382fe8ae03cbd9",
+    "src/ask_phil/answers.py": "243c2b62ae1256d5fdf6f211dd6a37a1ac17389155cbad50e29126d5e3d1e449",
+    "src/ask_phil/api.py": "1f8c808b4692b711f29e34a31f484ec8a8a9d4e079d5e2d39cdd87874cedf1f0",
+    "src/ask_phil/cli.py": "c844e39d07faeb16b698f06cac10592c8f9ec614c45abede68b252d25ad411f7",
+    "src/ask_phil/conversation.py": "c577bbb8697d9851d82064ca70b0ffeddb9ee03fae3a441420da56cde3ad01a6",
+    "src/ask_phil/evaluation.py": "7d43778a0f54fea4c5b18da4848ab0dd715248e0d59df73e4efe6ad8122c4ebd",
+    "src/ask_phil/evidence.py": "321f6a3ba913ca8be26a4ab171e263ab1da9fc208b12432f5dbcf54c2f83ea9f",
+    "src/ask_phil/identity.py": "f7277f6206c35dcb5e5cb91806f98c5142c09175d86f0fd7fa5b962f20f0d2c9",
+    "src/ask_phil/ingestion.py": "efee54598cb5048152375d679091dfaae5e77d56741ac0347dd6e49e1e088a85",
+    "src/ask_phil/models.py": "182bc4a9c6cdde42bb2263a72ff8510532ea904ef5c2862a5f1b9f2cb1b0b152",
+    "src/ask_phil/openrouter.py": "544ca09598032ce1e7b997f44b68cfbdc67877d9a25681a9ecc96591504bd44f",
+    "src/ask_phil/passage_context.py": "4d7f9bf6e4937308a5142f12f35036feff35c87a054acb088af6b14e7810f6e0",
+    "src/ask_phil/publications.py": "72fdb5e948b08e52c974e03a20d218f0659cb60aea0efec8d9cfb2bb9e7bf6fa",
+    "src/ask_phil/refresh.py": "54674b463c0d84698a0302a8a49374c941a52892fffaa7b36bdf4b98b371c41e",
+    "src/ask_phil/responses.py": "ea8b9abd5e1f952f1cb7d1822aff9c972bdb435adac3065c93eef633b6b3df0e",
+    "src/ask_phil/retrieval.py": "2846d7a827e4c64cd36152b8464f81a7b1a85b6edb17965f06926933341ef9c7",
+    "src/ask_phil/sessions.py": "d03105268b6874d2620c890d98dfac376f393f9f4d249de2dc9f46052a959e32",
+    "src/ask_phil/source_records.py": "b0e3b27bed3dc045a50c488a4ebd7a0709902651e0a44cf2ad496ca95d30a2a1",
+    "src/ask_phil/storage.py": "32e5be5e11813d8c36d81a2ff5d292645967d1f646bcb45f43e50088afb25f74",
+    "tests/conftest.py": "a1aae41c260f6b4a1acfaec6ce0e383d176ac51765a13faebf6835288f7bb719",
+    "tests/test_answer_rules.py": "dc14a86340fc34e0dcbc3638089c89f7b9cb2f232f6f5c5dbc060fc7cf61a8c3",
+    "tests/test_answers_api.py": "9198055fe9d7eab6f23d94dd4bf630f785b749fb8455e644ecdd326a8c8eb867",
+    "tests/test_cli.py": "0cad3933454e67628c06a73bd1c4fe2cfc803feef9f642727ffed5b9b369a6c8",
+    "tests/test_conversation_api.py": "8fca6ca5375e4a345fc9f9d8da6131967309ca8844b9a813d308e8f5842b79a5",
+    "tests/test_conversation_rules.py": "8e6b2a0d813d9d4d27e5fb70090d0006d2bbdf39286ee3553fe1f804392a48c9",
+    "tests/test_core_coverage.py": "5f2eccc152895b7b2a3bd6f80e8c57b5010caea8c75f410fb2d520853fc068eb",
+    "tests/test_evaluation.py": "816386a824a48219f0369b6dc705642f00022b3d4799313c37f913a78270c14b",
+    "tests/test_evaluation_runs.py": "eeaf732e463d3d0ca1979ee6fd279a40b2aa3c3c68c79f1b3c79fded20cf6bef",
+    "tests/test_identity.py": "6b551edb254f6209f90234ebc5a9844c1273b42f26503ef8ebe6c7e9d0c66999",
+    "tests/test_import_api.py": "1541c6791b658e2c00d6cb8d61065a8d929a7c4ab9d11ecb79569a8ec056688a",
+    "tests/test_inspection.py": "97b460517280da1202a7c8cc1019a167bfd764d6cf3a31108758b838ac9ee1e6",
+    "tests/test_openrouter.py": "a2fb2b6267a9611d6ff666af8f69fa8258f3d869f513f880202466f8f7db3661",
+    "tests/test_openrouter_answers.py": "12c96406f9e1a3474f9b18a88543ac0031cde692871911f1ffc6c33148de4c2a",
+    "tests/test_policy_evaluation.py": "5e80ec3404f3a40618f2011f3c0c306579c176af02c1aaa9bdfb0f53dc8f141d",
+    "tests/test_provenance.py": "1c6a3c916a4c28413c0fb957dbb283e3a38bcec8012414ceea0d79fcdf4c8eaa",
+    "tests/test_refresh.py": "b1c4e5b7d1983baf61bb157d4a0a4a6d9efb38922bbf18242d22b0332803e2f5",
+    "tests/test_retrieval.py": "812685fe4a40c03c4e6b6bf264fdf478a5d65a5a4fb487613a1e37603351748f",
+    "tests/test_source_capture.py": "20f115f83a783753450aab05a90cb5a66b8c795eb42914654789728cdf9c92e4",
+    "tests/test_source_ingestion.py": "fa0d709ba329cf0b074df616a9065eedb5b4a17cdf7d4aa943912fcdddb490ba",
+    "uv.lock": "983d5a644e3289e6b79d92dc251b5029c199a497ac33c14f504a3c9ee3763152"
+  }
+}

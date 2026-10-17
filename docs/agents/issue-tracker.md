@@ -1,7 +1,10 @@
 # Issue tracker: GitHub
 
 Issues and specs for this repo live in GitHub Issues for
-`tomh1988-8/rag_demo`. Use the `gh` CLI when available. The user has also authorised the installed GitHub plugin; its connector tools are the current working fallback because `gh` and CLI credentials are unavailable.
+`tomh1988-8/rag_demo`. Use the `gh` CLI. Version 2.102.0 is installed at
+`/home/tom/.local/bin/gh`, authenticated as `tomh1988-8`, and configured for native
+Git HTTPS credentials. The user has also authorised the installed GitHub plugin;
+its connector tools remain a fallback if native access becomes unavailable.
 
 Pass `--repo tomh1988-8/rag_demo` to all `gh issue` and `gh pr`
 commands so they work even without a configured Git remote.
@@ -66,11 +69,12 @@ Run `gh issue view <number> --repo tomh1988-8/rag_demo --comments`.
 
 The user requested that implemented code and planning updates be visible on GitHub,
 not only in issue bodies. The repository remote is `origin` at
-`https://github.com/tomh1988-8/rag_demo.git`. Native Git has read access but currently
-lacks push credentials. The authenticated GitHub connector can publish repository
-trees/commits and advance `main` without forcing; use that fallback for authorised
-publication and verify the remote tree against the intended local tree. Preserve
-existing work and both histories when reconciling connector and local commits.
+`https://github.com/tomh1988-8/rag_demo.git`. Native Git HTTPS credentials are
+configured through `gh auth setup-git`; use native Git for authorised publication
+and verify the remote tree against the intended local tree. The authenticated
+GitHub connector can also publish repository trees/commits and advance `main`
+without forcing if native access is unavailable. Preserve existing work and both
+histories when reconciling connector and local commits.
 
 ### Required at the end of every issue
 

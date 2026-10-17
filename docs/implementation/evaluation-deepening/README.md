@@ -79,8 +79,15 @@ dimension: 13 policy cases from issue #4, 25 corpus cases from issue #7, and nin
 conversation responses from issue #8. Replay uses zero answer-model calls.
 These are compatibility checks, not a new model-quality assessment.
 
-Final suite results and both review axes are recorded in
-[validation.json](validation.json).
+The final Docker/PostgreSQL suite passes all 228 tests with no failures, errors
+or skips. Strict mypy passes all 47 source files, and Ruff passes. Both independent
+review axes have zero outstanding findings. The source, scripts, fixtures and
+dependency hashes match the final tested implementation commit.
+
+The tested revision, exact input hashes, unchanged score comparisons and check
+outputs are recorded in [validation.json](validation.json). The full test report
+is retained in [tests.xml](tests.xml), with the two review axes in
+[review.md](review.md).
 
     uv run pytest tests/test_evaluation_runs.py tests/test_policy_evaluation.py -q
     uv run mypy
