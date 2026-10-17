@@ -167,3 +167,12 @@ The only final warning is the upstream Starlette/httpx test-client deprecation.
 The earlier Prefect home warning is resolved. These software results establish
 the source/text lifecycle and existing contract regressions; constant embeddings
 and controlled external responses do not measure retrieval or answer quality.
+
+## Publication
+
+[Implementation 4080121](https://github.com/tomh1988-8/rag_demo/commit/408012156c55d040bc69a22bff034f87dd9a5dbd)
+was published through the authorised GitHub connector. Its fetched tree exactly
+matches local acceptance commit `ac3c5fd`; issue #6 was then closed as completed
+with all eight criteria checked and read back. [The receipt](publication.json)
+records this verification. The handoff and receipt follow in a documentation
+commit. No later ticket was started.

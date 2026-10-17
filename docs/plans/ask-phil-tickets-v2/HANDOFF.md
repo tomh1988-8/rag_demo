@@ -1,6 +1,35 @@
 # Ask Phil: publication and next-skill handoff
 
-Updated 25 September 2026. The user approved the initial checklist/ticket breakdown, authorised publication, and subsequently required user feedback and online evaluation. Checklist v1.1 and the amended 24-ticket breakdown are published. Issues #2, #3, #4 and #5 are complete and closed. Issue #4 passed its scoped cloud policy acceptance, exact-tree publication verification and closure readback. Issue #5 passed its full software suite, independent reviews, exact-tree publication verification and closure readback.
+Updated 17 October 2026. The user approved the initial checklist/ticket breakdown, authorised publication, and subsequently required user feedback and online evaluation. Checklist v1.1 and the amended 24-ticket breakdown are published. Issues #2, #3, #4, #5 and #6 are complete and closed. Issues #5 and #6 passed their full software suites, independent reviews, exact-tree publication verification and closure readback. Issue #4 passed its scoped cloud policy acceptance.
+
+## Issue #6: source/text refresh and recovery
+
+[Issue #6](https://github.com/tomh1988-8/rag_demo/issues/6) adds manual Prefect
+refresh, immutable source/index manifests, atomic publication, pinned readers,
+maintainer run/capture inspection and compatible rollback. Failed or interrupted
+work cannot replace the active pair. Retries repair orphan index artifacts;
+retained source reverts reactivate the correct pair. Rollback withdraws the newer
+version for new answers while retaining saved responses and historical evidence.
+Compatibility identity plus active generation establish the later cache contract;
+the graph contract requires a new immutable manifest and atomic artifact set.
+
+[Acceptance evidence](../../implementation/issue-6/README.md) records 131 passing
+Docker tests, Ruff, strict mypy (37 files), and zero remaining findings in the two
+independent reviews. A real Prefect/PostgreSQL lifecycle publishes 138 passages,
+skips an unchanged rerun, publishes a review-policy change and restores the prior
+pair. Public regressions cover partial/provider failures, an actually killed
+worker, request pinning during publication, CLI recovery and retained receipts.
+Earlier failures, the repaired API regression and an unexplained disposable
+database exit 139 remain preserved. No paid model calls or quality claim apply.
+
+[Published commit 4080121](https://github.com/tomh1988-8/rag_demo/commit/408012156c55d040bc69a22bff034f87dd9a5dbd)
+has exactly the tested tree of local acceptance commit `ac3c5fd`. GitHub objects
+were fetched and compared before closure; #6 is closed as completed and all eight
+checked criteria were read back. The [publication receipt](../../implementation/issue-6/publication.json)
+records the implementation revision and closure. AD-03.3 passes for source/text;
+AD-09.2 and AD-10.2 retain their broader obligations. Rebuild the application image
+to use this workflow. Weekly scheduling remains the deployment trigger; full
+roster #7, graph lifecycle #15, fusion #24 and end-to-end caching #25 remain open.
 
 ## Issue #5: reviewed real-source ingestion
 
@@ -18,7 +47,7 @@ software checks: 115 Docker tests, Ruff and strict mypy pass. Independent Standa
 and Spec re-reviews have zero remaining
 findings. Den's omitted aliases were corrected against his captured infobox; the
 raw source captures and paragraph labels were unchanged. Full 20-profile coverage,
-semantic extraction, refresh/recovery, fusion and answer-quality acceptance remain
+semantic extraction, fusion and answer-quality acceptance remain
 later work. [Published commit b6b45cb](https://github.com/tomh1988-8/rag_demo/commit/b6b45cb5eea3402ffe2be466e1693ef91af4ecf5) exactly matches local acceptance commit `223e5db`. GitHub main and its tree were read back before closure; issue #5 is closed as completed with all eight criteria checked. The publication receipt is retained in ignored `artifacts/issue-5-github-publication.json`.
 
 The existing `ask-phil-issue3` API/MLflow services still run the older #3 image;
@@ -49,7 +78,7 @@ use #3. A persistent cloud deployment has not been configured.
 ## Published and verified
 
 - [Specification #1](https://github.com/tomh1988-8/rag_demo/issues/1) contains the agreed specification with the feedback/online-evaluation and fusion/cache amendments (130 stories).
-- Implementation tickets **#2–#25** are published and labelled `ready-for-agent`. **#2, #3, #4 and #5 are closed as completed**; #6–#25 remain open.
+- Implementation tickets **#2–#25** are published and labelled `ready-for-agent`. **#2, #3, #4, #5 and #6 are closed as completed**; #7–#25 remain open.
 - All 25 remote bodies, states and ready-for-agent labels were read back and checked against the intended content after the fusion/cache amendment.
 - The 41 blocking relationships are recorded as real issue references in ticket bodies and as a machine-readable mapping in [publication.json](publication.json).
 - Issue #2 has a reviewed captured seed, CLI/API/PostgreSQL behavior, 17 passing tests in both native and Docker environments, and recorded deterministic baseline outputs. [Fresh Compose startup and database/API restart passed](../../implementation/issue-2/README.md); no generative model quality is claimed. GitHub closure and all seven checked criteria were read back and verified.
@@ -58,7 +87,7 @@ The [to-spec skill](../../../.agents/skills/to-spec/SKILL.md) authorised specifi
 
 ## First available work
 
-**[#6 — Refresh and recover a captured snapshot](https://github.com/tomh1988-8/rag_demo/issues/6)** is recommended next. Completion of #5 also unblocks #8 (follow-ups), #11 (biological claims) and #24 (fusion/context expansion); #9 (calibrated comparisons) and #10 (execution boundaries) remain unblocked. Wait for the next implementation instruction before starting another ticket. Specification #1 remains parent context.
+**[#7 — Answer from all 20 core character profiles](https://github.com/tomh1988-8/rag_demo/issues/7)** is recommended next after #6. #8 (follow-ups), #9 (calibrated comparisons), #10 (execution boundaries), #11 (biological claims) and #24 (fusion/context expansion) are also unblocked. Wait for the next implementation instruction before starting another ticket. Specification #1 remains parent context.
 
 For subsequent work, read the current issue and comments, the relevant domain/ADR decisions and the checklist profile. Work the dependency frontier; the shared `ready-for-agent` label does not mean a blocked ticket can begin. Existing approved decisions and the six public test boundaries do not need another design interview.
 
@@ -97,7 +126,7 @@ The “Blocked by” column contains **GitHub issue numbers**, which differ from
 
 - [Approved ticket breakdown](README.md), including rationale and the common evidence-completion pattern.
 - [Reusable checklist v1.1](../../checklists/agent-development.md).
-- [Ask Phil applicability profile and evidence register](../../checklists/ask-phil-profile.md): 51 current items, one deployment deferral and 12 N/A items. Three items pass on design evidence, five on inspection, five on initial text RAG two on #4 software counterexamples/quality measurement and two on #5 source inventory/retention; 34 current obligations remain Pending. #4's scoped Sol policy acceptance now passes; this does not discharge full-product comparison, calibration, graph, fusion, cache or online-feedback obligations.
+- [Ask Phil applicability profile and evidence register](../../checklists/ask-phil-profile.md): 51 current items, one deployment deferral and 12 N/A items. Eighteen pass: three on design evidence, five on inspection, five on initial text RAG, two on #4 software counterexamples/quality measurement, two on #5 source inventory/retention and one on #6 source/text refresh; 33 current obligations remain Pending. Scoped acceptance does not discharge full-product comparison, calibration, graph, fusion, cache or online-feedback obligations.
 - [All 130 specification stories mapped to tickets](spec-coverage.md).
 - [Local specification](../../specs/ask-phil.md), [test/evaluation strategy](../../design/testing-and-evaluation.md), [domain glossary](../../../CONTEXT.md) and [architecture decisions](../../adr/).
 - [Publication manifest](publication.json), including issue IDs/URLs, approval, source fingerprints, readback verification and the outstanding native relationship operations.
@@ -124,7 +153,7 @@ The user requested fusion/context expansion and repeated-question caching before
 the next implementation. [Research](../../research/rag-fusion-and-answer-caching.md)
 and [scope validation](fusion-cache-amendment.json) describe the changes. GitHub #24
 and #25 own the new behavior; #18 and #21 include their actual prerequisites.
-After completion of #5, #6 is recommended next. Neither fusion nor caching is implemented.
+After completion of #6, #7 is recommended next. Neither fusion nor caching is implemented.
 
 Historical issue #2 publication: the validated code was published on GitHub `main` at `1a186fd1c6cbf306742a7ef6868f5b2cded58df2`,
 whose tree exactly matches local `e5ac34c`. Publication used the authenticated GitHub
