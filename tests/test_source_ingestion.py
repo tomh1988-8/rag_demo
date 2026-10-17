@@ -2,6 +2,7 @@ import gzip
 import hashlib
 import json
 from datetime import datetime
+from html import escape
 from pathlib import Path
 
 import httpx
@@ -126,7 +127,6 @@ def test_real_inputs_preserve_narrative_provenance_and_keep_metadata_out_of_retr
     assert any("spring in 1988" in p.text for p in snapshot.passages)
     assert any("information about Redwater" in p.text for p in snapshot.passages)
     assert not any("Dimitri" in p.text for p in snapshot.passages)
-    assert all(len(p.text.encode()) <= 1200 for p in snapshot.passages)
     assert all(
         p.source and p.source.support_status == "source_supported" for p in snapshot.passages
     )
@@ -142,6 +142,90 @@ def test_real_inputs_preserve_narrative_provenance_and_keep_metadata_out_of_retr
         assert passage.location is not None
         document = next(d for d in imported.documents if d.source_id == passage.location.source_id)
         assert document.text[passage.start : passage.end] == passage.text
+
+
+def test_every_admitted_passage_can_reach_answer_context_with_its_original_citation() -> None:
+    from ask_phil.answers import Draft, assemble_context, cite_answer
+    from ask_phil.ingestion import build_snapshot, read_batch
+    from ask_phil.retrieval import RetrievedPassage
+
+    snapshot = build_snapshot(
+        read_batch(Path("data/sources/real-sources-v1.json.gz")), "context-fit"
+    )
+    for passage in snapshot.passages:
+        context = assemble_context((RetrievedPassage(passage=passage, similarity=1.0),), 1200)
+        assert context == (passage,), passage.evidence_id
+        citations = cite_answer(
+            Draft(
+                answer="A source-supported fact from this captured passage.",
+                evidence_ids=(passage.evidence_id,),
+                status="answered",
+                unanswered=(),
+                qualifications=(),
+            ),
+            context,
+            snapshot.snapshot_id,
+        )
+        assert len(citations) == 1
+        assert citations[0].model_dump(exclude={"resolve_path"}) == passage.model_dump()
+
+
+@pytest.mark.parametrize(
+    "text,title",
+    [
+        ("Synthetic source-supported fact. " * 100, "Sharon Watts"),
+        ("🦄" * 600, 'Sharon "Watts" \\ ' * 10),
+        ('Synthetic "quoted" \\ passage 🦄. ' * 80, "Sharon Watts"),
+    ],
+)
+def test_passage_fit_preserves_admitted_text_offsets_and_escaped_metadata(
+    text: str, title: str
+) -> None:
+    from ask_phil.answers import assemble_context
+    from ask_phil.evidence import SourceSnapshot
+    from ask_phil.ingestion import SourceBatch, build_snapshot
+    from ask_phil.retrieval import RetrievedPassage
+
+    legacy = SourceSnapshot.model_validate_json(
+        Path("data/seed/context-fit-legacy-v1.json").read_text()
+    )
+    assert legacy.imported is not None
+    imported = legacy.imported
+    html = (
+        '<html><script>{"wgRevisionId":17,"wgWikibaseItemId":"Q7490258"}</script>'
+        '<div id="mw-content-text"><div class="mw-parser-output">'
+        f'<h2 id="Storylines">Storylines</h2><p>{escape(text)}</p></div></div></html>'
+    )
+    batch = SourceBatch(
+        format_version=imported.format_version,
+        catalogue=imported.catalogue.model_copy(
+            update={
+                "characters": (imported.catalogue.characters[0].model_copy(update={"name": title}),)
+            }
+        ),
+        policies=imported.policies,
+        captures=(
+            imported.captures[0].model_copy(
+                update={"content": html, "sha256": hashlib.sha256(html.encode()).hexdigest()}
+            ),
+        ),
+    )
+
+    snapshot = build_snapshot(batch, "escaped-context-fit")
+
+    # The HTML parser normalizes whitespace; every admitted character must survive splitting.
+    expected_text = " ".join(text.split())
+    assert "".join(p.text for p in snapshot.passages) == expected_text
+    assert snapshot.passages[0].start == 0
+    assert snapshot.passages[-1].end == len(expected_text)
+    for left, right in zip(snapshot.passages, snapshot.passages[1:], strict=False):
+        assert left.end == right.start
+    for passage in snapshot.passages:
+        assert expected_text[passage.start : passage.end] == passage.text
+        assert passage.source is not None and passage.source.title == title
+        assert assemble_context((RetrievedPassage(passage=passage, similarity=1.0),), 1200) == (
+            passage,
+        )
 
 
 def test_imported_citation_cannot_be_reassigned_to_an_excluded_paragraph() -> None:

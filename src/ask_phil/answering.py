@@ -27,6 +27,7 @@ from ask_phil.answers import (
 )
 from ask_phil.models import Models
 from ask_phil.openrouter import OpenRouterChat, ProviderUsage
+from ask_phil.passage_context import CONTEXT_BYTE_BUDGET
 from ask_phil.publications import PublicationStore
 from ask_phil.responses import ResponseLedger
 from ask_phil.retrieval import IndexNotReady, TextRetriever
@@ -124,9 +125,12 @@ class AnswerService:
                 retrieved = self.retriever.retrieve(snapshot_id, request.question, k=3)
                 span.set_outputs(retrieved.model_dump(mode="json"))
             with mlflow.start_span("assembled_context") as span:
-                context = assemble_context(retrieved.hits, 1200)
+                context = assemble_context(retrieved.hits)
                 span.set_outputs(
-                    {"passages": [p.model_dump() for p in context], "byte_budget": 1200}
+                    {
+                        "passages": [p.model_dump() for p in context],
+                        "byte_budget": CONTEXT_BYTE_BUDGET,
+                    }
                 )
             usage = TokenUsage(embedding_tokens=self.models.embedding_tokens)
             failure = False

@@ -1,6 +1,5 @@
 """Public context and citation rules for the single-query text baseline."""
 
-import json
 from typing import Annotated, Literal
 from uuid import UUID
 
@@ -9,6 +8,8 @@ from pydantic import Field, StringConstraints, field_validator
 from ask_phil.evidence import Fingerprint, Identifier, Passage, PublicationRef, Record, Source
 from ask_phil.models import ModelSettings, OpenRouterSettings
 from ask_phil.openrouter import ProviderUsage
+from ask_phil.passage_context import assemble_context as assemble_context
+from ask_phil.passage_context import context_text as context_text
 from ask_phil.retrieval import RetrievedPassage
 
 Outcome = Literal["answered", "partial", "clarification", "insufficient_evidence"]
@@ -152,33 +153,6 @@ class Draft(Record):
 
 class Citation(Passage):
     resolve_path: str
-
-
-def context_text(passages: tuple[Passage, ...]) -> str:
-    return json.dumps(
-        [
-            {
-                "evidence_id": p.evidence_id,
-                "text": p.text,
-                **({"source_title": p.source.title} if p.source else {}),
-            }
-            for p in passages
-        ],
-        ensure_ascii=False,
-        separators=(",", ":"),
-    )
-
-
-def assemble_context(hits: tuple[RetrievedPassage, ...], byte_budget: int) -> tuple[Passage, ...]:
-    """Keep whole spans in retrieval order; a truncated excerpt cannot become a citation."""
-    if byte_budget < 2:
-        raise ValueError("Context budget must accommodate an empty JSON list.")
-    selected: tuple[Passage, ...] = ()
-    for hit in hits:
-        candidate = (*selected, hit.passage)
-        if len(context_text(candidate).encode()) <= byte_budget:
-            selected = candidate
-    return selected
 
 
 def cite_answer(

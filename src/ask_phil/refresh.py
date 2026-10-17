@@ -1,7 +1,5 @@
 """Manual Prefect source refresh; publication follows complete artifact preparation."""
 
-import hashlib
-import json
 from contextlib import nullcontext
 from datetime import UTC, datetime
 from uuid import UUID, uuid4
@@ -12,7 +10,12 @@ from llama_index.core.base.embeddings.base import BaseEmbedding
 from prefect import flow
 from prefect.runtime import flow_run
 
-from ask_phil.ingestion import SourceBatch, build_snapshot, iter_captures
+from ask_phil.ingestion import (
+    SourceBatch,
+    build_snapshot,
+    iter_captures,
+    source_input_fingerprint,
+)
 from ask_phil.publications import PublicationNotFound, PublicationStore, RefreshRun, SourceResult
 from ask_phil.retrieval import IndexNotReady, TextRetriever
 from ask_phil.source_records import CapturedSource, CapturePlan
@@ -62,14 +65,7 @@ class SourceRefresh:
                 try:
                     batch = self._capture(source, client, run, conn)
                     run = self.publications.run(run.run_id)
-                    input_data = batch.model_dump(mode="json")
-                    input_data["captures"] = [
-                        capture.model_dump(mode="json", exclude={"captured_at", "content"})
-                        for capture in batch.captures
-                    ]
-                    input_id = hashlib.sha256(
-                        json.dumps(input_data, sort_keys=True, separators=(",", ":")).encode()
-                    ).hexdigest()
+                    input_id = source_input_fingerprint(batch)
                     run = run.model_copy(update={"input_sha256": input_id, "phase": "validating"})
                     self.publications.save_run(run, conn)
                     try:

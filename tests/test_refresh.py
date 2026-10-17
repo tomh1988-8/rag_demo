@@ -10,6 +10,7 @@ from concurrent.futures import ThreadPoolExecutor
 from contextlib import AbstractContextManager
 from datetime import datetime
 from pathlib import Path
+from uuid import uuid4
 
 import httpx
 import pytest
@@ -167,6 +168,76 @@ def test_repeated_capture_reuses_logical_snapshot_and_index_without_republicatio
         database_url, MockEmbedding(embed_dim=3), "test-embedding-v1", 3
     ).retrieve(active.manifest.snapshot_id, "workshop", k=20)
     assert len(result.hits) == 2
+
+
+def test_revised_passage_projection_preserves_legacy_evidence_and_recovery(
+    database_url: str,
+) -> None:
+    from ask_phil.answers import assemble_context
+    from ask_phil.api import create_app
+    from ask_phil.evidence import SourceSnapshot
+    from ask_phil.publications import PublicationStore, RefreshRun
+    from ask_phil.refresh import SourceRefresh
+    from ask_phil.retrieval import RetrievedPassage, TextRetriever
+
+    legacy = SourceSnapshot.model_validate_json(
+        Path("data/seed/context-fit-legacy-v1.json").read_text()
+    )
+    assert legacy.imported is not None
+    batch = SourceBatch(
+        format_version=legacy.imported.format_version,
+        catalogue=legacy.imported.catalogue,
+        policies=legacy.imported.policies,
+        captures=legacy.imported.captures,
+    )
+    EvidenceStore(database_url).load(legacy)
+    embedding = MockEmbedding(embed_dim=3)
+    index = TextRetriever(database_url, embedding, "test-embedding-v1", 3).prepare(
+        legacy.snapshot_id
+    )
+    publications = PublicationStore(database_url)
+    initial_run = RefreshRun(
+        run_id=uuid4(),
+        flow_run_id=uuid4(),
+        started_at=datetime.fromisoformat("2026-09-25T15:00:00Z"),
+        status="running",
+        phase="publishing",
+        input_sha256=legacy.snapshot_id.removeprefix("sources-"),
+    )
+    with publications.writer() as conn:
+        publications.save_run(initial_run, conn)
+        publications.publish(legacy, index, initial_run, conn)
+    original = publications.active()
+    evidence_path = f"/v1/snapshots/{legacy.snapshot_id}/evidence/{legacy.passages[0].evidence_id}"
+    with TestClient(create_app(database_url)) as client:
+        original_evidence = client.get(evidence_path).json()
+        refresh = SourceRefresh(database_url, embedding, "test-embedding-v1", 3)
+
+        refreshed = refresh.run(batch)
+
+        assert refreshed.status == "published"
+        current = publications.active()
+        assert current.manifest.snapshot_id != legacy.snapshot_id
+        assert current.manifest.input_sha256 != original.manifest.input_sha256
+        assert current.generation == 2
+        snapshot = EvidenceStore(database_url).snapshot(current.manifest.snapshot_id)
+        assert snapshot.imported is not None
+        assert snapshot.imported.parser_version == "html-context-fit-v2"
+        for passage in snapshot.passages:
+            assert assemble_context((RetrievedPassage(passage=passage, similarity=1.0),), 1200)
+        assert client.get(evidence_path).json() == original_evidence
+        assert EvidenceStore(database_url).snapshot(legacy.snapshot_id).model_dump() == (
+            legacy.model_dump()
+        )
+
+        repeated = refresh.run(batch)
+        assert repeated.status == "skipped"
+        assert publications.active() == current
+        restored = refresh.rollback()
+        assert restored.status == "rolled_back"
+        assert publications.active().manifest == original.manifest
+        assert publications.active().generation == 3
+        assert client.get(evidence_path).json() == original_evidence
 
 
 def test_killed_refresh_releases_writer_and_retry_records_interruption_and_rebuilds_index(

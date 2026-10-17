@@ -218,7 +218,8 @@ class SourceInspection(ImportRecord):
 
 
 class ImportedSources(SourceBatch):
-    parser_version: Literal["html-paragraphs-v1"] = "html-paragraphs-v1"
+    # Keep the legacy default so loading retained snapshots preserves their fingerprints.
+    parser_version: Literal["html-paragraphs-v1", "html-context-fit-v2"] = "html-paragraphs-v1"
     documents: tuple[ParsedSource, ...]
     records: tuple[StructuredRecord, ...]
     issues: tuple[ImportIssue, ...]

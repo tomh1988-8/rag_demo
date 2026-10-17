@@ -1,0 +1,209 @@
+{
+  "snapshot_id": "sources-a6e074077873fff9f846f75c56ebf19cadfff72a0d04a6a16623acb5480fecd6",
+  "fixture_version": 1,
+  "source": {
+    "title": "Sharon Watts",
+    "url": "https://en.wikipedia.org/wiki/Sharon_Watts",
+    "revision_id": "17",
+    "revision_url": "https://en.wikipedia.org/w/index.php?oldid=17",
+    "section": "Storylines",
+    "captured_at": "2026-09-25T15:00:00Z",
+    "capture_sha256": "de501020f27ecc6e820c5f8b3e46a3d229a4d2a78449feee8efe11f5d2c10165",
+    "scope": "main_series",
+    "license_url": "https://creativecommons.org/licenses/by-sa/4.0/",
+    "attribution": "Wikipedia contributors; markup removed and whitespace normalized.",
+    "coverage": "Reviewed narrative sections in this captured revision only.",
+    "gaps": [
+      "Partial canon coverage; other paragraphs remain excluded or awaiting review.",
+      "Identity and episode metadata do not independently corroborate story claims."
+    ],
+    "support_status": "source_supported"
+  },
+  "passages": [
+    {
+      "evidence_id": "sharon-wiki-0000-0",
+      "text": "Synthetic fixture: Sharon opens the blue workshop. Synthetic fixture: Sharon opens the blue workshop. Synthetic fixture: Sharon opens the blue workshop. Synthetic fixture: Sharon opens the blue workshop. Synthetic fixture: Sharon opens the blue workshop. Synthetic fixture: Sharon opens the blue workshop. Synthetic fixture: Sharon opens the blue workshop. Synthetic fixture: Sharon opens the blue workshop. Synthetic fixture: Sharon opens the blue workshop. Synthetic fixture: Sharon opens the blue workshop. Synthetic fixture: Sharon opens the blue workshop. Synthetic fixture: Sharon opens the blue workshop. Synthetic fixture: Sharon opens the blue workshop. Synthetic fixture: Sharon opens the blue workshop. Synthetic fixture: Sharon opens the blue workshop. Synthetic fixture: Sharon opens the blue workshop. Synthetic fixture: Sharon opens the blue workshop. Synthetic fixture: Sharon opens the blue workshop. Synthetic fixture: Sharon opens the blue workshop. Synthetic fixture: Sharon opens the blue workshop. Synthetic fixture: Sharon opens the blue workshop. Synthetic fixture: Sharon opens the blue workshop. Synthetic fixture: Sharon opens the blue workshop. Synthetic fixture: Sharon ",
+      "sha256": "0f3fc3dd51f2f86426af93d9435295e419ec6f21b29eef96c1db1c7c383390ad",
+      "start": 0,
+      "end": 1199,
+      "source": {
+        "title": "Sharon Watts",
+        "url": "https://en.wikipedia.org/wiki/Sharon_Watts",
+        "revision_id": "17",
+        "revision_url": "https://en.wikipedia.org/w/index.php?oldid=17",
+        "section": "Storylines",
+        "captured_at": "2026-09-25T15:00:00Z",
+        "capture_sha256": "de501020f27ecc6e820c5f8b3e46a3d229a4d2a78449feee8efe11f5d2c10165",
+        "scope": "main_series",
+        "license_url": "https://creativecommons.org/licenses/by-sa/4.0/",
+        "attribution": "Wikipedia contributors; markup removed and whitespace normalized.",
+        "coverage": "Reviewed narrative sections in this captured revision only.",
+        "gaps": [
+          "Partial canon coverage; other paragraphs remain excluded or awaiting review.",
+          "Identity and episode metadata do not independently corroborate story claims."
+        ],
+        "support_status": "source_supported"
+      },
+      "location": {
+        "source_id": "sharon-wiki",
+        "paragraph_ordinal": 0,
+        "section_id": "Storylines",
+        "character_ids": [
+          "sharon-watts"
+        ]
+      }
+    },
+    {
+      "evidence_id": "sharon-wiki-0000-1199",
+      "text": "opens the blue workshop. Synthetic fixture: Sharon opens the blue workshop. Synthetic fixture: Sharon opens the blue workshop. Synthetic fixture: Sharon opens the blue workshop. Synthetic fixture: Sharon opens the blue workshop. Synthetic fixture: Sharon opens the blue workshop. Synthetic fixture: Sharon opens the blue workshop.",
+      "sha256": "4b2f0d53ec67c633d687aea8433d623c62d75d76ee55a6b67cf46985e4b02ae2",
+      "start": 1199,
+      "end": 1529,
+      "source": {
+        "title": "Sharon Watts",
+        "url": "https://en.wikipedia.org/wiki/Sharon_Watts",
+        "revision_id": "17",
+        "revision_url": "https://en.wikipedia.org/w/index.php?oldid=17",
+        "section": "Storylines",
+        "captured_at": "2026-09-25T15:00:00Z",
+        "capture_sha256": "de501020f27ecc6e820c5f8b3e46a3d229a4d2a78449feee8efe11f5d2c10165",
+        "scope": "main_series",
+        "license_url": "https://creativecommons.org/licenses/by-sa/4.0/",
+        "attribution": "Wikipedia contributors; markup removed and whitespace normalized.",
+        "coverage": "Reviewed narrative sections in this captured revision only.",
+        "gaps": [
+          "Partial canon coverage; other paragraphs remain excluded or awaiting review.",
+          "Identity and episode metadata do not independently corroborate story claims."
+        ],
+        "support_status": "source_supported"
+      },
+      "location": {
+        "source_id": "sharon-wiki",
+        "paragraph_ordinal": 0,
+        "section_id": "Storylines",
+        "character_ids": [
+          "sharon-watts"
+        ]
+      }
+    },
+    {
+      "evidence_id": "sharon-wiki-0001-1531",
+      "text": "Synthetic fixture: Den visits the workshop.",
+      "sha256": "059135eb50424e461b5a87edf0589c5e639a0ebe647f58f3444367354b7056b6",
+      "start": 1531,
+      "end": 1574,
+      "source": {
+        "title": "Sharon Watts",
+        "url": "https://en.wikipedia.org/wiki/Sharon_Watts",
+        "revision_id": "17",
+        "revision_url": "https://en.wikipedia.org/w/index.php?oldid=17",
+        "section": "Storylines",
+        "captured_at": "2026-09-25T15:00:00Z",
+        "capture_sha256": "de501020f27ecc6e820c5f8b3e46a3d229a4d2a78449feee8efe11f5d2c10165",
+        "scope": "main_series",
+        "license_url": "https://creativecommons.org/licenses/by-sa/4.0/",
+        "attribution": "Wikipedia contributors; markup removed and whitespace normalized.",
+        "coverage": "Reviewed narrative sections in this captured revision only.",
+        "gaps": [
+          "Partial canon coverage; other paragraphs remain excluded or awaiting review.",
+          "Identity and episode metadata do not independently corroborate story claims."
+        ],
+        "support_status": "source_supported"
+      },
+      "location": {
+        "source_id": "sharon-wiki",
+        "paragraph_ordinal": 1,
+        "section_id": "Storylines",
+        "character_ids": [
+          "sharon-watts"
+        ]
+      }
+    }
+  ],
+  "imported": {
+    "format_version": 1,
+    "catalogue": {
+      "characters": [
+        {
+          "character_id": "sharon-watts",
+          "name": "Sharon Watts",
+          "aliases": [],
+          "performers": [],
+          "coverage": "core",
+          "wikidata_id": "Q7490258",
+          "review_note": "Authored lifecycle counterexample; not EastEnders canon.",
+          "evidence_sources": [
+            "sharon-wiki"
+          ]
+        }
+      ]
+    },
+    "policies": {
+      "sharon-wiki": {
+        "revision_id": "17",
+        "reviewer": "Reviewed authored lifecycle fixture; not live source evidence.",
+        "rules": [
+          {
+            "section": [
+              "Storylines"
+            ],
+            "scope": "main_series",
+            "reason": "Synthetic narrative."
+          }
+        ]
+      }
+    },
+    "captures": [
+      {
+        "source_id": "sharon-wiki",
+        "kind": "wikipedia",
+        "character_id": "sharon-watts",
+        "url": "https://en.wikipedia.org/wiki/Sharon_Watts",
+        "captured_at": "2026-09-25T15:00:00Z",
+        "content": "<html><script>{\"wgRevisionId\":17,\"wgWikibaseItemId\":\"Q7490258\"}</script>\n    <div id=\"mw-content-text\"><div class=\"mw-parser-output\">\n    <h2 id=\"Storylines\">Storylines</h2>\n    <p>Synthetic fixture: Sharon opens the blue workshop. Synthetic fixture: Sharon opens the blue workshop. Synthetic fixture: Sharon opens the blue workshop. Synthetic fixture: Sharon opens the blue workshop. Synthetic fixture: Sharon opens the blue workshop. Synthetic fixture: Sharon opens the blue workshop. Synthetic fixture: Sharon opens the blue workshop. Synthetic fixture: Sharon opens the blue workshop. Synthetic fixture: Sharon opens the blue workshop. Synthetic fixture: Sharon opens the blue workshop. Synthetic fixture: Sharon opens the blue workshop. Synthetic fixture: Sharon opens the blue workshop. Synthetic fixture: Sharon opens the blue workshop. Synthetic fixture: Sharon opens the blue workshop. Synthetic fixture: Sharon opens the blue workshop. Synthetic fixture: Sharon opens the blue workshop. Synthetic fixture: Sharon opens the blue workshop. Synthetic fixture: Sharon opens the blue workshop. Synthetic fixture: Sharon opens the blue workshop. Synthetic fixture: Sharon opens the blue workshop. Synthetic fixture: Sharon opens the blue workshop. Synthetic fixture: Sharon opens the blue workshop. Synthetic fixture: Sharon opens the blue workshop. Synthetic fixture: Sharon opens the blue workshop. Synthetic fixture: Sharon opens the blue workshop. Synthetic fixture: Sharon opens the blue workshop. Synthetic fixture: Sharon opens the blue workshop. Synthetic fixture: Sharon opens the blue workshop. Synthetic fixture: Sharon opens the blue workshop. Synthetic fixture: Sharon opens the blue workshop. </p>\n    <p>Synthetic fixture: Den visits the workshop.</p>\n    </div></div></html>",
+        "sha256": "de501020f27ecc6e820c5f8b3e46a3d229a4d2a78449feee8efe11f5d2c10165"
+      }
+    ],
+    "parser_version": "html-paragraphs-v1",
+    "documents": [
+      {
+        "source_id": "sharon-wiki",
+        "revision_id": "17",
+        "wikidata_id": "Q7490258",
+        "text": "Synthetic fixture: Sharon opens the blue workshop. Synthetic fixture: Sharon opens the blue workshop. Synthetic fixture: Sharon opens the blue workshop. Synthetic fixture: Sharon opens the blue workshop. Synthetic fixture: Sharon opens the blue workshop. Synthetic fixture: Sharon opens the blue workshop. Synthetic fixture: Sharon opens the blue workshop. Synthetic fixture: Sharon opens the blue workshop. Synthetic fixture: Sharon opens the blue workshop. Synthetic fixture: Sharon opens the blue workshop. Synthetic fixture: Sharon opens the blue workshop. Synthetic fixture: Sharon opens the blue workshop. Synthetic fixture: Sharon opens the blue workshop. Synthetic fixture: Sharon opens the blue workshop. Synthetic fixture: Sharon opens the blue workshop. Synthetic fixture: Sharon opens the blue workshop. Synthetic fixture: Sharon opens the blue workshop. Synthetic fixture: Sharon opens the blue workshop. Synthetic fixture: Sharon opens the blue workshop. Synthetic fixture: Sharon opens the blue workshop. Synthetic fixture: Sharon opens the blue workshop. Synthetic fixture: Sharon opens the blue workshop. Synthetic fixture: Sharon opens the blue workshop. Synthetic fixture: Sharon opens the blue workshop. Synthetic fixture: Sharon opens the blue workshop. Synthetic fixture: Sharon opens the blue workshop. Synthetic fixture: Sharon opens the blue workshop. Synthetic fixture: Sharon opens the blue workshop. Synthetic fixture: Sharon opens the blue workshop. Synthetic fixture: Sharon opens the blue workshop.\n\nSynthetic fixture: Den visits the workshop.\n\n",
+        "spans": [
+          {
+            "ordinal": 0,
+            "section": [
+              "Storylines"
+            ],
+            "section_id": "Storylines",
+            "start": 0,
+            "end": 1529,
+            "text": "Synthetic fixture: Sharon opens the blue workshop. Synthetic fixture: Sharon opens the blue workshop. Synthetic fixture: Sharon opens the blue workshop. Synthetic fixture: Sharon opens the blue workshop. Synthetic fixture: Sharon opens the blue workshop. Synthetic fixture: Sharon opens the blue workshop. Synthetic fixture: Sharon opens the blue workshop. Synthetic fixture: Sharon opens the blue workshop. Synthetic fixture: Sharon opens the blue workshop. Synthetic fixture: Sharon opens the blue workshop. Synthetic fixture: Sharon opens the blue workshop. Synthetic fixture: Sharon opens the blue workshop. Synthetic fixture: Sharon opens the blue workshop. Synthetic fixture: Sharon opens the blue workshop. Synthetic fixture: Sharon opens the blue workshop. Synthetic fixture: Sharon opens the blue workshop. Synthetic fixture: Sharon opens the blue workshop. Synthetic fixture: Sharon opens the blue workshop. Synthetic fixture: Sharon opens the blue workshop. Synthetic fixture: Sharon opens the blue workshop. Synthetic fixture: Sharon opens the blue workshop. Synthetic fixture: Sharon opens the blue workshop. Synthetic fixture: Sharon opens the blue workshop. Synthetic fixture: Sharon opens the blue workshop. Synthetic fixture: Sharon opens the blue workshop. Synthetic fixture: Sharon opens the blue workshop. Synthetic fixture: Sharon opens the blue workshop. Synthetic fixture: Sharon opens the blue workshop. Synthetic fixture: Sharon opens the blue workshop. Synthetic fixture: Sharon opens the blue workshop.",
+            "sha256": "1c00a49fa456ec8e161ac70bc804d00b3a9626faf5dc5b249c67d349e2bb0452",
+            "scope": "main_series",
+            "reason": "Synthetic narrative.",
+            "linked_titles": []
+          },
+          {
+            "ordinal": 1,
+            "section": [
+              "Storylines"
+            ],
+            "section_id": "Storylines",
+            "start": 1531,
+            "end": 1574,
+            "text": "Synthetic fixture: Den visits the workshop.",
+            "sha256": "059135eb50424e461b5a87edf0589c5e639a0ebe647f58f3444367354b7056b6",
+            "scope": "main_series",
+            "reason": "Synthetic narrative.",
+            "linked_titles": []
+          }
+        ]
+      }
+    ],
+    "records": [],
+    "issues": []
+  }
+}
