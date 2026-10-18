@@ -22,6 +22,7 @@ from ask_phil.openrouter import BUDGET_PATH, Budget, OpenRouterChat, OpenRouterP
 from ask_phil.parentage import ExtractedClaims
 from ask_phil.parentage_evaluation import score_extraction
 from ask_phil.parentage_extraction import EXTRACTION_PROMPT, ParentageLLM, extract_parentage
+from ask_phil.tracing import experiment_for
 
 
 def main() -> int:
@@ -45,15 +46,7 @@ def main() -> int:
     budget = ExecutionBudget(limits)
     mlflow.set_tracking_uri(args.tracking_uri)
     tracking = MlflowClient(tracking_uri=args.tracking_uri)
-    name = "ask-phil-offline_evaluation"
-    experiment = tracking.get_experiment_by_name(name)
-    experiment_id = (
-        experiment.experiment_id
-        if experiment
-        else tracking.create_experiment(
-            name, artifact_location=str(Path("artifacts/mlflow").resolve().as_uri())
-        )
-    )
+    experiment_id = experiment_for(tracking, "offline_evaluation")
     args.output.parent.mkdir(parents=True, exist_ok=True)
     # Claim the artifact path before spending; even failures retain accounting and raw output.
     with args.output.open("x") as output:

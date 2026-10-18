@@ -1,0 +1,20 @@
+{
+  "source_artifact": "extraction-pilot.json",
+  "raw_sha256": "81bce3bd1d657b82cf687dc018642515ec3f0c3b2a67e154fa30d1947df9a9dd",
+  "reference_sha256": "7f200f7d38c09c66fc2039288180db7f98c8cd2a130672abcfef165f8c8b777e",
+  "scorer_sha256": "d93ec49fa1402d1e18bbe4607894756193696b8992aafbf47f01033591ac1a1d",
+  "reason": "Review fixed matching to preserve distinct annotated input passages. Actual pilot counts and numeric results are unchanged; no new model call or label edit.",
+  "score": {
+    "schema_valid": true,
+    "expected": 4,
+    "predicted": 4,
+    "duplicates": 0,
+    "true_positive": 4,
+    "resolvable_spans": 3,
+    "grounded": 2,
+    "precision": 1.0,
+    "recall": 1.0,
+    "f1": 1.0,
+    "scope": "Exact normalized values within each completely annotated selected input passage. Instances match on values and sorted unique passage IDs, independently of quote offsets. Claim IDs are ignored; semantic duplicates within a passage collapse and are counted. Grounding additionally requires the entire independently reviewed supporting span. These exposed development scores are not held-out or broad-corpus quality."
+  }
+}

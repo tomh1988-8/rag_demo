@@ -2,7 +2,6 @@
 
 import hashlib
 import time
-from pathlib import Path
 from threading import BoundedSemaphore
 from typing import Literal
 from uuid import uuid4
@@ -23,6 +22,7 @@ from ask_phil.publications import PublicationStore
 from ask_phil.responses import ResponseLedger
 from ask_phil.security import require_credential_free
 from ask_phil.storage import EvidenceStore
+from ask_phil.tracing import experiment_for
 
 GRAPH_WORDING = "biological-paths-v1: explicit typed query; bounded captured relationships only"
 
@@ -73,15 +73,7 @@ class FamilyAnswerService:
         )
         snapshot = EvidenceStore(self.database_url).snapshot(snapshot_id)
         require_credential_free(snapshot.model_dump_json())
-        name = f"ask-phil-{category}"
-        experiment = self.tracking.get_experiment_by_name(name)
-        experiment_id = (
-            experiment.experiment_id
-            if experiment
-            else self.tracking.create_experiment(
-                name, artifact_location=str(Path("artifacts/mlflow").resolve().as_uri())
-            )
-        )
+        experiment_id = experiment_for(self.tracking, category)
         result: FamilyResult | None = None
         context: tuple[Passage, ...] = ()
         citations: tuple[Citation, ...] = ()

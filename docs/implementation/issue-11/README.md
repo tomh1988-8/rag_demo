@@ -61,7 +61,9 @@ An ancestor traversal lists child→parent paths; descendant paths run parent→
 `found`, `empty`, `truncated`, `unavailable` and `unknown_character` are explicit
 tool outcomes. No result establishes a negative. Graph answers with evidence are
 `partial` because this small collection cannot establish an exhaustive family
-tree. Stops produce saved limited outcomes; storage failures produce HTTP 503,
+tree. Stops after the source snapshot is loaded produce saved limited outcomes.
+Initial publication/source-storage failures can return HTTP 503 without a receipt;
+direct typed-tool stops also return 503. Storage failures produce HTTP 503,
 missing snapshots 404 and invalid arguments 422. Explicit graph queries never
 fall back to text or infer a relative from generated conversation claims.
 Registered withdrawn publications are rejected for new answers; historical
@@ -103,7 +105,7 @@ original-response readback after API recreation and actual MLflow span readback.
 The raw pilot projection returns Ben's Phil/Kathy paths and excludes Peggy's
 malformed locator and Den's adoption. Against the complete biological reference,
 path precision is 1.0, recall 2/3 and F1 0.8: completeness fails and remains a
-recorded regression. Full-reference real-database tests separately exercise the
+[recorded regression](regressions.json). Full-reference real-database tests separately exercise the
 supported Peggy→Phil→Ben chain, both directions and bounds. Software capability
 and conservative admission do not turn missing model evidence into a quality pass.
 
@@ -117,6 +119,14 @@ real SQL paths, API/CLI, immutable reruns, scope/identity limits, missing graphs
 denied capabilities and conversation reference isolation. Final software checks
 and independent implementation reviews will be recorded in `validation.json`
 and `review.md` before publication. The full suite is run once after review.
+
+The pilot was captured while implementation was uncommitted: its `code_revision`
+is the starting HEAD and its application hash describes the capture-time working
+tree. Its frozen data, prompt and schema hashes still match the final extraction
+contract. Subsequent changes strengthen admission and serving behavior; they do
+not constitute another model observation. Final validation binds the accepted
+implementation commit and source hashes. The earlier runtime capture is retained
+alongside final-revision runtime checks.
 
 Implementation uses the installed LlamaIndex structured program. Its public
 [structured-output documentation](https://developers.llamaindex.ai/python/examples/structured_outputs/structured_outputs/)

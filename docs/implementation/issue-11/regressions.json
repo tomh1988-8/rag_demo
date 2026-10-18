@@ -1,0 +1,46 @@
+{
+  "split": "exposed_development",
+  "reference_unchanged_after_pilot": true,
+  "failures": [
+    {
+      "case_id": "peggy-parentage-locator",
+      "claim_id": "peggy-phil",
+      "source_evidence_id": "family-peggy-phil",
+      "expected_end": 105,
+      "actual_end": 104,
+      "meaning_supported": true,
+      "admission": "held:evidence_span",
+      "disposition": "Retain raw model failure. Review/correction lifecycle is #15; do not silently repair this extraction baseline."
+    },
+    {
+      "case_id": "adoption-conservative-grounding",
+      "claim_id": "den-sharon",
+      "source_evidence_id": "family-sharon-adoption",
+      "reference_span": [0, 205],
+      "actual_span": [0, 91],
+      "meaning_supported": true,
+      "exact_quote_resolves": true,
+      "frozen_full_span_grounding": false,
+      "admission": "held:non_biological",
+      "disposition": "Retain conservative metric failure separately from the positive semantic support audit. Broader grounding measures need prospective independent annotation before a new comparison."
+    },
+    {
+      "case_id": "biological-graph-completeness",
+      "expected_ben_ancestor_paths": 3,
+      "actual_ben_ancestor_paths": 2,
+      "missing_path": ["ben-mitchell", "phil-mitchell", "peggy-mitchell"],
+      "path_precision": 1.0,
+      "path_recall": 0.6666666666666666,
+      "path_f1": 0.8,
+      "safety_admission_passes": true,
+      "completeness_passes": false,
+      "disposition": "Saved answers remain partial. Resolve malformed source locators through reviewed corrections before broader family coverage acceptance."
+    }
+  ],
+  "limitations": [
+    "Only four agent-reviewed claims in three spans from two source pages and related family groups.",
+    "No human adjudication, independent canon corroboration, held-out evaluation or broad-corpus extraction reliability.",
+    "Full-reference software tests demonstrate multi-hop SQL semantics separately from raw-pilot graph coverage.",
+    "Wider relationship, correction and graph refresh lifecycle remain subsequent tickets."
+  ]
+}

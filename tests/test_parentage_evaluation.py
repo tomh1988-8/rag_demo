@@ -1,6 +1,8 @@
 import json
 from pathlib import Path
 
+import pytest
+
 from ask_phil.evidence import SourceSnapshot
 from ask_phil.parentage import ExtractedClaims
 from ask_phil.parentage_evaluation import score_extraction
@@ -53,3 +55,37 @@ def test_malformed_schema_has_no_fabricated_value_scores() -> None:
     assert not score.schema_valid
     assert score.precision is None
     assert score.recall is None
+
+
+def test_identical_parentage_in_distinct_annotated_spans_does_not_inflate_recall() -> None:
+    snapshot = SourceSnapshot.model_validate_json(
+        Path("data/seed/family-pilot-v1.json").read_text()
+    )
+    reference = json.loads(Path("data/references/parentage-v1.json").read_text())
+    first = ExtractedClaims.model_validate({"claims": [reference["expected_claims"][0]]}).claims[0]
+    other = first.model_copy(
+        update={
+            "claim_id": "synthetic-other-span",
+            "evidence": tuple(
+                e.model_copy(update={"evidence_id": "synthetic-other-span"}) for e in first.evidence
+            ),
+        }
+    )
+    passage = snapshot.passages[0]
+    synthetic = passage.model_copy(
+        update={
+            "evidence_id": "synthetic-other-span",
+            "start": passage.start + 1000,
+            "end": passage.end + 1000,
+            "source": snapshot.source.model_copy(update={"support_status": "synthetic_fixture"}),
+        }
+    )
+    snapshot = snapshot.model_copy(update={"passages": snapshot.passages + (synthetic,)})
+    expected = ExtractedClaims(claims=(first, other))
+    score = score_extraction(ExtractedClaims(claims=(first,)).model_dump_json(), expected, snapshot)
+    assert score.expected == 2
+    assert score.true_positive == 1
+    assert score.grounded == 1
+    assert score.precision == 1
+    assert score.recall == 0.5
+    assert score.f1 == pytest.approx(2 / 3)

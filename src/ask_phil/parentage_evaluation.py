@@ -16,8 +16,9 @@ class ExtractionScore(Record):
     recall: float | None = None
     f1: float | None = None
     scope: str = (
-        "Exact normalized values on completely annotated selected in-catalogue spans only. "
-        "Claim IDs are ignored; semantic duplicates collapse, and are counted separately. "
+        "Exact normalized values within each completely annotated selected input passage. "
+        "Instances match on values and sorted unique passage IDs, independently of quote offsets. "
+        "Claim IDs are ignored; semantic duplicates within a passage collapse and are counted. "
         "Grounding additionally requires the entire independently reviewed supporting span. "
         "These exposed development scores are not held-out or broad-corpus quality."
     )
@@ -36,15 +37,19 @@ def claim_values(claim: ParentageClaim) -> tuple[str, ...]:
     )
 
 
+def _span_claim_key(claim: ParentageClaim) -> tuple[tuple[str, ...], tuple[str, ...]]:
+    return claim_values(claim), tuple(sorted({e.evidence_id for e in claim.evidence}))
+
+
 def score_extraction(
     raw: str, reference: ExtractedClaims, snapshot: SourceSnapshot
 ) -> ExtractionScore:
-    expected = {claim_values(c): c for c in reference.claims}
+    expected = {_span_claim_key(c): c for c in reference.claims}
     try:
         parsed = ExtractedClaims.model_validate_json(raw)
     except ValueError:
         return ExtractionScore(schema_valid=False, expected=len(expected))
-    values = {claim_values(c) for c in parsed.claims}
+    values = {_span_claim_key(c) for c in parsed.claims}
     true_positive = len(values & expected.keys())
     passages = {p.evidence_id: p for p in snapshot.passages}
     resolvable = grounded = 0
@@ -56,7 +61,7 @@ def score_extraction(
             for e in claim.evidence
         )
         resolvable += int(resolved)
-        supported = expected.get(claim_values(claim))
+        supported = expected.get(_span_claim_key(claim))
         grounded += int(
             resolved
             and supported is not None

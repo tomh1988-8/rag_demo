@@ -35,6 +35,7 @@ from ask_phil.identity import IdentityCatalogue
 from ask_phil.models import ModelConfigurationError, ModelExecution, Models, TokenUsage
 from ask_phil.responses import ResponseLedger
 from ask_phil.retrieval import Retrieval, TextRetriever
+from ask_phil.tracing import experiment_for
 
 
 def application_fingerprint() -> str:
@@ -73,20 +74,9 @@ class AnswerService:
         mlflow.set_tracking_uri(tracking_uri)
         self.tracking = MlflowClient(tracking_uri=tracking_uri)
 
-    def _experiment(self, category: str) -> str:
-        name = f"ask-phil-{category}"
-        experiment = self.tracking.get_experiment_by_name(name)
-        return (
-            experiment.experiment_id
-            if experiment
-            else self.tracking.create_experiment(
-                name, artifact_location=str(Path("artifacts/mlflow").resolve().as_uri())
-            )
-        )
-
     def prepare(self, snapshot_id: str) -> str:
         self.models.verify()
-        experiment_id = self._experiment("indexing")
+        experiment_id = experiment_for(self.tracking, "indexing")
         with mlflow.start_span(
             "prepare_text_index", trace_destination=MlflowExperimentLocation(experiment_id)
         ) as span:
@@ -154,7 +144,7 @@ class AnswerService:
             conversation = ConversationReference(**turn.model_dump(), reference=reference)
             question = reference.question
         response_id = uuid4()
-        experiment_id = self._experiment(category)
+        experiment_id = experiment_for(self.tracking, category)
         with mlflow.start_span(
             "text_rag", trace_destination=MlflowExperimentLocation(experiment_id)
         ) as root:
