@@ -83,16 +83,25 @@ def test_ancestry_returns_supported_paths_and_keeps_adoption_out(
 
 
 def test_graph_answer_is_explicit_cited_saved_and_does_not_require_models(
-    database_url: str, family_batch: ClaimBatch, tmp_path: Path
+    database_url: str,
+    family_batch: ClaimBatch,
+    tmp_path: Path,
+    monkeypatch: pytest.MonkeyPatch,
 ) -> None:
     from fastapi.testclient import TestClient
 
     from ask_phil.api import create_app
 
     install_family(database_url, family_batch)
+    monkeypatch.setenv("ASK_PHIL_MODELS", str(tmp_path / "missing-models.json"))
     with TestClient(
         create_app(database_url, tracking_uri=f"sqlite:///{tmp_path}/mlflow.db")
     ) as client:
+        failed_text = client.post(
+            "/v1/answers",
+            json={"snapshot_id": family_batch.snapshot_id, "question": "Who is Ben's father?"},
+        )
+        assert failed_text.status_code == 503
         result = client.post(
             "/v1/answers",
             json={

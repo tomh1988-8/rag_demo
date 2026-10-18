@@ -25,17 +25,21 @@ from ollama import Client
 from psycopg import sql
 from starlette.types import ASGIApp
 
+from ask_phil.answering import AnswerService
+from ask_phil.answers import AskRequest
 from ask_phil.api import create_app
 from ask_phil.evidence import SourceSnapshot
-from ask_phil.execution import ExecutionLimits
+from ask_phil.execution import ExecutionLimits, ExecutionPolicies
 from ask_phil.model_transport import local_transport
 from ask_phil.models import LocalEmbedding, Models, ModelSettings
+from ask_phil.parentage import ClaimBatch
 from ask_phil.publications import PublicationStore, RefreshRun
+from ask_phil.responses import ResponseLedger
 from ask_phil.retrieval import TextRetriever
 from ask_phil.storage import EvidenceStore
 
 pytestmark = pytest.mark.integration
-pytest_plugins = ("test_answers_api",)
+pytest_plugins = ("test_answers_api", "test_family_graph")
 
 
 def test_invalid_request_field_names_do_not_echo_credential_text(database_url: str) -> None:
@@ -144,6 +148,207 @@ def slow_models(
             entered,
             disconnected,
         )
+
+
+def test_text_and_family_answers_share_admission_and_retain_stopped_outcomes(
+    database_url: str,
+    seed: SourceSnapshot,
+    family_batch: ClaimBatch,
+    slow_models: tuple[Models, Event, Event],
+    tmp_path: Path,
+    record_property: Callable[[str, object], None],
+) -> None:
+    from test_family_graph import install_family
+
+    supplied, entered, _ = slow_models
+    EvidenceStore(database_url).load(seed)
+    TextRetriever(database_url, supplied.embedding, supplied.settings.embedding_id, 3).prepare(
+        seed.snapshot_id
+    )
+    install_family(database_url, family_batch)
+    tracking_uri = f"sqlite:///{tmp_path}/admission-traces.db"
+    graph_request = {
+        "snapshot_id": family_batch.snapshot_id,
+        "question": "Who are Ben's ancestors?",
+        "route": "graph",
+        "graph": {"character_id": "ben-mitchell", "direction": "ancestors"},
+    }
+    with TestClient(
+        create_app(
+            database_url,
+            models=supplied,
+            tracking_uri=tracking_uri,
+            execution_limits=ExecutionLimits(concurrency=1, seconds=3),
+        )
+    ) as client:
+        with ThreadPoolExecutor(max_workers=1) as pool:
+            running = pool.submit(
+                client.post,
+                "/v1/answers",
+                json={"snapshot_id": seed.snapshot_id, "question": "When did Phil arrive?"},
+            )
+            assert entered.wait(3), "The external text model must hold the answer slot."
+            rejected = client.post("/v1/answers", json=graph_request)
+            assert rejected.status_code == 200, rejected.text
+            receipt = rejected.json()
+            stopped = receipt["response"]
+            assert stopped["execution"]["stop_reason"] == "concurrency_limit"
+            assert stopped["execution"]["tool_calls"] == 0
+            assert stopped["execution"]["model_calls"] == 0
+            assert stopped["usage"] == {
+                "input_tokens": 0,
+                "output_tokens": 0,
+                "embedding_tokens": 0,
+            }
+            assert stopped["status"] == "insufficient_evidence"
+            assert stopped["citations"] == []
+            saved = client.get(
+                f"/v1/responses/{stopped['response_id']}",
+                headers={"Authorization": f"Bearer {receipt['read_token']}"},
+            )
+            assert saved.json() == stopped
+            trace = MlflowClient(tracking_uri=tracking_uri).get_trace(
+                stopped["trace_id"], flush=True
+            )
+            root = next(span for span in trace.data.spans if span.name == "graph")
+            assert root.outputs == stopped
+            record_property("stopped_graph_response", json.dumps(stopped))
+            completed = running.result(timeout=8)
+            assert completed.status_code == 200, completed.text
+            assert completed.json()["response"]["execution"]["stop_reason"] == "timeout"
+        resumed = client.post("/v1/answers", json=graph_request)
+        assert resumed.status_code == 200, resumed.text
+        assert resumed.json()["response"]["graph"]["status"] == "found"
+        assert resumed.json()["response"]["execution"]["stop_reason"] is None
+
+
+def test_family_answers_survive_invalid_supplied_text_configuration(
+    database_url: str,
+    family_batch: ClaimBatch,
+    models: Models,
+    tmp_path: Path,
+) -> None:
+    from test_family_graph import install_family
+
+    install_family(database_url, family_batch)
+    invalid = replace(
+        models,
+        settings=models.settings.model_copy(update={"answer_model": "secret=synthetic-model"}),
+    )
+    graph_request = {
+        "snapshot_id": family_batch.snapshot_id,
+        "question": "Who are Ben's ancestors?",
+        "route": "graph",
+        "graph": {"character_id": "ben-mitchell", "direction": "ancestors"},
+    }
+    with TestClient(
+        create_app(database_url, models=invalid, tracking_uri=f"sqlite:///{tmp_path}/lazy.db")
+    ) as client:
+        first = client.post("/v1/answers", json=graph_request)
+        assert first.status_code == 200, first.text
+        assert first.json()["response"]["graph"]["status"] == "found"
+        text = client.post(
+            "/v1/answers",
+            json={"snapshot_id": family_batch.snapshot_id, "question": "Who is Ben's father?"},
+        )
+        assert text.status_code == 503
+        assert "synthetic-model" not in text.text
+        following = client.post("/v1/answers", json=graph_request)
+        assert following.status_code == 200, following.text
+        assert following.json()["response"]["graph"]["status"] == "found"
+        assert following.json()["response"]["execution"]["model_calls"] == 0
+
+
+def test_offline_answer_admission_does_not_consume_serving_capacity(
+    database_url: str,
+    seed: SourceSnapshot,
+    family_batch: ClaimBatch,
+    slow_models: tuple[Models, Event, Event],
+    tmp_path: Path,
+) -> None:
+    from test_family_graph import install_family
+
+    supplied, entered, _ = slow_models
+    EvidenceStore(database_url).load(seed)
+    TextRetriever(database_url, supplied.embedding, supplied.settings.embedding_id, 3).prepare(
+        seed.snapshot_id
+    )
+    install_family(database_url, family_batch)
+    policies = ExecutionPolicies(
+        serving=ExecutionLimits(concurrency=1),
+        offline_evaluation=ExecutionLimits(concurrency=1, seconds=5),
+    )
+    tracking_uri = f"sqlite:///{tmp_path}/categories.db"
+    answers = AnswerService(database_url, supplied, tracking_uri, policies=policies)
+    graph_request = AskRequest.model_validate(
+        {
+            "snapshot_id": family_batch.snapshot_id,
+            "question": "Who are Ben's ancestors?",
+            "route": "graph",
+            "graph": {"character_id": "ben-mitchell", "direction": "ancestors"},
+        }
+    )
+    with ThreadPoolExecutor(max_workers=1) as pool:
+        running = pool.submit(
+            answers.ask,
+            AskRequest(snapshot_id=seed.snapshot_id, question="When did Phil arrive?"),
+            category="offline_evaluation",
+        )
+        assert entered.wait(3), "The offline text model must hold the evaluation slot."
+        serving = answers.ask(graph_request)
+        assert serving.response.graph is not None
+        assert serving.response.graph.status == "found"
+        assert serving.response.expenditure_category == "serving"
+        rejected = answers.ask(graph_request, category="offline_evaluation")
+        stopped = rejected.response
+        assert stopped.execution is not None
+        assert stopped.execution.stop_reason == "concurrency_limit"
+        assert stopped.execution.tool_calls == 0
+        assert stopped.expenditure_category == "offline_evaluation"
+        assert ResponseLedger(database_url).get(stopped.response_id, rejected.read_token) == stopped
+        trace = MlflowClient(tracking_uri=tracking_uri).get_trace(stopped.trace_id, flush=True)
+        root = next(span for span in trace.data.spans if span.name == "graph")
+        assert root.outputs == stopped.model_dump(mode="json")
+        assert root.attributes["expenditure_category"] == "offline_evaluation"
+        completed = running.result(timeout=8).response
+        assert completed.execution is not None
+        assert completed.execution.stop_reason == "timeout"
+    resumed = answers.ask(graph_request, category="offline_evaluation").response
+    assert resumed.graph is not None
+    assert resumed.graph.status == "found"
+
+
+def test_family_answer_uses_environment_tracking_with_supplied_models(
+    database_url: str,
+    family_batch: ClaimBatch,
+    models: Models,
+    tmp_path: Path,
+    monkeypatch: pytest.MonkeyPatch,
+) -> None:
+    from test_family_graph import install_family
+
+    install_family(database_url, family_batch)
+    tracking_uri = f"sqlite:///{tmp_path}/configured-traces.db"
+    monkeypatch.setenv("MLFLOW_TRACKING_URI", tracking_uri)
+    monkeypatch.chdir(tmp_path)
+    (tmp_path / "artifacts").mkdir()
+    with TestClient(create_app(database_url, models=models)) as client:
+        result = client.post(
+            "/v1/answers",
+            json={
+                "snapshot_id": family_batch.snapshot_id,
+                "question": "Who are Ben's ancestors?",
+                "route": "graph",
+                "graph": {"character_id": "ben-mitchell", "direction": "ancestors"},
+            },
+        )
+        assert result.status_code == 200, result.text
+        response = result.json()["response"]
+        assert response["graph"]["status"] == "found"
+        trace = MlflowClient(tracking_uri=tracking_uri).get_trace(response["trace_id"], flush=True)
+        assert trace is not None
+        root = next(span for span in trace.data.spans if span.name == "graph")
+        assert root.outputs == response
 
 
 def test_http_disconnect_cancels_the_external_call_and_records_the_outcome(

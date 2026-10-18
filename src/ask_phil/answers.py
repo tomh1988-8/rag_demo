@@ -1,5 +1,6 @@
 """Public context and citation rules for the single-query text baseline."""
 
+from dataclasses import dataclass
 from typing import Annotated, Literal, Self
 from uuid import UUID
 
@@ -9,7 +10,13 @@ from ask_phil.conversation import ConversationReference
 from ask_phil.evidence import Fingerprint, Identifier, Passage, PublicationRef, Record, Source
 from ask_phil.execution import ExecutionRecord
 from ask_phil.family_graph import FamilyQuery, FamilyResult
-from ask_phil.models import LOCAL_COST_SCOPE, LOCAL_LIMITATION, ModelSettings, OpenRouterSettings
+from ask_phil.models import (
+    LOCAL_COST_SCOPE,
+    LOCAL_LIMITATION,
+    ModelExecution,
+    ModelSettings,
+    OpenRouterSettings,
+)
 from ask_phil.models import TokenUsage as TokenUsage
 from ask_phil.openrouter import ProviderUsage
 from ask_phil.passage_context import assemble_context as assemble_context
@@ -190,3 +197,25 @@ def cite_answer(
         )
         for identifier in draft.evidence_ids
     )
+
+
+@dataclass(frozen=True, kw_only=True)
+class AnswerContent:
+    """Internal route result; identity, tracing and persistence belong to answer execution."""
+
+    status: Outcome | Literal["failed"]
+    answer: str
+    citations: tuple[Citation, ...]
+    context: tuple[Passage, ...]
+    accounting: ModelExecution
+    prompt_sha256: str
+    conversation: ConversationReference | None = None
+    unanswered: tuple[str, ...] = ()
+    qualifications: tuple[Qualification, ...] = ()
+    retrieved: tuple[RetrievedPassage, ...] = ()
+    retrieval_k: int = 0
+    baseline_version: Literal["single-query-uncached-v1", "single-query-uncached-v2"] = (
+        "single-query-uncached-v1"
+    )
+    model_settings: ModelSettings | OpenRouterSettings | None = None
+    graph: FamilyResult | None = None

@@ -25,6 +25,13 @@ Of the 51 current checks, **34 Pass** and **17 remain Pending**. [Issue #9](../i
 
 [Issue #11](../implementation/issue-11/README.md) adds scoped AD-05.2 and EXT-02/03 evidence: reviewed parentage extraction, separate normalized-value and grounding measurements, content-bound admission and typed bounded SQL graph answers. Its final runtime and independent reviews match the accepted implementation. Values pass 4/4, while strict grounding is 2/4 and raw-pilot graph recall is 2/3. These remain explicit model-quality/completeness failures; measurement and conservative admission do not pass wider family coverage. RAG-04 and EXT-04 remain Pending for their broader graph-family and correction/review obligations.
 
+The [answer execution deepening](../implementation/answer-execution-deepening/README.md)
+rechecks scoped AD-05.4, AD-06.1–3, AD-07.4 and AD-09.1–3 through shared text/Family
+tree admission, separate serving/offline limits, retained stop receipts and actual
+MLflow output readback. Its validation binds the software checks to the tested
+source and unchanged public contracts. Existing model-quality failures and wider
+release obligations retain their current status.
+
 Design Pass records below concern the approved design, including the user's feedback/online-evaluation and fusion/cache amendments, captured by specification SHA-256 `a82e93bd170be20c253415606fcb9a6ab082f7a9a7c991d56ca5e757ca728c53`. Runtime Pass records link to the exact scoped slice artifacts below; other runtime evidence remains prospective. On implementation, add artifact/run links and source/code/configuration identities before changing a check to Pass. Update affected checks to Pending, In progress or Fail when their evidence is invalidated. A current-release failure cannot be turned into a deployment deferral merely to complete a ticket.
 
 Primary ownership is an index into a continuing evidence obligation, not a licence to postpone all work to that ticket. For example, caps and basic traces start in 02, stronger failure enforcement is proved in 09, and every tool extension rechecks the affected constraints. Source claims are reviewed before their extraction pilot. Per-slice tests and evaluations start in 01/02; final acceptance in 20 reuses their results.

@@ -21,7 +21,6 @@ from ask_phil.answers import AnswerReceipt, AnswerRecord, AskRequest
 from ask_phil.conversation import ReferenceTurn, TurnIdentity
 from ask_phil.evidence import Identifier, Inspection
 from ask_phil.execution import ExecutionBudget, ExecutionLimits, ExecutionPolicies, ExecutionStopped
-from ask_phil.family_answering import FamilyAnswerService
 from ask_phil.family_graph import FamilyAudit, FamilyGraph, FamilyQuery, FamilyResult
 from ask_phil.identity import IdentityResolution
 from ask_phil.models import ModelConfigurationError, Models
@@ -50,6 +49,9 @@ def create_app(
     session_clock: Callable[[], datetime] = lambda: datetime.now(UTC),
 ) -> FastAPI:
     database_url = database_url or os.environ["DATABASE_URL"]
+    answer_tracking_uri = tracking_uri or os.environ.get(
+        "MLFLOW_TRACKING_URI", "sqlite:///artifacts/mlflow.db"
+    )
     store = EvidenceStore(database_url)
     publications = PublicationStore(database_url)
     sessions = ConversationSessions(database_url, clock=session_clock)
@@ -58,14 +60,11 @@ def create_app(
         policies = policies.model_copy(update={"serving": execution_limits})
     app = FastAPI(title="Ask Phil evidence inspection", version="0.1.0")
     service = (
-        AnswerService(
-            database_url, models, tracking_uri or "sqlite:///artifacts/mlflow.db", policies=policies
-        )
+        AnswerService(database_url, models, answer_tracking_uri, policies=policies)
         if models
         else None
     )
     service_lock = threading.Lock()
-    graph_service: FamilyAnswerService | None = None
 
     @app.exception_handler(RequestValidationError)
     async def invalid_request(request: Request, exc: RequestValidationError) -> JSONResponse:
@@ -216,34 +215,17 @@ def create_app(
         *,
         execution: ExecutionBudget,
     ) -> AnswerReceipt:
-        nonlocal service, graph_service
+        nonlocal service
         try:
             with service_lock:
-                if request.route == "graph":
-                    if graph_service is None:
-                        graph_service = FamilyAnswerService(
-                            database_url,
-                            tracking_uri
-                            or os.environ.get(
-                                "MLFLOW_TRACKING_URI", "sqlite:///artifacts/mlflow.db"
-                            ),
-                            policies,
-                        )
-                    selected_graph_service = graph_service
-                else:
-                    selected_graph_service = None
-                if service is None and selected_graph_service is None:
+                if service is None:
                     Path("artifacts").mkdir(exist_ok=True)
                     service = AnswerService(
                         database_url,
-                        Models.from_environment(),
-                        tracking_uri
-                        or os.environ.get("MLFLOW_TRACKING_URI", "sqlite:///artifacts/mlflow.db"),
+                        models,
+                        answer_tracking_uri,
                         policies=policies,
                     )
-            if selected_graph_service:
-                return selected_graph_service.ask(request, turn=turn, execution=execution)
-            assert service is not None
             return service.ask(
                 request,
                 turn=turn,
