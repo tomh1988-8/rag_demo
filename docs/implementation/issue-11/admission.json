@@ -1,0 +1,30 @@
+{
+  "batch_sha256": "f27b494b6aae9f754f2f901e92d3988c651e1a7f068bc9ddeb0b3b238f22af12",
+  "decisions": [
+    {
+      "claim_id": "phil-ben",
+      "status": "admitted",
+      "reasons": []
+    },
+    {
+      "claim_id": "kathy-ben",
+      "status": "admitted",
+      "reasons": []
+    },
+    {
+      "claim_id": "peggy-phil",
+      "status": "held",
+      "reasons": [
+        "evidence_span"
+      ]
+    },
+    {
+      "claim_id": "den-sharon",
+      "status": "held",
+      "reasons": [
+        "non_biological"
+      ]
+    }
+  ],
+  "limitation": "Admission requires a content-bound support review. It is not independent canon corroboration. Held claims remain inspectable outside the biological tree."
+}

@@ -67,6 +67,20 @@ def main() -> int:
     ask.add_argument("query")
     ask.add_argument("--snapshot", help="Defaults to the active publication.")
     ask.add_argument("--session", type=Path, help="Private receipt from start-session.")
+    ask.add_argument("--route", choices=("text_rag", "graph"), default="text_rag")
+    ask.add_argument("--character", help="Reviewed character ID for an explicit graph query.")
+    ask.add_argument("--direction", choices=("ancestors", "descendants"))
+    ask.add_argument("--depth", type=int, default=3)
+    ask.add_argument("--max-paths", type=int, default=20)
+    family_install = commands.add_parser(
+        "install-family", help="Maintainer: admit reviewed claims and derive an immutable graph."
+    )
+    family_install.add_argument("batch", type=Path)
+    family_install.add_argument("reviews", type=Path)
+    family_audit = commands.add_parser(
+        "family-claims", help="Inspect retained claims and admission reviews."
+    )
+    family_audit.add_argument("--snapshot", required=True)
     session = commands.add_parser("start-session", help="Create a bounded anonymous conversation.")
     session.add_argument("receipt", type=Path, help="New private local session receipt file.")
     reset = commands.add_parser("reset", help="Clear reference context, keeping saved answers.")
@@ -98,6 +112,11 @@ def main() -> int:
         "--captures", action="store_true", help="Inspect retained captures for a run."
     )
     args = parser.parse_args()
+    if args.command == "ask":
+        if args.route == "graph" and (not args.character or not args.direction):
+            parser.error("--route graph requires --character and --direction.")
+        if args.route != "graph" and (args.character or args.direction):
+            parser.error("Family traversal arguments require --route graph.")
     try:
         if args.command == "configure-openrouter":
             if not sys.stdin.isatty():
@@ -131,6 +150,7 @@ def main() -> int:
             "import-sources",
             "refresh-sources",
             "rollback-snapshot",
+            "install-family",
         }:
             database_url = os.environ.get("DATABASE_URL")
             if not database_url:
@@ -160,6 +180,17 @@ def main() -> int:
                 except ModelConfigurationError as exc:
                     raise ValueError(str(exc)) from None
                 print(outcome.model_dump_json())
+            elif args.command == "install-family":
+                from pydantic import TypeAdapter
+
+                from ask_phil.family_graph import FamilyGraph
+                from ask_phil.parentage import ClaimBatch, ClaimReview
+
+                audit = FamilyGraph(database_url).install(
+                    ClaimBatch.model_validate_json(args.batch.read_bytes()),
+                    TypeAdapter(tuple[ClaimReview, ...]).validate_json(args.reviews.read_bytes()),
+                )
+                print(audit.model_dump_json())
             elif args.command in {"load", "import-sources"}:
                 snapshot = (
                     build_snapshot(read_batch(args.batch), args.snapshot)
@@ -229,6 +260,15 @@ def main() -> int:
                         json={
                             "question": args.query,
                             "snapshot_id": args.snapshot,
+                            "route": args.route,
+                            "graph": {
+                                "character_id": args.character,
+                                "direction": args.direction,
+                                "max_depth": args.depth,
+                                "max_paths": args.max_paths,
+                            }
+                            if args.route == "graph"
+                            else None,
                         },
                     )
                 elif args.command == "response":
@@ -241,6 +281,8 @@ def main() -> int:
                     )
                 elif args.command == "source-report":
                     result = client.get(f"/v1/snapshots/{args.snapshot}/sources")
+                elif args.command == "family-claims":
+                    result = client.get(f"/v1/snapshots/{args.snapshot}/family-claims")
                 elif args.command == "source":
                     result = client.get(f"/v1/snapshots/{args.snapshot}/sources/{args.source_id}")
                 elif args.command == "resolve-character":

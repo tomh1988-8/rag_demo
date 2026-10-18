@@ -148,6 +148,8 @@ def capture_quality(
                 raise ValueError("The public API answered from a different snapshot.")
             if response.application_sha256 != frozen_application:
                 raise ValueError("Serving code changed or differs from the frozen source identity.")
+            if response.model_settings is None:
+                raise ValueError("This comparison requires a text answer model configuration.")
             actual = ComparisonConfiguration(
                 configuration_id="single-query-uncached-v2",
                 retrieval_version="original-query-v1",

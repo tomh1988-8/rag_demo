@@ -1,0 +1,240 @@
+{
+  "format_version": 1,
+  "split": "exposed_development",
+  "snapshot_id": "family-pilot-v1",
+  "snapshot_sha256": "118cb99db01b352e9b2793e56873962d9769e00df7c3764bb7201d8a7a281a06",
+  "catalogue": {
+    "characters": [
+      {
+        "character_id": "phil-mitchell",
+        "name": "Phil Mitchell",
+        "aliases": [],
+        "performers": [
+          "Steve McFadden",
+          "Daniel Delaney"
+        ],
+        "coverage": "core",
+        "wikidata_id": "Q2115259",
+        "review_note": "Codex source inspection, 17 October 2026: captured character article, infobox aliases/performers and revision metadata checked. Prominence-based curated selection, not a ranked or exhaustive canon. Identity linkage is not independent story corroboration.",
+        "evidence_sources": [
+          "phil-mitchell-wiki"
+        ]
+      },
+      {
+        "character_id": "grant-mitchell",
+        "name": "Grant Mitchell",
+        "aliases": [],
+        "performers": [
+          "Ross Kemp",
+          "Teddy Jay"
+        ],
+        "coverage": "core",
+        "wikidata_id": "Q2685036",
+        "review_note": "Codex source inspection, 17 October 2026: captured character article, infobox aliases/performers and revision metadata checked. Prominence-based curated selection, not a ranked or exhaustive canon. Identity linkage is not independent story corroboration.",
+        "evidence_sources": [
+          "grant-mitchell-wiki"
+        ]
+      },
+      {
+        "character_id": "peggy-mitchell",
+        "name": "Peggy Mitchell",
+        "aliases": [
+          "Peggy Butcher"
+        ],
+        "performers": [
+          "Jo Warne",
+          "Barbara Windsor",
+          "Jaime Winstone"
+        ],
+        "coverage": "core",
+        "wikidata_id": "Q13130609",
+        "review_note": "Codex source inspection, 17 October 2026: captured character article, infobox aliases/performers and revision metadata checked. Prominence-based curated selection, not a ranked or exhaustive canon. Identity linkage is not independent story corroboration.",
+        "evidence_sources": [
+          "peggy-mitchell-wiki"
+        ]
+      },
+      {
+        "character_id": "sharon-watts",
+        "name": "Sharon Watts",
+        "aliases": [
+          "Sharon Mitchell",
+          "Sharon Rickman",
+          "Sharon Beale"
+        ],
+        "performers": [
+          "Letitia Dean"
+        ],
+        "coverage": "core",
+        "wikidata_id": "Q7490258",
+        "review_note": "Codex source inspection, 17 October 2026: captured character article, infobox aliases/performers and revision metadata checked. Prominence-based curated selection, not a ranked or exhaustive canon. Identity linkage is not independent story corroboration.",
+        "evidence_sources": [
+          "sharon-watts-wiki"
+        ]
+      },
+      {
+        "character_id": "ben-mitchell",
+        "name": "Ben Mitchell",
+        "aliases": [],
+        "performers": [
+          "Matthew Silver",
+          "Morgan Whittle",
+          "Charlie Jones",
+          "Joshua Pascoe",
+          "Harry Reid",
+          "Max Bowden"
+        ],
+        "coverage": "core",
+        "wikidata_id": "Q2766568",
+        "review_note": "Codex source inspection, 17 October 2026: captured character article, infobox aliases/performers and revision metadata checked. Prominence-based curated selection, not a ranked or exhaustive canon. Identity linkage is not independent story corroboration.",
+        "evidence_sources": [
+          "ben-mitchell-wiki"
+        ]
+      },
+      {
+        "character_id": "kathy-beale",
+        "name": "Kathy Beale",
+        "aliases": [
+          "Kathy Mitchell",
+          "Kathy Sullivan",
+          "Kathy Richards",
+          "Kathy Cotton"
+        ],
+        "performers": [
+          "Gillian Taylforth"
+        ],
+        "coverage": "core",
+        "wikidata_id": "Q6377182",
+        "review_note": "Codex source inspection, 17 October 2026: captured character article, infobox aliases/performers and revision metadata checked. Prominence-based curated selection, not a ranked or exhaustive canon. Identity linkage is not independent story corroboration.",
+        "evidence_sources": [
+          "kathy-beale-wiki"
+        ]
+      },
+      {
+        "character_id": "den-watts",
+        "name": "Den Watts",
+        "aliases": [
+          "Dirty Den",
+          "Dennis Alan Watts"
+        ],
+        "performers": [
+          "Leslie Grantham"
+        ],
+        "coverage": "supporting",
+        "wikidata_id": "Q5256484",
+        "review_note": "Den is evidenced supporting context in Sharon’s captured biography. Identity was also reviewed against retained Den revision 1371930128 in real-sources-v1.json.gz. No separate Den history is admitted here; supporting character mentions do not expand the core roster.",
+        "evidence_sources": [
+          "sharon-watts-wiki"
+        ]
+      }
+    ]
+  },
+  "origins": [
+    {
+      "evidence_id": "family-ben-birth",
+      "origin_evidence_id": "ben-mitchell-wiki-0022-17983",
+      "origin_snapshot_sha256": "f856707cda98eb10f06d35c96b264952f8e3cbb3c7f7174f2d6e832dfb9e5fb7",
+      "start": 17983,
+      "end": 18093,
+      "revision_url": "https://en.wikipedia.org/w/index.php?oldid=1376729134",
+      "origin_snapshot_id": "core-profiles-v2"
+    },
+    {
+      "evidence_id": "family-peggy-phil",
+      "origin_evidence_id": "peggy-mitchell-wiki-0037-34316",
+      "origin_snapshot_sha256": "f856707cda98eb10f06d35c96b264952f8e3cbb3c7f7174f2d6e832dfb9e5fb7",
+      "start": 34316,
+      "end": 34421,
+      "revision_url": "https://en.wikipedia.org/w/index.php?oldid=1372787814",
+      "origin_snapshot_id": "core-profiles-v2"
+    },
+    {
+      "evidence_id": "family-sharon-adoption",
+      "origin_evidence_id": "sharon-watts-wiki-0053-50624",
+      "origin_snapshot_sha256": "f856707cda98eb10f06d35c96b264952f8e3cbb3c7f7174f2d6e832dfb9e5fb7",
+      "start": 50624,
+      "end": 50829,
+      "revision_url": "https://en.wikipedia.org/w/index.php?oldid=1372798905",
+      "origin_snapshot_id": "core-profiles-v2"
+    }
+  ],
+  "expected_claims": [
+    {
+      "claim_id": "phil-ben",
+      "parent_id": "phil-mitchell",
+      "child_id": "ben-mitchell",
+      "parent_role": "parent",
+      "relation": "biological_parent",
+      "polarity": "affirmed",
+      "certainty": "certain",
+      "story_time": "March 1996",
+      "time_precision": "exact",
+      "evidence": [
+        {
+          "evidence_id": "family-ben-birth",
+          "start": 0,
+          "end": 110,
+          "quote": "Ben is born to Phil Mitchell (Steve McFadden) and his then wife Kathy Beale (Gillian Taylforth) in March 1996."
+        }
+      ]
+    },
+    {
+      "claim_id": "kathy-ben",
+      "parent_id": "kathy-beale",
+      "child_id": "ben-mitchell",
+      "parent_role": "parent",
+      "relation": "biological_parent",
+      "polarity": "affirmed",
+      "certainty": "certain",
+      "story_time": "March 1996",
+      "time_precision": "exact",
+      "evidence": [
+        {
+          "evidence_id": "family-ben-birth",
+          "start": 0,
+          "end": 110,
+          "quote": "Ben is born to Phil Mitchell (Steve McFadden) and his then wife Kathy Beale (Gillian Taylforth) in March 1996."
+        }
+      ]
+    },
+    {
+      "claim_id": "peggy-phil",
+      "parent_id": "peggy-mitchell",
+      "child_id": "phil-mitchell",
+      "parent_role": "mother",
+      "relation": "biological_parent",
+      "polarity": "affirmed",
+      "certainty": "certain",
+      "story_time": "unknown",
+      "time_precision": "unknown",
+      "evidence": [
+        {
+          "evidence_id": "family-peggy-phil",
+          "start": 0,
+          "end": 105,
+          "quote": "Peggy married Eric Mitchell (George Russo) because she was pregnant with their son Phil (Steve McFadden)."
+        }
+      ]
+    },
+    {
+      "claim_id": "den-sharon-adoption",
+      "parent_id": "den-watts",
+      "child_id": "sharon-watts",
+      "parent_role": "parent",
+      "relation": "adoptive_parent",
+      "polarity": "affirmed",
+      "certainty": "certain",
+      "story_time": "at the age of three",
+      "time_precision": "relative",
+      "evidence": [
+        {
+          "evidence_id": "family-sharon-adoption",
+          "start": 0,
+          "end": 205,
+          "quote": "Adopted at the age of three by Den (Leslie Grantham) and Angie Watts (Anita Dobson), Sharon is raised at The Queen Victoria public house in Albert Square, Walford, where her adoptive parents are landlords."
+        }
+      ]
+    }
+  ],
+  "annotation_scope": "All four explicit parentage statements between the seven reviewed catalogue identities in the three selected spans. Angie and Eric are outside this catalogue. Do not infer step-parentage from marriage. March 1996 is an exact month, not a day. Peggy pregnancy supports biological parentage of Phil; the selected span establishes no Grant parentage. Adoption age is relative. Parent roles are parent unless an explicit pregnancy establishes the mother. Source-supported only; no independent canon corroboration. Origin rebuild: build_snapshot(read_batch(Path(data/sources/core-profiles-v2.json.gz)), core-profiles-v2); snapshot ID participates in the fingerprint.",
+  "matching": "Exact parent_id, child_id, parent_role, relation, polarity, certainty, story_time and time_precision; quote offsets must resolve. Ignore claim IDs; collapse exact semantic duplicates within each span; a reversed direction or actor identity is an error. Report schema, values and grounding separately. Precision/recall/F1 apply only to this completely annotated in-catalogue slice."
+}

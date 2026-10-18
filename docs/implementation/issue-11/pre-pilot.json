@@ -1,0 +1,17 @@
+{
+  "frozen_at": "2026-10-18T11:28:07.313526+00:00",
+  "stage": "before_first_extraction",
+  "sha256": {
+    "data/seed/family-pilot-v1.json": "01273598d2cc36c5012a7813d86b57a35350f7ab66210dc14b3a22fbf5c46cd2",
+    "data/references/parentage-v1.json": "7f200f7d38c09c66fc2039288180db7f98c8cd2a130672abcfef165f8c8b777e",
+    "docs/implementation/issue-11/reference-review.md": "e73e257d01c698e47b17ea9f4bf88618febe7b299898149dc42b862df6fc1c46"
+  },
+  "agent_reviews": {
+    "standards": "No remaining findings",
+    "spec": "No remaining findings"
+  },
+  "paid_call_limit": 1,
+  "maximum_reserved_usd": 0.122112,
+  "approved_shared_trial_usd": 5,
+  "materials_sent": "Only three captured public source spans, seven character identities, extraction prompt and output schema. Reference labels are withheld."
+}

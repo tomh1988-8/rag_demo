@@ -1,0 +1,30 @@
+[
+  {
+    "claim_id": "phil-ben",
+    "claim_sha256": "4b2bca46b89217e93d6b3a7deb610471e4e61b40c283dad4b3060db6208de76d",
+    "verdict": "supported",
+    "reviewer": "independent-spec-agent-post-extraction-audit",
+    "note": "Born-to span supports normalized biological parent direction, generic parent role and exact month."
+  },
+  {
+    "claim_id": "kathy-ben",
+    "claim_sha256": "d3a130d34d4fc24240544a5f56ee07acfd4d18cf452a432dc963e9dbe03cdc04",
+    "verdict": "supported",
+    "reviewer": "independent-spec-agent-post-extraction-audit",
+    "note": "Born-to span supports normalized biological parent direction, generic parent role and exact month."
+  },
+  {
+    "claim_id": "peggy-phil",
+    "claim_sha256": "1bd795d5e1c4b1e243491d837cec92f77ff41d5fcf0533beb21fdecdb046c6a6",
+    "verdict": "supported",
+    "reviewer": "independent-spec-agent-post-extraction-audit",
+    "note": "Pregnancy supports values, but quoted sentence is105 characters and model end104 is malformed. Hold admission; preserve raw error."
+  },
+  {
+    "claim_id": "den-sharon",
+    "claim_sha256": "25bbcbdaac07b9327f5901f893a189e6061d96d62fd2503832bb198c8f82b0c7",
+    "verdict": "supported",
+    "reviewer": "independent-spec-agent-post-extraction-audit",
+    "note": "Narrower exact quote supports adoption and relative age, but fails frozen full-span grounding metric. Non-biological; hold outside tree."
+  }
+]

@@ -20,7 +20,9 @@ from ask_phil.answering import AnswerService
 from ask_phil.answers import AnswerReceipt, AnswerRecord, AskRequest
 from ask_phil.conversation import ReferenceTurn, TurnIdentity
 from ask_phil.evidence import Identifier, Inspection
-from ask_phil.execution import ExecutionBudget, ExecutionLimits, ExecutionPolicies
+from ask_phil.execution import ExecutionBudget, ExecutionLimits, ExecutionPolicies, ExecutionStopped
+from ask_phil.family_answering import FamilyAnswerService
+from ask_phil.family_graph import FamilyAudit, FamilyGraph, FamilyQuery, FamilyResult
 from ask_phil.identity import IdentityResolution
 from ask_phil.models import ModelConfigurationError, Models
 from ask_phil.openrouter import ProviderError
@@ -63,6 +65,7 @@ def create_app(
         else None
     )
     service_lock = threading.Lock()
+    graph_service: FamilyAnswerService | None = None
 
     @app.exception_handler(RequestValidationError)
     async def invalid_request(request: Request, exc: RequestValidationError) -> JSONResponse:
@@ -130,6 +133,31 @@ def create_app(
     def active_publication() -> ActivePublication:
         return publications.active()
 
+    @app.post("/v1/snapshots/{snapshot_id}/family")
+    def family_query(snapshot_id: Identifier, query: FamilyQuery) -> FamilyResult:
+        budget = ExecutionBudget(policies.serving)
+        try:
+            with budget.activate():
+                publications.pin(snapshot_id)
+                return FamilyGraph(database_url).query(snapshot_id, query)
+        except SnapshotNotFound as exc:
+            raise HTTPException(status_code=404, detail="Snapshot not found.") from exc
+        except (psycopg.errors.QueryCanceled, psycopg.errors.LockNotAvailable) as exc:
+            raise HTTPException(status_code=503, detail="Family graph query timed out.") from exc
+        except ExecutionStopped as exc:
+            raise HTTPException(status_code=503, detail=f"Family graph stopped: {exc}.") from exc
+        except IndexNotReady as exc:
+            raise HTTPException(status_code=503, detail=str(exc)) from exc
+
+    @app.get("/v1/snapshots/{snapshot_id}/family-claims")
+    def family_claims(snapshot_id: Identifier) -> FamilyAudit:
+        audit = FamilyGraph(database_url).audit(snapshot_id)
+        if audit is None:
+            raise HTTPException(
+                status_code=404, detail="No reviewed family graph for this snapshot."
+            )
+        return audit
+
     @app.get("/v1/publication/previous")
     def previous_publication() -> ActivePublication:
         return publications.previous()
@@ -188,10 +216,23 @@ def create_app(
         *,
         execution: ExecutionBudget,
     ) -> AnswerReceipt:
-        nonlocal service
+        nonlocal service, graph_service
         try:
             with service_lock:
-                if service is None:
+                if request.route == "graph":
+                    if graph_service is None:
+                        graph_service = FamilyAnswerService(
+                            database_url,
+                            tracking_uri
+                            or os.environ.get(
+                                "MLFLOW_TRACKING_URI", "sqlite:///artifacts/mlflow.db"
+                            ),
+                            policies,
+                        )
+                    selected_graph_service = graph_service
+                else:
+                    selected_graph_service = None
+                if service is None and selected_graph_service is None:
                     Path("artifacts").mkdir(exist_ok=True)
                     service = AnswerService(
                         database_url,
@@ -200,6 +241,9 @@ def create_app(
                         or os.environ.get("MLFLOW_TRACKING_URI", "sqlite:///artifacts/mlflow.db"),
                         policies=policies,
                     )
+            if selected_graph_service:
+                return selected_graph_service.ask(request, turn=turn, execution=execution)
+            assert service is not None
             return service.ask(
                 request,
                 turn=turn,
