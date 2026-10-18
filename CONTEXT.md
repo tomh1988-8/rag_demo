@@ -22,6 +22,9 @@ _Avoid_: Household, all family relationships
 **Character relationship**:
 A supported family or personal tie between characters, including biological, adoptive, and step-parent ties, as well as current or former marriages, partnerships, and affairs.
 
+**Character reference**:
+A mention of a character in a question, interpreted against reviewed character names and aliases. Earlier questions can supply the intended character for a follow-up; generated claims do not establish that identity.
+
 **Character connection**:
 An evidenced link or chain of links between characters through relationships or shared story events. Sharing a theme alone does not establish a connection.
 

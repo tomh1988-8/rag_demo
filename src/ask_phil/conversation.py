@@ -62,6 +62,16 @@ class TurnIdentity(Record):
 class ConversationReference(TurnIdentity):
     reference: ReferenceResolution
 
+    def retained(self) -> ReferenceTurn:
+        """Keep question references, never generated claims or a relative's inferred identity."""
+        reference = self.reference
+        return ReferenceTurn(
+            turn_id=self.turn_id,
+            character_ids=() if reference.followup_requires_name else reference.character_ids,
+            pending_question=reference.question if reference.clarification else None,
+            reference_barrier=reference.followup_requires_name,
+        )
+
 
 @dataclass(frozen=True)
 class _NameMention:

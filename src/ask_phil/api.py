@@ -28,7 +28,7 @@ from ask_phil.publications import (
 )
 from ask_phil.responses import ResponseLedger
 from ask_phil.retrieval import IndexNotReady
-from ask_phil.sessions import SessionNotFound, SessionReceipt, SessionState, SessionStore
+from ask_phil.sessions import ConversationSessions, SessionNotFound, SessionReceipt, SessionState
 from ask_phil.source_records import CapturedSource, ImportedSources, ImportSummary, SourceInspection
 from ask_phil.storage import EvidenceStore, SnapshotNotFound
 
@@ -45,7 +45,7 @@ def create_app(
     database_url = database_url or os.environ["DATABASE_URL"]
     store = EvidenceStore(database_url)
     publications = PublicationStore(database_url)
-    sessions = SessionStore(database_url, clock=session_clock)
+    sessions = ConversationSessions(database_url, clock=session_clock)
     app = FastAPI(title="Ask Phil evidence inspection", version="0.1.0")
     service = (
         AnswerService(database_url, models, tracking_uri or "sqlite:///artifacts/mlflow.db")
@@ -82,18 +82,7 @@ def create_app(
         request: AskRequest,
         authorization: Annotated[str | None, Header()] = None,
     ) -> AnswerReceipt:
-        with sessions.locked(session_id, bearer_token(authorization)) as (conn, state):
-            result = answer(request, state.next_turn(), state.history)
-            assert result.response.conversation is not None
-            sessions.save(
-                conn,
-                state.after_turn(
-                    result.response.conversation,
-                    result.response.conversation.reference,
-                    now=sessions.clock(),
-                ),
-            )
-            return result
+        return sessions.ask(session_id, bearer_token(authorization), request, answer=answer)
 
     @app.exception_handler(PublicationNotFound)
     async def publication_missing(request: Request, exc: PublicationNotFound) -> JSONResponse:

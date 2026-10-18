@@ -1,18 +1,19 @@
-"""Short-lived, capability-protected reference state, separate from saved answers."""
+"""Authorized conversation turns and short-lived reference state, separate from saved answers."""
 
 import hashlib
 import secrets
 from collections.abc import Callable, Iterator
 from contextlib import contextmanager
 from datetime import UTC, datetime, timedelta
+from typing import Protocol
 from uuid import UUID, uuid4
 
 import psycopg
 from psycopg.types.json import Jsonb
 
+from ask_phil.answers import AnswerReceipt, AskRequest
 from ask_phil.conversation import (
     MAX_CONTEXT_TURNS,
-    ReferenceResolution,
     ReferenceTurn,
     TurnIdentity,
 )
@@ -36,35 +37,6 @@ class SessionState(Record):
     turn_number: int = 0
     history: tuple[ReferenceTurn, ...] = ()
 
-    def next_turn(self) -> TurnIdentity:
-        return TurnIdentity(
-            session_id=self.session_id,
-            turn_id=uuid4(),
-            turn_number=self.turn_number + 1,
-            generation=self.generation,
-        )
-
-    def after_turn(
-        self, turn: TurnIdentity, reference: ReferenceResolution, *, now: datetime
-    ) -> "SessionState":
-        return self.model_copy(
-            update={
-                "turn_number": turn.turn_number,
-                "context_expires_at": min(now + CONTEXT_IDLE_LIFETIME, self.expires_at),
-                "history": (
-                    *self.history,
-                    ReferenceTurn(
-                        turn_id=turn.turn_id,
-                        character_ids=()
-                        if reference.followup_requires_name
-                        else reference.character_ids,
-                        pending_question=reference.question if reference.clarification else None,
-                        reference_barrier=reference.followup_requires_name,
-                    ),
-                )[-MAX_CONTEXT_TURNS:],
-            }
-        )
-
 
 class SessionReceipt(Record):
     session: SessionState
@@ -78,12 +50,18 @@ class FeedbackContext(Record):
     expires_at: datetime
 
 
-class SessionStore:
+class AnswerQuestion(Protocol):
+    def __call__(
+        self, request: AskRequest, *, turn: TurnIdentity, history: tuple[ReferenceTurn, ...]
+    ) -> AnswerReceipt: ...
+
+
+class ConversationSessions:
     def __init__(
         self, database_url: str, *, clock: Callable[[], datetime] = lambda: datetime.now(UTC)
     ) -> None:
         self.database_url = database_url
-        self.clock = clock
+        self._clock = clock
 
     def _ensure_schema(self) -> None:
         with psycopg.connect(self.database_url, connect_timeout=5) as conn:
@@ -102,7 +80,7 @@ class SessionStore:
 
     def create(self) -> SessionReceipt:
         self._ensure_schema()
-        now = self.clock()
+        now = self._clock()
         state = SessionState(
             session_id=uuid4(),
             created_at=now,
@@ -141,8 +119,47 @@ class SessionStore:
             feedback_expires_at=feedback_expires_at,
         )
 
+    def ask(
+        self,
+        session_id: UUID,
+        token: str,
+        request: AskRequest,
+        *,
+        answer: AnswerQuestion,
+    ) -> AnswerReceipt:
+        """Return an answer only after its authorized turn and reference state are committed."""
+        with self._locked(session_id, token) as (conn, state):
+            turn = TurnIdentity(
+                session_id=state.session_id,
+                turn_id=uuid4(),
+                turn_number=state.turn_number + 1,
+                generation=state.generation,
+            )
+            receipt = answer(request, turn=turn, history=state.history)
+            reference = receipt.response.conversation
+            if reference is None or (
+                reference.session_id,
+                reference.turn_id,
+                reference.turn_number,
+                reference.generation,
+            ) != (turn.session_id, turn.turn_id, turn.turn_number, turn.generation):
+                raise ValueError("Answer does not belong to the current conversation turn.")
+            self._save(
+                conn,
+                state.model_copy(
+                    update={
+                        "turn_number": turn.turn_number,
+                        "context_expires_at": min(
+                            self._clock() + CONTEXT_IDLE_LIFETIME, state.expires_at
+                        ),
+                        "history": (*state.history, reference.retained())[-MAX_CONTEXT_TURNS:],
+                    }
+                ),
+            )
+            return receipt
+
     @contextmanager
-    def locked(
+    def _locked(
         self, session_id: UUID, token: str
     ) -> Iterator[tuple[psycopg.Connection[tuple[object, ...]], SessionState]]:
         self._ensure_schema()
@@ -150,12 +167,12 @@ class SessionStore:
             row = conn.execute(
                 """SELECT document FROM conversation_sessions
                 WHERE session_id = %s AND token_sha256 = %s AND expires_at > %s FOR UPDATE""",
-                (session_id, hashlib.sha256(token.encode()).hexdigest(), self.clock()),
+                (session_id, hashlib.sha256(token.encode()).hexdigest(), self._clock()),
             ).fetchone()
             if not row:
                 raise SessionNotFound("Session not found or expired.")
             state = SessionState.model_validate(row[0])
-            now = self.clock()
+            now = self._clock()
             if state.expires_at <= now:
                 raise SessionNotFound("Session not found or expired.")
             if state.context_expires_at <= now:
@@ -165,31 +182,31 @@ class SessionStore:
                         "generation": state.generation + (1 if state.history else 0),
                     }
                 )
-                self.save(conn, state)
+                self._save(conn, state)
             yield conn, state
 
-    def save(self, conn: psycopg.Connection[tuple[object, ...]], state: SessionState) -> None:
+    def _save(self, conn: psycopg.Connection[tuple[object, ...]], state: SessionState) -> None:
         conn.execute(
             "UPDATE conversation_sessions SET document = %s WHERE session_id = %s",
             (Jsonb(state.model_dump(mode="json")), state.session_id),
         )
 
     def reset(self, session_id: UUID, token: str) -> SessionState:
-        with self.locked(session_id, token) as (conn, state):
+        with self._locked(session_id, token) as (conn, state):
             cleared = state.model_copy(
                 update={
                     "generation": state.generation + 1,
                     "history": (),
                     "context_expires_at": min(
-                        self.clock() + CONTEXT_IDLE_LIFETIME, state.expires_at
+                        self._clock() + CONTEXT_IDLE_LIFETIME, state.expires_at
                     ),
                 }
             )
-            self.save(conn, cleared)
+            self._save(conn, cleared)
             return cleared
 
     def get(self, session_id: UUID, token: str) -> SessionState:
-        with self.locked(session_id, token) as (_, state):
+        with self._locked(session_id, token) as (_, state):
             return state
 
     def feedback_context(self, session_id: UUID, token: str) -> FeedbackContext | None:
@@ -202,6 +219,6 @@ class SessionStore:
             row = conn.execute(
                 """SELECT expires_at FROM conversation_feedback_contexts
                 WHERE session_id = %s AND token_sha256 = %s AND expires_at > %s""",
-                (session_id, hashlib.sha256(token.encode()).hexdigest(), self.clock()),
+                (session_id, hashlib.sha256(token.encode()).hexdigest(), self._clock()),
             ).fetchone()
         return FeedbackContext(session_id=session_id, expires_at=row[0]) if row else None

@@ -1,0 +1,122 @@
+{
+  "kind": "conversation-turn-deepening-validation-v1",
+  "recorded_at": "2026-10-18T09:32:54.144171+00:00",
+  "status": "validated",
+  "tested_worktree_base": "11019d661b77f3dc9ff0032e1cafe13d33c67f19",
+  "application_sha256": "d42c40fc89af375da302fa71f5035e704897c4ad8934f9db4461717b1921c4b9",
+  "software_tests": {
+    "tests": 253,
+    "failures": 0,
+    "errors": 0,
+    "skipped": 0,
+    "passed": 253,
+    "elapsed_seconds": 535.36,
+    "path": "docs/implementation/conversation-turn-deepening/software-tests.xml",
+    "sha256": "974010e11a17aadd3339a3d3e2534f06c11af9962fc247a3f60f31f7fa79a831",
+    "command": ".venv/bin/pytest -q -p no:cacheprovider --test-database-url DISPOSABLE_POSTGRES --junitxml docs/implementation/conversation-turn-deepening/software-tests.xml",
+    "real_postgresql_pgvector_and_mlflow": true,
+    "full_suite_executions": 1,
+    "paid_model_calls": 0
+  },
+  "focused_tests": {
+    "passed": 35,
+    "failures": 0,
+    "errors": 0,
+    "skipped": 0,
+    "command": ".venv/bin/pytest -q -p no:cacheprovider --test-database-url DISPOSABLE_POSTGRES tests/test_conversation_api.py tests/test_conversation_rules.py",
+    "final_turn_interface_receipt_check": {
+      "passed": 1,
+      "public_http_readback": true
+    },
+    "tracer_red": "ImportError: ConversationSessions did not exist",
+    "tracer_green": "Real turn execution retains references, grounds the follow-up and resolves the original receipt",
+    "database_failure_cases": [
+      "immediate_write_failure",
+      "deferred_commit_failure"
+    ]
+  },
+  "mypy": {
+    "exit_code": 0,
+    "source_files": 54,
+    "command": ".venv/bin/mypy src tests scripts docs/implementation/issue-9/apply_support.py"
+  },
+  "ruff": {
+    "exit_code": 0,
+    "command": ".venv/bin/ruff check src tests scripts docs/implementation/issue-9/apply_support.py"
+  },
+  "format": {
+    "exit_code": 0,
+    "changed_python_files": 5
+  },
+  "http_contract": {
+    "all_routes_and_openapi_schemas_equal_to_fixed_point": true,
+    "path_count": 17,
+    "schema_sha256": "e5e5867bcf48696556de26d429368cd5c8a6deb9ed365b29cb5d313019d273cd"
+  },
+  "independent_review": {
+    "standards_findings": 0,
+    "spec_findings": 0,
+    "path": "docs/implementation/conversation-turn-deepening/review.md",
+    "diff_command": "git diff --cached 11019d661b77f3dc9ff0032e1cafe13d33c67f19"
+  },
+  "test_input_sha256": {
+    "docs/implementation/issue-9/apply_support.py": "e2ba8cd354dd54561a5696f622f0788f124144153817b768dffb0dd45fb23222",
+    "pyproject.toml": "f740c8e894e07d179ff7aa5b07ebd055b5e5e9be97e9c7cbcc0765b519216538",
+    "scripts/check_secrets.py": "921478f224d9fc8586431446404beab6bdd0cd5953a3370ec12afe0cb5e1264f",
+    "scripts/evaluate_answer_policy.py": "5a61af5570a80b70c29005e7a4ab075bf4998cd875850f58ace8841753648b49",
+    "scripts/evaluate_conversation.py": "9ea2fc2f6dd81e62a0c551dc663d28bc04636e070929a4fd6af0275a0c1239e0",
+    "scripts/evaluate_quality.py": "1bbf60ff0d71d602ebf28341859e66f824e7bc19e56aa4a39d9763abf5115b84",
+    "scripts/evaluate_text_baseline.py": "f642d4ec9307083ecf113e456cc5beaf201a65866eadb363baeaf530df7209b8",
+    "scripts/evaluate_text_corpus.py": "25c6306c0750ead03246e6e05563547b7ae158d4e6ef83051c7a0afa2fb34be1",
+    "scripts/record_baseline.py": "2c6f0cf4fa7b074d5123df9c93c68bb9c84c8322cbecc20a2ecc5e3347f2e419",
+    "scripts/record_refresh_acceptance.py": "1f017e758d5165168a4ab21cc04e51ec7fb8a05e8b0d25803834682d0cf4584d",
+    "src/ask_phil/__init__.py": "c4be197720058e2c86d4a79594bf60163b9bef1578b8e0e99650ec5e8b114a3d",
+    "src/ask_phil/answering.py": "a7b5c6f4eb6755122401360cbfdbfea88b50524f52a9ff03a9382fe8ae03cbd9",
+    "src/ask_phil/answers.py": "243c2b62ae1256d5fdf6f211dd6a37a1ac17389155cbad50e29126d5e3d1e449",
+    "src/ask_phil/api.py": "9b5f384e9bdf264d85b2281ea585e1fb0c6272f377a102cc1534fa04b9a7b146",
+    "src/ask_phil/cli.py": "c844e39d07faeb16b698f06cac10592c8f9ec614c45abede68b252d25ad411f7",
+    "src/ask_phil/conversation.py": "bfecce8cee47867d2bf22ecbb9b9c2110ef5f16b3f748b9f56c9de84b35db736",
+    "src/ask_phil/evaluation.py": "1d99741e48c92cec70023a43606879f799ea4cadcd1720f3a35e7bec6753b4bb",
+    "src/ask_phil/evidence.py": "321f6a3ba913ca8be26a4ab171e263ab1da9fc208b12432f5dbcf54c2f83ea9f",
+    "src/ask_phil/identity.py": "f7277f6206c35dcb5e5cb91806f98c5142c09175d86f0fd7fa5b962f20f0d2c9",
+    "src/ask_phil/ingestion.py": "efee54598cb5048152375d679091dfaae5e77d56741ac0347dd6e49e1e088a85",
+    "src/ask_phil/models.py": "182bc4a9c6cdde42bb2263a72ff8510532ea904ef5c2862a5f1b9f2cb1b0b152",
+    "src/ask_phil/openrouter.py": "4c35626870ad07761a0d628ae0a5c6c25a29f75b98ae29f549c565d8db02168a",
+    "src/ask_phil/passage_context.py": "4d7f9bf6e4937308a5142f12f35036feff35c87a054acb088af6b14e7810f6e0",
+    "src/ask_phil/publications.py": "72fdb5e948b08e52c974e03a20d218f0659cb60aea0efec8d9cfb2bb9e7bf6fa",
+    "src/ask_phil/quality_comparison.py": "d1f388f842a4ddb6147800c966cf46f7bd0cb3653a7b5d2ab8a82b58b5063522",
+    "src/ask_phil/quality_workflow.py": "e7f075073776e3b00cb39c8b0c906b07d89c385e0de31590e81b9a4b7b338401",
+    "src/ask_phil/refresh.py": "54674b463c0d84698a0302a8a49374c941a52892fffaa7b36bdf4b98b371c41e",
+    "src/ask_phil/responses.py": "ea8b9abd5e1f952f1cb7d1822aff9c972bdb435adac3065c93eef633b6b3df0e",
+    "src/ask_phil/retrieval.py": "2846d7a827e4c64cd36152b8464f81a7b1a85b6edb17965f06926933341ef9c7",
+    "src/ask_phil/semantic_judge.py": "351d12d97cdbd8185c1c028b49a487b5777cc33d8c72d696a37f8f458dcda8e4",
+    "src/ask_phil/sessions.py": "9d7f4c41094c96ec486ce0d06763d212885fced95f46a9bc8b43fed9a6f78a2e",
+    "src/ask_phil/source_records.py": "b0e3b27bed3dc045a50c488a4ebd7a0709902651e0a44cf2ad496ca95d30a2a1",
+    "src/ask_phil/storage.py": "32e5be5e11813d8c36d81a2ff5d292645967d1f646bcb45f43e50088afb25f74",
+    "tests/conftest.py": "a1aae41c260f6b4a1acfaec6ce0e383d176ac51765a13faebf6835288f7bb719",
+    "tests/test_answer_rules.py": "dc14a86340fc34e0dcbc3638089c89f7b9cb2f232f6f5c5dbc060fc7cf61a8c3",
+    "tests/test_answers_api.py": "9198055fe9d7eab6f23d94dd4bf630f785b749fb8455e644ecdd326a8c8eb867",
+    "tests/test_cli.py": "0cad3933454e67628c06a73bd1c4fe2cfc803feef9f642727ffed5b9b369a6c8",
+    "tests/test_conversation_api.py": "3a7b148c8b506ce0bdbd996dc8899f72cd726ad89a18cc8a59c81a878cbde941",
+    "tests/test_conversation_rules.py": "e46b9e5c7084d054478e220a5abc80cd4ef6380d999ed4618d6ecb5544e2bed1",
+    "tests/test_core_coverage.py": "5f2eccc152895b7b2a3bd6f80e8c57b5010caea8c75f410fb2d520853fc068eb",
+    "tests/test_evaluation.py": "5e21f4fde11199258b070e1f75de9ba9631a6382671d6ce40c6b919f1cef57e7",
+    "tests/test_evaluation_runs.py": "eeaf732e463d3d0ca1979ee6fd279a40b2aa3c3c68c79f1b3c79fded20cf6bef",
+    "tests/test_identity.py": "6b551edb254f6209f90234ebc5a9844c1273b42f26503ef8ebe6c7e9d0c66999",
+    "tests/test_import_api.py": "1541c6791b658e2c00d6cb8d61065a8d929a7c4ab9d11ecb79569a8ec056688a",
+    "tests/test_inspection.py": "97b460517280da1202a7c8cc1019a167bfd764d6cf3a31108758b838ac9ee1e6",
+    "tests/test_openrouter.py": "a2fb2b6267a9611d6ff666af8f69fa8258f3d869f513f880202466f8f7db3661",
+    "tests/test_openrouter_answers.py": "7f9565c6bd0bf3e275a7c7ac71e1304be6cd226aa7479dffb1cfcf32a8ed52ba",
+    "tests/test_policy_evaluation.py": "5e80ec3404f3a40618f2011f3c0c306579c176af02c1aaa9bdfb0f53dc8f141d",
+    "tests/test_provenance.py": "1c6a3c916a4c28413c0fb957dbb283e3a38bcec8012414ceea0d79fcdf4c8eaa",
+    "tests/test_quality_comparison.py": "05b64ee78921bb3520dd6445ec63a221247bb4ffe00f4512ebfe9198b4a16c93",
+    "tests/test_refresh.py": "b1c4e5b7d1983baf61bb157d4a0a4a6d9efb38922bbf18242d22b0332803e2f5",
+    "tests/test_retrieval.py": "812685fe4a40c03c4e6b6bf264fdf478a5d65a5a4fb487613a1e37603351748f",
+    "tests/test_semantic_judge.py": "7c3877d2babbdac3e932f0924bbfea4c1632d927ee421bb9936a7731864775a0",
+    "tests/test_source_capture.py": "20f115f83a783753450aab05a90cb5a66b8c795eb42914654789728cdf9c92e4",
+    "tests/test_source_ingestion.py": "fa0d709ba329cf0b074df616a9065eedb5b4a17cdf7d4aa943912fcdddb490ba",
+    "uv.lock": "983d5a644e3289e6b79d92dc251b5029c199a497ac33c14f504a3c9ee3763152"
+  },
+  "paid_model_calls": 0,
+  "quality_scope": "Architecture and deterministic behavior only; existing recorded model-quality regressions remain open."
+}

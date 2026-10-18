@@ -9,6 +9,7 @@ from datetime import UTC, datetime, timedelta
 from pathlib import Path
 
 import httpx
+import psycopg
 import pytest
 from fastapi.testclient import TestClient
 from llama_index.embeddings.ollama import OllamaEmbedding
@@ -17,6 +18,8 @@ from mlflow import MlflowClient
 from ollama import Client
 from starlette.types import ASGIApp
 
+from ask_phil.answering import AnswerService
+from ask_phil.answers import AskRequest
 from ask_phil.api import create_app
 from ask_phil.ingestion import build_snapshot, read_batch
 from ask_phil.models import Models, ModelSettings
@@ -126,9 +129,7 @@ def session_clock() -> list[datetime]:
 
 
 @pytest.fixture
-def conversation_client(
-    database_url: str, tmp_path: Path, session_clock: list[datetime]
-) -> Iterator[TestClient]:
+def conversation_models(database_url: str) -> Models:
     # Real retained source and identity catalogue, narrowed to one sufficient span.
     snapshot = build_snapshot(read_batch(Path("data/sources/core-profiles-v2.json.gz")), "chat")
     passage = next(
@@ -200,15 +201,67 @@ def conversation_client(
         ),
     )
     TextRetriever(database_url, models.embedding, settings.embedding_id, 3).prepare("chat")
+    return models
+
+
+@pytest.fixture
+def conversation_client(
+    database_url: str,
+    tmp_path: Path,
+    session_clock: list[datetime],
+    conversation_models: Models,
+) -> Iterator[TestClient]:
     with TestClient(
         create_app(
             database_url,
-            models=models,
+            models=conversation_models,
             tracking_uri=f"sqlite:///{tmp_path}/mlflow.db",
             session_clock=lambda: session_clock[0],
         )
     ) as client:
         yield client
+
+
+def test_turn_module_advances_and_retains_only_character_references(
+    database_url: str,
+    tmp_path: Path,
+    session_clock: list[datetime],
+    conversation_models: Models,
+) -> None:
+    from ask_phil.sessions import ConversationSessions
+
+    sessions = ConversationSessions(database_url, clock=lambda: session_clock[0])
+    answers = AnswerService(database_url, conversation_models, f"sqlite:///{tmp_path}/mlflow.db")
+    created = sessions.create()
+    first = sessions.ask(
+        created.session.session_id,
+        created.session_token,
+        AskRequest(snapshot_id="chat", question="Tell me about Phil Mitchell."),
+        answer=answers.ask,
+    )
+    followup = sessions.ask(
+        created.session.session_id,
+        created.session_token,
+        AskRequest(snapshot_id="chat", question="When did he arrive?"),
+        answer=answers.ask,
+    )
+    assert "2001" in first.response.answer
+    assert "February 1990" in followup.response.answer
+    assert followup.response.conversation is not None
+    assert followup.response.conversation.turn_number == 2
+    state = sessions.get(created.session.session_id, created.session_token)
+    assert state.turn_number == 2
+    assert [turn.character_ids for turn in state.history] == [
+        ("phil-mitchell",),
+        ("phil-mitchell",),
+    ]
+    with TestClient(create_app(database_url)) as reader:
+        original = reader.get(
+            f"/v1/responses/{first.response.response_id}",
+            headers={"Authorization": f"Bearer {first.read_token}"},
+        )
+    assert original.status_code == 200
+    assert original.json() == first.response.model_dump(mode="json")
 
 
 def test_followup_retrieves_again_without_using_misleading_generated_history(
@@ -292,6 +345,123 @@ def test_unresolved_and_ambiguous_followups_do_not_ask_model_to_guess(
     assert selected["conversation"]["reference"]["question"] == "When did Phil Mitchell arrive?"
 
 
+def test_character_relationship_question_requires_an_explicit_name_on_followup(
+    conversation_client: TestClient,
+) -> None:
+    client = conversation_client
+    session = client.post("/v1/sessions").json()
+    base = f"/v1/sessions/{session['session']['session_id']}"
+    headers = {"Authorization": f"Bearer {session['session_token']}"}
+    question = client.post(
+        base + "/turns",
+        headers=headers,
+        json={"snapshot_id": "chat", "question": "Who is Phil Mitchell's former wife?"},
+    )
+    question.raise_for_status()
+    # Naming Phil in the question or generated answer does not identify his former wife.
+    state = client.get(base, headers=headers).json()
+    assert state["history"][-1]["character_ids"] == []
+    assert state["history"][-1]["reference_barrier"] is True
+    followup = client.post(
+        base + "/turns",
+        headers=headers,
+        json={"snapshot_id": "chat", "question": "When did she arrive?"},
+    )
+    followup.raise_for_status()
+    assert followup.json()["response"]["status"] == "clarification"
+
+
+def test_failed_answer_does_not_advance_the_turn_or_extend_reference_memory(
+    conversation_client: TestClient,
+    session_clock: list[datetime],
+) -> None:
+    client = conversation_client
+    session = client.post("/v1/sessions").json()
+    base = f"/v1/sessions/{session['session']['session_id']}"
+    headers = {"Authorization": f"Bearer {session['session_token']}"}
+    first = client.post(
+        base + "/turns",
+        headers=headers,
+        json={"snapshot_id": "chat", "question": "When did Phil Mitchell arrive?"},
+    )
+    first.raise_for_status()
+    before = client.get(base, headers=headers).json()
+    session_clock[0] += timedelta(minutes=5)
+    failed = client.post(
+        base + "/turns",
+        headers=headers,
+        json={"snapshot_id": "missing-snapshot", "question": "When did Kat Slater arrive?"},
+    )
+    assert failed.status_code == 404
+    assert client.get(base, headers=headers).json() == before
+    followup = client.post(
+        base + "/turns",
+        headers=headers,
+        json={"snapshot_id": "chat", "question": "When did he arrive?"},
+    )
+    followup.raise_for_status()
+    response = followup.json()["response"]
+    assert "February 1990" in response["answer"]
+    assert response["conversation"]["turn_number"] == 2
+    assert (
+        response["conversation"]["reference"]["context_turn_id"]
+        == first.json()["response"]["conversation"]["turn_id"]
+    )
+
+
+@pytest.mark.parametrize("failure", ["write", "commit"])
+def test_failed_turn_persistence_keeps_previous_references_and_allows_recovery(
+    conversation_client: TestClient,
+    database_url: str,
+    failure: str,
+) -> None:
+    client = conversation_client
+    session = client.post("/v1/sessions").json()
+    base = f"/v1/sessions/{session['session']['session_id']}"
+    headers = {"Authorization": f"Bearer {session['session_token']}"}
+    client.post(
+        base + "/turns",
+        headers=headers,
+        json={"snapshot_id": "chat", "question": "When did Phil Mitchell arrive?"},
+    ).raise_for_status()
+    before = client.get(base, headers=headers).json()
+    # Inject failure in the real disposable database; observe recovery through HTTP.
+    with psycopg.connect(database_url) as conn:
+        if failure == "write":
+            conn.execute("""ALTER TABLE conversation_sessions ADD CONSTRAINT reject_next_turn
+                CHECK ((document->>'turn_number')::integer < 2)""")
+        else:
+            conn.execute("""CREATE FUNCTION reject_next_turn() RETURNS trigger
+                LANGUAGE plpgsql AS $$ BEGIN
+                    RAISE EXCEPTION 'Test turn commit failure' USING ERRCODE = '23514';
+                END $$""")
+            conn.execute("""CREATE CONSTRAINT TRIGGER reject_next_turn
+                AFTER UPDATE ON conversation_sessions DEFERRABLE INITIALLY DEFERRED
+                FOR EACH ROW EXECUTE FUNCTION reject_next_turn()""")
+    failed = client.post(
+        base + "/turns",
+        headers=headers,
+        json={"snapshot_id": "chat", "question": "When did Kat Slater arrive?"},
+    )
+    assert failed.status_code == 503
+    assert failed.json() == {"detail": "Evidence storage is unavailable."}
+    assert client.get(base, headers=headers).json() == before
+    with psycopg.connect(database_url) as conn:
+        if failure == "write":
+            conn.execute("ALTER TABLE conversation_sessions DROP CONSTRAINT reject_next_turn")
+        else:
+            conn.execute("DROP TRIGGER reject_next_turn ON conversation_sessions")
+    followup = client.post(
+        base + "/turns",
+        headers=headers,
+        json={"snapshot_id": "chat", "question": "When did he arrive?"},
+    )
+    followup.raise_for_status()
+    response = followup.json()["response"]
+    assert response["conversation"]["turn_number"] == 2
+    assert "February 1990" in response["answer"]
+
+
 def test_reset_clears_references_and_preserves_original_response_identity(
     conversation_client: TestClient,
 ) -> None:
@@ -358,13 +528,13 @@ def test_feedback_context_outlives_reset_and_session_without_becoming_memory(
 ) -> None:
     from uuid import UUID
 
-    from ask_phil.sessions import SessionStore
+    from ask_phil.sessions import ConversationSessions
 
     client = conversation_client
     created = client.post("/v1/sessions").json()
     session_id = UUID(created["session"]["session_id"])
     token = created["feedback_token"]
-    sessions = SessionStore(database_url, clock=lambda: session_clock[0])
+    sessions = ConversationSessions(database_url, clock=lambda: session_clock[0])
     assert sessions.feedback_context(session_id, token) is not None
     assert sessions.feedback_context(session_id, created["session_token"]) is None
     headers = {"Authorization": f"Bearer {created['session_token']}"}
