@@ -99,7 +99,8 @@ traversal; the free-text question is retained for inspection.
 
 ## Runtime and quality limits
 
-[Actual runtime evidence](runtime.json) records eight real HTTP responses, one
+[Final runtime evidence](runtime-final.json), bound to [the accepted revision](runtime-final-revision.json),
+records eight real HTTP responses, one
 CLI response, edge-citation resolution, typed tool output, invalid input,
 original-response readback after API recreation and actual MLflow span readback.
 The raw pilot projection returns Ben's Phil/Kathy paths and excludes Peggy's
@@ -114,11 +115,20 @@ cost zero inference credits. The preserved shared non-resetting $5 ledger totals
 **$0.361573**, with zero unsettled reservations. No credentials, response read
 tokens or session tokens are published. Hosting/database costs are excluded.
 
+The [corrected offline rescore](extraction-score-final.json) preserves all numeric
+pilot results after repairing span-aware duplicate matching. The raw pilot and
+reference remain unchanged. [Extraction trace readback](extraction-trace-readback.json)
+also confirms actual MLflow raw output and saved claims match.
+
 Focused public tests cover claim admission, semantic-versus-grounding scoring,
 real SQL paths, API/CLI, immutable reruns, scope/identity limits, missing graphs,
-denied capabilities and conversation reference isolation. Final software checks
-and independent implementation reviews will be recorded in `validation.json`
-and `review.md` before publication. The full suite is run once after review.
+denied capabilities and conversation reference isolation. Strict mypy checks 70
+files and Ruff/formatting pass. The focused graph/text integration run passed
+31 tests, and 13 domain/scorer tests passed. [Independent reviews](review.md) have
+zero remaining findings on either axis. The single final full-suite run passed **304 tests**, with zero failures, errors or skips
+in 648.59 seconds. [Validation](validation.json) binds these results to `8d58624`;
+[the software report](software-tests.xml) retains the runner output. An existing
+Starlette/httpx deprecation warning remains.
 
 The pilot was captured while implementation was uncommitted: its `code_revision`
 is the starting HEAD and its application hash describes the capture-time working

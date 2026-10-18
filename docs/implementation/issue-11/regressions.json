@@ -38,7 +38,7 @@
     }
   ],
   "limitations": [
-    "Only four agent-reviewed claims in three spans from two source pages and related family groups.",
+    "Only four agent-reviewed claims in three spans from three source pages and related family groups.",
     "No human adjudication, independent canon corroboration, held-out evaluation or broad-corpus extraction reliability.",
     "Full-reference software tests demonstrate multi-hop SQL semantics separately from raw-pilot graph coverage.",
     "Wider relationship, correction and graph refresh lifecycle remain subsequent tickets."

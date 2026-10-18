@@ -1,6 +1,6 @@
 # 10: Answer biological family questions from admitted claims
 
-Status: approved and published as [GitHub #11](https://github.com/tomh1988-8/rag_demo/issues/11), labelled ready-for-agent; body and label verified on 23 September 2026. Plan version: 2. Implementation has not started.
+Status: approved and published as [GitHub #11](https://github.com/tomh1988-8/rag_demo/issues/11), labelled ready-for-agent; body and label verified on 23 September 2026. Plan version: 2. Implementation is complete and independently reviewed; final software checks pass. Publication and tracker closure are the remaining completion steps. See [the evidence](../../implementation/issue-11/README.md).
 
 Spec stories: S17, S18, S19, S30, S34, S38, S39, S41, S49, S52, S58, S59, S60, S61, S62, S67, S68, S71, S72, S73, S75, S77, S78, S79, S81, S98. Checklist evidence owner for: AD-05.2, EXT-02, EXT-03.
 
@@ -16,13 +16,13 @@ Pilot LlamaIndex structured extraction on a small, independently reviewed parent
 
 ## Acceptance criteria
 
-- [ ] Before the extraction pilot, review source spans, normalized identities, relation direction, negation, uncertainty, timing and complete-enough reference labels for the selected material. Extend the existing seed rather than treating candidate questions as validated facts.
-- [ ] Store extracted claims, arguments and evidence independently of graph projections. Apply explicit structure, support, identity, biological-meaning and contradiction checks; hold uncertain, conflicting or unsupported claims out of established graph relationships.
-- [ ] Thoroughly audit the initial small batch and record admission/review outcomes. Automated admission and shared-source agreement are not labelled independent verification.
-- [ ] Expose typed read-only ancestry/descendant tools with validated inputs, bounded traversal, defined no-result/failure outcomes and evidence-bearing results. Use explicit application SQL graph semantics, not a presumed pgvector graph adapter.
-- [ ] Return biological paths/results through the API and CLI with edge citations, snapshot, visible route override and real measurements. Step-parent, adoptive and ward ties must not change the biological tree; unsupported ancestry produces an honest limited outcome.
-- [ ] Add failing public/domain cases and real database/graph/API integration tests. Separately score schema validity, claim-value accuracy, evidence grounding and graph results. Define normalization, duplicate matching and annotation sufficiency before reporting extraction precision/recall/F1; include direction, identity and non-biological counterexamples.
-- [ ] Record applicable checklist results and revision-linked evidence in the project register, including failures, limitations and follow-up regressions. A documented plan alone does not pass an implementation check.
+- [x] Before the extraction pilot, review source spans, normalized identities, relation direction, negation, uncertainty, timing and complete-enough reference labels for the selected material. Extend the existing seed rather than treating candidate questions as validated facts.
+- [x] Store extracted claims, arguments and evidence independently of graph projections. Apply explicit structure, support, identity, biological-meaning and contradiction checks; hold uncertain, conflicting or unsupported claims out of established graph relationships.
+- [x] Thoroughly audit the initial small batch and record admission/review outcomes. Automated admission and shared-source agreement are not labelled independent verification.
+- [x] Expose typed read-only ancestry/descendant tools with validated inputs, bounded traversal, defined no-result/failure outcomes and evidence-bearing results. Use explicit application SQL graph semantics, not a presumed pgvector graph adapter.
+- [x] Return biological paths/results through the API and CLI with edge citations, snapshot, visible route override and real measurements. Step-parent, adoptive and ward ties must not change the biological tree; unsupported ancestry produces an honest limited outcome.
+- [x] Add failing public/domain cases and real database/graph/API integration tests. Separately score schema validity, claim-value accuracy, evidence grounding and graph results. Define normalization, duplicate matching and annotation sufficiency before reporting extraction precision/recall/F1; include direction, identity and non-biological counterexamples.
+- [x] Record applicable checklist results and revision-linked evidence in the project register, including failures, limitations and follow-up regressions. A documented plan alone does not pass an implementation check.
 
 ## Checklist evidence
 

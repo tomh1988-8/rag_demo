@@ -2,6 +2,40 @@
 
 Updated 18 October 2026. The user approved the initial checklist/ticket breakdown, authorised publication, and subsequently required user feedback and online evaluation. Checklist v1.1 and the amended 24-ticket breakdown are published. Issues #2–#10 are complete and closed. Issues #5–#8 passed their full software suites, independent reviews, exact-tree publication verification and closure readback. Issue #4 passed its scoped cloud policy acceptance.
 
+## Issue #11: biological family implementation accepted
+
+The [implementation and final evidence](../../implementation/issue-11/README.md)
+are accepted at `8d58624`; final publication and tracker closure are being completed.
+The graph route retains immutable extracted claims, content-bound reviews and
+admission outcomes separately from typed, bounded, read-only SQL biological paths.
+Explicit API/CLI overrides return edge evidence, source/graph fingerprints,
+measurements, saved receipts and actual traces with no answer-model calls.
+
+The single full suite passed **304 tests**, with zero failures, errors or skips.
+Strict mypy (70 files), Ruff/formatting and independent Standards/Spec reviews
+pass with zero remaining findings. Nine final HTTP/CLI responses, their actual
+MLflow root outputs and post-recreation receipt readback agree with the accepted
+source revision. All 26 prior data inputs and the frozen reference artifacts remain
+unchanged; pre-existing user work remains outside these commits.
+
+The four-claim Sol pilot passes schema and normalized values 4/4. Span resolution
+is 3/4 and strict full-reference grounding 2/4. The fully audited raw projection
+admits two Ben birth-parent edges, holds Peggy's malformed locator, and retains
+Den's adoption outside the biological tree. Actual graph path precision 1.0,
+recall 2/3 and F1 0.8 preserve the missing Peggy path as a quality/completeness
+failure. Full-reference software fixtures verify the supported multi-hop chain
+separately. No held-out, human-adjudicated or broad canon acceptance is claimed.
+
+One paid offline call cost **$0.0184885**; graph serving cost zero inference credits.
+Preserve the shared non-resetting $5 ledger at **$0.361573**, zero unsettled
+reservations. Scoped AD-05.2 and EXT-02/03 checks pass: **34 current checks Pass;
+17 remain Pending**. RAG-04 and EXT-04 retain their broader obligations.
+
+After verified publication and closure of #11, **#12 is next**. #13, #15, #19,
+#22 and #24 are also unblocked. Wait for the user's next implementation instruction.
+Install the pilot using the evidence README; rebuild the app image for these changes.
+Graph correction/refresh lifecycle and wider relationship families remain later work.
+
 ## Issue #10: bounded read-only execution accepted and closed
 
 [Implementation and evidence](../../implementation/issue-10/README.md) enforce
@@ -28,8 +62,8 @@ explicit publication authorization after automatic approval requested it. There
 is no current publication blocker. Validation made no paid calls; preserve the
 shared $5 ledger at **$0.343084**, with zero unsettled reservations.
 
-**#11 is next; #19, #22 and #24 are also unblocked.** Wait for the user's next
-implementation instruction. Rebuild the app image to use the new controls.
+That historical frontier is superseded by the current #11 handoff above.
+Rebuild the app image to use the new controls.
 
 ## Issue #9: actual quality comparison accepted and closed
 
@@ -215,7 +249,7 @@ The [to-spec skill](../../../.agents/skills/to-spec/SKILL.md) authorised specifi
 
 ## First available work
 
-**[#11 — Answer biological family questions from admitted claims](https://github.com/tomh1988-8/rag_demo/issues/11)** is next. #19 (Phil voice), #22 (feedback) and #24 (fusion/context expansion) are also unblocked. Wait for the next implementation instruction before starting another ticket. Specification #1 remains parent context.
+After #11 publication and closure, **[#12 — Explain family and romantic histories](https://github.com/tomh1988-8/rag_demo/issues/12)** is next. #13, #15, #19, #22 and #24 are also unblocked. Wait for the next implementation instruction before starting another ticket. Specification #1 remains parent context.
 
 For subsequent work, read the current issue and comments, the relevant domain/ADR decisions and the checklist profile. Work the dependency frontier; the shared `ready-for-agent` label does not mean a blocked ticket can begin. Existing approved decisions and the six public test boundaries do not need another design interview.
 
@@ -254,7 +288,7 @@ The “Blocked by” column contains **GitHub issue numbers**, which differ from
 
 - [Approved ticket breakdown](README.md), including rationale and the common evidence-completion pattern.
 - [Reusable checklist v1.1](../../checklists/agent-development.md).
-- [Ask Phil applicability profile and evidence register](../../checklists/ask-phil-profile.md): 51 current items, one deployment deferral and 12 N/A items. Thirty-one pass, including scoped conversation, quality-comparison and execution-control additions; 20 current obligations remain Pending. Actual quality failures, graph, fusion, cache, final held-out acceptance and automatic online-feedback obligations remain visible.
+- [Ask Phil applicability profile and evidence register](../../checklists/ask-phil-profile.md): 51 current items, one deployment deferral and 12 N/A items. Thirty-four pass, including scoped biological-tool and extraction-measurement additions; 17 current obligations remain Pending. Actual quality failures, graph, fusion, cache, final held-out acceptance and automatic online-feedback obligations remain visible.
 - [All 130 specification stories mapped to tickets](spec-coverage.md).
 - [Local specification](../../specs/ask-phil.md), [test/evaluation strategy](../../design/testing-and-evaluation.md), [domain glossary](../../../CONTEXT.md) and [architecture decisions](../../adr/).
 - [Publication manifest](publication.json), including issue IDs/URLs, approval, source fingerprints, readback verification and the outstanding native relationship operations.

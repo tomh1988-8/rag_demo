@@ -1,0 +1,1533 @@
+{
+  "application_sha256": "f02ea02dba4eb054362351f40ed3222a70ce7b3c569914a9ff4d34d104825d5c",
+  "snapshot_sha256": "118cb99db01b352e9b2793e56873962d9769e00df7c3764bb7201d8a7a281a06",
+  "graph_sha256": "a65ff3583121f9a48b7355f88c706fbaaf773e1765f9a0a9398ffee0f9343d95",
+  "admission": {
+    "batch_sha256": "f27b494b6aae9f754f2f901e92d3988c651e1a7f068bc9ddeb0b3b238f22af12",
+    "decisions": [
+      {
+        "claim_id": "phil-ben",
+        "status": "admitted",
+        "reasons": []
+      },
+      {
+        "claim_id": "kathy-ben",
+        "status": "admitted",
+        "reasons": []
+      },
+      {
+        "claim_id": "peggy-phil",
+        "status": "held",
+        "reasons": [
+          "evidence_span"
+        ]
+      },
+      {
+        "claim_id": "den-sharon",
+        "status": "held",
+        "reasons": [
+          "non_biological"
+        ]
+      }
+    ],
+    "limitation": "Admission requires a content-bound support review. It is not independent canon corroboration. Held claims remain inspectable outside the biological tree."
+  },
+  "responses": [
+    {
+      "case_id": "ben-ancestors",
+      "transport": "api",
+      "response": {
+        "response_id": "2ef8dfed-0094-4685-9e41-29d99dfb2939",
+        "question": "Show biological ancestors of ben-mitchell",
+        "status": "partial",
+        "answer": "Right, listen. Captured biological ancestors paths: Ben Mitchell → Kathy Beale; Ben Mitchell → Phil Mitchell. Only admitted biological relationships in this reviewed snapshot are traversed. Missing ancestry does not establish that a relationship does not exist. Results are incomplete outside the selected material and traversal bounds. Source-supported does not mean independently cross-checked.",
+        "unanswered": [
+          "Family coverage outside the reviewed spans and traversal bounds."
+        ],
+        "citations": [
+          {
+            "evidence_id": "family-ben-birth",
+            "text": "Ben is born to Phil Mitchell (Steve McFadden) and his then wife Kathy Beale (Gillian Taylforth) in March 1996.",
+            "sha256": "8179f5f0724cc08e5a5d51567fb7de0f8e55a4d5fc9881f5e050ae9d153eca08",
+            "start": 17983,
+            "end": 18093,
+            "source": {
+              "title": "Ben Mitchell",
+              "url": "https://en.wikipedia.org/wiki/Ben_Mitchell_(EastEnders)",
+              "revision_id": "1376729134",
+              "revision_url": "https://en.wikipedia.org/w/index.php?oldid=1376729134",
+              "section": "Storylines / 1996–2000",
+              "captured_at": "2026-10-17T13:07:31.530421Z",
+              "capture_sha256": "8ae0fbabb19cf12b2bdf46d7a85e15eea4462b8559584c770224a54a9e47d128",
+              "scope": "main_series",
+              "license_url": "https://creativecommons.org/licenses/by-sa/4.0/",
+              "attribution": "Wikipedia contributors; markup removed and whitespace normalized.",
+              "coverage": "Reviewed narrative sections in this captured revision only.",
+              "gaps": [
+                "Partial canon coverage; other paragraphs remain excluded or awaiting review.",
+                "Identity and episode metadata do not independently corroborate story claims."
+              ],
+              "support_status": "source_supported"
+            },
+            "location": {
+              "source_id": "ben-mitchell-wiki",
+              "paragraph_ordinal": 22,
+              "section_id": "1996–2000",
+              "character_ids": [
+                "ben-mitchell",
+                "kathy-beale",
+                "phil-mitchell"
+              ]
+            },
+            "resolve_path": "/v1/snapshots/family-pilot-v1/evidence/family-ben-birth"
+          }
+        ],
+        "snapshot_id": "family-pilot-v1",
+        "snapshot_sha256": "118cb99db01b352e9b2793e56873962d9769e00df7c3764bb7201d8a7a281a06",
+        "source": {
+          "title": "Ben Mitchell",
+          "url": "https://en.wikipedia.org/wiki/Ben_Mitchell_(EastEnders)",
+          "revision_id": "1376729134",
+          "revision_url": "https://en.wikipedia.org/w/index.php?oldid=1376729134",
+          "section": "Storylines / 1996–2000",
+          "captured_at": "2026-10-17T13:07:31.530421Z",
+          "capture_sha256": "8ae0fbabb19cf12b2bdf46d7a85e15eea4462b8559584c770224a54a9e47d128",
+          "scope": "main_series",
+          "license_url": "https://creativecommons.org/licenses/by-sa/4.0/",
+          "attribution": "Wikipedia contributors; markup removed and whitespace normalized.",
+          "coverage": "Reviewed narrative sections in this captured revision only.",
+          "gaps": [
+            "Partial canon coverage; other paragraphs remain excluded or awaiting review.",
+            "Identity and episode metadata do not independently corroborate story claims."
+          ],
+          "support_status": "source_supported"
+        },
+        "retrieved": [],
+        "context": [
+          {
+            "evidence_id": "family-ben-birth",
+            "text": "Ben is born to Phil Mitchell (Steve McFadden) and his then wife Kathy Beale (Gillian Taylforth) in March 1996.",
+            "sha256": "8179f5f0724cc08e5a5d51567fb7de0f8e55a4d5fc9881f5e050ae9d153eca08",
+            "start": 17983,
+            "end": 18093,
+            "source": {
+              "title": "Ben Mitchell",
+              "url": "https://en.wikipedia.org/wiki/Ben_Mitchell_(EastEnders)",
+              "revision_id": "1376729134",
+              "revision_url": "https://en.wikipedia.org/w/index.php?oldid=1376729134",
+              "section": "Storylines / 1996–2000",
+              "captured_at": "2026-10-17T13:07:31.530421Z",
+              "capture_sha256": "8ae0fbabb19cf12b2bdf46d7a85e15eea4462b8559584c770224a54a9e47d128",
+              "scope": "main_series",
+              "license_url": "https://creativecommons.org/licenses/by-sa/4.0/",
+              "attribution": "Wikipedia contributors; markup removed and whitespace normalized.",
+              "coverage": "Reviewed narrative sections in this captured revision only.",
+              "gaps": [
+                "Partial canon coverage; other paragraphs remain excluded or awaiting review.",
+                "Identity and episode metadata do not independently corroborate story claims."
+              ],
+              "support_status": "source_supported"
+            },
+            "location": {
+              "source_id": "ben-mitchell-wiki",
+              "paragraph_ordinal": 22,
+              "section_id": "1996–2000",
+              "character_ids": [
+                "ben-mitchell",
+                "kathy-beale",
+                "phil-mitchell"
+              ]
+            }
+          }
+        ],
+        "retrieval_k": 0,
+        "route": "graph",
+        "route_override": true,
+        "graph": {
+          "snapshot_id": "family-pilot-v1",
+          "snapshot_sha256": "118cb99db01b352e9b2793e56873962d9769e00df7c3764bb7201d8a7a281a06",
+          "graph_sha256": "a65ff3583121f9a48b7355f88c706fbaaf773e1765f9a0a9398ffee0f9343d95",
+          "query": {
+            "character_id": "ben-mitchell",
+            "direction": "ancestors",
+            "max_depth": 3,
+            "max_paths": 20
+          },
+          "status": "found",
+          "paths": [
+            {
+              "characters": [
+                "ben-mitchell",
+                "kathy-beale"
+              ],
+              "edges": [
+                {
+                  "parent_id": "kathy-beale",
+                  "child_id": "ben-mitchell",
+                  "claim_ids": [
+                    "kathy-ben"
+                  ],
+                  "evidence": [
+                    {
+                      "evidence_id": "family-ben-birth",
+                      "start": 0,
+                      "end": 110,
+                      "quote": "Ben is born to Phil Mitchell (Steve McFadden) and his then wife Kathy Beale (Gillian Taylforth) in March 1996."
+                    }
+                  ]
+                }
+              ]
+            },
+            {
+              "characters": [
+                "ben-mitchell",
+                "phil-mitchell"
+              ],
+              "edges": [
+                {
+                  "parent_id": "phil-mitchell",
+                  "child_id": "ben-mitchell",
+                  "claim_ids": [
+                    "phil-ben"
+                  ],
+                  "evidence": [
+                    {
+                      "evidence_id": "family-ben-birth",
+                      "start": 0,
+                      "end": 110,
+                      "quote": "Ben is born to Phil Mitchell (Steve McFadden) and his then wife Kathy Beale (Gillian Taylforth) in March 1996."
+                    }
+                  ]
+                }
+              ]
+            }
+          ],
+          "names": {
+            "phil-mitchell": "Phil Mitchell",
+            "grant-mitchell": "Grant Mitchell",
+            "peggy-mitchell": "Peggy Mitchell",
+            "sharon-watts": "Sharon Watts",
+            "ben-mitchell": "Ben Mitchell",
+            "kathy-beale": "Kathy Beale",
+            "den-watts": "Den Watts"
+          },
+          "limitation": "Only admitted biological relationships in this reviewed snapshot are traversed. Missing ancestry does not establish that a relationship does not exist. Results are incomplete outside the selected material and traversal bounds. Source-supported does not mean independently cross-checked."
+        },
+        "baseline_version": "single-query-uncached-v1",
+        "model_settings": null,
+        "prompt_sha256": "c4f9de91a5c4419d0f69dd2fad73485382fa6e6321583b36f7e255e2b3454341",
+        "application_sha256": "f02ea02dba4eb054362351f40ed3222a70ce7b3c569914a9ff4d34d104825d5c",
+        "trace_id": "tr-4e992c8896da03ec2232b84a8df075ce",
+        "execution": {
+          "limits": {
+            "model_calls": 2,
+            "tool_calls": 1,
+            "http_calls": 8,
+            "seconds": 180.0,
+            "context_bytes": 1200,
+            "spend_usd": "0.15",
+            "retries": 0,
+            "capabilities": [
+              "text_retrieval",
+              "family_graph"
+            ],
+            "concurrency": 4
+          },
+          "model_calls": 0,
+          "tool_calls": 1,
+          "http_calls": 0,
+          "reserved_usd": "0",
+          "stop_reason": null
+        },
+        "elapsed_ms": 176.49445100687444,
+        "usage": {
+          "input_tokens": 0,
+          "output_tokens": 0,
+          "embedding_tokens": 0
+        },
+        "expenditure_category": "serving",
+        "estimated_api_cost_usd": 0.0,
+        "cost_scope": "No inference calls. Database and hosting costs are excluded.",
+        "limitation": "Only admitted biological relationships in this reviewed snapshot are traversed. Missing ancestry does not establish that a relationship does not exist. Results are incomplete outside the selected material and traversal bounds. Source-supported does not mean independently cross-checked."
+      },
+      "http_elapsed_ms": 2038.561251014471,
+      "all_citations_resolve": true
+    },
+    {
+      "case_id": "phil-descendants",
+      "transport": "api",
+      "response": {
+        "response_id": "59fe4b72-e754-44bf-bbde-d041788c9f1e",
+        "question": "Show biological descendants of phil-mitchell",
+        "status": "partial",
+        "answer": "Right, listen. Captured biological descendants paths: Phil Mitchell → Ben Mitchell. Only admitted biological relationships in this reviewed snapshot are traversed. Missing ancestry does not establish that a relationship does not exist. Results are incomplete outside the selected material and traversal bounds. Source-supported does not mean independently cross-checked.",
+        "unanswered": [
+          "Family coverage outside the reviewed spans and traversal bounds."
+        ],
+        "citations": [
+          {
+            "evidence_id": "family-ben-birth",
+            "text": "Ben is born to Phil Mitchell (Steve McFadden) and his then wife Kathy Beale (Gillian Taylforth) in March 1996.",
+            "sha256": "8179f5f0724cc08e5a5d51567fb7de0f8e55a4d5fc9881f5e050ae9d153eca08",
+            "start": 17983,
+            "end": 18093,
+            "source": {
+              "title": "Ben Mitchell",
+              "url": "https://en.wikipedia.org/wiki/Ben_Mitchell_(EastEnders)",
+              "revision_id": "1376729134",
+              "revision_url": "https://en.wikipedia.org/w/index.php?oldid=1376729134",
+              "section": "Storylines / 1996–2000",
+              "captured_at": "2026-10-17T13:07:31.530421Z",
+              "capture_sha256": "8ae0fbabb19cf12b2bdf46d7a85e15eea4462b8559584c770224a54a9e47d128",
+              "scope": "main_series",
+              "license_url": "https://creativecommons.org/licenses/by-sa/4.0/",
+              "attribution": "Wikipedia contributors; markup removed and whitespace normalized.",
+              "coverage": "Reviewed narrative sections in this captured revision only.",
+              "gaps": [
+                "Partial canon coverage; other paragraphs remain excluded or awaiting review.",
+                "Identity and episode metadata do not independently corroborate story claims."
+              ],
+              "support_status": "source_supported"
+            },
+            "location": {
+              "source_id": "ben-mitchell-wiki",
+              "paragraph_ordinal": 22,
+              "section_id": "1996–2000",
+              "character_ids": [
+                "ben-mitchell",
+                "kathy-beale",
+                "phil-mitchell"
+              ]
+            },
+            "resolve_path": "/v1/snapshots/family-pilot-v1/evidence/family-ben-birth"
+          }
+        ],
+        "snapshot_id": "family-pilot-v1",
+        "snapshot_sha256": "118cb99db01b352e9b2793e56873962d9769e00df7c3764bb7201d8a7a281a06",
+        "source": {
+          "title": "Ben Mitchell",
+          "url": "https://en.wikipedia.org/wiki/Ben_Mitchell_(EastEnders)",
+          "revision_id": "1376729134",
+          "revision_url": "https://en.wikipedia.org/w/index.php?oldid=1376729134",
+          "section": "Storylines / 1996–2000",
+          "captured_at": "2026-10-17T13:07:31.530421Z",
+          "capture_sha256": "8ae0fbabb19cf12b2bdf46d7a85e15eea4462b8559584c770224a54a9e47d128",
+          "scope": "main_series",
+          "license_url": "https://creativecommons.org/licenses/by-sa/4.0/",
+          "attribution": "Wikipedia contributors; markup removed and whitespace normalized.",
+          "coverage": "Reviewed narrative sections in this captured revision only.",
+          "gaps": [
+            "Partial canon coverage; other paragraphs remain excluded or awaiting review.",
+            "Identity and episode metadata do not independently corroborate story claims."
+          ],
+          "support_status": "source_supported"
+        },
+        "retrieved": [],
+        "context": [
+          {
+            "evidence_id": "family-ben-birth",
+            "text": "Ben is born to Phil Mitchell (Steve McFadden) and his then wife Kathy Beale (Gillian Taylforth) in March 1996.",
+            "sha256": "8179f5f0724cc08e5a5d51567fb7de0f8e55a4d5fc9881f5e050ae9d153eca08",
+            "start": 17983,
+            "end": 18093,
+            "source": {
+              "title": "Ben Mitchell",
+              "url": "https://en.wikipedia.org/wiki/Ben_Mitchell_(EastEnders)",
+              "revision_id": "1376729134",
+              "revision_url": "https://en.wikipedia.org/w/index.php?oldid=1376729134",
+              "section": "Storylines / 1996–2000",
+              "captured_at": "2026-10-17T13:07:31.530421Z",
+              "capture_sha256": "8ae0fbabb19cf12b2bdf46d7a85e15eea4462b8559584c770224a54a9e47d128",
+              "scope": "main_series",
+              "license_url": "https://creativecommons.org/licenses/by-sa/4.0/",
+              "attribution": "Wikipedia contributors; markup removed and whitespace normalized.",
+              "coverage": "Reviewed narrative sections in this captured revision only.",
+              "gaps": [
+                "Partial canon coverage; other paragraphs remain excluded or awaiting review.",
+                "Identity and episode metadata do not independently corroborate story claims."
+              ],
+              "support_status": "source_supported"
+            },
+            "location": {
+              "source_id": "ben-mitchell-wiki",
+              "paragraph_ordinal": 22,
+              "section_id": "1996–2000",
+              "character_ids": [
+                "ben-mitchell",
+                "kathy-beale",
+                "phil-mitchell"
+              ]
+            }
+          }
+        ],
+        "retrieval_k": 0,
+        "route": "graph",
+        "route_override": true,
+        "graph": {
+          "snapshot_id": "family-pilot-v1",
+          "snapshot_sha256": "118cb99db01b352e9b2793e56873962d9769e00df7c3764bb7201d8a7a281a06",
+          "graph_sha256": "a65ff3583121f9a48b7355f88c706fbaaf773e1765f9a0a9398ffee0f9343d95",
+          "query": {
+            "character_id": "phil-mitchell",
+            "direction": "descendants",
+            "max_depth": 3,
+            "max_paths": 20
+          },
+          "status": "found",
+          "paths": [
+            {
+              "characters": [
+                "phil-mitchell",
+                "ben-mitchell"
+              ],
+              "edges": [
+                {
+                  "parent_id": "phil-mitchell",
+                  "child_id": "ben-mitchell",
+                  "claim_ids": [
+                    "phil-ben"
+                  ],
+                  "evidence": [
+                    {
+                      "evidence_id": "family-ben-birth",
+                      "start": 0,
+                      "end": 110,
+                      "quote": "Ben is born to Phil Mitchell (Steve McFadden) and his then wife Kathy Beale (Gillian Taylforth) in March 1996."
+                    }
+                  ]
+                }
+              ]
+            }
+          ],
+          "names": {
+            "phil-mitchell": "Phil Mitchell",
+            "grant-mitchell": "Grant Mitchell",
+            "peggy-mitchell": "Peggy Mitchell",
+            "sharon-watts": "Sharon Watts",
+            "ben-mitchell": "Ben Mitchell",
+            "kathy-beale": "Kathy Beale",
+            "den-watts": "Den Watts"
+          },
+          "limitation": "Only admitted biological relationships in this reviewed snapshot are traversed. Missing ancestry does not establish that a relationship does not exist. Results are incomplete outside the selected material and traversal bounds. Source-supported does not mean independently cross-checked."
+        },
+        "baseline_version": "single-query-uncached-v1",
+        "model_settings": null,
+        "prompt_sha256": "c4f9de91a5c4419d0f69dd2fad73485382fa6e6321583b36f7e255e2b3454341",
+        "application_sha256": "f02ea02dba4eb054362351f40ed3222a70ce7b3c569914a9ff4d34d104825d5c",
+        "trace_id": "tr-aaa14b34b4585c84a942f864f60b6f64",
+        "execution": {
+          "limits": {
+            "model_calls": 2,
+            "tool_calls": 1,
+            "http_calls": 8,
+            "seconds": 180.0,
+            "context_bytes": 1200,
+            "spend_usd": "0.15",
+            "retries": 0,
+            "capabilities": [
+              "text_retrieval",
+              "family_graph"
+            ],
+            "concurrency": 4
+          },
+          "model_calls": 0,
+          "tool_calls": 1,
+          "http_calls": 0,
+          "reserved_usd": "0",
+          "stop_reason": null
+        },
+        "elapsed_ms": 84.9530250125099,
+        "usage": {
+          "input_tokens": 0,
+          "output_tokens": 0,
+          "embedding_tokens": 0
+        },
+        "expenditure_category": "serving",
+        "estimated_api_cost_usd": 0.0,
+        "cost_scope": "No inference calls. Database and hosting costs are excluded.",
+        "limitation": "Only admitted biological relationships in this reviewed snapshot are traversed. Missing ancestry does not establish that a relationship does not exist. Results are incomplete outside the selected material and traversal bounds. Source-supported does not mean independently cross-checked."
+      },
+      "http_elapsed_ms": 1244.0899509820156,
+      "all_citations_resolve": true
+    },
+    {
+      "case_id": "held-peggy",
+      "transport": "api",
+      "response": {
+        "response_id": "cafc2b2e-16a3-467a-9b86-dff9b27c29d3",
+        "question": "Show biological descendants of peggy-mitchell",
+        "status": "insufficient_evidence",
+        "answer": "I can't establish the requested biological paths from this graph (empty). Only admitted biological relationships in this reviewed snapshot are traversed. Missing ancestry does not establish that a relationship does not exist. Results are incomplete outside the selected material and traversal bounds. Source-supported does not mean independently cross-checked.",
+        "unanswered": [
+          "Family coverage outside the reviewed spans and traversal bounds."
+        ],
+        "citations": [],
+        "snapshot_id": "family-pilot-v1",
+        "snapshot_sha256": "118cb99db01b352e9b2793e56873962d9769e00df7c3764bb7201d8a7a281a06",
+        "source": {
+          "title": "Ben Mitchell",
+          "url": "https://en.wikipedia.org/wiki/Ben_Mitchell_(EastEnders)",
+          "revision_id": "1376729134",
+          "revision_url": "https://en.wikipedia.org/w/index.php?oldid=1376729134",
+          "section": "Storylines / 1996–2000",
+          "captured_at": "2026-10-17T13:07:31.530421Z",
+          "capture_sha256": "8ae0fbabb19cf12b2bdf46d7a85e15eea4462b8559584c770224a54a9e47d128",
+          "scope": "main_series",
+          "license_url": "https://creativecommons.org/licenses/by-sa/4.0/",
+          "attribution": "Wikipedia contributors; markup removed and whitespace normalized.",
+          "coverage": "Reviewed narrative sections in this captured revision only.",
+          "gaps": [
+            "Partial canon coverage; other paragraphs remain excluded or awaiting review.",
+            "Identity and episode metadata do not independently corroborate story claims."
+          ],
+          "support_status": "source_supported"
+        },
+        "retrieved": [],
+        "context": [],
+        "retrieval_k": 0,
+        "route": "graph",
+        "route_override": true,
+        "graph": {
+          "snapshot_id": "family-pilot-v1",
+          "snapshot_sha256": "118cb99db01b352e9b2793e56873962d9769e00df7c3764bb7201d8a7a281a06",
+          "graph_sha256": "a65ff3583121f9a48b7355f88c706fbaaf773e1765f9a0a9398ffee0f9343d95",
+          "query": {
+            "character_id": "peggy-mitchell",
+            "direction": "descendants",
+            "max_depth": 3,
+            "max_paths": 20
+          },
+          "status": "empty",
+          "paths": [],
+          "names": {
+            "phil-mitchell": "Phil Mitchell",
+            "grant-mitchell": "Grant Mitchell",
+            "peggy-mitchell": "Peggy Mitchell",
+            "sharon-watts": "Sharon Watts",
+            "ben-mitchell": "Ben Mitchell",
+            "kathy-beale": "Kathy Beale",
+            "den-watts": "Den Watts"
+          },
+          "limitation": "Only admitted biological relationships in this reviewed snapshot are traversed. Missing ancestry does not establish that a relationship does not exist. Results are incomplete outside the selected material and traversal bounds. Source-supported does not mean independently cross-checked."
+        },
+        "baseline_version": "single-query-uncached-v1",
+        "model_settings": null,
+        "prompt_sha256": "c4f9de91a5c4419d0f69dd2fad73485382fa6e6321583b36f7e255e2b3454341",
+        "application_sha256": "f02ea02dba4eb054362351f40ed3222a70ce7b3c569914a9ff4d34d104825d5c",
+        "trace_id": "tr-e74599dc29c9df95244ae16958eb5103",
+        "execution": {
+          "limits": {
+            "model_calls": 2,
+            "tool_calls": 1,
+            "http_calls": 8,
+            "seconds": 180.0,
+            "context_bytes": 1200,
+            "spend_usd": "0.15",
+            "retries": 0,
+            "capabilities": [
+              "text_retrieval",
+              "family_graph"
+            ],
+            "concurrency": 4
+          },
+          "model_calls": 0,
+          "tool_calls": 1,
+          "http_calls": 0,
+          "reserved_usd": "0",
+          "stop_reason": null
+        },
+        "elapsed_ms": 88.10208199429326,
+        "usage": {
+          "input_tokens": 0,
+          "output_tokens": 0,
+          "embedding_tokens": 0
+        },
+        "expenditure_category": "serving",
+        "estimated_api_cost_usd": 0.0,
+        "cost_scope": "No inference calls. Database and hosting costs are excluded.",
+        "limitation": "Only admitted biological relationships in this reviewed snapshot are traversed. Missing ancestry does not establish that a relationship does not exist. Results are incomplete outside the selected material and traversal bounds. Source-supported does not mean independently cross-checked."
+      },
+      "http_elapsed_ms": 1235.8379650104325,
+      "all_citations_resolve": true
+    },
+    {
+      "case_id": "adopted-sharon",
+      "transport": "api",
+      "response": {
+        "response_id": "2bbd285c-442e-474c-9997-e24ff315c02e",
+        "question": "Show biological ancestors of sharon-watts",
+        "status": "insufficient_evidence",
+        "answer": "I can't establish the requested biological paths from this graph (empty). Only admitted biological relationships in this reviewed snapshot are traversed. Missing ancestry does not establish that a relationship does not exist. Results are incomplete outside the selected material and traversal bounds. Source-supported does not mean independently cross-checked.",
+        "unanswered": [
+          "Family coverage outside the reviewed spans and traversal bounds."
+        ],
+        "citations": [],
+        "snapshot_id": "family-pilot-v1",
+        "snapshot_sha256": "118cb99db01b352e9b2793e56873962d9769e00df7c3764bb7201d8a7a281a06",
+        "source": {
+          "title": "Ben Mitchell",
+          "url": "https://en.wikipedia.org/wiki/Ben_Mitchell_(EastEnders)",
+          "revision_id": "1376729134",
+          "revision_url": "https://en.wikipedia.org/w/index.php?oldid=1376729134",
+          "section": "Storylines / 1996–2000",
+          "captured_at": "2026-10-17T13:07:31.530421Z",
+          "capture_sha256": "8ae0fbabb19cf12b2bdf46d7a85e15eea4462b8559584c770224a54a9e47d128",
+          "scope": "main_series",
+          "license_url": "https://creativecommons.org/licenses/by-sa/4.0/",
+          "attribution": "Wikipedia contributors; markup removed and whitespace normalized.",
+          "coverage": "Reviewed narrative sections in this captured revision only.",
+          "gaps": [
+            "Partial canon coverage; other paragraphs remain excluded or awaiting review.",
+            "Identity and episode metadata do not independently corroborate story claims."
+          ],
+          "support_status": "source_supported"
+        },
+        "retrieved": [],
+        "context": [],
+        "retrieval_k": 0,
+        "route": "graph",
+        "route_override": true,
+        "graph": {
+          "snapshot_id": "family-pilot-v1",
+          "snapshot_sha256": "118cb99db01b352e9b2793e56873962d9769e00df7c3764bb7201d8a7a281a06",
+          "graph_sha256": "a65ff3583121f9a48b7355f88c706fbaaf773e1765f9a0a9398ffee0f9343d95",
+          "query": {
+            "character_id": "sharon-watts",
+            "direction": "ancestors",
+            "max_depth": 3,
+            "max_paths": 20
+          },
+          "status": "empty",
+          "paths": [],
+          "names": {
+            "phil-mitchell": "Phil Mitchell",
+            "grant-mitchell": "Grant Mitchell",
+            "peggy-mitchell": "Peggy Mitchell",
+            "sharon-watts": "Sharon Watts",
+            "ben-mitchell": "Ben Mitchell",
+            "kathy-beale": "Kathy Beale",
+            "den-watts": "Den Watts"
+          },
+          "limitation": "Only admitted biological relationships in this reviewed snapshot are traversed. Missing ancestry does not establish that a relationship does not exist. Results are incomplete outside the selected material and traversal bounds. Source-supported does not mean independently cross-checked."
+        },
+        "baseline_version": "single-query-uncached-v1",
+        "model_settings": null,
+        "prompt_sha256": "c4f9de91a5c4419d0f69dd2fad73485382fa6e6321583b36f7e255e2b3454341",
+        "application_sha256": "f02ea02dba4eb054362351f40ed3222a70ce7b3c569914a9ff4d34d104825d5c",
+        "trace_id": "tr-74439ac666bc78d040d53113c9c4b083",
+        "execution": {
+          "limits": {
+            "model_calls": 2,
+            "tool_calls": 1,
+            "http_calls": 8,
+            "seconds": 180.0,
+            "context_bytes": 1200,
+            "spend_usd": "0.15",
+            "retries": 0,
+            "capabilities": [
+              "text_retrieval",
+              "family_graph"
+            ],
+            "concurrency": 4
+          },
+          "model_calls": 0,
+          "tool_calls": 1,
+          "http_calls": 0,
+          "reserved_usd": "0",
+          "stop_reason": null
+        },
+        "elapsed_ms": 79.81446199119091,
+        "usage": {
+          "input_tokens": 0,
+          "output_tokens": 0,
+          "embedding_tokens": 0
+        },
+        "expenditure_category": "serving",
+        "estimated_api_cost_usd": 0.0,
+        "cost_scope": "No inference calls. Database and hosting costs are excluded.",
+        "limitation": "Only admitted biological relationships in this reviewed snapshot are traversed. Missing ancestry does not establish that a relationship does not exist. Results are incomplete outside the selected material and traversal bounds. Source-supported does not mean independently cross-checked."
+      },
+      "http_elapsed_ms": 1234.687671996653,
+      "all_citations_resolve": true
+    },
+    {
+      "case_id": "adoptive-den",
+      "transport": "api",
+      "response": {
+        "response_id": "3289f9e5-3130-4fe5-b1df-fddcf1b3e8c6",
+        "question": "Show biological descendants of den-watts",
+        "status": "insufficient_evidence",
+        "answer": "I can't establish the requested biological paths from this graph (empty). Only admitted biological relationships in this reviewed snapshot are traversed. Missing ancestry does not establish that a relationship does not exist. Results are incomplete outside the selected material and traversal bounds. Source-supported does not mean independently cross-checked.",
+        "unanswered": [
+          "Family coverage outside the reviewed spans and traversal bounds."
+        ],
+        "citations": [],
+        "snapshot_id": "family-pilot-v1",
+        "snapshot_sha256": "118cb99db01b352e9b2793e56873962d9769e00df7c3764bb7201d8a7a281a06",
+        "source": {
+          "title": "Ben Mitchell",
+          "url": "https://en.wikipedia.org/wiki/Ben_Mitchell_(EastEnders)",
+          "revision_id": "1376729134",
+          "revision_url": "https://en.wikipedia.org/w/index.php?oldid=1376729134",
+          "section": "Storylines / 1996–2000",
+          "captured_at": "2026-10-17T13:07:31.530421Z",
+          "capture_sha256": "8ae0fbabb19cf12b2bdf46d7a85e15eea4462b8559584c770224a54a9e47d128",
+          "scope": "main_series",
+          "license_url": "https://creativecommons.org/licenses/by-sa/4.0/",
+          "attribution": "Wikipedia contributors; markup removed and whitespace normalized.",
+          "coverage": "Reviewed narrative sections in this captured revision only.",
+          "gaps": [
+            "Partial canon coverage; other paragraphs remain excluded or awaiting review.",
+            "Identity and episode metadata do not independently corroborate story claims."
+          ],
+          "support_status": "source_supported"
+        },
+        "retrieved": [],
+        "context": [],
+        "retrieval_k": 0,
+        "route": "graph",
+        "route_override": true,
+        "graph": {
+          "snapshot_id": "family-pilot-v1",
+          "snapshot_sha256": "118cb99db01b352e9b2793e56873962d9769e00df7c3764bb7201d8a7a281a06",
+          "graph_sha256": "a65ff3583121f9a48b7355f88c706fbaaf773e1765f9a0a9398ffee0f9343d95",
+          "query": {
+            "character_id": "den-watts",
+            "direction": "descendants",
+            "max_depth": 3,
+            "max_paths": 20
+          },
+          "status": "empty",
+          "paths": [],
+          "names": {
+            "phil-mitchell": "Phil Mitchell",
+            "grant-mitchell": "Grant Mitchell",
+            "peggy-mitchell": "Peggy Mitchell",
+            "sharon-watts": "Sharon Watts",
+            "ben-mitchell": "Ben Mitchell",
+            "kathy-beale": "Kathy Beale",
+            "den-watts": "Den Watts"
+          },
+          "limitation": "Only admitted biological relationships in this reviewed snapshot are traversed. Missing ancestry does not establish that a relationship does not exist. Results are incomplete outside the selected material and traversal bounds. Source-supported does not mean independently cross-checked."
+        },
+        "baseline_version": "single-query-uncached-v1",
+        "model_settings": null,
+        "prompt_sha256": "c4f9de91a5c4419d0f69dd2fad73485382fa6e6321583b36f7e255e2b3454341",
+        "application_sha256": "f02ea02dba4eb054362351f40ed3222a70ce7b3c569914a9ff4d34d104825d5c",
+        "trace_id": "tr-93f40437d69d6debba5116b1f79049fb",
+        "execution": {
+          "limits": {
+            "model_calls": 2,
+            "tool_calls": 1,
+            "http_calls": 8,
+            "seconds": 180.0,
+            "context_bytes": 1200,
+            "spend_usd": "0.15",
+            "retries": 0,
+            "capabilities": [
+              "text_retrieval",
+              "family_graph"
+            ],
+            "concurrency": 4
+          },
+          "model_calls": 0,
+          "tool_calls": 1,
+          "http_calls": 0,
+          "reserved_usd": "0",
+          "stop_reason": null
+        },
+        "elapsed_ms": 59.94652499794029,
+        "usage": {
+          "input_tokens": 0,
+          "output_tokens": 0,
+          "embedding_tokens": 0
+        },
+        "expenditure_category": "serving",
+        "estimated_api_cost_usd": 0.0,
+        "cost_scope": "No inference calls. Database and hosting costs are excluded.",
+        "limitation": "Only admitted biological relationships in this reviewed snapshot are traversed. Missing ancestry does not establish that a relationship does not exist. Results are incomplete outside the selected material and traversal bounds. Source-supported does not mean independently cross-checked."
+      },
+      "http_elapsed_ms": 1233.6530839966144,
+      "all_citations_resolve": true
+    },
+    {
+      "case_id": "uncovered-grant",
+      "transport": "api",
+      "response": {
+        "response_id": "75d3e59d-3e94-4c58-b79f-9ab9236c9dfd",
+        "question": "Show biological ancestors of grant-mitchell",
+        "status": "insufficient_evidence",
+        "answer": "I can't establish the requested biological paths from this graph (empty). Only admitted biological relationships in this reviewed snapshot are traversed. Missing ancestry does not establish that a relationship does not exist. Results are incomplete outside the selected material and traversal bounds. Source-supported does not mean independently cross-checked.",
+        "unanswered": [
+          "Family coverage outside the reviewed spans and traversal bounds."
+        ],
+        "citations": [],
+        "snapshot_id": "family-pilot-v1",
+        "snapshot_sha256": "118cb99db01b352e9b2793e56873962d9769e00df7c3764bb7201d8a7a281a06",
+        "source": {
+          "title": "Ben Mitchell",
+          "url": "https://en.wikipedia.org/wiki/Ben_Mitchell_(EastEnders)",
+          "revision_id": "1376729134",
+          "revision_url": "https://en.wikipedia.org/w/index.php?oldid=1376729134",
+          "section": "Storylines / 1996–2000",
+          "captured_at": "2026-10-17T13:07:31.530421Z",
+          "capture_sha256": "8ae0fbabb19cf12b2bdf46d7a85e15eea4462b8559584c770224a54a9e47d128",
+          "scope": "main_series",
+          "license_url": "https://creativecommons.org/licenses/by-sa/4.0/",
+          "attribution": "Wikipedia contributors; markup removed and whitespace normalized.",
+          "coverage": "Reviewed narrative sections in this captured revision only.",
+          "gaps": [
+            "Partial canon coverage; other paragraphs remain excluded or awaiting review.",
+            "Identity and episode metadata do not independently corroborate story claims."
+          ],
+          "support_status": "source_supported"
+        },
+        "retrieved": [],
+        "context": [],
+        "retrieval_k": 0,
+        "route": "graph",
+        "route_override": true,
+        "graph": {
+          "snapshot_id": "family-pilot-v1",
+          "snapshot_sha256": "118cb99db01b352e9b2793e56873962d9769e00df7c3764bb7201d8a7a281a06",
+          "graph_sha256": "a65ff3583121f9a48b7355f88c706fbaaf773e1765f9a0a9398ffee0f9343d95",
+          "query": {
+            "character_id": "grant-mitchell",
+            "direction": "ancestors",
+            "max_depth": 3,
+            "max_paths": 20
+          },
+          "status": "empty",
+          "paths": [],
+          "names": {
+            "phil-mitchell": "Phil Mitchell",
+            "grant-mitchell": "Grant Mitchell",
+            "peggy-mitchell": "Peggy Mitchell",
+            "sharon-watts": "Sharon Watts",
+            "ben-mitchell": "Ben Mitchell",
+            "kathy-beale": "Kathy Beale",
+            "den-watts": "Den Watts"
+          },
+          "limitation": "Only admitted biological relationships in this reviewed snapshot are traversed. Missing ancestry does not establish that a relationship does not exist. Results are incomplete outside the selected material and traversal bounds. Source-supported does not mean independently cross-checked."
+        },
+        "baseline_version": "single-query-uncached-v1",
+        "model_settings": null,
+        "prompt_sha256": "c4f9de91a5c4419d0f69dd2fad73485382fa6e6321583b36f7e255e2b3454341",
+        "application_sha256": "f02ea02dba4eb054362351f40ed3222a70ce7b3c569914a9ff4d34d104825d5c",
+        "trace_id": "tr-1d24840ebd3ba1fab1c0523eedaf24f8",
+        "execution": {
+          "limits": {
+            "model_calls": 2,
+            "tool_calls": 1,
+            "http_calls": 8,
+            "seconds": 180.0,
+            "context_bytes": 1200,
+            "spend_usd": "0.15",
+            "retries": 0,
+            "capabilities": [
+              "text_retrieval",
+              "family_graph"
+            ],
+            "concurrency": 4
+          },
+          "model_calls": 0,
+          "tool_calls": 1,
+          "http_calls": 0,
+          "reserved_usd": "0",
+          "stop_reason": null
+        },
+        "elapsed_ms": 100.20133000216447,
+        "usage": {
+          "input_tokens": 0,
+          "output_tokens": 0,
+          "embedding_tokens": 0
+        },
+        "expenditure_category": "serving",
+        "estimated_api_cost_usd": 0.0,
+        "cost_scope": "No inference calls. Database and hosting costs are excluded.",
+        "limitation": "Only admitted biological relationships in this reviewed snapshot are traversed. Missing ancestry does not establish that a relationship does not exist. Results are incomplete outside the selected material and traversal bounds. Source-supported does not mean independently cross-checked."
+      },
+      "http_elapsed_ms": 1258.9009679795709,
+      "all_citations_resolve": true
+    },
+    {
+      "case_id": "performer-id",
+      "transport": "api",
+      "response": {
+        "response_id": "33feaec8-257b-4fd2-98c0-aeb0fadef99b",
+        "question": "Show biological ancestors of steve-mcfadden",
+        "status": "insufficient_evidence",
+        "answer": "I can't establish the requested biological paths from this graph (unknown_character). Only admitted biological relationships in this reviewed snapshot are traversed. Missing ancestry does not establish that a relationship does not exist. Results are incomplete outside the selected material and traversal bounds. Source-supported does not mean independently cross-checked.",
+        "unanswered": [
+          "Family coverage outside the reviewed spans and traversal bounds."
+        ],
+        "citations": [],
+        "snapshot_id": "family-pilot-v1",
+        "snapshot_sha256": "118cb99db01b352e9b2793e56873962d9769e00df7c3764bb7201d8a7a281a06",
+        "source": {
+          "title": "Ben Mitchell",
+          "url": "https://en.wikipedia.org/wiki/Ben_Mitchell_(EastEnders)",
+          "revision_id": "1376729134",
+          "revision_url": "https://en.wikipedia.org/w/index.php?oldid=1376729134",
+          "section": "Storylines / 1996–2000",
+          "captured_at": "2026-10-17T13:07:31.530421Z",
+          "capture_sha256": "8ae0fbabb19cf12b2bdf46d7a85e15eea4462b8559584c770224a54a9e47d128",
+          "scope": "main_series",
+          "license_url": "https://creativecommons.org/licenses/by-sa/4.0/",
+          "attribution": "Wikipedia contributors; markup removed and whitespace normalized.",
+          "coverage": "Reviewed narrative sections in this captured revision only.",
+          "gaps": [
+            "Partial canon coverage; other paragraphs remain excluded or awaiting review.",
+            "Identity and episode metadata do not independently corroborate story claims."
+          ],
+          "support_status": "source_supported"
+        },
+        "retrieved": [],
+        "context": [],
+        "retrieval_k": 0,
+        "route": "graph",
+        "route_override": true,
+        "graph": {
+          "snapshot_id": "family-pilot-v1",
+          "snapshot_sha256": "118cb99db01b352e9b2793e56873962d9769e00df7c3764bb7201d8a7a281a06",
+          "graph_sha256": "a65ff3583121f9a48b7355f88c706fbaaf773e1765f9a0a9398ffee0f9343d95",
+          "query": {
+            "character_id": "steve-mcfadden",
+            "direction": "ancestors",
+            "max_depth": 3,
+            "max_paths": 20
+          },
+          "status": "unknown_character",
+          "paths": [],
+          "names": {
+            "phil-mitchell": "Phil Mitchell",
+            "grant-mitchell": "Grant Mitchell",
+            "peggy-mitchell": "Peggy Mitchell",
+            "sharon-watts": "Sharon Watts",
+            "ben-mitchell": "Ben Mitchell",
+            "kathy-beale": "Kathy Beale",
+            "den-watts": "Den Watts"
+          },
+          "limitation": "Only admitted biological relationships in this reviewed snapshot are traversed. Missing ancestry does not establish that a relationship does not exist. Results are incomplete outside the selected material and traversal bounds. Source-supported does not mean independently cross-checked."
+        },
+        "baseline_version": "single-query-uncached-v1",
+        "model_settings": null,
+        "prompt_sha256": "c4f9de91a5c4419d0f69dd2fad73485382fa6e6321583b36f7e255e2b3454341",
+        "application_sha256": "f02ea02dba4eb054362351f40ed3222a70ce7b3c569914a9ff4d34d104825d5c",
+        "trace_id": "tr-51df24d5085807e91bf6ee37f6c92f9c",
+        "execution": {
+          "limits": {
+            "model_calls": 2,
+            "tool_calls": 1,
+            "http_calls": 8,
+            "seconds": 180.0,
+            "context_bytes": 1200,
+            "spend_usd": "0.15",
+            "retries": 0,
+            "capabilities": [
+              "text_retrieval",
+              "family_graph"
+            ],
+            "concurrency": 4
+          },
+          "model_calls": 0,
+          "tool_calls": 1,
+          "http_calls": 0,
+          "reserved_usd": "0",
+          "stop_reason": null
+        },
+        "elapsed_ms": 85.315020987764,
+        "usage": {
+          "input_tokens": 0,
+          "output_tokens": 0,
+          "embedding_tokens": 0
+        },
+        "expenditure_category": "serving",
+        "estimated_api_cost_usd": 0.0,
+        "cost_scope": "No inference calls. Database and hosting costs are excluded.",
+        "limitation": "Only admitted biological relationships in this reviewed snapshot are traversed. Missing ancestry does not establish that a relationship does not exist. Results are incomplete outside the selected material and traversal bounds. Source-supported does not mean independently cross-checked."
+      },
+      "http_elapsed_ms": 1258.4023050148971,
+      "all_citations_resolve": true
+    },
+    {
+      "case_id": "path-limit",
+      "transport": "api",
+      "response": {
+        "response_id": "70b5a5f5-3a36-4bb5-aae1-f7e76bb41327",
+        "question": "Show biological ancestors of ben-mitchell",
+        "status": "partial",
+        "answer": "Right, listen. Captured biological ancestors paths: Ben Mitchell → Kathy Beale. Only admitted biological relationships in this reviewed snapshot are traversed. Missing ancestry does not establish that a relationship does not exist. Results are incomplete outside the selected material and traversal bounds. Source-supported does not mean independently cross-checked.",
+        "unanswered": [
+          "Family coverage outside the reviewed spans and traversal bounds."
+        ],
+        "citations": [
+          {
+            "evidence_id": "family-ben-birth",
+            "text": "Ben is born to Phil Mitchell (Steve McFadden) and his then wife Kathy Beale (Gillian Taylforth) in March 1996.",
+            "sha256": "8179f5f0724cc08e5a5d51567fb7de0f8e55a4d5fc9881f5e050ae9d153eca08",
+            "start": 17983,
+            "end": 18093,
+            "source": {
+              "title": "Ben Mitchell",
+              "url": "https://en.wikipedia.org/wiki/Ben_Mitchell_(EastEnders)",
+              "revision_id": "1376729134",
+              "revision_url": "https://en.wikipedia.org/w/index.php?oldid=1376729134",
+              "section": "Storylines / 1996–2000",
+              "captured_at": "2026-10-17T13:07:31.530421Z",
+              "capture_sha256": "8ae0fbabb19cf12b2bdf46d7a85e15eea4462b8559584c770224a54a9e47d128",
+              "scope": "main_series",
+              "license_url": "https://creativecommons.org/licenses/by-sa/4.0/",
+              "attribution": "Wikipedia contributors; markup removed and whitespace normalized.",
+              "coverage": "Reviewed narrative sections in this captured revision only.",
+              "gaps": [
+                "Partial canon coverage; other paragraphs remain excluded or awaiting review.",
+                "Identity and episode metadata do not independently corroborate story claims."
+              ],
+              "support_status": "source_supported"
+            },
+            "location": {
+              "source_id": "ben-mitchell-wiki",
+              "paragraph_ordinal": 22,
+              "section_id": "1996–2000",
+              "character_ids": [
+                "ben-mitchell",
+                "kathy-beale",
+                "phil-mitchell"
+              ]
+            },
+            "resolve_path": "/v1/snapshots/family-pilot-v1/evidence/family-ben-birth"
+          }
+        ],
+        "snapshot_id": "family-pilot-v1",
+        "snapshot_sha256": "118cb99db01b352e9b2793e56873962d9769e00df7c3764bb7201d8a7a281a06",
+        "source": {
+          "title": "Ben Mitchell",
+          "url": "https://en.wikipedia.org/wiki/Ben_Mitchell_(EastEnders)",
+          "revision_id": "1376729134",
+          "revision_url": "https://en.wikipedia.org/w/index.php?oldid=1376729134",
+          "section": "Storylines / 1996–2000",
+          "captured_at": "2026-10-17T13:07:31.530421Z",
+          "capture_sha256": "8ae0fbabb19cf12b2bdf46d7a85e15eea4462b8559584c770224a54a9e47d128",
+          "scope": "main_series",
+          "license_url": "https://creativecommons.org/licenses/by-sa/4.0/",
+          "attribution": "Wikipedia contributors; markup removed and whitespace normalized.",
+          "coverage": "Reviewed narrative sections in this captured revision only.",
+          "gaps": [
+            "Partial canon coverage; other paragraphs remain excluded or awaiting review.",
+            "Identity and episode metadata do not independently corroborate story claims."
+          ],
+          "support_status": "source_supported"
+        },
+        "retrieved": [],
+        "context": [
+          {
+            "evidence_id": "family-ben-birth",
+            "text": "Ben is born to Phil Mitchell (Steve McFadden) and his then wife Kathy Beale (Gillian Taylforth) in March 1996.",
+            "sha256": "8179f5f0724cc08e5a5d51567fb7de0f8e55a4d5fc9881f5e050ae9d153eca08",
+            "start": 17983,
+            "end": 18093,
+            "source": {
+              "title": "Ben Mitchell",
+              "url": "https://en.wikipedia.org/wiki/Ben_Mitchell_(EastEnders)",
+              "revision_id": "1376729134",
+              "revision_url": "https://en.wikipedia.org/w/index.php?oldid=1376729134",
+              "section": "Storylines / 1996–2000",
+              "captured_at": "2026-10-17T13:07:31.530421Z",
+              "capture_sha256": "8ae0fbabb19cf12b2bdf46d7a85e15eea4462b8559584c770224a54a9e47d128",
+              "scope": "main_series",
+              "license_url": "https://creativecommons.org/licenses/by-sa/4.0/",
+              "attribution": "Wikipedia contributors; markup removed and whitespace normalized.",
+              "coverage": "Reviewed narrative sections in this captured revision only.",
+              "gaps": [
+                "Partial canon coverage; other paragraphs remain excluded or awaiting review.",
+                "Identity and episode metadata do not independently corroborate story claims."
+              ],
+              "support_status": "source_supported"
+            },
+            "location": {
+              "source_id": "ben-mitchell-wiki",
+              "paragraph_ordinal": 22,
+              "section_id": "1996–2000",
+              "character_ids": [
+                "ben-mitchell",
+                "kathy-beale",
+                "phil-mitchell"
+              ]
+            }
+          }
+        ],
+        "retrieval_k": 0,
+        "route": "graph",
+        "route_override": true,
+        "graph": {
+          "snapshot_id": "family-pilot-v1",
+          "snapshot_sha256": "118cb99db01b352e9b2793e56873962d9769e00df7c3764bb7201d8a7a281a06",
+          "graph_sha256": "a65ff3583121f9a48b7355f88c706fbaaf773e1765f9a0a9398ffee0f9343d95",
+          "query": {
+            "character_id": "ben-mitchell",
+            "direction": "ancestors",
+            "max_depth": 3,
+            "max_paths": 1
+          },
+          "status": "truncated",
+          "paths": [
+            {
+              "characters": [
+                "ben-mitchell",
+                "kathy-beale"
+              ],
+              "edges": [
+                {
+                  "parent_id": "kathy-beale",
+                  "child_id": "ben-mitchell",
+                  "claim_ids": [
+                    "kathy-ben"
+                  ],
+                  "evidence": [
+                    {
+                      "evidence_id": "family-ben-birth",
+                      "start": 0,
+                      "end": 110,
+                      "quote": "Ben is born to Phil Mitchell (Steve McFadden) and his then wife Kathy Beale (Gillian Taylforth) in March 1996."
+                    }
+                  ]
+                }
+              ]
+            }
+          ],
+          "names": {
+            "phil-mitchell": "Phil Mitchell",
+            "grant-mitchell": "Grant Mitchell",
+            "peggy-mitchell": "Peggy Mitchell",
+            "sharon-watts": "Sharon Watts",
+            "ben-mitchell": "Ben Mitchell",
+            "kathy-beale": "Kathy Beale",
+            "den-watts": "Den Watts"
+          },
+          "limitation": "Only admitted biological relationships in this reviewed snapshot are traversed. Missing ancestry does not establish that a relationship does not exist. Results are incomplete outside the selected material and traversal bounds. Source-supported does not mean independently cross-checked."
+        },
+        "baseline_version": "single-query-uncached-v1",
+        "model_settings": null,
+        "prompt_sha256": "c4f9de91a5c4419d0f69dd2fad73485382fa6e6321583b36f7e255e2b3454341",
+        "application_sha256": "f02ea02dba4eb054362351f40ed3222a70ce7b3c569914a9ff4d34d104825d5c",
+        "trace_id": "tr-6b93e17c2ce5553b3aa263d69f741324",
+        "execution": {
+          "limits": {
+            "model_calls": 2,
+            "tool_calls": 1,
+            "http_calls": 8,
+            "seconds": 180.0,
+            "context_bytes": 1200,
+            "spend_usd": "0.15",
+            "retries": 0,
+            "capabilities": [
+              "text_retrieval",
+              "family_graph"
+            ],
+            "concurrency": 4
+          },
+          "model_calls": 0,
+          "tool_calls": 1,
+          "http_calls": 0,
+          "reserved_usd": "0",
+          "stop_reason": null
+        },
+        "elapsed_ms": 55.86596200009808,
+        "usage": {
+          "input_tokens": 0,
+          "output_tokens": 0,
+          "embedding_tokens": 0
+        },
+        "expenditure_category": "serving",
+        "estimated_api_cost_usd": 0.0,
+        "cost_scope": "No inference calls. Database and hosting costs are excluded.",
+        "limitation": "Only admitted biological relationships in this reviewed snapshot are traversed. Missing ancestry does not establish that a relationship does not exist. Results are incomplete outside the selected material and traversal bounds. Source-supported does not mean independently cross-checked."
+      },
+      "http_elapsed_ms": 1299.0077089925762,
+      "all_citations_resolve": true
+    },
+    {
+      "case_id": "cli-descendants",
+      "transport": "cli",
+      "response": {
+        "response_id": "85f165a9-a95f-479e-b248-f4e1e234d4b4",
+        "question": "Show biological descendants of Phil Mitchell",
+        "status": "partial",
+        "answer": "Right, listen. Captured biological descendants paths: Phil Mitchell → Ben Mitchell. Only admitted biological relationships in this reviewed snapshot are traversed. Missing ancestry does not establish that a relationship does not exist. Results are incomplete outside the selected material and traversal bounds. Source-supported does not mean independently cross-checked.",
+        "unanswered": [
+          "Family coverage outside the reviewed spans and traversal bounds."
+        ],
+        "citations": [
+          {
+            "evidence_id": "family-ben-birth",
+            "text": "Ben is born to Phil Mitchell (Steve McFadden) and his then wife Kathy Beale (Gillian Taylforth) in March 1996.",
+            "sha256": "8179f5f0724cc08e5a5d51567fb7de0f8e55a4d5fc9881f5e050ae9d153eca08",
+            "start": 17983,
+            "end": 18093,
+            "source": {
+              "title": "Ben Mitchell",
+              "url": "https://en.wikipedia.org/wiki/Ben_Mitchell_(EastEnders)",
+              "revision_id": "1376729134",
+              "revision_url": "https://en.wikipedia.org/w/index.php?oldid=1376729134",
+              "section": "Storylines / 1996–2000",
+              "captured_at": "2026-10-17T13:07:31.530421Z",
+              "capture_sha256": "8ae0fbabb19cf12b2bdf46d7a85e15eea4462b8559584c770224a54a9e47d128",
+              "scope": "main_series",
+              "license_url": "https://creativecommons.org/licenses/by-sa/4.0/",
+              "attribution": "Wikipedia contributors; markup removed and whitespace normalized.",
+              "coverage": "Reviewed narrative sections in this captured revision only.",
+              "gaps": [
+                "Partial canon coverage; other paragraphs remain excluded or awaiting review.",
+                "Identity and episode metadata do not independently corroborate story claims."
+              ],
+              "support_status": "source_supported"
+            },
+            "location": {
+              "source_id": "ben-mitchell-wiki",
+              "paragraph_ordinal": 22,
+              "section_id": "1996–2000",
+              "character_ids": [
+                "ben-mitchell",
+                "kathy-beale",
+                "phil-mitchell"
+              ]
+            },
+            "resolve_path": "/v1/snapshots/family-pilot-v1/evidence/family-ben-birth"
+          }
+        ],
+        "snapshot_id": "family-pilot-v1",
+        "snapshot_sha256": "118cb99db01b352e9b2793e56873962d9769e00df7c3764bb7201d8a7a281a06",
+        "source": {
+          "title": "Ben Mitchell",
+          "url": "https://en.wikipedia.org/wiki/Ben_Mitchell_(EastEnders)",
+          "revision_id": "1376729134",
+          "revision_url": "https://en.wikipedia.org/w/index.php?oldid=1376729134",
+          "section": "Storylines / 1996–2000",
+          "captured_at": "2026-10-17T13:07:31.530421Z",
+          "capture_sha256": "8ae0fbabb19cf12b2bdf46d7a85e15eea4462b8559584c770224a54a9e47d128",
+          "scope": "main_series",
+          "license_url": "https://creativecommons.org/licenses/by-sa/4.0/",
+          "attribution": "Wikipedia contributors; markup removed and whitespace normalized.",
+          "coverage": "Reviewed narrative sections in this captured revision only.",
+          "gaps": [
+            "Partial canon coverage; other paragraphs remain excluded or awaiting review.",
+            "Identity and episode metadata do not independently corroborate story claims."
+          ],
+          "support_status": "source_supported"
+        },
+        "retrieved": [],
+        "context": [
+          {
+            "evidence_id": "family-ben-birth",
+            "text": "Ben is born to Phil Mitchell (Steve McFadden) and his then wife Kathy Beale (Gillian Taylforth) in March 1996.",
+            "sha256": "8179f5f0724cc08e5a5d51567fb7de0f8e55a4d5fc9881f5e050ae9d153eca08",
+            "start": 17983,
+            "end": 18093,
+            "source": {
+              "title": "Ben Mitchell",
+              "url": "https://en.wikipedia.org/wiki/Ben_Mitchell_(EastEnders)",
+              "revision_id": "1376729134",
+              "revision_url": "https://en.wikipedia.org/w/index.php?oldid=1376729134",
+              "section": "Storylines / 1996–2000",
+              "captured_at": "2026-10-17T13:07:31.530421Z",
+              "capture_sha256": "8ae0fbabb19cf12b2bdf46d7a85e15eea4462b8559584c770224a54a9e47d128",
+              "scope": "main_series",
+              "license_url": "https://creativecommons.org/licenses/by-sa/4.0/",
+              "attribution": "Wikipedia contributors; markup removed and whitespace normalized.",
+              "coverage": "Reviewed narrative sections in this captured revision only.",
+              "gaps": [
+                "Partial canon coverage; other paragraphs remain excluded or awaiting review.",
+                "Identity and episode metadata do not independently corroborate story claims."
+              ],
+              "support_status": "source_supported"
+            },
+            "location": {
+              "source_id": "ben-mitchell-wiki",
+              "paragraph_ordinal": 22,
+              "section_id": "1996–2000",
+              "character_ids": [
+                "ben-mitchell",
+                "kathy-beale",
+                "phil-mitchell"
+              ]
+            }
+          }
+        ],
+        "retrieval_k": 0,
+        "route": "graph",
+        "route_override": true,
+        "graph": {
+          "snapshot_id": "family-pilot-v1",
+          "snapshot_sha256": "118cb99db01b352e9b2793e56873962d9769e00df7c3764bb7201d8a7a281a06",
+          "graph_sha256": "a65ff3583121f9a48b7355f88c706fbaaf773e1765f9a0a9398ffee0f9343d95",
+          "query": {
+            "character_id": "phil-mitchell",
+            "direction": "descendants",
+            "max_depth": 3,
+            "max_paths": 20
+          },
+          "status": "found",
+          "paths": [
+            {
+              "characters": [
+                "phil-mitchell",
+                "ben-mitchell"
+              ],
+              "edges": [
+                {
+                  "parent_id": "phil-mitchell",
+                  "child_id": "ben-mitchell",
+                  "claim_ids": [
+                    "phil-ben"
+                  ],
+                  "evidence": [
+                    {
+                      "evidence_id": "family-ben-birth",
+                      "start": 0,
+                      "end": 110,
+                      "quote": "Ben is born to Phil Mitchell (Steve McFadden) and his then wife Kathy Beale (Gillian Taylforth) in March 1996."
+                    }
+                  ]
+                }
+              ]
+            }
+          ],
+          "names": {
+            "phil-mitchell": "Phil Mitchell",
+            "grant-mitchell": "Grant Mitchell",
+            "peggy-mitchell": "Peggy Mitchell",
+            "sharon-watts": "Sharon Watts",
+            "ben-mitchell": "Ben Mitchell",
+            "kathy-beale": "Kathy Beale",
+            "den-watts": "Den Watts"
+          },
+          "limitation": "Only admitted biological relationships in this reviewed snapshot are traversed. Missing ancestry does not establish that a relationship does not exist. Results are incomplete outside the selected material and traversal bounds. Source-supported does not mean independently cross-checked."
+        },
+        "baseline_version": "single-query-uncached-v1",
+        "model_settings": null,
+        "prompt_sha256": "c4f9de91a5c4419d0f69dd2fad73485382fa6e6321583b36f7e255e2b3454341",
+        "application_sha256": "f02ea02dba4eb054362351f40ed3222a70ce7b3c569914a9ff4d34d104825d5c",
+        "trace_id": "tr-0cfb5953aa7a2d9f8338c882c243d419",
+        "execution": {
+          "limits": {
+            "model_calls": 2,
+            "tool_calls": 1,
+            "http_calls": 8,
+            "seconds": 180.0,
+            "context_bytes": 1200,
+            "spend_usd": "0.15",
+            "retries": 0,
+            "capabilities": [
+              "text_retrieval",
+              "family_graph"
+            ],
+            "concurrency": 4
+          },
+          "model_calls": 0,
+          "tool_calls": 1,
+          "http_calls": 0,
+          "reserved_usd": "0",
+          "stop_reason": null
+        },
+        "elapsed_ms": 53.69674600660801,
+        "usage": {
+          "input_tokens": 0,
+          "output_tokens": 0,
+          "embedding_tokens": 0
+        },
+        "expenditure_category": "serving",
+        "estimated_api_cost_usd": 0.0,
+        "cost_scope": "No inference calls. Database and hosting costs are excluded.",
+        "limitation": "Only admitted biological relationships in this reviewed snapshot are traversed. Missing ancestry does not establish that a relationship does not exist. Results are incomplete outside the selected material and traversal bounds. Source-supported does not mean independently cross-checked."
+      }
+    }
+  ],
+  "typed_tool": {
+    "snapshot_id": "family-pilot-v1",
+    "snapshot_sha256": "118cb99db01b352e9b2793e56873962d9769e00df7c3764bb7201d8a7a281a06",
+    "graph_sha256": "a65ff3583121f9a48b7355f88c706fbaaf773e1765f9a0a9398ffee0f9343d95",
+    "query": {
+      "character_id": "ben-mitchell",
+      "direction": "ancestors",
+      "max_depth": 3,
+      "max_paths": 20
+    },
+    "status": "found",
+    "paths": [
+      {
+        "characters": [
+          "ben-mitchell",
+          "kathy-beale"
+        ],
+        "edges": [
+          {
+            "parent_id": "kathy-beale",
+            "child_id": "ben-mitchell",
+            "claim_ids": [
+              "kathy-ben"
+            ],
+            "evidence": [
+              {
+                "evidence_id": "family-ben-birth",
+                "start": 0,
+                "end": 110,
+                "quote": "Ben is born to Phil Mitchell (Steve McFadden) and his then wife Kathy Beale (Gillian Taylforth) in March 1996."
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "characters": [
+          "ben-mitchell",
+          "phil-mitchell"
+        ],
+        "edges": [
+          {
+            "parent_id": "phil-mitchell",
+            "child_id": "ben-mitchell",
+            "claim_ids": [
+              "phil-ben"
+            ],
+            "evidence": [
+              {
+                "evidence_id": "family-ben-birth",
+                "start": 0,
+                "end": 110,
+                "quote": "Ben is born to Phil Mitchell (Steve McFadden) and his then wife Kathy Beale (Gillian Taylforth) in March 1996."
+              }
+            ]
+          }
+        ]
+      }
+    ],
+    "names": {
+      "phil-mitchell": "Phil Mitchell",
+      "grant-mitchell": "Grant Mitchell",
+      "peggy-mitchell": "Peggy Mitchell",
+      "sharon-watts": "Sharon Watts",
+      "ben-mitchell": "Ben Mitchell",
+      "kathy-beale": "Kathy Beale",
+      "den-watts": "Den Watts"
+    },
+    "limitation": "Only admitted biological relationships in this reviewed snapshot are traversed. Missing ancestry does not establish that a relationship does not exist. Results are incomplete outside the selected material and traversal bounds. Source-supported does not mean independently cross-checked."
+  },
+  "invalid_pairing_http": 422,
+  "original_response_survives_restart": true,
+  "traces": [
+    {
+      "trace_id": "tr-4e992c8896da03ec2232b84a8df075ce",
+      "span_names": [
+        "graph",
+        "family_graph"
+      ],
+      "zero_inference": true
+    },
+    {
+      "trace_id": "tr-aaa14b34b4585c84a942f864f60b6f64",
+      "span_names": [
+        "graph",
+        "family_graph"
+      ],
+      "zero_inference": true
+    },
+    {
+      "trace_id": "tr-e74599dc29c9df95244ae16958eb5103",
+      "span_names": [
+        "graph",
+        "family_graph"
+      ],
+      "zero_inference": true
+    },
+    {
+      "trace_id": "tr-74439ac666bc78d040d53113c9c4b083",
+      "span_names": [
+        "graph",
+        "family_graph"
+      ],
+      "zero_inference": true
+    },
+    {
+      "trace_id": "tr-93f40437d69d6debba5116b1f79049fb",
+      "span_names": [
+        "graph",
+        "family_graph"
+      ],
+      "zero_inference": true
+    },
+    {
+      "trace_id": "tr-1d24840ebd3ba1fab1c0523eedaf24f8",
+      "span_names": [
+        "graph",
+        "family_graph"
+      ],
+      "zero_inference": true
+    },
+    {
+      "trace_id": "tr-51df24d5085807e91bf6ee37f6c92f9c",
+      "span_names": [
+        "graph",
+        "family_graph"
+      ],
+      "zero_inference": true
+    },
+    {
+      "trace_id": "tr-6b93e17c2ce5553b3aa263d69f741324",
+      "span_names": [
+        "graph",
+        "family_graph"
+      ],
+      "zero_inference": true
+    },
+    {
+      "trace_id": "tr-0cfb5953aa7a2d9f8338c882c243d419",
+      "span_names": [
+        "graph",
+        "family_graph"
+      ],
+      "zero_inference": true
+    }
+  ],
+  "graph_reference_comparison": {
+    "expected_paths": [
+      [
+        "ben-mitchell",
+        "kathy-beale"
+      ],
+      [
+        "ben-mitchell",
+        "phil-mitchell"
+      ],
+      [
+        "ben-mitchell",
+        "phil-mitchell",
+        "peggy-mitchell"
+      ]
+    ],
+    "actual_paths": [
+      [
+        "ben-mitchell",
+        "kathy-beale"
+      ],
+      [
+        "ben-mitchell",
+        "phil-mitchell"
+      ]
+    ],
+    "precision": 1.0,
+    "recall": 0.6666666666666666,
+    "f1": 0.8,
+    "missing": [
+      [
+        "ben-mitchell",
+        "phil-mitchell",
+        "peggy-mitchell"
+      ]
+    ],
+    "explanation": "Peggy edge correctly held for malformed model locator; graph completeness fails."
+  },
+  "paid_serving_calls": 0,
+  "serving_inference_usd": 0,
+  "limitation": "Actual raw-pilot projection has two admitted edges, not complete family coverage. Full-reference integration tests separately verify multi-hop semantics."
+}

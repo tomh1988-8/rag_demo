@@ -1,0 +1,10 @@
+{
+  "trace_id": "tr-a52afe523d503bb2b07892da1b2a8de9",
+  "actual_mlflow_readback": true,
+  "raw_matches_saved_artifact": true,
+  "claims_match_saved_artifact": true,
+  "raw_sha256": "81bce3bd1d657b82cf687dc018642515ec3f0c3b2a67e154fa30d1947df9a9dd",
+  "span_names": [
+    "parentage_extraction"
+  ]
+}

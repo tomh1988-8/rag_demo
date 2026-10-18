@@ -11,6 +11,24 @@ commands so they work even without a configured Git remote.
 
 ## Current Ask Phil handoff
 
+Issue #11 implementation is accepted at `8d58624`; publication and tracker closure
+are being completed. [Evidence](../implementation/issue-11/README.md) records
+304 passing tests, strict mypy across 70 files, Ruff/formatting, zero remaining
+findings on both independent review axes and nine actual final API/CLI outcomes
+with exact MLflow output readback. Four reviewed parentage values pass; the
+malformed Peggy locator is held, adoption is excluded, strict grounding is 2/4
+and raw-pilot graph recall is 2/3. Those quality failures remain regressions.
+The sole offline extraction call cost $0.0184885. Preserve the shared non-resetting
+$5 ledger at **$0.361573**, with zero unsettled reservations. All existing source
+and reference inputs and the user's pre-existing work are preserved.
+
+After #11's verified publication and closure, **#12 is next**; #13, #15, #19, #22
+and #24 are also unblocked. Wait for the user's next implementation instruction.
+The graph pilot uses explicit typed arguments and maintainer installation; wider
+relationship/correction/refresh behavior remains subsequent work.
+
+### Earlier handoffs
+
 Issue #10 is complete and closed after native publication and exact-tree
 verification of [f755514](https://github.com/tomh1988-8/rag_demo/commit/f755514cff4d3fd9275a0debbb411605f60d4e37).
 [Evidence](../implementation/issue-10/README.md) records 282 passing tests, strict
@@ -20,9 +38,7 @@ All nine checked criteria and completed closure were read back. The
 [receipt](../implementation/issue-10/publication.json) records explicit user
 publication authorization after automatic approval requested it; that rejection
 is superseded, not a current blocker. No paid calls were made. Preserve the
-shared $5 ledger at $0.343084 with zero unsettled reservations. #11 is next;
-#19, #22 and #24 are also unblocked. Wait for the user's next implementation
-instruction.
+shared $5 ledger at $0.343084 with zero unsettled reservations. #11 was the next ticket at #10 completion; the current #11 handoff above now applies.
 
 Issue #8 is complete and closed after [verified publication](https://github.com/tomh1988-8/rag_demo/commit/1991e3bf1e5a404137b1b8cb178a15bf85ebc6cf).
 [Evidence](../implementation/issue-8/README.md)
@@ -36,9 +52,9 @@ permission blockers. The published tree exactly matched local acceptance commit
 `319de84` before closure; all eight checked criteria and the completed state were
 read back. [The receipt](../implementation/issue-8/publication.json) records the
 authenticated connector publication and native Git credential limitation.
-Issue #9 is complete and closed after verified publication of its implementation and runtime evidence. [The comparison record](../implementation/issue-9/README.md) contains 28 public API responses, six independent dimensions, human approval of eight synthetic labels, 24 calibration observations and the saved-answer support application. Both answer configurations fail critical quality gates; [regressions](../implementation/issue-9/regressions.json) retain resolver/context failures and eight unscored judge decisions needing review. Software validation and independent reviews are separate from those model-quality failures. The [publication receipt](../implementation/issue-9/publication.json) records verified publication, all nine checked criteria and completed tracker closure. The continuation costs $0.1012312; preserve the shared $0.343084 ledger and zero unsettled reservations. Approval is explicit in [the receipt](../implementation/issue-9/approval.json); historical automatic denials are superseded. #10 subsequently completed as recorded above; #11 is next, with #19, #22 and #24 also unblocked. Wait for the user's next implementation instruction.
+Issue #9 is complete and closed after verified publication of its implementation and runtime evidence. [The comparison record](../implementation/issue-9/README.md) contains 28 public API responses, six independent dimensions, human approval of eight synthetic labels, 24 calibration observations and the saved-answer support application. Both answer configurations fail critical quality gates; [regressions](../implementation/issue-9/regressions.json) retain resolver/context failures and eight unscored judge decisions needing review. Software validation and independent reviews are separate from those model-quality failures. The [publication receipt](../implementation/issue-9/publication.json) records verified publication, all nine checked criteria and completed tracker closure. The continuation costs $0.1012312; preserve the shared $0.343084 ledger and zero unsettled reservations. Approval is explicit in [the receipt](../implementation/issue-9/approval.json); historical automatic denials are superseded. #10 subsequently completed as recorded above; the current #11 handoff supersedes that historical frontier.
 
-The approved specification is [issue #1](https://github.com/tomh1988-8/rag_demo/issues/1). The 24 implementation tickets are issues #2–#25, with ready-for-agent labels and explicit blocker references. Do not recreate them. The user's feedback/online-evaluation amendment is included in specification #1 and tickets #22–#23; final acceptance #21 requires the full loop. Fusion/context expansion is #24 and repeated-question caching is #25; #21 requires both, with #23 inherited through #25. See the [saved handoff](../plans/ask-phil-tickets-v2/HANDOFF.md) and publication manifest for the exact mapping and remaining native-link work. Issues #2 and #3 are completed and closed. Issue #4 is completed and closed after scoped Sol acceptance and [verified publication](https://github.com/tomh1988-8/rag_demo/commit/a5062593449a941d28248614e1f3977d14fc9a57). #5 is completed and closed after 115 passing Docker tests, zero remaining review findings and [verified publication](https://github.com/tomh1988-8/rag_demo/commit/b6b45cb5eea3402ffe2be466e1693ef91af4ecf5). See its [acceptance evidence](../implementation/issue-5/README.md). #6 is completed and closed after 131 passing Docker tests, zero remaining review findings and [verified publication](https://github.com/tomh1988-8/rag_demo/commit/408012156c55d040bc69a22bff034f87dd9a5dbd). See its [refresh/recovery evidence](../implementation/issue-6/README.md). #7 is complete and closed after 149 passing tests, independently reviewed sourced API/CLI success for all 20 profiles and [verified publication](https://github.com/tomh1988-8/rag_demo/commit/55616db5ad07f686dce5d4ec96193ab73b1f0eaf); #8 is complete and closed as recorded above. #9 and #10 are complete and closed as recorded above; #11, #19, #22 and #24 form the next dependency frontier. The laptop model remains development-only. See the handoff before selecting subsequent work.
+The approved specification is [issue #1](https://github.com/tomh1988-8/rag_demo/issues/1). The 24 implementation tickets are issues #2–#25, with ready-for-agent labels and explicit blocker references. Do not recreate them. The user's feedback/online-evaluation amendment is included in specification #1 and tickets #22–#23; final acceptance #21 requires the full loop. Fusion/context expansion is #24 and repeated-question caching is #25; #21 requires both, with #23 inherited through #25. See the [saved handoff](../plans/ask-phil-tickets-v2/HANDOFF.md) and publication manifest for the exact mapping and remaining native-link work. Issues #2 and #3 are completed and closed. Issue #4 is completed and closed after scoped Sol acceptance and [verified publication](https://github.com/tomh1988-8/rag_demo/commit/a5062593449a941d28248614e1f3977d14fc9a57). #5 is completed and closed after 115 passing Docker tests, zero remaining review findings and [verified publication](https://github.com/tomh1988-8/rag_demo/commit/b6b45cb5eea3402ffe2be466e1693ef91af4ecf5). See its [acceptance evidence](../implementation/issue-5/README.md). #6 is completed and closed after 131 passing Docker tests, zero remaining review findings and [verified publication](https://github.com/tomh1988-8/rag_demo/commit/408012156c55d040bc69a22bff034f87dd9a5dbd). See its [refresh/recovery evidence](../implementation/issue-6/README.md). #7 is complete and closed after 149 passing tests, independently reviewed sourced API/CLI success for all 20 profiles and [verified publication](https://github.com/tomh1988-8/rag_demo/commit/55616db5ad07f686dce5d4ec96193ab73b1f0eaf); #8 is complete and closed as recorded above. #9 and #10 are complete and closed as recorded above; the current #11 handoff above defines the next dependency frontier. The laptop model remains development-only. See the handoff before selecting subsequent work.
 
 The connector exposes issue creation/read/update and label operations but no native dependency/sub-issue mutation. Until that capability is available, consult each issue's Blocked by references and the saved graph before selecting work. Do not claim that native links have been installed. The [alternative-access review](../research/github-issue-dependency-access.md) records the official MCP/API/CLI options and the recommendation to retain the working references for now; do not repeat the investigation on each implementation turn.
 
