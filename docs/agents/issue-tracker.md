@@ -11,8 +11,11 @@ commands so they work even without a configured Git remote.
 
 ## Current Ask Phil handoff
 
-Issue #11 implementation is accepted at `8d58624`; publication and tracker closure
-are being completed. [Evidence](../implementation/issue-11/README.md) records
+Issue #11 implementation is accepted at `8d58624`, with local acceptance commit
+`8b11885`. Publication and tracker closure are blocked by automatic approval
+review pending explicit user approval for the push to `main` and tracker update.
+[The publication record](../implementation/issue-11/publication.json) retains the
+rejected action and reason; no remote changes were made. [Evidence](../implementation/issue-11/README.md) records
 304 passing tests, strict mypy across 70 files, Ruff/formatting, zero remaining
 findings on both independent review axes and nine actual final API/CLI outcomes
 with exact MLflow output readback. Four reviewed parentage values pass; the

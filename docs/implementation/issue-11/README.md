@@ -142,3 +142,10 @@ Implementation uses the installed LlamaIndex structured program. Its public
 [structured-output documentation](https://developers.llamaindex.ai/python/examples/structured_outputs/structured_outputs/)
 describes the schema-plus-parser contract; schema validity does not establish
 semantic support, which this slice measures separately.
+
+## Publication status
+
+Implementation and acceptance evidence are committed locally at `8b11885`.
+[The publication record](publication.json) records the automatic approval review
+rejection of the push to GitHub `main`. Explicit approval for publication and
+tracker closure is pending; no remote changes or issue closure have occurred.

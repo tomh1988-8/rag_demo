@@ -1,0 +1,18 @@
+{
+  "status": "blocked_by_automatic_approval_review",
+  "recorded_at": "2026-10-18T12:01:48.103497+00:00",
+  "reviewed_code_revision": "8d5862463599386386a59bc970dae4524afa726e",
+  "code_and_acceptance_revision": "8b1188586a91185584d4b7a26d4a941696a2c324",
+  "repository": "tomh1988-8/rag_demo",
+  "destination": "refs/heads/main",
+  "rejected_action": "git push origin HEAD:main",
+  "reason": "Automatic approval review interpreted this turn as authorizing implementation and local commit only, and requires explicit approval for external publication to the shared/default branch.",
+  "command_executed": false,
+  "remote_changes_made": false,
+  "tracker_updated": false,
+  "issue_closed": false,
+  "approval_question_pending": true,
+  "proposed_issue_update": "Prepared locally with all seven criteria and the accepted evidence; no tracker write has occurred.",
+  "software_tests_passed": 304,
+  "source_changes_after_full_suite": false
+}

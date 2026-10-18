@@ -1,6 +1,6 @@
 # 10: Answer biological family questions from admitted claims
 
-Status: approved and published as [GitHub #11](https://github.com/tomh1988-8/rag_demo/issues/11), labelled ready-for-agent; body and label verified on 23 September 2026. Plan version: 2. Implementation is complete and independently reviewed; final software checks pass. Publication and tracker closure are the remaining completion steps. See [the evidence](../../implementation/issue-11/README.md).
+Status: approved and published as [GitHub #11](https://github.com/tomh1988-8/rag_demo/issues/11), labelled ready-for-agent; body and label verified on 23 September 2026. Plan version: 2. Implementation is complete and independently reviewed; final software checks pass. Publication and tracker closure are blocked by automatic approval review pending explicit user approval. See [the evidence](../../implementation/issue-11/README.md).
 
 Spec stories: S17, S18, S19, S30, S34, S38, S39, S41, S49, S52, S58, S59, S60, S61, S62, S67, S68, S71, S72, S73, S75, S77, S78, S79, S81, S98. Checklist evidence owner for: AD-05.2, EXT-02, EXT-03.
 

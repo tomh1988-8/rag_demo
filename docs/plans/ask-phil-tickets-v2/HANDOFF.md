@@ -5,7 +5,11 @@ Updated 18 October 2026. The user approved the initial checklist/ticket breakdow
 ## Issue #11: biological family implementation accepted
 
 The [implementation and final evidence](../../implementation/issue-11/README.md)
-are accepted at `8d58624`; final publication and tracker closure are being completed.
+are accepted at `8d58624`, with local acceptance commit `8b11885`. Publication
+and tracker closure are blocked by automatic approval review pending explicit
+user approval for the push to `main` and tracker update. The
+[publication record](../../implementation/issue-11/publication.json) records the
+rejected action and reason; no remote changes were made.
 The graph route retains immutable extracted claims, content-bound reviews and
 admission outcomes separately from typed, bounded, read-only SQL biological paths.
 Explicit API/CLI overrides return edge evidence, source/graph fingerprints,

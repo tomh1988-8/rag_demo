@@ -174,7 +174,7 @@
     "src/ask_phil/tracing.py": "fd351810cf7ab4b2506583f510e601b7372f6c28cd43654b2a82ab25509737e7"
   },
   "evidence_sha256": {
-    "docs/implementation/issue-11/README.md": "4a60ce5f893116a9170c201a0fdcee53a851071bfaa9692d097ec9d8c5a04c0c",
+    "docs/implementation/issue-11/README.md": "9f81d39362917a22382265c6b9a0fd3964213a09120f0402a4bd678fc7a363ef",
     "docs/implementation/issue-11/admission.json": "4c337e69c6cb5ec4bbf2c51ba259a78ea0597ad9374c9ebe9a80c33416ae4b73",
     "docs/implementation/issue-11/claim-reviews.json": "a4a01a7ae5c67d6905dbe2b79319c732f131c2b354f4959ec37fed4058c754e9",
     "docs/implementation/issue-11/claims.json": "4cc6ded3e901df4f17defdf20312b0e381c8a4e3fe1231a683e48291413d6c6c",
@@ -182,6 +182,7 @@
     "docs/implementation/issue-11/extraction-score-final.json": "b367ebaa8cfee889603834119f55c0f9360a022e3a749343396c159a79c123af",
     "docs/implementation/issue-11/extraction-trace-readback.json": "f759691c9a87cee9390287e847ac315ac9b81a8b88e0d09f66aa2efa6eeee849",
     "docs/implementation/issue-11/pre-pilot.json": "093d4567ee7b408ab325e6d81953232083276b23bccaf3602cb5a12c9d32b073",
+    "docs/implementation/issue-11/publication.json": "2d4904be2c846682ca6a0c88972a2bd3036a3f1762287f7a7db98ab6f5abd0fb",
     "docs/implementation/issue-11/reference-review.md": "e73e257d01c698e47b17ea9f4bf88618febe7b299898149dc42b862df6fc1c46",
     "docs/implementation/issue-11/regressions.json": "31616a5f858ac180aa0fa035343a6d0d50df8ad02b078023210ff21cda4a6a78",
     "docs/implementation/issue-11/review.md": "9e216f027f02e21cec9116393371dd62a5e33124a07e71a8f62fb2eda849a70c",
@@ -194,5 +195,6 @@
     "Four exposed agent-reviewed claims in three source spans; no human adjudication, independent canon corroboration or held-out acceptance.",
     "Peggy off-by-one model locator remains held; strict grounding2/4 and graph recall2/3 are failures.",
     "Broader relationships, correction/refresh lifecycle, all-roster graph coverage, routing and final release acceptance remain later tickets."
-  ]
+  ],
+  "publication_status": "Blocked by automatic approval review; explicit user approval requested. Software and runtime acceptance remain passed."
 }
