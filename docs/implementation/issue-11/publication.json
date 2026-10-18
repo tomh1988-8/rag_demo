@@ -1,18 +1,78 @@
 {
-  "status": "blocked_by_automatic_approval_review",
-  "recorded_at": "2026-10-18T12:01:48.103497+00:00",
-  "reviewed_code_revision": "8d5862463599386386a59bc970dae4524afa726e",
-  "code_and_acceptance_revision": "8b1188586a91185584d4b7a26d4a941696a2c324",
+  "status": "published_and_closed",
+  "recorded_at": "2026-10-18T13:08:49.955216+00:00",
   "repository": "tomh1988-8/rag_demo",
   "destination": "refs/heads/main",
-  "rejected_action": "git push origin HEAD:main",
-  "reason": "Automatic approval review interpreted this turn as authorizing implementation and local commit only, and requires explicit approval for external publication to the shared/default branch.",
-  "command_executed": false,
-  "remote_changes_made": false,
-  "tracker_updated": false,
-  "issue_closed": false,
-  "approval_question_pending": true,
-  "proposed_issue_update": "Prepared locally with all seven criteria and the accepted evidence; no tracker write has occurred.",
-  "software_tests_passed": 304,
-  "source_changes_after_full_suite": false
+  "authorization": {
+    "user_message": "i approve, continue and complete",
+    "scope": [
+      "Publish the completed issue #11 commits to main",
+      "Check off and close issue #11 after exact-tree verification",
+      "Publish the completion receipt and updated handoff"
+    ],
+    "approval_question_pending": false,
+    "supersedes_initial_automatic_rejection": true
+  },
+  "initial_automatic_approval_rejection": {
+    "recorded_at": "2026-10-18T12:01:48.103497+00:00",
+    "action": "git push origin HEAD:main",
+    "reason": "Automatic approval review interpreted this turn as authorizing implementation and local commit only, and requires explicit approval for external publication to the shared/default branch.",
+    "command_executed": false,
+    "status": "superseded_by_explicit_user_approval"
+  },
+  "reviewed_code_revision": "8d5862463599386386a59bc970dae4524afa726e",
+  "code_and_acceptance_revision": "8b1188586a91185584d4b7a26d4a941696a2c324",
+  "publication": {
+    "publication_method": "native_git_https",
+    "local_revision": "f8fcf3fb545de573be892d98cc857d1c8f0d28fb",
+    "remote_revision": "f8fcf3fb545de573be892d98cc857d1c8f0d28fb",
+    "local_tree": "e7bbe918e953bd9ecf56e83eaccc1aa004230485",
+    "remote_tree": "e7bbe918e953bd9ecf56e83eaccc1aa004230485",
+    "tree_diff_empty": true,
+    "verified_at": "2026-10-18T13:05:54.312991+00:00",
+    "commit_url": "https://github.com/tomh1988-8/rag_demo/commit/f8fcf3fb545de573be892d98cc857d1c8f0d28fb"
+  },
+  "tracker": {
+    "number": 11,
+    "url": "https://github.com/tomh1988-8/rag_demo/issues/11",
+    "state": "CLOSED",
+    "state_reason": "COMPLETED",
+    "closed_at": "2026-10-18T13:06:31Z",
+    "readback_at": "2026-10-18T13:08:49.955265+00:00",
+    "checked_criteria": 7,
+    "unchecked_criteria": 0,
+    "body_matches_prepared_update": true,
+    "body_sha256": "7030923fe54cbc55ff1a9b113ef6bd51374a36fed0732f1bfb7bb1e942dc4ac3"
+  },
+  "validation": {
+    "software_tests_passed": 304,
+    "strict_mypy_files": 70,
+    "ruff": "pass",
+    "format": "pass",
+    "standards_findings": 0,
+    "spec_findings": 0,
+    "source_changes_after_full_suite": false,
+    "application_sha256": "f02ea02dba4eb054362351f40ed3222a70ce7b3c569914a9ff4d34d104825d5c",
+    "validation_path": "validation.json"
+  },
+  "preservation": {
+    "shared_ledger_usd": 0.361573,
+    "unsettled_reservations": 0,
+    "new_paid_calls_during_publication": 0,
+    "preexisting_user_work_excluded": true,
+    "all_existing_data_inputs_unchanged": true
+  },
+  "next_issue": 12,
+  "other_unblocked_issues": [
+    13,
+    15,
+    19,
+    22,
+    24
+  ],
+  "limitations": [
+    "Strict pilot grounding 2/4 and raw graph recall 2/3 remain recorded quality failures.",
+    "No broader graph-coverage, independent canon or held-out acceptance is claimed."
+  ],
+  "receipt_note": "This receipt records the verified implementation publication and completed tracker closure. The subsequent documentation-only receipt commit is pushed and its remote tree verified before reporting completion."
 }

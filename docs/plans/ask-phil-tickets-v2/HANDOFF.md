@@ -1,15 +1,17 @@
 # Ask Phil: publication and next-skill handoff
 
-Updated 18 October 2026. The user approved the initial checklist/ticket breakdown, authorised publication, and subsequently required user feedback and online evaluation. Checklist v1.1 and the amended 24-ticket breakdown are published. Issues #2–#10 are complete and closed. Issues #5–#8 passed their full software suites, independent reviews, exact-tree publication verification and closure readback. Issue #4 passed its scoped cloud policy acceptance.
+Updated 18 October 2026. The user approved the initial checklist/ticket breakdown, authorised publication, and subsequently required user feedback and online evaluation. Checklist v1.1 and the amended 24-ticket breakdown are published. Issues #2–#11 are complete and closed. Issues #5–#8 passed their full software suites, independent reviews, exact-tree publication verification and closure readback. Issue #4 passed its scoped cloud policy acceptance.
 
-## Issue #11: biological family implementation accepted
+## Issue #11: biological family accepted and closed
 
 The [implementation and final evidence](../../implementation/issue-11/README.md)
-are accepted at `8d58624`, with local acceptance commit `8b11885`. Publication
-and tracker closure are blocked by automatic approval review pending explicit
-user approval for the push to `main` and tracker update. The
-[publication record](../../implementation/issue-11/publication.json) records the
-rejected action and reason; no remote changes were made.
+are complete and closed after native publication of
+[`f8fcf3f`](https://github.com/tomh1988-8/rag_demo/commit/f8fcf3fb545de573be892d98cc857d1c8f0d28fb)
+and fetched exact-tree verification. Tested implementation `8d58624` is unchanged.
+All seven checked criteria and completed closure were read back. The
+[publication receipt](../../implementation/issue-11/publication.json) records
+explicit user approval; the initial automatic rejection is superseded and there
+is no current publication blocker.
 The graph route retains immutable extracted claims, content-bound reviews and
 admission outcomes separately from typed, bounded, read-only SQL biological paths.
 Explicit API/CLI overrides return edge evidence, source/graph fingerprints,
@@ -35,7 +37,7 @@ Preserve the shared non-resetting $5 ledger at **$0.361573**, zero unsettled
 reservations. Scoped AD-05.2 and EXT-02/03 checks pass: **34 current checks Pass;
 17 remain Pending**. RAG-04 and EXT-04 retain their broader obligations.
 
-After verified publication and closure of #11, **#12 is next**. #13, #15, #19,
+**#12 is next**. #13, #15, #19,
 #22 and #24 are also unblocked. Wait for the user's next implementation instruction.
 Install the pilot using the evidence README; rebuild the app image for these changes.
 Graph correction/refresh lifecycle and wider relationship families remain later work.
@@ -244,7 +246,7 @@ use #3. A persistent cloud deployment has not been configured.
 ## Published and verified
 
 - [Specification #1](https://github.com/tomh1988-8/rag_demo/issues/1) contains the agreed specification with the feedback/online-evaluation and fusion/cache amendments (130 stories).
-- Implementation tickets **#2–#25** are published and labelled `ready-for-agent`. **#2–#10 are closed as completed**; #11–#25 remain open.
+- Implementation tickets **#2–#25** are published and labelled `ready-for-agent`. **#2–#11 are closed as completed**; #12–#25 remain open.
 - All 25 remote bodies, states and ready-for-agent labels were read back and checked against the intended content after the fusion/cache amendment.
 - The 41 blocking relationships are recorded as real issue references in ticket bodies and as a machine-readable mapping in [publication.json](publication.json).
 - Issue #2 has a reviewed captured seed, CLI/API/PostgreSQL behavior, 17 passing tests in both native and Docker environments, and recorded deterministic baseline outputs. [Fresh Compose startup and database/API restart passed](../../implementation/issue-2/README.md); no generative model quality is claimed. GitHub closure and all seven checked criteria were read back and verified.
@@ -253,7 +255,7 @@ The [to-spec skill](../../../.agents/skills/to-spec/SKILL.md) authorised specifi
 
 ## First available work
 
-After #11 publication and closure, **[#12 — Explain family and romantic histories](https://github.com/tomh1988-8/rag_demo/issues/12)** is next. #13, #15, #19, #22 and #24 are also unblocked. Wait for the next implementation instruction before starting another ticket. Specification #1 remains parent context.
+**[#12 — Explain family and romantic histories](https://github.com/tomh1988-8/rag_demo/issues/12)** is next. #13, #15, #19, #22 and #24 are also unblocked. Wait for the next implementation instruction before starting another ticket. Specification #1 remains parent context.
 
 For subsequent work, read the current issue and comments, the relevant domain/ADR decisions and the checklist profile. Work the dependency frontier; the shared `ready-for-agent` label does not mean a blocked ticket can begin. Existing approved decisions and the six public test boundaries do not need another design interview.
 

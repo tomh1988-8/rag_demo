@@ -145,7 +145,10 @@ semantic support, which this slice measures separately.
 
 ## Publication status
 
-Implementation and acceptance evidence are committed locally at `8b11885`.
-[The publication record](publication.json) records the automatic approval review
-rejection of the push to GitHub `main`. Explicit approval for publication and
-tracker closure is pending; no remote changes or issue closure have occurred.
+Issue #11 is complete and closed after native publication of
+[`f8fcf3f`](https://github.com/tomh1988-8/rag_demo/commit/f8fcf3fb545de573be892d98cc857d1c8f0d28fb)
+and fetched exact-tree verification. All seven checked criteria and completed
+closure were read back. [The publication receipt](publication.json) records the
+user's explicit approval and supersedes the earlier automatic rejection; there
+is no current publication blocker. The subsequent receipt/handoff commit changes
+documentation only. #12 is next; wait for the next implementation instruction.

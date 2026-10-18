@@ -11,11 +11,13 @@ commands so they work even without a configured Git remote.
 
 ## Current Ask Phil handoff
 
-Issue #11 implementation is accepted at `8d58624`, with local acceptance commit
-`8b11885`. Publication and tracker closure are blocked by automatic approval
-review pending explicit user approval for the push to `main` and tracker update.
-[The publication record](../implementation/issue-11/publication.json) retains the
-rejected action and reason; no remote changes were made. [Evidence](../implementation/issue-11/README.md) records
+Issue #11 is complete and closed after native publication of
+[`f8fcf3f`](https://github.com/tomh1988-8/rag_demo/commit/f8fcf3fb545de573be892d98cc857d1c8f0d28fb)
+and fetched exact-tree verification. The tested code remains `8d58624`; all seven
+checked criteria and completed closure were read back.
+[The publication receipt](../implementation/issue-11/publication.json) records the
+user's explicit approval. The earlier automatic rejection is superseded, with no
+current publication blocker. [Evidence](../implementation/issue-11/README.md) records
 304 passing tests, strict mypy across 70 files, Ruff/formatting, zero remaining
 findings on both independent review axes and nine actual final API/CLI outcomes
 with exact MLflow output readback. Four reviewed parentage values pass; the
@@ -25,7 +27,7 @@ The sole offline extraction call cost $0.0184885. Preserve the shared non-resett
 $5 ledger at **$0.361573**, with zero unsettled reservations. All existing source
 and reference inputs and the user's pre-existing work are preserved.
 
-After #11's verified publication and closure, **#12 is next**; #13, #15, #19, #22
+**#12 is next**; #13, #15, #19, #22
 and #24 are also unblocked. Wait for the user's next implementation instruction.
 The graph pilot uses explicit typed arguments and maintainer installation; wider
 relationship/correction/refresh behavior remains subsequent work.
