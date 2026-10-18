@@ -1,0 +1,50 @@
+{
+  "mypy": {
+    "command": [
+      ".venv/bin/mypy",
+      "src",
+      "tests",
+      "scripts",
+      "docs/implementation/issue-9/apply_support.py"
+    ],
+    "exit_code": 0,
+    "output": "Success: no issues found in 59 source files\n"
+  },
+  "ruff": {
+    "command": [
+      ".venv/bin/ruff",
+      "check",
+      "."
+    ],
+    "exit_code": 0,
+    "output": "All checks passed!\n"
+  },
+  "format": {
+    "command": [
+      ".venv/bin/ruff",
+      "format",
+      "--check",
+      "scripts/evaluate_quality.py",
+      "src/ask_phil/answering.py",
+      "src/ask_phil/answers.py",
+      "src/ask_phil/api.py",
+      "src/ask_phil/execution.py",
+      "src/ask_phil/model_transport.py",
+      "src/ask_phil/models.py",
+      "src/ask_phil/openrouter.py",
+      "src/ask_phil/publications.py",
+      "src/ask_phil/responses.py",
+      "src/ask_phil/retrieval.py",
+      "src/ask_phil/security.py",
+      "src/ask_phil/semantic_judge.py",
+      "src/ask_phil/sessions.py",
+      "src/ask_phil/storage.py",
+      "tests/test_execution_api.py",
+      "tests/test_execution_limits.py",
+      "tests/test_openrouter.py",
+      "tests/test_semantic_judge.py"
+    ],
+    "exit_code": 0,
+    "output": "19 files already formatted\n"
+  }
+}

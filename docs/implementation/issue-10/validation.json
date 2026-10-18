@@ -1,0 +1,24 @@
+{
+  "tested_revision": "cdc0438245e3cf8bc41ee9c98c7d08171b43257e",
+  "application_sha256": "495a34a1b614f93198b40f60a63beb2655c2fc1e65e73e2ec2c5cb3788d082fe",
+  "finished_at": "2026-10-18T10:30:11.089954+00:00",
+  "exit_code": 0,
+  "elapsed_seconds": 650.4096042180026,
+  "tests": {
+    "tests": 282,
+    "failures": 0,
+    "errors": 0,
+    "skipped": 0
+  },
+  "input_count": 101,
+  "changed_test_inputs": [],
+  "provider_ledger_before": {
+    "microdollars": 343084,
+    "unsettled_reservations": 0
+  },
+  "provider_ledger_after": {
+    "microdollars": 343084,
+    "unsettled_reservations": 0
+  },
+  "paid_calls_in_validation": 0
+}

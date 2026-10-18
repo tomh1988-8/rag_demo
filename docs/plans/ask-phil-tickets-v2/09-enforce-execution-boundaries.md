@@ -1,6 +1,6 @@
 # 09: Bound requests and enforce read-only execution
 
-Status: published as [GitHub #10](https://github.com/tomh1988-8/rag_demo/issues/10); feedback/online-evaluation amendment authorised by the user on 23 September 2026. Remote body and ready-for-agent label verified. Implementation has not started.
+Status: published as [GitHub #10](https://github.com/tomh1988-8/rag_demo/issues/10); feedback/online-evaluation amendment authorised by the user on 23 September 2026. Remote body and ready-for-agent label verified. Implemented and accepted with 282 passing tests and zero remaining independent review findings; see [the execution evidence](../../implementation/issue-10/README.md).
 
 Spec stories: S15, S35, S36, S37, S44, S45, S46, S47, S70, S72, S73, S74, S82, S86, S94, S109, S113, S116.
 
@@ -16,15 +16,15 @@ Make the existing text-answer request enforce finite execution and authority bou
 
 ## Acceptance criteria
 
-- [ ] Restrict the answering path to declared read-only retrieval capabilities and approved model endpoints. Ingestion/refresh stays a separate maintainer operation; retrieved text cannot authorise live browsing, arbitrary SQL, shell execution or source mutation.
-- [ ] Validate request/tool inputs and outputs at their public boundaries. Exercise retrieved instruction attempts, malformed tool data and evidence that asks the system to ignore its task; the execution boundary must remain enforced outside the prompt.
-- [ ] Enforce configured finite model/tool-call, time, context and spending bounds, bounded retries and cancellation. Reserve/estimate cost conservatively where exact usage arrives after a call; unknown usage must not silently grant unlimited work. Document the scope and limitations of provider and application controls.
-- [ ] On timeout, cancellation, provider failure or budget exhaustion, stop further work and return supported findings where possible with the actual stop reason. Do not present a limit as evidence that an event never occurred.
-- [ ] Keep credentials out of source fixtures, prompts, emitted traces and logs. Demonstrate redaction on representative error and tool paths without logging real secrets.
-- [ ] Start with failure cases and unit-test exposed limit arithmetic/validation. Integration-test the public API with controlled slow, failing and malformed external services, observing actual calls, cancellation and stored trace outcomes. These are behavior checks, not assertions of one private call sequence.
-- [ ] Define separately bounded online-evaluation call/time/spend/concurrency/retry controls alongside serving and offline limits, with shared provider spending protection and observable disabled/pending/failed/skipped outcomes. Later background evaluation must not block answering or acquire new answering-agent tools.
-- [ ] Apply validation, length/rate limits, access checks and redaction to later explicit user-feedback submissions and judge inputs. Feedback storage/assessment writes are deterministic application operations; raw comments cannot authorise actions or alter canon. The feedback tickets implement and exercise these controls on their new public paths.
-- [ ] Record applicable checklist results and revision-linked evidence in the project register, including failures, limitations and follow-up regressions. A documented plan alone does not pass an implementation check.
+- [x] Restrict the answering path to declared read-only retrieval capabilities and approved model endpoints. Ingestion/refresh stays a separate maintainer operation; retrieved text cannot authorise live browsing, arbitrary SQL, shell execution or source mutation.
+- [x] Validate request/tool inputs and outputs at their public boundaries. Exercise retrieved instruction attempts, malformed tool data and evidence that asks the system to ignore its task; the execution boundary must remain enforced outside the prompt.
+- [x] Enforce configured finite model/tool-call, time, context and spending bounds, bounded retries and cancellation. Reserve/estimate cost conservatively where exact usage arrives after a call; unknown usage must not silently grant unlimited work. Document the scope and limitations of provider and application controls.
+- [x] On timeout, cancellation, provider failure or budget exhaustion, stop further work and return supported findings where possible with the actual stop reason. Do not present a limit as evidence that an event never occurred.
+- [x] Keep credentials out of source fixtures, prompts, emitted traces and logs. Demonstrate redaction on representative error and tool paths without logging real secrets.
+- [x] Start with failure cases and unit-test exposed limit arithmetic/validation. Integration-test the public API with controlled slow, failing and malformed external services, observing actual calls, cancellation and stored trace outcomes. These are behavior checks, not assertions of one private call sequence.
+- [x] Define separately bounded online-evaluation call/time/spend/concurrency/retry controls alongside serving and offline limits, with shared provider spending protection and observable disabled/pending/failed/skipped outcomes. Later background evaluation must not block answering or acquire new answering-agent tools.
+- [x] Apply validation, length/rate limits, access checks and redaction to later explicit user-feedback submissions and judge inputs. Feedback storage/assessment writes are deterministic application operations; raw comments cannot authorise actions or alter canon. The feedback tickets implement and exercise these controls on their new public paths.
+- [x] Record applicable checklist results and revision-linked evidence in the project register, including failures, limitations and follow-up regressions. A documented plan alone does not pass an implementation check.
 
 ## Checklist evidence
 

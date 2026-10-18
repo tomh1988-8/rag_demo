@@ -111,5 +111,27 @@ All model services in these software checks are controlled external substitutes;
 PostgreSQL/pgvector, HTTP disconnects and MLflow storage are real. Synthetic
 instructions and credentials are labelled tests, not actual secrets or canon.
 No paid calls or model-quality claim are needed for this enforcement slice.
-Final independent review, the complete suite and revision-bound receipts are
-recorded alongside this file before publication.
+The final full suite passes **282 tests**, with zero failures, errors or skips,
+in 640.12 seconds. Strict mypy passes 59 files; Ruff and formatting pass. Both
+independent review axes have zero remaining findings. All 101 frozen test inputs
+match before/after validation. [Validation](validation.json),
+[software XML](software-tests.xml), [log](software-tests.log),
+[public outcomes](public-outcomes.json) and [review](review.md) retain the proof.
+The full run makes zero paid calls: the shared ledger remains $0.343084 with zero
+unsettled reservations. Eight recorded public stop/hostile-input outcomes and an
+actual MLflow trace belong to tested implementation `cdc0438245e3cf8bc41ee9c98c7d08171b43257e`.
+Later evidence/handoff commits preserve exactly those runtime source hashes.
+
+Reproduce with a disposable PostgreSQL admin connection:
+
+```sh
+.venv/bin/mypy src tests scripts docs/implementation/issue-9/apply_support.py
+.venv/bin/ruff check .
+.venv/bin/pytest -q tests/test_execution_api.py tests/test_execution_limits.py tests/test_openrouter.py tests/test_semantic_judge.py --test-database-url postgresql://YOUR_USER@127.0.0.1:5432/postgres
+.venv/bin/pytest -q -p no:cacheprovider --test-database-url postgresql://YOUR_USER@127.0.0.1:5432/postgres --junitxml=artifacts/issue-10-tests.xml -o junit_family=legacy
+```
+
+`inputs.json` freezes the tested source/dependency/fixture hashes;
+`static-checks.json` and `runtime.json` retain tooling and versions. The public
+outcome records are extracted from actual JUnit properties rather than invented
+examples. Read tokens are excluded from trace artifacts.

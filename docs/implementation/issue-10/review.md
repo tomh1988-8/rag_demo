@@ -45,4 +45,18 @@ used its older thirty-second lock wait. Its public budget regression failed
 after thirty seconds. The ledger now bounds lock waits and query progress to the
 remaining request time (at most five seconds), and the regression passes.
 
-Final re-review and complete-suite results are recorded before publication.
+Final independent re-review of `cdc0438245e3cf8bc41ee9c98c7d08171b43257e`:
+
+- **Standards:** 0 documented-standard breaches; 0 consequential baseline smells.
+  The shared translator avoids duplicated handling; ledger deadlines and
+  cancellation stay within the existing execution contract. Added regressions
+  use approved public boundaries.
+- **Spec:** zero remaining findings; no scope creep. All previous findings are
+  resolved, including saved outcomes for direct and adapter-wrapped retrieval
+  timeouts and bounded shared-ledger operations. The reviewer independently
+  reran six accounting, cancellation and spending-exhaustion checks; all passed.
+
+The final full suite passes 282 tests with no failures, errors or skips, recorded
+in `software-tests.xml` and `validation.json`. All 101 tested inputs remain
+unchanged; strict mypy, Ruff and formatting pass. No paid calls were made.
+Model-quality release acceptance remains outside this slice.

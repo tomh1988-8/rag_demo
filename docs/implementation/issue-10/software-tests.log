@@ -1,0 +1,23 @@
+........................................................................ [ 25%]
+........................................................................ [ 51%]
+........................................................................ [ 76%]
+..................................................................       [100%]
+=============================== warnings summary ===============================
+.venv/lib/python3.12/site-packages/fastapi/testclient.py:1
+  /home/tom/Documents/code/python/rag_demo/.venv/lib/python3.12/site-packages/fastapi/testclient.py:1: StarletteDeprecationWarning: Using `httpx` with `starlette.testclient` is deprecated; install `httpx2` instead.
+    from starlette.testclient import TestClient as TestClient  # noqa
+
+-- Docs: https://docs.pytest.org/en/stable/how-to/capture-warnings.html
+============================= slowest 10 durations =============================
+40.77s call     tests/test_conversation_api.py::test_concurrent_turns_have_distinct_monotonic_identity_and_bounded_context
+26.82s call     tests/test_conversation_api.py::test_cli_creates_private_session_asks_followup_and_resets_over_http
+21.05s call     tests/test_conversation_api.py::test_quality_capture_uses_fresh_api_sessions_and_preserves_each_repeat
+14.85s call     tests/test_conversation_api.py::test_interactive_cli_conversation_supports_followups_and_reset
+12.39s call     tests/test_conversation_api.py::test_unresolved_and_ambiguous_followups_do_not_ask_model_to_guess
+12.33s setup    tests/test_refresh.py::test_prefect_refresh_publishes_a_complete_inspectable_source_and_index_pair
+11.61s call     tests/test_conversation_api.py::test_failed_turn_persistence_keeps_previous_references_and_allows_recovery[write]
+11.57s call     tests/test_conversation_api.py::test_failed_turn_persistence_keeps_previous_references_and_allows_recovery[commit]
+9.73s call     tests/test_conversation_api.py::test_followup_retrieves_again_without_using_misleading_generated_history
+9.35s call     tests/test_cli.py::test_maintainer_imports_sources_and_reader_inspects_them_over_http
+282 passed, 1 warning in 640.12s (0:10:40)
+2026/10/18 11:30:05 INFO mlflow.tracing.export.async_export_queue: Flushing the async trace logging queue before program exit. This may take a while...
