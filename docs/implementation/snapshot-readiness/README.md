@@ -60,3 +60,49 @@ retaining its separate frozen-reference checks. Database timeout normalization
 belongs to the retrieval implementation; answering no longer imports database
 adapter errors or compares index manifests. Existing PostgreSQL, embedding and
 external model adapters remain in place.
+
+## Verification
+
+The first pinned-retrieval tracer failed because the interface did not exist,
+then passed after implementation. The next tracer showed changed vectors being
+accepted; it passed once published artifact verification moved into the module.
+Counterexamples also reject a publication's mismatched index and source identity
+before model work. Existing lifecycle tests now exercise unpublished and withdrawn
+snapshot rejection through the deepened retrieval interface.
+
+The final full suite passed **285 tests**, with zero failures, errors or skips,
+in 622.72 seconds. It ran once after the two independent reviews. Strict mypy
+passed all 59 source files; Ruff and formatting checks passed. Both review axes
+have zero findings. All 17 public HTTP paths and 45 OpenAPI schemas match the
+starting revision; all 207 frozen source, fixture, retained-evidence and dependency
+inputs match the final tested implementation. The suite reports the existing
+Starlette/httpx deprecation and JUnit record-property warnings.
+
+Focused runs passed seven retrieval checks, ten public execution-limit checks and
+six affected refresh/recovery/concurrent-pinning checks. They retain incompatible
+embedding rejection, complete index-artifact verification, saved timeout outcomes,
+interrupted/failed refresh recovery, withdrawn-source inspection and pinning during
+a concurrent refresh. A separate execution of the actual corpus-evaluation command
+returned the three retained fixture passages using real PostgreSQL/pgvector and a
+controlled local embedding server.
+
+No paid model calls, live source captures or model-quality evaluations were needed.
+The private key, shared trial ledger and pre-existing user work remain unchanged.
+The retained answer-quality regressions and the other architecture candidates
+continue to require their own work.
+
+The [validation record](validation.json) binds these results to implementation
+commit `5b567959b1812a2b9b1f526516918bf0e2c1b744` and its unchanged source hashes.
+The [full test report](software-tests.xml), [independent reviews](review.md) and
+[controlled corpus probe](corpus-probe.json) retain the supporting evidence.
+The final evidence commit changes documentation only.
+
+To reproduce with a disposable PostgreSQL/pgvector admin connection:
+
+```sh
+export ASK_PHIL_TEST_DATABASE_URL=postgresql://USER:PASSWORD@HOST:PORT/postgres
+.venv/bin/pytest -q -p no:cacheprovider
+.venv/bin/mypy src tests scripts docs/implementation/issue-9/apply_support.py
+.venv/bin/ruff check src tests scripts docs/implementation/issue-9/apply_support.py
+.venv/bin/ruff format --check src tests scripts docs/implementation/issue-9/apply_support.py
+```

@@ -1,0 +1,113 @@
+{
+  "kind": "controlled-corpus-readiness-probe-v1",
+  "tested_revision": "5b567959b1812a2b9b1f526516918bf0e2c1b744",
+  "recorded_at": "2026-10-18T11:02:00.125176+00:00",
+  "actual_script_entrypoint_executed": true,
+  "real_disposable_postgresql_pgvector": true,
+  "controlled_local_embedding_server": true,
+  "observed_external_paths": [
+    "GET /api/tags",
+    "POST /api/embed"
+  ],
+  "paid_model_calls": 0,
+  "retained_captured_passages": 3,
+  "capture": {
+    "kind": "local-embedding-component-evaluation",
+    "application_sha256": "a593d6041ef2efc70b7266548aab168a729abb4e45dd350da3b9956f0e470cf8",
+    "lock_sha256": "983d5a644e3289e6b79d92dc251b5029c199a497ac33c14f504a3c9ee3763152",
+    "publication": {
+      "compatibility_id": "7875e91f712c03608ea0dbc431e8c58c6fe18c33f11bce68b7c6071468bcfa1f",
+      "manifest": {
+        "format_version": "source-text-publication-v1",
+        "snapshot_id": "sources-a6e074077873fff9f846f75c56ebf19cadfff72a0d04a6a16623acb5480fecd6",
+        "snapshot_sha256": "63c5b8980ed148a5cf15b2bddbe507f8ef2b403ce5504c259af1c39180973fbb",
+        "input_sha256": "63c5b8980ed148a5cf15b2bddbe507f8ef2b403ce5504c259af1c39180973fbb",
+        "sources": [
+          {
+            "role": "narrative",
+            "license_url": "https://creativecommons.org/licenses/by-sa/4.0/",
+            "attribution": "Wikipedia contributors; markup removed and whitespace normalized.",
+            "source_id": "sharon-wiki",
+            "url": "https://en.wikipedia.org/wiki/Sharon_Watts",
+            "revision_id": "17",
+            "captured_at": "2026-09-25T15:00:00Z",
+            "sha256": "de501020f27ecc6e820c5f8b3e46a3d229a4d2a78449feee8efe11f5d2c10165",
+            "paragraphs": 2,
+            "admitted_paragraphs": 2,
+            "excluded_paragraphs": 0,
+            "review_required_paragraphs": 0,
+            "structured_records": 0
+          }
+        ],
+        "index": {
+          "format_version": "pgvector-exact-v1",
+          "snapshot_sha256": "63c5b8980ed148a5cf15b2bddbe507f8ef2b403ce5504c259af1c39180973fbb",
+          "embedding_id": "4c5477df6b1193b4873bab8d7a1e59dbfa7075aa1894d0f4f3717bc47024040d",
+          "dimensions": 3,
+          "passages": 3,
+          "artifact_sha256": "4bee80acaa126600a3f34b7e3b3d55e625549be8a36811c620588fb9efa9f852"
+        }
+      },
+      "generation": 1,
+      "published_at": "2026-10-18T11:01:56.124886Z"
+    },
+    "maximum_calls": 0,
+    "maximum_slice_cost_usd": "0.01",
+    "shared_nonresetting_trial_cap_usd": "5",
+    "cost_usd": "0",
+    "retries": 0,
+    "limitation": "Exposed development cases, selected passage labels, no held-out or independent canon accuracy claim. Software checks are separate.",
+    "recorded_at": "2026-10-18T11:01:59.418478+00:00",
+    "reference_file_sha256": "eaaa5acc473f2d2c84af803edf160759288bc0d22e537a0a011db30645294a98",
+    "recorder_version": "frozen-evaluation-run-v1",
+    "input_artifacts": [
+      {
+        "artifact_path": "inputs/0/references.json",
+        "sha256": "eaaa5acc473f2d2c84af803edf160759288bc0d22e537a0a011db30645294a98"
+      }
+    ],
+    "result_artifact": "result/capture.json",
+    "case_ids": [
+      "readiness-corpus-probe"
+    ],
+    "cases": [
+      {
+        "case_id": "readiness-corpus-probe",
+        "reference": {
+          "case_id": "readiness-corpus-probe",
+          "question": "Which synthetic workshop opens?",
+          "answerable": true,
+          "relevant_ids": [
+            "sharon-wiki-0000-0",
+            "sharon-wiki-0000-1199",
+            "sharon-wiki-0001-1531"
+          ],
+          "required_facts": []
+        },
+        "reference_sha256": "f6dca25020bcf401748488011f37325062acac26f63260501da1a7bb4779f10f",
+        "state": "complete",
+        "retrieved_ids": [
+          "sharon-wiki-0000-0",
+          "sharon-wiki-0000-1199",
+          "sharon-wiki-0001-1531"
+        ],
+        "context_ids": [
+          "sharon-wiki-0000-1199",
+          "sharon-wiki-0001-1531"
+        ],
+        "retrieval_score": {
+          "k": 3,
+          "relevant_passage_count": 3,
+          "recall_at_k": 1.0,
+          "hit_at_k": 1.0,
+          "mrr_at_k": 1.0,
+          "required_fact_count": 0,
+          "context_fact_coverage": null,
+          "context_sufficient": false
+        }
+      }
+    ],
+    "state": "complete"
+  },
+  "limitation": "Execution-path smoke with controlled embeddings and a retained fixture; no model-quality or live-provider assessment."
+}
