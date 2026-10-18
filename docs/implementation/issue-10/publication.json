@@ -1,0 +1,43 @@
+{
+  "publication_method": "native_git_push",
+  "published_commit": "f755514cff4d3fd9275a0debbb411605f60d4e37",
+  "published_commit_url": "https://github.com/tomh1988-8/rag_demo/commit/f755514cff4d3fd9275a0debbb411605f60d4e37",
+  "published_tree": "3d1b6ca61902a45262422e6c90cc813587030948",
+  "exact_local_remote_tree_match": true,
+  "tested_commit": "cdc0438245e3cf8bc41ee9c98c7d08171b43257e",
+  "tested_runtime_source_unchanged": true,
+  "application_sha256": "495a34a1b614f93198b40f60a63beb2655c2fc1e65e73e2ec2c5cb3788d082fe",
+  "user_authorization": {
+    "reply": "authorise",
+    "scope": "Publish the reviewed issue #10 commits to origin/main after automatic approval requested explicit authorization.",
+    "prior_automatic_rejection": "Superseded by the explicit user authorization; native push then succeeded."
+  },
+  "issue": {
+    "number": 10,
+    "url": "https://github.com/tomh1988-8/rag_demo/issues/10",
+    "state": "CLOSED",
+    "stateReason": "COMPLETED",
+    "closedAt": "2026-10-18T10:33:10Z"
+  },
+  "checked_criteria": 9,
+  "issue_body_sha256": "a4d56eac1f7aae5719399b16ab0b10e490c802383c362250dffd93c7bf9260a4",
+  "tests": {
+    "tests": 282,
+    "failures": 0,
+    "errors": 0,
+    "skipped": 0
+  },
+  "frozen_inputs": 101,
+  "paid_calls": 0,
+  "shared_provider_ledger": {
+    "microdollars": 343084,
+    "unsettled_reservations": 0
+  },
+  "next_ticket": 11,
+  "other_unblocked_tickets": [
+    19,
+    22,
+    24
+  ],
+  "native_dependency_links_installed": false
+}

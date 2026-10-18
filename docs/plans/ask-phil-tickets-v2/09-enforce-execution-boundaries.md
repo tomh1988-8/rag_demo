@@ -1,6 +1,6 @@
 # 09: Bound requests and enforce read-only execution
 
-Status: published as [GitHub #10](https://github.com/tomh1988-8/rag_demo/issues/10); feedback/online-evaluation amendment authorised by the user on 23 September 2026. Remote body and ready-for-agent label verified. Implemented and accepted with 282 passing tests and zero remaining independent review findings; see [the execution evidence](../../implementation/issue-10/README.md).
+Status: published as [GitHub #10](https://github.com/tomh1988-8/rag_demo/issues/10); feedback/online-evaluation amendment authorised by the user on 23 September 2026. Remote body and ready-for-agent label verified. Complete and closed after exact-tree verified native publication, with 282 passing tests and zero remaining independent review findings; see [the execution evidence](../../implementation/issue-10/README.md).
 
 Spec stories: S15, S35, S36, S37, S44, S45, S46, S47, S70, S72, S73, S74, S82, S86, S94, S109, S113, S116.
 

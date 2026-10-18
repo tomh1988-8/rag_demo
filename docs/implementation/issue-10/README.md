@@ -135,3 +135,11 @@ Reproduce with a disposable PostgreSQL admin connection:
 `static-checks.json` and `runtime.json` retain tooling and versions. The public
 outcome records are extracted from actual JUnit properties rather than invented
 examples. Read tokens are excluded from trace artifacts.
+
+Published through native Git at [f755514](https://github.com/tomh1988-8/rag_demo/commit/f755514cff4d3fd9275a0debbb411605f60d4e37).
+The fetched GitHub tree exactly matches the accepted local tree. Issue #10 is
+closed as completed; all nine checked criteria and closure were read back.
+[The publication receipt](publication.json) retains the tree, explicit user
+publication authorization and unchanged provider ledger. Subsequent handoff
+commits preserve the tested runtime inputs. #11 is next; #19, #22 and #24 are
+also unblocked. Wait for the next implementation instruction.

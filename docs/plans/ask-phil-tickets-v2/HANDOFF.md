@@ -1,6 +1,35 @@
 # Ask Phil: publication and next-skill handoff
 
-Updated 17 October 2026. The user approved the initial checklist/ticket breakdown, authorised publication, and subsequently required user feedback and online evaluation. Checklist v1.1 and the amended 24-ticket breakdown are published. Issues #2–#9 are complete and closed. Issues #5–#8 passed their full software suites, independent reviews, exact-tree publication verification and closure readback. Issue #4 passed its scoped cloud policy acceptance.
+Updated 18 October 2026. The user approved the initial checklist/ticket breakdown, authorised publication, and subsequently required user feedback and online evaluation. Checklist v1.1 and the amended 24-ticket breakdown are published. Issues #2–#10 are complete and closed. Issues #5–#8 passed their full software suites, independent reviews, exact-tree publication verification and closure readback. Issue #4 passed its scoped cloud policy acceptance.
+
+## Issue #10: bounded read-only execution accepted and closed
+
+[Implementation and evidence](../../implementation/issue-10/README.md) enforce
+read-only snapshot retrieval, exact model-resource allowlists, finite model/tool/
+HTTP/context/time/spending bounds, conservative unknown-cost reservations, zero
+retries and actual HTTP-disconnect cancellation. Direct/vector SQL and shared
+ledger timeouts return saved stop outcomes. Hostile retrieved instructions,
+malformed model data and synthetic credential/error cases are retained regressions.
+
+The complete suite passes **282 tests** with zero failures/errors/skips. Strict
+mypy (59 files), Ruff, formatting and both independent review axes pass. All 101
+frozen test inputs remain unchanged. Eight actual public outcomes and MLflow
+trace readback complement the software XML. These are enforcement checks, not
+broad model-quality acceptance. AD-07.1–4 pass for this text slice: **31 current
+checks Pass; 20 remain Pending**. Feedback endpoints and the durable automatic
+online worker remain #22/#23; separate admission quotas and shared spending
+protection are ready for their integration.
+
+[Publication f755514](https://github.com/tomh1988-8/rag_demo/commit/f755514cff4d3fd9275a0debbb411605f60d4e37)
+retains tested implementation `cdc0438`. Native push, fetched exact-tree equality,
+all nine checked criteria and completed issue closure were read back.
+[The receipt](../../implementation/issue-10/publication.json) records the user's
+explicit publication authorization after automatic approval requested it. There
+is no current publication blocker. Validation made no paid calls; preserve the
+shared $5 ledger at **$0.343084**, with zero unsettled reservations.
+
+**#11 is next; #19, #22 and #24 are also unblocked.** Wait for the user's next
+implementation instruction. Rebuild the app image to use the new controls.
 
 ## Issue #9: actual quality comparison accepted and closed
 
@@ -31,10 +60,10 @@ costing $0.1104132. Preserve the shared non-resetting $5 ledger at $0.343084 wit
 zero unsettled reservations. No key or private session tokens are published.
 
 AD-04.3/4, AD-06.4, AD-08.1/2 and AD-09.2 pass for the scoped measurement workflow:
-27 current checks Pass and 24 remain Pending. These are measurement passes;
+At completion of #9, 27 current checks passed and 24 remained Pending. These are measurement passes;
 answer quality, held-out release acceptance and automatic online feedback retain
-their separate gates. #10 is next; #11, #19 and #24 are also
-unblocked. Wait for the user's next implementation instruction.
+their separate gates. The historical #9 frontier started at #10; the current
+#10 handoff above supersedes it.
 
 ## Issue #8: grounded follow-ups and reset accepted and closed
 
@@ -177,7 +206,7 @@ use #3. A persistent cloud deployment has not been configured.
 ## Published and verified
 
 - [Specification #1](https://github.com/tomh1988-8/rag_demo/issues/1) contains the agreed specification with the feedback/online-evaluation and fusion/cache amendments (130 stories).
-- Implementation tickets **#2–#25** are published and labelled `ready-for-agent`. **#2–#9 are closed as completed**; #10–#25 remain open.
+- Implementation tickets **#2–#25** are published and labelled `ready-for-agent`. **#2–#10 are closed as completed**; #11–#25 remain open.
 - All 25 remote bodies, states and ready-for-agent labels were read back and checked against the intended content after the fusion/cache amendment.
 - The 41 blocking relationships are recorded as real issue references in ticket bodies and as a machine-readable mapping in [publication.json](publication.json).
 - Issue #2 has a reviewed captured seed, CLI/API/PostgreSQL behavior, 17 passing tests in both native and Docker environments, and recorded deterministic baseline outputs. [Fresh Compose startup and database/API restart passed](../../implementation/issue-2/README.md); no generative model quality is claimed. GitHub closure and all seven checked criteria were read back and verified.
@@ -186,7 +215,7 @@ The [to-spec skill](../../../.agents/skills/to-spec/SKILL.md) authorised specifi
 
 ## First available work
 
-**[#10 — Bound requests and enforce read-only execution](https://github.com/tomh1988-8/rag_demo/issues/10)** is next. #11 (biological claims), #19 (Phil voice) and #24 (fusion/context expansion) are also unblocked. Wait for the next implementation instruction before starting another ticket. Specification #1 remains parent context.
+**[#11 — Answer biological family questions from admitted claims](https://github.com/tomh1988-8/rag_demo/issues/11)** is next. #19 (Phil voice), #22 (feedback) and #24 (fusion/context expansion) are also unblocked. Wait for the next implementation instruction before starting another ticket. Specification #1 remains parent context.
 
 For subsequent work, read the current issue and comments, the relevant domain/ADR decisions and the checklist profile. Work the dependency frontier; the shared `ready-for-agent` label does not mean a blocked ticket can begin. Existing approved decisions and the six public test boundaries do not need another design interview.
 
@@ -225,7 +254,7 @@ The “Blocked by” column contains **GitHub issue numbers**, which differ from
 
 - [Approved ticket breakdown](README.md), including rationale and the common evidence-completion pattern.
 - [Reusable checklist v1.1](../../checklists/agent-development.md).
-- [Ask Phil applicability profile and evidence register](../../checklists/ask-phil-profile.md): 51 current items, one deployment deferral and 12 N/A items. Twenty-seven pass, including the scoped conversation and quality-comparison additions; 24 current obligations remain Pending. Actual quality failures, graph, fusion, cache, final held-out acceptance and automatic online-feedback obligations remain visible.
+- [Ask Phil applicability profile and evidence register](../../checklists/ask-phil-profile.md): 51 current items, one deployment deferral and 12 N/A items. Thirty-one pass, including scoped conversation, quality-comparison and execution-control additions; 20 current obligations remain Pending. Actual quality failures, graph, fusion, cache, final held-out acceptance and automatic online-feedback obligations remain visible.
 - [All 130 specification stories mapped to tickets](spec-coverage.md).
 - [Local specification](../../specs/ask-phil.md), [test/evaluation strategy](../../design/testing-and-evaluation.md), [domain glossary](../../../CONTEXT.md) and [architecture decisions](../../adr/).
 - [Publication manifest](publication.json), including issue IDs/URLs, approval, source fingerprints, readback verification and the outstanding native relationship operations.
