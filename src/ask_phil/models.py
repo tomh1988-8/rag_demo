@@ -7,6 +7,7 @@ from collections.abc import Sequence
 from contextlib import nullcontext
 from contextvars import ContextVar
 from dataclasses import dataclass
+from decimal import Decimal
 from pathlib import Path
 from typing import Any
 from urllib.parse import urlparse
@@ -20,7 +21,17 @@ from ollama import Client, ResponseError
 from pydantic import Field, PrivateAttr, TypeAdapter
 
 from ask_phil.evidence import Fingerprint, Record
-from ask_phil.openrouter import Budget, OpenRouterChat, OpenRouterProfile, ProviderUsage, read_key
+from ask_phil.execution import ExecutionStopped, current_execution
+from ask_phil.model_transport import cloud_transport, local_transport
+from ask_phil.openrouter import (
+    Budget,
+    OpenRouterChat,
+    OpenRouterProfile,
+    ProviderUsage,
+    SpendingLimit,
+    read_key,
+)
+from ask_phil.security import redact_text
 
 QUERY_PREFIX = "task: search result | query:"
 DOCUMENT_PREFIX = "title: none | text:"
@@ -72,16 +83,21 @@ class LocalEmbedding(BaseEmbedding):
             formatted = f"{prefix} {text.strip()}"
             if span:
                 span.set_inputs({"model": self.model_name, "text": formatted, "truncate": False})
-            result = self._client.embed(
-                model=self.model_name,
-                input=formatted,
-                # Reuse the small embedding model across an import; unload after
-                # five idle minutes rather than reload for every roster passage.
-                keep_alive=300,
-                truncate=False,
-            )
-            self._input_tokens.set(result.prompt_eval_count)
-            vector = list(result.embeddings[0])
+            try:
+                result = self._client.embed(
+                    model=self.model_name,
+                    input=formatted,
+                    keep_alive=300,
+                    truncate=False,
+                )
+                self._input_tokens.set(result.prompt_eval_count)
+                if len(result.embeddings) != 1:
+                    raise ValueError("Expected one embedding.")
+                vector = list(result.embeddings[0])
+            except (httpx.HTTPError, ResponseError, ConnectionError):
+                raise ExecutionStopped("provider_failure") from None
+            except (ValueError, IndexError, KeyError, TypeError):
+                raise ExecutionStopped("malformed_output") from None
             if span:
                 span.set_outputs(
                     {"dimensions": len(vector), "input_tokens": result.prompt_eval_count}
@@ -139,7 +155,9 @@ def embedding_from_environment() -> tuple[EmbeddingSettings, LocalEmbedding]:
         raise ModelConfigurationError("Refresh requires the configured local embedding model.")
     return settings, LocalEmbedding(
         model_name=settings.embedding_model,
-        client=Client(host=base_url, timeout=180, trust_env=False),
+        client=Client(
+            host=base_url, timeout=180, trust_env=False, transport=local_transport(base_url)
+        ),
     )
 
 
@@ -158,9 +176,9 @@ class OpenRouterSettings(OpenRouterProfile, EmbeddingSettings):
 
 
 class TokenUsage(Record):
-    input_tokens: int | None = None
-    output_tokens: int | None = None
-    embedding_tokens: int | None = None
+    input_tokens: int | None = Field(default=None, ge=0)
+    output_tokens: int | None = Field(default=None, ge=0)
+    embedding_tokens: int | None = Field(default=None, ge=0)
 
 
 class ModelExecution(Record):
@@ -204,6 +222,9 @@ class Models:
     embedding: BaseEmbedding
     llm: Ollama | OpenRouterChat
 
+    def redact(self, text: str) -> str:
+        return self.llm.redact(text) if isinstance(self.llm, OpenRouterChat) else redact_text(text)
+
     @property
     def _embedding_tokens(self) -> int | None:
         return self.embedding.input_tokens if isinstance(self.embedding, LocalEmbedding) else None
@@ -218,13 +239,16 @@ class Models:
         self, messages: Sequence[ChatMessage], *, schema: dict[str, Any]
     ) -> ModelExecution:
         """Keep provider failures and their measured or unknown spend in the same result."""
+        budget = current_execution.get()
+        if budget and not isinstance(self.llm, OpenRouterChat):
+            budget.model_call(Decimal(0))
         content = None
         usage = TokenUsage(embedding_tokens=self._embedding_tokens)
         failure_type = None
         provider_usage = None
         try:
             result = self.llm.chat(messages, format=schema)
-            content = result.message.content
+            content = self.redact(result.message.content) if result.message.content else None
             if not isinstance(self.llm, OpenRouterChat):
                 raw = result.raw if isinstance(result.raw, dict) else {}
                 usage = TokenUsage(
@@ -232,8 +256,20 @@ class Models:
                     output_tokens=raw.get("eval_count"),
                     embedding_tokens=self._embedding_tokens,
                 )
+                if (
+                    usage.output_tokens is not None
+                    and usage.output_tokens > self.settings.output_tokens
+                ):
+                    failure_type = "malformed_output"
+        except SpendingLimit:
+            failure_type = "spend_limit"
         except (ValueError, ResponseError, httpx.HTTPError, ConnectionError) as exc:
             failure_type = type(exc).__name__
+        except ExecutionStopped as exc:
+            failure_type = str(exc)
+        if content and len(content.encode()) > 32768:
+            content = None
+            failure_type = "malformed_output"
         if isinstance(self.llm, OpenRouterChat):
             provider_usage = self.llm.last_call
             if provider_usage is not None:
@@ -293,8 +329,8 @@ class Models:
             if not isinstance(self.llm, Ollama):
                 raise ModelConfigurationError("Local settings require the local answer client.")
             installed = {m.model: m.digest for m in self.llm.client.list().models}
-        except (httpx.HTTPError, ResponseError, ConnectionError) as exc:
-            raise ModelConfigurationError("The local model server is unavailable.") from exc
+        except (httpx.HTTPError, ResponseError, ConnectionError, ValueError, TypeError, KeyError):
+            raise ModelConfigurationError("The local model server is unavailable.") from None
         for name, digest in (
             (self.settings.answer_model, self.settings.answer_digest),
             (self.settings.embedding_model, self.settings.embedding_digest),
@@ -324,7 +360,12 @@ class Models:
             )
         embedding = LocalEmbedding(
             model_name=settings.embedding_model,
-            client=Client(host=base_url, timeout=settings.request_timeout_seconds, trust_env=False),
+            client=Client(
+                host=base_url,
+                timeout=settings.request_timeout_seconds,
+                trust_env=False,
+                transport=local_transport(base_url),
+            ),
         )
         if isinstance(settings, OpenRouterSettings):
             models = cls(
@@ -338,10 +379,10 @@ class Models:
                         timeout=settings.request_timeout_seconds,
                         trust_env=False,
                         follow_redirects=False,
+                        transport=cloud_transport(settings.answer_model),
                     ),
                 ),
             )
-            models.verify()
             return models
         models = cls(
             settings=settings,
@@ -359,8 +400,8 @@ class Models:
                     host=base_url,
                     timeout=settings.request_timeout_seconds,
                     trust_env=False,
+                    transport=local_transport(base_url),
                 ),
             ),
         )
-        models.verify()
         return models

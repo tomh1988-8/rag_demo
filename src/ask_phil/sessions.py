@@ -18,6 +18,7 @@ from ask_phil.conversation import (
     TurnIdentity,
 )
 from ask_phil.evidence import Record
+from ask_phil.execution import database_options
 
 SESSION_LIFETIME = timedelta(hours=2)
 CONTEXT_IDLE_LIFETIME = timedelta(minutes=30)
@@ -64,7 +65,9 @@ class ConversationSessions:
         self._clock = clock
 
     def _ensure_schema(self) -> None:
-        with psycopg.connect(self.database_url, connect_timeout=5) as conn:
+        with psycopg.connect(
+            self.database_url, connect_timeout=5, options=database_options()
+        ) as conn:
             conn.execute("SELECT pg_advisory_xact_lock(728196)")
             conn.execute("""CREATE TABLE IF NOT EXISTS conversation_sessions (
                 session_id uuid PRIMARY KEY,
@@ -90,7 +93,9 @@ class ConversationSessions:
         token = secrets.token_urlsafe(32)
         feedback_token = secrets.token_urlsafe(32)
         feedback_expires_at = now + FEEDBACK_LIFETIME
-        with psycopg.connect(self.database_url, connect_timeout=5) as conn:
+        with psycopg.connect(
+            self.database_url, connect_timeout=5, options=database_options()
+        ) as conn:
             conn.execute("DELETE FROM conversation_sessions WHERE expires_at <= %s", (now,))
             conn.execute(
                 "DELETE FROM conversation_feedback_contexts WHERE expires_at <= %s", (now,)
@@ -163,7 +168,9 @@ class ConversationSessions:
         self, session_id: UUID, token: str
     ) -> Iterator[tuple[psycopg.Connection[tuple[object, ...]], SessionState]]:
         self._ensure_schema()
-        with psycopg.connect(self.database_url, connect_timeout=5) as conn:
+        with psycopg.connect(
+            self.database_url, connect_timeout=5, options=database_options()
+        ) as conn:
             row = conn.execute(
                 """SELECT document FROM conversation_sessions
                 WHERE session_id = %s AND token_sha256 = %s AND expires_at > %s FOR UPDATE""",
@@ -215,7 +222,9 @@ class ConversationSessions:
         #22 must also verify the selected response belongs to this session.
         """
         self._ensure_schema()
-        with psycopg.connect(self.database_url, connect_timeout=5) as conn:
+        with psycopg.connect(
+            self.database_url, connect_timeout=5, options=database_options()
+        ) as conn:
             row = conn.execute(
                 """SELECT expires_at FROM conversation_feedback_contexts
                 WHERE session_id = %s AND token_sha256 = %s AND expires_at > %s""",

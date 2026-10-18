@@ -7,6 +7,177 @@ import httpx
 import pytest
 
 
+def test_busy_online_evaluation_is_pending_and_provider_failure_is_inspectable(
+    tmp_path: Path,
+) -> None:
+    from concurrent.futures import ThreadPoolExecutor
+    from threading import Event
+
+    from ask_phil.execution import ExecutionPolicies
+    from ask_phil.openrouter import Budget, OpenRouterChat, OpenRouterProfile
+    from ask_phil.semantic_judge import SupportInput, SupportJudge, SupportPassage
+
+    entered, release = Event(), Event()
+
+    def provider(request: httpx.Request) -> httpx.Response:
+        entered.set()
+        assert release.wait(3)
+        return httpx.Response(503, json={"error": "Bearer synthetic-provider-secret"})
+
+    with httpx.Client(transport=httpx.MockTransport(provider)) as client:
+        judge = SupportJudge(
+            OpenRouterChat(
+                OpenRouterProfile(
+                    answer_model="test/model",
+                    canonical_slug="test/model-v1",
+                    provider="test",
+                    input_price_per_million=Decimal(1),
+                    output_price_per_million=Decimal(2),
+                ),
+                "synthetic-test-key",
+                Budget(tmp_path / "budget.sqlite"),
+                client,
+            ),
+            policies=ExecutionPolicies(online_enabled=True),
+        )
+        supplied = SupportInput(
+            answer="Phil delivers three red chairs.",
+            context=(SupportPassage(evidence_id="chairs", text="Phil delivers three red chairs."),),
+        )
+        with ThreadPoolExecutor(max_workers=1) as workers:
+            first = workers.submit(judge.assess_online, supplied)
+            try:
+                assert entered.wait(2)
+                pending = judge.assess_online(supplied)
+                assert pending.status == "pending"
+                assert pending.execution.model_calls == 0
+            finally:
+                release.set()
+            failed = first.result(timeout=3)
+            assert failed.status == "failed"
+            assert failed.execution.stop_reason == "provider_failure"
+            assert "synthetic-provider-secret" not in failed.model_dump_json()
+
+
+@pytest.mark.parametrize("enabled,expected", [(False, "disabled"), (True, "skipped")])
+def test_online_evaluation_obeys_its_own_disable_and_call_budget(
+    tmp_path: Path,
+    enabled: bool,
+    expected: str,
+) -> None:
+    from ask_phil.execution import ExecutionLimits, ExecutionPolicies
+    from ask_phil.openrouter import Budget, OpenRouterChat, OpenRouterProfile
+    from ask_phil.semantic_judge import SupportInput, SupportJudge, SupportPassage
+
+    def provider(request: httpx.Request) -> httpx.Response:
+        raise AssertionError("Disabled or budget-skipped evaluation must not contact a provider.")
+
+    with httpx.Client(transport=httpx.MockTransport(provider)) as client:
+        judge = SupportJudge(
+            OpenRouterChat(
+                OpenRouterProfile(
+                    answer_model="test/model",
+                    canonical_slug="test/model-v1",
+                    provider="test",
+                    input_price_per_million=Decimal(1),
+                    output_price_per_million=Decimal(2),
+                ),
+                "synthetic-test-key",
+                Budget(tmp_path / "budget.sqlite"),
+                client,
+            ),
+            policies=ExecutionPolicies(
+                online_enabled=enabled,
+                online_evaluation=ExecutionLimits(model_calls=0),
+            ),
+        )
+        result = judge.assess_online(
+            SupportInput(
+                answer="Phil delivers three red chairs.",
+                context=(
+                    SupportPassage(evidence_id="chairs", text="Phil delivers three red chairs."),
+                ),
+            )
+        )
+    assert result.status == expected
+    assert result.execution.model_calls == 0
+
+
+@pytest.mark.parametrize("exhausted", ["provider", "shared_ledger"])
+def test_online_evaluation_spending_exhaustion_is_skipped_with_its_actual_reason(
+    tmp_path: Path,
+    exhausted: str,
+) -> None:
+    from ask_phil.execution import ExecutionPolicies
+    from ask_phil.openrouter import Budget, OpenRouterChat, OpenRouterProfile
+    from ask_phil.semantic_judge import SupportInput, SupportJudge, SupportPassage
+
+    budget = Budget(tmp_path / "budget.sqlite")
+    if exhausted == "shared_ledger":
+        budget.reserve(Decimal(5))
+
+    def provider(request: httpx.Request) -> httpx.Response:
+        if request.url.path.endswith("/key"):
+            return httpx.Response(
+                200,
+                json={
+                    "data": {
+                        "limit": 5,
+                        "limit_reset": None,
+                        "limit_remaining": 0 if exhausted == "provider" else 5,
+                    }
+                },
+            )
+        assert request.url.path.endswith("/endpoints"), "No paid call is authorized."
+        return httpx.Response(
+            200,
+            json={
+                "data": {
+                    "endpoints": [
+                        {
+                            "tag": "test",
+                            "name": "Test | test/model-v1",
+                            "supported_parameters": [
+                                "structured_outputs",
+                                "response_format",
+                                "reasoning",
+                                "max_tokens",
+                            ],
+                        }
+                    ]
+                }
+            },
+        )
+
+    with httpx.Client(transport=httpx.MockTransport(provider)) as client:
+        judge = SupportJudge(
+            OpenRouterChat(
+                OpenRouterProfile(
+                    answer_model="test/model",
+                    canonical_slug="test/model-v1",
+                    provider="test",
+                    input_price_per_million=Decimal(1),
+                    output_price_per_million=Decimal(2),
+                ),
+                "synthetic-test-key",
+                budget,
+                client,
+            ),
+            policies=ExecutionPolicies(online_enabled=True),
+        )
+        result = judge.assess_online(
+            SupportInput(
+                answer="Phil delivers three red chairs.",
+                context=(
+                    SupportPassage(evidence_id="chairs", text="Phil delivers three red chairs."),
+                ),
+            )
+        )
+        assert result.status == "skipped"
+        assert result.execution.stop_reason == "spend_limit"
+        assert judge.chat.last_call is None
+
+
 def test_maximum_call_reservation_uses_the_shared_input_and_output_ceiling() -> None:
     from ask_phil.openrouter import OpenRouterProfile, maximum_call_cost
 

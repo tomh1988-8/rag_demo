@@ -3,6 +3,7 @@
 import hashlib
 import json
 import math
+from decimal import Decimal
 from typing import Literal
 
 import psycopg
@@ -12,10 +13,12 @@ from llama_index.core.vector_stores import MetadataFilter, MetadataFilters, Vect
 from llama_index.vector_stores.postgres import PGVectorStore
 from psycopg.conninfo import conninfo_to_dict
 from psycopg.types.json import Jsonb
+from pydantic import Field
 from sqlalchemy.engine import URL
 from sqlalchemy.pool import NullPool
 
 from ask_phil.evidence import Fingerprint, Passage, Record, SourceSnapshot
+from ask_phil.execution import ExecutionStopped, current_execution, read_options
 from ask_phil.storage import EvidenceStore
 
 
@@ -40,7 +43,7 @@ class TextIndex(Record):
 
 class RetrievedPassage(Record):
     passage: Passage
-    similarity: float | None
+    similarity: float | None = Field(ge=-1.000001, le=1.000001, allow_inf_nan=False)
 
 
 class Retrieval(Record):
@@ -83,7 +86,13 @@ class TextRetriever:
             perform_setup=setup,
             initialization_fail_on_error=True,
             use_jsonb=True,
-            create_engine_kwargs={"poolclass": NullPool},
+            create_engine_kwargs={
+                "poolclass": NullPool,
+                "connect_args": {
+                    "connect_timeout": 5,
+                    **({"options": read_options()} if not setup else {}),
+                },
+            },
         )
 
     def _filter(self, fingerprint: str) -> MetadataFilters:
@@ -199,7 +208,7 @@ class TextRetriever:
     def manifest(self, snapshot_id: str) -> TextIndex:
         """Resolve a complete index and verify its retained artifacts without model calls."""
         snapshot = EvidenceStore(self.database_url).snapshot(snapshot_id)
-        with psycopg.connect(self.database_url, connect_timeout=5) as conn:
+        with psycopg.connect(self.database_url, connect_timeout=5, options=read_options()) as conn:
             if conn.execute("SELECT to_regclass('text_index_artifacts')").fetchone() == (None,):
                 raise IndexNotReady("Prepare the snapshot to establish its index manifest.")
             row = conn.execute(
@@ -215,10 +224,20 @@ class TextRetriever:
         return manifest
 
     def retrieve(self, snapshot_id: str, query: str, *, k: int = 3) -> Retrieval:
-        if not query.strip() or len(query) > 500 or not 1 <= k <= 20:
+        if (
+            not isinstance(query, str)
+            or not query.strip()
+            or len(query) > 500
+            or len(query.encode()) > 1000
+            or type(k) is not int
+            or not 1 <= k <= 20
+        ):
             raise ValueError("Retrieval requires a question of 1–500 characters and k of 1–20.")
+        budget = current_execution.get()
+        if budget:
+            budget.tool_call("text_retrieval")
         snapshot = EvidenceStore(self.database_url).snapshot(snapshot_id)
-        with psycopg.connect(self.database_url, connect_timeout=5) as conn:
+        with psycopg.connect(self.database_url, connect_timeout=5, options=read_options()) as conn:
             if conn.execute("SELECT to_regclass('text_indexes')").fetchone() == (None,):
                 raise IndexNotReady("Prepare this snapshot's text index before answering.")
             if not conn.execute(
@@ -227,19 +246,49 @@ class TextRetriever:
                 (snapshot.fingerprint, self.embedding_id, self.dimensions),
             ).fetchone():
                 raise IndexNotReady("Prepare this snapshot with the configured embedding model.")
+        if budget:
+            budget.model_call(Decimal(0))
+        try:
+            vector = self.embedding.get_query_embedding(query)
+            if (
+                len(vector) != self.dimensions
+                or not all(math.isfinite(value) for value in vector)
+                or not any(value != 0 for value in vector)
+            ):
+                raise ValueError("Invalid embedding.")
+        except (ValueError, IndexError, TypeError, KeyError):
+            raise ExecutionStopped("malformed_output") from None
         result = self._vectors().query(
             VectorStoreQuery(
-                query_embedding=self.embedding.get_query_embedding(query),
+                query_embedding=vector,
                 similarity_top_k=k,
                 filters=self._filter(snapshot.fingerprint),
             )
         )
+        if budget:
+            budget.check()
         passages = {p.evidence_id: p for p in snapshot.passages}
-        hits = tuple(
-            RetrievedPassage(
-                passage=passages[node.metadata["evidence_id"]],
-                similarity=result.similarities[i] if result.similarities else None,
+        try:
+            nodes = result.nodes or []
+            if len(nodes) > k or (result.similarities and len(result.similarities) != len(nodes)):
+                raise ValueError("Invalid retrieval result count.")
+            identifiers = [node.metadata["evidence_id"] for node in nodes]
+            if len(set(identifiers)) != len(identifiers):
+                raise ValueError("Duplicate retrieval evidence.")
+            for node in nodes:
+                passage = passages[node.metadata["evidence_id"]]
+                if (
+                    node.node_id != f"{snapshot.fingerprint}:{passage.evidence_id}"
+                    or node.get_content() != passage.text
+                ):
+                    raise ValueError("Retrieved evidence differs from the snapshot.")
+            hits = tuple(
+                RetrievedPassage(
+                    passage=passages[node.metadata["evidence_id"]],
+                    similarity=result.similarities[i] if result.similarities else None,
+                )
+                for i, node in enumerate(nodes)
             )
-            for i, node in enumerate(result.nodes or [])
-        )
+        except (ValueError, TypeError, KeyError, IndexError):
+            raise ExecutionStopped("malformed_output") from None
         return Retrieval(snapshot=snapshot, hits=hits, k=k, embedding_id=self.embedding_id)

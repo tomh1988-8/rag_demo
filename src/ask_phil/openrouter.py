@@ -3,7 +3,9 @@
 import json
 import os
 import sqlite3
-from collections.abc import Sequence
+import time
+from collections.abc import Iterator, Sequence
+from contextlib import contextmanager
 from contextvars import ContextVar
 from decimal import ROUND_CEILING, Decimal, InvalidOperation
 from pathlib import Path
@@ -15,6 +17,8 @@ from llama_index.core.llms import ChatMessage, ChatResponse
 from pydantic import Field
 
 from ask_phil.evidence import Record
+from ask_phil.execution import current_execution
+from ask_phil.security import redact_text
 
 API = "https://openrouter.ai/api/v1"
 KEY_PATH = Path(".secrets/openrouter.key")
@@ -27,6 +31,10 @@ _REQUEST_FRAMING_ALLOWANCE = 4096
 
 class ProviderError(ValueError):
     """Safe public error: never include credentials or upstream response bodies."""
+
+
+class SpendingLimit(ProviderError):
+    """Provider or persistent shared-ledger capacity cannot cover another request."""
 
 
 def money(value: object) -> Decimal:
@@ -64,7 +72,7 @@ def verify_key(client: httpx.Client, key: str) -> Decimal:
             "Could not verify the OpenRouter key limit; no paid call was made."
         ) from None
     if remaining <= 0:
-        raise ProviderError("The OpenRouter key budget is exhausted.")
+        raise SpendingLimit("The OpenRouter key budget is exhausted.")
     # This trial spends OpenRouter credits. The optional BYOK accounting flag
     # concerns separately connected provider keys, not the credit limit above.
     return remaining
@@ -101,11 +109,35 @@ class Budget:
     def __init__(self, path: Path = BUDGET_PATH) -> None:
         self.path = path
         path.parent.mkdir(parents=True, exist_ok=True)
-        with sqlite3.connect(path, timeout=30) as conn:
+        with self._connection() as conn:
             conn.execute(
                 "CREATE TABLE IF NOT EXISTS reservations "
                 "(id TEXT PRIMARY KEY, microdollars INTEGER NOT NULL, settled INTEGER DEFAULT 0)"
             )
+
+    @contextmanager
+    def _connection(self) -> Iterator[sqlite3.Connection]:
+        execution = current_execution.get()
+        seconds = min(5.0, execution.remaining_seconds) if execution else 5.0
+        deadline = time.monotonic() + seconds
+        try:
+            with sqlite3.connect(self.path, timeout=seconds) as conn:
+                conn.set_progress_handler(
+                    lambda: int(
+                        time.monotonic() >= deadline
+                        or bool(execution and execution.cancellation.is_set())
+                    ),
+                    1000,
+                )
+                yield conn
+        except sqlite3.Error as exc:
+            if execution and getattr(exc, "sqlite_errorcode", None) in {
+                sqlite3.SQLITE_BUSY,
+                sqlite3.SQLITE_LOCKED,
+                sqlite3.SQLITE_INTERRUPT,
+            }:
+                execution.stop("cancelled" if execution.cancellation.is_set() else "timeout")
+            raise ProviderError("The shared spending ledger is unavailable.") from None
 
     def reserve(self, amount: Decimal) -> str:
         amount = money(amount)
@@ -113,13 +145,13 @@ class Budget:
         if units <= 0:
             raise ProviderError("A positive budget reservation is required.")
         identifier = uuid4().hex
-        with sqlite3.connect(self.path, timeout=30) as conn:
+        with self._connection() as conn:
             conn.execute("BEGIN IMMEDIATE")
             spent = conn.execute(
                 "SELECT COALESCE(SUM(microdollars), 0) FROM reservations"
             ).fetchone()[0]
             if spent + units > int(CAP * MICRODOLLARS):
-                raise ProviderError("The shared $5 trial budget cannot cover this request.")
+                raise SpendingLimit("The shared $5 trial budget cannot cover this request.")
             conn.execute(
                 "INSERT INTO reservations(id, microdollars) VALUES (?, ?)", (identifier, units)
             )
@@ -127,7 +159,7 @@ class Budget:
 
     def settle(self, identifier: str, amount: Decimal) -> None:
         units = int((money(amount) * MICRODOLLARS).to_integral_value(rounding=ROUND_CEILING))
-        with sqlite3.connect(self.path, timeout=30) as conn:
+        with self._connection() as conn:
             # Settlement is idempotent. Never erase a reservation on missing/invalid usage.
             conn.execute(
                 "UPDATE reservations SET microdollars=?, settled=1 WHERE id=? AND settled=0",
@@ -157,14 +189,14 @@ def maximum_call_cost(profile: OpenRouterProfile) -> Decimal:
 
 class ProviderUsage(Record):
     reservation_id: str
-    reserved_usd: float
-    cost_usd: float | None = None
+    reserved_usd: float = Field(ge=0, allow_inf_nan=False)
+    cost_usd: float | None = Field(default=None, ge=0, allow_inf_nan=False)
     request_id: str | None = None
     returned_model: str | None = None
     provider: str | None = None
     input_tokens: int | None = Field(default=None, ge=0)
     output_tokens: int | None = Field(default=None, ge=0)
-    reasoning_tokens: int | None = None
+    reasoning_tokens: int | None = Field(default=None, ge=0)
 
 
 def answer_schema(value: Any) -> Any:
@@ -196,6 +228,9 @@ class OpenRouterChat:
     def last_call(self) -> ProviderUsage | None:
         return self._last_call.get()
 
+    def redact(self, text: str) -> str:
+        return redact_text(text, (self._key,))
+
     def _verify_endpoint(self) -> None:
         response = self._client.get(f"{API}/models/{self.profile.answer_model}/endpoints")
         response.raise_for_status()
@@ -212,6 +247,9 @@ class OpenRouterChat:
     def chat(self, messages: Sequence[ChatMessage], *, format: dict[str, Any]) -> ChatResponse:
         self._last_call.set(None)
         profile = self.profile
+        budget = current_execution.get()
+        if budget:
+            budget.model_call(maximum_call_cost(profile))
         body = {
             "model": profile.answer_model,
             "messages": [{"role": m.role.value, "content": m.content} for m in messages],
@@ -249,7 +287,7 @@ class OpenRouterChat:
         try:
             remaining = verify_key(self._client, self._key)
             if reservation > remaining:
-                raise ProviderError("The provider budget cannot cover this request.")
+                raise SpendingLimit("The provider budget cannot cover this request.")
             self._verify_endpoint()
             identifier = self._budget.reserve(reservation)
             accounting = ProviderUsage(reservation_id=identifier, reserved_usd=float(reservation))
@@ -260,7 +298,7 @@ class OpenRouterChat:
                 headers={"Authorization": f"Bearer {self._key}"},
             )
             response.raise_for_status()
-            data = response.json()
+            data = json.loads(self.redact(response.text))
             usage = data.get("usage") or {}
             cost = money(usage["cost"]) if usage.get("cost") is not None else None
             accounting = ProviderUsage.model_validate(
@@ -280,6 +318,8 @@ class OpenRouterChat:
             self._last_call.set(accounting)
             if cost is not None:
                 self._budget.settle(identifier, cost)
+                if budget:
+                    budget.settle(cost)
             choice = data["choices"][0]
             if choice.get("finish_reason") != "stop" or data.get("model") not in {
                 profile.answer_model,

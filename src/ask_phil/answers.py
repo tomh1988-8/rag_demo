@@ -7,12 +7,14 @@ from pydantic import Field, StringConstraints, field_validator
 
 from ask_phil.conversation import ConversationReference
 from ask_phil.evidence import Fingerprint, Identifier, Passage, PublicationRef, Record, Source
+from ask_phil.execution import ExecutionRecord
 from ask_phil.models import LOCAL_COST_SCOPE, LOCAL_LIMITATION, ModelSettings, OpenRouterSettings
 from ask_phil.models import TokenUsage as TokenUsage
 from ask_phil.openrouter import ProviderUsage
 from ask_phil.passage_context import assemble_context as assemble_context
 from ask_phil.passage_context import context_text as context_text
 from ask_phil.retrieval import RetrievedPassage
+from ask_phil.security import redact_text
 
 Outcome = Literal["answered", "partial", "clarification", "insufficient_evidence"]
 QuestionPart = Annotated[
@@ -91,7 +93,7 @@ class AskRequest(Record):
     def question_budget(cls, value: str) -> str:
         if len(value.encode()) > 1000:
             raise ValueError("Question exceeds the 1000-byte input budget.")
-        return value
+        return redact_text(value)
 
 
 class AnswerRecord(Record):
@@ -122,6 +124,7 @@ class AnswerRecord(Record):
     prompt_sha256: Fingerprint
     application_sha256: Fingerprint
     trace_id: str
+    execution: ExecutionRecord | None = Field(default=None, exclude_if=lambda v: v is None)
     elapsed_ms: float
     usage: TokenUsage
     expenditure_category: Literal["serving", "offline_evaluation"]

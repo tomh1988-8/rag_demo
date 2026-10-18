@@ -137,7 +137,13 @@ def main() -> None:
         # At most $1 additional known spend; the preserved shared $5 ledger still governs.
         if not Decimal(0) < args.max_cost_usd <= Decimal(1):
             parser.error("Choose a positive judge slice budget no greater than $1.")
-        with httpx.Client(timeout=judge_profile.request_timeout_seconds, trust_env=False) as http:
+        from ask_phil.model_transport import cloud_transport
+
+        with httpx.Client(
+            timeout=judge_profile.request_timeout_seconds,
+            trust_env=False,
+            transport=cloud_transport(judge_profile.answer_model),
+        ) as http:
             judge = SupportJudge(OpenRouterChat(judge_profile, read_key(), Budget(), http))
             calibrate_support(
                 args.references,

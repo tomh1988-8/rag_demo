@@ -260,3 +260,19 @@ def test_key_setup_refuses_noninteractive_input() -> None:
     assert result.returncode == 1
     assert "interactive terminal" in result.stderr
     assert "private-test-key" not in result.stdout + result.stderr
+
+
+def test_shared_spending_ledger_lock_cannot_outlast_the_request_budget(tmp_path: Path) -> None:
+    import sqlite3
+    import time
+
+    from ask_phil.execution import ExecutionBudget, ExecutionLimits, ExecutionStopped
+
+    budget = Budget(tmp_path / "locked-budget.sqlite")
+    with sqlite3.connect(budget.path) as lock:
+        lock.execute("BEGIN IMMEDIATE")
+        request = ExecutionBudget(ExecutionLimits(seconds=0.05))
+        started = time.monotonic()
+        with request.activate(), pytest.raises(ExecutionStopped, match="timeout"):
+            budget.reserve(Decimal("0.01"))
+        assert time.monotonic() - started < 1

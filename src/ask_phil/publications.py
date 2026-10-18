@@ -264,7 +264,9 @@ class PublicationStore:
         return tuple(RefreshRun.model_validate(row[0]) for row in rows)
 
     def active(self) -> ActivePublication:
-        with psycopg.connect(self.database_url, connect_timeout=5) as conn:
+        from ask_phil.execution import read_options
+
+        with psycopg.connect(self.database_url, connect_timeout=5, options=read_options()) as conn:
             if conn.execute("SELECT to_regclass('active_publication')").fetchone() == (None,):
                 raise PublicationNotFound("No usable snapshot has been published.")
             row = conn.execute("""
@@ -345,7 +347,9 @@ class PublicationStore:
         """Pin a publication once; explicit legacy snapshots remain supported separately."""
         if snapshot_id is None:
             return self.active()
-        with psycopg.connect(self.database_url, connect_timeout=5) as conn:
+        from ask_phil.execution import read_options
+
+        with psycopg.connect(self.database_url, connect_timeout=5, options=read_options()) as conn:
             if conn.execute("SELECT to_regclass('snapshot_publications')").fetchone() == (None,):
                 return None
             row = conn.execute(

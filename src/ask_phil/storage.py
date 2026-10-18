@@ -4,6 +4,8 @@ import psycopg
 from psycopg.types.json import Jsonb
 
 from ask_phil.evidence import Inspection, Passage, SourceSnapshot
+from ask_phil.execution import read_options
+from ask_phil.security import require_credential_free
 
 
 class SnapshotNotFound(LookupError):
@@ -20,6 +22,7 @@ class EvidenceStore:
 
     def load(self, snapshot: SourceSnapshot) -> str:
         """Atomically retain a fixture; an existing identifier cannot change meaning."""
+        require_credential_free(snapshot.model_dump_json())
         with psycopg.connect(self.database_url, connect_timeout=5) as conn:
             conn.execute("""
                 CREATE TABLE IF NOT EXISTS source_snapshots (
@@ -69,7 +72,7 @@ class EvidenceStore:
         return snapshot.snapshot_id
 
     def snapshot(self, snapshot_id: str) -> SourceSnapshot:
-        with psycopg.connect(self.database_url, connect_timeout=5) as conn:
+        with psycopg.connect(self.database_url, connect_timeout=5, options=read_options()) as conn:
             row = conn.execute(
                 "SELECT document FROM source_snapshots WHERE snapshot_id = %s", (snapshot_id,)
             ).fetchone()

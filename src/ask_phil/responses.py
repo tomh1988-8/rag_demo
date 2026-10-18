@@ -8,6 +8,7 @@ import psycopg
 from psycopg.types.json import Jsonb
 
 from ask_phil.answers import AnswerReceipt, AnswerRecord
+from ask_phil.execution import database_options
 
 
 class ResponseLedger:
@@ -16,7 +17,9 @@ class ResponseLedger:
 
     def save(self, response: AnswerRecord) -> AnswerReceipt:
         token = secrets.token_urlsafe(32)
-        with psycopg.connect(self.database_url, connect_timeout=5) as conn:
+        with psycopg.connect(
+            self.database_url, connect_timeout=5, options=database_options(finalizing=True)
+        ) as conn:
             # Serialize first-time receipt creation independently of the refresh writer.
             conn.execute("SELECT pg_advisory_xact_lock(728195)")
             conn.execute("""

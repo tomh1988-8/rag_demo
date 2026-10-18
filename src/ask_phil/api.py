@@ -1,15 +1,18 @@
 """Shared HTTP interface for evidence inspection; fixture loading is maintainer-only."""
 
+import asyncio
 import os
 import threading
 from collections.abc import Callable
 from datetime import UTC, datetime
+from functools import partial
 from pathlib import Path
 from typing import Annotated
 from uuid import UUID
 
 import psycopg
 from fastapi import FastAPI, Header, HTTPException, Query, Request
+from fastapi.exceptions import RequestValidationError
 from fastapi.responses import JSONResponse
 from pydantic import StringConstraints
 
@@ -17,6 +20,7 @@ from ask_phil.answering import AnswerService
 from ask_phil.answers import AnswerReceipt, AnswerRecord, AskRequest
 from ask_phil.conversation import ReferenceTurn, TurnIdentity
 from ask_phil.evidence import Identifier, Inspection
+from ask_phil.execution import ExecutionBudget, ExecutionLimits, ExecutionPolicies
 from ask_phil.identity import IdentityResolution
 from ask_phil.models import ModelConfigurationError, Models
 from ask_phil.openrouter import ProviderError
@@ -40,19 +44,41 @@ def create_app(
     *,
     models: Models | None = None,
     tracking_uri: str | None = None,
+    execution_limits: ExecutionLimits | None = None,
     session_clock: Callable[[], datetime] = lambda: datetime.now(UTC),
 ) -> FastAPI:
     database_url = database_url or os.environ["DATABASE_URL"]
     store = EvidenceStore(database_url)
     publications = PublicationStore(database_url)
     sessions = ConversationSessions(database_url, clock=session_clock)
+    policies = ExecutionPolicies.from_environment()
+    if execution_limits is not None:
+        policies = policies.model_copy(update={"serving": execution_limits})
     app = FastAPI(title="Ask Phil evidence inspection", version="0.1.0")
     service = (
-        AnswerService(database_url, models, tracking_uri or "sqlite:///artifacts/mlflow.db")
+        AnswerService(
+            database_url, models, tracking_uri or "sqlite:///artifacts/mlflow.db", policies=policies
+        )
         if models
         else None
     )
     service_lock = threading.Lock()
+
+    @app.exception_handler(RequestValidationError)
+    async def invalid_request(request: Request, exc: RequestValidationError) -> JSONResponse:
+        return JSONResponse(
+            status_code=422,
+            content={
+                "detail": [
+                    {
+                        "loc": error["loc"][:1],
+                        "type": error["type"],
+                        "msg": "Invalid request value.",
+                    }
+                    for error in exc.errors()
+                ]
+            },
+        )
 
     @app.exception_handler(SessionNotFound)
     async def session_missing(request: Request, exc: SessionNotFound) -> JSONResponse:
@@ -77,12 +103,24 @@ def create_app(
         return sessions.reset(session_id, bearer_token(authorization))
 
     @app.post("/v1/sessions/{session_id}/turns")
-    def conversation_turn(
+    async def conversation_turn(
         session_id: UUID,
         request: AskRequest,
+        http_request: Request,
         authorization: Annotated[str | None, Header()] = None,
     ) -> AnswerReceipt:
-        return sessions.ask(session_id, bearer_token(authorization), request, answer=answer)
+        budget = ExecutionBudget(policies.serving)
+        return await connected_answer(
+            http_request,
+            budget,
+            partial(
+                sessions.ask,
+                session_id,
+                bearer_token(authorization),
+                request,
+                answer=partial(answer, execution=budget),
+            ),
+        )
 
     @app.exception_handler(PublicationNotFound)
     async def publication_missing(request: Request, exc: PublicationNotFound) -> JSONResponse:
@@ -117,13 +155,38 @@ def create_app(
         return result.model_copy(update={"publication": pinned.reference})
 
     @app.post("/v1/answers")
-    def standalone_answer(request: AskRequest) -> AnswerReceipt:
-        return answer(request)
+    async def standalone_answer(request: AskRequest, http_request: Request) -> AnswerReceipt:
+        budget = ExecutionBudget(policies.serving)
+        return await connected_answer(
+            http_request, budget, partial(answer, request, execution=budget)
+        )
+
+    async def connected_answer(
+        request: Request, budget: ExecutionBudget, operation: Callable[[], AnswerReceipt]
+    ) -> AnswerReceipt:
+        def run() -> AnswerReceipt:
+            with budget.activate():
+                return operation()
+
+        worker = asyncio.create_task(asyncio.to_thread(run))
+        try:
+            while not worker.done():
+                if await request.is_disconnected():
+                    budget.cancellation.set()
+                await asyncio.sleep(0.02)
+            return await worker
+        finally:
+            if not worker.done():
+                budget.cancellation.set()
+                # Retain the terminal trace/receipt even if the HTTP task is cancelled.
+                await asyncio.shield(worker)
 
     def answer(
         request: AskRequest,
         turn: TurnIdentity | None = None,
         history: tuple[ReferenceTurn, ...] = (),
+        *,
+        execution: ExecutionBudget,
     ) -> AnswerReceipt:
         nonlocal service
         try:
@@ -135,8 +198,14 @@ def create_app(
                         Models.from_environment(),
                         tracking_uri
                         or os.environ.get("MLFLOW_TRACKING_URI", "sqlite:///artifacts/mlflow.db"),
+                        policies=policies,
                     )
-            return service.ask(request, turn=turn, history=history)
+            return service.ask(
+                request,
+                turn=turn,
+                history=history,
+                execution=execution,
+            )
         except (ModelConfigurationError, ProviderError) as exc:
             raise HTTPException(status_code=503, detail=str(exc)) from exc
         except SnapshotNotFound as exc:

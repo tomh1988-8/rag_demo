@@ -2,14 +2,19 @@
 
 import hashlib
 import time
+from collections.abc import Iterator
+from contextlib import contextmanager
 from pathlib import Path
+from threading import BoundedSemaphore
 from typing import Literal
 from uuid import uuid4
 
 import mlflow
+import psycopg
 from llama_index.core.llms import ChatMessage
 from mlflow import MlflowClient
 from mlflow.entities import MlflowExperimentLocation
+from sqlalchemy.exc import DBAPIError
 
 from ask_phil.answers import (
     SYSTEM_PROMPT,
@@ -28,13 +33,27 @@ from ask_phil.conversation import (
     TurnIdentity,
     resolve_reference,
 )
+from ask_phil.evidence import Passage
+from ask_phil.execution import ExecutionBudget, ExecutionPolicies, ExecutionStopped
 from ask_phil.identity import IdentityCatalogue
-from ask_phil.models import Models, TokenUsage
-from ask_phil.passage_context import CONTEXT_BYTE_BUDGET
+from ask_phil.models import ModelConfigurationError, ModelExecution, Models, TokenUsage
 from ask_phil.publications import PublicationStore
 from ask_phil.responses import ResponseLedger
 from ask_phil.retrieval import IndexNotReady, Retrieval, TextRetriever
 from ask_phil.storage import EvidenceStore
+
+
+@contextmanager
+def _retrieval_timeout() -> Iterator[None]:
+    """Normalize direct and vector-adapter database timeouts before tracing errors."""
+    try:
+        yield
+    except (psycopg.errors.QueryCanceled, psycopg.errors.LockNotAvailable):
+        raise ExecutionStopped("timeout") from None
+    except DBAPIError as exc:
+        if isinstance(exc.orig, (psycopg.errors.QueryCanceled, psycopg.errors.LockNotAvailable)):
+            raise ExecutionStopped("timeout") from None
+        raise
 
 
 def application_fingerprint() -> str:
@@ -46,8 +65,22 @@ def application_fingerprint() -> str:
 
 
 class AnswerService:
-    def __init__(self, database_url: str, models: Models, tracking_uri: str) -> None:
+    def __init__(
+        self,
+        database_url: str,
+        models: Models,
+        tracking_uri: str,
+        *,
+        policies: ExecutionPolicies | None = None,
+    ) -> None:
+        self.policies = policies or ExecutionPolicies.from_environment()
+        self._slots = {
+            category: BoundedSemaphore(getattr(self.policies, category).concurrency)
+            for category in ("serving", "offline_evaluation")
+        }
         self.models = models
+        if models.redact(models.settings.model_dump_json()) != models.settings.model_dump_json():
+            raise ModelConfigurationError("Model settings contain unsafe credential text.")
         self.publications = PublicationStore(database_url)
         self.retriever = TextRetriever(
             database_url,
@@ -100,19 +133,39 @@ class AnswerService:
         category: Literal["serving", "offline_evaluation"] = "serving",
         turn: TurnIdentity | None = None,
         history: tuple[ReferenceTurn, ...] = (),
+        execution: ExecutionBudget | None = None,
+    ) -> AnswerReceipt:
+        budget = execution or ExecutionBudget(getattr(self.policies, category))
+        request = request.model_copy(update={"question": self.models.redact(request.question)})
+        with budget.activate():
+            acquired = self._slots[category].acquire(blocking=False)
+            if not acquired:
+                budget.record_stop("concurrency_limit")
+            try:
+                return self._ask(request, category, turn, history, budget)
+            finally:
+                if acquired:
+                    self._slots[category].release()
+
+    def _ask(
+        self,
+        request: AskRequest,
+        category: Literal["serving", "offline_evaluation"],
+        turn: TurnIdentity | None,
+        history: tuple[ReferenceTurn, ...],
+        budget: ExecutionBudget,
     ) -> AnswerReceipt:
         started = time.perf_counter()
         publication = self.publications.pin(request.snapshot_id)
         snapshot_id = publication.manifest.snapshot_id if publication else request.snapshot_id
         if snapshot_id is None:
             raise IndexNotReady("Publish a usable source/index snapshot before answering.")
-        if publication and self.retriever.manifest(snapshot_id) != publication.manifest.index:
-            raise IndexNotReady("The configured retrieval index differs from the publication.")
-        self.models.verify()
+        snapshot = self.evidence.snapshot(snapshot_id)
+        if self.models.redact(snapshot.model_dump_json()) != snapshot.model_dump_json():
+            raise ModelConfigurationError("Captured evidence contains unsafe credential text.")
         conversation = None
         question = request.question
         if turn:
-            snapshot = self.evidence.snapshot(snapshot_id)
             reference = resolve_reference(
                 question,
                 snapshot.imported.catalogue
@@ -145,103 +198,121 @@ class AnswerService:
                     ),
                 }
             )
-            clarification = conversation.reference.clarification if conversation else None
-            if clarification:
-                retrieved = Retrieval(
-                    snapshot=self.evidence.snapshot(snapshot_id),
-                    hits=(),
-                    k=0,
-                    embedding_id=self.models.settings.embedding_id,
-                )
-                root.set_attribute("retrieval_skipped", "unresolved_reference")
-            else:
-                with mlflow.start_span("text_retrieval", span_type="RETRIEVER") as span:
-                    span.set_inputs({"question": question, "k": 3})
-                    retrieved = self.retriever.retrieve(snapshot_id, question, k=3)
-                    span.set_outputs(retrieved.model_dump(mode="json"))
-            with mlflow.start_span("assembled_context") as span:
-                context = assemble_context(retrieved.hits)
-                span.set_outputs(
-                    {
-                        "passages": [p.model_dump() for p in context],
-                        "byte_budget": CONTEXT_BYTE_BUDGET,
-                    }
-                )
-            failure = False
+            retrieved = Retrieval(
+                snapshot=snapshot,
+                hits=(),
+                k=0,
+                embedding_id=self.models.settings.embedding_id,
+            )
+            context: tuple[Passage, ...] = ()
             citations: tuple[Citation, ...] = ()
-            if clarification:
-                execution = self.models.skipped_answer().model_copy(
-                    update={
-                        "usage": TokenUsage(input_tokens=0, output_tokens=0, embedding_tokens=0)
-                    }
-                )
-                draft = Draft(
-                    answer=clarification,
-                    status="clarification",
-                    evidence_ids=(),
-                    unanswered=("Which character is intended?",),
-                    qualifications=(),
-                )
-                root.set_attribute("answer_model_skipped", "unresolved_reference")
-            elif not context:
-                execution = self.models.skipped_answer()
-                draft = Draft(
-                    answer=(
-                        "I can't answer from the available captured context. "
-                        "Missing evidence doesn't establish that an event didn't happen."
-                    ),
-                    evidence_ids=(),
-                    status="insufficient_evidence",
-                    qualifications=(),
-                    unanswered=("The question cannot be answered from the available context.",),
-                )
-                root.set_attribute("answer_model_skipped", "empty_context")
-            else:
-                with mlflow.start_span("answer_model", span_type="LLM") as span:
-                    messages = [
-                        ChatMessage(role="system", content=SYSTEM_PROMPT),
-                        ChatMessage(
-                            role="user",
-                            content=(
-                                f"Question: {question}\n"
-                                f"Snapshot provenance: {retrieved.snapshot.source.title} "
-                                f"({retrieved.snapshot.source.support_status})\n"
-                                f"Captured evidence: {context_text(context)}"
-                            ),
-                        ),
-                    ]
-                    span.set_inputs([m.model_dump(mode="json") for m in messages])
-                    execution = self.models.generate_answer(
-                        messages, schema=Draft.model_json_schema()
+            execution = self.models.skipped_answer().model_copy(
+                update={"usage": TokenUsage(input_tokens=0, output_tokens=0, embedding_tokens=0)}
+            )
+            failure = False
+            clarification = conversation.reference.clarification if conversation else None
+            try:
+                budget.check()
+                if publication:
+                    with _retrieval_timeout():
+                        manifest = self.retriever.manifest(snapshot_id)
+                    if manifest != publication.manifest.index:
+                        raise IndexNotReady(
+                            "The configured retrieval index differs from the publication."
+                        )
+                self.models.verify()
+                budget.check()
+                if clarification:
+                    draft = Draft(
+                        answer=clarification,
+                        status="clarification",
+                        evidence_ids=(),
+                        unanswered=("Which character is intended?",),
+                        qualifications=(),
                     )
-                    span.set_outputs({"content": execution.content})
-                    span.set_attributes(execution.trace_attributes)
-                    validated: Draft | None = None
-                    failure_type = execution.failure_type
-                    if failure_type is None:
-                        try:
-                            candidate = Draft.model_validate_json(execution.content or "")
-                            citations = cite_answer(candidate, context, snapshot_id)
-                            validated = candidate
-                        except ValueError as exc:
-                            failure_type = type(exc).__name__
-                    if validated is None:
-                        failure = True
-                        span.set_status("ERROR")
-                        span.set_attributes({"failure_type": failure_type})
-                        root.set_status("ERROR")
+                    root.set_attribute("retrieval_skipped", "unresolved_reference")
+                    root.set_attribute("answer_model_skipped", "unresolved_reference")
+                else:
+                    with mlflow.start_span("text_retrieval", span_type="RETRIEVER") as span:
+                        span.set_inputs({"question": question, "k": 3})
+                        with _retrieval_timeout():
+                            retrieved = self.retriever.retrieve(snapshot_id, question, k=3)
+                        span.set_outputs(retrieved.model_dump(mode="json"))
+                    execution = self.models.skipped_answer()
+                    with mlflow.start_span("assembled_context") as span:
+                        context = assemble_context(retrieved.hits, budget.limits.context_bytes)
+                        span.set_outputs(
+                            {
+                                "passages": [p.model_dump() for p in context],
+                                "byte_budget": budget.limits.context_bytes,
+                            }
+                        )
+                    if not context:
                         draft = Draft(
                             answer=(
-                                "I couldn't produce a usable, cited answer. Please try again later."
+                                "I can't answer from the available captured context. "
+                                "Missing evidence doesn't establish that an event didn't happen."
                             ),
-                            status="insufficient_evidence",
                             evidence_ids=(),
-                            unanswered=(),
+                            status="insufficient_evidence",
                             qualifications=(),
+                            unanswered=(
+                                "The question cannot be answered from the available context.",
+                            ),
                         )
+                        root.set_attribute("answer_model_skipped", "empty_context")
                     else:
-                        draft = validated
+                        execution, draft = self._generate(question, retrieved, context)
+                        if execution.failure_type is not None:
+                            budget.stop(
+                                execution.failure_type
+                                if execution.failure_type
+                                in {
+                                    "malformed_output",
+                                    "timeout",
+                                    "cancelled",
+                                    "endpoint_denied",
+                                    "http_call_limit",
+                                    "spend_limit",
+                                    "model_call_limit",
+                                }
+                                else "provider_failure"
+                            )
+                        budget.check()
+                        citations = cite_answer(draft, context, snapshot_id)
+            except ExecutionStopped as exc:
+                reason = str(exc)
+                budget.record_stop(reason)
+                if retrieved.k == 0 and budget.record().model_calls:
+                    execution = execution.model_copy(
+                        update={
+                            "usage": TokenUsage(
+                                input_tokens=0, output_tokens=0, embedding_tokens=None
+                            )
+                        }
+                    )
+                root.set_status("ERROR")
+                failure = reason in {"provider_failure", "malformed_output"}
+                draft = Draft(
+                    answer=(
+                        f"Execution stopped: {reason}. "
+                        + (
+                            "Captured excerpts: " + " ".join(p.text for p in context)
+                            if context and not failure
+                            else (
+                                "I couldn't produce a usable, cited answer. Please try again later."
+                            )
+                        )
+                        + " This limit does not establish that an event did not happen."
+                    ),
+                    status="partial" if context and not failure else "insufficient_evidence",
+                    evidence_ids=tuple(p.evidence_id for p in context) if not failure else (),
+                    unanswered=("The requested answer is incomplete because execution stopped.",),
+                    qualifications=(),
+                )
+                citations = cite_answer(draft, context, snapshot_id)
             root.set_attribute("usage_complete", execution.usage_complete)
+            root.set_attribute("execution", budget.record().model_dump(mode="json"))
             response = AnswerRecord(
                 response_id=response_id,
                 question=request.question,
@@ -252,9 +323,9 @@ class AnswerService:
                 qualifications=draft.qualifications,
                 citations=citations,
                 snapshot_id=snapshot_id,
-                snapshot_sha256=retrieved.snapshot.fingerprint,
+                snapshot_sha256=snapshot.fingerprint,
                 publication=publication.reference if publication else None,
-                source=retrieved.snapshot.source,
+                source=snapshot.source,
                 retrieved=retrieved.hits,
                 context=context,
                 retrieval_k=retrieved.k,
@@ -263,6 +334,7 @@ class AnswerService:
                 prompt_sha256=hashlib.sha256(SYSTEM_PROMPT.encode()).hexdigest(),
                 application_sha256=application_fingerprint(),
                 trace_id=root.trace_id,
+                execution=budget.record(),
                 elapsed_ms=(time.perf_counter() - started) * 1000,
                 usage=execution.usage,
                 expenditure_category=category,
@@ -272,6 +344,51 @@ class AnswerService:
                 limitation=execution.limitation,
             )
             root.set_outputs(response.model_dump(mode="json"))
-        # A returned reference must resolve to a completed trace, not just an allocated ID.
+        # Trace finalization and deterministic receipt storage make the stop outcome inspectable.
         self.tracking.get_trace(response.trace_id, flush=True)
         return self.ledger.save(response)
+
+    def _generate(
+        self, question: str, retrieved: Retrieval, context: tuple[Passage, ...]
+    ) -> tuple[ModelExecution, Draft]:
+        with mlflow.start_span("answer_model", span_type="LLM") as span:
+            messages = [
+                ChatMessage(role="system", content=SYSTEM_PROMPT),
+                ChatMessage(
+                    role="user",
+                    content=(
+                        f"Question: {question}\n"
+                        f"Snapshot provenance: {retrieved.snapshot.source.title} "
+                        f"({retrieved.snapshot.source.support_status})\n"
+                        f"Captured evidence: {context_text(context)}"
+                    ),
+                ),
+            ]
+            span.set_inputs([m.model_dump(mode="json") for m in messages])
+            execution = self.models.generate_answer(messages, schema=Draft.model_json_schema())
+            span.set_outputs({"content": execution.content})
+            span.set_attributes(execution.trace_attributes)
+            if execution.failure_type is not None:
+                span.set_status("ERROR")
+                span.set_attribute("failure_type", execution.failure_type)
+                return execution, Draft(
+                    answer="I couldn't produce a usable, cited answer. Please try again later.",
+                    status="insufficient_evidence",
+                    evidence_ids=(),
+                    unanswered=(),
+                    qualifications=(),
+                )
+            try:
+                draft = Draft.model_validate_json(execution.content or "")
+                cite_answer(draft, context, retrieved.snapshot.snapshot_id)
+            except ValueError:
+                span.set_status("ERROR")
+                span.set_attribute("failure_type", "malformed_output")
+                return execution.model_copy(update={"failure_type": "malformed_output"}), Draft(
+                    answer="I couldn't produce a usable, cited answer. Please try again later.",
+                    status="insufficient_evidence",
+                    evidence_ids=(),
+                    unanswered=(),
+                    qualifications=(),
+                )
+            return execution, draft
