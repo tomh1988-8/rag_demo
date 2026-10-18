@@ -17,7 +17,7 @@ from ask_phil.ingestion import (
     source_input_fingerprint,
 )
 from ask_phil.publications import PublicationNotFound, PublicationStore, RefreshRun, SourceResult
-from ask_phil.retrieval import IndexNotReady, TextRetriever
+from ask_phil.retrieval import TextRetriever
 from ask_phil.source_records import CapturedSource, CapturePlan
 from ask_phil.storage import EvidenceStore, SnapshotNotFound
 
@@ -128,14 +128,7 @@ class SourceRefresh:
             with self.publications.writer() as conn:
                 self.publications.save_run(run, conn)
                 try:
-                    previous = self.publications.previous()
-                    snapshot = self.store.snapshot(previous.manifest.snapshot_id)
-                    index = self.retriever.manifest(snapshot.snapshot_id)
-                    if (
-                        snapshot.fingerprint != previous.manifest.snapshot_sha256
-                        or index != previous.manifest.index
-                    ):
-                        raise IndexNotReady("The prior source/index pair is no longer compatible.")
+                    previous = self.retriever.previous()
                     return self.publications.restore(previous, run, conn)
                 except Exception as exc:
                     self.publications.save_run(

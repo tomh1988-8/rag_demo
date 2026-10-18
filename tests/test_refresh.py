@@ -308,7 +308,9 @@ SourceRefresh(os.environ['DATABASE_URL'], embedding, 'test-embedding-v1', 3).run
             assert interrupted.snapshot_id is not None
             assert publications.active() == before
             with pytest.raises(IndexNotReady):
-                publications.pin(interrupted.snapshot_id)
+                TextRetriever(database_url, MockEmbedding(embed_dim=3), "test-embedding-v1", 3).pin(
+                    interrupted.snapshot_id
+                )
         finally:
             if process.poll() is None:
                 process.kill()
@@ -368,7 +370,9 @@ def test_failed_embedding_withholds_publication_and_retry_replaces_incomplete_ar
     assert publications.active() == before
     assert EvidenceStore(database_url).inspect(failed.snapshot_id, "red").matches
     with pytest.raises(IndexNotReady):
-        publications.pin(failed.snapshot_id)
+        TextRetriever(database_url, MockEmbedding(embed_dim=3), "test-embedding-v1", 3).pin(
+            failed.snapshot_id
+        )
 
     retried = working.run(changed_batch)
 
@@ -571,7 +575,7 @@ def test_rollback_restores_compatible_pair_and_withdraws_newer_version_for_new_r
 ) -> None:
     from ask_phil.publications import PublicationStore
     from ask_phil.refresh import RefreshFailed, SourceRefresh
-    from ask_phil.retrieval import IndexNotReady
+    from ask_phil.retrieval import IndexNotReady, TextRetriever
 
     refresh = SourceRefresh(database_url, MockEmbedding(embed_dim=3), "test-embedding-v1", 3)
     refresh.run(source_batch)
@@ -595,7 +599,9 @@ def test_rollback_restores_compatible_pair_and_withdraws_newer_version_for_new_r
     assert EvidenceStore(database_url).inspect(restored.manifest.snapshot_id, "blue").matches
     assert EvidenceStore(database_url).inspect(newer.manifest.snapshot_id, "red").matches
     with pytest.raises(IndexNotReady, match="withdrawn"):
-        publications.pin(newer.manifest.snapshot_id)
+        TextRetriever(database_url, MockEmbedding(embed_dim=3), "test-embedding-v1", 3).pin(
+            newer.manifest.snapshot_id
+        )
     with pytest.raises(RefreshFailed):
         refresh.run(changed_batch)
     assert publications.active() == restored

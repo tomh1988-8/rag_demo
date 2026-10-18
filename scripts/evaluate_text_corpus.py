@@ -23,7 +23,6 @@ from ask_phil.evaluation import (
     score_retrieval,
 )
 from ask_phil.models import OpenRouterSettings, embedding_from_environment
-from ask_phil.publications import PublicationStore
 from ask_phil.retrieval import TextRetriever
 
 
@@ -80,17 +79,20 @@ def main() -> None:
     if not 1 <= len(cases) <= 30 or not Decimal("0") < args.max_cost_usd <= Decimal("1"):
         parser.error("Use 1–30 cases and a positive slice budget no greater than $1.")
     settings, embedding = embedding_from_environment()
-    embedding.verify(settings.embedding_digest)
     database = os.environ["DATABASE_URL"]
-    publication = PublicationStore(database).active()
+    retriever = TextRetriever(
+        database, embedding, settings.embedding_id, settings.embedding_dimensions
+    )
+    pinned = retriever.pin()
+    publication = pinned.publication
+    assert publication is not None
     if (
         publication.manifest.snapshot_id != dataset["snapshot_id"]
         or publication.manifest.snapshot_sha256 != dataset["snapshot_sha256"]
     ):
         parser.error("Publish the exact reviewed snapshot before recording evidence.")
-    retriever = TextRetriever(
-        database, embedding, settings.embedding_id, settings.embedding_dimensions
-    )
+    pinned.verify()
+    embedding.verify(settings.embedding_digest)
     profile = None
     worst_call_cost = Decimal("0")
     if args.mode == "capture":
@@ -173,7 +175,7 @@ def main() -> None:
                 retrieved_ids = tuple(h.passage.evidence_id for h in response.retrieved)
                 context_ids = tuple(p.evidence_id for p in response.context)
             else:
-                retrieval = retriever.retrieve(dataset["snapshot_id"], reference.question, k=3)
+                retrieval = pinned.retrieve(reference.question, k=3)
                 context = assemble_context(retrieval.hits)
                 retrieved_ids = tuple(h.passage.evidence_id for h in retrieval.hits)
                 context_ids = tuple(p.evidence_id for p in context)

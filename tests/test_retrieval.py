@@ -1,7 +1,15 @@
+from datetime import UTC, datetime
+from pathlib import Path
+from uuid import uuid4
+
+import psycopg
 import pytest
 from llama_index.core.embeddings import MockEmbedding
+from psycopg import sql
 
 from ask_phil.evidence import SourceSnapshot
+from ask_phil.execution import ExecutionBudget, ExecutionLimits
+from ask_phil.publications import PublicationStore, RefreshRun
 from ask_phil.retrieval import IndexNotReady, TextRetriever
 from ask_phil.storage import EvidenceStore
 
@@ -33,8 +41,11 @@ def test_vector_retrieval_returns_resolvable_captured_passages_after_restart(
     retriever.prepare(seed.snapshot_id)
     restarted = TextRetriever(database_url, MockEmbedding(embed_dim=3), "test-embedding-v1", 3)
 
-    result = restarted.retrieve(seed.snapshot_id, "When did Phil arrive?", k=3)
+    pinned = restarted.pin(seed.snapshot_id)
+    result = pinned.retrieve("When did Phil arrive?", k=3)
 
+    assert pinned.snapshot == seed
+    assert pinned.publication is None
     assert result.snapshot.fingerprint == seed.fingerprint
     assert [hit.passage.evidence_id for hit in result.hits] == ["phil-arrival-001"]
     assert result.hits[0].passage.text == (
@@ -94,3 +105,51 @@ def test_reindexing_is_idempotent_and_retrieval_cannot_cross_snapshot_or_model_i
     changed_model = TextRetriever(database_url, MockEmbedding(embed_dim=3), "test-embedding-v2", 3)
     with pytest.raises(IndexNotReady):
         changed_model.retrieve(seed.snapshot_id, "What happened?")
+
+
+@pytest.mark.parametrize("damage", ["vectors", "publication-index", "publication-source"])
+def test_pinned_publication_rejects_incompatible_artifacts_before_model_work(
+    database_url: str, damage: str
+) -> None:
+    source = SourceSnapshot.model_validate_json(
+        Path("data/seed/context-fit-legacy-v1.json").read_bytes()
+    )
+    EvidenceStore(database_url).load(source)
+    retriever = TextRetriever(database_url, MockEmbedding(embed_dim=3), "test-embedding-v1", 3)
+    index = retriever.prepare(source.snapshot_id)
+    publications = PublicationStore(database_url)
+    with publications.writer() as conn:
+        publications.publish(
+            source,
+            index,
+            RefreshRun(
+                run_id=uuid4(),
+                flow_run_id=uuid4(),
+                started_at=datetime.now(UTC),
+                status="running",
+                input_sha256=source.fingerprint,
+            ),
+            conn,
+        )
+    with psycopg.connect(database_url) as conn:
+        if damage == "vectors":
+            table = conn.execute(
+                "SELECT tablename FROM pg_tables WHERE tablename LIKE 'data_passages_%'"
+            ).fetchone()
+            assert table is not None
+            conn.execute(
+                sql.SQL("UPDATE {} SET embedding = '[1,0,0]'").format(sql.Identifier(table[0]))
+            )
+        else:
+            location = (
+                "{index,artifact_sha256}" if damage == "publication-index" else "{snapshot_sha256}"
+            )
+            conn.execute(
+                "UPDATE snapshot_publications SET manifest = jsonb_set(manifest, %s, %s)",
+                (location, '"' + "0" * 64 + '"'),
+            )
+    pinned = retriever.pin()
+    budget = ExecutionBudget(ExecutionLimits())
+    with budget.activate(), pytest.raises(IndexNotReady, match="artifacts|publication"):
+        pinned.retrieve("What happened?")
+    assert budget.record().model_calls == 0

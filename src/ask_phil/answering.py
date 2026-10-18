@@ -2,19 +2,15 @@
 
 import hashlib
 import time
-from collections.abc import Iterator
-from contextlib import contextmanager
 from pathlib import Path
 from threading import BoundedSemaphore
 from typing import Literal
 from uuid import uuid4
 
 import mlflow
-import psycopg
 from llama_index.core.llms import ChatMessage
 from mlflow import MlflowClient
 from mlflow.entities import MlflowExperimentLocation
-from sqlalchemy.exc import DBAPIError
 
 from ask_phil.answers import (
     SYSTEM_PROMPT,
@@ -37,23 +33,8 @@ from ask_phil.evidence import Passage
 from ask_phil.execution import ExecutionBudget, ExecutionPolicies, ExecutionStopped
 from ask_phil.identity import IdentityCatalogue
 from ask_phil.models import ModelConfigurationError, ModelExecution, Models, TokenUsage
-from ask_phil.publications import PublicationStore
 from ask_phil.responses import ResponseLedger
-from ask_phil.retrieval import IndexNotReady, Retrieval, TextRetriever
-from ask_phil.storage import EvidenceStore
-
-
-@contextmanager
-def _retrieval_timeout() -> Iterator[None]:
-    """Normalize direct and vector-adapter database timeouts before tracing errors."""
-    try:
-        yield
-    except (psycopg.errors.QueryCanceled, psycopg.errors.LockNotAvailable):
-        raise ExecutionStopped("timeout") from None
-    except DBAPIError as exc:
-        if isinstance(exc.orig, (psycopg.errors.QueryCanceled, psycopg.errors.LockNotAvailable)):
-            raise ExecutionStopped("timeout") from None
-        raise
+from ask_phil.retrieval import Retrieval, TextRetriever
 
 
 def application_fingerprint() -> str:
@@ -81,7 +62,6 @@ class AnswerService:
         self.models = models
         if models.redact(models.settings.model_dump_json()) != models.settings.model_dump_json():
             raise ModelConfigurationError("Model settings contain unsafe credential text.")
-        self.publications = PublicationStore(database_url)
         self.retriever = TextRetriever(
             database_url,
             models.embedding,
@@ -89,7 +69,6 @@ class AnswerService:
             models.settings.embedding_dimensions,
         )
         self.ledger = ResponseLedger(database_url)
-        self.evidence = EvidenceStore(database_url)
         # One configured MLflow backend per API process; experiments separate costs.
         mlflow.set_tracking_uri(tracking_uri)
         self.tracking = MlflowClient(tracking_uri=tracking_uri)
@@ -156,11 +135,10 @@ class AnswerService:
         budget: ExecutionBudget,
     ) -> AnswerReceipt:
         started = time.perf_counter()
-        publication = self.publications.pin(request.snapshot_id)
-        snapshot_id = publication.manifest.snapshot_id if publication else request.snapshot_id
-        if snapshot_id is None:
-            raise IndexNotReady("Publish a usable source/index snapshot before answering.")
-        snapshot = self.evidence.snapshot(snapshot_id)
+        pinned = self.retriever.pin(request.snapshot_id)
+        publication = pinned.publication
+        snapshot = pinned.snapshot
+        snapshot_id = snapshot.snapshot_id
         if self.models.redact(snapshot.model_dump_json()) != snapshot.model_dump_json():
             raise ModelConfigurationError("Captured evidence contains unsafe credential text.")
         conversation = None
@@ -213,13 +191,7 @@ class AnswerService:
             clarification = conversation.reference.clarification if conversation else None
             try:
                 budget.check()
-                if publication:
-                    with _retrieval_timeout():
-                        manifest = self.retriever.manifest(snapshot_id)
-                    if manifest != publication.manifest.index:
-                        raise IndexNotReady(
-                            "The configured retrieval index differs from the publication."
-                        )
+                pinned.verify()
                 self.models.verify()
                 budget.check()
                 if clarification:
@@ -235,8 +207,7 @@ class AnswerService:
                 else:
                     with mlflow.start_span("text_retrieval", span_type="RETRIEVER") as span:
                         span.set_inputs({"question": question, "k": 3})
-                        with _retrieval_timeout():
-                            retrieved = self.retriever.retrieve(snapshot_id, question, k=3)
+                        retrieved = pinned.retrieve(question, k=3)
                         span.set_outputs(retrieved.model_dump(mode="json"))
                     execution = self.models.skipped_answer()
                     with mlflow.start_span("assembled_context") as span:

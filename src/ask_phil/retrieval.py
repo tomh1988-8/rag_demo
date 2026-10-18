@@ -3,8 +3,10 @@
 import hashlib
 import json
 import math
+from collections.abc import Iterator
+from contextlib import contextmanager
 from decimal import Decimal
-from typing import Literal
+from typing import TYPE_CHECKING, Literal
 
 import psycopg
 from llama_index.core.base.embeddings.base import BaseEmbedding
@@ -15,11 +17,40 @@ from psycopg.conninfo import conninfo_to_dict
 from psycopg.types.json import Jsonb
 from pydantic import Field
 from sqlalchemy.engine import URL
+from sqlalchemy.exc import DBAPIError
 from sqlalchemy.pool import NullPool
 
 from ask_phil.evidence import Fingerprint, Passage, Record, SourceSnapshot
 from ask_phil.execution import ExecutionStopped, current_execution, read_options
 from ask_phil.storage import EvidenceStore
+
+if TYPE_CHECKING:
+    from ask_phil.publications import ActivePublication
+
+
+@contextmanager
+def _read_timeout() -> Iterator[None]:
+    """Normalize direct and vector-adapter read deadlines at the retrieval seam."""
+    try:
+        yield
+    except (psycopg.errors.QueryCanceled, psycopg.errors.LockNotAvailable):
+        raise ExecutionStopped("timeout") from None
+    except DBAPIError as exc:
+        if isinstance(exc.orig, (psycopg.errors.QueryCanceled, psycopg.errors.LockNotAvailable)):
+            raise ExecutionStopped("timeout") from None
+        raise
+
+
+def _validate_query(query: str, k: int) -> None:
+    if (
+        not isinstance(query, str)
+        or not query.strip()
+        or len(query) > 500
+        or len(query.encode()) > 1000
+        or type(k) is not int
+        or not 1 <= k <= 20
+    ):
+        raise ValueError("Retrieval requires a question of 1–500 characters and k of 1–20.")
 
 
 class IndexNotReady(ValueError):
@@ -61,6 +92,26 @@ class TextRetriever:
         self.embedding = embedding
         self.embedding_id = embedding_id
         self.dimensions = dimensions
+
+    def pin(self, snapshot_id: str | None = None) -> "PinnedText":
+        """Retain one source identity for inspection and subsequent retrieval."""
+        from ask_phil.publications import PublicationStore
+
+        publication = PublicationStore(self.database_url).pin(snapshot_id)
+        selected = publication.manifest.snapshot_id if publication else snapshot_id
+        if selected is None:
+            raise IndexNotReady("Publish a usable source/index snapshot before answering.")
+        snapshot = EvidenceStore(self.database_url).snapshot(selected)
+        return PinnedText(self, snapshot, publication)
+
+    def previous(self) -> "ActivePublication":
+        """Resolve a usable recovery publication before the active pointer can change."""
+        from ask_phil.publications import PublicationStore
+
+        publication = PublicationStore(self.database_url).previous()
+        snapshot = EvidenceStore(self.database_url).snapshot(publication.manifest.snapshot_id)
+        PinnedText(self, snapshot, publication).verify()
+        return publication
 
     def _vectors(self, *, setup: bool = False) -> PGVectorStore:
         params = {
@@ -207,7 +258,11 @@ class TextRetriever:
 
     def manifest(self, snapshot_id: str) -> TextIndex:
         """Resolve a complete index and verify its retained artifacts without model calls."""
-        snapshot = EvidenceStore(self.database_url).snapshot(snapshot_id)
+        with _read_timeout():
+            snapshot = EvidenceStore(self.database_url).snapshot(snapshot_id)
+            return self._manifest(snapshot)
+
+    def _manifest(self, snapshot: SourceSnapshot) -> TextIndex:
         with psycopg.connect(self.database_url, connect_timeout=5, options=read_options()) as conn:
             if conn.execute("SELECT to_regclass('text_index_artifacts')").fetchone() == (None,):
                 raise IndexNotReady("Prepare the snapshot to establish its index manifest.")
@@ -224,19 +279,13 @@ class TextRetriever:
         return manifest
 
     def retrieve(self, snapshot_id: str, query: str, *, k: int = 3) -> Retrieval:
-        if (
-            not isinstance(query, str)
-            or not query.strip()
-            or len(query) > 500
-            or len(query.encode()) > 1000
-            or type(k) is not int
-            or not 1 <= k <= 20
-        ):
-            raise ValueError("Retrieval requires a question of 1–500 characters and k of 1–20.")
+        _validate_query(query, k)
+        return self.pin(snapshot_id).retrieve(query, k=k)
+
+    def _retrieve(self, snapshot: SourceSnapshot, query: str, *, k: int = 3) -> Retrieval:
         budget = current_execution.get()
         if budget:
             budget.tool_call("text_retrieval")
-        snapshot = EvidenceStore(self.database_url).snapshot(snapshot_id)
         with psycopg.connect(self.database_url, connect_timeout=5, options=read_options()) as conn:
             if conn.execute("SELECT to_regclass('text_indexes')").fetchone() == (None,):
                 raise IndexNotReady("Prepare this snapshot's text index before answering.")
@@ -292,3 +341,54 @@ class TextRetriever:
         except (ValueError, TypeError, KeyError, IndexError):
             raise ExecutionStopped("malformed_output") from None
         return Retrieval(snapshot=snapshot, hits=hits, k=k, embedding_id=self.embedding_id)
+
+
+class PinnedText:
+    """A captured source retained for one operation, including explicit legacy sources."""
+
+    def __init__(
+        self,
+        retriever: TextRetriever,
+        snapshot: SourceSnapshot,
+        publication: "ActivePublication | None",
+    ) -> None:
+        self._retriever = retriever
+        self._snapshot = snapshot
+        self._publication = publication
+        self._verified = False
+
+    @property
+    def snapshot(self) -> SourceSnapshot:
+        return self._snapshot
+
+    @property
+    def publication(self) -> "ActivePublication | None":
+        return self._publication
+
+    def verify(self) -> None:
+        """Check a published source/index pair once within this operation's pin.
+
+        Explicit legacy snapshots retain their historical behavior: retrieval
+        requires their prepared index, while clarification can inspect only the source.
+        Every new pin verifies published artifacts afresh.
+        """
+        if self._verified:
+            return
+        with _read_timeout():
+            if self.publication:
+                expected = self.publication.manifest
+                manifest = self._retriever._manifest(self.snapshot)
+                if (
+                    self.snapshot.fingerprint != expected.snapshot_sha256
+                    or manifest != expected.index
+                ):
+                    raise IndexNotReady(
+                        "The configured retrieval index differs from the publication."
+                    )
+        self._verified = True
+
+    def retrieve(self, query: str, *, k: int = 3) -> Retrieval:
+        _validate_query(query, k)
+        with _read_timeout():
+            self.verify()
+            return self._retriever._retrieve(self.snapshot, query, k=k)
