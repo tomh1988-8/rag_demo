@@ -1,0 +1,34 @@
+{
+  "version": "life-text-v1",
+  "split": "exposed-development",
+  "synthetic": false,
+  "snapshot_id": "life-events-pilot-v1",
+  "reviewer": "Codex source review before text generation",
+  "cases": [
+    {
+      "case_id": "unclassified-tape",
+      "question": "What did Grant do with Sharon's tape, and how is that fact classified?",
+      "supporting_evidence": ["tape-revelation"],
+      "required_facts": ["Grant played the account of Sharon's affair with Phil to a packed pub.", "Public revelation has no checked graph event category; the fact remains available in text."],
+      "forbidden": ["A new admitted graph edge from the tape revelation."],
+      "acceptable_outcomes": ["answered", "partial"]
+    },
+    {
+      "case_id": "theme-is-not-connection",
+      "question": "Which theme is supported by Eric's treatment of Peggy and Phil, and does that theme connect Peggy and Sharon?",
+      "supporting_evidence": ["peggy-abuse-theme"],
+      "required_facts": ["Eric's violence towards Peggy and Phil supports domestic abuse as a theme.", "A shared theme alone establishes no relationship or shared event with Sharon."],
+      "forbidden": ["Domestic abuse is an event type.", "Peggy and Sharon are connected solely because of this theme."],
+      "acceptable_outcomes": ["answered", "partial"]
+    },
+    {
+      "case_id": "unsupported-manosphere",
+      "question": "Do the captured passages establish a manosphere theme involving these characters?",
+      "supporting_evidence": [],
+      "required_facts": ["These captured passages do not establish the requested theme; absence of support is not evidence that it never occurs elsewhere."],
+      "forbidden": ["An asserted manosphere theme from these passages.", "A negative claim about all EastEnders storylines."],
+      "acceptable_outcomes": ["insufficient_evidence"]
+    }
+  ],
+  "limitation": "Source-based development expectations; no human adjudication, held-out comparison or independent canon corroboration. Score actual answers and context separately from software tests."
+}

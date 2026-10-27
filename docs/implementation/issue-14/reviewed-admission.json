@@ -1,0 +1,84 @@
+{
+  "batch_sha256": "93d4ae0957f2d245fa8e46fd1a6db3b54c0b5b406c242884a90ddecd3b0a9bbd",
+  "decisions": [
+    {
+      "claim_id": "c1",
+      "status": "admitted",
+      "reasons": []
+    },
+    {
+      "claim_id": "c2",
+      "status": "held",
+      "reasons": [
+        "evidence_span",
+        "support_review_required"
+      ]
+    },
+    {
+      "claim_id": "c3",
+      "status": "admitted",
+      "reasons": []
+    },
+    {
+      "claim_id": "c4",
+      "status": "held",
+      "reasons": [
+        "evidence_span",
+        "support_review_required"
+      ]
+    },
+    {
+      "claim_id": "c5",
+      "status": "admitted",
+      "reasons": []
+    },
+    {
+      "claim_id": "reviewed-peggy-pregnancy",
+      "status": "admitted",
+      "reasons": []
+    },
+    {
+      "claim_id": "reviewed-sharon-christmas-pregnancy",
+      "status": "admitted",
+      "reasons": []
+    },
+    {
+      "claim_id": "reviewed-sharon-uncertain-paternity",
+      "status": "admitted",
+      "reasons": []
+    },
+    {
+      "claim_id": "reviewed-peggy-death",
+      "status": "admitted",
+      "reasons": []
+    },
+    {
+      "claim_id": "reviewed-lucy-death",
+      "status": "admitted",
+      "reasons": []
+    }
+  ],
+  "text_decisions": [
+    {
+      "claim_id": "c6",
+      "status": "admitted",
+      "reasons": []
+    },
+    {
+      "claim_id": "c7",
+      "status": "admitted",
+      "reasons": []
+    },
+    {
+      "claim_id": "reviewed-peggy-abuse-theme",
+      "status": "admitted",
+      "reasons": []
+    },
+    {
+      "claim_id": "reviewed-tape-revelation",
+      "status": "admitted",
+      "reasons": []
+    }
+  ],
+  "limitation": "Only admitted assertions about selected captured incidents are shown. An accusation, confession, charge, conviction, acquittal, imprisonment, release or court appearance alone establishes neither commission nor innocence. Only separately reviewed narrative support establishes commission. An empty legal history does not prove that a character committed no crime. Listing order is not chronology; unknown dates remain unknown. Source-supported does not mean independently cross-checked."
+}

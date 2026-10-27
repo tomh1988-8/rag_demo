@@ -1,0 +1,526 @@
+{
+  "captured_at": "2026-10-27T16:21:29.455699+00:00",
+  "code_revision": "3ff828712c013b15ddad5731873703f48bb46633",
+  "application_sha256": "d195f8ed33591bfb66412c777c6a0d048e022724238d1d2769ea278017b4168b",
+  "prompt_sha256": "4b4c6bfe4b851f1e5e3ef21acf30c14f349e422c66b22d1287de479570b2a9a2",
+  "snapshot_id": "life-events-pilot-v1",
+  "snapshot_sha256": "8578158630979e5e33bd739570fd42bd02ba6c487872f992d3502f73a83d83df",
+  "snapshot_file_sha256": "05aa486d0002372e6ccf2788bb44aaef1361a20ec6d7d7401097c79725f70d72",
+  "reference_sha256": "10eb79db7ea4a6916113506a0d84c6b274dc07cc15e6d528b53f2f621659c3b0",
+  "schema_sha256": "8fe7c6b3e50dfacc213d80dcdf7be3471d3c08040d75fe033853095a0ddbbc98",
+  "profile": {
+    "provider_type": "openrouter",
+    "answer_model": "openai/gpt-6-sol",
+    "canonical_slug": "openai/gpt-6-sol-20260922",
+    "provider": "openai",
+    "input_price_per_million": "2",
+    "output_price_per_million": "10",
+    "output_tokens": 8192,
+    "reasoning_effort": "low",
+    "request_timeout_seconds": 180
+  },
+  "expenditure_category": "offline_evaluation",
+  "state": "complete",
+  "raw": "{\n  \"claims\": [\n    {\n      \"claim_id\": \"c1\",\n      \"event_id\": \"peggy-pregnancy\",\n      \"event_label\": \"Peggy's pregnancy with Phil\",\n      \"event_type\": \"pregnancy\",\n      \"basis\": \"narrative\",\n      \"participants\": [{\"character_id\": \"peggy-mitchell\", \"role\": \"pregnant_person\"}],\n      \"account_status\": \"as_reported\",\n      \"polarity\": \"affirmed\",\n      \"certainty\": \"certain\",\n      \"story_time\": \"unknown\",\n      \"time_precision\": \"unknown\",\n      \"evidence\": [{\"evidence_id\": \"peggy-pregnancy\", \"start\": 0, \"end\": 67, \"quote\": \"Peggy married Eric Mitchell (George Russo) because she was pregnant\"}]\n    },\n    {\n      \"claim_id\": \"c2\",\n      \"event_id\": \"sharon-christmas-pregnancy\",\n      \"event_label\": \"Sharon's Christmas pregnancy\",\n      \"event_type\": \"pregnancy\",\n      \"basis\": \"narrative\",\n      \"participants\": [{\"character_id\": \"sharon-watts\", \"role\": \"pregnant_person\"}],\n      \"account_status\": \"as_reported\",\n      \"polarity\": \"affirmed\",\n      \"certainty\": \"certain\",\n      \"story_time\": \"On Christmas Day 2005\",\n      \"time_precision\": \"exact\",\n      \"evidence\": [{\"evidence_id\": \"sharon-christmas-pregnancy\", \"start\": 0, \"end\": 67, \"quote\": \"On Christmas Day 2005, Sharon is stunned to discover she is pregnant\"}]\n    },\n    {\n      \"claim_id\": \"c3\",\n      \"event_id\": \"sharon-uncertain-paternity\",\n      \"event_label\": \"Sharon's pregnancy with uncertain paternity\",\n      \"event_type\": \"pregnancy\",\n      \"basis\": \"narrative\",\n      \"participants\": [{\"character_id\": \"sharon-watts\", \"role\": \"pregnant_person\"}],\n      \"account_status\": \"as_reported\",\n      \"polarity\": \"affirmed\",\n      \"certainty\": \"certain\",\n      \"story_time\": \"unknown\",\n      \"time_precision\": \"unknown\",\n      \"evidence\": [{\"evidence_id\": \"sharon-uncertain-paternity\", \"start\": 9, \"end\": 46, \"quote\": \"Sharon also discovers she is pregnant\"}]\n    },\n    {\n      \"claim_id\": \"c4\",\n      \"event_id\": \"peggy-death\",\n      \"event_label\": \"Peggy's death\",\n      \"event_type\": \"death\",\n      \"basis\": \"narrative\",\n      \"participants\": [{\"character_id\": \"peggy-mitchell\", \"role\": \"deceased\"}],\n      \"account_status\": \"as_reported\",\n      \"polarity\": \"affirmed\",\n      \"certainty\": \"certain\",\n      \"story_time\": \"unknown\",\n      \"time_precision\": \"unknown\",\n      \"evidence\": [{\"evidence_id\": \"peggy-death\", \"start\": 302, \"end\": 364, \"quote\": \"Peggy then commits suicide by taking an overdose of her pills.\"}]\n    },\n    {\n      \"claim_id\": \"c5\",\n      \"event_id\": \"lucy-death\",\n      \"event_label\": \"Lucy's death\",\n      \"event_type\": \"death\",\n      \"basis\": \"narrative\",\n      \"participants\": [{\"character_id\": \"lucy-beale\", \"role\": \"deceased\"}],\n      \"account_status\": \"as_reported\",\n      \"polarity\": \"affirmed\",\n      \"certainty\": \"certain\",\n      \"story_time\": \"unknown\",\n      \"time_precision\": \"unknown\",\n      \"evidence\": [{\"evidence_id\": \"lucy-death\", \"start\": 5, \"end\": 29, \"quote\": \"Ian's daughter Lucy dies\"}]\n    }\n  ],\n  \"context_claims\": [\n    {\n      \"claim_id\": \"c6\",\n      \"kind\": \"theme\",\n      \"character_ids\": [\"peggy-mitchell\", \"phil-mitchell\"],\n      \"theme\": \"domestic_abuse\",\n      \"classification_gap\": null,\n      \"evidence\": [{\"evidence_id\": \"peggy-abuse-theme\", \"start\": 0, \"end\": 76, \"quote\": \"Eric took his anger out on Peggy and was often violent towards her and Phil.\"}]\n    },\n    {\n      \"claim_id\": \"c7\",\n      \"kind\": \"unclassified\",\n      \"character_ids\": [\"grant-mitchell\", \"sharon-watts\", \"phil-mitchell\"],\n      \"theme\": null,\n      \"classification_gap\": \"No checked category covers Grant's public playing of a tape about Sharon's affair with Phil.\",\n      \"evidence\": [{\"evidence_id\": \"tape-revelation\", \"start\": 78, \"end\": 179, \"quote\": \"Grant discovers a tape on which Sharon talks about her affair with Phil, and plays it to a packed pub\"}]\n    }\n  ]\n}",
+  "batch": {
+    "claims": [
+      {
+        "claim_id": "c1",
+        "event_id": "peggy-pregnancy",
+        "event_label": "Peggy's pregnancy with Phil",
+        "event_type": "pregnancy",
+        "basis": "narrative",
+        "participants": [
+          {
+            "character_id": "peggy-mitchell",
+            "role": "pregnant_person"
+          }
+        ],
+        "account_status": "as_reported",
+        "polarity": "affirmed",
+        "certainty": "certain",
+        "story_time": "unknown",
+        "time_precision": "unknown",
+        "evidence": [
+          {
+            "evidence_id": "peggy-pregnancy",
+            "start": 0,
+            "end": 67,
+            "quote": "Peggy married Eric Mitchell (George Russo) because she was pregnant"
+          }
+        ]
+      },
+      {
+        "claim_id": "c2",
+        "event_id": "sharon-christmas-pregnancy",
+        "event_label": "Sharon's Christmas pregnancy",
+        "event_type": "pregnancy",
+        "basis": "narrative",
+        "participants": [
+          {
+            "character_id": "sharon-watts",
+            "role": "pregnant_person"
+          }
+        ],
+        "account_status": "as_reported",
+        "polarity": "affirmed",
+        "certainty": "certain",
+        "story_time": "On Christmas Day 2005",
+        "time_precision": "exact",
+        "evidence": [
+          {
+            "evidence_id": "sharon-christmas-pregnancy",
+            "start": 0,
+            "end": 67,
+            "quote": "On Christmas Day 2005, Sharon is stunned to discover she is pregnant"
+          }
+        ]
+      },
+      {
+        "claim_id": "c3",
+        "event_id": "sharon-uncertain-paternity",
+        "event_label": "Sharon's pregnancy with uncertain paternity",
+        "event_type": "pregnancy",
+        "basis": "narrative",
+        "participants": [
+          {
+            "character_id": "sharon-watts",
+            "role": "pregnant_person"
+          }
+        ],
+        "account_status": "as_reported",
+        "polarity": "affirmed",
+        "certainty": "certain",
+        "story_time": "unknown",
+        "time_precision": "unknown",
+        "evidence": [
+          {
+            "evidence_id": "sharon-uncertain-paternity",
+            "start": 9,
+            "end": 46,
+            "quote": "Sharon also discovers she is pregnant"
+          }
+        ]
+      },
+      {
+        "claim_id": "c4",
+        "event_id": "peggy-death",
+        "event_label": "Peggy's death",
+        "event_type": "death",
+        "basis": "narrative",
+        "participants": [
+          {
+            "character_id": "peggy-mitchell",
+            "role": "deceased"
+          }
+        ],
+        "account_status": "as_reported",
+        "polarity": "affirmed",
+        "certainty": "certain",
+        "story_time": "unknown",
+        "time_precision": "unknown",
+        "evidence": [
+          {
+            "evidence_id": "peggy-death",
+            "start": 302,
+            "end": 364,
+            "quote": "Peggy then commits suicide by taking an overdose of her pills."
+          }
+        ]
+      },
+      {
+        "claim_id": "c5",
+        "event_id": "lucy-death",
+        "event_label": "Lucy's death",
+        "event_type": "death",
+        "basis": "narrative",
+        "participants": [
+          {
+            "character_id": "lucy-beale",
+            "role": "deceased"
+          }
+        ],
+        "account_status": "as_reported",
+        "polarity": "affirmed",
+        "certainty": "certain",
+        "story_time": "unknown",
+        "time_precision": "unknown",
+        "evidence": [
+          {
+            "evidence_id": "lucy-death",
+            "start": 5,
+            "end": 29,
+            "quote": "Ian's daughter Lucy dies"
+          }
+        ]
+      }
+    ],
+    "context_claims": [
+      {
+        "claim_id": "c6",
+        "kind": "theme",
+        "character_ids": [
+          "peggy-mitchell",
+          "phil-mitchell"
+        ],
+        "theme": "domestic_abuse",
+        "classification_gap": null,
+        "evidence": [
+          {
+            "evidence_id": "peggy-abuse-theme",
+            "start": 0,
+            "end": 76,
+            "quote": "Eric took his anger out on Peggy and was often violent towards her and Phil."
+          }
+        ]
+      },
+      {
+        "claim_id": "c7",
+        "kind": "unclassified",
+        "character_ids": [
+          "grant-mitchell",
+          "sharon-watts",
+          "phil-mitchell"
+        ],
+        "theme": null,
+        "classification_gap": "No checked category covers Grant's public playing of a tape about Sharon's affair with Phil.",
+        "evidence": [
+          {
+            "evidence_id": "tape-revelation",
+            "start": 78,
+            "end": 179,
+            "quote": "Grant discovers a tape on which Sharon talks about her affair with Phil, and plays it to a packed pub"
+          }
+        ]
+      }
+    ],
+    "snapshot_id": "life-events-pilot-v1",
+    "snapshot_sha256": "8578158630979e5e33bd739570fd42bd02ba6c487872f992d3502f73a83d83df",
+    "catalogue": {
+      "characters": [
+        {
+          "character_id": "phil-mitchell",
+          "name": "Phil Mitchell",
+          "aliases": [],
+          "performers": [
+            "Steve McFadden",
+            "Daniel Delaney"
+          ],
+          "coverage": "core",
+          "wikidata_id": "Q2115259",
+          "review_note": "Codex source inspection, 17 October 2026: captured character article, infobox aliases/performers and revision metadata checked. Prominence-based curated selection, not a ranked or exhaustive canon. Identity linkage is not independent story corroboration.",
+          "evidence_sources": [
+            "phil-mitchell-wiki"
+          ]
+        },
+        {
+          "character_id": "grant-mitchell",
+          "name": "Grant Mitchell",
+          "aliases": [],
+          "performers": [
+            "Ross Kemp",
+            "Teddy Jay"
+          ],
+          "coverage": "core",
+          "wikidata_id": "Q2685036",
+          "review_note": "Codex source inspection, 17 October 2026: captured character article, infobox aliases/performers and revision metadata checked. Prominence-based curated selection, not a ranked or exhaustive canon. Identity linkage is not independent story corroboration.",
+          "evidence_sources": [
+            "grant-mitchell-wiki"
+          ]
+        },
+        {
+          "character_id": "peggy-mitchell",
+          "name": "Peggy Mitchell",
+          "aliases": [
+            "Peggy Butcher"
+          ],
+          "performers": [
+            "Jo Warne",
+            "Barbara Windsor",
+            "Jaime Winstone"
+          ],
+          "coverage": "core",
+          "wikidata_id": "Q13130609",
+          "review_note": "Codex source inspection, 17 October 2026: captured character article, infobox aliases/performers and revision metadata checked. Prominence-based curated selection, not a ranked or exhaustive canon. Identity linkage is not independent story corroboration.",
+          "evidence_sources": [
+            "peggy-mitchell-wiki"
+          ]
+        },
+        {
+          "character_id": "sharon-watts",
+          "name": "Sharon Watts",
+          "aliases": [
+            "Sharon Mitchell",
+            "Sharon Rickman",
+            "Sharon Beale"
+          ],
+          "performers": [
+            "Letitia Dean"
+          ],
+          "coverage": "core",
+          "wikidata_id": "Q7490258",
+          "review_note": "Codex source inspection, 17 October 2026: captured character article, infobox aliases/performers and revision metadata checked. Prominence-based curated selection, not a ranked or exhaustive canon. Identity linkage is not independent story corroboration.",
+          "evidence_sources": [
+            "sharon-watts-wiki"
+          ]
+        },
+        {
+          "character_id": "ian-beale",
+          "name": "Ian Beale",
+          "aliases": [
+            "Ian Albert Beale"
+          ],
+          "performers": [
+            "Adam Woodyatt"
+          ],
+          "coverage": "core",
+          "wikidata_id": "Q899011",
+          "review_note": "Codex source inspection, 17 October 2026: captured character article, infobox aliases/performers and revision metadata checked. Prominence-based curated selection, not a ranked or exhaustive canon. Identity linkage is not independent story corroboration.",
+          "evidence_sources": [
+            "ian-beale-wiki"
+          ]
+        },
+        {
+          "character_id": "kathy-beale",
+          "name": "Kathy Beale",
+          "aliases": [
+            "Kathy Mitchell",
+            "Kathy Sullivan",
+            "Kathy Richards",
+            "Kathy Cotton"
+          ],
+          "performers": [
+            "Gillian Taylforth"
+          ],
+          "coverage": "core",
+          "wikidata_id": "Q6377182",
+          "review_note": "Codex source inspection, 17 October 2026: captured character article, infobox aliases/performers and revision metadata checked. Prominence-based curated selection, not a ranked or exhaustive canon. Identity linkage is not independent story corroboration.",
+          "evidence_sources": [
+            "kathy-beale-wiki"
+          ]
+        },
+        {
+          "character_id": "lucy-beale",
+          "name": "Lucy Beale",
+          "aliases": [],
+          "performers": [
+            "Eva Brittin-Snell",
+            "Casey Anne Rothery",
+            "Melissa Suffield",
+            "Hetti Bywater"
+          ],
+          "coverage": "core",
+          "wikidata_id": "Q3304512",
+          "review_note": "Codex source inspection, 17 October 2026: captured character article, infobox aliases/performers and revision metadata checked. Prominence-based curated selection, not a ranked or exhaustive canon. Identity linkage is not independent story corroboration.",
+          "evidence_sources": [
+            "lucy-beale-wiki"
+          ]
+        },
+        {
+          "character_id": "pat-butcher",
+          "name": "Pat Butcher",
+          "aliases": [
+            "Pat Harris",
+            "Pat Beale",
+            "Pat Wicks",
+            "Pat Evans",
+            "Fat Pat"
+          ],
+          "performers": [
+            "Pam St Clement",
+            "Emma Cooke"
+          ],
+          "coverage": "core",
+          "wikidata_id": "Q368649",
+          "review_note": "Codex source inspection, 17 October 2026: captured character article, infobox aliases/performers and revision metadata checked. Prominence-based curated selection, not a ranked or exhaustive canon. Identity linkage is not independent story corroboration.",
+          "evidence_sources": [
+            "pat-butcher-wiki"
+          ]
+        }
+      ]
+    },
+    "extractor": "openai/gpt-6-sol-20260922"
+  },
+  "score": {
+    "schema_valid": true,
+    "expected": 5,
+    "predicted": 5,
+    "duplicates": 0,
+    "true_positive": 4,
+    "resolvable_spans": 3,
+    "grounded": 0,
+    "precision": 0.8,
+    "recall": 0.8,
+    "f1": 0.8000000000000002,
+    "scope": "Exposed selected incidents and in-catalogue assertions only. Exact values include participant-role assignment, event type, basis, account status, polarity, certainty, story time/precision and evidence IDs. Ignore arbitrary claim/event ID spelling and label wording; incident grouping requires separate support review. Full-value duplicates collapse. Each dimension projects unique full assertions onto values plus passage IDs and event type, preserving multiplicity: identity sets, role multisets, assigned identity-role pairs (direction), polarity, timing, or account attribution. These are diagnostics, not independent per-claim accuracies. Grounding separately requires exact resolvable locators covering frozen supporting spans; it is not canon adjudication. Text classifications are scored separately by kind, character subjects, theme and passage IDs; classification-gap wording is source-reviewed rather than exact-matched. A text classification never counts as an event or connection.",
+    "dimensions": {
+      "identity": {
+        "expected": 5,
+        "predicted": 5,
+        "true_positive": 5,
+        "precision": 1.0,
+        "recall": 1.0,
+        "f1": 1.0
+      },
+      "role": {
+        "expected": 5,
+        "predicted": 5,
+        "true_positive": 5,
+        "precision": 1.0,
+        "recall": 1.0,
+        "f1": 1.0
+      },
+      "direction": {
+        "expected": 5,
+        "predicted": 5,
+        "true_positive": 5,
+        "precision": 1.0,
+        "recall": 1.0,
+        "f1": 1.0
+      },
+      "negation": {
+        "expected": 5,
+        "predicted": 5,
+        "true_positive": 5,
+        "precision": 1.0,
+        "recall": 1.0,
+        "f1": 1.0
+      },
+      "timing": {
+        "expected": 5,
+        "predicted": 5,
+        "true_positive": 4,
+        "precision": 0.8,
+        "recall": 0.8,
+        "f1": 0.8000000000000002
+      },
+      "account": {
+        "expected": 5,
+        "predicted": 5,
+        "true_positive": 5,
+        "precision": 1.0,
+        "recall": 1.0,
+        "f1": 1.0
+      }
+    },
+    "by_event_type": {
+      "death": {
+        "schema_valid": true,
+        "expected": 2,
+        "predicted": 2,
+        "duplicates": 0,
+        "true_positive": 2,
+        "resolvable_spans": 1,
+        "grounded": 0,
+        "precision": 1.0,
+        "recall": 1.0,
+        "f1": 1.0,
+        "scope": "Exact normalized values within each completely annotated selected input passage. Instances match on values and sorted unique passage IDs, independently of quote offsets. Claim IDs are ignored; semantic duplicates within a passage collapse and are counted. Grounding additionally requires the entire independently reviewed supporting span. These exposed development scores are not held-out or broad-corpus quality."
+      },
+      "pregnancy": {
+        "schema_valid": true,
+        "expected": 3,
+        "predicted": 3,
+        "duplicates": 0,
+        "true_positive": 2,
+        "resolvable_spans": 2,
+        "grounded": 0,
+        "precision": 0.6666666666666666,
+        "recall": 0.6666666666666666,
+        "f1": 0.6666666666666666,
+        "scope": "Exact normalized values within each completely annotated selected input passage. Instances match on values and sorted unique passage IDs, independently of quote offsets. Claim IDs are ignored; semantic duplicates within a passage collapse and are counted. Grounding additionally requires the entire independently reviewed supporting span. These exposed development scores are not held-out or broad-corpus quality."
+      }
+    },
+    "context_score": {
+      "schema_valid": true,
+      "expected": 2,
+      "predicted": 2,
+      "duplicates": 0,
+      "true_positive": 1,
+      "resolvable_spans": 2,
+      "grounded": 1,
+      "precision": 0.5,
+      "recall": 0.5,
+      "f1": 0.5,
+      "scope": "Exact normalized values within each completely annotated selected input passage. Instances match on values and sorted unique passage IDs, independently of quote offsets. Claim IDs are ignored; semantic duplicates within a passage collapse and are counted. Grounding additionally requires the entire independently reviewed supporting span. These exposed development scores are not held-out or broad-corpus quality."
+    },
+    "by_theme": {
+      "domestic_abuse": {
+        "schema_valid": true,
+        "expected": 1,
+        "predicted": 1,
+        "duplicates": 0,
+        "true_positive": 1,
+        "resolvable_spans": 1,
+        "grounded": 1,
+        "precision": 1.0,
+        "recall": 1.0,
+        "f1": 1.0,
+        "scope": "Exact normalized values within each completely annotated selected input passage. Instances match on values and sorted unique passage IDs, independently of quote offsets. Claim IDs are ignored; semantic duplicates within a passage collapse and are counted. Grounding additionally requires the entire independently reviewed supporting span. These exposed development scores are not held-out or broad-corpus quality."
+      }
+    },
+    "by_classification": {
+      "theme": {
+        "schema_valid": true,
+        "expected": 1,
+        "predicted": 1,
+        "duplicates": 0,
+        "true_positive": 1,
+        "resolvable_spans": 1,
+        "grounded": 1,
+        "precision": 1.0,
+        "recall": 1.0,
+        "f1": 1.0,
+        "scope": "Exact normalized values within each completely annotated selected input passage. Instances match on values and sorted unique passage IDs, independently of quote offsets. Claim IDs are ignored; semantic duplicates within a passage collapse and are counted. Grounding additionally requires the entire independently reviewed supporting span. These exposed development scores are not held-out or broad-corpus quality."
+      },
+      "unclassified": {
+        "schema_valid": true,
+        "expected": 1,
+        "predicted": 1,
+        "duplicates": 0,
+        "true_positive": 0,
+        "resolvable_spans": 1,
+        "grounded": 0,
+        "precision": 0.0,
+        "recall": 0.0,
+        "f1": 0.0,
+        "scope": "Exact normalized values within each completely annotated selected input passage. Instances match on values and sorted unique passage IDs, independently of quote offsets. Claim IDs are ignored; semantic duplicates within a passage collapse and are counted. Grounding additionally requires the entire independently reviewed supporting span. These exposed development scores are not held-out or broad-corpus quality."
+      }
+    }
+  },
+  "usage": {
+    "reservation_id": "b020077a731045cdbfd4596b829384c2",
+    "reserved_usd": 0.1131,
+    "cost_usd": 0.0352235,
+    "request_id": "gen-1793118090-soxgGAN4Ifap5kgadCsU",
+    "returned_model": "openai/gpt-6-sol",
+    "provider": "OpenAI",
+    "input_tokens": 2302,
+    "output_tokens": 2947,
+    "reasoning_tokens": 1848
+  },
+  "execution": {
+    "limits": {
+      "model_calls": 1,
+      "tool_calls": 0,
+      "http_calls": 3,
+      "seconds": 180.0,
+      "context_bytes": 1200,
+      "spend_usd": "0.15",
+      "retries": 0,
+      "capabilities": [],
+      "concurrency": 4
+    },
+    "model_calls": 1,
+    "tool_calls": 0,
+    "http_calls": 3,
+    "reserved_usd": "0.0352235",
+    "stop_reason": null
+  },
+  "elapsed_ms": 45607.34945400327,
+  "failure": null,
+  "trace_id": "tr-878c6148139c146fde2e8b2e0ef1850e",
+  "shared_ledger_usd": 0.452559,
+  "unsettled_reservations": 0,
+  "limitation": "Agent-reviewed exposed labels; no held-out, human or independent canon acceptance."
+}

@@ -127,8 +127,6 @@ def _require_classifications(schema: dict[str, Any]) -> None:
 
 
 class ExtractedEvents(Record):
-    model_config = ConfigDict(json_schema_extra=_require_classifications)
-
     claims: tuple[EventClaim, ...] = Field(max_length=100)
     context_claims: tuple[ContextClaim, ...] = Field(
         default=(), max_length=100, exclude_if=lambda value: not value
@@ -140,6 +138,12 @@ class ExtractedEvents(Record):
         if len({c.claim_id for c in claims}) != len(claims):
             raise ValueError("Claim identifiers must be unique within an extraction.")
         return self
+
+
+class EventExtractionOutput(ExtractedEvents):
+    """Strict provider output keeps both lists explicit, independently of legacy API batches."""
+
+    model_config = ConfigDict(json_schema_extra=_require_classifications)
 
 
 class EventBatch(ExtractedEvents):

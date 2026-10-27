@@ -1,0 +1,487 @@
+{
+  "claims": [
+    {
+      "claim_id": "c1",
+      "event_id": "peggy-pregnancy",
+      "event_label": "Peggy's pregnancy with Phil",
+      "event_type": "pregnancy",
+      "basis": "narrative",
+      "participants": [
+        {
+          "character_id": "peggy-mitchell",
+          "role": "pregnant_person"
+        }
+      ],
+      "account_status": "as_reported",
+      "polarity": "affirmed",
+      "certainty": "certain",
+      "story_time": "unknown",
+      "time_precision": "unknown",
+      "evidence": [
+        {
+          "evidence_id": "peggy-pregnancy",
+          "start": 0,
+          "end": 67,
+          "quote": "Peggy married Eric Mitchell (George Russo) because she was pregnant"
+        }
+      ]
+    },
+    {
+      "claim_id": "c2",
+      "event_id": "sharon-christmas-pregnancy",
+      "event_label": "Sharon's Christmas pregnancy",
+      "event_type": "pregnancy",
+      "basis": "narrative",
+      "participants": [
+        {
+          "character_id": "sharon-watts",
+          "role": "pregnant_person"
+        }
+      ],
+      "account_status": "as_reported",
+      "polarity": "affirmed",
+      "certainty": "certain",
+      "story_time": "On Christmas Day 2005",
+      "time_precision": "exact",
+      "evidence": [
+        {
+          "evidence_id": "sharon-christmas-pregnancy",
+          "start": 0,
+          "end": 67,
+          "quote": "On Christmas Day 2005, Sharon is stunned to discover she is pregnant"
+        }
+      ]
+    },
+    {
+      "claim_id": "c3",
+      "event_id": "sharon-uncertain-paternity",
+      "event_label": "Sharon's pregnancy with uncertain paternity",
+      "event_type": "pregnancy",
+      "basis": "narrative",
+      "participants": [
+        {
+          "character_id": "sharon-watts",
+          "role": "pregnant_person"
+        }
+      ],
+      "account_status": "as_reported",
+      "polarity": "affirmed",
+      "certainty": "certain",
+      "story_time": "unknown",
+      "time_precision": "unknown",
+      "evidence": [
+        {
+          "evidence_id": "sharon-uncertain-paternity",
+          "start": 9,
+          "end": 46,
+          "quote": "Sharon also discovers she is pregnant"
+        }
+      ]
+    },
+    {
+      "claim_id": "c4",
+      "event_id": "peggy-death",
+      "event_label": "Peggy's death",
+      "event_type": "death",
+      "basis": "narrative",
+      "participants": [
+        {
+          "character_id": "peggy-mitchell",
+          "role": "deceased"
+        }
+      ],
+      "account_status": "as_reported",
+      "polarity": "affirmed",
+      "certainty": "certain",
+      "story_time": "unknown",
+      "time_precision": "unknown",
+      "evidence": [
+        {
+          "evidence_id": "peggy-death",
+          "start": 302,
+          "end": 364,
+          "quote": "Peggy then commits suicide by taking an overdose of her pills."
+        }
+      ]
+    },
+    {
+      "claim_id": "c5",
+      "event_id": "lucy-death",
+      "event_label": "Lucy's death",
+      "event_type": "death",
+      "basis": "narrative",
+      "participants": [
+        {
+          "character_id": "lucy-beale",
+          "role": "deceased"
+        }
+      ],
+      "account_status": "as_reported",
+      "polarity": "affirmed",
+      "certainty": "certain",
+      "story_time": "unknown",
+      "time_precision": "unknown",
+      "evidence": [
+        {
+          "evidence_id": "lucy-death",
+          "start": 5,
+          "end": 29,
+          "quote": "Ian's daughter Lucy dies"
+        }
+      ]
+    },
+    {
+      "claim_id": "reviewed-peggy-pregnancy",
+      "event_id": "peggy-pregnancy",
+      "event_label": "Peggy's pregnancy with Phil",
+      "event_type": "pregnancy",
+      "basis": "narrative",
+      "participants": [
+        {
+          "character_id": "peggy-mitchell",
+          "role": "pregnant_person"
+        }
+      ],
+      "account_status": "as_reported",
+      "polarity": "affirmed",
+      "certainty": "certain",
+      "story_time": "unknown",
+      "time_precision": "unknown",
+      "evidence": [
+        {
+          "evidence_id": "peggy-pregnancy",
+          "start": 0,
+          "end": 105,
+          "quote": "Peggy married Eric Mitchell (George Russo) because she was pregnant with their son Phil (Steve McFadden)."
+        }
+      ]
+    },
+    {
+      "claim_id": "reviewed-sharon-christmas-pregnancy",
+      "event_id": "sharon-christmas-pregnancy",
+      "event_label": "Sharon's Christmas pregnancy",
+      "event_type": "pregnancy",
+      "basis": "narrative",
+      "participants": [
+        {
+          "character_id": "sharon-watts",
+          "role": "pregnant_person"
+        }
+      ],
+      "account_status": "as_reported",
+      "polarity": "affirmed",
+      "certainty": "certain",
+      "story_time": "Christmas Day 2005",
+      "time_precision": "exact",
+      "evidence": [
+        {
+          "evidence_id": "sharon-christmas-pregnancy",
+          "start": 0,
+          "end": 131,
+          "quote": "On Christmas Day 2005, Sharon is stunned to discover she is pregnant, and she and Dennis celebrate the potential of having a child."
+        }
+      ]
+    },
+    {
+      "claim_id": "reviewed-sharon-uncertain-paternity",
+      "event_id": "sharon-uncertain-paternity",
+      "event_label": "Sharon's pregnancy with uncertain paternity",
+      "event_type": "pregnancy",
+      "basis": "narrative",
+      "participants": [
+        {
+          "character_id": "sharon-watts",
+          "role": "pregnant_person"
+        }
+      ],
+      "account_status": "as_reported",
+      "polarity": "affirmed",
+      "certainty": "certain",
+      "story_time": "unknown",
+      "time_precision": "unknown",
+      "evidence": [
+        {
+          "evidence_id": "sharon-uncertain-paternity",
+          "start": 0,
+          "end": 221,
+          "quote": "However, Sharon also discovers she is pregnant but does not know if Phil or Keanu is the father. She settles on having an abortion, but Phil discovers she's pregnant, and Sharon lies letting Phil believe he is the father."
+        }
+      ]
+    },
+    {
+      "claim_id": "reviewed-peggy-death",
+      "event_id": "peggy-death",
+      "event_label": "Peggy's death",
+      "event_type": "death",
+      "basis": "narrative",
+      "participants": [
+        {
+          "character_id": "peggy-mitchell",
+          "role": "deceased"
+        }
+      ],
+      "account_status": "as_reported",
+      "polarity": "affirmed",
+      "certainty": "certain",
+      "story_time": "unknown",
+      "time_precision": "unknown",
+      "evidence": [
+        {
+          "evidence_id": "peggy-death",
+          "start": 0,
+          "end": 529,
+          "quote": "Peggy begins hallucinating the smell of cigarette smoke; this eventually manifests into a vision of Pat. As the two reminisce about past memories, Peggy states she still wants to die now before the cancer gets worse and to be remembered as a strong woman. Upon being reassured by Pat that she will not leave her side, Peggy then commits suicide by taking an overdose of her pills. Phil is devastated to find her body, and a letter from her urges him to love himself as others love him. Peggy's funeral takes place on 4 July 2016."
+        }
+      ]
+    },
+    {
+      "claim_id": "reviewed-lucy-death",
+      "event_id": "lucy-death",
+      "event_label": "Lucy's death",
+      "event_type": "death",
+      "basis": "narrative",
+      "participants": [
+        {
+          "character_id": "lucy-beale",
+          "role": "deceased"
+        }
+      ],
+      "account_status": "as_reported",
+      "polarity": "affirmed",
+      "certainty": "certain",
+      "story_time": "unknown",
+      "time_precision": "unknown",
+      "evidence": [
+        {
+          "evidence_id": "lucy-death",
+          "start": 0,
+          "end": 106,
+          "quote": "When Ian's daughter Lucy dies, Phil begins supporting his former enemy and helps him get back on his feet."
+        }
+      ]
+    }
+  ],
+  "context_claims": [
+    {
+      "claim_id": "c6",
+      "kind": "theme",
+      "character_ids": [
+        "peggy-mitchell",
+        "phil-mitchell"
+      ],
+      "theme": "domestic_abuse",
+      "classification_gap": null,
+      "evidence": [
+        {
+          "evidence_id": "peggy-abuse-theme",
+          "start": 0,
+          "end": 76,
+          "quote": "Eric took his anger out on Peggy and was often violent towards her and Phil."
+        }
+      ]
+    },
+    {
+      "claim_id": "c7",
+      "kind": "unclassified",
+      "character_ids": [
+        "grant-mitchell",
+        "sharon-watts",
+        "phil-mitchell"
+      ],
+      "theme": null,
+      "classification_gap": "No checked category covers Grant's public playing of a tape about Sharon's affair with Phil.",
+      "evidence": [
+        {
+          "evidence_id": "tape-revelation",
+          "start": 78,
+          "end": 179,
+          "quote": "Grant discovers a tape on which Sharon talks about her affair with Phil, and plays it to a packed pub"
+        }
+      ]
+    },
+    {
+      "claim_id": "reviewed-peggy-abuse-theme",
+      "kind": "theme",
+      "character_ids": [
+        "peggy-mitchell",
+        "phil-mitchell"
+      ],
+      "theme": "domestic_abuse",
+      "classification_gap": null,
+      "evidence": [
+        {
+          "evidence_id": "peggy-abuse-theme",
+          "start": 0,
+          "end": 76,
+          "quote": "Eric took his anger out on Peggy and was often violent towards her and Phil."
+        }
+      ]
+    },
+    {
+      "claim_id": "reviewed-tape-revelation",
+      "kind": "unclassified",
+      "character_ids": [
+        "grant-mitchell",
+        "sharon-watts",
+        "phil-mitchell",
+        "kathy-beale"
+      ],
+      "theme": null,
+      "classification_gap": "Public revelation of an affair has no checked event category in this graph.",
+      "evidence": [
+        {
+          "evidence_id": "tape-revelation",
+          "start": 0,
+          "end": 255,
+          "quote": "Sharon and Grant patch up their relationship; however, in the autumn of 1994, Grant discovers a tape on which Sharon talks about her affair with Phil, and plays it to a packed pub at Phil's engagement party to his fiancée, Kathy Beale (Gillian Taylforth)."
+        }
+      ]
+    }
+  ],
+  "snapshot_id": "life-events-pilot-v1",
+  "snapshot_sha256": "8578158630979e5e33bd739570fd42bd02ba6c487872f992d3502f73a83d83df",
+  "catalogue": {
+    "characters": [
+      {
+        "character_id": "phil-mitchell",
+        "name": "Phil Mitchell",
+        "aliases": [],
+        "performers": [
+          "Steve McFadden",
+          "Daniel Delaney"
+        ],
+        "coverage": "core",
+        "wikidata_id": "Q2115259",
+        "review_note": "Codex source inspection, 17 October 2026: captured character article, infobox aliases/performers and revision metadata checked. Prominence-based curated selection, not a ranked or exhaustive canon. Identity linkage is not independent story corroboration.",
+        "evidence_sources": [
+          "phil-mitchell-wiki"
+        ]
+      },
+      {
+        "character_id": "grant-mitchell",
+        "name": "Grant Mitchell",
+        "aliases": [],
+        "performers": [
+          "Ross Kemp",
+          "Teddy Jay"
+        ],
+        "coverage": "core",
+        "wikidata_id": "Q2685036",
+        "review_note": "Codex source inspection, 17 October 2026: captured character article, infobox aliases/performers and revision metadata checked. Prominence-based curated selection, not a ranked or exhaustive canon. Identity linkage is not independent story corroboration.",
+        "evidence_sources": [
+          "grant-mitchell-wiki"
+        ]
+      },
+      {
+        "character_id": "peggy-mitchell",
+        "name": "Peggy Mitchell",
+        "aliases": [
+          "Peggy Butcher"
+        ],
+        "performers": [
+          "Jo Warne",
+          "Barbara Windsor",
+          "Jaime Winstone"
+        ],
+        "coverage": "core",
+        "wikidata_id": "Q13130609",
+        "review_note": "Codex source inspection, 17 October 2026: captured character article, infobox aliases/performers and revision metadata checked. Prominence-based curated selection, not a ranked or exhaustive canon. Identity linkage is not independent story corroboration.",
+        "evidence_sources": [
+          "peggy-mitchell-wiki"
+        ]
+      },
+      {
+        "character_id": "sharon-watts",
+        "name": "Sharon Watts",
+        "aliases": [
+          "Sharon Mitchell",
+          "Sharon Rickman",
+          "Sharon Beale"
+        ],
+        "performers": [
+          "Letitia Dean"
+        ],
+        "coverage": "core",
+        "wikidata_id": "Q7490258",
+        "review_note": "Codex source inspection, 17 October 2026: captured character article, infobox aliases/performers and revision metadata checked. Prominence-based curated selection, not a ranked or exhaustive canon. Identity linkage is not independent story corroboration.",
+        "evidence_sources": [
+          "sharon-watts-wiki"
+        ]
+      },
+      {
+        "character_id": "ian-beale",
+        "name": "Ian Beale",
+        "aliases": [
+          "Ian Albert Beale"
+        ],
+        "performers": [
+          "Adam Woodyatt"
+        ],
+        "coverage": "core",
+        "wikidata_id": "Q899011",
+        "review_note": "Codex source inspection, 17 October 2026: captured character article, infobox aliases/performers and revision metadata checked. Prominence-based curated selection, not a ranked or exhaustive canon. Identity linkage is not independent story corroboration.",
+        "evidence_sources": [
+          "ian-beale-wiki"
+        ]
+      },
+      {
+        "character_id": "kathy-beale",
+        "name": "Kathy Beale",
+        "aliases": [
+          "Kathy Mitchell",
+          "Kathy Sullivan",
+          "Kathy Richards",
+          "Kathy Cotton"
+        ],
+        "performers": [
+          "Gillian Taylforth"
+        ],
+        "coverage": "core",
+        "wikidata_id": "Q6377182",
+        "review_note": "Codex source inspection, 17 October 2026: captured character article, infobox aliases/performers and revision metadata checked. Prominence-based curated selection, not a ranked or exhaustive canon. Identity linkage is not independent story corroboration.",
+        "evidence_sources": [
+          "kathy-beale-wiki"
+        ]
+      },
+      {
+        "character_id": "lucy-beale",
+        "name": "Lucy Beale",
+        "aliases": [],
+        "performers": [
+          "Eva Brittin-Snell",
+          "Casey Anne Rothery",
+          "Melissa Suffield",
+          "Hetti Bywater"
+        ],
+        "coverage": "core",
+        "wikidata_id": "Q3304512",
+        "review_note": "Codex source inspection, 17 October 2026: captured character article, infobox aliases/performers and revision metadata checked. Prominence-based curated selection, not a ranked or exhaustive canon. Identity linkage is not independent story corroboration.",
+        "evidence_sources": [
+          "lucy-beale-wiki"
+        ]
+      },
+      {
+        "character_id": "pat-butcher",
+        "name": "Pat Butcher",
+        "aliases": [
+          "Pat Harris",
+          "Pat Beale",
+          "Pat Wicks",
+          "Pat Evans",
+          "Fat Pat"
+        ],
+        "performers": [
+          "Pam St Clement",
+          "Emma Cooke"
+        ],
+        "coverage": "core",
+        "wikidata_id": "Q368649",
+        "review_note": "Codex source inspection, 17 October 2026: captured character article, infobox aliases/performers and revision metadata checked. Prominence-based curated selection, not a ranked or exhaustive canon. Identity linkage is not independent story corroboration.",
+        "evidence_sources": [
+          "pat-butcher-wiki"
+        ]
+      }
+    ]
+  },
+  "extractor": "raw-sol-pilot-plus-explicit-source-review-v1"
+}

@@ -32,6 +32,24 @@ def test_shared_incident_returns_other_participants_without_transferring_guilt(
     assert graph.audit(snapshot.snapshot_id) == audit
 
 
+def test_legacy_event_audit_still_conforms_to_its_public_response_schema(
+    database_url: str,
+) -> None:
+    import jsonschema
+    from fastapi.testclient import TestClient
+
+    from ask_phil.api import create_app
+    from ask_phil.event_graph import EventAudit
+
+    snapshot, batch, reviews = reference_batch()
+    EvidenceStore(database_url).load(snapshot)
+    EventGraph(database_url).install(batch, reviews)
+    with TestClient(create_app(database_url)) as client:
+        response = client.get(f"/v1/snapshots/{snapshot.snapshot_id}/event-claims")
+        assert response.status_code == 200
+        jsonschema.validate(response.json(), EventAudit.model_json_schema(mode="serialization"))
+
+
 def test_final_answers_preserve_false_accounts_roles_and_citations(
     database_url: str, tmp_path: Path
 ) -> None:

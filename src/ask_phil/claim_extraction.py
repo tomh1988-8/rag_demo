@@ -31,7 +31,7 @@ from ask_phil.parentage_extraction import EXTRACTION_PROMPT, ClaimLLM, extract_p
 from ask_phil.relationship_evaluation import score_relationships
 from ask_phil.relationship_extraction import RELATIONSHIP_PROMPT, extract_relationships
 from ask_phil.relationships import ExtractedRelationships, RelationshipBatch
-from ask_phil.story_events import EventBatch, ExtractedEvents
+from ask_phil.story_events import EventBatch, EventExtractionOutput, ExtractedEvents
 from ask_phil.tracing import experiment_for
 
 
@@ -72,7 +72,7 @@ def _slice(
             raise ExtractionInputMismatch("Incident scope must identify each captured passage.")
         return _ExtractionSlice(
             "story_event_extraction",
-            ExtractedEvents,
+            EventExtractionOutput,
             EVENT_PROMPT,
             lambda s, c, llm: extract_events(s, c, llm, incidents),
             lambda raw: score_events(raw, expected_events, snapshot),

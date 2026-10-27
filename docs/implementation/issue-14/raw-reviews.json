@@ -1,0 +1,58 @@
+[
+  {
+    "claim_id": "c1",
+    "claim_sha256": "9bb8142e5d51eec915af3ddf49e9ab966763de51df7391432e21f0fcf27ec2dd",
+    "verdict": "supported",
+    "reviewer": "Codex content-bound source review of unchanged model output",
+    "note": "Exact short locator establishes Peggy pregnancy. It omits the full frozen reference span, so strict full-span grounding remains failed.",
+    "narrative_commission": false
+  },
+  {
+    "claim_id": "c2",
+    "claim_sha256": "35dd0f8f54eeb472b358efa81aa3ae58c68c2e8d701e357115fcbf3f6dc1b542",
+    "verdict": "unsupported",
+    "reviewer": "Codex content-bound source review of unchanged model output",
+    "note": "Locator end truncates pregnant; hold unchanged. On Christmas Day 2005 is semantically compatible with the reference Christmas Day 2005 but differs in the declared exact-wording metric.",
+    "narrative_commission": false
+  },
+  {
+    "claim_id": "c3",
+    "claim_sha256": "b795b9bb6db1343f361b5442602546e789cbad41a9efab15e9f43a10b6a05957",
+    "verdict": "supported",
+    "reviewer": "Codex content-bound source review of unchanged model output",
+    "note": "Exact short locator establishes Sharon pregnancy. No father role is asserted; paternity remains uncertain in surrounding source. Full-reference-span grounding remains failed.",
+    "narrative_commission": false
+  },
+  {
+    "claim_id": "c4",
+    "claim_sha256": "4e1faec72d379528222e332e63d92caaa96ef4a7c5b28a683902a332a2dc097d",
+    "verdict": "unsupported",
+    "reviewer": "Codex content-bound source review of unchanged model output",
+    "note": "Supplied offsets point to a different substring and truncate the account. Hold unchanged; no automatic span repair.",
+    "narrative_commission": false
+  },
+  {
+    "claim_id": "c5",
+    "claim_sha256": "527915eb1e4cbe7763325a100f8b0812c1d867c0dfe9a2f002d0d2785ced6042",
+    "verdict": "supported",
+    "reviewer": "Codex content-bound source review of unchanged model output",
+    "note": "Exact locator explicitly says Lucy dies. It supports death but does not cover the conservative full reference span.",
+    "narrative_commission": false
+  },
+  {
+    "claim_id": "c6",
+    "claim_sha256": "00ce96e769fed6fab4d07a0980adf1b4cfe57323468ea665f4dd73dbafa4ac81",
+    "verdict": "supported",
+    "reviewer": "Codex content-bound source review of unchanged model output",
+    "note": "Exact whole selected sentence supports domestic abuse concerning Peggy and Phil. Text subjects only, no event grouping.",
+    "narrative_commission": false
+  },
+  {
+    "claim_id": "c7",
+    "claim_sha256": "fe19c82ae35ce700634109b66c8eb690d0b744a21948c41bf43a58e98b32e16b",
+    "verdict": "supported",
+    "reviewer": "Codex content-bound source review of unchanged model output",
+    "note": "Exact excerpt supports the public tape revelation concerning Grant, Sharon and Phil. The frozen classification additionally includes Kathy as the party subject: retain this incomplete-subject value failure while admitting the supported subset as text-only.",
+    "narrative_commission": false
+  }
+]
