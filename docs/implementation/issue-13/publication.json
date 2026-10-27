@@ -1,0 +1,89 @@
+{
+  "status": "published_and_closed",
+  "recorded_at": "2026-10-27T14:22:35.149883+00:00",
+  "repository": "tomh1988-8/rag_demo",
+  "destination": "refs/heads/main",
+  "authorization": {
+    "user_message": "i approve",
+    "scope": [
+      "Publish verified implementation, evidence and handoff directly to GitHub main",
+      "Apply the prepared issue body and close #13 as completed",
+      "Publish completion receipts and final handoff, then verify the final remote tree"
+    ],
+    "publication_approval_pending": false,
+    "tracker_update_approval_pending": false,
+    "receipt_publication_approval_pending": false,
+    "supersedes_initial_automatic_rejection": true
+  },
+  "automatic_approval_events": [
+    {
+      "action": "git push origin HEAD:main",
+      "initial_status": "rejected_not_executed",
+      "reason": "Default-branch publication lacked explicit user authorization; repository instructions could not expand it.",
+      "resolution": "User replied i approve after publication, tracker closure and completion receipts were expressly named. The subsequent native push, prepared tracker update and completed closure were approved and read back."
+    }
+  ],
+  "reviewed_code_revision": "cc3420868a0ae9fe9373fcd406ee9891e2d2cdaf",
+  "implementation_acceptance_commit": "3cde5901eee0ae5d6fe80412876434a0865a3aa6",
+  "publication": {
+    "verified_at": "2026-10-27T14:19:06.857772+00:00",
+    "method": "native_git_https",
+    "local_revision": "3723db0d8a39b08b541d7504ec64317bdbb27938",
+    "remote_revision": "3723db0d8a39b08b541d7504ec64317bdbb27938",
+    "local_tree": "161d610ce9de8a8e0e6225ec9c32b35333211651",
+    "remote_tree": "161d610ce9de8a8e0e6225ec9c32b35333211651",
+    "tree_diff_empty": true,
+    "commit_url": "https://github.com/tomh1988-8/rag_demo/commit/3723db0d8a39b08b541d7504ec64317bdbb27938"
+  },
+  "tracker": {
+    "number": 13,
+    "url": "https://github.com/tomh1988-8/rag_demo/issues/13",
+    "state": "closed",
+    "state_reason": "completed",
+    "closed_at": "2026-10-27T14:19:27Z",
+    "readback_at": "2026-10-27T14:22:35.149883+00:00",
+    "checked_criteria": 7,
+    "unchecked_criteria": 0,
+    "body_matches_prepared_update": true,
+    "body_sha256": "24bd3ca08dc5f28b3cb1ea545fac01dc02de919dd9f3972cac818b9cb5bf0a47",
+    "applied_body_file": "proposed-tracker-update.md"
+  },
+  "validation": {
+    "passed": 388,
+    "failures": 0,
+    "errors": 0,
+    "skips": 0,
+    "mypy_files": 90,
+    "standards_findings": 0,
+    "spec_findings": 0,
+    "runtime_outcomes": 24,
+    "runtime_trace_outputs_match": 24,
+    "source_changes_after_full_suite": false,
+    "record": "validation.json"
+  },
+  "preservation": {
+    "shared_ledger_usd": 0.417335,
+    "unsettled_reservations": 0,
+    "publication_inference_calls": 0,
+    "preexisting_user_work_excluded": true,
+    "original_data_files_unchanged": 31,
+    "preexisting_workspace_files_unchanged": 51
+  },
+  "quality_limitations": {
+    "raw_extraction_recall": "3/17",
+    "strict_full_span_grounding": "1/4",
+    "raw_admitted": 2,
+    "raw_held": 2,
+    "reviewed_semantic_assertions": 17,
+    "acceptance": "Scoped reviewed capability; automatic extraction, held-out and canon acceptance remain unproven."
+  },
+  "next_issue_after_closure": 14,
+  "unblocked_frontier": [
+    14,
+    15,
+    19,
+    22,
+    24
+  ],
+  "receipt_note": "The implementation publication and tracker closure above have already been read back. This subsequent documentation-only receipt/handoff commit is published and its exact remote tree verified before reporting completion."
+}

@@ -1,26 +1,40 @@
 # Ask Phil: publication and next-skill handoff
 
-## Issue #13 implementation: publication approval pending
+## Issue #13: crimes and justice accepted and closed
 
-Issue #13 is implemented at `3cde590`, with tested source `cc34208`, 388 passing
-tests, strict mypy/formatting/lint, zero remaining independent review findings and
-24 verified API/CLI/session outcomes. [Evidence](../../implementation/issue-13/README.md)
-retains the pilot quality failures, reviewed serving capability and initial
-concurrency-test failure/fix. Trial ledger: $0.417335; zero unsettled reservations.
+[Implementation and evidence](../../implementation/issue-13/README.md) are published
+at [`3723db0`](https://github.com/tomh1988-8/rag_demo/commit/3723db0d8a39b08b541d7504ec64317bdbb27938),
+with native fetched exact-tree verification and completed tracker closure. All seven
+checked criteria and the exact prepared body were read back. The user's `i approve`
+covers implementation/evidence, tracker closure and the completion receipt/handoff.
+[The receipt](../../implementation/issue-13/publication.json) supersedes the initial
+automatic rejection; no publication or tracker blocker remains.
 
-Automatic approval review rejected direct publication to `main` because explicit
-user authorization was absent; repo documentation was insufficient. **#13 remains
-open and #14 must not begin.** [The exact tracker body](../../implementation/issue-13/proposed-tracker-update.md)
-and [publication plan](../../implementation/issue-13/publication-plan.json) are ready.
-Approval must cover pushing the prepared implementation/evidence, applying that
-body/closing #13 and publishing the completion receipt/handoff. Do not bypass the
-rejection through another publisher, rerun paid extraction or reset the ledger.
+The independently reviewed source `cc34208` passes **388 tests**, strict mypy across
+90 files and Ruff/formatting, with zero remaining Standards/Spec findings. All 24
+actual API/CLI/session outcomes have exact MLflow/citation readback and stable
+application/snapshot fingerprints. Shared incidents preserve participant roles,
+commission versus legal outcomes, false accounts and relative timing. The first
+full suite's concurrent-turn failure and reviewed deadline/queue fix are retained.
 
-The earlier completed-issue records below remain historical; this status takes
-precedence until publication and closure are read back.
+The single pilot has four schema-valid candidates, three exact values, precision
+3/4, recall 3/17, F1 2/7, three resolvable locators and one conservative full-span
+grounding pass. Two raw candidates are admitted and two held. The curated projection
+adds seventeen source-reviewed assertions with five separately versioned relative
+timing corrections and retains every raw failure. This is scoped curated capability,
+not automatic-extraction, held-out or canon acceptance. Wider checks remain Pending.
 
+The one offline call cost **$0.030536**. The preserved shared non-resetting $5 ledger
+is **$0.417335**, zero unsettled reservations; this supersedes historical amounts
+below. All 31 original tracked inputs and 51 pre-existing workspace files are
+unchanged. Checklist counts remain 34 Pass and 17 Pending.
 
-Updated 27 October 2026. The user approved the initial checklist/ticket breakdown, authorised publication, and subsequently required user feedback and online evaluation. Checklist v1.1 and the amended 24-ticket breakdown are published. Issues #2–#12 are complete and closed. Issues #5–#8 passed their full software suites, independent reviews, exact-tree publication verification and closure readback. Issue #4 passed its scoped cloud policy acceptance.
+**#14 is next**; #15, #19, #22 and #24 also remain unblocked. Wait for the next
+implementation instruction before another ticket.
+
+## Earlier completed-issue handoffs
+
+Updated 27 October 2026. The user approved the initial checklist/ticket breakdown, authorised publication, and subsequently required user feedback and online evaluation. Checklist v1.1 and the amended 24-ticket breakdown are published. Issues #2–#13 are complete and closed. Issues #5–#8 passed their full software suites, independent reviews, exact-tree publication verification and closure readback. Issue #4 passed its scoped cloud policy acceptance.
 
 ## Issue #12: relationship histories accepted and closed
 
@@ -305,7 +319,7 @@ use #3. A persistent cloud deployment has not been configured.
 ## Published and verified
 
 - [Specification #1](https://github.com/tomh1988-8/rag_demo/issues/1) contains the agreed specification with the feedback/online-evaluation and fusion/cache amendments (130 stories).
-- Implementation tickets **#2–#25** are published and labelled `ready-for-agent`. **#2–#12 are closed as completed**; #13–#25 remain open.
+- Implementation tickets **#2–#25** are published and labelled `ready-for-agent`. **#2–#13 are closed as completed**; #14–#25 remain open.
 - All 25 remote bodies, states and ready-for-agent labels were read back and checked against the intended content after the fusion/cache amendment.
 - The 41 blocking relationships are recorded as real issue references in ticket bodies and as a machine-readable mapping in [publication.json](publication.json).
 - Issue #2 has a reviewed captured seed, CLI/API/PostgreSQL behavior, 17 passing tests in both native and Docker environments, and recorded deterministic baseline outputs. [Fresh Compose startup and database/API restart passed](../../implementation/issue-2/README.md); no generative model quality is claimed. GitHub closure and all seven checked criteria were read back and verified.
@@ -314,7 +328,7 @@ The [to-spec skill](../../../.agents/skills/to-spec/SKILL.md) authorised specifi
 
 ## First available work
 
-**[#13 — Explain crimes and criminal justice roles](https://github.com/tomh1988-8/rag_demo/issues/13)** is next. #15, #19, #22 and #24 are also unblocked. Wait for the next implementation instruction before starting another ticket. Specification #1 remains parent context.
+**[#14 — Explain life events, themes and unclassified facts](https://github.com/tomh1988-8/rag_demo/issues/14)** is next. #15, #19, #22 and #24 are also unblocked. Wait for the next implementation instruction before starting another ticket. Specification #1 remains parent context.
 
 For subsequent work, read the current issue and comments, the relevant domain/ADR decisions and the checklist profile. Work the dependency frontier; the shared `ready-for-agent` label does not mean a blocked ticket can begin. Existing approved decisions and the six public test boundaries do not need another design interview.
 

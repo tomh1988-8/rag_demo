@@ -8,7 +8,7 @@
   "status": "issues_published_native_dependencies_pending",
   "implementation_started": true,
   "spec": {
-    "title": "Ask Phil: evidence-backed EastEnders RAG demonstration \u2014 specification",
+    "title": "Ask Phil: evidence-backed EastEnders RAG demonstration — specification",
     "file": "docs/specs/ask-phil.md",
     "sha256": "a82e93bd170be20c253415606fcb9a6ab082f7a9a7c991d56ca5e757ca728c53",
     "issue_number": 1,
@@ -55,7 +55,8 @@
       "current_local_file_sha256": "150176541e508bb03b321a24093de138b34270ec51b202b785b4a515a38ba6f4",
       "state_reason": "completed",
       "closed_at": "2026-09-23T16:40:51Z",
-      "completion_readback_verified": true
+      "completion_readback_verified": true,
+      "latest_state_readback_at": "2026-10-27T14:22:35.149883+00:00"
     },
     {
       "draft_number": 2,
@@ -90,7 +91,8 @@
       "current_local_file_sha256": "3f254cd54266239777474a9bd62db0b1399611489ef72f2598168fb3cae40f69",
       "previous_published_body_sha256": "a81b8a96962d7e0cdf63619b4b0d0608f305f708c414ffdf9f9fcbb17dcd2c86",
       "state_reason": "completed",
-      "closed_at": "2026-09-24T09:40:18Z"
+      "closed_at": "2026-09-24T09:40:18Z",
+      "latest_state_readback_at": "2026-10-27T14:22:35.149883+00:00"
     },
     {
       "draft_number": 3,
@@ -128,7 +130,8 @@
       "previous_published_body_sha256": "3fc862be1e030f510bdeaacf59da7e46a54fb4033c23ec3a3d33bd7b0acba291",
       "state_reason": "completed",
       "closed_at": "2026-09-25T10:48:10Z",
-      "github_closure_readback_verified": true
+      "github_closure_readback_verified": true,
+      "latest_state_readback_at": "2026-10-27T14:22:35.149883+00:00"
     },
     {
       "draft_number": 4,
@@ -150,7 +153,7 @@
       "body_verified": true,
       "created_at": "2026-09-23T08:16:29Z",
       "node_id": "I_kwDOUl8W3M8AAAABStj_mw",
-      "state": "open",
+      "state": "closed",
       "readback_verified": true,
       "native_dependency_summary": {
         "blocked_by": 0,
@@ -161,7 +164,8 @@
       "published_body_sha256": "d9d273a228d0f6a7a1b809c69172dd9b158c663e0f646782b25509d20db522a1",
       "updated_at": "2026-09-24T07:15:04Z",
       "current_local_file_sha256": "d87efafc96e594da9235a04cc7ed652da3f4763d6d0510cf2c569d7829931dbc",
-      "previous_published_body_sha256": "7318d4591edf579145c3c6690f35435e6e74120e5493e2239d6bb6d4b9601583"
+      "previous_published_body_sha256": "7318d4591edf579145c3c6690f35435e6e74120e5493e2239d6bb6d4b9601583",
+      "latest_state_readback_at": "2026-10-27T14:22:35.149883+00:00"
     },
     {
       "draft_number": 5,
@@ -183,7 +187,7 @@
       "body_verified": true,
       "created_at": "2026-09-23T08:16:30Z",
       "node_id": "I_kwDOUl8W3M8AAAABStkAVQ",
-      "state": "open",
+      "state": "closed",
       "readback_verified": true,
       "native_dependency_summary": {
         "blocked_by": 0,
@@ -194,7 +198,8 @@
       "published_body_sha256": "8a62300d023feeddf43f21bcdaf7c99575f8a401604e9effa8d879106807b9f4",
       "updated_at": "2026-09-24T07:15:07Z",
       "current_local_file_sha256": "4003f7861c48c7a9b0d97c5c3836cef106b44a75a84c0dc2ad4de4b7dc4e589c",
-      "previous_published_body_sha256": "be82f13e5e21d308f028f6395974005d8b996a02012a91d304c9141a71075414"
+      "previous_published_body_sha256": "be82f13e5e21d308f028f6395974005d8b996a02012a91d304c9141a71075414",
+      "latest_state_readback_at": "2026-10-27T14:22:35.149883+00:00"
     },
     {
       "draft_number": 6,
@@ -234,7 +239,8 @@
       "closed_at": "2026-10-17T13:58:19Z",
       "github_closure_readback_verified": true,
       "previous_published_body_sha256": "8bdf98771075e07a6ab57fbbbfc1368eebd7cd97100e2e80bff69dc88c058ee9",
-      "published_implementation": "55616db5ad07f686dce5d4ec96193ab73b1f0eaf"
+      "published_implementation": "55616db5ad07f686dce5d4ec96193ab73b1f0eaf",
+      "latest_state_readback_at": "2026-10-27T14:22:35.149883+00:00"
     },
     {
       "draft_number": 7,
@@ -258,7 +264,7 @@
       "body_verified": true,
       "created_at": "2026-09-23T08:16:32Z",
       "node_id": "I_kwDOUl8W3M8AAAABStkCUw",
-      "state": "open",
+      "state": "closed",
       "readback_verified": true,
       "native_dependency_summary": {
         "blocked_by": 0,
@@ -268,7 +274,8 @@
       },
       "published_body_sha256": "4f0ef2a4d0a46851c14ab0bf058e0563ba7042304025f6163463b7bd4856fc89",
       "updated_at": "2026-09-23T09:04:49Z",
-      "current_local_file_sha256": "52c8f8367558f3c6cfe5b518e6472f5b2a2da509015b1918dda28054f4ee0b4f"
+      "current_local_file_sha256": "52c8f8367558f3c6cfe5b518e6472f5b2a2da509015b1918dda28054f4ee0b4f",
+      "latest_state_readback_at": "2026-10-27T14:22:35.149883+00:00"
     },
     {
       "draft_number": 8,
@@ -290,7 +297,7 @@
       "body_verified": true,
       "created_at": "2026-09-23T08:16:33Z",
       "node_id": "I_kwDOUl8W3M8AAAABStkDIQ",
-      "state": "open",
+      "state": "closed",
       "readback_verified": true,
       "native_dependency_summary": {
         "blocked_by": 0,
@@ -301,7 +308,8 @@
       "published_body_sha256": "2b1c1bc7ae43b0c6586eba102f2e829a278cf86ae5ee63b9ba0069f181a7e785",
       "updated_at": "2026-09-24T07:15:09Z",
       "current_local_file_sha256": "dda5c73a2a7636440a86840e047a2020affbdaeb75aa3287eed9307495440245",
-      "previous_published_body_sha256": "95c0e7f255fa4bd4f544f9dc379739dc06b17db8df0403420023d0763d88900c"
+      "previous_published_body_sha256": "95c0e7f255fa4bd4f544f9dc379739dc06b17db8df0403420023d0763d88900c",
+      "latest_state_readback_at": "2026-10-27T14:22:35.149883+00:00"
     },
     {
       "draft_number": 9,
@@ -323,7 +331,7 @@
       "body_verified": true,
       "created_at": "2026-09-23T08:16:34Z",
       "node_id": "I_kwDOUl8W3M8AAAABStkEOw",
-      "state": "open",
+      "state": "closed",
       "readback_verified": true,
       "native_dependency_summary": {
         "blocked_by": 0,
@@ -333,7 +341,8 @@
       },
       "published_body_sha256": "762e12f7a57963f3275fe107ccb809167747437687a551a697c2f7a1964f2874",
       "updated_at": "2026-09-23T09:04:51Z",
-      "current_local_file_sha256": "8d669cc27ad3cba569fd6d7138460676355e714e001128a0a5803202b10c6e2f"
+      "current_local_file_sha256": "8d669cc27ad3cba569fd6d7138460676355e714e001128a0a5803202b10c6e2f",
+      "latest_state_readback_at": "2026-10-27T14:22:35.149883+00:00"
     },
     {
       "draft_number": 10,
@@ -357,7 +366,7 @@
       "body_verified": true,
       "created_at": "2026-09-23T08:16:35Z",
       "node_id": "I_kwDOUl8W3M8AAAABStkE4Q",
-      "state": "open",
+      "state": "closed",
       "readback_verified": true,
       "native_dependency_summary": {
         "blocked_by": 0,
@@ -367,7 +376,8 @@
       },
       "published_body_sha256": "371ffad998a5b19c89a55476c2a9484784e4aedfe15bf8f741f911a8062f9ab2",
       "updated_at": "2026-09-23T08:16:35Z",
-      "current_local_file_sha256": "02480e411dfb90254617ea15cb37e381f18c48c71fada7d1ea23b6bd2ac7d8db"
+      "current_local_file_sha256": "02480e411dfb90254617ea15cb37e381f18c48c71fada7d1ea23b6bd2ac7d8db",
+      "latest_state_readback_at": "2026-10-27T14:22:35.149883+00:00"
     },
     {
       "draft_number": 11,
@@ -389,7 +399,7 @@
       "body_verified": true,
       "created_at": "2026-09-23T08:16:36Z",
       "node_id": "I_kwDOUl8W3M8AAAABStkFgA",
-      "state": "open",
+      "state": "closed",
       "readback_verified": true,
       "native_dependency_summary": {
         "blocked_by": 0,
@@ -399,7 +409,8 @@
       },
       "published_body_sha256": "eef35c3a5728e41fe2468246b07de9fbd9ad389c04411a43d467538c7b5fcfe2",
       "updated_at": "2026-09-23T08:16:36Z",
-      "current_local_file_sha256": "e113981cddce24f45d3f7456ba592bee7ef9f69e17150d47485b85f322d985f3"
+      "current_local_file_sha256": "e113981cddce24f45d3f7456ba592bee7ef9f69e17150d47485b85f322d985f3",
+      "latest_state_readback_at": "2026-10-27T14:22:35.149883+00:00"
     },
     {
       "draft_number": 12,
@@ -421,7 +432,7 @@
       "body_verified": true,
       "created_at": "2026-09-23T08:16:37Z",
       "node_id": "I_kwDOUl8W3M8AAAABStkGFg",
-      "state": "open",
+      "state": "closed",
       "readback_verified": true,
       "native_dependency_summary": {
         "blocked_by": 0,
@@ -429,9 +440,15 @@
         "blocking": 0,
         "total_blocking": 0
       },
-      "published_body_sha256": "73e0f8fed546c8cc2eb466960579ac952494d38e9afa05f3116a8f0eadcee255",
-      "updated_at": "2026-09-23T08:16:37Z",
-      "current_local_file_sha256": "dd338cd7a1e09393f580e6380e96f34b0e8ff252042de508e68f6a7213835404"
+      "published_body_sha256": "24bd3ca08dc5f28b3cb1ea545fac01dc02de919dd9f3972cac818b9cb5bf0a47",
+      "updated_at": "2026-10-27T14:19:27Z",
+      "current_local_file_sha256": "2552b6d5847e80268db7fd618e65fdf47293b8e309719b98d149eb846e012957",
+      "latest_state_readback_at": "2026-10-27T14:22:35.149883+00:00",
+      "previous_published_body_sha256": "73e0f8fed546c8cc2eb466960579ac952494d38e9afa05f3116a8f0eadcee255",
+      "state_reason": "completed",
+      "closed_at": "2026-10-27T14:19:27Z",
+      "implementation_record": "docs/implementation/issue-13/README.md",
+      "publication_receipt": "docs/implementation/issue-13/publication.json"
     },
     {
       "draft_number": 13,
@@ -463,7 +480,8 @@
       },
       "published_body_sha256": "efc1e7a1e5b32d1e14bfbd87b20f2b5cc44d06c0fe4277bcb5369402e51f6aa8",
       "updated_at": "2026-09-23T08:16:37Z",
-      "current_local_file_sha256": "559be4dc002edbf10623c448d4485c6cb411a7488ceeb4c5246179fd731365d9"
+      "current_local_file_sha256": "559be4dc002edbf10623c448d4485c6cb411a7488ceeb4c5246179fd731365d9",
+      "latest_state_readback_at": "2026-10-27T14:22:35.149883+00:00"
     },
     {
       "draft_number": 14,
@@ -497,7 +515,8 @@
       },
       "published_body_sha256": "eeba017fd37e3350963096b9ab9c257d7ad31ff91bd81dc77f2ea582fa85cb73",
       "updated_at": "2026-09-23T08:16:38Z",
-      "current_local_file_sha256": "7c6788d5a2e1c5f788d8ece10b13e14fa1a93adcdd80f1f485f5214b3d701103"
+      "current_local_file_sha256": "7c6788d5a2e1c5f788d8ece10b13e14fa1a93adcdd80f1f485f5214b3d701103",
+      "latest_state_readback_at": "2026-10-27T14:22:35.149883+00:00"
     },
     {
       "draft_number": 15,
@@ -531,7 +550,8 @@
       },
       "published_body_sha256": "f651ca60b4dc7de5cad7a114b0e37605dc03862a14ff6b74ce914fd66c7cad14",
       "updated_at": "2026-09-23T08:16:39Z",
-      "current_local_file_sha256": "3e1d72bf50f53f1bbb27c3ccc66b75b1acdf9799a8f5ffe954dd171d778cbc4b"
+      "current_local_file_sha256": "3e1d72bf50f53f1bbb27c3ccc66b75b1acdf9799a8f5ffe954dd171d778cbc4b",
+      "latest_state_readback_at": "2026-10-27T14:22:35.149883+00:00"
     },
     {
       "draft_number": 16,
@@ -565,7 +585,8 @@
       },
       "published_body_sha256": "5a16924275b0b5ed540ad42683ec4027a40a19db1cea8d3df451c2a0a3dc0c44",
       "updated_at": "2026-09-23T08:16:40Z",
-      "current_local_file_sha256": "e17f3eb9647a703e896e78313777ca26d9e393952c421db17144e10eebc75032"
+      "current_local_file_sha256": "e17f3eb9647a703e896e78313777ca26d9e393952c421db17144e10eebc75032",
+      "latest_state_readback_at": "2026-10-27T14:22:35.149883+00:00"
     },
     {
       "draft_number": 17,
@@ -600,7 +621,8 @@
       "published_body_sha256": "33903167309e84172b08100caa1e3ea20f3ac25498b78ce1072fdffefff87218",
       "updated_at": "2026-09-24T07:15:11Z",
       "current_local_file_sha256": "3fb1d95de5127282279b07b5f698430e511db73a46f9a683b40fab175402bacc",
-      "previous_published_body_sha256": "2ea63ab06c3ebe48bfd08569652f559198ffdf7e15060d58a018298a6f7b9528"
+      "previous_published_body_sha256": "2ea63ab06c3ebe48bfd08569652f559198ffdf7e15060d58a018298a6f7b9528",
+      "latest_state_readback_at": "2026-10-27T14:22:35.149883+00:00"
     },
     {
       "draft_number": 18,
@@ -632,7 +654,8 @@
       },
       "published_body_sha256": "2ed2de343d642133b414a153d4c503d7263344952fb536dc30c58ca751204a14",
       "updated_at": "2026-09-23T08:16:42Z",
-      "current_local_file_sha256": "e864e05aef8b14b218785cc0d2d25f55a9b10691504730e8e6b5c48765ddcb26"
+      "current_local_file_sha256": "e864e05aef8b14b218785cc0d2d25f55a9b10691504730e8e6b5c48765ddcb26",
+      "latest_state_readback_at": "2026-10-27T14:22:35.149883+00:00"
     },
     {
       "draft_number": 19,
@@ -670,7 +693,8 @@
       },
       "published_body_sha256": "50cdf0ad54de6fed1d73ac9104bf69815d1c9f51e718e7819250c32553873808",
       "updated_at": "2026-09-23T08:16:43Z",
-      "current_local_file_sha256": "6d86091b0b9b96ad04596e99888059db4ba00b24ca2fdfcafbd811e071d2d0b0"
+      "current_local_file_sha256": "6d86091b0b9b96ad04596e99888059db4ba00b24ca2fdfcafbd811e071d2d0b0",
+      "latest_state_readback_at": "2026-10-27T14:22:35.149883+00:00"
     },
     {
       "draft_number": 20,
@@ -709,7 +733,8 @@
       "published_body_sha256": "3bc50d6636e479b59fdc43d05e9b738ae041a4a4e9493ab1a015faebcdb5a77e",
       "updated_at": "2026-09-24T07:15:15Z",
       "current_local_file_sha256": "e7174eeb42a7871ac5e734a301c94732fb939bca32c4c66ebde98bf2acbdc055",
-      "previous_published_body_sha256": "8489139dd1b83c6ba79e5203420e707bf208ee8a644fc26f2a731b5b0b2686ba"
+      "previous_published_body_sha256": "8489139dd1b83c6ba79e5203420e707bf208ee8a644fc26f2a731b5b0b2686ba",
+      "latest_state_readback_at": "2026-10-27T14:22:35.149883+00:00"
     },
     {
       "draft_number": 21,
@@ -744,7 +769,8 @@
       },
       "published_body_sha256": "42e43e01b776bb5f3dc9c86e9a589bc0d1f528d7a7447ce270fe84921ae0b86f",
       "current_local_file_sha256": "764b7f7eaef9c97a1a0bcb2027f504b22be4ee5b8a982e0973b49fc2936b65dd",
-      "previous_published_body_sha256": "343e491e3b4b235689a19f8a9c6ad2df1e30afe36c636419c4a64199a6828f2c"
+      "previous_published_body_sha256": "343e491e3b4b235689a19f8a9c6ad2df1e30afe36c636419c4a64199a6828f2c",
+      "latest_state_readback_at": "2026-10-27T14:22:35.149883+00:00"
     },
     {
       "draft_number": 22,
@@ -779,7 +805,8 @@
       },
       "published_body_sha256": "d65ebad7e9e91d45c4d1b3c4ae78a165cde4b67b7d77c3e99476b10c3c34000e",
       "current_local_file_sha256": "e9cf19a43f3ba97ad917cb128f43536459813e80dfd5558d678df3a5c3781235",
-      "previous_published_body_sha256": "9a08b10646330ca0cca1b4af2d5f8e8931beb5160f0a5d3c0864ef00f83a0ac0"
+      "previous_published_body_sha256": "9a08b10646330ca0cca1b4af2d5f8e8931beb5160f0a5d3c0864ef00f83a0ac0",
+      "latest_state_readback_at": "2026-10-27T14:22:35.149883+00:00"
     },
     {
       "draft_number": 23,
@@ -807,7 +834,8 @@
       "blockers": [
         3,
         4
-      ]
+      ],
+      "latest_state_readback_at": "2026-10-27T14:22:35.149883+00:00"
     },
     {
       "draft_number": 24,
@@ -837,7 +865,8 @@
         23,
         5,
         22
-      ]
+      ],
+      "latest_state_readback_at": "2026-10-27T14:22:35.149883+00:00"
     }
   ],
   "native_dependencies": {
@@ -1135,18 +1164,22 @@
   },
   "publication_verified_date": "2026-09-23",
   "handoff": {
-    "instruction": "Issues #2,#3,#4 are completed and closed after verified publication. #5 is recommended next; #9 and #10 are also unblocked. Wait for the next implementation instruction before another ticket.",
+    "instruction": "Issues #2–#13 are complete and closed. #14 is next; #15, #19, #22 and #24 are also unblocked. Wait for the next implementation instruction before another ticket.",
     "specification_is_not_an_implementation_ticket": true,
     "dependency_handling": "Use the explicit Blocked by issue references and saved mapping until native relationships can be written and verified.",
     "first_unblocked_issue_numbers": [
-      5,
-      9,
-      10
+      14,
+      15,
+      19,
+      22,
+      24
     ],
     "first_unblocked_issue_urls": [
-      "https://github.com/tomh1988-8/rag_demo/issues/5",
-      "https://github.com/tomh1988-8/rag_demo/issues/9",
-      "https://github.com/tomh1988-8/rag_demo/issues/10"
+      "https://github.com/tomh1988-8/rag_demo/issues/14",
+      "https://github.com/tomh1988-8/rag_demo/issues/15",
+      "https://github.com/tomh1988-8/rag_demo/issues/19",
+      "https://github.com/tomh1988-8/rag_demo/issues/22",
+      "https://github.com/tomh1988-8/rag_demo/issues/24"
     ]
   },
   "validation": {
@@ -1159,7 +1192,7 @@
     "acyclic": true,
     "no_redundant_dependencies": true,
     "final_acceptance_ancestors": 21,
-    "first_unblocked_issue_number": 2,
+    "first_unblocked_issue_number": 14,
     "local_links_valid": true,
     "local_links_checked": 624,
     "spec_matches_amended_local": true,
@@ -1169,11 +1202,12 @@
     "checklist_items": 64,
     "current_checks": 51,
     "design_pass": 3,
-    "current_pending": 48,
+    "current_pending": 17,
     "deferred_checks": 1,
     "not_applicable_checks": 12,
     "implementation_started": false,
-    "context": "Historical issue-publication consistency check before implementation; current runtime evidence is linked in implementation_progress."
+    "context": "Historical issue-publication consistency check before implementation; current runtime evidence is linked in implementation_progress.",
+    "latest_implementation_record": "docs/implementation/issue-13/validation.json"
   },
   "plan_revision": "2.2",
   "initial_publication_validation": {
@@ -1263,72 +1297,81 @@
     }
   ],
   "implementation_progress": {
-    "issue_number": 7,
+    "issue_number": 13,
     "status": "completed",
-    "record": "docs/implementation/issue-7/README.md",
+    "record": "docs/implementation/issue-13/README.md",
     "github_issue_closed": true,
+    "github_closure_readback_verified": true,
+    "closed_at": "2026-10-27T14:19:27Z",
     "software_tests": {
-      "native": 149,
+      "native": 388,
       "failures": 0,
       "errors": 0,
       "skipped": 0,
       "ruff": "passed",
-      "mypy": "passed,41 files"
+      "mypy": "passed,90 files"
     },
     "checklist": {
       "current": 51,
-      "pass": 20,
-      "pending": 31,
+      "pass": 34,
+      "pending": 17,
       "deferred": 1,
       "not_applicable": 12,
-      "new_scoped_pass": [
-        "AD-03.4",
-        "RAG-01"
-      ]
+      "scoped_rechecks": [
+        "EXT-02",
+        "EXT-03",
+        "RAG-04",
+        "AD-06.3",
+        "AD-08.4"
+      ],
+      "broader_release_status_unchanged": true
     },
     "semantic_results": {
-      "model_profile": "config/openrouter-sol.json",
-      "matrix_cases": 25,
-      "story_groups": 21,
-      "core_profiles_with_sourced_success": 20,
-      "core_profiles": 20,
-      "actual_factual_assertions": 26,
-      "correct_grounded_citation_supported": 26,
-      "selected_evidence_hit_at_3": "23/23",
-      "context_sufficient": "21/23",
-      "full_required_fact_coverage": "21/23",
-      "limitations": "Exposed development references; Janine and garage completeness failures retained; no held-out, human-calibrated or exhaustive canon claim."
+      "source_assertions": 17,
+      "raw_candidates": 4,
+      "raw_values_matched": 3,
+      "raw_precision": "3/4",
+      "raw_recall": "3/17",
+      "raw_f1": "2/7",
+      "resolvable_locators": "3/4",
+      "strict_full_span_grounding": "1/4",
+      "raw_admitted": 2,
+      "raw_held": 2,
+      "final_public_outcomes": 24,
+      "trace_outputs_exact": 24,
+      "forbidden_guilt_conflations": 0,
+      "source_timing_corrections": 5,
+      "limitation": "Scoped source-reviewed curation; raw quality failures and wider release obligations remain Pending."
     },
-    "live_answer_calls": 26,
-    "reported_slice_cost_usd": "0.0999804",
-    "shared_rounded_ledger_usd": "0.208899",
-    "offline_review_answer_model_calls": 0,
+    "reported_slice_cost_usd": "0.030536",
+    "shared_rounded_ledger_usd": "0.417335",
+    "offline_extraction_model_calls": 1,
+    "serving_inference_calls": 0,
     "dependency_frontier_after_closure": [
-      8,
-      9,
-      10,
-      11,
+      14,
+      15,
+      19,
+      22,
       24
     ],
-    "next_recommended_issue": 8,
-    "independent_review": "docs/implementation/issue-7/review.md",
-    "github_closure_readback_verified": true,
-    "closed_at": "2026-10-17T13:58:19Z",
-    "code_and_evidence_commit": "55616db5ad07f686dce5d4ec96193ab73b1f0eaf",
-    "published_tree": "2c23a08f6128b1b5dc8096193469a36b0f4bd4d1",
+    "next_recommended_issue": 14,
+    "independent_review": "docs/implementation/issue-13/review.md",
+    "tested_code_revision": "cc3420868a0ae9fe9373fcd406ee9891e2d2cdaf",
+    "code_and_evidence_commit": "3723db0d8a39b08b541d7504ec64317bdbb27938",
+    "published_tree": "161d610ce9de8a8e0e6225ec9c32b35333211651",
     "exact_tree_verified": true,
-    "publication_receipt": "docs/implementation/issue-7/publication.json"
+    "publication_receipt": "docs/implementation/issue-13/publication.json"
   },
   "code_publication": {
-    "scope": "Issue #7 code, corpus, independently reviewed live evidence and coverage regressions published; this follow-up records verified closure.",
+    "scope": "Issue #13 code, independently reviewed source/curation, raw extraction failures, final runtime and full validation published; completion receipt and handoff follow.",
     "branch": "main",
-    "method": "Authenticated GitHub connector; native Git push lacks credentials.",
-    "verification": "Require an exact local/remote tree match before closure or reporting completion.",
-    "local_receipt": "docs/implementation/issue-7/publication.json",
+    "method": "native_git_https",
+    "verification": "Fetched revision and exact tree match verified before tracker closure.",
+    "local_receipt": "docs/implementation/issue-13/publication.json",
     "receipt_is_git_ignored": false,
     "github_issue_closed": true,
-    "accepted_code_and_evidence_commit": "55616db5ad07f686dce5d4ec96193ab73b1f0eaf",
-    "accepted_tree": "2c23a08f6128b1b5dc8096193469a36b0f4bd4d1",
+    "accepted_code_and_evidence_commit": "3723db0d8a39b08b541d7504ec64317bdbb27938",
+    "accepted_tree": "161d610ce9de8a8e0e6225ec9c32b35333211651",
     "accepted_tree_verified": true
   },
   "current_scope_validation": {
@@ -1339,10 +1382,16 @@
     "native_edges_created": 0,
     "state_verified": true,
     "next_open_frontier": [
-      4,
-      5
+      14,
+      15,
+      19,
+      22,
+      24
     ],
-    "remote_bodies_states_and_labels_verified": 25
+    "remote_bodies_states_and_labels_verified": 25,
+    "latest_state_and_label_readback_at": "2026-10-27T14:22:35.149883+00:00",
+    "latest_state_and_label_readback_count": 25,
+    "latest_completion_record": "docs/implementation/issue-13/publication.json"
   },
   "implementation_history": [
     {
@@ -1499,6 +1548,63 @@
       "code_and_evidence_commit": "a5062593449a941d28248614e1f3977d14fc9a57",
       "published_tree": "589ee66a716921e63495fdbbc82302c83ac303cc",
       "exact_tree_verified": true
+    },
+    {
+      "issue_number": 7,
+      "status": "completed",
+      "record": "docs/implementation/issue-7/README.md",
+      "github_issue_closed": true,
+      "software_tests": {
+        "native": 149,
+        "failures": 0,
+        "errors": 0,
+        "skipped": 0,
+        "ruff": "passed",
+        "mypy": "passed,41 files"
+      },
+      "checklist": {
+        "current": 51,
+        "pass": 20,
+        "pending": 31,
+        "deferred": 1,
+        "not_applicable": 12,
+        "new_scoped_pass": [
+          "AD-03.4",
+          "RAG-01"
+        ]
+      },
+      "semantic_results": {
+        "model_profile": "config/openrouter-sol.json",
+        "matrix_cases": 25,
+        "story_groups": 21,
+        "core_profiles_with_sourced_success": 20,
+        "core_profiles": 20,
+        "actual_factual_assertions": 26,
+        "correct_grounded_citation_supported": 26,
+        "selected_evidence_hit_at_3": "23/23",
+        "context_sufficient": "21/23",
+        "full_required_fact_coverage": "21/23",
+        "limitations": "Exposed development references; Janine and garage completeness failures retained; no held-out, human-calibrated or exhaustive canon claim."
+      },
+      "live_answer_calls": 26,
+      "reported_slice_cost_usd": "0.0999804",
+      "shared_rounded_ledger_usd": "0.208899",
+      "offline_review_answer_model_calls": 0,
+      "dependency_frontier_after_closure": [
+        8,
+        9,
+        10,
+        11,
+        24
+      ],
+      "next_recommended_issue": 8,
+      "independent_review": "docs/implementation/issue-7/review.md",
+      "github_closure_readback_verified": true,
+      "closed_at": "2026-10-17T13:58:19Z",
+      "code_and_evidence_commit": "55616db5ad07f686dce5d4ec96193ab73b1f0eaf",
+      "published_tree": "2c23a08f6128b1b5dc8096193469a36b0f4bd4d1",
+      "exact_tree_verified": true,
+      "publication_receipt": "docs/implementation/issue-7/publication.json"
     }
   ],
   "code_publication_history": [
@@ -1530,6 +1636,18 @@
       "accepted_tree": "589ee66a716921e63495fdbbc82302c83ac303cc",
       "accepted_tree_verified": true,
       "github_issue_closed": true
+    },
+    {
+      "scope": "Issue #7 code, corpus, independently reviewed live evidence and coverage regressions published; this follow-up records verified closure.",
+      "branch": "main",
+      "method": "Authenticated GitHub connector; native Git push lacks credentials.",
+      "verification": "Require an exact local/remote tree match before closure or reporting completion.",
+      "local_receipt": "docs/implementation/issue-7/publication.json",
+      "receipt_is_git_ignored": false,
+      "github_issue_closed": true,
+      "accepted_code_and_evidence_commit": "55616db5ad07f686dce5d4ec96193ab73b1f0eaf",
+      "accepted_tree": "2c23a08f6128b1b5dc8096193469a36b0f4bd4d1",
+      "accepted_tree_verified": true
     }
   ],
   "openrouter_trial_setup": {
@@ -1552,6 +1670,15 @@
     "accepted_profile": "config/openrouter-sol.json",
     "evidence": "docs/implementation/issue-4/cloud/summary.json",
     "shared_rounded_ledger_usd": "0.208899",
-    "latest_evidence": "docs/implementation/issue-7/summary.json"
+    "latest_evidence": "docs/implementation/issue-7/summary.json",
+    "latest_continuation": {
+      "issue_number": 13,
+      "evidence": "docs/implementation/issue-13/README.md",
+      "shared_rounded_ledger_usd": "0.417335",
+      "unsettled_reservations": 0,
+      "reported_slice_cost_usd": "0.030536",
+      "offline_extraction_calls": 1,
+      "note": "Setup fields above retain their historical issue #7 amounts; this continuation and the current issue-tracker handoff supersede the historical ledger."
+    }
   }
 }

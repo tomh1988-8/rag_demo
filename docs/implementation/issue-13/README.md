@@ -131,9 +131,14 @@ non-blocking.
 The original source labels, raw output and all earlier runtime evidence remain
 available. Wider RAG-04, EXT-04 and AD-08.4 release obligations retain their status.
 
+Implementation and evidence are published in
+[`3723db0`](https://github.com/tomh1988-8/rag_demo/commit/3723db0d8a39b08b541d7504ec64317bdbb27938).
+Native fetch/readback confirms the remote revision and tree exactly match the
+local publication. [The receipt](publication.json) records the user's `i approve`
+covering implementation/evidence publication, the prepared tracker update and
+closure, and completion-receipt/handoff publication.
 
-Implementation and acceptance evidence are committed locally at `3cde590`.
-Publication is pending explicit user approval after automatic review rejected the
-direct push to GitHub `main`; #13 remains open. The exact tracker update and
-publication plan are prepared. This blocker concerns publication authorization,
-not software validation or the separately documented extraction-quality failures.
+Issue **#13 is closed as completed**. All seven checked criteria, zero unchecked
+criteria and exact agreement with the prepared body were read back. The earlier
+automatic rejection is superseded; no publication or tracker blocker remains.
+**#14 is next**; wait for the next implementation instruction before another ticket.

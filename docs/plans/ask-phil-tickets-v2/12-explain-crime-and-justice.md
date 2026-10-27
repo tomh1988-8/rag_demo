@@ -1,6 +1,6 @@
 # 12: Explain crimes and criminal justice roles
 
-Status: approved and published as [GitHub #13](https://github.com/tomh1988-8/rag_demo/issues/13), labelled ready-for-agent; body and label verified on 23 September 2026. Plan version: 2. Implementation has not started.
+Status: completed and closed as [GitHub #13](https://github.com/tomh1988-8/rag_demo/issues/13) on 27 October 2026 after native publication, exact-tree verification and readback of all seven acceptance criteria. [Evidence](../../implementation/issue-13/README.md) and [publication receipt](../../implementation/issue-13/publication.json). Plan version: 2.
 
 Spec stories: S24, S25, S29, S30, S33, S34, S38, S39, S58, S59, S60, S61, S68, S72, S73, S77, S78, S79, S81, S86. Checklist evidence owner for: the extensions and rechecks below; primary ownership is recorded in the project register.
 
@@ -16,13 +16,13 @@ Introduce a narrow shared-event/participant query through a reviewed crime and c
 
 ## Acceptance criteria
 
-- [ ] Review realistic source claims for actual commission, allegation/accusation, arrest, trial, conviction, acquittal, imprisonment and release, using distinct event and participant roles. Include false accusation or false confession counterexamples.
-- [ ] Require narrative support for actual commission independent of whether the character was caught or punished. Being charged, convicted, jailed, acquitted or present at court alone is not substituted for an assertion of guilt or innocence.
-- [ ] Keep events, roles, timing and evidence linked. Distinguish exact/approximate/relative/unknown dates and supported changing accounts; ambiguous claims are held or qualified.
-- [ ] Return shared-event participants and a supported crime/justice explanation through the API and CLI, with typed graph results and citations. An empty legal-history result never establishes that a character did not commit a crime.
-- [ ] Begin with failing guilt/role counterexamples. Unit-check public role and admission rules and integrate real stored claims, graph queries and user responses. Preserve respectful factual wording for serious harm.
-- [ ] Report extraction errors by identity, role, direction, negation and timing separately from schema validity and grounding; evaluate final answers for the forbidden guilt conflations. Link reviewed failures to regressions and actual trace artifacts.
-- [ ] Record applicable checklist results and revision-linked evidence in the project register, including failures, limitations and follow-up regressions. A documented plan alone does not pass an implementation check.
+- [x] Review realistic source claims for actual commission, allegation/accusation, arrest, trial, conviction, acquittal, imprisonment and release, using distinct event and participant roles. Include false accusation or false confession counterexamples.
+- [x] Require narrative support for actual commission independent of whether the character was caught or punished. Being charged, convicted, jailed, acquitted or present at court alone is not substituted for an assertion of guilt or innocence.
+- [x] Keep events, roles, timing and evidence linked. Distinguish exact/approximate/relative/unknown dates and supported changing accounts; ambiguous claims are held or qualified.
+- [x] Return shared-event participants and a supported crime/justice explanation through the API and CLI, with typed graph results and citations. An empty legal-history result never establishes that a character did not commit a crime.
+- [x] Begin with failing guilt/role counterexamples. Unit-check public role and admission rules and integrate real stored claims, graph queries and user responses. Preserve respectful factual wording for serious harm.
+- [x] Report extraction errors by identity, role, direction, negation and timing separately from schema validity and grounding; evaluate final answers for the forbidden guilt conflations. Link reviewed failures to regressions and actual trace artifacts.
+- [x] Record applicable checklist results and revision-linked evidence in the project register, including failures, limitations and follow-up regressions. A documented plan alone does not pass an implementation check.
 
 ## Checklist evidence
 
@@ -39,3 +39,13 @@ Recheck when: Crime/justice role definitions, new evidence/corrections, extracti
 
 - #11 — Answer biological family questions from admitted claims: Claim admission, identity and typed graph answers must exist before introducing role-sensitive event answers.
 
+## Implementation evidence
+
+Reviewed source `cc34208` passes 388 tests, strict mypy across 90 files,
+Ruff/formatting and both independent review axes with zero remaining findings.
+Twenty-four actual API/CLI/session results match their MLflow outputs and citations.
+The raw extraction failure (recall 3/17, strict grounding 1/4), two held candidates,
+five versioned relative-timing corrections and initial conversation-queue failure
+remain visible alongside the separately curated seventeen-assertion capability.
+The sole offline call cost $0.030536; shared ledger $0.417335, zero unsettled.
+Wider graph/correction/held-out/canon/release obligations keep their existing status.

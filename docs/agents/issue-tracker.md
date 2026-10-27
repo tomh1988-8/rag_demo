@@ -11,23 +11,35 @@ commands so they work even without a configured Git remote.
 
 ## Current Ask Phil handoff
 
-Issue #13 is implemented locally at `3cde590` (tested source `cc34208`),
-with **388 passing tests**, strict mypy across 90 files, Ruff/formatting, zero
-remaining independent review findings and 24 verified API/CLI/session outcomes.
-[Evidence](../implementation/issue-13/README.md) retains the raw extraction failures
-and separately reviewed capability; the shared non-resetting $5 ledger is
-**$0.417335**, with zero unsettled reservations. All 31 original tracked data
-inputs and 51 pre-existing workspace files are hash-checked unchanged.
+Issue #13 is complete and closed after native publication and exact-tree
+verification of [`3723db0`](https://github.com/tomh1988-8/rag_demo/commit/3723db0d8a39b08b541d7504ec64317bdbb27938).
+[Evidence](../implementation/issue-13/README.md) records **388 passing tests**,
+strict mypy across 90 files, Ruff/formatting and zero remaining findings on both
+independent review axes. All 24 final API/CLI/session outcomes match actual MLflow
+outputs, citations and frozen application fingerprints. Typed shared-event queries
+preserve commission versus legal stages, participant roles, false accounts and
+supported relative timing. The initial concurrent-session failure and reviewed
+queue/deadline repair remain recorded.
 
-**Publication awaits explicit user approval. #13 remains open; do not start #14.**
-Automatic approval review rejected the direct push to GitHub `main`, stating that
-user authorization was not explicit and repository instructions could not expand
-it. The authenticated connector must not bypass that rejection. The
-[prepared publication plan](../implementation/issue-13/publication-plan.json) and
-[exact tracker update](../implementation/issue-13/proposed-tracker-update.md) are
-ready for approval covering implementation/evidence publication, verified closure
-and the completion receipt/handoff publication. Resume from this committed work;
-do not rerun paid extraction or reset the ledger.
+The raw extraction failure is retained: precision 3/4, recall 3/17, F1 2/7,
+resolvable locators 3/4 and conservative full-span grounding 1/4. Two raw candidates
+are admitted and two held. The reviewed projection retains all raw candidates and
+adds seventeen assertions, including five explicit versioned timing corrections;
+duplicate support stays in the audit and shares prose. This is curated capability,
+not a model-quality, held-out or canon pass. Wider RAG-04/EXT-04/release obligations
+remain Pending.
+
+The single offline call cost **$0.030536**. Preserve the shared non-resetting $5
+ledger at **$0.417335**, zero unsettled reservations. All 31 original tracked data
+inputs and 51 pre-existing workspace files remain hash-checked unchanged.
+[The publication receipt](../implementation/issue-13/publication.json) records the
+user's `i approve` covering publication, the exact prepared tracker update/closure
+and completion receipt/handoff publication. Completed closure, all seven checked
+criteria and exact agreement with the prepared body were read back. The initial
+automatic rejection is superseded; there is no current publication/tracker blocker.
+
+**#14 is next**; #15, #19, #22 and #24 also remain unblocked. Wait for the user's
+next implementation instruction before another issue.
 
 ### Prior issue #12 handoff
 
