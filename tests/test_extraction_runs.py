@@ -38,7 +38,12 @@ def extraction_tracking(tmp_path: Path) -> MlflowClient:
 
 
 def extraction_transport(
-    raw: str, *, fail: bool = False, interrupt: bool = False, finish_reason: str = "stop"
+    raw: str,
+    *,
+    fail: bool = False,
+    interrupt: bool = False,
+    finish_reason: str = "stop",
+    strict_schema: bool = False,
 ) -> httpx.MockTransport:
     def provider(request: httpx.Request) -> httpx.Response:
         if request.url.path.endswith("/key"):
@@ -69,6 +74,10 @@ def extraction_transport(
             raise KeyboardInterrupt
         if fail:
             return httpx.Response(503, text="synthetic-provider-key")
+        if strict_schema:
+            schema = json.loads(request.content)["response_format"]["json_schema"]["schema"]
+            assert set(schema["required"]) == set(schema["properties"])
+            assert "default" not in schema["properties"]["context_claims"]
         return httpx.Response(
             200,
             json={
@@ -81,6 +90,43 @@ def extraction_transport(
         )
 
     return httpx.MockTransport(provider)
+
+
+def test_life_extraction_retains_text_classifications_and_scores_them_separately(
+    tmp_path: Path, extraction_profile: OpenRouterProfile, extraction_tracking: MlflowClient
+) -> None:
+    from ask_phil.claim_extraction import ClaimExtractionRun
+
+    reference_path = Path("data/references/life-events-v1.json")
+    reference = json.loads(reference_path.read_bytes())
+    raw = json.dumps(
+        {
+            "claims": reference["expected_claims"],
+            "context_claims": reference["expected_context_claims"],
+        }
+    )
+    with httpx.Client(transport=extraction_transport(raw, strict_schema=True)) as client:
+        result = ClaimExtractionRun(
+            extraction_profile,
+            "synthetic-provider-key",
+            client,
+            budget=Budget(tmp_path / "budget.sqlite"),
+            tracking=extraction_tracking,
+        ).run(
+            Path("data/seed/life-events-pilot-v1.json"),
+            reference_path,
+            tmp_path / "life-extraction.json",
+            events=True,
+        )
+    assert result["state"] == "complete", result["failure"]
+    assert len(result["batch"]["context_claims"]) == 2
+    assert result["score"]["context_score"]["expected"] == 2
+    assert result["score"]["context_score"]["f1"] == 1
+    assert result["score"]["by_theme"]["domestic_abuse"]["grounded"] == 1
+    assert result["score"]["by_event_type"]["death"]["grounded"] == 2
+    trace = extraction_tracking.get_trace(result["trace_id"], flush=True)
+    root = next(s for s in trace.data.spans if s.parent_id is None)
+    assert root.outputs == result
 
 
 def test_trace_readback_failure_preserves_claims_raw_output_and_accounting(

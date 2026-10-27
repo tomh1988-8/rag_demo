@@ -20,6 +20,8 @@ from sqlalchemy.engine import URL
 from sqlalchemy.exc import DBAPIError
 from sqlalchemy.pool import NullPool
 
+from ask_phil.classified_facts import ContextClaim
+from ask_phil.event_graph import EventGraph
 from ask_phil.evidence import Fingerprint, Passage, Record, SourceSnapshot
 from ask_phil.execution import ExecutionStopped, current_execution, read_options
 from ask_phil.storage import EvidenceStore
@@ -82,6 +84,7 @@ class Retrieval(Record):
     hits: tuple[RetrievedPassage, ...]
     k: int
     embedding_id: str
+    context_claims: tuple[ContextClaim, ...] = Field(default=(), exclude_if=lambda v: not v)
 
 
 class TextRetriever:
@@ -340,7 +343,18 @@ class TextRetriever:
             )
         except (ValueError, TypeError, KeyError, IndexError):
             raise ExecutionStopped("malformed_output") from None
-        return Retrieval(snapshot=snapshot, hits=hits, k=k, embedding_id=self.embedding_id)
+        annotations = EventGraph(self.database_url).text_context(
+            snapshot.snapshot_id, tuple(h.passage.evidence_id for h in hits)
+        )
+        if budget:
+            budget.check()
+        return Retrieval(
+            snapshot=snapshot,
+            hits=hits,
+            k=k,
+            embedding_id=self.embedding_id,
+            context_claims=annotations,
+        )
 
 
 class PinnedText:

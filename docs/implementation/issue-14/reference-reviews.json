@@ -1,0 +1,58 @@
+[
+  {
+    "claim_id": "peggy-pregnancy",
+    "claim_sha256": "9a96af1cc4cbbc7e1e31af5f7e23bbf3f836a93adbbc5556a46a1b673c445778",
+    "verdict": "supported",
+    "reviewer": "Codex source inspection before model extraction",
+    "note": "The opening sentence identifies Peggy as pregnant with Phil; no event date is supplied. Parentage is not projected by this event tool.",
+    "narrative_commission": false
+  },
+  {
+    "claim_id": "sharon-christmas-pregnancy",
+    "claim_sha256": "c2b5606ae1ede15fdb73772206f519ee40fb1620425ef1f674acd2822b3c5c95",
+    "verdict": "supported",
+    "reviewer": "Codex source inspection before model extraction",
+    "note": "The sentence explicitly dates discovery of pregnancy to Christmas Day 2005; no conception date or father role is inferred.",
+    "narrative_commission": false
+  },
+  {
+    "claim_id": "sharon-uncertain-paternity",
+    "claim_sha256": "8b4d1a8e3e533fd2e2b33cb673cdc599d16b648a7a7c453c3f92289dbfc05b6b",
+    "verdict": "supported",
+    "reviewer": "Codex source inspection before model extraction",
+    "note": "Pregnancy is certain in this account while paternity is explicitly uncertain. The event retains only Sharon, with unknown story timing.",
+    "narrative_commission": false
+  },
+  {
+    "claim_id": "peggy-death",
+    "claim_sha256": "f9827c2ee6e3f0b02d238bb9973411e88d56192ffa8a77fed989af20987bac27",
+    "verdict": "supported",
+    "reviewer": "Codex source inspection before model extraction",
+    "note": "The narrative supports death; Pat is a hallucination and Phil finds the body. The explicit calendar date belongs to the funeral, not the death.",
+    "narrative_commission": false
+  },
+  {
+    "claim_id": "lucy-death",
+    "claim_sha256": "ce48aae234a4ecb0fefee10cffb55cb7758b2176f9d9275a7feae6c7dd63fedb",
+    "verdict": "supported",
+    "reviewer": "Codex source inspection before model extraction",
+    "note": "The narrative reports Lucy died without an event date; subsequent support for Ian is not presence at the death.",
+    "narrative_commission": false
+  },
+  {
+    "claim_id": "peggy-abuse-theme",
+    "claim_sha256": "621ae6d0f5bb7d11376f8e322bed6d357f50435a1e7053c62f3b89195e25d44c",
+    "verdict": "supported",
+    "reviewer": "Codex source inspection before model extraction",
+    "note": "Eric being violent towards Peggy and Phil supports the domestic abuse theme, not thematic adjacency in the graph.",
+    "narrative_commission": false
+  },
+  {
+    "claim_id": "tape-revelation",
+    "claim_sha256": "381267250ae672443222549298bdae31c63a6edeab210973adf81efa148dcc4b",
+    "verdict": "supported",
+    "reviewer": "Codex source inspection before model extraction",
+    "note": "Grant plays Sharon account of the affair with Phil at Phil engagement party to Kathy. The current event taxonomy has no public-revelation category; all four are text subjects only.",
+    "narrative_commission": false
+  }
+]

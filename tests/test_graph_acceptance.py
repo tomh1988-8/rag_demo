@@ -16,6 +16,51 @@ from mlflow.entities import Trace
 from ask_phil.family_graph import FamilyQuery
 
 
+def test_life_event_acceptance_verifies_typed_kinds_and_cli_classification_outcomes(
+    database_url: str, tmp_path: Path
+) -> None:
+    from test_life_events import life_reference
+
+    from ask_phil.event_graph import EventQuery
+    from ask_phil.graph_acceptance import GraphAcceptanceRun, GraphCase, GraphPhase
+
+    _, batch, reviews = life_reference()
+    batch_path, reviews_path = tmp_path / "batch.json", tmp_path / "reviews.json"
+    batch_path.write_text(batch.model_dump_json())
+    reviews_path.write_text(json.dumps([r.model_dump() for r in reviews]))
+    phase = GraphPhase(
+        name="life-and-text",
+        kind="events",
+        snapshot=Path("data/seed/life-events-pilot-v1.json"),
+        batch=batch_path,
+        reviews=reviews_path,
+        cases=(
+            GraphCase(
+                "pregnancy",
+                "What happened to Peggy?",
+                EventQuery(
+                    kind="life_events", character_id="peggy-mitchell", event_id="peggy-pregnancy"
+                ),
+            ),
+            GraphCase(
+                "theme",
+                "Is the shared theme a connection?",
+                EventQuery(
+                    kind="theme", character_id="peggy-mitchell", participant_id="phil-mitchell"
+                ),
+                transport="cli",
+            ),
+        ),
+    )
+    output = tmp_path / "life-acceptance.json"
+    tracking = MlflowClient(tracking_uri=f"sqlite:///{tmp_path}/life-traces.db")
+    document = GraphAcceptanceRun(database_url, tracking=tracking).run(output, (phase,))
+    assert document["state"] == "complete"
+    first, second = document["responses"]
+    assert first["response"]["status"] == "partial" and first["trace_output_matches"]
+    assert second["response"]["graph"]["status"] == "ineligible" and second["trace_output_matches"]
+
+
 @pytest.mark.integration
 def test_later_trace_failure_retains_captured_graph_answers(
     database_url: str, tmp_path: Path

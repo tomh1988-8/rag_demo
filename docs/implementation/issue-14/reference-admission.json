@@ -1,0 +1,43 @@
+{
+  "batch_sha256": "142140476bcf362be428e4524cc5e1f0e0d73ad49e45d14b43ed59788ae37c89",
+  "decisions": [
+    {
+      "claim_id": "peggy-pregnancy",
+      "status": "admitted",
+      "reasons": []
+    },
+    {
+      "claim_id": "sharon-christmas-pregnancy",
+      "status": "admitted",
+      "reasons": []
+    },
+    {
+      "claim_id": "sharon-uncertain-paternity",
+      "status": "admitted",
+      "reasons": []
+    },
+    {
+      "claim_id": "peggy-death",
+      "status": "admitted",
+      "reasons": []
+    },
+    {
+      "claim_id": "lucy-death",
+      "status": "admitted",
+      "reasons": []
+    }
+  ],
+  "text_decisions": [
+    {
+      "claim_id": "peggy-abuse-theme",
+      "status": "admitted",
+      "reasons": []
+    },
+    {
+      "claim_id": "tape-revelation",
+      "status": "admitted",
+      "reasons": []
+    }
+  ],
+  "limitation": "Only admitted assertions about selected captured incidents are shown. An accusation, confession, charge, conviction, acquittal, imprisonment, release or court appearance alone establishes neither commission nor innocence. Only separately reviewed narrative support establishes commission. An empty legal history does not prove that a character committed no crime. Listing order is not chronology; unknown dates remain unknown. Source-supported does not mean independently cross-checked."
+}

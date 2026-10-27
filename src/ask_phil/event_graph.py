@@ -7,12 +7,17 @@ import psycopg
 from psycopg.types.json import Jsonb
 from pydantic import Field, model_validator
 
+from ask_phil.classified_facts import ContextClaim, context_for
 from ask_phil.evidence import Fingerprint, Identifier, Record
 from ask_phil.execution import current_execution, database_options, read_options
 from ask_phil.security import require_credential_free
 from ask_phil.storage import EvidenceStore, SnapshotConflict
 from ask_phil.story_events import (
+    CLASSIFICATION_LIMITATION,
     EVENT_LIMITATION,
+    EVENT_ROLES,
+    LIFE_EVENT_LIMITATION,
+    LIFE_EVENT_TYPES,
     EventAdmission,
     EventBatch,
     EventClaim,
@@ -22,7 +27,7 @@ from ask_phil.story_events import (
 
 
 class EventQuery(Record):
-    kind: Literal["crime_history"]
+    kind: Literal["crime_history", "life_events", "theme", "unclassified"]
     character_id: Identifier
     participant_id: Identifier | None = None
     event_id: Identifier | None = None
@@ -34,13 +39,38 @@ class EventQuery(Record):
             raise ValueError("Shared-event queries require distinct participants.")
         return self
 
+    @property
+    def event_types(self) -> tuple[str, ...]:
+        if self.kind == "life_events":
+            return LIFE_EVENT_TYPES
+        if self.kind == "crime_history":
+            return tuple(t for t in EVENT_ROLES if t not in LIFE_EVENT_TYPES)
+        return ()
+
+    @property
+    def limitation(self) -> str:
+        if self.kind == "life_events":
+            return LIFE_EVENT_LIMITATION
+        if self.kind == "crime_history":
+            return EVENT_LIMITATION
+        return CLASSIFICATION_LIMITATION
+
+    @property
+    def subject(self) -> str:
+        return {
+            "crime_history": "crime/justice history",
+            "life_events": "pregnancy and death history",
+            "theme": "theme-based connections",
+            "unclassified": "unclassified facts",
+        }[self.kind]
+
 
 class EventResult(Record):
     snapshot_id: Identifier
     snapshot_sha256: Fingerprint
     graph_sha256: Fingerprint | None = None
     query: EventQuery
-    status: Literal["found", "empty", "truncated", "unavailable", "unknown_character"]
+    status: Literal["found", "empty", "truncated", "unavailable", "unknown_character", "ineligible"]
     claims: tuple[EventClaim, ...] = ()
     names: dict[str, str] = Field(default_factory=dict)
     limitation: str = EVENT_LIMITATION
@@ -71,7 +101,15 @@ class EventGraph:
             reviews=reviews,
             admission=report,
             graph_sha256=hashlib.sha256(
-                ("crime-justice-sql-v1:" + derivation).encode()
+                (
+                    (
+                        "story-events-sql-v2:"
+                        if batch.context_claims
+                        or any(c.event_type in LIFE_EVENT_TYPES for c in batch.claims)
+                        else "crime-justice-sql-v1:"
+                    )
+                    + derivation
+                ).encode()
             ).hexdigest(),
         )
         require_credential_free(audit.model_dump_json())
@@ -138,6 +176,18 @@ class EventGraph:
         with psycopg.connect(self.database_url, connect_timeout=5, options=read_options()) as conn:
             return self._audit(conn, snapshot_id)
 
+    def text_context(
+        self, snapshot_id: str, evidence_ids: tuple[str, ...]
+    ) -> tuple[ContextClaim, ...]:
+        """Reviewed annotations for whole retrieved spans; no graph traversal or adjacency."""
+        audit = self.audit(snapshot_id)
+        if audit is None:
+            return ()
+        admitted = {d.claim_id for d in audit.admission.text_decisions if d.status == "admitted"}
+        return context_for(
+            tuple(c for c in audit.batch.context_claims if c.claim_id in admitted), evidence_ids
+        )
+
     def query(self, snapshot_id: str, query: EventQuery) -> EventResult:
         snapshot = EvidenceStore(self.database_url).snapshot(snapshot_id)
         budget = current_execution.get()
@@ -148,7 +198,10 @@ class EventGraph:
             snapshot_sha256=snapshot.fingerprint,
             query=query,
             status="unavailable",
+            limitation=query.limitation,
         )
+        if not query.event_types:
+            return result.model_copy(update={"status": "ineligible"})
         with psycopg.connect(self.database_url, connect_timeout=5, options=read_options()) as conn:
             audit = self._audit(conn, snapshot_id)
             if audit is None:
@@ -162,28 +215,34 @@ class EventGraph:
             ):
                 return result.model_copy(update={"status": "unknown_character"})
             events = conn.execute(
-                """SELECT a.event_id FROM event_participants a
-                WHERE a.graph_sha256=%s AND a.character_id=%s
+                """SELECT DISTINCT a.event_id FROM event_assertions a
+                WHERE a.graph_sha256=%s
+                AND a.document->>'event_type'=ANY(%s)
+                AND a.document->'participants' @> %s
                 AND (%s::text IS NULL OR a.event_id=%s)
                 AND (%s::text IS NULL OR EXISTS (
-                    SELECT 1 FROM event_participants b WHERE b.graph_sha256=a.graph_sha256
-                    AND b.event_id=a.event_id AND b.character_id=%s))
+                    SELECT 1 FROM event_assertions b WHERE b.graph_sha256=a.graph_sha256
+                    AND b.event_id=a.event_id AND b.document->>'event_type'=ANY(%s)
+                    AND b.document->'participants' @> %s))
                 ORDER BY a.event_id LIMIT %s""",
                 (
                     audit.graph_sha256,
-                    query.character_id,
+                    list(query.event_types),
+                    Jsonb([{"character_id": query.character_id}]),
                     query.event_id,
                     query.event_id,
                     query.participant_id,
-                    query.participant_id,
+                    list(query.event_types),
+                    Jsonb([{"character_id": query.participant_id}]),
                     query.max_events + 1,
                 ),
             ).fetchall()
             selected = [str(row[0]) for row in events[: query.max_events]]
             rows = conn.execute(
                 """SELECT document FROM event_assertions WHERE graph_sha256=%s
-                AND event_id=ANY(%s) ORDER BY event_id, claim_id""",
-                (audit.graph_sha256, selected),
+                AND event_id=ANY(%s) AND document->>'event_type'=ANY(%s)
+                ORDER BY event_id, claim_id""",
+                (audit.graph_sha256, selected, list(query.event_types)),
             ).fetchall()
         if budget:
             budget.check()

@@ -16,6 +16,7 @@ from ask_phil.answers import (
     cite_answer,
     context_text,
 )
+from ask_phil.classified_facts import context_for
 from ask_phil.conversation import (
     ConversationReference,
     ReferenceTurn,
@@ -106,11 +107,21 @@ class TextAnswer:
                     span.set_outputs(retrieved.model_dump(mode="json"))
                 execution = self.models.skipped_answer()
                 with mlflow.start_span("assembled_context") as span:
-                    context = assemble_context(retrieved.hits, budget.limits.context_bytes)
+                    context = assemble_context(
+                        retrieved.hits,
+                        budget.limits.context_bytes,
+                        context_claims=retrieved.context_claims,
+                    )
                     span.set_outputs(
                         {
                             "passages": [p.model_dump() for p in context],
                             "byte_budget": budget.limits.context_bytes,
+                            "context_claims": [
+                                c.model_dump()
+                                for c in context_for(
+                                    retrieved.context_claims, (p.evidence_id for p in context)
+                                )
+                            ],
                         }
                     )
                 if not context:
@@ -171,10 +182,15 @@ class TextAnswer:
                 qualifications=(),
             )
             citations = cite_answer(draft, context, snapshot_id)
+        classifications = context_for(retrieved.context_claims, (c.evidence_id for c in citations))
+        answer = draft.answer
+        if classifications:
+            answer += "\n" + "\n".join(dict.fromkeys(c.qualification for c in classifications))
         return AnswerContent(
             conversation=conversation,
             status="failed" if failure else draft.status,
-            answer=draft.answer,
+            answer=answer,
+            context_claims=classifications,
             unanswered=draft.unanswered,
             qualifications=draft.qualifications,
             citations=citations,
@@ -199,7 +215,7 @@ class TextAnswer:
                         f"Question: {question}\n"
                         f"Snapshot provenance: {retrieved.snapshot.source.title} "
                         f"({retrieved.snapshot.source.support_status})\n"
-                        f"Captured evidence: {context_text(context)}"
+                        f"Captured evidence: {context_text(context, retrieved.context_claims)}"
                     ),
                 ),
             ]

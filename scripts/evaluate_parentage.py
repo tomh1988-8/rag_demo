@@ -22,7 +22,7 @@ def main() -> int:
     slice_options.add_argument(
         "--relationships", action="store_true", help="Run the relationship-history slice."
     )
-    slice_options.add_argument("--events", action="store_true", help="Run the crime/justice slice.")
+    slice_options.add_argument("--events", action="store_true", help="Run a story-event slice.")
     parser.add_argument("--output", type=Path, required=True)
     parser.add_argument("--profile", type=Path, default=Path("config/evaluation-sol-low.json"))
     parser.add_argument("--snapshot", type=Path)

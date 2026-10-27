@@ -281,7 +281,15 @@ class GraphAcceptanceRun:
                     run.annotate(stage="verifying", responses=responses)
                     try:
                         record.update(
-                            self._verify(client, capture["response"], snapshot, identity, tool_name)
+                            self._verify(
+                                client,
+                                capture["response"],
+                                snapshot,
+                                identity,
+                                case.query.kind
+                                if isinstance(case.query, EventQuery)
+                                else tool_name,
+                            )
                         )
                         if case.assess:
                             assessment = case.assess(
@@ -432,7 +440,7 @@ class GraphAcceptanceRun:
             ]
             query = case.query
             if isinstance(query, EventQuery):
-                command += ["--crime-history", "--max-events", str(query.max_events)]
+                command += ["--event-kind", query.kind, "--max-events", str(query.max_events)]
                 if query.participant_id:
                     command += ["--participant", query.participant_id]
                 if query.event_id:

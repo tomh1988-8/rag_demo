@@ -61,12 +61,17 @@ def _slice(
     if relationships and events:
         raise ValueError("Choose one extraction slice.")
     if events:
-        expected_events = ExtractedEvents.model_validate({"claims": reference["expected_claims"]})
+        expected_events = ExtractedEvents.model_validate(
+            {
+                "claims": reference["expected_claims"],
+                "context_claims": reference.get("expected_context_claims", []),
+            }
+        )
         incidents = TypeAdapter(dict[str, IncidentScope]).validate_python(reference["incidents"])
         if set(incidents) != {p.evidence_id for p in snapshot.passages}:
             raise ExtractionInputMismatch("Incident scope must identify each captured passage.")
         return _ExtractionSlice(
-            "crime_justice_extraction",
+            "story_event_extraction",
             ExtractedEvents,
             EVENT_PROMPT,
             lambda s, c, llm: extract_events(s, c, llm, incidents),

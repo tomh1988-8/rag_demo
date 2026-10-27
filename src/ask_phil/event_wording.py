@@ -1,9 +1,9 @@
-"""Factual crime/justice wording, without inferring guilt from a legal account."""
+"""Factual event wording preserves reviewed roles, source timing and account distinctions."""
 
 from ask_phil.event_graph import EventResult
 
 EVENT_WORDING = (
-    "crime-justice-v1: stage-specific roles; explicit false accounts; no guilt inference"
+    "story-events-v2: stage-specific roles; no inferred guilt, parentage, presence or dates"
 )
 ROLE_WORDING = {
     "perpetrator": "committed the act described in this incident",
@@ -18,6 +18,8 @@ ROLE_WORDING = {
     "confessor": "confessed",
     "witness": "was a witness",
     "accuser": "made the accusation",
+    "pregnant_person": "was pregnant",
+    "deceased": "died",
 }
 
 
@@ -60,7 +62,7 @@ def render_events(result: EventResult, *, synthetic: bool = False) -> str:
     return (
         "Right, listen. "
         + label
-        + "Captured crime and justice history:\n"
+        + f"Captured {result.query.subject}:\n"
         + "\n".join(entries)
         + "\n"
     )

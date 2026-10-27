@@ -1,0 +1,262 @@
+{
+  "snapshot_id": "life-events-pilot-v1",
+  "fixture_version": 1,
+  "source": {
+    "title": "Peggy Mitchell",
+    "url": "https://en.wikipedia.org/wiki/Peggy_Mitchell",
+    "revision_id": "1372787814",
+    "revision_url": "https://en.wikipedia.org/w/index.php?oldid=1372787814",
+    "section": "Storylines / Backstory",
+    "captured_at": "2026-10-17T13:07:31.253971Z",
+    "capture_sha256": "d777ce7a2fffc8e7cb1da6ccd3a87aca45590147a348b5ef5eb6361fb685cacb",
+    "scope": "main_series",
+    "license_url": "https://creativecommons.org/licenses/by-sa/4.0/",
+    "attribution": "Wikipedia contributors; markup removed and whitespace normalized.",
+    "coverage": "Reviewed narrative sections in this captured revision only.",
+    "gaps": [
+      "Partial canon coverage; other paragraphs remain excluded or awaiting review.",
+      "Identity and episode metadata do not independently corroborate story claims."
+    ],
+    "support_status": "source_supported"
+  },
+  "passages": [
+    {
+      "evidence_id": "peggy-pregnancy",
+      "text": "Peggy married Eric Mitchell (George Russo) because she was pregnant with their son Phil (Steve McFadden).",
+      "sha256": "601d2f2332aa61ff7cecd296e9d2b4be8b78207a8a739e7354b2105847f531f2",
+      "start": 34316,
+      "end": 34421,
+      "source": {
+        "title": "Peggy Mitchell",
+        "url": "https://en.wikipedia.org/wiki/Peggy_Mitchell",
+        "revision_id": "1372787814",
+        "revision_url": "https://en.wikipedia.org/w/index.php?oldid=1372787814",
+        "section": "Storylines / Backstory",
+        "captured_at": "2026-10-17T13:07:31.253971Z",
+        "capture_sha256": "d777ce7a2fffc8e7cb1da6ccd3a87aca45590147a348b5ef5eb6361fb685cacb",
+        "scope": "main_series",
+        "license_url": "https://creativecommons.org/licenses/by-sa/4.0/",
+        "attribution": "Wikipedia contributors; markup removed and whitespace normalized.",
+        "coverage": "Reviewed narrative sections in this captured revision only.",
+        "gaps": [
+          "Partial canon coverage; other paragraphs remain excluded or awaiting review.",
+          "Identity and episode metadata do not independently corroborate story claims."
+        ],
+        "support_status": "source_supported"
+      },
+      "location": {
+        "source_id": "peggy-mitchell-wiki",
+        "paragraph_ordinal": 37,
+        "section_id": "Backstory",
+        "character_ids": [
+          "grant-mitchell",
+          "peggy-mitchell",
+          "phil-mitchell"
+        ]
+      }
+    },
+    {
+      "evidence_id": "sharon-christmas-pregnancy",
+      "text": "On Christmas Day 2005, Sharon is stunned to discover she is pregnant, and she and Dennis celebrate the potential of having a child.",
+      "sha256": "dfa4fd7ae0dbe533dcdec506808a9bbdd4f16b27cbccefc8e8df6d69363ad06d",
+      "start": 61360,
+      "end": 61491,
+      "source": {
+        "title": "Sharon Watts",
+        "url": "https://en.wikipedia.org/wiki/Sharon_Watts",
+        "revision_id": "1372798905",
+        "revision_url": "https://en.wikipedia.org/w/index.php?oldid=1372798905",
+        "section": "Storylines / 2001–2006",
+        "captured_at": "2026-10-17T13:07:31.327518Z",
+        "capture_sha256": "9ccef3de99353ff737101d9d00561c217608dd4fa6fba0c8200f80ac0114ea85",
+        "scope": "main_series",
+        "license_url": "https://creativecommons.org/licenses/by-sa/4.0/",
+        "attribution": "Wikipedia contributors; markup removed and whitespace normalized.",
+        "coverage": "Reviewed narrative sections in this captured revision only.",
+        "gaps": [
+          "Partial canon coverage; other paragraphs remain excluded or awaiting review.",
+          "Identity and episode metadata do not independently corroborate story claims."
+        ],
+        "support_status": "source_supported"
+      },
+      "location": {
+        "source_id": "sharon-watts-wiki",
+        "paragraph_ordinal": 64,
+        "section_id": "2001–2006",
+        "character_ids": [
+          "sharon-watts"
+        ]
+      }
+    },
+    {
+      "evidence_id": "sharon-uncertain-paternity",
+      "text": "However, Sharon also discovers she is pregnant but does not know if Phil or Keanu is the father. She settles on having an abortion, but Phil discovers she's pregnant, and Sharon lies letting Phil believe he is the father.",
+      "sha256": "58a54d25d3179499cff866bbaef27ced938997fcd7ac9139d4ac6a29cc68a15e",
+      "start": 77363,
+      "end": 77584,
+      "source": {
+        "title": "Sharon Watts",
+        "url": "https://en.wikipedia.org/wiki/Sharon_Watts",
+        "revision_id": "1372798905",
+        "revision_url": "https://en.wikipedia.org/w/index.php?oldid=1372798905",
+        "section": "Storylines / 2012–present",
+        "captured_at": "2026-10-17T13:07:31.327518Z",
+        "capture_sha256": "9ccef3de99353ff737101d9d00561c217608dd4fa6fba0c8200f80ac0114ea85",
+        "scope": "main_series",
+        "license_url": "https://creativecommons.org/licenses/by-sa/4.0/",
+        "attribution": "Wikipedia contributors; markup removed and whitespace normalized.",
+        "coverage": "Reviewed narrative sections in this captured revision only.",
+        "gaps": [
+          "Partial canon coverage; other paragraphs remain excluded or awaiting review.",
+          "Identity and episode metadata do not independently corroborate story claims."
+        ],
+        "support_status": "source_supported"
+      },
+      "location": {
+        "source_id": "sharon-watts-wiki",
+        "paragraph_ordinal": 75,
+        "section_id": "2012–present",
+        "character_ids": [
+          "martin-fowler",
+          "sharon-watts"
+        ]
+      }
+    },
+    {
+      "evidence_id": "peggy-death",
+      "text": "Peggy begins hallucinating the smell of cigarette smoke; this eventually manifests into a vision of Pat. As the two reminisce about past memories, Peggy states she still wants to die now before the cancer gets worse and to be remembered as a strong woman. Upon being reassured by Pat that she will not leave her side, Peggy then commits suicide by taking an overdose of her pills. Phil is devastated to find her body, and a letter from her urges him to love himself as others love him. Peggy's funeral takes place on 4 July 2016.",
+      "sha256": "f40c1040ebdd05512023c580873390dab95e17cb5ab09b07be5c475787b7378f",
+      "start": 47293,
+      "end": 47822,
+      "source": {
+        "title": "Peggy Mitchell",
+        "url": "https://en.wikipedia.org/wiki/Peggy_Mitchell",
+        "revision_id": "1372787814",
+        "revision_url": "https://en.wikipedia.org/w/index.php?oldid=1372787814",
+        "section": "Storylines / 2013–2016",
+        "captured_at": "2026-10-17T13:07:31.253971Z",
+        "capture_sha256": "d777ce7a2fffc8e7cb1da6ccd3a87aca45590147a348b5ef5eb6361fb685cacb",
+        "scope": "main_series",
+        "license_url": "https://creativecommons.org/licenses/by-sa/4.0/",
+        "attribution": "Wikipedia contributors; markup removed and whitespace normalized.",
+        "coverage": "Reviewed narrative sections in this captured revision only.",
+        "gaps": [
+          "Partial canon coverage; other paragraphs remain excluded or awaiting review.",
+          "Identity and episode metadata do not independently corroborate story claims."
+        ],
+        "support_status": "source_supported"
+      },
+      "location": {
+        "source_id": "peggy-mitchell-wiki",
+        "paragraph_ordinal": 48,
+        "section_id": "2013–2016",
+        "character_ids": [
+          "peggy-mitchell"
+        ]
+      }
+    },
+    {
+      "evidence_id": "lucy-death",
+      "text": "When Ian's daughter Lucy dies, Phil begins supporting his former enemy and helps him get back on his feet.",
+      "sha256": "bcb6b817459facae61d8e234002b05cf2828034fa135e20cef105fc07ab2f182",
+      "start": 51631,
+      "end": 51737,
+      "source": {
+        "title": "Phil Mitchell",
+        "url": "https://en.wikipedia.org/wiki/Phil_Mitchell",
+        "revision_id": "1379872347",
+        "revision_url": "https://en.wikipedia.org/w/index.php?oldid=1379872347",
+        "section": "Storylines / 2005–present",
+        "captured_at": "2026-10-17T13:07:31.014189Z",
+        "capture_sha256": "a338d3065203be54e383f2c9c141bca22ae9aedbb950e2e1eada601bcccfe313",
+        "scope": "main_series",
+        "license_url": "https://creativecommons.org/licenses/by-sa/4.0/",
+        "attribution": "Wikipedia contributors; markup removed and whitespace normalized.",
+        "coverage": "Reviewed narrative sections in this captured revision only.",
+        "gaps": [
+          "Partial canon coverage; other paragraphs remain excluded or awaiting review.",
+          "Identity and episode metadata do not independently corroborate story claims."
+        ],
+        "support_status": "source_supported"
+      },
+      "location": {
+        "source_id": "phil-mitchell-wiki",
+        "paragraph_ordinal": 45,
+        "section_id": "2005–present",
+        "character_ids": [
+          "alfie-moon",
+          "phil-mitchell"
+        ]
+      }
+    },
+    {
+      "evidence_id": "peggy-abuse-theme",
+      "text": "Eric took his anger out on Peggy and was often violent towards her and Phil.",
+      "sha256": "ec4788a5d0d20438fa33ecab23c93de25cd5598d30f3efdf09b8057fa5290b44",
+      "start": 34856,
+      "end": 34932,
+      "source": {
+        "title": "Peggy Mitchell",
+        "url": "https://en.wikipedia.org/wiki/Peggy_Mitchell",
+        "revision_id": "1372787814",
+        "revision_url": "https://en.wikipedia.org/w/index.php?oldid=1372787814",
+        "section": "Storylines / Backstory",
+        "captured_at": "2026-10-17T13:07:31.253971Z",
+        "capture_sha256": "d777ce7a2fffc8e7cb1da6ccd3a87aca45590147a348b5ef5eb6361fb685cacb",
+        "scope": "main_series",
+        "license_url": "https://creativecommons.org/licenses/by-sa/4.0/",
+        "attribution": "Wikipedia contributors; markup removed and whitespace normalized.",
+        "coverage": "Reviewed narrative sections in this captured revision only.",
+        "gaps": [
+          "Partial canon coverage; other paragraphs remain excluded or awaiting review.",
+          "Identity and episode metadata do not independently corroborate story claims."
+        ],
+        "support_status": "source_supported"
+      },
+      "location": {
+        "source_id": "peggy-mitchell-wiki",
+        "paragraph_ordinal": 37,
+        "section_id": "Backstory",
+        "character_ids": [
+          "grant-mitchell",
+          "peggy-mitchell",
+          "phil-mitchell"
+        ]
+      }
+    },
+    {
+      "evidence_id": "tape-revelation",
+      "text": "Sharon and Grant patch up their relationship; however, in the autumn of 1994, Grant discovers a tape on which Sharon talks about her affair with Phil, and plays it to a packed pub at Phil's engagement party to his fiancée, Kathy Beale (Gillian Taylforth).",
+      "sha256": "e63beb685636d1dda9e77057095a4437788895b5bfe489c5e0e0ba3f2a2b21d4",
+      "start": 22406,
+      "end": 22661,
+      "source": {
+        "title": "Grant Mitchell",
+        "url": "https://en.wikipedia.org/wiki/Grant_Mitchell_(EastEnders)",
+        "revision_id": "1370914760",
+        "revision_url": "https://en.wikipedia.org/w/index.php?oldid=1370914760",
+        "section": "Storylines / 1990–1999",
+        "captured_at": "2026-10-17T13:08:22.582778Z",
+        "capture_sha256": "2548b2c8780b1bda430939378a28ab3b7f98eca424480b7cccfaf2eb76f42ebf",
+        "scope": "main_series",
+        "license_url": "https://creativecommons.org/licenses/by-sa/4.0/",
+        "attribution": "Wikipedia contributors; markup removed and whitespace normalized.",
+        "coverage": "Reviewed narrative sections in this captured revision only.",
+        "gaps": [
+          "Partial canon coverage; other paragraphs remain excluded or awaiting review.",
+          "Identity and episode metadata do not independently corroborate story claims."
+        ],
+        "support_status": "source_supported"
+      },
+      "location": {
+        "source_id": "grant-mitchell-wiki",
+        "paragraph_ordinal": 24,
+        "section_id": "1990–1999",
+        "character_ids": [
+          "grant-mitchell",
+          "kathy-beale"
+        ]
+      }
+    }
+  ]
+}

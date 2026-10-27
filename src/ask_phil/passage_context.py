@@ -4,6 +4,7 @@ import hashlib
 import json
 from typing import TYPE_CHECKING, Literal
 
+from ask_phil.classified_facts import ContextClaim, context_for
 from ask_phil.evidence import Passage, Source
 from ask_phil.source_records import SourceLocation, SourceSpan
 
@@ -15,13 +16,29 @@ CONTEXT_BYTE_BUDGET = 1200
 PROJECTION_VERSION: Literal["html-context-fit-v2"] = "html-context-fit-v2"
 
 
-def context_text(passages: tuple[Passage, ...]) -> str:
+def context_text(
+    passages: tuple[Passage, ...], context_claims: tuple[ContextClaim, ...] = ()
+) -> str:
+    annotations = context_for(context_claims, (p.evidence_id for p in passages))
     return json.dumps(
         [
             {
                 "evidence_id": p.evidence_id,
                 "text": p.text,
                 **({"source_title": p.source.title} if p.source else {}),
+                **(
+                    {
+                        "text_classifications": [
+                            c.model_dump(exclude={"evidence"})
+                            for c in annotations
+                            if p.evidence_id in {e.evidence_id for e in c.evidence}
+                        ]
+                    }
+                    if any(
+                        p.evidence_id in {e.evidence_id for e in c.evidence} for c in annotations
+                    )
+                    else {}
+                ),
             }
             for p in passages
         ],
@@ -31,7 +48,10 @@ def context_text(passages: tuple[Passage, ...]) -> str:
 
 
 def assemble_context(
-    hits: tuple["RetrievedPassage", ...], byte_budget: int = CONTEXT_BYTE_BUDGET
+    hits: tuple["RetrievedPassage", ...],
+    byte_budget: int = CONTEXT_BYTE_BUDGET,
+    *,
+    context_claims: tuple[ContextClaim, ...] = (),
 ) -> tuple[Passage, ...]:
     """Keep whole spans in retrieval order; a truncated excerpt cannot become a citation."""
     if byte_budget < 2:
@@ -39,7 +59,7 @@ def assemble_context(
     selected: tuple[Passage, ...] = ()
     for hit in hits:
         candidate = (*selected, hit.passage)
-        if len(context_text(candidate).encode()) <= byte_budget:
+        if len(context_text(candidate, context_claims).encode()) <= byte_budget:
             selected = candidate
     return selected
 

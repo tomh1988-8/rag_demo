@@ -75,10 +75,19 @@ def main() -> int:
         "--history", action="store_true", help="Query reviewed relationship history."
     )
     graph_kind.add_argument(
-        "--crime-history", action="store_true", help="Query reviewed crime and justice roles."
+        "--crime-history",
+        dest="event_kind",
+        action="store_const",
+        const="crime_history",
+        help="Query reviewed crime and justice roles.",
     )
-    ask.add_argument("--participant", help="Optional second character for --crime-history.")
-    ask.add_argument("--event", help="Optional reviewed incident ID for --crime-history.")
+    graph_kind.add_argument(
+        "--event-kind",
+        choices=("crime_history", "life_events", "theme", "unclassified"),
+        help="Query event coverage; themes and unclassified facts return a limited graph outcome.",
+    )
+    ask.add_argument("--participant", help="Optional second character for an event query.")
+    ask.add_argument("--event", help="Optional reviewed incident ID for an event query.")
     ask.add_argument("--partner", help="Optional second character for --history.")
     ask.add_argument("--max-events", type=int, default=20)
     ask.add_argument("--depth", type=int, default=3)
@@ -102,7 +111,7 @@ def main() -> int:
     )
     history_audit.add_argument("--snapshot", required=True)
     event_install = commands.add_parser(
-        "install-events", help="Maintainer: admit reviewed crime and justice assertions."
+        "install-events", help="Maintainer: admit reviewed events and text classifications."
     )
     event_install.add_argument("batch", type=Path)
     event_install.add_argument("reviews", type=Path)
@@ -143,27 +152,27 @@ def main() -> int:
     args = parser.parse_args()
     if args.command == "ask":
         if args.route == "graph" and (
-            not args.character or not (args.direction or args.history or args.crime_history)
+            not args.character or not (args.direction or args.history or args.event_kind)
         ):
             parser.error(
-                "--route graph requires --character and --direction, --history or --crime-history."
+                "--route graph requires --character and --direction, --history or --event-kind."
             )
         if args.route != "graph" and (
             args.character
             or args.direction
             or args.history
             or args.partner
-            or args.crime_history
+            or args.event_kind
             or args.participant
             or args.event
         ):
             parser.error("Graph query arguments require --route graph.")
         if args.partner and not args.history:
             parser.error("--partner requires --history.")
-        if args.participant and not args.crime_history:
-            parser.error("--participant requires --crime-history.")
-        if args.event and not args.crime_history:
-            parser.error("--event requires --crime-history.")
+        if args.participant and not args.event_kind:
+            parser.error("--participant requires --event-kind or --crime-history.")
+        if args.event and not args.event_kind:
+            parser.error("--event requires --event-kind or --crime-history.")
     try:
         if args.command == "configure-openrouter":
             if not sys.stdin.isatty():
@@ -335,13 +344,13 @@ def main() -> int:
                             "route": args.route,
                             "graph": (
                                 {
-                                    "kind": "crime_history",
+                                    "kind": args.event_kind,
                                     "character_id": args.character,
                                     "participant_id": args.participant,
                                     "event_id": args.event,
                                     "max_events": args.max_events,
                                 }
-                                if args.crime_history
+                                if args.event_kind
                                 else {
                                     "kind": "relationship_history",
                                     "character_id": args.character,

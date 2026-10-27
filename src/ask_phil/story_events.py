@@ -1,10 +1,11 @@
-"""Reviewed crime and justice assertions; legal stages never establish commission."""
+"""Reviewed story events; participant roles retain each assertion's meaning."""
 
 import hashlib
-from typing import Literal, Self
+from typing import Any, Literal, Self
 
-from pydantic import Field, model_validator
+from pydantic import ConfigDict, Field, model_validator
 
+from ask_phil.classified_facts import ContextClaim
 from ask_phil.evidence import Fingerprint, Identifier, NonEmpty, Record, SourceSnapshot
 from ask_phil.identity import IdentityCatalogue
 from ask_phil.parentage import AdmissionDecision, ClaimEvidence, ClaimReview, evidence_resolves
@@ -20,6 +21,8 @@ EventType = Literal[
     "imprisonment",
     "release",
     "confession",
+    "pregnancy",
+    "death",
 ]
 ParticipantRole = Literal[
     "perpetrator",
@@ -34,6 +37,8 @@ ParticipantRole = Literal[
     "confessor",
     "witness",
     "accuser",
+    "pregnant_person",
+    "deceased",
 ]
 EVENT_ROLES: dict[str, tuple[str, frozenset[str]]] = {
     "commission": ("perpetrator", frozenset({"perpetrator", "victim"})),
@@ -46,6 +51,8 @@ EVENT_ROLES: dict[str, tuple[str, frozenset[str]]] = {
     "imprisonment": ("prisoner", frozenset({"prisoner"})),
     "release": ("released", frozenset({"released"})),
     "confession": ("confessor", frozenset({"confessor"})),
+    "pregnancy": ("pregnant_person", frozenset({"pregnant_person"})),
+    "death": ("deceased", frozenset({"deceased"})),
 }
 EVENT_LIMITATION = (
     "Only admitted assertions about selected captured incidents are shown. An accusation, "
@@ -54,6 +61,22 @@ EVENT_LIMITATION = (
     "support establishes commission. An empty legal history does not prove that a character "
     "committed no crime. Listing order is not chronology; unknown dates remain unknown. "
     "Source-supported does not mean independently cross-checked."
+)
+LIFE_EVENT_TYPES = ("pregnancy", "death")
+LIFE_EVENT_LIMITATION = (
+    "Only reviewed pregnancy and death assertions in selected captured passages are shown. "
+    "Pregnancy does not establish unmentioned parentage; death does not establish a crime "
+    "or an unmentioned witness. Themes and unclassified facts remain text-only and do not "
+    "create shared events or relationships. Listing order is not chronology; unknown dates "
+    "remain unknown, and a funeral date does not establish a death date. An empty result "
+    "does not establish that an event never happened. Source-supported does not mean "
+    "independently cross-checked."
+)
+CLASSIFICATION_LIMITATION = (
+    "Themes describe subjects, not event types. A shared theme or co-appearance does not "
+    "establish a character relationship or shared event. Unclassified facts have no checked "
+    "graph category. Use the text route for supported themes and unclassified facts; "
+    "graph absence does not establish that those facts are false."
 )
 
 
@@ -96,12 +119,25 @@ class EventClaim(Record):
         )
 
 
+def _require_classifications(schema: dict[str, Any]) -> None:
+    # Newly requested structured output must emit both lists. Legacy retained
+    # batches may still omit the previously unavailable text annotations.
+    schema["required"] = list(dict.fromkeys([*schema.get("required", []), "context_claims"]))
+    schema["properties"]["context_claims"].pop("default", None)
+
+
 class ExtractedEvents(Record):
+    model_config = ConfigDict(json_schema_extra=_require_classifications)
+
     claims: tuple[EventClaim, ...] = Field(max_length=100)
+    context_claims: tuple[ContextClaim, ...] = Field(
+        default=(), max_length=100, exclude_if=lambda value: not value
+    )
 
     @model_validator(mode="after")
     def unique_claims(self) -> Self:
-        if len({c.claim_id for c in self.claims}) != len(self.claims):
+        claims: tuple[EventClaim | ContextClaim, ...] = (*self.claims, *self.context_claims)
+        if len({c.claim_id for c in claims}) != len(claims):
             raise ValueError("Claim identifiers must be unique within an extraction.")
         return self
 
@@ -124,6 +160,9 @@ class EventReview(ClaimReview):
 class EventAdmission(Record):
     batch_sha256: Fingerprint
     decisions: tuple[AdmissionDecision, ...]
+    text_decisions: tuple[AdmissionDecision, ...] = Field(
+        default=(), exclude_if=lambda value: not value
+    )
     limitation: str = EVENT_LIMITATION
 
 
@@ -132,9 +171,11 @@ def admit_events(
 ) -> EventAdmission:
     if (batch.snapshot_id, batch.snapshot_sha256) != (snapshot.snapshot_id, snapshot.fingerprint):
         raise ValueError("Claims belong to a different source snapshot.")
-    if len({r.claim_id for r in reviews}) != len(reviews) or not {r.claim_id for r in reviews} <= {
-        c.claim_id for c in batch.claims
-    }:
+    claim_ids = {c.claim_id for c in batch.claims} | {c.claim_id for c in batch.context_claims}
+    if (
+        len({r.claim_id for r in reviews}) != len(reviews)
+        or not {r.claim_id for r in reviews} <= claim_ids
+    ):
         raise ValueError("Reviews must uniquely identify claims in this batch.")
     identities = {c.character_id for c in batch.catalogue.characters}
     if snapshot.imported is not None:
@@ -184,7 +225,7 @@ def admit_events(
             reasons.append("commission_support")
         expected_basis = (
             "narrative"
-            if claim.event_type == "commission"
+            if claim.event_type in {"commission", "pregnancy", "death"}
             else "allegation"
             if claim.event_type == "accusation"
             else "confession"
@@ -222,4 +263,29 @@ def admit_events(
                 reasons=tuple(reasons),
             )
         )
-    return EventAdmission(batch_sha256=batch.fingerprint, decisions=tuple(decisions))
+    text_decisions = []
+    for fact in batch.context_claims:
+        review = checked.get(fact.claim_id)
+        reasons = []
+        if not set(fact.character_ids) <= identities:
+            reasons.append("identity")
+        if not evidence_resolves(fact.evidence, passages):
+            reasons.append("evidence_span")
+        if (
+            review is None
+            or review.claim_sha256 != fact.fingerprint
+            or review.verdict != "supported"
+        ):
+            reasons.append("support_review_required")
+        text_decisions.append(
+            AdmissionDecision(
+                claim_id=fact.claim_id,
+                status="held" if reasons else "admitted",
+                reasons=tuple(reasons),
+            )
+        )
+    return EventAdmission(
+        batch_sha256=batch.fingerprint,
+        decisions=tuple(decisions),
+        text_decisions=tuple(text_decisions),
+    )

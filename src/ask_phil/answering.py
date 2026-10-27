@@ -168,6 +168,7 @@ class AnswerService:
                 source=route.snapshot.source,
                 retrieved=content.retrieved,
                 context=content.context,
+                context_claims=content.context_claims,
                 retrieval_k=content.retrieval_k,
                 route=request.route,
                 route_override=request.route == "graph",

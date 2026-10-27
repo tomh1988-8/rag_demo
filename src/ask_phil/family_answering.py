@@ -27,7 +27,6 @@ from ask_phil.relationship_graph import RelationshipGraph, RelationshipQuery, Re
 from ask_phil.relationships import HISTORY_LIMITATION, RelationshipClaim
 from ask_phil.security import require_credential_free
 from ask_phil.storage import EvidenceStore
-from ask_phil.story_events import EVENT_LIMITATION
 
 GRAPH_WORDING = "biological-paths-v1: explicit typed query; bounded captured relationships only"
 HISTORY_WORDING = (
@@ -118,11 +117,12 @@ class FamilyAnswer:
         result: FamilyResult | RelationshipResult | EventResult | None = None
         assert request.graph is not None
         query_graph: Callable[[], FamilyResult | RelationshipResult | EventResult]
+        span_name: str
         if isinstance(request.graph, EventQuery):
-            span_name, subject = "crime_history", "crime/justice history"
-            limitation, wording = EVENT_LIMITATION, EVENT_WORDING
+            span_name, subject = request.graph.kind, request.graph.subject
+            limitation, wording = request.graph.limitation, EVENT_WORDING
             unanswered = (
-                "Crime/justice coverage outside the reviewed incidents and query bounds.",
+                f"{subject.capitalize()} outside the reviewed assertions and query bounds.",
             )
             query_graph = partial(EventGraph(self.database_url).query, snapshot_id, request.graph)
         elif isinstance(request.graph, RelationshipQuery):

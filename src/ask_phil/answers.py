@@ -6,6 +6,7 @@ from uuid import UUID
 
 from pydantic import Field, StringConstraints, field_validator, model_validator
 
+from ask_phil.classified_facts import ContextClaim
 from ask_phil.conversation import ConversationReference
 from ask_phil.event_graph import EventQuery, EventResult
 from ask_phil.evidence import Fingerprint, Identifier, Passage, PublicationRef, Record, Source
@@ -80,6 +81,11 @@ If a source explicitly says the requested story date is not stated, return parti
 even when the question does not ask for an exact day. Cite that timing limitation;
 name the missing date in both answer and unanswered, with timing precision unknown.
 Missing date information is not an explicit_negative qualification about a story event.
+Reviewed text_classifications are source-bound annotations, not graph participants.
+Themes describe subjects, not event types; a shared theme or co-appearance cannot
+establish a relationship or shared event. Explain unclassified facts from their text
+and disclose the supplied classification gap. Pregnancy establishes only the stated
+pregnant person, not unstated parentage. Death, funeral and broadcast dates are distinct.
 Publication/broadcast dates do not establish the missing story date; do not assert
 that their calendar values necessarily differ from the unknown date.
 If only a month is supported but a day is requested, return partial with that
@@ -133,6 +139,7 @@ class AnswerRecord(Record):
     source: Source
     retrieved: tuple[RetrievedPassage, ...]
     context: tuple[Passage, ...]
+    context_claims: tuple[ContextClaim, ...] = Field(default=(), exclude_if=lambda v: not v)
     retrieval_k: int
     route: Literal["text_rag", "graph"] = "text_rag"
     route_override: bool = Field(default=False, exclude_if=lambda v: not v)
@@ -216,6 +223,7 @@ class AnswerContent:
     conversation: ConversationReference | None = None
     unanswered: tuple[str, ...] = ()
     qualifications: tuple[Qualification, ...] = ()
+    context_claims: tuple[ContextClaim, ...] = ()
     retrieved: tuple[RetrievedPassage, ...] = ()
     retrieval_k: int = 0
     baseline_version: Literal["single-query-uncached-v1", "single-query-uncached-v2"] = (
