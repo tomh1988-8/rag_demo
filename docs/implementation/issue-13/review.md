@@ -79,3 +79,15 @@ race, resolved by a guard before any new acquisition attempt. Both reviewers
 independently rechecked that guard and report zero remaining findings.
 Authorization, rollback, lock ownership through commit and individual SQL limits
 are preserved. The final full suite and runtime recapture bind this source revision.
+
+
+## Accepted runtime at the final source revision
+
+The Spec reviewer independently verified all 24 `runtime-accepted.json` outcomes
+at `cc34208`: actual MLflow root/tool outputs, application/snapshot fingerprints,
+exact citation content, v2 scores, corrected relative qualifiers, session identities
+and reset checks. No new finding. Source support keeps false accounts explicit;
+Max's conviction never becomes commission. The curated phase has nine partial
+and three insufficient-evidence results; the raw phase has two partial and ten
+insufficient-evidence results, with two raw admissions and two holds. Recall 3/17
+and strict grounding 1/4 remain failures. Zero serving inference calls.

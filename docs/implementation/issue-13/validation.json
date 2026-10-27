@@ -1,0 +1,97 @@
+{
+  "captured_at": "2026-10-27T13:54:11.801869+00:00",
+  "tested_revision": "cc3420868a0ae9fe9373fcd406ee9891e2d2cdaf",
+  "tested_tree": "311a3db3b243ab0545d0a45970ae5dc3e990be45",
+  "application_sha256": "6b4a65197fe202d3a99c06d35614e9761c6f9c33567815433addacc684333007",
+  "software": {
+    "tests": 388,
+    "failures": 0,
+    "errors": 0,
+    "skipped": 0,
+    "seconds": 1019.96,
+    "report": "software-tests.xml",
+    "report_sha256": "6af8bf65ce9a7b80b80469fefb85c09e7544854356420c61384d11d83efa7c55",
+    "command": ".venv/bin/pytest -q --durations=15 --test-database-url LOCAL_DISPOSABLE_POSTGRES --junitxml=docs/implementation/issue-13/software-tests.xml",
+    "strict_mypy": {
+      "passed": true,
+      "files": 90
+    },
+    "ruff": {
+      "lint": true,
+      "format": true
+    },
+    "initial_run": {
+      "tests": 387,
+      "passed": 386,
+      "failed": 1,
+      "report": "software-tests-initial.xml",
+      "resolution": "concurrency-review.md"
+    }
+  },
+  "reviews": {
+    "baseline": "8c19539bfe768e5fdb2a8278122add3606ac8934",
+    "standards_remaining": 0,
+    "spec_remaining": 0,
+    "source_and_final_24_trace_review": "review.md"
+  },
+  "runtime": {
+    "artifact": "runtime-accepted.json",
+    "sha256": "d92960a7f4cd0eac115d6129b94284a0567cd4f7291b5b82208796a08b174ccf",
+    "responses": 24,
+    "same_revision_and_application": true,
+    "all_trace_outputs_exact": true,
+    "citations_resolve": true,
+    "sessions_reset": true,
+    "inference_calls": 0,
+    "inference_usd": 0
+  },
+  "extraction": {
+    "artifact": "extraction-pilot.json",
+    "model_calls": 1,
+    "cost_usd": 0.030536,
+    "values_true_positive": 3,
+    "expected": 17,
+    "predicted": 4,
+    "resolvable": 3,
+    "strict_full_span_grounding": 1,
+    "raw_admitted": 2,
+    "raw_held": 2,
+    "final_unchanged_output_score": "extraction-score-accepted.json",
+    "quality": "Recall and conservative grounding fail; reviewed curation is not automatic-extraction acceptance."
+  },
+  "preservation": {
+    "frozen_files": {
+      "checked": 6,
+      "changed": []
+    },
+    "original_tracked_data": {
+      "checked": 31,
+      "changed": []
+    },
+    "pre_existing_work": {
+      "checked": 51,
+      "changed": []
+    }
+  },
+  "unchanged_raw_candidates_retained": true,
+  "key_storage": {
+    "private_file_mode": "0o600",
+    "private_directory_mode": "0o700"
+  },
+  "shared_ledger_usd": 0.417335,
+  "unsettled_reservations": 0,
+  "python": "3.12.3",
+  "packages": {
+    "pytest": "9.1.1",
+    "mypy": "1.20.2",
+    "ruff": "0.16.8",
+    "fastapi": "0.141.1",
+    "httpx": "0.28.1",
+    "pydantic": "2.13.5",
+    "psycopg": "3.3.6",
+    "mlflow": "3.16.1",
+    "llama-index-core": "0.14.25",
+    "prefect": "3.8.6"
+  },
+  "limits": "Exposed source-reviewed capability only; wider graph/correction/held-out/canon/release obligations remain Pending."
+}

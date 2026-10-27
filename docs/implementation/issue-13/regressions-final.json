@@ -1,0 +1,73 @@
+{
+  "version": "crime-justice-regressions-v3",
+  "split": "exposed-development",
+  "source_reference": "data/references/crime-justice-v2.json",
+  "pilot": "extraction-pilot.json",
+  "runtime": "runtime-accepted.json",
+  "quality_gate": "Automatic extraction fails recall and conservative grounding; curated capability is separate.",
+  "cases": [
+    {
+      "case_id": "CJ-RAW-MISSING",
+      "severity": "critical-completeness",
+      "failure": "Four predictions contain only three of seventeen frozen value assertions; legal stages, false framing/confession and most Max roles are absent.",
+      "evidence": "extraction-pilot.json#score",
+      "followup": "Improve extraction/coverage in #20; retain this exposed regression outside any held-out split."
+    },
+    {
+      "case_id": "CJ-FALSE-CONFESSION-SPAN",
+      "severity": "critical-grounding",
+      "failure": "The correct-looking Phil false confession contains a malformed raw quote endpoint and is held.",
+      "claim_id": "stella-phil-confession",
+      "evidence": "raw-admission.json",
+      "followup": "Claim extraction and exact-locator regression; do not repair original output."
+    },
+    {
+      "case_id": "CJ-INCOMPLETE-COMMISSION",
+      "severity": "critical-role",
+      "failure": "Crash commission has only a victim, with its required perpetrator outside the selected catalogue; held without substituting Max.",
+      "claim_id": "crash-carl-commission",
+      "evidence": "raw-admission.json",
+      "followup": "Catalogue coverage and role extraction; no guilt inference from nearby legal involvement."
+    },
+    {
+      "case_id": "CJ-RAW-COVERAGE",
+      "severity": "critical-completeness",
+      "failure": "The raw projection admits only two reference values, supplies no Max history and abstains on false-confession/framing cases.",
+      "evidence": "runtime-accepted.json",
+      "followup": "Broader checked graph coverage #20 and final acceptance #21 remain Pending."
+    },
+    {
+      "case_id": "CJ-GUILT-COUNTEREXAMPLES",
+      "severity": "critical-if-regressed",
+      "result": "No forbidden guilt conflations in 24 recorded final API/CLI answers; reviewed false accounts rely on independent narrative, never release or acquittal.",
+      "evidence": "runtime-accepted.json",
+      "software": "tests/test_event_claims.py and tests/test_event_graph.py",
+      "followup": "Recheck when role definitions, sources, admission or wording changes."
+    },
+    {
+      "case_id": "CJ-CONTEXT-BOUND",
+      "severity": "coverage-limit",
+      "result": "All-incident Max query exceeds existing 1200-byte context; returns no selected graph/citations and a context-limit receipt. Use a scoped incident query.",
+      "evidence": "runtime-accepted.json#context-stop",
+      "followup": "Context/routing improvements remain #24/#18; no limit increase in this ticket."
+    },
+    {
+      "case_id": "CJ-RELATIVE-TIMING",
+      "severity": "critical-if-regressed",
+      "initial_failure": "Five v1 assertions omitted supported relative qualifiers. Original labels and runtime remain preserved.",
+      "correction": "reference-review-v2.md",
+      "result": "All five corrected qualifiers present in final typed results and prose; arrest/charge quotes include the discovery clause.",
+      "evidence": "runtime-accepted.json",
+      "software": "tests/test_event_graph.py#test_final_answers_preserve_false_accounts_roles_and_citations"
+    },
+    {
+      "case_id": "CJ-CONVERSATION-QUEUE",
+      "severity": "critical-if-regressed",
+      "initial_failure": "An existing concurrent turn returned503 after a fixed5s database lock wait despite a valid remaining request budget.",
+      "correction": "concurrency-review.md",
+      "software": "tests/test_conversation_api.py#test_waiting_turns_serialize_within_their_request_budgets",
+      "evidence": "concurrency-final.log",
+      "result": "Controlled slow answer, valid serialization and expired waiter pass after the reviewed post-wait guard. Final full suite binds the shared lifecycle."
+    }
+  ]
+}

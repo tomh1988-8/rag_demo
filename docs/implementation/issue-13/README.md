@@ -34,7 +34,8 @@ full-reference-span proxy. Phil's false-confession candidate has a malformed spa
 and is held. The victim-only crash commission is held because its required
 perpetrator is outside the selected catalogue; no substitute perpetrator is inferred.
 [Raw admission](raw-admission.json) retains every failure and unchanged candidate.
-The raw slice misses fourteen of seventeen reference assertions.
+The unmodified extraction matches only three of seventeen reference values;
+raw admission retains two of the seventeen assertions.
 
 [The v2 serving batch](reviewed-claims-v2.json) retains all four raw candidates
 and adds seventeen reviewed assertions with prefixed claim IDs.
@@ -97,6 +98,35 @@ Phil's own assertions use first person and no wording minimises serious harm.
 
 ## Validation
 
-Completion validation, independent review, actual public runtime evidence and
-publication receipts are recorded alongside this document as they finish. Wider
-RAG-04, EXT-04 and AD-08.4 release obligations retain their existing status.
+[Accepted runtime evidence](runtime-accepted.json), captured at the independently
+reviewed `cc34208`, records 24 actual API/CLI and session/reset outcomes. The raw
+phase has two partial and ten insufficient-evidence outcomes; its missing Max
+history and false-confession/framing coverage remain failures. The v2 reviewed
+phase has nine partial and three insufficient-evidence outcomes. All nine supported
+queries match their scoped v2 reference, including all seventeen assertions;
+empty/unknown/context-stop cases remain qualified. All citations resolve, every
+response has the same frozen application fingerprint, and all root/tool MLflow
+outputs match actual records. Saved responses survive API restart and event
+sessions reset correctly. Duplicate source support remains visible without
+repeating prose. All five corrected relative qualifiers appear in typed results
+and final wording.
+
+[Final regressions](regressions-final.json) link component and final-answer failures
+to actual traces. [The accepted unchanged-output rescore](extraction-score-accepted.json)
+binds model results to that source revision. [Both independent axes](review.md)
+have zero remaining findings after resolving the repeated dispatch, five-assertion
+timing gap and conversation-queue boundary race. Independent review also checked
+all 24 final traces against their source and recorded responses.
+
+The first full software run completed **386 passes and one failure** in 387 cases.
+[Its report](software-tests-initial.xml) and the [queue diagnosis](concurrency-review.md)
+retain the five-second row-lock mismatch. Controlled slow-answer/deadline and
+original concurrency regressions pass after the reviewed fix. The final full
+run at `cc34208` passed **388 tests**, with zero failures, errors or skips, in
+1019.97 seconds. [The runner report](software-tests.xml) and
+[revision-linked validation](validation.json) retain the actual checks. Strict
+mypy passes all 90 files, and Ruff lint/formatting pass. Thirteen existing
+Starlette/httpx and record_property/xunit2 compatibility warnings remain
+non-blocking.
+The original source labels, raw output and all earlier runtime evidence remain
+available. Wider RAG-04, EXT-04 and AD-08.4 release obligations retain their status.

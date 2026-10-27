@@ -54,8 +54,12 @@ meets the conservative full-span grounding proxy. Content-bound review admits tw
 raw candidates and holds the malformed false confession and incomplete commission.
 Separate real API/CLI and MLflow evidence exercises all reviewed roles, false
 accounts, shared participants, empty histories and execution bounds while retaining
-the raw failures. No forbidden guilt conflation appears in the recorded final
-answers. This is scoped curated capability with explicit extraction/coverage
+the raw failures. All 24 final API/CLI/session outcomes have exact MLflow
+readback; no forbidden guilt conflation appears. The reviewed source `cc34208`
+passes all 388 software cases, strict mypy across 90 files, Ruff/formatting and
+both independent review axes after resolving the source-label timing omission
+and a shared conversation row-lock wait defect. [Validation](../implementation/issue-13/validation.json)
+binds these separate software and model-quality records. This is scoped curated capability with explicit extraction/coverage
 failures, not a broad automatic-extraction, held-out or canon pass. The linked
 regressions and revision-bound validation remain part of the evidence; checklist
 counts are unchanged and wider RAG-04, EXT-04 and AD-08.4 obligations remain Pending.

@@ -1,0 +1,28 @@
+{
+  "code_revision": "8163135ccf13811368d28caafd7ae566297c7101",
+  "application_sha256": "9f00a75a7557f56142e06254c2afea8f6120492e5ad5a12a097837d124b011e8",
+  "summary": {
+    "raw-pilot": {
+      "statuses": {
+        "insufficient_evidence": 9,
+        "partial": 2
+      },
+      "responses": 11,
+      "forbidden": 0,
+      "exact_reference_cases": 3
+    },
+    "reviewed-with-raw-retained": {
+      "statuses": {
+        "partial": 8,
+        "insufficient_evidence": 3
+      },
+      "responses": 11,
+      "forbidden": 0,
+      "exact_reference_cases": 11
+    }
+  },
+  "trace_outputs_exact": true,
+  "source_citations_resolve": true,
+  "corrected_qualifiers_checked": true,
+  "identical_source_support_prose_grouped": true
+}

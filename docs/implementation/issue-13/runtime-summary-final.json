@@ -1,0 +1,29 @@
+{
+  "captured_at": "2026-10-27T13:38:36.282820+00:00",
+  "code_revision": "cc3420868a0ae9fe9373fcd406ee9891e2d2cdaf",
+  "application_sha256": "6b4a65197fe202d3a99c06d35614e9761c6f9c33567815433addacc684333007",
+  "summary": {
+    "raw-pilot": {
+      "responses": 12,
+      "statuses": {
+        "insufficient_evidence": 10,
+        "partial": 2
+      },
+      "forbidden_guilt_conflations": 0
+    },
+    "reviewed-with-raw-retained": {
+      "responses": 12,
+      "statuses": {
+        "partial": 9,
+        "insufficient_evidence": 3
+      },
+      "forbidden_guilt_conflations": 0
+    }
+  },
+  "all_response_fingerprints_match": true,
+  "trace_outputs_exact": true,
+  "citations_resolve": true,
+  "corrected_qualifiers_present": true,
+  "duplicate_source_support_grouped": true,
+  "event_sessions_reset": true
+}
