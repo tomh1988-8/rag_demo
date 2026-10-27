@@ -1,0 +1,23 @@
+{
+  "frozen_at": "2026-10-27T10:28:21.360623+00:00",
+  "starting_revision": "5faaff660572de9ceef4946ffed7cf09bf030824",
+  "snapshot_sha256": "973509567ae163bd48866e389b77fcafb8b3d6d346f51a4741b00626b95cadd1",
+  "file_sha256": {
+    "data/seed/relationship-pilot-v1.json": "7777a1d1e669241dc811b495310b23d575e6f1ed9b4d89cb1c60bd4cc1aefb9f",
+    "data/references/relationships-v1.json": "3bfa591869c680ae3c928326509d249350ff4e8b820a8fdecb9561624b04fed2",
+    "docs/implementation/issue-12/reference-review.md": "c0fed260dea4bb6a8ffd5120519294431b5001e1b6932978c327b193c21b1744",
+    "config/evaluation-sol-low.json": "0d3d7abaee592cd541bc23bf133e3a8af2042df7778f303a634c73cce8683bd1"
+  },
+  "prompt_sha256": "1e7473f85c87dfa400293d480c3091eab8950a0cb2fa707a01ba9bf028f78db3",
+  "schema_sha256": "8573863eb1966327a8823dd7c00da28eae6a7c87dcc20decc5843e1a66039354",
+  "pilot_limits": {
+    "paid_calls": 1,
+    "automatic_retries": 0,
+    "maximum_output_tokens": 8192,
+    "per_call_execution_cap_usd": 0.15,
+    "shared_non_resetting_trial_cap_usd": 5,
+    "shared_ledger_before_usd": 0.361573,
+    "unsettled_reservations_before": 0
+  },
+  "scope": "Twelve agent source-reviewed claims in ten exposed spans. No held-out or human/canon acceptance. Freeze precedes the one live extraction; model output will not change reference labels. Values, evidence resolution, strict full-excerpt grounding, episode membership, ordering and per-relation failures are reported separately."
+}

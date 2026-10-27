@@ -1,0 +1,365 @@
+{
+  "snapshot_id": "relationship-pilot-v1",
+  "fixture_version": 1,
+  "source": {
+    "title": "Phil Mitchell",
+    "url": "https://en.wikipedia.org/wiki/Phil_Mitchell",
+    "revision_id": "1379872347",
+    "revision_url": "https://en.wikipedia.org/w/index.php?oldid=1379872347",
+    "section": "Storylines / 1990–2003",
+    "captured_at": "2026-10-17T13:07:31.014189Z",
+    "capture_sha256": "a338d3065203be54e383f2c9c141bca22ae9aedbb950e2e1eada601bcccfe313",
+    "scope": "main_series",
+    "license_url": "https://creativecommons.org/licenses/by-sa/4.0/",
+    "attribution": "Wikipedia contributors; markup removed and whitespace normalized.",
+    "coverage": "Reviewed narrative sections in this captured revision only.",
+    "gaps": [
+      "Partial canon coverage; other paragraphs remain excluded or awaiting review.",
+      "Identity and episode metadata do not independently corroborate story claims."
+    ],
+    "support_status": "source_supported"
+  },
+  "passages": [
+    {
+      "evidence_id": "history-kathy-marriage",
+      "text": "Kathy and Phil eventually sort out their differences, up to the point where they get married",
+      "sha256": "c48da59b6b1861474cd2ff4ceea04d950692bbd50691e0af61e076ca7a6e680f",
+      "start": 17631,
+      "end": 17723,
+      "source": {
+        "title": "Phil Mitchell",
+        "url": "https://en.wikipedia.org/wiki/Phil_Mitchell",
+        "revision_id": "1379872347",
+        "revision_url": "https://en.wikipedia.org/w/index.php?oldid=1379872347",
+        "section": "Storylines / 1990–2003",
+        "captured_at": "2026-10-17T13:07:31.014189Z",
+        "capture_sha256": "a338d3065203be54e383f2c9c141bca22ae9aedbb950e2e1eada601bcccfe313",
+        "scope": "main_series",
+        "license_url": "https://creativecommons.org/licenses/by-sa/4.0/",
+        "attribution": "Wikipedia contributors; markup removed and whitespace normalized.",
+        "coverage": "Reviewed narrative sections in this captured revision only.",
+        "gaps": [
+          "Partial canon coverage; other paragraphs remain excluded or awaiting review.",
+          "Identity and episode metadata do not independently corroborate story claims."
+        ],
+        "support_status": "source_supported"
+      },
+      "location": {
+        "source_id": "phil-mitchell-wiki",
+        "paragraph_ordinal": 20,
+        "section_id": "1990–2003",
+        "character_ids": [
+          "ben-mitchell",
+          "phil-mitchell"
+        ]
+      }
+    },
+    {
+      "evidence_id": "history-kathy-separation",
+      "text": "As time goes on, however, Phil becomes depressed and turns to alcohol – which causes him to develop an addiction. This makes him bitter and neglectful towards Kathy and Ben, so Kathy takes Ben and moves out.",
+      "sha256": "b658ee3d66cd7bfc204a5b43cac8049df92cd57cb03787417c7e3e307dd6deb1",
+      "start": 17789,
+      "end": 17996,
+      "source": {
+        "title": "Phil Mitchell",
+        "url": "https://en.wikipedia.org/wiki/Phil_Mitchell",
+        "revision_id": "1379872347",
+        "revision_url": "https://en.wikipedia.org/w/index.php?oldid=1379872347",
+        "section": "Storylines / 1990–2003",
+        "captured_at": "2026-10-17T13:07:31.014189Z",
+        "capture_sha256": "a338d3065203be54e383f2c9c141bca22ae9aedbb950e2e1eada601bcccfe313",
+        "scope": "main_series",
+        "license_url": "https://creativecommons.org/licenses/by-sa/4.0/",
+        "attribution": "Wikipedia contributors; markup removed and whitespace normalized.",
+        "coverage": "Reviewed narrative sections in this captured revision only.",
+        "gaps": [
+          "Partial canon coverage; other paragraphs remain excluded or awaiting review.",
+          "Identity and episode metadata do not independently corroborate story claims."
+        ],
+        "support_status": "source_supported"
+      },
+      "location": {
+        "source_id": "phil-mitchell-wiki",
+        "paragraph_ordinal": 20,
+        "section_id": "1990–2003",
+        "character_ids": [
+          "ben-mitchell",
+          "phil-mitchell"
+        ]
+      }
+    },
+    {
+      "evidence_id": "history-kathy-reconciliation",
+      "text": "Realizing what he has lost, Phil gives up alcohol and attends Alcoholics Anonymous. This progressively helps Phil, up to the point where it manages to reveal the basis of his problem – the physical abuse he received from his late father, Eric Mitchell (George Russo) when he was a boy, and his fear that he may abuse Ben. He and Kathy reconcile when he attends counselling,",
+      "sha256": "6915de424b991865af5293e7d6ffcbb755817d0e94f8eec4ad6b4cdc9d344be1",
+      "start": 17998,
+      "end": 18371,
+      "source": {
+        "title": "Phil Mitchell",
+        "url": "https://en.wikipedia.org/wiki/Phil_Mitchell",
+        "revision_id": "1379872347",
+        "revision_url": "https://en.wikipedia.org/w/index.php?oldid=1379872347",
+        "section": "Storylines / 1990–2003",
+        "captured_at": "2026-10-17T13:07:31.014189Z",
+        "capture_sha256": "a338d3065203be54e383f2c9c141bca22ae9aedbb950e2e1eada601bcccfe313",
+        "scope": "main_series",
+        "license_url": "https://creativecommons.org/licenses/by-sa/4.0/",
+        "attribution": "Wikipedia contributors; markup removed and whitespace normalized.",
+        "coverage": "Reviewed narrative sections in this captured revision only.",
+        "gaps": [
+          "Partial canon coverage; other paragraphs remain excluded or awaiting review.",
+          "Identity and episode metadata do not independently corroborate story claims."
+        ],
+        "support_status": "source_supported"
+      },
+      "location": {
+        "source_id": "phil-mitchell-wiki",
+        "paragraph_ordinal": 21,
+        "section_id": "1990–2003",
+        "character_ids": [
+          "ian-beale",
+          "phil-mitchell"
+        ]
+      }
+    },
+    {
+      "evidence_id": "history-affair-reconciliation",
+      "text": "In his absence, Phil and Sharon continue their affair but when Grant is released, Sharon reconciles with him, leaving Phil heartbroken.",
+      "sha256": "cd4c7d77211201aef0949428a5be0ad7bec67184803c4f15e42daf474c089583",
+      "start": 16172,
+      "end": 16307,
+      "source": {
+        "title": "Phil Mitchell",
+        "url": "https://en.wikipedia.org/wiki/Phil_Mitchell",
+        "revision_id": "1379872347",
+        "revision_url": "https://en.wikipedia.org/w/index.php?oldid=1379872347",
+        "section": "Storylines / 1990–2003",
+        "captured_at": "2026-10-17T13:07:31.014189Z",
+        "capture_sha256": "a338d3065203be54e383f2c9c141bca22ae9aedbb950e2e1eada601bcccfe313",
+        "scope": "main_series",
+        "license_url": "https://creativecommons.org/licenses/by-sa/4.0/",
+        "attribution": "Wikipedia contributors; markup removed and whitespace normalized.",
+        "coverage": "Reviewed narrative sections in this captured revision only.",
+        "gaps": [
+          "Partial canon coverage; other paragraphs remain excluded or awaiting review.",
+          "Identity and episode metadata do not independently corroborate story claims."
+        ],
+        "support_status": "source_supported"
+      },
+      "location": {
+        "source_id": "phil-mitchell-wiki",
+        "paragraph_ordinal": 18,
+        "section_id": "1990–2003",
+        "character_ids": [
+          "grant-mitchell",
+          "phil-mitchell",
+          "sharon-watts"
+        ]
+      }
+    },
+    {
+      "evidence_id": "history-grant-sharon-divorce",
+      "text": "Sharon is ready to turn him down in front of a packed pub and his family; however, in the end, she cannot go through with it, and stops him from publicly proposing before he humiliates himself. She then tells him that she loves him too but their relationship can no longer work, before returning to the US, leaving Grant heartbroken. They are then divorced and do not see each other for more than 10 years after this.",
+      "sha256": "95f2e087ceb1f76a03c96c92db2504e4b6eef605649e58d26308fc2d2df537ea",
+      "start": 23006,
+      "end": 23423,
+      "source": {
+        "title": "Grant Mitchell",
+        "url": "https://en.wikipedia.org/wiki/Grant_Mitchell_(EastEnders)",
+        "revision_id": "1370914760",
+        "revision_url": "https://en.wikipedia.org/w/index.php?oldid=1370914760",
+        "section": "Storylines / 1990–1999",
+        "captured_at": "2026-10-17T13:08:22.582778Z",
+        "capture_sha256": "2548b2c8780b1bda430939378a28ab3b7f98eca424480b7cccfaf2eb76f42ebf",
+        "scope": "main_series",
+        "license_url": "https://creativecommons.org/licenses/by-sa/4.0/",
+        "attribution": "Wikipedia contributors; markup removed and whitespace normalized.",
+        "coverage": "Reviewed narrative sections in this captured revision only.",
+        "gaps": [
+          "Partial canon coverage; other paragraphs remain excluded or awaiting review.",
+          "Identity and episode metadata do not independently corroborate story claims."
+        ],
+        "support_status": "source_supported"
+      },
+      "location": {
+        "source_id": "grant-mitchell-wiki",
+        "paragraph_ordinal": 24,
+        "section_id": "1990–1999",
+        "character_ids": [
+          "grant-mitchell",
+          "kathy-beale"
+        ]
+      }
+    },
+    {
+      "evidence_id": "history-kat-marriage",
+      "text": "Kat leaves Andy, and she and Alfie marry on Christmas Day.",
+      "sha256": "1a9d7812763769194371b2564ab8c6708b2eafb204949da315d1fff60b54510a",
+      "start": 33621,
+      "end": 33679,
+      "source": {
+        "title": "Kat Slater",
+        "url": "https://en.wikipedia.org/wiki/Kat_Slater",
+        "revision_id": "1380652225",
+        "revision_url": "https://en.wikipedia.org/w/index.php?oldid=1380652225",
+        "section": "Storylines / 2000–2005",
+        "captured_at": "2026-10-17T13:07:33.048959Z",
+        "capture_sha256": "f3852a9f1c3fa3f0c254f123fa8ed739d6f6a4388eb5f19c7de975858a537bd7",
+        "scope": "main_series",
+        "license_url": "https://creativecommons.org/licenses/by-sa/4.0/",
+        "attribution": "Wikipedia contributors; markup removed and whitespace normalized.",
+        "coverage": "Reviewed narrative sections in this captured revision only.",
+        "gaps": [
+          "Partial canon coverage; other paragraphs remain excluded or awaiting review.",
+          "Identity and episode metadata do not independently corroborate story claims."
+        ],
+        "support_status": "source_supported"
+      },
+      "location": {
+        "source_id": "kat-slater-wiki",
+        "paragraph_ordinal": 42,
+        "section_id": "2000–2005",
+        "character_ids": [
+          "alfie-moon",
+          "kat-slater"
+        ]
+      }
+    },
+    {
+      "evidence_id": "history-kat-remarriage",
+      "text": "He does so, but is unaware Kat is inside at the time. She becomes trapped although Alfie rescues her. She is badly burnt and suffers permanent scarring to her face. On leaving hospital, she and Alfie remarry, with two nurses as the only witnesses, before returning to the square and moving into a flat Alfie had organised for them to squat in.",
+      "sha256": "5173ddd46d2a973bf1a6f5c82cb49592a63b54f664ede1d73f7020ffc9f87327",
+      "start": 46181,
+      "end": 46524,
+      "source": {
+        "title": "Kat Slater",
+        "url": "https://en.wikipedia.org/wiki/Kat_Slater",
+        "revision_id": "1380652225",
+        "revision_url": "https://en.wikipedia.org/w/index.php?oldid=1380652225",
+        "section": "Storylines / 2010–2016",
+        "captured_at": "2026-10-17T13:07:33.048959Z",
+        "capture_sha256": "f3852a9f1c3fa3f0c254f123fa8ed739d6f6a4388eb5f19c7de975858a537bd7",
+        "scope": "main_series",
+        "license_url": "https://creativecommons.org/licenses/by-sa/4.0/",
+        "attribution": "Wikipedia contributors; markup removed and whitespace normalized.",
+        "coverage": "Reviewed narrative sections in this captured revision only.",
+        "gaps": [
+          "Partial canon coverage; other paragraphs remain excluded or awaiting review.",
+          "Identity and episode metadata do not independently corroborate story claims."
+        ],
+        "support_status": "source_supported"
+      },
+      "location": {
+        "source_id": "kat-slater-wiki",
+        "paragraph_ordinal": 53,
+        "section_id": "2010–2016",
+        "character_ids": [
+          "kat-slater"
+        ]
+      }
+    },
+    {
+      "evidence_id": "history-den-adoption",
+      "text": "Adopted at the age of three by Den (Leslie Grantham) and Angie Watts (Anita Dobson), Sharon is raised at The Queen Victoria public house in Albert Square, Walford, where her adoptive parents are landlords.",
+      "sha256": "1e54773bc770474ace800fa686ba855dce8b3eac079403d0dd1c78e958023f31",
+      "start": 50624,
+      "end": 50829,
+      "source": {
+        "title": "Sharon Watts",
+        "url": "https://en.wikipedia.org/wiki/Sharon_Watts",
+        "revision_id": "1372798905",
+        "revision_url": "https://en.wikipedia.org/w/index.php?oldid=1372798905",
+        "section": "Storylines / 1985–1995",
+        "captured_at": "2026-10-17T13:07:31.327518Z",
+        "capture_sha256": "9ccef3de99353ff737101d9d00561c217608dd4fa6fba0c8200f80ac0114ea85",
+        "scope": "main_series",
+        "license_url": "https://creativecommons.org/licenses/by-sa/4.0/",
+        "attribution": "Wikipedia contributors; markup removed and whitespace normalized.",
+        "coverage": "Reviewed narrative sections in this captured revision only.",
+        "gaps": [
+          "Partial canon coverage; other paragraphs remain excluded or awaiting review.",
+          "Identity and episode metadata do not independently corroborate story claims."
+        ],
+        "support_status": "source_supported"
+      },
+      "location": {
+        "source_id": "sharon-watts-wiki",
+        "paragraph_ordinal": 53,
+        "section_id": "1985–1995",
+        "character_ids": [
+          "den-watts",
+          "ian-beale",
+          "sharon-watts"
+        ]
+      }
+    },
+    {
+      "evidence_id": "history-denise-step",
+      "text": "In early 2023, Denise faces her stepdaughter Amy Mitchell's (Ellie Dadd) self-harming and Ricky impregnating Lily Slater (Lillia Turner).",
+      "sha256": "41bdfd305520f46995e00ddd0f0bc0047840a13015f70adb4eeb4d206b5f0f3b",
+      "start": 28931,
+      "end": 29068,
+      "source": {
+        "title": "Denise Fox",
+        "url": "https://en.wikipedia.org/wiki/Denise_Fox",
+        "revision_id": "1378939229",
+        "revision_url": "https://en.wikipedia.org/w/index.php?oldid=1378939229",
+        "section": "Storylines",
+        "captured_at": "2026-10-17T13:07:34.640123Z",
+        "capture_sha256": "2545a525bd8f3338a51ed788e0c88658b60503df4a025557ff78ef046168476c",
+        "scope": "main_series",
+        "license_url": "https://creativecommons.org/licenses/by-sa/4.0/",
+        "attribution": "Wikipedia contributors; markup removed and whitespace normalized.",
+        "coverage": "Reviewed narrative sections in this captured revision only.",
+        "gaps": [
+          "Partial canon coverage; other paragraphs remain excluded or awaiting review.",
+          "Identity and episode metadata do not independently corroborate story claims."
+        ],
+        "support_status": "source_supported"
+      },
+      "location": {
+        "source_id": "denise-fox-wiki",
+        "paragraph_ordinal": 20,
+        "section_id": "Storylines",
+        "character_ids": [
+          "denise-fox"
+        ]
+      }
+    },
+    {
+      "evidence_id": "history-ben-birth",
+      "text": "Ben is born to Phil Mitchell (Steve McFadden) and his then wife Kathy Beale (Gillian Taylforth) in March 1996.",
+      "sha256": "8179f5f0724cc08e5a5d51567fb7de0f8e55a4d5fc9881f5e050ae9d153eca08",
+      "start": 17983,
+      "end": 18093,
+      "source": {
+        "title": "Ben Mitchell",
+        "url": "https://en.wikipedia.org/wiki/Ben_Mitchell_(EastEnders)",
+        "revision_id": "1376729134",
+        "revision_url": "https://en.wikipedia.org/w/index.php?oldid=1376729134",
+        "section": "Storylines / 1996–2000",
+        "captured_at": "2026-10-17T13:07:31.530421Z",
+        "capture_sha256": "8ae0fbabb19cf12b2bdf46d7a85e15eea4462b8559584c770224a54a9e47d128",
+        "scope": "main_series",
+        "license_url": "https://creativecommons.org/licenses/by-sa/4.0/",
+        "attribution": "Wikipedia contributors; markup removed and whitespace normalized.",
+        "coverage": "Reviewed narrative sections in this captured revision only.",
+        "gaps": [
+          "Partial canon coverage; other paragraphs remain excluded or awaiting review.",
+          "Identity and episode metadata do not independently corroborate story claims."
+        ],
+        "support_status": "source_supported"
+      },
+      "location": {
+        "source_id": "ben-mitchell-wiki",
+        "paragraph_ordinal": 22,
+        "section_id": "1996–2000",
+        "character_ids": [
+          "ben-mitchell",
+          "kathy-beale",
+          "phil-mitchell"
+        ]
+      }
+    }
+  ]
+}

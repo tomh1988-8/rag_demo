@@ -19,10 +19,47 @@ from ask_phil.execution import ExecutionBudget, ExecutionStopped
 from ask_phil.family_graph import GRAPH_LIMITATION, FamilyGraph, FamilyResult
 from ask_phil.models import ModelExecution, TokenUsage
 from ask_phil.publications import PublicationStore
+from ask_phil.relationship_graph import RelationshipGraph, RelationshipQuery, RelationshipResult
+from ask_phil.relationships import HISTORY_LIMITATION
 from ask_phil.security import require_credential_free
 from ask_phil.storage import EvidenceStore
 
 GRAPH_WORDING = "biological-paths-v1: explicit typed query; bounded captured relationships only"
+HISTORY_WORDING = (
+    "relationship-history-v1: reviewed assertions; distinct episodes; explicit order only"
+)
+
+
+def render_history(result: RelationshipResult) -> str:
+    verbs = {
+        "biological_parent": "was identified as a biological parent of",
+        "adoptive_parent": "was identified as an adoptive parent of",
+        "step_parent": "was identified as a step-parent of",
+        "ward": "was identified as guardian of the ward",
+        "marriage": "married",
+        "remarriage": "remarried",
+        "separation": "separated from",
+        "divorce": "divorced",
+        "reconciliation": "reconciled with",
+        "affair": "had an affair with",
+        "partnership": "had a partnership with",
+    }
+    positions = {c.claim_id: i for i, c in enumerate(result.claims, 1)}
+    entries = []
+    for claim in result.claims:
+        timing = (
+            "story date unknown"
+            if claim.time_precision == "unknown"
+            else (f"story timing {claim.story_time} ({claim.time_precision})")
+        )
+        previous = positions.get(claim.after_claim_id or "")
+        ordering = f" Follows entry {previous}." if previous else ""
+        entries.append(
+            f"{positions[claim.claim_id]}. {result.names[claim.subject_id]} "
+            f"{verbs[claim.relation]} {result.names[claim.object_id]}; {timing}; "
+            f"status {claim.status} in the captured account.{ordering}"
+        )
+    return "Right, listen. Captured relationship history:\n" + "\n".join(entries) + "\n"
 
 
 class FamilyAnswer:
@@ -45,17 +82,30 @@ class FamilyAnswer:
     ) -> AnswerContent:
         snapshot = self.snapshot
         snapshot_id = snapshot.snapshot_id
-        result: FamilyResult | None = None
+        result: FamilyResult | RelationshipResult | None = None
+        is_history = isinstance(request.graph, RelationshipQuery)
+        limitation = HISTORY_LIMITATION if is_history else GRAPH_LIMITATION
         context: tuple[Passage, ...] = ()
         citations: tuple[Citation, ...] = ()
         try:
             budget.check()
             assert request.graph is not None
-            with mlflow.start_span("family_graph", span_type="RETRIEVER") as span:
+            with mlflow.start_span(
+                "relationship_history" if is_history else "family_graph", span_type="RETRIEVER"
+            ) as span:
                 span.set_inputs(request.graph.model_dump())
-                result = FamilyGraph(self.database_url).query(snapshot_id, request.graph)
+                if isinstance(request.graph, RelationshipQuery):
+                    result = RelationshipGraph(self.database_url).query(snapshot_id, request.graph)
+                else:
+                    result = FamilyGraph(self.database_url).query(snapshot_id, request.graph)
                 span.set_outputs(result.model_dump(mode="json"))
-            ids = {e.evidence_id for p in result.paths for edge in p.edges for e in edge.evidence}
+            ids = (
+                {e.evidence_id for c in result.claims for e in c.evidence}
+                if isinstance(result, RelationshipResult)
+                else {
+                    e.evidence_id for p in result.paths for edge in p.edges for e in edge.evidence
+                }
+            )
             context = tuple(p for p in snapshot.passages if p.evidence_id in ids)
             if len(context) != len(ids):
                 budget.stop("malformed_output")
@@ -76,19 +126,23 @@ class FamilyAnswer:
         if budget.record().stop_reason:
             result, context, citations = None, (), ()
             root.set_status("ERROR")
-        status: Literal["partial", "insufficient_evidence"] = (
-            "partial" if result and result.paths else "insufficient_evidence"
+        supported = bool(
+            result and (result.claims if isinstance(result, RelationshipResult) else result.paths)
         )
-        if result and result.paths:
+        status: Literal["partial", "insufficient_evidence"] = (
+            "partial" if supported else "insufficient_evidence"
+        )
+        if isinstance(result, RelationshipResult) and result.claims:
+            answer = render_history(result)
+        elif isinstance(result, FamilyResult) and result.paths:
             paths = "; ".join(
                 " → ".join(result.names[c] for c in p.characters) for p in result.paths
             )
             answer = f"Right, listen. Captured biological {result.query.direction} paths: {paths}. "
         else:
             reason = budget.record().stop_reason or (result.status if result else "unavailable")
-            answer = (
-                f"I can't establish the requested biological paths from this graph ({reason}). "
-            )
+            subject = "relationship history" if is_history else "biological paths"
+            answer = f"I can't establish the requested {subject} from this graph ({reason}). "
         conversation = (
             ConversationReference(
                 **turn.model_dump(),
@@ -106,12 +160,16 @@ class FamilyAnswer:
         return AnswerContent(
             conversation=conversation,
             status=status,
-            answer=answer + GRAPH_LIMITATION,
-            unanswered=("Family coverage outside the reviewed spans and traversal bounds.",),
+            answer=answer + limitation,
+            unanswered=("Relationship coverage outside the reviewed spans and query bounds.",)
+            if is_history
+            else ("Family coverage outside the reviewed spans and traversal bounds.",),
             citations=citations,
             context=context,
             graph=result,
-            prompt_sha256=hashlib.sha256(GRAPH_WORDING.encode()).hexdigest(),
+            prompt_sha256=hashlib.sha256(
+                (HISTORY_WORDING if is_history else GRAPH_WORDING).encode()
+            ).hexdigest(),
             accounting=ModelExecution(
                 content=None,
                 usage=TokenUsage(input_tokens=0, output_tokens=0, embedding_tokens=0),
@@ -119,6 +177,6 @@ class FamilyAnswer:
                 failure_type=None,
                 estimated_api_cost_usd=0,
                 cost_scope="No inference calls. Database and hosting costs are excluded.",
-                limitation=GRAPH_LIMITATION,
+                limitation=limitation,
             ),
         )

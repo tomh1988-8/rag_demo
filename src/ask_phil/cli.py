@@ -69,7 +69,13 @@ def main() -> int:
     ask.add_argument("--session", type=Path, help="Private receipt from start-session.")
     ask.add_argument("--route", choices=("text_rag", "graph"), default="text_rag")
     ask.add_argument("--character", help="Reviewed character ID for an explicit graph query.")
-    ask.add_argument("--direction", choices=("ancestors", "descendants"))
+    graph_kind = ask.add_mutually_exclusive_group()
+    graph_kind.add_argument("--direction", choices=("ancestors", "descendants"))
+    graph_kind.add_argument(
+        "--history", action="store_true", help="Query reviewed relationship history."
+    )
+    ask.add_argument("--partner", help="Optional second character for --history.")
+    ask.add_argument("--max-events", type=int, default=20)
     ask.add_argument("--depth", type=int, default=3)
     ask.add_argument("--max-paths", type=int, default=20)
     family_install = commands.add_parser(
@@ -81,6 +87,15 @@ def main() -> int:
         "family-claims", help="Inspect retained claims and admission reviews."
     )
     family_audit.add_argument("--snapshot", required=True)
+    history_install = commands.add_parser(
+        "install-relationships", help="Maintainer: admit reviewed relationship history claims."
+    )
+    history_install.add_argument("batch", type=Path)
+    history_install.add_argument("reviews", type=Path)
+    history_audit = commands.add_parser(
+        "relationship-claims", help="Inspect retained relationship claims and admission reviews."
+    )
+    history_audit.add_argument("--snapshot", required=True)
     session = commands.add_parser("start-session", help="Create a bounded anonymous conversation.")
     session.add_argument("receipt", type=Path, help="New private local session receipt file.")
     reset = commands.add_parser("reset", help="Clear reference context, keeping saved answers.")
@@ -113,10 +128,14 @@ def main() -> int:
     )
     args = parser.parse_args()
     if args.command == "ask":
-        if args.route == "graph" and (not args.character or not args.direction):
-            parser.error("--route graph requires --character and --direction.")
-        if args.route != "graph" and (args.character or args.direction):
-            parser.error("Family traversal arguments require --route graph.")
+        if args.route == "graph" and (not args.character or not (args.direction or args.history)):
+            parser.error("--route graph requires --character and --direction or --history.")
+        if args.route != "graph" and (
+            args.character or args.direction or args.history or args.partner
+        ):
+            parser.error("Graph query arguments require --route graph.")
+        if args.partner and not args.history:
+            parser.error("--partner requires --history.")
     try:
         if args.command == "configure-openrouter":
             if not sys.stdin.isatty():
@@ -151,6 +170,7 @@ def main() -> int:
             "refresh-sources",
             "rollback-snapshot",
             "install-family",
+            "install-relationships",
         }:
             database_url = os.environ.get("DATABASE_URL")
             if not database_url:
@@ -180,15 +200,25 @@ def main() -> int:
                 except ModelConfigurationError as exc:
                     raise ValueError(str(exc)) from None
                 print(outcome.model_dump_json())
-            elif args.command == "install-family":
+            elif args.command in {"install-family", "install-relationships"}:
                 from pydantic import TypeAdapter
 
                 from ask_phil.family_graph import FamilyGraph
                 from ask_phil.parentage import ClaimBatch, ClaimReview
+                from ask_phil.relationship_graph import RelationshipGraph
+                from ask_phil.relationships import RelationshipBatch
 
-                audit = FamilyGraph(database_url).install(
-                    ClaimBatch.model_validate_json(args.batch.read_bytes()),
-                    TypeAdapter(tuple[ClaimReview, ...]).validate_json(args.reviews.read_bytes()),
+                reviews = TypeAdapter(tuple[ClaimReview, ...]).validate_json(
+                    args.reviews.read_bytes()
+                )
+                audit = (
+                    FamilyGraph(database_url).install(
+                        ClaimBatch.model_validate_json(args.batch.read_bytes()), reviews
+                    )
+                    if args.command == "install-family"
+                    else RelationshipGraph(database_url).install(
+                        RelationshipBatch.model_validate_json(args.batch.read_bytes()), reviews
+                    )
                 )
                 print(audit.model_dump_json())
             elif args.command in {"load", "import-sources"}:
@@ -261,12 +291,21 @@ def main() -> int:
                             "question": args.query,
                             "snapshot_id": args.snapshot,
                             "route": args.route,
-                            "graph": {
-                                "character_id": args.character,
-                                "direction": args.direction,
-                                "max_depth": args.depth,
-                                "max_paths": args.max_paths,
-                            }
+                            "graph": (
+                                {
+                                    "kind": "relationship_history",
+                                    "character_id": args.character,
+                                    "partner_id": args.partner,
+                                    "max_events": args.max_events,
+                                }
+                                if args.history
+                                else {
+                                    "character_id": args.character,
+                                    "direction": args.direction,
+                                    "max_depth": args.depth,
+                                    "max_paths": args.max_paths,
+                                }
+                            )
                             if args.route == "graph"
                             else None,
                         },
@@ -283,6 +322,8 @@ def main() -> int:
                     result = client.get(f"/v1/snapshots/{args.snapshot}/sources")
                 elif args.command == "family-claims":
                     result = client.get(f"/v1/snapshots/{args.snapshot}/family-claims")
+                elif args.command == "relationship-claims":
+                    result = client.get(f"/v1/snapshots/{args.snapshot}/relationship-claims")
                 elif args.command == "source":
                     result = client.get(f"/v1/snapshots/{args.snapshot}/sources/{args.source_id}")
                 elif args.command == "resolve-character":

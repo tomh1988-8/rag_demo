@@ -31,6 +31,12 @@ from ask_phil.publications import (
     PublicationStore,
     RefreshRun,
 )
+from ask_phil.relationship_graph import (
+    RelationshipAudit,
+    RelationshipGraph,
+    RelationshipQuery,
+    RelationshipResult,
+)
 from ask_phil.responses import ResponseLedger
 from ask_phil.retrieval import IndexNotReady
 from ask_phil.sessions import ConversationSessions, SessionNotFound, SessionReceipt, SessionState
@@ -154,6 +160,33 @@ def create_app(
         if audit is None:
             raise HTTPException(
                 status_code=404, detail="No reviewed family graph for this snapshot."
+            )
+        return audit
+
+    @app.post("/v1/snapshots/{snapshot_id}/relationships")
+    def relationship_query(snapshot_id: Identifier, query: RelationshipQuery) -> RelationshipResult:
+        budget = ExecutionBudget(policies.serving)
+        try:
+            with budget.activate():
+                publications.pin(snapshot_id)
+                return RelationshipGraph(database_url).query(snapshot_id, query)
+        except SnapshotNotFound as exc:
+            raise HTTPException(status_code=404, detail="Snapshot not found.") from exc
+        except (psycopg.errors.QueryCanceled, psycopg.errors.LockNotAvailable) as exc:
+            raise HTTPException(status_code=503, detail="Relationship query timed out.") from exc
+        except ExecutionStopped as exc:
+            raise HTTPException(
+                status_code=503, detail=f"Relationship graph stopped: {exc}."
+            ) from exc
+        except IndexNotReady as exc:
+            raise HTTPException(status_code=503, detail=str(exc)) from exc
+
+    @app.get("/v1/snapshots/{snapshot_id}/relationship-claims")
+    def relationship_claims(snapshot_id: Identifier) -> RelationshipAudit:
+        audit = RelationshipGraph(database_url).audit(snapshot_id)
+        if audit is None:
+            raise HTTPException(
+                status_code=404, detail="No reviewed relationship graph for this snapshot."
             )
         return audit
 

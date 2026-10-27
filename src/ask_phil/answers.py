@@ -21,6 +21,7 @@ from ask_phil.models import TokenUsage as TokenUsage
 from ask_phil.openrouter import ProviderUsage
 from ask_phil.passage_context import assemble_context as assemble_context
 from ask_phil.passage_context import context_text as context_text
+from ask_phil.relationship_graph import RelationshipQuery, RelationshipResult
 from ask_phil.retrieval import RetrievedPassage
 from ask_phil.security import redact_text
 
@@ -96,12 +97,12 @@ class AskRequest(Record):
     snapshot_id: Identifier | None = None
     question: Annotated[str, StringConstraints(strip_whitespace=True, min_length=1, max_length=500)]
     route: Literal["text_rag", "graph"] = "text_rag"
-    graph: FamilyQuery | None = None
+    graph: FamilyQuery | RelationshipQuery | None = None
 
     @model_validator(mode="after")
     def route_arguments(self) -> Self:
         if (self.route == "graph") != (self.graph is not None):
-            raise ValueError("The explicit graph route requires typed family query arguments.")
+            raise ValueError("The explicit graph route requires typed graph query arguments.")
         return self
 
     @field_validator("question")
@@ -134,7 +135,9 @@ class AnswerRecord(Record):
     retrieval_k: int
     route: Literal["text_rag", "graph"] = "text_rag"
     route_override: bool = Field(default=False, exclude_if=lambda v: not v)
-    graph: FamilyResult | None = Field(default=None, exclude_if=lambda v: v is None)
+    graph: FamilyResult | RelationshipResult | None = Field(
+        default=None, exclude_if=lambda v: v is None
+    )
     baseline_version: Literal["single-query-uncached-v1", "single-query-uncached-v2"] = (
         "single-query-uncached-v1"
     )
@@ -218,4 +221,4 @@ class AnswerContent:
         "single-query-uncached-v1"
     )
     model_settings: ModelSettings | OpenRouterSettings | None = None
-    graph: FamilyResult | None = None
+    graph: FamilyResult | RelationshipResult | None = None

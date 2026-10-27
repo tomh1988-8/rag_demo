@@ -6,7 +6,7 @@ from typing import Any
 from llama_index.core.llms import ChatMessage, CompletionResponse, CustomLLM, LLMMetadata
 from llama_index.core.llms.callbacks import llm_completion_callback
 from llama_index.core.program import LLMTextCompletionProgram
-from pydantic import PrivateAttr
+from pydantic import BaseModel, PrivateAttr
 
 from ask_phil.evidence import SourceSnapshot
 from ask_phil.identity import IdentityCatalogue
@@ -33,15 +33,17 @@ Captured spans: {material}
 """
 
 
-class ParentageLLM(CustomLLM):
+class ClaimLLM(CustomLLM):
     """LlamaIndex completion protocol backed by the existing guarded strict-schema chat."""
 
     _chat: OpenRouterChat = PrivateAttr()
     _raw: str | None = PrivateAttr(default=None)
+    _output_cls: type[BaseModel] = PrivateAttr()
 
-    def __init__(self, chat: OpenRouterChat) -> None:
+    def __init__(self, chat: OpenRouterChat, output_cls: type[BaseModel] = ExtractedClaims) -> None:
         super().__init__()
         self._chat = chat
+        self._output_cls = output_cls
 
     @property
     def raw(self) -> str | None:
@@ -58,13 +60,17 @@ class ParentageLLM(CustomLLM):
     @llm_completion_callback()
     def complete(self, prompt: str, formatted: bool = False, **kwargs: Any) -> CompletionResponse:
         result = self._chat.chat(
-            [ChatMessage(role="user", content=prompt)], format=ExtractedClaims.model_json_schema()
+            [ChatMessage(role="user", content=prompt)], format=self._output_cls.model_json_schema()
         )
         self._raw = result.message.content or ""
         return CompletionResponse(text=self._raw)
 
     def stream_complete(self, prompt: str, formatted: bool = False, **kwargs: Any) -> Any:
         raise NotImplementedError("The extraction pilot uses one bounded non-streaming call.")
+
+
+# Preserve the original public pilot interface and its default parentage schema.
+ParentageLLM = ClaimLLM
 
 
 def extract_parentage(
