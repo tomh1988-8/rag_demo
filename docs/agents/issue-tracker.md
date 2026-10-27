@@ -11,6 +11,32 @@ commands so they work even without a configured Git remote.
 
 ## Current Ask Phil handoff
 
+Issue #12 implementation and acceptance are complete; publication, remote-tree
+verification and tracker closure are in progress. [Evidence](../implementation/issue-12/README.md)
+records **340 passing tests**, strict mypy across 79 files, Ruff/formatting and
+zero remaining findings on both independent review axes. All 28 final API/CLI
+outcomes match actual MLflow outputs. Typed read-only history queries preserve
+social/biological roles, distinct relationship episodes, supported ordering and
+unknown dates; new social ties do not enter biological ancestry.
+
+The failed extraction is retained: corrected precision 5/12, recall 5/13,
+F1 0.4; exact/strict-grounded locators 2/12; all twelve raw candidates held.
+The reviewed projection admits thirteen source assertions describing twelve
+semantic assertions. Twelve labels predate the model call; an independent review
+identified the documented thirteenth source correction. Original labels and raw
+model output remain unchanged. This is curated capability, not a model-quality
+or held-out/canon pass. RAG-04 and wider release obligations remain Pending.
+
+The single offline call cost **$0.025226**. Preserve the shared non-resetting $5
+ledger at **$0.386799**, zero unsettled reservations. All 28 original tracked data
+files, the private key and the user's pre-existing work are preserved. This
+current ledger supersedes the historical amounts below.
+
+**#13 is next** once #12 publication/closure completes; #15, #19, #22 and #24
+remain unblocked. Wait for the user's next implementation instruction.
+
+### Earlier handoffs
+
 Issue #11 is complete and closed after native publication of
 [`f8fcf3f`](https://github.com/tomh1988-8/rag_demo/commit/f8fcf3fb545de573be892d98cc857d1c8f0d28fb)
 and fetched exact-tree verification. The tested code remains `8d58624`; all seven
@@ -27,12 +53,9 @@ The sole offline extraction call cost $0.0184885. Preserve the shared non-resett
 $5 ledger at **$0.361573**, with zero unsettled reservations. All existing source
 and reference inputs and the user's pre-existing work are preserved.
 
-**#12 is next**; #13, #15, #19, #22
-and #24 are also unblocked. Wait for the user's next implementation instruction.
+At #11 completion, #12 was next; the current #12 handoff above supersedes that frontier.
 The graph pilot uses explicit typed arguments and maintainer installation; wider
 relationship/correction/refresh behavior remains subsequent work.
-
-### Earlier handoffs
 
 Issue #10 is complete and closed after native publication and exact-tree
 verification of [f755514](https://github.com/tomh1988-8/rag_demo/commit/f755514cff4d3fd9275a0debbb411605f60d4e37).

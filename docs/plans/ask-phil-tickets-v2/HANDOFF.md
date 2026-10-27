@@ -1,6 +1,36 @@
 # Ask Phil: publication and next-skill handoff
 
-Updated 18 October 2026. The user approved the initial checklist/ticket breakdown, authorised publication, and subsequently required user feedback and online evaluation. Checklist v1.1 and the amended 24-ticket breakdown are published. Issues #2–#11 are complete and closed. Issues #5–#8 passed their full software suites, independent reviews, exact-tree publication verification and closure readback. Issue #4 passed its scoped cloud policy acceptance.
+Updated 27 October 2026. The user approved the initial checklist/ticket breakdown, authorised publication, and subsequently required user feedback and online evaluation. Checklist v1.1 and the amended 24-ticket breakdown are published. Issues #2–#11 are complete and closed; #12 implementation and acceptance are complete with publication/closure in progress. Issues #5–#8 passed their full software suites, independent reviews, exact-tree publication verification and closure readback. Issue #4 passed its scoped cloud policy acceptance.
+
+## Issue #12: relationship histories accepted; publication in progress
+
+[Implementation and evidence](../../implementation/issue-12/README.md) add typed
+read-only family/romantic histories with preserved role direction, reported status,
+multiple marriage episodes, supported ordering and uncertain timing. Biological
+tree queries retain their narrower meaning. The single final full suite passed
+**340 tests**; strict mypy across 79 files, Ruff/formatting and both independent
+review axes pass. All four initial findings were fixed and re-reviewed.
+[Validation](../../implementation/issue-12/validation.json) binds checks to
+reviewed implementation `0c9918c`. Twenty-eight actual API/CLI outcomes match
+MLflow output and survive the required restart/readback checks.
+
+Original v1 source labels and pilot are preserved. Independent review identified
+a missing then-wife marriage assertion; a documented v2 correction adds supporting
+evidence to the same marriage without inventing its date or another wedding.
+Corrected raw extraction precision is 5/12, recall 5/13, F1 0.4; locator/strict
+grounding is 2/12. All twelve raw candidates are held and raw-only graph recall
+is zero. The curated projection admits thirteen source assertions while retaining
+all raw holds. This is manually reviewed capability, not an automatic extraction
+or held-out/human canon pass. Quality failures remain recorded regressions.
+
+The one paid offline call cost **$0.025226**. Preserve the shared non-resetting $5
+ledger at **$0.386799**, with zero unsettled reservations; this supersedes earlier
+historical amounts. Original tracked data and the user's pre-existing work are
+preserved. Checklist counts remain 34 Pass and 17 Pending; wider graph, correction,
+routing and final acceptance obligations remain outstanding.
+
+**#13 is next** after publication/closure; #15, #19, #22 and #24 also remain
+unblocked. Wait for the next implementation instruction before another issue.
 
 ## Issue #11: biological family accepted and closed
 
@@ -37,8 +67,7 @@ Preserve the shared non-resetting $5 ledger at **$0.361573**, zero unsettled
 reservations. Scoped AD-05.2 and EXT-02/03 checks pass: **34 current checks Pass;
 17 remain Pending**. RAG-04 and EXT-04 retain their broader obligations.
 
-**#12 is next**. #13, #15, #19,
-#22 and #24 are also unblocked. Wait for the user's next implementation instruction.
+At #11 completion, #12 was next. The current #12 handoff above supersedes that frontier.
 Install the pilot using the evidence README; rebuild the app image for these changes.
 Graph correction/refresh lifecycle and wider relationship families remain later work.
 
@@ -255,7 +284,7 @@ The [to-spec skill](../../../.agents/skills/to-spec/SKILL.md) authorised specifi
 
 ## First available work
 
-**[#12 — Explain family and romantic histories](https://github.com/tomh1988-8/rag_demo/issues/12)** is next. #13, #15, #19, #22 and #24 are also unblocked. Wait for the next implementation instruction before starting another ticket. Specification #1 remains parent context.
+**[#13 — Explain crimes and criminal justice roles](https://github.com/tomh1988-8/rag_demo/issues/13)** is next after #12 publication/closure. #15, #19, #22 and #24 are also unblocked. Wait for the next implementation instruction before starting another ticket. Specification #1 remains parent context.
 
 For subsequent work, read the current issue and comments, the relevant domain/ADR decisions and the checklist profile. Work the dependency frontier; the shared `ready-for-agent` label does not mean a blocked ticket can begin. Existing approved decisions and the six public test boundaries do not need another design interview.
 

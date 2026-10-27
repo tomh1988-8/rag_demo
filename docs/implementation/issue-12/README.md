@@ -130,7 +130,28 @@ answers safely abstain; raw graph recall is zero. A bounded result intentionally
 does not supply every reference claim. [Regressions](regressions.json) retain the
 quality failures and scope limits separately from software capabilities.
 
-Focused checks and strict mypy pass during implementation. Final independent
-reviews, full-suite validation and publication evidence are added after review.
+[Final runtime evidence](runtime-final.json), captured at reviewed implementation
+`0c9918c`, records 28 actual API/CLI outcomes and exact readback of every MLflow
+root/tool output. Raw-only serving has 14 insufficient-evidence outcomes. The v2
+reviewed projection has 12 partial and two insufficient-evidence outcomes, with
+every unbounded reference comparison passing and the result cap explicitly
+truncated. All thirteen curated source assertions are exercised; duplicate
+support does not invent another wedding. Both API restarts preserve original
+responses and audit readback matches. Final serving cost remains zero inference
+credits. [The final offline rescore](extraction-score-final.json) binds the corrected
+reference and unchanged raw pilot to that implementation, preserving all failures.
+
+[Independent reviews](review.md) have zero remaining Standards and Spec findings
+after fixing all four initial findings. Focused software tests, Ruff/formatting
+and strict mypy across 79 files pass. The single final full suite passed
+**340 tests**, with zero failures, errors or skips, in 680.356 seconds.
+[Validation](validation.json) binds these checks and runtime evidence to
+`0c9918c`; [the runner report](software-tests.xml) retains actual execution
+properties. One existing Starlette/httpx deprecation and nine existing
+`record_property`/xunit2 compatibility warnings remain non-blocking. All 28
+original tracked data files and the user's unrelated work are preserved.
 Broader graph coverage, corrections, automatic routing, held-out quality and
 human/canon acceptance remain outstanding project obligations.
+
+Implementation and acceptance are complete. Native publication, exact-tree
+verification and tracker closure are the remaining completion steps.
