@@ -11,8 +11,11 @@ commands so they work even without a configured Git remote.
 
 ## Current Ask Phil handoff
 
-Issue #14 implementation and validation are complete; verified publication and
-tracker closure are still pending. [Evidence](../implementation/issue-14/README.md)
+Issue #14 is complete and closed after native publication and exact-tree
+verification of [`1df0a70`](https://github.com/tomh1988-8/rag_demo/commit/1df0a70bb95eafe0522482a7c451fbe875f8ff57).
+The [receipt](../implementation/issue-14/publication.json) records all seven checked
+criteria, completed closure and exact agreement with the prepared issue body.
+[Evidence](../implementation/issue-14/README.md)
 records pregnancy/death roles and timing, separate theme/unclassified text,
 thirty actual graph API/CLI/session outcomes with exact MLflow readback, and
 zero remaining implementation findings on both independent review axes. All
@@ -31,7 +34,7 @@ reservations. This supersedes the historical balances below. Four calls cost
 **$0.0476445** in reported inference charges. All 34 original data files and
 51 pre-existing workspace files remain hash-checked unchanged.
 
-After #14 closes, **#15 is next**; #16, #19, #22 and #24 are also unblocked.
+**#15 is next**; #16, #19, #22 and #24 are also unblocked.
 Wait for the user's next implementation instruction before another issue.
 
 ### Prior issue #13 handoff

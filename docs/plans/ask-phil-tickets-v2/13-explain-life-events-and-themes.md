@@ -1,6 +1,6 @@
 # 13: Explain life events, themes and unclassified facts
 
-Status: implemented and validated for [GitHub #14](https://github.com/tomh1988-8/rag_demo/issues/14) on 27 October 2026; verified publication and tracker closure are pending. Plan version: 2. [Evidence](../../implementation/issue-14/README.md) records 414 passing tests, zero implementation findings on both independent review axes, thirty final graph outcomes and three live text cases. Extraction failures and one text answerability failure remain explicit; broader release obligations remain Pending.
+Status: implemented, published and closed as [GitHub #14](https://github.com/tomh1988-8/rag_demo/issues/14) on 27 October 2026 after exact-tree verification of [1df0a70](https://github.com/tomh1988-8/rag_demo/commit/1df0a70bb95eafe0522482a7c451fbe875f8ff57). Plan version: 2. [Evidence](../../implementation/issue-14/README.md) records 414 passing tests, zero implementation findings on both independent review axes, thirty final graph outcomes and three live text cases. [Publication and closure readback](../../implementation/issue-14/publication.json) confirms all seven criteria. Extraction failures and one text answerability failure remain explicit; broader release obligations remain Pending.
 
 Spec stories: S23, S26, S27, S29, S30, S34, S38, S39, S58, S59, S60, S68, S72, S73, S77, S78, S79, S81, S86. Checklist evidence owner for: the extensions and rechecks below; primary ownership is recorded in the project register.
 

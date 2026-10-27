@@ -120,3 +120,7 @@ deprecation and pytest's `record_property`/xunit2 compatibility. All 34 original
 data files, 51 pre-existing workspace files and seven frozen pilot files remain
 unchanged. RAG-04, EXT-04 and wider release obligations remain Pending; scoped
 evidence does not change their broader requirements.
+
+[Publication and closure](publication.json) record the verified native Git tree,
+all seven checked criteria and exact tracker-body readback. The next ticket is
+#15; #16 is also unblocked by this event capability.

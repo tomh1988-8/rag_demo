@@ -1,0 +1,89 @@
+{
+  "status": "published_and_closed",
+  "recorded_at": "2026-10-27T17:10:18.332973+00:00",
+  "repository": "tomh1988-8/rag_demo",
+  "destination": "refs/heads/main",
+  "authorization": {
+    "user_message": "sound sgood, you have approval for the recommended seam and to complete the work",
+    "repository_workflow": "docs/agents/issue-tracker.md#required-at-the-end-of-every-issue",
+    "scope": [
+      "Complete the selected ticket using the approved seam",
+      "Commit and publish implementation, evidence and handoff, verifying the remote tree",
+      "Update acceptance criteria and close the implemented issue",
+      "Publish the completion receipt and final handoff"
+    ],
+    "publication_approval_pending": false,
+    "tracker_update_approval_pending": false,
+    "receipt_publication_approval_pending": false
+  },
+  "automatic_approval_events": [],
+  "reviewed_code_revision": "ef77ce8a56ccba2404bfe95d5e44c04193fd9796",
+  "implementation_acceptance_commit": "1df0a70bb95eafe0522482a7c451fbe875f8ff57",
+  "publication": {
+    "verified_at": "2026-10-27T17:08:45.231593+00:00",
+    "method": "native_git_https",
+    "local_revision": "1df0a70bb95eafe0522482a7c451fbe875f8ff57",
+    "remote_revision": "1df0a70bb95eafe0522482a7c451fbe875f8ff57",
+    "local_tree": "140729ff68e2268f4c49c5d723139877726dd906",
+    "remote_tree": "140729ff68e2268f4c49c5d723139877726dd906",
+    "tree_diff_empty": true,
+    "commit_url": "https://github.com/tomh1988-8/rag_demo/commit/1df0a70bb95eafe0522482a7c451fbe875f8ff57"
+  },
+  "tracker": {
+    "number": 14,
+    "url": "https://github.com/tomh1988-8/rag_demo/issues/14",
+    "state": "closed",
+    "state_reason": "completed",
+    "closed_at": "2026-10-27T17:09:24Z",
+    "readback_at": "2026-10-27T17:10:18.333005+00:00",
+    "checked_criteria": 7,
+    "unchecked_criteria": 0,
+    "body_matches_prepared_update": true,
+    "body_sha256": "29905535bac9a23741ff4fd3c5e8fde44b510673e0adf2fb752df6d676ac5b60",
+    "applied_body_file": "proposed-tracker-update.md"
+  },
+  "validation": {
+    "passed": 414,
+    "failures": 0,
+    "errors": 0,
+    "skips": 0,
+    "mypy_files": 99,
+    "standards_findings": 0,
+    "spec_findings": 0,
+    "graph_runtime_outcomes": 30,
+    "text_runtime_outcomes": 3,
+    "runtime_trace_outputs_match": 33,
+    "source_changes_after_full_suite": false,
+    "record": "validation.json"
+  },
+  "preservation": {
+    "shared_ledger_usd": 0.464981,
+    "unsettled_reservations": 0,
+    "publication_inference_calls": 0,
+    "preexisting_user_work_excluded": true,
+    "original_data_files_unchanged": 34,
+    "preexisting_workspace_files_unchanged": 51
+  },
+  "quality_limitations": {
+    "raw_event_value_matches": "4/5",
+    "event_strict_full_span_grounding": "0/5",
+    "raw_events_admitted": 3,
+    "raw_events_held": 2,
+    "raw_context_value_matches": "1/2",
+    "context_strict_full_span_grounding": "1/2",
+    "reviewed_event_meanings": 5,
+    "live_text_quality_passes": 2,
+    "live_text_quality_failures": 1,
+    "text_failure": "Unsupported manosphere response uses answered instead of insufficient_evidence and omits the explicit elsewhere-coverage caveat. Incidental facts and citations remain supported.",
+    "acceptance": "Scoped source-reviewed capability; automatic extraction, held-out, human adjudication and canon acceptance remain unproven."
+  },
+  "next_issue_after_closure": 15,
+  "unblocked_frontier": [
+    15,
+    16,
+    19,
+    22,
+    24
+  ],
+  "receipt_note": "The implementation publication and tracker closure above have been read back. This subsequent documentation-only receipt/handoff commit is published and its exact remote tree verified before reporting completion."
+}
