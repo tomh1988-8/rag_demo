@@ -1,0 +1,63 @@
+{
+  "baseline_application_sha256": "badf2d507c8abcf7cacb8654585026c411f4b64bba531e9513ac0f759318ab07",
+  "baseline_revision": "1ff6207264669fe2a733fdcdf99bcf9e225491c4",
+  "extraction_cases": {
+    "crime": {
+      "actual_trace_readback_matches": true,
+      "baseline_trace_id": "tr-ce2f8fe41c87e51d7991b3ea43f64c2b",
+      "identical_normalized_retained_records": true,
+      "identical_outbound_requests": true,
+      "normalized_retained_record_sha256": "3845c540a068358abe8e8cdd0dc0e97cdf889312468d1ddf3c7737731a0edecd",
+      "outbound_requests_sha256": "7784eee37fbc214e64791cdfdc80f42569b992f2bea22887f7c43182e90f8b27",
+      "prompt_sha256": "4b4c6bfe4b851f1e5e3ef21acf30c14f349e422c66b22d1287de479570b2a9a2",
+      "refactored_trace_id": "tr-5328d884cb65513c17e47ca5a2c4780a",
+      "schema_sha256": "fc6b0beddd0b706b7d465dba6e8cb6683c3315ee6b64535145485c15f3c66f30",
+      "snapshot_sha256": "211e2a87675886c73aef22a24d85076ae2850661b88e5a70de66600b12b2baa4"
+    },
+    "life": {
+      "actual_trace_readback_matches": true,
+      "baseline_trace_id": "tr-1d7d0354d5241a610176b6093bfba278",
+      "identical_normalized_retained_records": true,
+      "identical_outbound_requests": true,
+      "normalized_retained_record_sha256": "8d3a405f691eb9e78c22cb1b5696cb31f2214e94208e2d32172fc92789da14d6",
+      "outbound_requests_sha256": "973b7320a68c430912e429e70e633e4868a0bf799dc9b093ee904f89f91a9b6b",
+      "prompt_sha256": "4b4c6bfe4b851f1e5e3ef21acf30c14f349e422c66b22d1287de479570b2a9a2",
+      "refactored_trace_id": "tr-4e4f8a30435effd6d132f59abab780e3",
+      "schema_sha256": "fc6b0beddd0b706b7d465dba6e8cb6683c3315ee6b64535145485c15f3c66f30",
+      "snapshot_sha256": "8578158630979e5e33bd739570fd42bd02ba6c487872f992d3502f73a83d83df"
+    },
+    "parentage": {
+      "actual_trace_readback_matches": true,
+      "baseline_trace_id": "tr-6397f146d7575d09fcd99bafbf930022",
+      "identical_normalized_retained_records": true,
+      "identical_outbound_requests": true,
+      "normalized_retained_record_sha256": "50e261d121a6322837e88e319afae4de883ae63e1267aaab1188f3feb0f4cb96",
+      "outbound_requests_sha256": "5d2c25326b3b45eb2c5e12c8c3e1824c3558438f8d116ea7de833d71f2a3c177",
+      "prompt_sha256": "4f625c048e5652b6d709eaa5eaf40a170feac91b94df8c2b0ab89c1b05afea1e",
+      "refactored_trace_id": "tr-8d787c6a6e8919fa63540891ff1aa759",
+      "schema_sha256": "753b78b044501f008907d7fead2cef20d64dd0961320420847cb102f265ee53a",
+      "snapshot_sha256": "118cb99db01b352e9b2793e56873962d9769e00df7c3764bb7201d8a7a281a06"
+    },
+    "relationship": {
+      "actual_trace_readback_matches": true,
+      "baseline_trace_id": "tr-fe36b35d9dafb0427c84dc3b632c46f5",
+      "identical_normalized_retained_records": true,
+      "identical_outbound_requests": true,
+      "normalized_retained_record_sha256": "0a8a54e1121951b204e9624f06aae7ac2f234355db9f09ad3e05d775ff87153a",
+      "outbound_requests_sha256": "d44e12db9fcbadda069ec1f473cd90c7050f52ec8840418ffe69ba5150857954",
+      "prompt_sha256": "1e7473f85c87dfa400293d480c3091eab8950a0cb2fa707a01ba9bf028f78db3",
+      "refactored_trace_id": "tr-15e2c1c5d394cf844fc0b7cd92f8a429",
+      "schema_sha256": "8573863eb1966327a8823dd7c00da28eae6a7c87dcc20decc5843e1a66039354",
+      "snapshot_sha256": "973509567ae163bd48866e389b77fcafb8b3d6d346f51a4741b00626b95cadd1"
+    }
+  },
+  "normalization": "Compare outbound requests, raw output, typed batches, scores, input/schema/prompt hashes, execution counters, usage and ledger totals. Per-run reservation IDs are removed; timing, capture/trace IDs and application/code revision identities are recorded separately from behavior.",
+  "public_schema": {
+    "identical": true,
+    "paths": 24,
+    "records": 76,
+    "sha256": "5ea6f8f6da7fcf1390961365034962beadc8029130649b6446164cfcbe016939"
+  },
+  "refactored_application_sha256": "f603f88006e1eb20b65a88d3a06f6eac435ae88ed748fb9088e608fef916efee",
+  "scope": "Controlled provider compatibility, not model-quality evaluation. Archived starting source and refactored source ran separately against identical frozen source/reference records."
+}

@@ -27,9 +27,9 @@ from ask_phil.relationship_graph import RelationshipGraph, RelationshipQuery, Re
 from ask_phil.relationships import HISTORY_LIMITATION, RelationshipClaim
 from ask_phil.review_notes import (
     REVIEW_WORDING,
+    ReviewExplanation,
     ReviewNotice,
-    complete_review_groups,
-    render_notices,
+    prepare_graph_review,
 )
 from ask_phil.security import require_credential_free
 from ask_phil.storage import EvidenceStore
@@ -159,56 +159,17 @@ class FamilyAnswer:
         context: tuple[Passage, ...] = ()
         citations: tuple[Citation, ...] = ()
         notices: tuple[ReviewNotice, ...] = ()
+        review = ReviewExplanation()
         try:
             budget.check()
             with mlflow.start_span(span_name, span_type="RETRIEVER") as span:
                 span.set_inputs(request.graph.model_dump())
                 result = query_graph()
                 span.set_outputs(result.model_dump(mode="json"))
-            from ask_phil.knowledge_review import review_notices
-
-            family = (
-                "event"
-                if isinstance(request.graph, EventQuery)
-                else "relationship"
-                if isinstance(request.graph, RelationshipQuery)
-                else "family"
+            review = prepare_graph_review(
+                self.database_url, snapshot, result, budget.limits.context_bytes
             )
-            if result.status not in {"unknown_character", "ineligible", "unavailable"}:
-                all_notices = review_notices(self.database_url, snapshot_id)
-                notices = complete_review_groups(
-                    all_notices,
-                    tuple(
-                        n
-                        for n in all_notices
-                        if n.family == family and request.graph.character_id in n.character_ids
-                    ),
-                )
-            ids = (
-                {e.evidence_id for c in result.claims for e in c.evidence}
-                if isinstance(result, RelationshipResult | EventResult)
-                else {
-                    e.evidence_id for p in result.paths for edge in p.edges for e in edge.evidence
-                }
-            )
-            ids.update(eid for n in notices for eid in n.evidence_ids)
-            context = tuple(p for p in snapshot.passages if p.evidence_id in ids)
-            if len(context) != len(ids):
-                budget.stop("malformed_output")
-            if (
-                sum(len(p.text.encode()) for p in context)
-                + (
-                    len(
-                        render_notices(
-                            notices, synthetic=snapshot.source.support_status == "synthetic_fixture"
-                        ).encode()
-                    )
-                    if notices
-                    else 0
-                )
-                > budget.limits.context_bytes
-            ):
-                budget.stop("context_limit")
+            context, notices = review.context, review.notices
             citations = tuple(
                 Citation(
                     **p.model_dump(),
@@ -239,18 +200,12 @@ class FamilyAnswer:
         if isinstance(result, EventResult) and result.claims:
             answer = render_events(
                 result,
-                synthetic=any(
-                    (p.source or snapshot.source).support_status == "synthetic_fixture"
-                    for p in context
-                ),
+                synthetic=review.synthetic,
             )
         elif isinstance(result, RelationshipResult) and result.claims:
             answer = render_history(
                 result,
-                synthetic=any(
-                    (p.source or snapshot.source).support_status == "synthetic_fixture"
-                    for p in context
-                ),
+                synthetic=review.synthetic,
             )
         elif isinstance(result, FamilyResult) and result.paths:
             paths = "; ".join(
@@ -275,17 +230,7 @@ class FamilyAnswer:
             else None
         )
         if notices:
-            answer += (
-                "\n"
-                + render_notices(
-                    notices,
-                    synthetic=any(
-                        (p.source or snapshot.source).support_status == "synthetic_fixture"
-                        for p in context
-                    ),
-                )
-                + "\n"
-            )
+            answer += "\n" + review.text + "\n"
             wording += REVIEW_WORDING
             status = "partial"
         return AnswerContent(

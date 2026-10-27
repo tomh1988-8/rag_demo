@@ -16,22 +16,23 @@ import httpx
 import mlflow
 from mlflow import MlflowClient
 from mlflow.entities import MlflowExperimentLocation
-from pydantic import BaseModel, TypeAdapter
+from pydantic import TypeAdapter
 
 from ask_phil.answering import application_fingerprint
 from ask_phil.event_evaluation import score_events
-from ask_phil.event_extraction import EVENT_PROMPT, IncidentScope, extract_events
+from ask_phil.event_extraction import EVENT_EXTRACTION, IncidentScope
 from ask_phil.evidence import Record, SourceSnapshot
 from ask_phil.execution import ExecutionBudget, ExecutionLimits
 from ask_phil.identity import IdentityCatalogue
 from ask_phil.openrouter import Budget, OpenRouterChat, OpenRouterProfile
 from ask_phil.parentage import ClaimBatch, ExtractedClaims
 from ask_phil.parentage_evaluation import score_extraction
-from ask_phil.parentage_extraction import EXTRACTION_PROMPT, ClaimLLM, extract_parentage
+from ask_phil.parentage_extraction import PARENTAGE_EXTRACTION
 from ask_phil.relationship_evaluation import score_relationships
-from ask_phil.relationship_extraction import RELATIONSHIP_PROMPT, extract_relationships
+from ask_phil.relationship_extraction import RELATIONSHIP_EXTRACTION
 from ask_phil.relationships import ExtractedRelationships, RelationshipBatch
 from ask_phil.story_events import EventBatch, EventExtractionOutput, ExtractedEvents
+from ask_phil.structured_extraction import ClaimExtractor, ClaimLLM
 from ask_phil.tracing import experiment_for
 
 
@@ -41,14 +42,13 @@ class ExtractionInputMismatch(ValueError):
 
 @dataclass(frozen=True)
 class _ExtractionSlice:
-    name: str
-    output_cls: type[BaseModel]
-    prompt: str
-    extract: Callable[
-        [SourceSnapshot, IdentityCatalogue, ClaimLLM],
-        tuple[ClaimBatch | RelationshipBatch | EventBatch, float],
-    ]
+    extractor: (
+        ClaimExtractor[ExtractedClaims, ClaimBatch]
+        | ClaimExtractor[ExtractedRelationships, RelationshipBatch]
+        | ClaimExtractor[EventExtractionOutput, EventBatch]
+    )
     score: Callable[[str], Record]
+    incidents: dict[str, IncidentScope] | None = None
 
 
 def _slice(
@@ -71,31 +71,23 @@ def _slice(
         if set(incidents) != {p.evidence_id for p in snapshot.passages}:
             raise ExtractionInputMismatch("Incident scope must identify each captured passage.")
         return _ExtractionSlice(
-            "story_event_extraction",
-            EventExtractionOutput,
-            EVENT_PROMPT,
-            lambda s, c, llm: extract_events(s, c, llm, incidents),
+            EVENT_EXTRACTION,
             lambda raw: score_events(raw, expected_events, snapshot),
+            incidents,
         )
     if relationships:
         expected_relationships = ExtractedRelationships.model_validate(
             {"claims": reference["expected_claims"]}
         )
         return _ExtractionSlice(
-            "relationship_extraction",
-            ExtractedRelationships,
-            RELATIONSHIP_PROMPT,
-            extract_relationships,
+            RELATIONSHIP_EXTRACTION,
             lambda raw: score_relationships(
                 raw, expected_relationships, snapshot, reference.get("alternatives")
             ),
         )
     expected_parentage = ExtractedClaims.model_validate({"claims": reference["expected_claims"]})
     return _ExtractionSlice(
-        "parentage_extraction",
-        ExtractedClaims,
-        EXTRACTION_PROMPT,
-        extract_parentage,
+        PARENTAGE_EXTRACTION,
         lambda raw: score_extraction(raw, expected_parentage, snapshot),
     )
 
@@ -162,7 +154,7 @@ class ClaimExtractionRun:
         frozen = _load_inputs(snapshot_path, reference_path, relationships, events=events)
         snapshot, catalogue, selected = frozen.snapshot, frozen.catalogue, frozen.selected
         chat = OpenRouterChat(self._profile, self._key, self._budget, self._client)
-        llm = ClaimLLM(chat, selected.output_cls)
+        llm = ClaimLLM(chat)
         execution = ExecutionBudget(
             ExecutionLimits(model_calls=1, tool_calls=0, capabilities=(), http_calls=3)
         )
@@ -172,14 +164,12 @@ class ClaimExtractionRun:
                 ["git", "rev-parse", "HEAD"], text=True
             ).strip(),
             "application_sha256": application_fingerprint(),
-            "prompt_sha256": hashlib.sha256(selected.prompt.encode()).hexdigest(),
+            "prompt_sha256": selected.extractor.prompt_sha256,
             "snapshot_id": snapshot.snapshot_id,
             "snapshot_sha256": snapshot.fingerprint,
             "snapshot_file_sha256": hashlib.sha256(frozen.snapshot_bytes).hexdigest(),
             "reference_sha256": hashlib.sha256(frozen.reference_bytes).hexdigest(),
-            "schema_sha256": hashlib.sha256(
-                json.dumps(selected.output_cls.model_json_schema(), sort_keys=True).encode()
-            ).hexdigest(),
+            "schema_sha256": selected.extractor.schema_sha256,
             "profile": self._profile.model_dump(mode="json"),
             "expenditure_category": "offline_evaluation",
             "state": "running",
@@ -205,7 +195,8 @@ class ClaimExtractionRun:
             with (
                 execution.activate(),
                 mlflow.start_span(
-                    selected.name, trace_destination=MlflowExperimentLocation(experiment_id)
+                    selected.extractor.name,
+                    trace_destination=MlflowExperimentLocation(experiment_id),
                 ) as span,
             ):
                 record["trace_id"] = span.trace_id
@@ -219,7 +210,9 @@ class ClaimExtractionRun:
                 _save(output, record)
                 stage = "extraction"
                 try:
-                    batch, elapsed_ms = selected.extract(snapshot, catalogue, llm)
+                    batch, elapsed_ms = selected.extractor.extract(
+                        snapshot, catalogue, llm, selected.incidents
+                    )
                     record.update(batch=batch.model_dump(mode="json"), elapsed_ms=elapsed_ms)
                 except (ValueError, RuntimeError) as exc:
                     record.update(failure="extraction_failed", failure_type=type(exc).__name__)

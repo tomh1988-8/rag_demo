@@ -24,7 +24,7 @@ from ask_phil.classified_facts import ContextClaim
 from ask_phil.event_graph import EventGraph
 from ask_phil.evidence import Fingerprint, Passage, Record, SourceSnapshot
 from ask_phil.execution import ExecutionStopped, current_execution, read_options
-from ask_phil.review_notes import ReviewNotice, complete_review_groups
+from ask_phil.review_notes import ReviewNotice, retrieved_review_notices
 from ask_phil.storage import EvidenceStore
 
 if TYPE_CHECKING:
@@ -348,12 +348,8 @@ class TextRetriever:
         annotations = EventGraph(self.database_url).text_context(
             snapshot.snapshot_id, tuple(h.passage.evidence_id for h in hits)
         )
-        from ask_phil.knowledge_review import review_notices
-
-        ids = {h.passage.evidence_id for h in hits}
-        all_notices = review_notices(self.database_url, snapshot.snapshot_id)
-        notices = complete_review_groups(
-            all_notices, tuple(n for n in all_notices if ids.intersection(n.evidence_ids))
+        notices = retrieved_review_notices(
+            self.database_url, snapshot.snapshot_id, {h.passage.evidence_id for h in hits}
         )
         if budget:
             budget.check()

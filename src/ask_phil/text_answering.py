@@ -28,7 +28,12 @@ from ask_phil.execution import ExecutionBudget, ExecutionStopped
 from ask_phil.identity import IdentityCatalogue
 from ask_phil.models import ModelConfigurationError, ModelExecution, Models, TokenUsage
 from ask_phil.retrieval import PinnedText, Retrieval
-from ask_phil.review_notes import REVIEW_WORDING, ReviewNotice, render_notices, review_context
+from ask_phil.review_notes import (
+    REVIEW_WORDING,
+    ReviewExplanation,
+    ReviewNotice,
+    prepare_text_review,
+)
 
 
 class TextAnswer:
@@ -86,6 +91,7 @@ class TextAnswer:
         )
         failure = False
         notices: tuple[ReviewNotice, ...] = ()
+        review = ReviewExplanation()
         clarification = conversation.reference.clarification if conversation else None
         try:
             budget.check()
@@ -115,12 +121,10 @@ class TextAnswer:
                         context_claims=retrieved.context_claims,
                     )
                     if retrieved.review_notices:
-                        context = review_context(
+                        review = prepare_text_review(
                             snapshot, retrieved.review_notices, budget.limits.context_bytes
                         )
-                        # The existing text-answer contract allows three cited passages.
-                        if len(context) > 3:
-                            context = ()
+                        context = review.context
                     span.set_outputs(
                         {
                             "passages": [p.model_dump() for p in context],
@@ -146,16 +150,9 @@ class TextAnswer:
                     )
                     root.set_attribute("answer_model_skipped", "empty_context")
                 elif retrieved.review_notices:
-                    notices = retrieved.review_notices
+                    notices = review.notices
                     draft = Draft(
-                        answer="Right, listen. "
-                        + render_notices(
-                            notices,
-                            synthetic=any(
-                                (p.source or snapshot.source).support_status == "synthetic_fixture"
-                                for p in context
-                            ),
-                        ),
+                        answer="Right, listen. " + review.text,
                         status="partial",
                         evidence_ids=tuple(p.evidence_id for p in context),
                         unanswered=(

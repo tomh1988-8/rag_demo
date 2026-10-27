@@ -532,20 +532,32 @@ def test_dispute_keeps_both_source_accounts_or_abstains_at_the_context_limit(
                 execution_limits=ExecutionLimits(context_bytes=limit),
             )
         ) as client:
-            result = client.post("/v1/answers", json={"question": "Who is Ben Mitchell's father?"})
-            assert result.status_code == 200, result.text
-            answer = result.json()["response"]
-            if limit == 1200:
-                assert answer["status"] == "partial"
-                assert "Phil Mitchell" in answer["answer"] and "Grant Mitchell" in answer["answer"]
-                assert "Synthetic" in answer["answer"]
-                assert {c["evidence_id"] for c in answer["citations"]} == {
-                    "synthetic-account-1",
-                    "synthetic-account-2",
+            for route in ("text_rag", "graph"):
+                payload: dict[str, object] = {
+                    "question": "Who is Ben Mitchell's father?",
+                    "route": route,
                 }
-            else:
-                assert answer["status"] == "insufficient_evidence"
-                assert answer["citations"] == []
+                if route == "graph":
+                    payload["graph"] = {"character_id": "ben-mitchell", "direction": "ancestors"}
+                result = client.post("/v1/answers", json=payload)
+                assert result.status_code == 200, result.text
+                answer = result.json()["response"]
+                if limit == 1200:
+                    assert answer["status"] == "partial"
+                    assert "Phil Mitchell" in answer["answer"]
+                    assert "Grant Mitchell" in answer["answer"]
+                    assert "Synthetic" in answer["answer"]
+                    assert {c["evidence_id"] for c in answer["citations"]} == {
+                        "synthetic-account-1",
+                        "synthetic-account-2",
+                    }
+                else:
+                    assert answer["status"] == "insufficient_evidence"
+                    assert answer["citations"] == []
+                    assert answer.get("review_notices", []) == []
+                assert answer["execution"]["stop_reason"] == (
+                    "context_limit" if route == "graph" and limit == 250 else None
+                )
 
 
 def test_maintainer_can_supply_a_new_supported_correction_without_editing_the_raw_claim(

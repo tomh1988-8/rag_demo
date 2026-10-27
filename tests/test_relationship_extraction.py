@@ -3,6 +3,7 @@ from decimal import Decimal
 from pathlib import Path
 
 import httpx
+import pytest
 from test_relationship_claims import reference_batch
 
 from ask_phil.openrouter import Budget, OpenRouterChat, OpenRouterProfile
@@ -11,7 +12,10 @@ from ask_phil.relationship_extraction import extract_relationships
 from ask_phil.relationships import ExtractedRelationships
 
 
-def test_structured_extraction_uses_source_inputs_and_retains_candidates(tmp_path: Path) -> None:
+@pytest.mark.parametrize("configured_schema", [False, True])
+def test_structured_extraction_uses_source_inputs_and_retains_candidates(
+    tmp_path: Path, configured_schema: bool
+) -> None:
     snapshot, reference, _ = reference_batch()
     candidate = reference.claims[0].model_copy(update={"claim_id": "provider-candidate"})
     outbound: list[str] = []
@@ -49,6 +53,8 @@ def test_structured_extraction_uses_source_inputs_and_retains_candidates(tmp_pat
                 },
             )
         body = json.loads(request.content)
+        schema = body["response_format"]["json_schema"]["schema"]
+        assert "RelationshipClaim" in schema["$defs"]
         outbound.append(body["messages"][0]["content"])
         return httpx.Response(
             200,
@@ -83,9 +89,8 @@ def test_structured_extraction_uses_source_inputs_and_retains_candidates(tmp_pat
         chat = OpenRouterChat(
             profile, "synthetic-provider-key", Budget(tmp_path / "budget.db"), client
         )
-        batch, elapsed = extract_relationships(
-            snapshot, reference.catalogue, ClaimLLM(chat, ExtractedRelationships)
-        )
+        llm = ClaimLLM(chat, ExtractedRelationships) if configured_schema else ClaimLLM(chat)
+        batch, elapsed = extract_relationships(snapshot, reference.catalogue, llm)
     assert batch.claims == (candidate,)
     assert batch.snapshot_sha256 == snapshot.fingerprint and elapsed > 0
     assert len(outbound) == 1

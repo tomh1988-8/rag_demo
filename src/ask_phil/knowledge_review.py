@@ -1,7 +1,7 @@
 """Maintainer-only review revisions, retaining prior Claims and publishing one usable version."""
 
 import hashlib
-from typing import Literal, Self
+from typing import Self
 from uuid import uuid4
 
 import psycopg
@@ -10,7 +10,7 @@ from psycopg.types.json import Jsonb
 from pydantic import Field, model_validator
 
 from ask_phil.claim_projections import EventAudit, FamilyAudit, GraphVersions, RelationshipAudit
-from ask_phil.claims import ClaimReview, evidence_resolves, replacement_claim_ids
+from ask_phil.claims import ClaimReview
 from ask_phil.classified_facts import ContextClaim
 from ask_phil.event_graph import EventGraph
 from ask_phil.evidence import Fingerprint, Identifier, Passage, Record
@@ -23,13 +23,8 @@ from ask_phil.refresh_journal import refresh_journal
 from ask_phil.relationship_graph import RelationshipGraph
 from ask_phil.relationships import RelationshipClaim, admit_relationships
 from ask_phil.retrieval import TextRetriever
-from ask_phil.review_notes import (
-    ReviewedClaim,
-    ReviewNotice,
-    character_ids,
-    describe_account,
-    review_group,
-)
+from ask_phil.review_notes import ReviewedClaim
+from ask_phil.review_notes import review_notices as review_notices
 from ask_phil.security import require_credential_free
 from ask_phil.source_records import SourceBatch
 from ask_phil.storage import EvidenceStore, SnapshotConflict
@@ -130,87 +125,6 @@ def inspect_reviews(database_url: str, snapshot_id: str) -> ReviewInspection:
         evidence=tuple(p for p in snapshot.passages if p.evidence_id in evidence_ids),
         history=tuple(reversed(history)),
     )
-
-
-def review_notices(database_url: str, snapshot_id: str) -> tuple[ReviewNotice, ...]:
-    """Only review revisions change serving interpretation; legacy snapshots retain behavior."""
-    if review_revision(database_url, snapshot_id) is None:
-        return ()
-    inspection = inspect_reviews(database_url, snapshot_id)
-    passages = {p.evidence_id: p for p in inspection.evidence}
-    notices = []
-    kinds: tuple[Literal["family", "relationship", "event"], ...] = (
-        "family",
-        "relationship",
-        "event",
-    )
-    for kind, audit in zip(
-        kinds, (inspection.family, inspection.relationship, inspection.event), strict=True
-    ):
-        if audit is None:
-            continue
-        claims: dict[str, ReviewedClaim] = {c.claim_id: c for c in audit.batch.claims}
-        decisions = list(audit.admission.decisions)
-        if isinstance(audit, EventAudit):
-            claims.update({c.claim_id: c for c in audit.batch.context_claims})
-            decisions.extend(audit.admission.text_decisions)
-        names = {c.character_id: c.name for c in audit.batch.catalogue.characters}
-        reviews = {r.claim_id: r for r in audit.reviews}
-        for decision in decisions:
-            if decision.status != "held" or set(decision.reasons) <= {"non_biological", "negated"}:
-                continue
-            claim = claims[decision.claim_id]
-            review = reviews.get(claim.claim_id)
-            disputed = (
-                bool(review and review.verdict == "disputed") or "contradiction" in decision.reasons
-            )
-            targets = (
-                tuple(claims[cid] for cid in replacement_claim_ids(claim.claim_id, reviews))
-                if review and review.verdict == "superseded"
-                else ()
-            )
-            accounts = (claim, *targets)
-            spans = tuple(
-                e for c in accounts for e in c.evidence if evidence_resolves((e,), passages)
-            )
-            if not spans:
-                continue
-            if review and review.verdict == "superseded":
-                label = "Superseded claim (not current)"
-            elif disputed:
-                label = "Unresolved source disagreement (no established connection)"
-            else:
-                label = "Held claim (not established)"
-            explanation = f"{label}: {describe_account(claim, names)}."
-            for target in targets:
-                target_decision = next(d for d in decisions if d.claim_id == target.claim_id)
-                current = (
-                    "Current replacement source account"
-                    if target_decision.status == "admitted"
-                    or set(target_decision.reasons) <= {"non_biological", "negated"}
-                    else "Current replacement remains held"
-                )
-                explanation += f" {current}: {describe_account(target, names)}."
-            if not review:
-                explanation += " A content-bound support review is still required."
-            explanation += (
-                " Source passages: " + ", ".join(dict.fromkeys(e.evidence_id for e in spans)) + "."
-            )
-            notices.append(
-                ReviewNotice(
-                    family=kind,
-                    claim_id=claim.claim_id,
-                    character_ids=tuple(sorted({i for c in accounts for i in character_ids(c)})),
-                    evidence_ids=tuple(dict.fromkeys(e.evidence_id for e in spans)),
-                    explanation=explanation,
-                    group_id=review_group(claim),
-                    related_group_ids=tuple(sorted({review_group(c) for c in targets})),
-                    disputed=disputed,
-                    reviewer=review.reviewer if review else None,
-                    rationale=review.note if review else None,
-                )
-            )
-    return tuple(notices)
 
 
 def _reviews[R: ClaimReview](
