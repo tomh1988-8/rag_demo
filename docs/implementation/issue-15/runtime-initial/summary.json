@@ -1,0 +1,12 @@
+[
+  {
+    "scenario": "locator-correction",
+    "public_responses": 7,
+    "application_sha256": "480509fc4141c2eaef071f0c1d780e2ece90cd3958027daf353b5e0b44539e4f"
+  },
+  {
+    "scenario": "synthetic-dispute",
+    "public_responses": 6,
+    "application_sha256": "480509fc4141c2eaef071f0c1d780e2ece90cd3958027daf353b5e0b44539e4f"
+  }
+]

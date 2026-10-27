@@ -24,6 +24,7 @@ from ask_phil.classified_facts import ContextClaim
 from ask_phil.event_graph import EventGraph
 from ask_phil.evidence import Fingerprint, Passage, Record, SourceSnapshot
 from ask_phil.execution import ExecutionStopped, current_execution, read_options
+from ask_phil.review_notes import ReviewNotice, complete_review_groups
 from ask_phil.storage import EvidenceStore
 
 if TYPE_CHECKING:
@@ -85,6 +86,7 @@ class Retrieval(Record):
     k: int
     embedding_id: str
     context_claims: tuple[ContextClaim, ...] = Field(default=(), exclude_if=lambda v: not v)
+    review_notices: tuple[ReviewNotice, ...] = Field(default=(), exclude_if=lambda v: not v)
 
 
 class TextRetriever:
@@ -346,6 +348,13 @@ class TextRetriever:
         annotations = EventGraph(self.database_url).text_context(
             snapshot.snapshot_id, tuple(h.passage.evidence_id for h in hits)
         )
+        from ask_phil.knowledge_review import review_notices
+
+        ids = {h.passage.evidence_id for h in hits}
+        all_notices = review_notices(self.database_url, snapshot.snapshot_id)
+        notices = complete_review_groups(
+            all_notices, tuple(n for n in all_notices if ids.intersection(n.evidence_ids))
+        )
         if budget:
             budget.check()
         return Retrieval(
@@ -354,6 +363,7 @@ class TextRetriever:
             k=k,
             embedding_id=self.embedding_id,
             context_claims=annotations,
+            review_notices=notices,
         )
 
 
@@ -390,6 +400,9 @@ class PinnedText:
             return
         with _read_timeout():
             if self.publication:
+                from ask_phil.publications import PublicationStore
+
+                PublicationStore(self._retriever.database_url).verify(self.publication)
                 expected = self.publication.manifest
                 manifest = self._retriever._manifest(self.snapshot)
                 if (

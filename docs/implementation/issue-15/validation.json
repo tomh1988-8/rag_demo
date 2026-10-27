@@ -1,0 +1,115 @@
+{
+  "captured_at": "2026-10-27T19:46:11.730790+00:00",
+  "base_revision": "640084cc2fc55f43abb8f44b7c68c7a3a40d6c72",
+  "application_sha256": "badf2d507c8abcf7cacb8654585026c411f4b64bba531e9513ac0f759318ab07",
+  "revision_linkage": "publication.json records the implementation commit and verifies that all frozen software-inputs.json file hashes exist unchanged in that committed tree. Later receipt/handoff publication changes documentation only.",
+  "software": {
+    "tests": 480,
+    "failures": 0,
+    "errors": 0,
+    "skipped": 0,
+    "passed": 480,
+    "seconds": 1242.657,
+    "report": "software-tests.xml",
+    "report_sha256": "a81ac0a02321938349e4d019426ebe03a286c67e991ab1c1f53957d837f100ff",
+    "log": "software-tests.log",
+    "log_sha256": "874d8da5f43ecf14bd6fddba1c7b50c07d720bc99091030b3a7a7769b195caea",
+    "command": "ASK_PHIL_TEST_DATABASE_URL=LOCAL_DISPOSABLE_POSTGRES PREFECT_HOME=/tmp/ask-phil-issue-15-suite-prefect PREFECT_SERVER_ANALYTICS_ENABLED=false MLFLOW_DISABLE_AGENT_HINT=1 .venv/bin/pytest -q -p no:cacheprovider --durations=15 --junitxml=docs/implementation/issue-15/software-tests.xml",
+    "strict_mypy": {
+      "passed": true,
+      "files": 109,
+      "command": ".venv/bin/mypy"
+    },
+    "ruff": {
+      "lint": true,
+      "format": true,
+      "files": 109,
+      "commands": [
+        ".venv/bin/ruff check src tests scripts",
+        ".venv/bin/ruff format --check src tests scripts"
+      ]
+    },
+    "new_focused_tests_passed_before_full_suite": 26,
+    "full_suite_runs": 1,
+    "process_exit_code": 0,
+    "software_inputs": "software-inputs.json",
+    "frozen_inputs_checked": 166,
+    "changes_after_full_suite_started": []
+  },
+  "reviews": {
+    "fixed_point": "640084cc2fc55f43abb8f44b7c68c7a3a40d6c72",
+    "standards_hard_violations": 0,
+    "standards_judgment_calls_remaining": 0,
+    "spec_findings_remaining": 0,
+    "report": "review.md",
+    "independent_runtime_review_passed": 12
+  },
+  "runtime": {
+    "directory": "runtime-accepted",
+    "public_responses": 19,
+    "current_reviewed_quality_cases": 12,
+    "current_cases_passed": 12,
+    "known_wrong_old_version_answers_excluded": 2,
+    "actual_trace_outputs_exact": 19,
+    "citation_resolution_passes": 19,
+    "saved_response_matches": 19,
+    "restarts_and_session_resets": 3,
+    "compatible_rollbacks": 3,
+    "failed_projection_keeps_last_publication": true,
+    "unpublished_candidate_http_status": 503,
+    "exact_retry_publishes": true,
+    "quality": "answer-quality.json",
+    "regressions": "regressions.json",
+    "initial_text_context_failure_retained": true,
+    "actual_embeddings": "embeddinggemma:300m",
+    "embedding_digest": "85462619ee721b466c5927d109d4cb765861907d5417b9109caebc4e614679f1"
+  },
+  "preservation": {
+    "workspace": {
+      "checked": 51,
+      "changed": []
+    },
+    "data": {
+      "checked": 37,
+      "changed": []
+    },
+    "private": {
+      "checked": 2,
+      "changed": []
+    }
+  },
+  "private_key_storage": {
+    "file_mode": "0o600",
+    "directory_mode": "0o700"
+  },
+  "paid_model_calls": 0,
+  "reported_issue_inference_usd": "0",
+  "shared_ledger_usd": 0.464981,
+  "unsettled_reservations": 0,
+  "checklist_status_counts": {
+    "Pass": 35,
+    "Pending": 16,
+    "Deferred": 1,
+    "N/A": 12
+  },
+  "python": "3.12.3",
+  "packages": {
+    "pytest": "9.1.1",
+    "mypy": "1.20.2",
+    "ruff": "0.16.8",
+    "fastapi": "0.141.1",
+    "httpx": "0.28.1",
+    "pydantic": "2.13.5",
+    "psycopg": "3.3.6",
+    "mlflow": "3.16.1",
+    "llama-index-core": "0.14.25",
+    "prefect": "3.8.6"
+  },
+  "limitations": [
+    "Exposed deterministic source-review capability, not new model-quality or held-out acceptance.",
+    "Synthetic disagreement is not a real EastEnders source conflict.",
+    "The adoption case authors a known bad prior review; two old-version factual failures remain explicit.",
+    "Original extraction labels, raw candidates, scores and ordinary text-quality failures are unchanged.",
+    "Full-product code/prompt recovery, wider graph coverage and representative release gates remain Pending."
+  ]
+}

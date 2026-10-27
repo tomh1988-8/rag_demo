@@ -1,0 +1,954 @@
+{
+  "scenario": "synthetic-dispute",
+  "application_sha256": "480509fc4141c2eaef071f0c1d780e2ece90cd3958027daf353b5e0b44539e4f",
+  "baseline": {
+    "compatibility_id": "4ed56cf5b7efd53c9a5102c600deeff6686d613df8308ea68786437220fa7bee",
+    "manifest": {
+      "format_version": "source-text-publication-v1",
+      "snapshot_id": "synthetic-review-dispute-v1",
+      "snapshot_sha256": "ee5315994f5a3230973daa0724c2b6085ef3cfdb55cab48baced538eb71b0e4c",
+      "input_sha256": "ee5315994f5a3230973daa0724c2b6085ef3cfdb55cab48baced538eb71b0e4c",
+      "sources": [],
+      "index": {
+        "format_version": "pgvector-exact-v1",
+        "snapshot_sha256": "ee5315994f5a3230973daa0724c2b6085ef3cfdb55cab48baced538eb71b0e4c",
+        "embedding_id": "ca378fa1493585d9a05dbc2ed5b01023a944d96bae9a94ec7349ed0dbd2fd7fd",
+        "dimensions": 768,
+        "passages": 2,
+        "artifact_sha256": "546c7096d6eb741860a5f87962dc87a8b05098a132a5aa615c51600f8afa0ac7"
+      },
+      "graphs": {
+        "family": "927798da62dbaa9a280da969bc1b9b3911b3ade54f46c290e63bbd6e11348341",
+        "relationship": null,
+        "event": null
+      }
+    },
+    "generation": 1,
+    "published_at": "2026-10-27T18:59:41.708831Z"
+  },
+  "reviewed": {
+    "compatibility_id": "9a9a01103dea716e8c7c07c95d0b67683e68550c85a7cf54e393ad4bc99240d8",
+    "manifest": {
+      "format_version": "source-text-publication-v1",
+      "snapshot_id": "review-1c08dc3d7a604c0093fdefa32e1ae1a65cf25823462d7b5e39965c4ef42bfde9",
+      "snapshot_sha256": "f74cd9f0635237e1b580e0ffc93ee61081baddeab22977efff6b11f9d679ec1d",
+      "input_sha256": "ee5315994f5a3230973daa0724c2b6085ef3cfdb55cab48baced538eb71b0e4c",
+      "sources": [],
+      "index": {
+        "format_version": "pgvector-exact-v1",
+        "snapshot_sha256": "f74cd9f0635237e1b580e0ffc93ee61081baddeab22977efff6b11f9d679ec1d",
+        "embedding_id": "ca378fa1493585d9a05dbc2ed5b01023a944d96bae9a94ec7349ed0dbd2fd7fd",
+        "dimensions": 768,
+        "passages": 2,
+        "artifact_sha256": "546c7096d6eb741860a5f87962dc87a8b05098a132a5aa615c51600f8afa0ac7"
+      },
+      "graphs": {
+        "family": "8985f4805ed0ff4cfbdd6ced6a16376279615cd2996acaba8cf3ab52a313e9bb",
+        "relationship": null,
+        "event": null
+      },
+      "review_sha256": "1c08dc3d7a604c0093fdefa32e1ae1a65cf25823462d7b5e39965c4ef42bfde9"
+    },
+    "generation": 2,
+    "published_at": "2026-10-27T18:59:48.886217Z"
+  },
+  "publication_run": {
+    "run_id": "998d88fb-2e70-47b7-a953-cefb8d067f7d",
+    "flow_run_id": "b0a90613-245c-48a4-84cb-82df97eadf18",
+    "started_at": "2026-10-27T18:59:48.293936Z",
+    "finished_at": "2026-10-27T18:59:48.886217Z",
+    "status": "published",
+    "action": "review",
+    "input_sha256": "ee5315994f5a3230973daa0724c2b6085ef3cfdb55cab48baced538eb71b0e4c",
+    "snapshot_id": "review-1c08dc3d7a604c0093fdefa32e1ae1a65cf25823462d7b5e39965c4ef42bfde9",
+    "compatibility_id": "9a9a01103dea716e8c7c07c95d0b67683e68550c85a7cf54e393ad4bc99240d8",
+    "sources": [],
+    "issues": [],
+    "phase": "complete",
+    "error": null
+  },
+  "failure": null,
+  "recovery": {
+    "run_id": "5222f236-14d1-452d-92f6-6abcbc79754a",
+    "flow_run_id": "fa1f9bdb-60f5-4958-977c-59c7ccba15e4",
+    "started_at": "2026-10-27T19:00:05.424461Z",
+    "finished_at": "2026-10-27T19:00:05.547904Z",
+    "status": "rolled_back",
+    "action": "rollback",
+    "input_sha256": null,
+    "snapshot_id": "synthetic-review-dispute-v1",
+    "compatibility_id": "4ed56cf5b7efd53c9a5102c600deeff6686d613df8308ea68786437220fa7bee",
+    "sources": [],
+    "issues": [],
+    "phase": "complete",
+    "error": null
+  },
+  "responses": [
+    {
+      "case_id": "before-review",
+      "response": {
+        "response_id": "e86a07c0-2b54-468d-a499-29427e618a16",
+        "question": "Who is Ben Mitchell's biological father in these synthetic accounts?",
+        "status": "insufficient_evidence",
+        "answer": "I can't establish the requested biological paths from this graph (empty). Only admitted biological relationships in this reviewed snapshot are traversed. Missing ancestry does not establish that a relationship does not exist. Results are incomplete outside the selected material and traversal bounds. Source-supported does not mean independently cross-checked.",
+        "unanswered": [
+          "Family coverage outside the reviewed spans and traversal bounds."
+        ],
+        "citations": [],
+        "snapshot_id": "synthetic-review-dispute-v1",
+        "snapshot_sha256": "ee5315994f5a3230973daa0724c2b6085ef3cfdb55cab48baced538eb71b0e4c",
+        "publication": {
+          "compatibility_id": "4ed56cf5b7efd53c9a5102c600deeff6686d613df8308ea68786437220fa7bee",
+          "index_sha256": "c217bae1186a05702daf3cc6e843d84186c53ca1399d8e3d044d73bd3fd3ad1d",
+          "generation": 1
+        },
+        "source": {
+          "title": "Synthetic conflicting accounts (not EastEnders canon)",
+          "url": "https://example.invalid/synthetic-review",
+          "revision_id": "synthetic-review-v1",
+          "revision_url": "https://example.invalid/synthetic-review/v1",
+          "section": "Storylines / 1996–2000",
+          "captured_at": "2026-10-17T13:07:31.530421Z",
+          "capture_sha256": "1e81be8d42419cd0af30fe8531c28d149155e37ff152a6eb574e2692b76e1601",
+          "scope": "main_series",
+          "license_url": "https://creativecommons.org/licenses/by-sa/4.0/",
+          "attribution": "Authored regression fixture; not a claim about EastEnders canon.",
+          "coverage": "Reviewed narrative sections in this captured revision only.",
+          "gaps": [
+            "Partial canon coverage; other paragraphs remain excluded or awaiting review.",
+            "Identity and episode metadata do not independently corroborate story claims."
+          ],
+          "support_status": "synthetic_fixture"
+        },
+        "retrieved": [],
+        "context": [],
+        "retrieval_k": 0,
+        "route": "graph",
+        "route_override": true,
+        "graph": {
+          "snapshot_id": "synthetic-review-dispute-v1",
+          "snapshot_sha256": "ee5315994f5a3230973daa0724c2b6085ef3cfdb55cab48baced538eb71b0e4c",
+          "graph_sha256": "927798da62dbaa9a280da969bc1b9b3911b3ade54f46c290e63bbd6e11348341",
+          "query": {
+            "character_id": "ben-mitchell",
+            "direction": "ancestors",
+            "max_depth": 3,
+            "max_paths": 20
+          },
+          "status": "empty",
+          "paths": [],
+          "names": {
+            "phil-mitchell": "Phil Mitchell",
+            "grant-mitchell": "Grant Mitchell",
+            "peggy-mitchell": "Peggy Mitchell",
+            "sharon-watts": "Sharon Watts",
+            "ben-mitchell": "Ben Mitchell",
+            "kathy-beale": "Kathy Beale",
+            "den-watts": "Den Watts"
+          },
+          "limitation": "Only admitted biological relationships in this reviewed snapshot are traversed. Missing ancestry does not establish that a relationship does not exist. Results are incomplete outside the selected material and traversal bounds. Source-supported does not mean independently cross-checked."
+        },
+        "baseline_version": "single-query-uncached-v1",
+        "model_settings": null,
+        "prompt_sha256": "c4f9de91a5c4419d0f69dd2fad73485382fa6e6321583b36f7e255e2b3454341",
+        "application_sha256": "480509fc4141c2eaef071f0c1d780e2ece90cd3958027daf353b5e0b44539e4f",
+        "trace_id": "tr-9a7fc994a96048bdd0a6995806e0501d",
+        "execution": {
+          "limits": {
+            "model_calls": 2,
+            "tool_calls": 1,
+            "http_calls": 8,
+            "seconds": 180.0,
+            "context_bytes": 1200,
+            "spend_usd": "0",
+            "retries": 0,
+            "capabilities": [
+              "text_retrieval",
+              "family_graph",
+              "event_graph"
+            ],
+            "concurrency": 4
+          },
+          "model_calls": 0,
+          "tool_calls": 1,
+          "http_calls": 0,
+          "reserved_usd": "0",
+          "stop_reason": null
+        },
+        "elapsed_ms": 149.38169800007017,
+        "usage": {
+          "input_tokens": 0,
+          "output_tokens": 0,
+          "embedding_tokens": 0
+        },
+        "expenditure_category": "serving",
+        "estimated_api_cost_usd": 0.0,
+        "cost_scope": "No inference calls. Database and hosting costs are excluded.",
+        "limitation": "Only admitted biological relationships in this reviewed snapshot are traversed. Missing ancestry does not establish that a relationship does not exist. Results are incomplete outside the selected material and traversal bounds. Source-supported does not mean independently cross-checked."
+      },
+      "trace_output_matches": true,
+      "citations_resolve": true,
+      "saved_response_matches": true,
+      "span_names": [
+        "graph",
+        "family_graph"
+      ]
+    },
+    {
+      "case_id": "reviewed-graph",
+      "response": {
+        "response_id": "4a3d4ec1-4933-49ea-8068-ed0af4e04762",
+        "question": "Who is Ben Mitchell's biological father in these synthetic accounts?",
+        "status": "partial",
+        "answer": "I can't establish the requested biological paths from this graph (empty). \nSynthetic review example, not EastEnders canon. Unresolved source disagreement (no established connection): Phil Mitchell as Ben Mitchell's biological father; story date unknown. Review rationale (synthetic-source-audit): The two authored sources assign different biological fathers. Neither supplies a supported correction. Preserve both accounts and withhold both graph connections. Source passages: synthetic-account-1.\nUnresolved source disagreement (no established connection): Grant Mitchell as Ben Mitchell's biological father; story date unknown. Review rationale (synthetic-source-audit): The two authored sources assign different biological fathers. Neither supplies a supported correction. Preserve both accounts and withhold both graph connections. Source passages: synthetic-account-2.\nThis is source review, not independent corroboration. Coverage outside these reviewed accounts remains unknown.\nOnly admitted biological relationships in this reviewed snapshot are traversed. Missing ancestry does not establish that a relationship does not exist. Results are incomplete outside the selected material and traversal bounds. Source-supported does not mean independently cross-checked.",
+        "unanswered": [
+          "Family coverage outside the reviewed spans and traversal bounds."
+        ],
+        "citations": [
+          {
+            "evidence_id": "synthetic-account-1",
+            "text": "Synthetic account A says Phil Mitchell is Ben Mitchell's biological father.",
+            "sha256": "b0a5d88bfbe8a1fb848bb99e4c421b695f67c6ce228aad05d596d30720fe2cd4",
+            "start": 0,
+            "end": 75,
+            "resolve_path": "/v1/snapshots/review-1c08dc3d7a604c0093fdefa32e1ae1a65cf25823462d7b5e39965c4ef42bfde9/evidence/synthetic-account-1"
+          },
+          {
+            "evidence_id": "synthetic-account-2",
+            "text": "Synthetic account B says Grant Mitchell is Ben Mitchell's biological father. These accounts disagree; neither resolves the other.",
+            "sha256": "5bb2cd4dd771a779182a45ad28d4e5eca327178adcacbccf5fd746a066c5c48c",
+            "start": 0,
+            "end": 129,
+            "resolve_path": "/v1/snapshots/review-1c08dc3d7a604c0093fdefa32e1ae1a65cf25823462d7b5e39965c4ef42bfde9/evidence/synthetic-account-2"
+          }
+        ],
+        "snapshot_id": "review-1c08dc3d7a604c0093fdefa32e1ae1a65cf25823462d7b5e39965c4ef42bfde9",
+        "snapshot_sha256": "f74cd9f0635237e1b580e0ffc93ee61081baddeab22977efff6b11f9d679ec1d",
+        "publication": {
+          "compatibility_id": "9a9a01103dea716e8c7c07c95d0b67683e68550c85a7cf54e393ad4bc99240d8",
+          "index_sha256": "27694fdec19dd02564b75fb6c8784e9f3c5171e25f78e45f0f4a58defe79f6c4",
+          "generation": 2
+        },
+        "source": {
+          "title": "Synthetic conflicting accounts (not EastEnders canon)",
+          "url": "https://example.invalid/synthetic-review",
+          "revision_id": "synthetic-review-v1",
+          "revision_url": "https://example.invalid/synthetic-review/v1",
+          "section": "Storylines / 1996–2000",
+          "captured_at": "2026-10-17T13:07:31.530421Z",
+          "capture_sha256": "1e81be8d42419cd0af30fe8531c28d149155e37ff152a6eb574e2692b76e1601",
+          "scope": "main_series",
+          "license_url": "https://creativecommons.org/licenses/by-sa/4.0/",
+          "attribution": "Authored regression fixture; not a claim about EastEnders canon.",
+          "coverage": "Reviewed narrative sections in this captured revision only.",
+          "gaps": [
+            "Partial canon coverage; other paragraphs remain excluded or awaiting review.",
+            "Identity and episode metadata do not independently corroborate story claims."
+          ],
+          "support_status": "synthetic_fixture"
+        },
+        "retrieved": [],
+        "context": [
+          {
+            "evidence_id": "synthetic-account-1",
+            "text": "Synthetic account A says Phil Mitchell is Ben Mitchell's biological father.",
+            "sha256": "b0a5d88bfbe8a1fb848bb99e4c421b695f67c6ce228aad05d596d30720fe2cd4",
+            "start": 0,
+            "end": 75
+          },
+          {
+            "evidence_id": "synthetic-account-2",
+            "text": "Synthetic account B says Grant Mitchell is Ben Mitchell's biological father. These accounts disagree; neither resolves the other.",
+            "sha256": "5bb2cd4dd771a779182a45ad28d4e5eca327178adcacbccf5fd746a066c5c48c",
+            "start": 0,
+            "end": 129
+          }
+        ],
+        "review_notices": [
+          {
+            "family": "family",
+            "claim_id": "synthetic-father-1",
+            "character_ids": [
+              "ben-mitchell",
+              "phil-mitchell"
+            ],
+            "evidence_ids": [
+              "synthetic-account-1"
+            ],
+            "explanation": "Unresolved source disagreement (no established connection): Phil Mitchell as Ben Mitchell's biological father; story date unknown. Review rationale (synthetic-source-audit): The two authored sources assign different biological fathers. Neither supplies a supported correction. Preserve both accounts and withhold both graph connections. Source passages: synthetic-account-1."
+          },
+          {
+            "family": "family",
+            "claim_id": "synthetic-father-2",
+            "character_ids": [
+              "ben-mitchell",
+              "grant-mitchell"
+            ],
+            "evidence_ids": [
+              "synthetic-account-2"
+            ],
+            "explanation": "Unresolved source disagreement (no established connection): Grant Mitchell as Ben Mitchell's biological father; story date unknown. Review rationale (synthetic-source-audit): The two authored sources assign different biological fathers. Neither supplies a supported correction. Preserve both accounts and withhold both graph connections. Source passages: synthetic-account-2."
+          }
+        ],
+        "retrieval_k": 0,
+        "route": "graph",
+        "route_override": true,
+        "graph": {
+          "snapshot_id": "review-1c08dc3d7a604c0093fdefa32e1ae1a65cf25823462d7b5e39965c4ef42bfde9",
+          "snapshot_sha256": "f74cd9f0635237e1b580e0ffc93ee61081baddeab22977efff6b11f9d679ec1d",
+          "graph_sha256": "8985f4805ed0ff4cfbdd6ced6a16376279615cd2996acaba8cf3ab52a313e9bb",
+          "query": {
+            "character_id": "ben-mitchell",
+            "direction": "ancestors",
+            "max_depth": 3,
+            "max_paths": 20
+          },
+          "status": "empty",
+          "paths": [],
+          "names": {
+            "phil-mitchell": "Phil Mitchell",
+            "grant-mitchell": "Grant Mitchell",
+            "peggy-mitchell": "Peggy Mitchell",
+            "sharon-watts": "Sharon Watts",
+            "ben-mitchell": "Ben Mitchell",
+            "kathy-beale": "Kathy Beale",
+            "den-watts": "Den Watts"
+          },
+          "limitation": "Only admitted biological relationships in this reviewed snapshot are traversed. Missing ancestry does not establish that a relationship does not exist. Results are incomplete outside the selected material and traversal bounds. Source-supported does not mean independently cross-checked."
+        },
+        "baseline_version": "single-query-uncached-v1",
+        "model_settings": null,
+        "prompt_sha256": "f7183350a5a1c8cd4ae9a67af95ff433b5a67761b69c8bc0c936238d44084c56",
+        "application_sha256": "480509fc4141c2eaef071f0c1d780e2ece90cd3958027daf353b5e0b44539e4f",
+        "trace_id": "tr-a4230a580f73ae27dfd05329f75023ff",
+        "execution": {
+          "limits": {
+            "model_calls": 2,
+            "tool_calls": 1,
+            "http_calls": 8,
+            "seconds": 180.0,
+            "context_bytes": 1200,
+            "spend_usd": "0",
+            "retries": 0,
+            "capabilities": [
+              "text_retrieval",
+              "family_graph",
+              "event_graph"
+            ],
+            "concurrency": 4
+          },
+          "model_calls": 0,
+          "tool_calls": 1,
+          "http_calls": 0,
+          "reserved_usd": "0",
+          "stop_reason": null
+        },
+        "elapsed_ms": 212.44187500269618,
+        "usage": {
+          "input_tokens": 0,
+          "output_tokens": 0,
+          "embedding_tokens": 0
+        },
+        "expenditure_category": "serving",
+        "estimated_api_cost_usd": 0.0,
+        "cost_scope": "No inference calls. Database and hosting costs are excluded.",
+        "limitation": "Only admitted biological relationships in this reviewed snapshot are traversed. Missing ancestry does not establish that a relationship does not exist. Results are incomplete outside the selected material and traversal bounds. Source-supported does not mean independently cross-checked."
+      },
+      "trace_output_matches": true,
+      "citations_resolve": true,
+      "saved_response_matches": true,
+      "span_names": [
+        "graph",
+        "family_graph"
+      ]
+    },
+    {
+      "case_id": "reviewed-text",
+      "response": {
+        "response_id": "c62aa4aa-d5d9-415a-8906-96ffefe70ec1",
+        "question": "Who is Ben Mitchell's biological father in these synthetic accounts?",
+        "status": "insufficient_evidence",
+        "answer": "I can't answer from the available captured context. Missing evidence doesn't establish that an event didn't happen.",
+        "unanswered": [
+          "The question cannot be answered from the available context."
+        ],
+        "citations": [],
+        "snapshot_id": "review-1c08dc3d7a604c0093fdefa32e1ae1a65cf25823462d7b5e39965c4ef42bfde9",
+        "snapshot_sha256": "f74cd9f0635237e1b580e0ffc93ee61081baddeab22977efff6b11f9d679ec1d",
+        "publication": {
+          "compatibility_id": "9a9a01103dea716e8c7c07c95d0b67683e68550c85a7cf54e393ad4bc99240d8",
+          "index_sha256": "27694fdec19dd02564b75fb6c8784e9f3c5171e25f78e45f0f4a58defe79f6c4",
+          "generation": 2
+        },
+        "source": {
+          "title": "Synthetic conflicting accounts (not EastEnders canon)",
+          "url": "https://example.invalid/synthetic-review",
+          "revision_id": "synthetic-review-v1",
+          "revision_url": "https://example.invalid/synthetic-review/v1",
+          "section": "Storylines / 1996–2000",
+          "captured_at": "2026-10-17T13:07:31.530421Z",
+          "capture_sha256": "1e81be8d42419cd0af30fe8531c28d149155e37ff152a6eb574e2692b76e1601",
+          "scope": "main_series",
+          "license_url": "https://creativecommons.org/licenses/by-sa/4.0/",
+          "attribution": "Authored regression fixture; not a claim about EastEnders canon.",
+          "coverage": "Reviewed narrative sections in this captured revision only.",
+          "gaps": [
+            "Partial canon coverage; other paragraphs remain excluded or awaiting review.",
+            "Identity and episode metadata do not independently corroborate story claims."
+          ],
+          "support_status": "synthetic_fixture"
+        },
+        "retrieved": [
+          {
+            "passage": {
+              "evidence_id": "synthetic-account-1",
+              "text": "Synthetic account A says Phil Mitchell is Ben Mitchell's biological father.",
+              "sha256": "b0a5d88bfbe8a1fb848bb99e4c421b695f67c6ce228aad05d596d30720fe2cd4",
+              "start": 0,
+              "end": 75
+            },
+            "similarity": 0.8402877104368127
+          },
+          {
+            "passage": {
+              "evidence_id": "synthetic-account-2",
+              "text": "Synthetic account B says Grant Mitchell is Ben Mitchell's biological father. These accounts disagree; neither resolves the other.",
+              "sha256": "5bb2cd4dd771a779182a45ad28d4e5eca327178adcacbccf5fd746a066c5c48c",
+              "start": 0,
+              "end": 129
+            },
+            "similarity": 0.788114050947053
+          }
+        ],
+        "context": [],
+        "retrieval_k": 3,
+        "route": "text_rag",
+        "baseline_version": "single-query-uncached-v2",
+        "model_settings": {
+          "embedding_model": "embeddinggemma:300m",
+          "embedding_digest": "85462619ee721b466c5927d109d4cb765861907d5417b9109caebc4e614679f1",
+          "embedding_dimensions": 768,
+          "provider_type": "openrouter",
+          "answer_model": "openai/gpt-6-sol",
+          "canonical_slug": "openai/gpt-6-sol-20260922",
+          "provider": "openai",
+          "input_price_per_million": "2",
+          "output_price_per_million": "10",
+          "output_tokens": 8192,
+          "reasoning_effort": "medium",
+          "request_timeout_seconds": 180
+        },
+        "prompt_sha256": "55eaebf2442099435efad95f9aab668aa410e0ede1ad5b8ad3129665eee3f936",
+        "application_sha256": "480509fc4141c2eaef071f0c1d780e2ece90cd3958027daf353b5e0b44539e4f",
+        "trace_id": "tr-4ae701670a030dbbdadaa9e4040906dd",
+        "execution": {
+          "limits": {
+            "model_calls": 2,
+            "tool_calls": 1,
+            "http_calls": 8,
+            "seconds": 180.0,
+            "context_bytes": 1200,
+            "spend_usd": "0",
+            "retries": 0,
+            "capabilities": [
+              "text_retrieval",
+              "family_graph",
+              "event_graph"
+            ],
+            "concurrency": 4
+          },
+          "model_calls": 1,
+          "tool_calls": 1,
+          "http_calls": 2,
+          "reserved_usd": "0",
+          "stop_reason": null
+        },
+        "elapsed_ms": 425.1974170038011,
+        "usage": {
+          "input_tokens": 0,
+          "output_tokens": 0,
+          "embedding_tokens": 22
+        },
+        "expenditure_category": "serving",
+        "estimated_api_cost_usd": 0.0,
+        "cost_scope": "OpenRouter reported inference credits only. Null means unknown cost; the local budget retains a reservation. Credit purchase fees, tax, local embeddings and hosting are excluded.",
+        "limitation": "Source-supported is not independently cross-checked. Coverage is limited to the captured snapshot; this provider baseline is not deployment approval."
+      },
+      "trace_output_matches": true,
+      "citations_resolve": true,
+      "saved_response_matches": true,
+      "span_names": [
+        "text_rag",
+        "text_retrieval",
+        "query_embedding",
+        "assembled_context"
+      ]
+    },
+    {
+      "case_id": "reviewed-cli",
+      "response": {
+        "response_id": "931e77b0-8e14-4799-a745-d82467071c2f",
+        "question": "Who is Ben Mitchell's biological father in these synthetic accounts?",
+        "status": "partial",
+        "answer": "I can't establish the requested biological paths from this graph (empty). \nSynthetic review example, not EastEnders canon. Unresolved source disagreement (no established connection): Phil Mitchell as Ben Mitchell's biological father; story date unknown. Review rationale (synthetic-source-audit): The two authored sources assign different biological fathers. Neither supplies a supported correction. Preserve both accounts and withhold both graph connections. Source passages: synthetic-account-1.\nUnresolved source disagreement (no established connection): Grant Mitchell as Ben Mitchell's biological father; story date unknown. Review rationale (synthetic-source-audit): The two authored sources assign different biological fathers. Neither supplies a supported correction. Preserve both accounts and withhold both graph connections. Source passages: synthetic-account-2.\nThis is source review, not independent corroboration. Coverage outside these reviewed accounts remains unknown.\nOnly admitted biological relationships in this reviewed snapshot are traversed. Missing ancestry does not establish that a relationship does not exist. Results are incomplete outside the selected material and traversal bounds. Source-supported does not mean independently cross-checked.",
+        "unanswered": [
+          "Family coverage outside the reviewed spans and traversal bounds."
+        ],
+        "citations": [
+          {
+            "evidence_id": "synthetic-account-1",
+            "text": "Synthetic account A says Phil Mitchell is Ben Mitchell's biological father.",
+            "sha256": "b0a5d88bfbe8a1fb848bb99e4c421b695f67c6ce228aad05d596d30720fe2cd4",
+            "start": 0,
+            "end": 75,
+            "resolve_path": "/v1/snapshots/review-1c08dc3d7a604c0093fdefa32e1ae1a65cf25823462d7b5e39965c4ef42bfde9/evidence/synthetic-account-1"
+          },
+          {
+            "evidence_id": "synthetic-account-2",
+            "text": "Synthetic account B says Grant Mitchell is Ben Mitchell's biological father. These accounts disagree; neither resolves the other.",
+            "sha256": "5bb2cd4dd771a779182a45ad28d4e5eca327178adcacbccf5fd746a066c5c48c",
+            "start": 0,
+            "end": 129,
+            "resolve_path": "/v1/snapshots/review-1c08dc3d7a604c0093fdefa32e1ae1a65cf25823462d7b5e39965c4ef42bfde9/evidence/synthetic-account-2"
+          }
+        ],
+        "snapshot_id": "review-1c08dc3d7a604c0093fdefa32e1ae1a65cf25823462d7b5e39965c4ef42bfde9",
+        "snapshot_sha256": "f74cd9f0635237e1b580e0ffc93ee61081baddeab22977efff6b11f9d679ec1d",
+        "publication": {
+          "compatibility_id": "9a9a01103dea716e8c7c07c95d0b67683e68550c85a7cf54e393ad4bc99240d8",
+          "index_sha256": "27694fdec19dd02564b75fb6c8784e9f3c5171e25f78e45f0f4a58defe79f6c4",
+          "generation": 2
+        },
+        "source": {
+          "title": "Synthetic conflicting accounts (not EastEnders canon)",
+          "url": "https://example.invalid/synthetic-review",
+          "revision_id": "synthetic-review-v1",
+          "revision_url": "https://example.invalid/synthetic-review/v1",
+          "section": "Storylines / 1996–2000",
+          "captured_at": "2026-10-17T13:07:31.530421Z",
+          "capture_sha256": "1e81be8d42419cd0af30fe8531c28d149155e37ff152a6eb574e2692b76e1601",
+          "scope": "main_series",
+          "license_url": "https://creativecommons.org/licenses/by-sa/4.0/",
+          "attribution": "Authored regression fixture; not a claim about EastEnders canon.",
+          "coverage": "Reviewed narrative sections in this captured revision only.",
+          "gaps": [
+            "Partial canon coverage; other paragraphs remain excluded or awaiting review.",
+            "Identity and episode metadata do not independently corroborate story claims."
+          ],
+          "support_status": "synthetic_fixture"
+        },
+        "retrieved": [],
+        "context": [
+          {
+            "evidence_id": "synthetic-account-1",
+            "text": "Synthetic account A says Phil Mitchell is Ben Mitchell's biological father.",
+            "sha256": "b0a5d88bfbe8a1fb848bb99e4c421b695f67c6ce228aad05d596d30720fe2cd4",
+            "start": 0,
+            "end": 75
+          },
+          {
+            "evidence_id": "synthetic-account-2",
+            "text": "Synthetic account B says Grant Mitchell is Ben Mitchell's biological father. These accounts disagree; neither resolves the other.",
+            "sha256": "5bb2cd4dd771a779182a45ad28d4e5eca327178adcacbccf5fd746a066c5c48c",
+            "start": 0,
+            "end": 129
+          }
+        ],
+        "review_notices": [
+          {
+            "family": "family",
+            "claim_id": "synthetic-father-1",
+            "character_ids": [
+              "ben-mitchell",
+              "phil-mitchell"
+            ],
+            "evidence_ids": [
+              "synthetic-account-1"
+            ],
+            "explanation": "Unresolved source disagreement (no established connection): Phil Mitchell as Ben Mitchell's biological father; story date unknown. Review rationale (synthetic-source-audit): The two authored sources assign different biological fathers. Neither supplies a supported correction. Preserve both accounts and withhold both graph connections. Source passages: synthetic-account-1."
+          },
+          {
+            "family": "family",
+            "claim_id": "synthetic-father-2",
+            "character_ids": [
+              "ben-mitchell",
+              "grant-mitchell"
+            ],
+            "evidence_ids": [
+              "synthetic-account-2"
+            ],
+            "explanation": "Unresolved source disagreement (no established connection): Grant Mitchell as Ben Mitchell's biological father; story date unknown. Review rationale (synthetic-source-audit): The two authored sources assign different biological fathers. Neither supplies a supported correction. Preserve both accounts and withhold both graph connections. Source passages: synthetic-account-2."
+          }
+        ],
+        "retrieval_k": 0,
+        "route": "graph",
+        "route_override": true,
+        "graph": {
+          "snapshot_id": "review-1c08dc3d7a604c0093fdefa32e1ae1a65cf25823462d7b5e39965c4ef42bfde9",
+          "snapshot_sha256": "f74cd9f0635237e1b580e0ffc93ee61081baddeab22977efff6b11f9d679ec1d",
+          "graph_sha256": "8985f4805ed0ff4cfbdd6ced6a16376279615cd2996acaba8cf3ab52a313e9bb",
+          "query": {
+            "character_id": "ben-mitchell",
+            "direction": "ancestors",
+            "max_depth": 3,
+            "max_paths": 20
+          },
+          "status": "empty",
+          "paths": [],
+          "names": {
+            "phil-mitchell": "Phil Mitchell",
+            "grant-mitchell": "Grant Mitchell",
+            "peggy-mitchell": "Peggy Mitchell",
+            "sharon-watts": "Sharon Watts",
+            "ben-mitchell": "Ben Mitchell",
+            "kathy-beale": "Kathy Beale",
+            "den-watts": "Den Watts"
+          },
+          "limitation": "Only admitted biological relationships in this reviewed snapshot are traversed. Missing ancestry does not establish that a relationship does not exist. Results are incomplete outside the selected material and traversal bounds. Source-supported does not mean independently cross-checked."
+        },
+        "baseline_version": "single-query-uncached-v1",
+        "model_settings": null,
+        "prompt_sha256": "f7183350a5a1c8cd4ae9a67af95ff433b5a67761b69c8bc0c936238d44084c56",
+        "application_sha256": "480509fc4141c2eaef071f0c1d780e2ece90cd3958027daf353b5e0b44539e4f",
+        "trace_id": "tr-c48cb0208476570d547ab41f4dba0356",
+        "execution": {
+          "limits": {
+            "model_calls": 2,
+            "tool_calls": 1,
+            "http_calls": 8,
+            "seconds": 180.0,
+            "context_bytes": 1200,
+            "spend_usd": "0",
+            "retries": 0,
+            "capabilities": [
+              "text_retrieval",
+              "family_graph",
+              "event_graph"
+            ],
+            "concurrency": 4
+          },
+          "model_calls": 0,
+          "tool_calls": 1,
+          "http_calls": 0,
+          "reserved_usd": "0",
+          "stop_reason": null
+        },
+        "elapsed_ms": 199.82049099780852,
+        "usage": {
+          "input_tokens": 0,
+          "output_tokens": 0,
+          "embedding_tokens": 0
+        },
+        "expenditure_category": "serving",
+        "estimated_api_cost_usd": 0.0,
+        "cost_scope": "No inference calls. Database and hosting costs are excluded.",
+        "limitation": "Only admitted biological relationships in this reviewed snapshot are traversed. Missing ancestry does not establish that a relationship does not exist. Results are incomplete outside the selected material and traversal bounds. Source-supported does not mean independently cross-checked."
+      },
+      "trace_output_matches": true,
+      "citations_resolve": true,
+      "saved_response_matches": true,
+      "span_names": [
+        "graph",
+        "family_graph"
+      ]
+    },
+    {
+      "case_id": "reviewed-session",
+      "response": {
+        "response_id": "c0c1d4a7-72e1-410c-b810-64eeb2849158",
+        "question": "Who is Ben Mitchell's biological father in these synthetic accounts?",
+        "conversation": {
+          "session_id": "3b7a23c2-2084-4cd7-9159-5073842cefec",
+          "turn_id": "b7e5ac96-ca98-42ac-a593-ca00722d5688",
+          "turn_number": 1,
+          "generation": 0,
+          "reference": {
+            "question": "Who is Ben Mitchell's biological father in these synthetic accounts?",
+            "character_ids": [
+              "ben-mitchell"
+            ],
+            "context_turn_id": null,
+            "clarification": null,
+            "followup_requires_name": true
+          }
+        },
+        "status": "partial",
+        "answer": "I can't establish the requested biological paths from this graph (empty). \nSynthetic review example, not EastEnders canon. Unresolved source disagreement (no established connection): Phil Mitchell as Ben Mitchell's biological father; story date unknown. Review rationale (synthetic-source-audit): The two authored sources assign different biological fathers. Neither supplies a supported correction. Preserve both accounts and withhold both graph connections. Source passages: synthetic-account-1.\nUnresolved source disagreement (no established connection): Grant Mitchell as Ben Mitchell's biological father; story date unknown. Review rationale (synthetic-source-audit): The two authored sources assign different biological fathers. Neither supplies a supported correction. Preserve both accounts and withhold both graph connections. Source passages: synthetic-account-2.\nThis is source review, not independent corroboration. Coverage outside these reviewed accounts remains unknown.\nOnly admitted biological relationships in this reviewed snapshot are traversed. Missing ancestry does not establish that a relationship does not exist. Results are incomplete outside the selected material and traversal bounds. Source-supported does not mean independently cross-checked.",
+        "unanswered": [
+          "Family coverage outside the reviewed spans and traversal bounds."
+        ],
+        "citations": [
+          {
+            "evidence_id": "synthetic-account-1",
+            "text": "Synthetic account A says Phil Mitchell is Ben Mitchell's biological father.",
+            "sha256": "b0a5d88bfbe8a1fb848bb99e4c421b695f67c6ce228aad05d596d30720fe2cd4",
+            "start": 0,
+            "end": 75,
+            "resolve_path": "/v1/snapshots/review-1c08dc3d7a604c0093fdefa32e1ae1a65cf25823462d7b5e39965c4ef42bfde9/evidence/synthetic-account-1"
+          },
+          {
+            "evidence_id": "synthetic-account-2",
+            "text": "Synthetic account B says Grant Mitchell is Ben Mitchell's biological father. These accounts disagree; neither resolves the other.",
+            "sha256": "5bb2cd4dd771a779182a45ad28d4e5eca327178adcacbccf5fd746a066c5c48c",
+            "start": 0,
+            "end": 129,
+            "resolve_path": "/v1/snapshots/review-1c08dc3d7a604c0093fdefa32e1ae1a65cf25823462d7b5e39965c4ef42bfde9/evidence/synthetic-account-2"
+          }
+        ],
+        "snapshot_id": "review-1c08dc3d7a604c0093fdefa32e1ae1a65cf25823462d7b5e39965c4ef42bfde9",
+        "snapshot_sha256": "f74cd9f0635237e1b580e0ffc93ee61081baddeab22977efff6b11f9d679ec1d",
+        "publication": {
+          "compatibility_id": "9a9a01103dea716e8c7c07c95d0b67683e68550c85a7cf54e393ad4bc99240d8",
+          "index_sha256": "27694fdec19dd02564b75fb6c8784e9f3c5171e25f78e45f0f4a58defe79f6c4",
+          "generation": 2
+        },
+        "source": {
+          "title": "Synthetic conflicting accounts (not EastEnders canon)",
+          "url": "https://example.invalid/synthetic-review",
+          "revision_id": "synthetic-review-v1",
+          "revision_url": "https://example.invalid/synthetic-review/v1",
+          "section": "Storylines / 1996–2000",
+          "captured_at": "2026-10-17T13:07:31.530421Z",
+          "capture_sha256": "1e81be8d42419cd0af30fe8531c28d149155e37ff152a6eb574e2692b76e1601",
+          "scope": "main_series",
+          "license_url": "https://creativecommons.org/licenses/by-sa/4.0/",
+          "attribution": "Authored regression fixture; not a claim about EastEnders canon.",
+          "coverage": "Reviewed narrative sections in this captured revision only.",
+          "gaps": [
+            "Partial canon coverage; other paragraphs remain excluded or awaiting review.",
+            "Identity and episode metadata do not independently corroborate story claims."
+          ],
+          "support_status": "synthetic_fixture"
+        },
+        "retrieved": [],
+        "context": [
+          {
+            "evidence_id": "synthetic-account-1",
+            "text": "Synthetic account A says Phil Mitchell is Ben Mitchell's biological father.",
+            "sha256": "b0a5d88bfbe8a1fb848bb99e4c421b695f67c6ce228aad05d596d30720fe2cd4",
+            "start": 0,
+            "end": 75
+          },
+          {
+            "evidence_id": "synthetic-account-2",
+            "text": "Synthetic account B says Grant Mitchell is Ben Mitchell's biological father. These accounts disagree; neither resolves the other.",
+            "sha256": "5bb2cd4dd771a779182a45ad28d4e5eca327178adcacbccf5fd746a066c5c48c",
+            "start": 0,
+            "end": 129
+          }
+        ],
+        "review_notices": [
+          {
+            "family": "family",
+            "claim_id": "synthetic-father-1",
+            "character_ids": [
+              "ben-mitchell",
+              "phil-mitchell"
+            ],
+            "evidence_ids": [
+              "synthetic-account-1"
+            ],
+            "explanation": "Unresolved source disagreement (no established connection): Phil Mitchell as Ben Mitchell's biological father; story date unknown. Review rationale (synthetic-source-audit): The two authored sources assign different biological fathers. Neither supplies a supported correction. Preserve both accounts and withhold both graph connections. Source passages: synthetic-account-1."
+          },
+          {
+            "family": "family",
+            "claim_id": "synthetic-father-2",
+            "character_ids": [
+              "ben-mitchell",
+              "grant-mitchell"
+            ],
+            "evidence_ids": [
+              "synthetic-account-2"
+            ],
+            "explanation": "Unresolved source disagreement (no established connection): Grant Mitchell as Ben Mitchell's biological father; story date unknown. Review rationale (synthetic-source-audit): The two authored sources assign different biological fathers. Neither supplies a supported correction. Preserve both accounts and withhold both graph connections. Source passages: synthetic-account-2."
+          }
+        ],
+        "retrieval_k": 0,
+        "route": "graph",
+        "route_override": true,
+        "graph": {
+          "snapshot_id": "review-1c08dc3d7a604c0093fdefa32e1ae1a65cf25823462d7b5e39965c4ef42bfde9",
+          "snapshot_sha256": "f74cd9f0635237e1b580e0ffc93ee61081baddeab22977efff6b11f9d679ec1d",
+          "graph_sha256": "8985f4805ed0ff4cfbdd6ced6a16376279615cd2996acaba8cf3ab52a313e9bb",
+          "query": {
+            "character_id": "ben-mitchell",
+            "direction": "ancestors",
+            "max_depth": 3,
+            "max_paths": 20
+          },
+          "status": "empty",
+          "paths": [],
+          "names": {
+            "phil-mitchell": "Phil Mitchell",
+            "grant-mitchell": "Grant Mitchell",
+            "peggy-mitchell": "Peggy Mitchell",
+            "sharon-watts": "Sharon Watts",
+            "ben-mitchell": "Ben Mitchell",
+            "kathy-beale": "Kathy Beale",
+            "den-watts": "Den Watts"
+          },
+          "limitation": "Only admitted biological relationships in this reviewed snapshot are traversed. Missing ancestry does not establish that a relationship does not exist. Results are incomplete outside the selected material and traversal bounds. Source-supported does not mean independently cross-checked."
+        },
+        "baseline_version": "single-query-uncached-v1",
+        "model_settings": null,
+        "prompt_sha256": "f7183350a5a1c8cd4ae9a67af95ff433b5a67761b69c8bc0c936238d44084c56",
+        "application_sha256": "480509fc4141c2eaef071f0c1d780e2ece90cd3958027daf353b5e0b44539e4f",
+        "trace_id": "tr-086ed21cf27307b8a15e52c0d50c95da",
+        "execution": {
+          "limits": {
+            "model_calls": 2,
+            "tool_calls": 1,
+            "http_calls": 8,
+            "seconds": 180.0,
+            "context_bytes": 1200,
+            "spend_usd": "0",
+            "retries": 0,
+            "capabilities": [
+              "text_retrieval",
+              "family_graph",
+              "event_graph"
+            ],
+            "concurrency": 4
+          },
+          "model_calls": 0,
+          "tool_calls": 1,
+          "http_calls": 0,
+          "reserved_usd": "0",
+          "stop_reason": null
+        },
+        "elapsed_ms": 198.801859995001,
+        "usage": {
+          "input_tokens": 0,
+          "output_tokens": 0,
+          "embedding_tokens": 0
+        },
+        "expenditure_category": "serving",
+        "estimated_api_cost_usd": 0.0,
+        "cost_scope": "No inference calls. Database and hosting costs are excluded.",
+        "limitation": "Only admitted biological relationships in this reviewed snapshot are traversed. Missing ancestry does not establish that a relationship does not exist. Results are incomplete outside the selected material and traversal bounds. Source-supported does not mean independently cross-checked."
+      },
+      "trace_output_matches": true,
+      "citations_resolve": true,
+      "saved_response_matches": true,
+      "span_names": [
+        "graph",
+        "family_graph"
+      ]
+    },
+    {
+      "case_id": "after-rollback",
+      "response": {
+        "response_id": "c61a822a-e55a-4cac-81ba-00ac9239de9e",
+        "question": "Who is Ben Mitchell's biological father in these synthetic accounts?",
+        "status": "insufficient_evidence",
+        "answer": "I can't establish the requested biological paths from this graph (empty). Only admitted biological relationships in this reviewed snapshot are traversed. Missing ancestry does not establish that a relationship does not exist. Results are incomplete outside the selected material and traversal bounds. Source-supported does not mean independently cross-checked.",
+        "unanswered": [
+          "Family coverage outside the reviewed spans and traversal bounds."
+        ],
+        "citations": [],
+        "snapshot_id": "synthetic-review-dispute-v1",
+        "snapshot_sha256": "ee5315994f5a3230973daa0724c2b6085ef3cfdb55cab48baced538eb71b0e4c",
+        "publication": {
+          "compatibility_id": "4ed56cf5b7efd53c9a5102c600deeff6686d613df8308ea68786437220fa7bee",
+          "index_sha256": "c217bae1186a05702daf3cc6e843d84186c53ca1399d8e3d044d73bd3fd3ad1d",
+          "generation": 3
+        },
+        "source": {
+          "title": "Synthetic conflicting accounts (not EastEnders canon)",
+          "url": "https://example.invalid/synthetic-review",
+          "revision_id": "synthetic-review-v1",
+          "revision_url": "https://example.invalid/synthetic-review/v1",
+          "section": "Storylines / 1996–2000",
+          "captured_at": "2026-10-17T13:07:31.530421Z",
+          "capture_sha256": "1e81be8d42419cd0af30fe8531c28d149155e37ff152a6eb574e2692b76e1601",
+          "scope": "main_series",
+          "license_url": "https://creativecommons.org/licenses/by-sa/4.0/",
+          "attribution": "Authored regression fixture; not a claim about EastEnders canon.",
+          "coverage": "Reviewed narrative sections in this captured revision only.",
+          "gaps": [
+            "Partial canon coverage; other paragraphs remain excluded or awaiting review.",
+            "Identity and episode metadata do not independently corroborate story claims."
+          ],
+          "support_status": "synthetic_fixture"
+        },
+        "retrieved": [],
+        "context": [],
+        "retrieval_k": 0,
+        "route": "graph",
+        "route_override": true,
+        "graph": {
+          "snapshot_id": "synthetic-review-dispute-v1",
+          "snapshot_sha256": "ee5315994f5a3230973daa0724c2b6085ef3cfdb55cab48baced538eb71b0e4c",
+          "graph_sha256": "927798da62dbaa9a280da969bc1b9b3911b3ade54f46c290e63bbd6e11348341",
+          "query": {
+            "character_id": "ben-mitchell",
+            "direction": "ancestors",
+            "max_depth": 3,
+            "max_paths": 20
+          },
+          "status": "empty",
+          "paths": [],
+          "names": {
+            "phil-mitchell": "Phil Mitchell",
+            "grant-mitchell": "Grant Mitchell",
+            "peggy-mitchell": "Peggy Mitchell",
+            "sharon-watts": "Sharon Watts",
+            "ben-mitchell": "Ben Mitchell",
+            "kathy-beale": "Kathy Beale",
+            "den-watts": "Den Watts"
+          },
+          "limitation": "Only admitted biological relationships in this reviewed snapshot are traversed. Missing ancestry does not establish that a relationship does not exist. Results are incomplete outside the selected material and traversal bounds. Source-supported does not mean independently cross-checked."
+        },
+        "baseline_version": "single-query-uncached-v1",
+        "model_settings": null,
+        "prompt_sha256": "c4f9de91a5c4419d0f69dd2fad73485382fa6e6321583b36f7e255e2b3454341",
+        "application_sha256": "480509fc4141c2eaef071f0c1d780e2ece90cd3958027daf353b5e0b44539e4f",
+        "trace_id": "tr-2d0cbddcff70397cb7c6957a8c7f0c24",
+        "execution": {
+          "limits": {
+            "model_calls": 2,
+            "tool_calls": 1,
+            "http_calls": 8,
+            "seconds": 180.0,
+            "context_bytes": 1200,
+            "spend_usd": "0",
+            "retries": 0,
+            "capabilities": [
+              "text_retrieval",
+              "family_graph",
+              "event_graph"
+            ],
+            "concurrency": 4
+          },
+          "model_calls": 0,
+          "tool_calls": 1,
+          "http_calls": 0,
+          "reserved_usd": "0",
+          "stop_reason": null
+        },
+        "elapsed_ms": 155.0905789990793,
+        "usage": {
+          "input_tokens": 0,
+          "output_tokens": 0,
+          "embedding_tokens": 0
+        },
+        "expenditure_category": "serving",
+        "estimated_api_cost_usd": 0.0,
+        "cost_scope": "No inference calls. Database and hosting costs are excluded.",
+        "limitation": "Only admitted biological relationships in this reviewed snapshot are traversed. Missing ancestry does not establish that a relationship does not exist. Results are incomplete outside the selected material and traversal bounds. Source-supported does not mean independently cross-checked."
+      },
+      "trace_output_matches": true,
+      "citations_resolve": true,
+      "saved_response_matches": true,
+      "span_names": [
+        "graph",
+        "family_graph"
+      ]
+    }
+  ],
+  "original_inputs_unchanged": true,
+  "session_reset": true,
+  "restart_readback_matches": true,
+  "answer_generation_calls": 0,
+  "limitation": "Actual local embeddings and deterministic review explanations; no new extraction, answer-model quality, human adjudication or held-out claim."
+}

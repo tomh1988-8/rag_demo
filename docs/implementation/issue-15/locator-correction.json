@@ -1,0 +1,42 @@
+{
+  "new_family_claims": [
+    {
+      "claim_id": "peggy-phil-corrected-locator",
+      "parent_id": "peggy-mitchell",
+      "child_id": "phil-mitchell",
+      "parent_role": "mother",
+      "relation": "biological_parent",
+      "polarity": "affirmed",
+      "certainty": "certain",
+      "story_time": "unknown",
+      "time_precision": "unknown",
+      "evidence": [
+        {
+          "evidence_id": "family-peggy-phil",
+          "start": 0,
+          "end": 105,
+          "quote": "Peggy married Eric Mitchell (George Russo) because she was pregnant with their son Phil (Steve McFadden)."
+        }
+      ]
+    }
+  ],
+  "family_reviews": [
+    {
+      "claim_id": "peggy-phil",
+      "claim_sha256": "1bd795d5e1c4b1e243491d837cec92f77ff41d5fcf0533beb21fdecdb046c6a6",
+      "verdict": "superseded",
+      "reviewer": "issue-15-source-span-audit",
+      "note": "The retained source and quote contain 105 Unicode characters; the raw end offset 104 omitted the final full stop. The new Claim preserves parentage and unknown story timing while repairing the locator. Earlier evidence and the raw failure remain retained.",
+      "superseded_by": [
+        "peggy-phil-corrected-locator"
+      ]
+    },
+    {
+      "claim_id": "peggy-phil-corrected-locator",
+      "claim_sha256": "30607c95e16f74178e6a6038c697f488d6b07c3d73ca134dccef9ce7ea570933",
+      "verdict": "supported",
+      "reviewer": "issue-15-source-span-audit",
+      "note": "The full captured span explicitly identifies Peggy as pregnant with her son Phil. This source support does not establish independent corroboration or an exact date."
+    }
+  ]
+}

@@ -119,6 +119,14 @@ def main() -> int:
         "event-claims", help="Inspect retained event claims and reviews."
     )
     event_audit.add_argument("--snapshot", required=True)
+    review_inspection = commands.add_parser(
+        "claim-reviews", help="Inspect Claims, evidence, outcomes and review history."
+    )
+    review_inspection.add_argument("--snapshot", required=True)
+    review_change = commands.add_parser(
+        "review-claims", help="Maintainer: publish an inspected, content-bound review revision."
+    )
+    review_change.add_argument("request", type=Path)
     session = commands.add_parser("start-session", help="Create a bounded anonymous conversation.")
     session.add_argument("receipt", type=Path, help="New private local session receipt file.")
     reset = commands.add_parser("reset", help="Clear reference context, keeping saved answers.")
@@ -209,11 +217,29 @@ def main() -> int:
             "install-family",
             "install-relationships",
             "install-events",
+            "review-claims",
         }:
             database_url = os.environ.get("DATABASE_URL")
             if not database_url:
                 parser.error("DATABASE_URL is required for the maintainer storage command.")
-            if args.command in {"refresh-sources", "rollback-snapshot"}:
+            if args.command == "review-claims":
+                from ask_phil.knowledge_review import KnowledgeReview, ReviewRequest
+                from ask_phil.models import ModelConfigurationError, embedding_from_environment
+
+                request = ReviewRequest.model_validate_json(args.request.read_bytes())
+                try:
+                    settings, embedding = embedding_from_environment()
+                    embedding.verify(settings.embedding_digest)
+                    outcome = KnowledgeReview(
+                        database_url,
+                        embedding,
+                        settings.embedding_id,
+                        settings.embedding_dimensions,
+                    ).apply(request)
+                except ModelConfigurationError as exc:
+                    raise ValueError(str(exc)) from None
+                print(outcome.model_dump_json())
+            elif args.command in {"refresh-sources", "rollback-snapshot"}:
                 from ask_phil.models import ModelConfigurationError, embedding_from_environment
                 from ask_phil.refresh import SourceRefresh
 
@@ -385,6 +411,8 @@ def main() -> int:
                     result = client.get(f"/v1/snapshots/{args.snapshot}/relationship-claims")
                 elif args.command == "event-claims":
                     result = client.get(f"/v1/snapshots/{args.snapshot}/event-claims")
+                elif args.command == "claim-reviews":
+                    result = client.get(f"/v1/snapshots/{args.snapshot}/reviews")
                 elif args.command == "source":
                     result = client.get(f"/v1/snapshots/{args.snapshot}/sources/{args.source_id}")
                 elif args.command == "resolve-character":

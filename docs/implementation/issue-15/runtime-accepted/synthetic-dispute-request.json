@@ -1,0 +1,31 @@
+{
+  "snapshot_id": "synthetic-review-dispute-v1",
+  "snapshot_sha256": "ee5315994f5a3230973daa0724c2b6085ef3cfdb55cab48baced538eb71b0e4c",
+  "graphs": {
+    "family": "927798da62dbaa9a280da969bc1b9b3911b3ade54f46c290e63bbd6e11348341",
+    "relationship": null,
+    "event": null
+  },
+  "family_reviews": [
+    {
+      "claim_id": "synthetic-father-1",
+      "claim_sha256": "141527721ccf26621500e531394c4ff22d16ee79e574410fed54f5f202506cbf",
+      "verdict": "disputed",
+      "reviewer": "synthetic-source-audit",
+      "note": "The two authored sources assign different biological fathers. Neither supplies a supported correction. Preserve both accounts and withhold both graph connections."
+    },
+    {
+      "claim_id": "synthetic-father-2",
+      "claim_sha256": "20ea54077b25f45be19c3f4803faf8846bee2fed270e719d3186ae607a2752d6",
+      "verdict": "disputed",
+      "reviewer": "synthetic-source-audit",
+      "note": "The two authored sources assign different biological fathers. Neither supplies a supported correction. Preserve both accounts and withhold both graph connections."
+    }
+  ],
+  "relationship_reviews": [],
+  "event_reviews": [],
+  "new_family_claims": [],
+  "new_relationship_claims": [],
+  "new_event_claims": [],
+  "new_context_claims": []
+}

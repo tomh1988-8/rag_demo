@@ -1,0 +1,79 @@
+{
+  "issue": 15,
+  "criteria": {
+    "1": {
+      "criterion": "Inspect held claims and record explicit maintainer outcomes",
+      "evidence": [
+        "review-guidance.md",
+        "runtime-accepted/locator-correction-before.json",
+        "runtime-accepted/locator-correction-request.json",
+        "runtime-accepted/locator-correction-after.json"
+      ],
+      "boundaries": [
+        "GET /v1/snapshots/{snapshot_id}/reviews",
+        "claim-reviews",
+        "review-claims"
+      ]
+    },
+    "2": {
+      "criterion": "Supported correction retains provenance and changes current text/graph interpretation",
+      "evidence": [
+        "runtime-accepted/locator-correction-runtime.json",
+        "runtime-accepted/parentage-correction-runtime.json",
+        "answer-quality.json"
+      ]
+    },
+    "3": {
+      "criterion": "Visible unresolved disagreement with no established graph connection",
+      "evidence": [
+        "runtime-accepted/synthetic-dispute-runtime.json",
+        "answer-quality.json",
+        "regressions.json"
+      ],
+      "regression": "tests/test_knowledge_review.py::test_dispute_follows_corrected_child_from_retrieved_predecessor"
+    },
+    "4": {
+      "criterion": "Coherent publication, request pinning, failure and inspected recovery",
+      "evidence": [
+        "runtime-accepted/locator-correction-runtime.json",
+        "runtime-accepted/parentage-correction-runtime.json"
+      ],
+      "regressions": [
+        "tests/test_knowledge_review.py",
+        "tests/test_review_refresh.py"
+      ]
+    },
+    "5": {
+      "criterion": "Annotation/matching, duplicate/uncertainty rules, completeness and later review/sampling",
+      "evidence": [
+        "review-guidance.md",
+        "pilot-inputs.json",
+        "pilot-inputs-v2.json"
+      ]
+    },
+    "6": {
+      "criterion": "Public admission and real storage/refresh/API/CLI outcomes, not command success only",
+      "evidence": [
+        "software-tests.xml",
+        "software-inputs.json",
+        "runtime-accepted/summary.json",
+        "answer-quality.json"
+      ],
+      "regressions": [
+        "tests/test_claim_review.py",
+        "tests/test_knowledge_review.py",
+        "tests/test_review_refresh.py"
+      ]
+    },
+    "7": {
+      "criterion": "Revision-linked register evidence with failures and limitations",
+      "evidence": [
+        "validation.json",
+        "review.md",
+        "regressions.json",
+        "publication.json"
+      ],
+      "register": "docs/checklists/ask-phil-profile.md"
+    }
+  }
+}

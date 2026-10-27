@@ -95,14 +95,20 @@ class RelationshipAdmission(Record):
 
 
 def admit_relationships(
-    snapshot: SourceSnapshot, batch: RelationshipBatch, reviews: tuple[ClaimReview, ...]
+    snapshot: SourceSnapshot,
+    batch: RelationshipBatch,
+    reviews: tuple[ClaimReview, ...],
+    *,
+    prior_reviews: tuple[ClaimReview, ...] = (),
 ) -> RelationshipAdmission:
     """Review exact content, preserving unadmitted claims independently of the projection."""
-    admission = ClaimAdmission(snapshot, batch, reviews)
+    admission = ClaimAdmission(snapshot, batch, reviews, prior_reviews=prior_reviews)
     claims_by_id = {c.claim_id: c for c in batch.claims}
     episodes: dict[str, list[RelationshipClaim]] = {}
     polarities: dict[tuple[object, ...], set[str]] = {}
     for claim in batch.claims:
+        if admission.superseded(claim.claim_id):
+            continue
         episodes.setdefault(claim.episode_id, []).append(claim)
         polarities.setdefault(claim.assertion, set()).add(claim.polarity)
     collided = {
@@ -139,7 +145,7 @@ def admit_relationships(
             reasons.append("uncertain")
         if claim.relation == "divorce" and claim.status == "current":
             reasons.append("status")
-        if len(polarities[claim.assertion]) > 1:
+        if len(polarities.get(claim.assertion, set())) > 1:
             reasons.append("contradiction")
         if claim.episode_id in collided:
             reasons.append("episode_collision")
@@ -171,4 +177,5 @@ def admit_relationships(
                 break
             visited.add(previous_id)
             previous_id = claims_by_id[previous_id].after_claim_id
+    admission.validate_corrections(decisions)
     return RelationshipAdmission(batch_sha256=batch.fingerprint, decisions=tuple(decisions))

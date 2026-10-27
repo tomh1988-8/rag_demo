@@ -169,6 +169,7 @@ class AnswerService:
                 retrieved=content.retrieved,
                 context=content.context,
                 context_claims=content.context_claims,
+                review_notices=content.review_notices,
                 retrieval_k=content.retrieval_k,
                 route=request.route,
                 route_override=request.route == "graph",

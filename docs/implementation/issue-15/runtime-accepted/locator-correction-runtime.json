@@ -1,0 +1,1447 @@
+{
+  "scenario": "locator-correction",
+  "application_sha256": "badf2d507c8abcf7cacb8654585026c411f4b64bba531e9513ac0f759318ab07",
+  "baseline": {
+    "compatibility_id": "0850d2e8111e4a62ecad3964738ddd564485ae8e3871cee91c1189965cd3f157",
+    "manifest": {
+      "format_version": "source-text-publication-v1",
+      "snapshot_id": "family-pilot-v1",
+      "snapshot_sha256": "118cb99db01b352e9b2793e56873962d9769e00df7c3764bb7201d8a7a281a06",
+      "input_sha256": "118cb99db01b352e9b2793e56873962d9769e00df7c3764bb7201d8a7a281a06",
+      "sources": [],
+      "index": {
+        "format_version": "pgvector-exact-v1",
+        "snapshot_sha256": "118cb99db01b352e9b2793e56873962d9769e00df7c3764bb7201d8a7a281a06",
+        "embedding_id": "ca378fa1493585d9a05dbc2ed5b01023a944d96bae9a94ec7349ed0dbd2fd7fd",
+        "dimensions": 768,
+        "passages": 3,
+        "artifact_sha256": "58414cb16f3bd7eb6fc93750d100bc90fba74a073a43b630ce72d8e0f7e40582"
+      },
+      "graphs": {
+        "family": "a65ff3583121f9a48b7355f88c706fbaaf773e1765f9a0a9398ffee0f9343d95",
+        "relationship": null,
+        "event": null
+      }
+    },
+    "generation": 1,
+    "published_at": "2026-10-27T19:24:40.755681Z"
+  },
+  "reviewed": {
+    "compatibility_id": "af2020e29a18c50ace8aaf33569ae401cee8799a7c9e4cd9214dafa7cfc6b9c7",
+    "manifest": {
+      "format_version": "source-text-publication-v1",
+      "snapshot_id": "review-6814f38eedb1834d1e27fa59a2dc8ac6a7389bfcab39d945fa8f69f6dc1b608b",
+      "snapshot_sha256": "6ba987b203258482fbe63c61df8bc11b3a249c420258155a679de59b17174639",
+      "input_sha256": "118cb99db01b352e9b2793e56873962d9769e00df7c3764bb7201d8a7a281a06",
+      "sources": [],
+      "index": {
+        "format_version": "pgvector-exact-v1",
+        "snapshot_sha256": "6ba987b203258482fbe63c61df8bc11b3a249c420258155a679de59b17174639",
+        "embedding_id": "ca378fa1493585d9a05dbc2ed5b01023a944d96bae9a94ec7349ed0dbd2fd7fd",
+        "dimensions": 768,
+        "passages": 3,
+        "artifact_sha256": "58414cb16f3bd7eb6fc93750d100bc90fba74a073a43b630ce72d8e0f7e40582"
+      },
+      "graphs": {
+        "family": "c77d0569f21eb013459282f8fb032d3ff814df735577466e35db4e16124d4104",
+        "relationship": null,
+        "event": null
+      },
+      "review_sha256": "6814f38eedb1834d1e27fa59a2dc8ac6a7389bfcab39d945fa8f69f6dc1b608b"
+    },
+    "generation": 2,
+    "published_at": "2026-10-27T19:24:51.877721Z"
+  },
+  "publication_run": {
+    "run_id": "6fca0d2e-fda1-4db0-a972-aebb7cc25050",
+    "flow_run_id": "5524aa4a-78de-4e20-a7dc-717f090a3cb2",
+    "started_at": "2026-10-27T19:24:51.148709Z",
+    "finished_at": "2026-10-27T19:24:51.877721Z",
+    "status": "published",
+    "action": "review",
+    "input_sha256": "118cb99db01b352e9b2793e56873962d9769e00df7c3764bb7201d8a7a281a06",
+    "snapshot_id": "review-6814f38eedb1834d1e27fa59a2dc8ac6a7389bfcab39d945fa8f69f6dc1b608b",
+    "compatibility_id": "af2020e29a18c50ace8aaf33569ae401cee8799a7c9e4cd9214dafa7cfc6b9c7",
+    "sources": [],
+    "issues": [],
+    "phase": "complete",
+    "error": null
+  },
+  "failure": {
+    "run_id": "992fe3e7-4c5e-446d-be5f-d5912b4471e6",
+    "flow_run_id": "5f6a4da9-463e-4c70-bdec-11c7bc8d3b58",
+    "started_at": "2026-10-27T19:24:44.493448Z",
+    "finished_at": "2026-10-27T19:24:44.680957Z",
+    "status": "failed",
+    "action": "review",
+    "input_sha256": "118cb99db01b352e9b2793e56873962d9769e00df7c3764bb7201d8a7a281a06",
+    "snapshot_id": "review-6814f38eedb1834d1e27fa59a2dc8ac6a7389bfcab39d945fa8f69f6dc1b608b",
+    "compatibility_id": null,
+    "sources": [],
+    "issues": [],
+    "phase": "validating",
+    "error": "validating failed (CheckViolation).",
+    "unpublished_answer_status": 503
+  },
+  "recovery": {
+    "run_id": "950dab25-81eb-4d70-8ca1-9c8954a4c712",
+    "flow_run_id": "6e4cfaa8-4fb9-4ec0-9157-6913ec2b2a8a",
+    "started_at": "2026-10-27T19:25:14.604262Z",
+    "finished_at": "2026-10-27T19:25:14.743140Z",
+    "status": "rolled_back",
+    "action": "rollback",
+    "input_sha256": null,
+    "snapshot_id": "family-pilot-v1",
+    "compatibility_id": "0850d2e8111e4a62ecad3964738ddd564485ae8e3871cee91c1189965cd3f157",
+    "sources": [],
+    "issues": [],
+    "phase": "complete",
+    "error": null
+  },
+  "responses": [
+    {
+      "case_id": "before-review",
+      "response": {
+        "response_id": "4dee449f-f19d-4803-8eb2-488189faae78",
+        "question": "Who is Phil Mitchell's mother?",
+        "status": "insufficient_evidence",
+        "answer": "I can't establish the requested biological paths from this graph (empty). Only admitted biological relationships in this reviewed snapshot are traversed. Missing ancestry does not establish that a relationship does not exist. Results are incomplete outside the selected material and traversal bounds. Source-supported does not mean independently cross-checked.",
+        "unanswered": [
+          "Family coverage outside the reviewed spans and traversal bounds."
+        ],
+        "citations": [],
+        "snapshot_id": "family-pilot-v1",
+        "snapshot_sha256": "118cb99db01b352e9b2793e56873962d9769e00df7c3764bb7201d8a7a281a06",
+        "publication": {
+          "compatibility_id": "0850d2e8111e4a62ecad3964738ddd564485ae8e3871cee91c1189965cd3f157",
+          "index_sha256": "63d804d1a3f874c94b2f3ff5c3fe3d4f64cc07a58f6feb4ddfa564b1a1ff628b",
+          "generation": 1
+        },
+        "source": {
+          "title": "Ben Mitchell",
+          "url": "https://en.wikipedia.org/wiki/Ben_Mitchell_(EastEnders)",
+          "revision_id": "1376729134",
+          "revision_url": "https://en.wikipedia.org/w/index.php?oldid=1376729134",
+          "section": "Storylines / 1996–2000",
+          "captured_at": "2026-10-17T13:07:31.530421Z",
+          "capture_sha256": "8ae0fbabb19cf12b2bdf46d7a85e15eea4462b8559584c770224a54a9e47d128",
+          "scope": "main_series",
+          "license_url": "https://creativecommons.org/licenses/by-sa/4.0/",
+          "attribution": "Wikipedia contributors; markup removed and whitespace normalized.",
+          "coverage": "Reviewed narrative sections in this captured revision only.",
+          "gaps": [
+            "Partial canon coverage; other paragraphs remain excluded or awaiting review.",
+            "Identity and episode metadata do not independently corroborate story claims."
+          ],
+          "support_status": "source_supported"
+        },
+        "retrieved": [],
+        "context": [],
+        "retrieval_k": 0,
+        "route": "graph",
+        "route_override": true,
+        "graph": {
+          "snapshot_id": "family-pilot-v1",
+          "snapshot_sha256": "118cb99db01b352e9b2793e56873962d9769e00df7c3764bb7201d8a7a281a06",
+          "graph_sha256": "a65ff3583121f9a48b7355f88c706fbaaf773e1765f9a0a9398ffee0f9343d95",
+          "query": {
+            "character_id": "phil-mitchell",
+            "direction": "ancestors",
+            "max_depth": 3,
+            "max_paths": 20
+          },
+          "status": "empty",
+          "paths": [],
+          "names": {
+            "phil-mitchell": "Phil Mitchell",
+            "grant-mitchell": "Grant Mitchell",
+            "peggy-mitchell": "Peggy Mitchell",
+            "sharon-watts": "Sharon Watts",
+            "ben-mitchell": "Ben Mitchell",
+            "kathy-beale": "Kathy Beale",
+            "den-watts": "Den Watts"
+          },
+          "limitation": "Only admitted biological relationships in this reviewed snapshot are traversed. Missing ancestry does not establish that a relationship does not exist. Results are incomplete outside the selected material and traversal bounds. Source-supported does not mean independently cross-checked."
+        },
+        "baseline_version": "single-query-uncached-v1",
+        "model_settings": null,
+        "prompt_sha256": "c4f9de91a5c4419d0f69dd2fad73485382fa6e6321583b36f7e255e2b3454341",
+        "application_sha256": "badf2d507c8abcf7cacb8654585026c411f4b64bba531e9513ac0f759318ab07",
+        "trace_id": "tr-4e8ef4b7af8a2a4c8299f5d302f095f3",
+        "execution": {
+          "limits": {
+            "model_calls": 2,
+            "tool_calls": 1,
+            "http_calls": 8,
+            "seconds": 180.0,
+            "context_bytes": 1200,
+            "spend_usd": "0",
+            "retries": 0,
+            "capabilities": [
+              "text_retrieval",
+              "family_graph",
+              "event_graph"
+            ],
+            "concurrency": 4
+          },
+          "model_calls": 0,
+          "tool_calls": 1,
+          "http_calls": 0,
+          "reserved_usd": "0",
+          "stop_reason": null
+        },
+        "elapsed_ms": 425.02312699798495,
+        "usage": {
+          "input_tokens": 0,
+          "output_tokens": 0,
+          "embedding_tokens": 0
+        },
+        "expenditure_category": "serving",
+        "estimated_api_cost_usd": 0.0,
+        "cost_scope": "No inference calls. Database and hosting costs are excluded.",
+        "limitation": "Only admitted biological relationships in this reviewed snapshot are traversed. Missing ancestry does not establish that a relationship does not exist. Results are incomplete outside the selected material and traversal bounds. Source-supported does not mean independently cross-checked."
+      },
+      "trace_output_matches": true,
+      "citations_resolve": true,
+      "saved_response_matches": true,
+      "span_names": [
+        "graph",
+        "family_graph"
+      ]
+    },
+    {
+      "case_id": "after-failed-projection",
+      "response": {
+        "response_id": "1d85e538-de1c-4d0d-965b-1517631651d1",
+        "question": "Who is Phil Mitchell's mother?",
+        "status": "insufficient_evidence",
+        "answer": "I can't establish the requested biological paths from this graph (empty). Only admitted biological relationships in this reviewed snapshot are traversed. Missing ancestry does not establish that a relationship does not exist. Results are incomplete outside the selected material and traversal bounds. Source-supported does not mean independently cross-checked.",
+        "unanswered": [
+          "Family coverage outside the reviewed spans and traversal bounds."
+        ],
+        "citations": [],
+        "snapshot_id": "family-pilot-v1",
+        "snapshot_sha256": "118cb99db01b352e9b2793e56873962d9769e00df7c3764bb7201d8a7a281a06",
+        "publication": {
+          "compatibility_id": "0850d2e8111e4a62ecad3964738ddd564485ae8e3871cee91c1189965cd3f157",
+          "index_sha256": "63d804d1a3f874c94b2f3ff5c3fe3d4f64cc07a58f6feb4ddfa564b1a1ff628b",
+          "generation": 1
+        },
+        "source": {
+          "title": "Ben Mitchell",
+          "url": "https://en.wikipedia.org/wiki/Ben_Mitchell_(EastEnders)",
+          "revision_id": "1376729134",
+          "revision_url": "https://en.wikipedia.org/w/index.php?oldid=1376729134",
+          "section": "Storylines / 1996–2000",
+          "captured_at": "2026-10-17T13:07:31.530421Z",
+          "capture_sha256": "8ae0fbabb19cf12b2bdf46d7a85e15eea4462b8559584c770224a54a9e47d128",
+          "scope": "main_series",
+          "license_url": "https://creativecommons.org/licenses/by-sa/4.0/",
+          "attribution": "Wikipedia contributors; markup removed and whitespace normalized.",
+          "coverage": "Reviewed narrative sections in this captured revision only.",
+          "gaps": [
+            "Partial canon coverage; other paragraphs remain excluded or awaiting review.",
+            "Identity and episode metadata do not independently corroborate story claims."
+          ],
+          "support_status": "source_supported"
+        },
+        "retrieved": [],
+        "context": [],
+        "retrieval_k": 0,
+        "route": "graph",
+        "route_override": true,
+        "graph": {
+          "snapshot_id": "family-pilot-v1",
+          "snapshot_sha256": "118cb99db01b352e9b2793e56873962d9769e00df7c3764bb7201d8a7a281a06",
+          "graph_sha256": "a65ff3583121f9a48b7355f88c706fbaaf773e1765f9a0a9398ffee0f9343d95",
+          "query": {
+            "character_id": "phil-mitchell",
+            "direction": "ancestors",
+            "max_depth": 3,
+            "max_paths": 20
+          },
+          "status": "empty",
+          "paths": [],
+          "names": {
+            "phil-mitchell": "Phil Mitchell",
+            "grant-mitchell": "Grant Mitchell",
+            "peggy-mitchell": "Peggy Mitchell",
+            "sharon-watts": "Sharon Watts",
+            "ben-mitchell": "Ben Mitchell",
+            "kathy-beale": "Kathy Beale",
+            "den-watts": "Den Watts"
+          },
+          "limitation": "Only admitted biological relationships in this reviewed snapshot are traversed. Missing ancestry does not establish that a relationship does not exist. Results are incomplete outside the selected material and traversal bounds. Source-supported does not mean independently cross-checked."
+        },
+        "baseline_version": "single-query-uncached-v1",
+        "model_settings": null,
+        "prompt_sha256": "c4f9de91a5c4419d0f69dd2fad73485382fa6e6321583b36f7e255e2b3454341",
+        "application_sha256": "badf2d507c8abcf7cacb8654585026c411f4b64bba531e9513ac0f759318ab07",
+        "trace_id": "tr-38d324286c87f8d25965f3016109830d",
+        "execution": {
+          "limits": {
+            "model_calls": 2,
+            "tool_calls": 1,
+            "http_calls": 8,
+            "seconds": 180.0,
+            "context_bytes": 1200,
+            "spend_usd": "0",
+            "retries": 0,
+            "capabilities": [
+              "text_retrieval",
+              "family_graph",
+              "event_graph"
+            ],
+            "concurrency": 4
+          },
+          "model_calls": 0,
+          "tool_calls": 1,
+          "http_calls": 0,
+          "reserved_usd": "0",
+          "stop_reason": null
+        },
+        "elapsed_ms": 120.97023999376688,
+        "usage": {
+          "input_tokens": 0,
+          "output_tokens": 0,
+          "embedding_tokens": 0
+        },
+        "expenditure_category": "serving",
+        "estimated_api_cost_usd": 0.0,
+        "cost_scope": "No inference calls. Database and hosting costs are excluded.",
+        "limitation": "Only admitted biological relationships in this reviewed snapshot are traversed. Missing ancestry does not establish that a relationship does not exist. Results are incomplete outside the selected material and traversal bounds. Source-supported does not mean independently cross-checked."
+      },
+      "trace_output_matches": true,
+      "citations_resolve": true,
+      "saved_response_matches": true,
+      "span_names": [
+        "graph",
+        "family_graph"
+      ]
+    },
+    {
+      "case_id": "reviewed-graph",
+      "response": {
+        "response_id": "b90b302f-98da-439f-93b8-c5b71dc8aa95",
+        "question": "Who is Phil Mitchell's mother?",
+        "status": "partial",
+        "answer": "Right, listen. Captured biological ancestors paths: Phil Mitchell → Peggy Mitchell. \nSuperseded claim (not current): Peggy Mitchell as Phil Mitchell's biological mother; story date unknown. Current replacement source account: Peggy Mitchell as Phil Mitchell's biological mother; story date unknown. Source passages: family-peggy-phil.\nReview rationale (issue-15-source-span-audit): The retained source and quote contain 105 Unicode characters; the raw end offset 104 omitted the final full stop. The new Claim preserves parentage and unknown story timing while repairing the locator. Earlier evidence and the raw failure remain retained.\nThis is source review, not independent corroboration. Coverage outside these reviewed accounts remains unknown.\nOnly admitted biological relationships in this reviewed snapshot are traversed. Missing ancestry does not establish that a relationship does not exist. Results are incomplete outside the selected material and traversal bounds. Source-supported does not mean independently cross-checked.",
+        "unanswered": [
+          "Family coverage outside the reviewed spans and traversal bounds."
+        ],
+        "citations": [
+          {
+            "evidence_id": "family-peggy-phil",
+            "text": "Peggy married Eric Mitchell (George Russo) because she was pregnant with their son Phil (Steve McFadden).",
+            "sha256": "601d2f2332aa61ff7cecd296e9d2b4be8b78207a8a739e7354b2105847f531f2",
+            "start": 34316,
+            "end": 34421,
+            "source": {
+              "title": "Peggy Mitchell",
+              "url": "https://en.wikipedia.org/wiki/Peggy_Mitchell",
+              "revision_id": "1372787814",
+              "revision_url": "https://en.wikipedia.org/w/index.php?oldid=1372787814",
+              "section": "Storylines / Backstory",
+              "captured_at": "2026-10-17T13:07:31.253971Z",
+              "capture_sha256": "d777ce7a2fffc8e7cb1da6ccd3a87aca45590147a348b5ef5eb6361fb685cacb",
+              "scope": "main_series",
+              "license_url": "https://creativecommons.org/licenses/by-sa/4.0/",
+              "attribution": "Wikipedia contributors; markup removed and whitespace normalized.",
+              "coverage": "Reviewed narrative sections in this captured revision only.",
+              "gaps": [
+                "Partial canon coverage; other paragraphs remain excluded or awaiting review.",
+                "Identity and episode metadata do not independently corroborate story claims."
+              ],
+              "support_status": "source_supported"
+            },
+            "location": {
+              "source_id": "peggy-mitchell-wiki",
+              "paragraph_ordinal": 37,
+              "section_id": "Backstory",
+              "character_ids": [
+                "grant-mitchell",
+                "peggy-mitchell",
+                "phil-mitchell"
+              ]
+            },
+            "resolve_path": "/v1/snapshots/review-6814f38eedb1834d1e27fa59a2dc8ac6a7389bfcab39d945fa8f69f6dc1b608b/evidence/family-peggy-phil"
+          }
+        ],
+        "snapshot_id": "review-6814f38eedb1834d1e27fa59a2dc8ac6a7389bfcab39d945fa8f69f6dc1b608b",
+        "snapshot_sha256": "6ba987b203258482fbe63c61df8bc11b3a249c420258155a679de59b17174639",
+        "publication": {
+          "compatibility_id": "af2020e29a18c50ace8aaf33569ae401cee8799a7c9e4cd9214dafa7cfc6b9c7",
+          "index_sha256": "98651e03fad7a4df39ff7b8af5021f8c4feccb818249c7da8b32b49fa2e8b3db",
+          "generation": 2
+        },
+        "source": {
+          "title": "Ben Mitchell",
+          "url": "https://en.wikipedia.org/wiki/Ben_Mitchell_(EastEnders)",
+          "revision_id": "1376729134",
+          "revision_url": "https://en.wikipedia.org/w/index.php?oldid=1376729134",
+          "section": "Storylines / 1996–2000",
+          "captured_at": "2026-10-17T13:07:31.530421Z",
+          "capture_sha256": "8ae0fbabb19cf12b2bdf46d7a85e15eea4462b8559584c770224a54a9e47d128",
+          "scope": "main_series",
+          "license_url": "https://creativecommons.org/licenses/by-sa/4.0/",
+          "attribution": "Wikipedia contributors; markup removed and whitespace normalized.",
+          "coverage": "Reviewed narrative sections in this captured revision only.",
+          "gaps": [
+            "Partial canon coverage; other paragraphs remain excluded or awaiting review.",
+            "Identity and episode metadata do not independently corroborate story claims."
+          ],
+          "support_status": "source_supported"
+        },
+        "retrieved": [],
+        "context": [
+          {
+            "evidence_id": "family-peggy-phil",
+            "text": "Peggy married Eric Mitchell (George Russo) because she was pregnant with their son Phil (Steve McFadden).",
+            "sha256": "601d2f2332aa61ff7cecd296e9d2b4be8b78207a8a739e7354b2105847f531f2",
+            "start": 34316,
+            "end": 34421,
+            "source": {
+              "title": "Peggy Mitchell",
+              "url": "https://en.wikipedia.org/wiki/Peggy_Mitchell",
+              "revision_id": "1372787814",
+              "revision_url": "https://en.wikipedia.org/w/index.php?oldid=1372787814",
+              "section": "Storylines / Backstory",
+              "captured_at": "2026-10-17T13:07:31.253971Z",
+              "capture_sha256": "d777ce7a2fffc8e7cb1da6ccd3a87aca45590147a348b5ef5eb6361fb685cacb",
+              "scope": "main_series",
+              "license_url": "https://creativecommons.org/licenses/by-sa/4.0/",
+              "attribution": "Wikipedia contributors; markup removed and whitespace normalized.",
+              "coverage": "Reviewed narrative sections in this captured revision only.",
+              "gaps": [
+                "Partial canon coverage; other paragraphs remain excluded or awaiting review.",
+                "Identity and episode metadata do not independently corroborate story claims."
+              ],
+              "support_status": "source_supported"
+            },
+            "location": {
+              "source_id": "peggy-mitchell-wiki",
+              "paragraph_ordinal": 37,
+              "section_id": "Backstory",
+              "character_ids": [
+                "grant-mitchell",
+                "peggy-mitchell",
+                "phil-mitchell"
+              ]
+            }
+          }
+        ],
+        "review_notices": [
+          {
+            "family": "family",
+            "claim_id": "peggy-phil",
+            "character_ids": [
+              "peggy-mitchell",
+              "phil-mitchell"
+            ],
+            "evidence_ids": [
+              "family-peggy-phil"
+            ],
+            "explanation": "Superseded claim (not current): Peggy Mitchell as Phil Mitchell's biological mother; story date unknown. Current replacement source account: Peggy Mitchell as Phil Mitchell's biological mother; story date unknown. Source passages: family-peggy-phil.",
+            "group_id": "parentage:phil-mitchell",
+            "related_group_ids": [
+              "parentage:phil-mitchell"
+            ],
+            "disputed": false,
+            "reviewer": "issue-15-source-span-audit",
+            "rationale": "The retained source and quote contain 105 Unicode characters; the raw end offset 104 omitted the final full stop. The new Claim preserves parentage and unknown story timing while repairing the locator. Earlier evidence and the raw failure remain retained."
+          }
+        ],
+        "retrieval_k": 0,
+        "route": "graph",
+        "route_override": true,
+        "graph": {
+          "snapshot_id": "review-6814f38eedb1834d1e27fa59a2dc8ac6a7389bfcab39d945fa8f69f6dc1b608b",
+          "snapshot_sha256": "6ba987b203258482fbe63c61df8bc11b3a249c420258155a679de59b17174639",
+          "graph_sha256": "c77d0569f21eb013459282f8fb032d3ff814df735577466e35db4e16124d4104",
+          "query": {
+            "character_id": "phil-mitchell",
+            "direction": "ancestors",
+            "max_depth": 3,
+            "max_paths": 20
+          },
+          "status": "found",
+          "paths": [
+            {
+              "characters": [
+                "phil-mitchell",
+                "peggy-mitchell"
+              ],
+              "edges": [
+                {
+                  "parent_id": "peggy-mitchell",
+                  "child_id": "phil-mitchell",
+                  "claim_ids": [
+                    "peggy-phil-corrected-locator"
+                  ],
+                  "evidence": [
+                    {
+                      "evidence_id": "family-peggy-phil",
+                      "start": 0,
+                      "end": 105,
+                      "quote": "Peggy married Eric Mitchell (George Russo) because she was pregnant with their son Phil (Steve McFadden)."
+                    }
+                  ]
+                }
+              ]
+            }
+          ],
+          "names": {
+            "phil-mitchell": "Phil Mitchell",
+            "grant-mitchell": "Grant Mitchell",
+            "peggy-mitchell": "Peggy Mitchell",
+            "sharon-watts": "Sharon Watts",
+            "ben-mitchell": "Ben Mitchell",
+            "kathy-beale": "Kathy Beale",
+            "den-watts": "Den Watts"
+          },
+          "limitation": "Only admitted biological relationships in this reviewed snapshot are traversed. Missing ancestry does not establish that a relationship does not exist. Results are incomplete outside the selected material and traversal bounds. Source-supported does not mean independently cross-checked."
+        },
+        "baseline_version": "single-query-uncached-v1",
+        "model_settings": null,
+        "prompt_sha256": "f7183350a5a1c8cd4ae9a67af95ff433b5a67761b69c8bc0c936238d44084c56",
+        "application_sha256": "badf2d507c8abcf7cacb8654585026c411f4b64bba531e9513ac0f759318ab07",
+        "trace_id": "tr-64e618e4f473c02819c09910d5ffe9e9",
+        "execution": {
+          "limits": {
+            "model_calls": 2,
+            "tool_calls": 1,
+            "http_calls": 8,
+            "seconds": 180.0,
+            "context_bytes": 1200,
+            "spend_usd": "0",
+            "retries": 0,
+            "capabilities": [
+              "text_retrieval",
+              "family_graph",
+              "event_graph"
+            ],
+            "concurrency": 4
+          },
+          "model_calls": 0,
+          "tool_calls": 1,
+          "http_calls": 0,
+          "reserved_usd": "0",
+          "stop_reason": null
+        },
+        "elapsed_ms": 195.21740700292867,
+        "usage": {
+          "input_tokens": 0,
+          "output_tokens": 0,
+          "embedding_tokens": 0
+        },
+        "expenditure_category": "serving",
+        "estimated_api_cost_usd": 0.0,
+        "cost_scope": "No inference calls. Database and hosting costs are excluded.",
+        "limitation": "Only admitted biological relationships in this reviewed snapshot are traversed. Missing ancestry does not establish that a relationship does not exist. Results are incomplete outside the selected material and traversal bounds. Source-supported does not mean independently cross-checked."
+      },
+      "trace_output_matches": true,
+      "citations_resolve": true,
+      "saved_response_matches": true,
+      "span_names": [
+        "graph",
+        "family_graph"
+      ]
+    },
+    {
+      "case_id": "reviewed-text",
+      "response": {
+        "response_id": "3779525f-eda9-422e-9baa-97ab65f087df",
+        "question": "Who is Phil Mitchell's mother?",
+        "status": "partial",
+        "answer": "Right, listen. Superseded claim (not current): Peggy Mitchell as Phil Mitchell's biological mother; story date unknown. Current replacement source account: Peggy Mitchell as Phil Mitchell's biological mother; story date unknown. Source passages: family-peggy-phil.\nReview rationale (issue-15-source-span-audit): The retained source and quote contain 105 Unicode characters; the raw end offset 104 omitted the final full stop. The new Claim preserves parentage and unknown story timing while repairing the locator. Earlier evidence and the raw failure remain retained.\nThis is source review, not independent corroboration. Coverage outside these reviewed accounts remains unknown.",
+        "unanswered": [
+          "Coverage beyond these reviewed source accounts remains unresolved."
+        ],
+        "citations": [
+          {
+            "evidence_id": "family-peggy-phil",
+            "text": "Peggy married Eric Mitchell (George Russo) because she was pregnant with their son Phil (Steve McFadden).",
+            "sha256": "601d2f2332aa61ff7cecd296e9d2b4be8b78207a8a739e7354b2105847f531f2",
+            "start": 34316,
+            "end": 34421,
+            "source": {
+              "title": "Peggy Mitchell",
+              "url": "https://en.wikipedia.org/wiki/Peggy_Mitchell",
+              "revision_id": "1372787814",
+              "revision_url": "https://en.wikipedia.org/w/index.php?oldid=1372787814",
+              "section": "Storylines / Backstory",
+              "captured_at": "2026-10-17T13:07:31.253971Z",
+              "capture_sha256": "d777ce7a2fffc8e7cb1da6ccd3a87aca45590147a348b5ef5eb6361fb685cacb",
+              "scope": "main_series",
+              "license_url": "https://creativecommons.org/licenses/by-sa/4.0/",
+              "attribution": "Wikipedia contributors; markup removed and whitespace normalized.",
+              "coverage": "Reviewed narrative sections in this captured revision only.",
+              "gaps": [
+                "Partial canon coverage; other paragraphs remain excluded or awaiting review.",
+                "Identity and episode metadata do not independently corroborate story claims."
+              ],
+              "support_status": "source_supported"
+            },
+            "location": {
+              "source_id": "peggy-mitchell-wiki",
+              "paragraph_ordinal": 37,
+              "section_id": "Backstory",
+              "character_ids": [
+                "grant-mitchell",
+                "peggy-mitchell",
+                "phil-mitchell"
+              ]
+            },
+            "resolve_path": "/v1/snapshots/review-6814f38eedb1834d1e27fa59a2dc8ac6a7389bfcab39d945fa8f69f6dc1b608b/evidence/family-peggy-phil"
+          }
+        ],
+        "snapshot_id": "review-6814f38eedb1834d1e27fa59a2dc8ac6a7389bfcab39d945fa8f69f6dc1b608b",
+        "snapshot_sha256": "6ba987b203258482fbe63c61df8bc11b3a249c420258155a679de59b17174639",
+        "publication": {
+          "compatibility_id": "af2020e29a18c50ace8aaf33569ae401cee8799a7c9e4cd9214dafa7cfc6b9c7",
+          "index_sha256": "98651e03fad7a4df39ff7b8af5021f8c4feccb818249c7da8b32b49fa2e8b3db",
+          "generation": 2
+        },
+        "source": {
+          "title": "Ben Mitchell",
+          "url": "https://en.wikipedia.org/wiki/Ben_Mitchell_(EastEnders)",
+          "revision_id": "1376729134",
+          "revision_url": "https://en.wikipedia.org/w/index.php?oldid=1376729134",
+          "section": "Storylines / 1996–2000",
+          "captured_at": "2026-10-17T13:07:31.530421Z",
+          "capture_sha256": "8ae0fbabb19cf12b2bdf46d7a85e15eea4462b8559584c770224a54a9e47d128",
+          "scope": "main_series",
+          "license_url": "https://creativecommons.org/licenses/by-sa/4.0/",
+          "attribution": "Wikipedia contributors; markup removed and whitespace normalized.",
+          "coverage": "Reviewed narrative sections in this captured revision only.",
+          "gaps": [
+            "Partial canon coverage; other paragraphs remain excluded or awaiting review.",
+            "Identity and episode metadata do not independently corroborate story claims."
+          ],
+          "support_status": "source_supported"
+        },
+        "retrieved": [
+          {
+            "passage": {
+              "evidence_id": "family-ben-birth",
+              "text": "Ben is born to Phil Mitchell (Steve McFadden) and his then wife Kathy Beale (Gillian Taylforth) in March 1996.",
+              "sha256": "8179f5f0724cc08e5a5d51567fb7de0f8e55a4d5fc9881f5e050ae9d153eca08",
+              "start": 17983,
+              "end": 18093,
+              "source": {
+                "title": "Ben Mitchell",
+                "url": "https://en.wikipedia.org/wiki/Ben_Mitchell_(EastEnders)",
+                "revision_id": "1376729134",
+                "revision_url": "https://en.wikipedia.org/w/index.php?oldid=1376729134",
+                "section": "Storylines / 1996–2000",
+                "captured_at": "2026-10-17T13:07:31.530421Z",
+                "capture_sha256": "8ae0fbabb19cf12b2bdf46d7a85e15eea4462b8559584c770224a54a9e47d128",
+                "scope": "main_series",
+                "license_url": "https://creativecommons.org/licenses/by-sa/4.0/",
+                "attribution": "Wikipedia contributors; markup removed and whitespace normalized.",
+                "coverage": "Reviewed narrative sections in this captured revision only.",
+                "gaps": [
+                  "Partial canon coverage; other paragraphs remain excluded or awaiting review.",
+                  "Identity and episode metadata do not independently corroborate story claims."
+                ],
+                "support_status": "source_supported"
+              },
+              "location": {
+                "source_id": "ben-mitchell-wiki",
+                "paragraph_ordinal": 22,
+                "section_id": "1996–2000",
+                "character_ids": [
+                  "ben-mitchell",
+                  "kathy-beale",
+                  "phil-mitchell"
+                ]
+              }
+            },
+            "similarity": 0.5507924124834721
+          },
+          {
+            "passage": {
+              "evidence_id": "family-peggy-phil",
+              "text": "Peggy married Eric Mitchell (George Russo) because she was pregnant with their son Phil (Steve McFadden).",
+              "sha256": "601d2f2332aa61ff7cecd296e9d2b4be8b78207a8a739e7354b2105847f531f2",
+              "start": 34316,
+              "end": 34421,
+              "source": {
+                "title": "Peggy Mitchell",
+                "url": "https://en.wikipedia.org/wiki/Peggy_Mitchell",
+                "revision_id": "1372787814",
+                "revision_url": "https://en.wikipedia.org/w/index.php?oldid=1372787814",
+                "section": "Storylines / Backstory",
+                "captured_at": "2026-10-17T13:07:31.253971Z",
+                "capture_sha256": "d777ce7a2fffc8e7cb1da6ccd3a87aca45590147a348b5ef5eb6361fb685cacb",
+                "scope": "main_series",
+                "license_url": "https://creativecommons.org/licenses/by-sa/4.0/",
+                "attribution": "Wikipedia contributors; markup removed and whitespace normalized.",
+                "coverage": "Reviewed narrative sections in this captured revision only.",
+                "gaps": [
+                  "Partial canon coverage; other paragraphs remain excluded or awaiting review.",
+                  "Identity and episode metadata do not independently corroborate story claims."
+                ],
+                "support_status": "source_supported"
+              },
+              "location": {
+                "source_id": "peggy-mitchell-wiki",
+                "paragraph_ordinal": 37,
+                "section_id": "Backstory",
+                "character_ids": [
+                  "grant-mitchell",
+                  "peggy-mitchell",
+                  "phil-mitchell"
+                ]
+              }
+            },
+            "similarity": 0.44415073271074634
+          },
+          {
+            "passage": {
+              "evidence_id": "family-sharon-adoption",
+              "text": "Adopted at the age of three by Den (Leslie Grantham) and Angie Watts (Anita Dobson), Sharon is raised at The Queen Victoria public house in Albert Square, Walford, where her adoptive parents are landlords.",
+              "sha256": "1e54773bc770474ace800fa686ba855dce8b3eac079403d0dd1c78e958023f31",
+              "start": 50624,
+              "end": 50829,
+              "source": {
+                "title": "Sharon Watts",
+                "url": "https://en.wikipedia.org/wiki/Sharon_Watts",
+                "revision_id": "1372798905",
+                "revision_url": "https://en.wikipedia.org/w/index.php?oldid=1372798905",
+                "section": "Storylines / 1985–1995",
+                "captured_at": "2026-10-17T13:07:31.327518Z",
+                "capture_sha256": "9ccef3de99353ff737101d9d00561c217608dd4fa6fba0c8200f80ac0114ea85",
+                "scope": "main_series",
+                "license_url": "https://creativecommons.org/licenses/by-sa/4.0/",
+                "attribution": "Wikipedia contributors; markup removed and whitespace normalized.",
+                "coverage": "Reviewed narrative sections in this captured revision only.",
+                "gaps": [
+                  "Partial canon coverage; other paragraphs remain excluded or awaiting review.",
+                  "Identity and episode metadata do not independently corroborate story claims."
+                ],
+                "support_status": "source_supported"
+              },
+              "location": {
+                "source_id": "sharon-watts-wiki",
+                "paragraph_ordinal": 53,
+                "section_id": "1985–1995",
+                "character_ids": [
+                  "den-watts",
+                  "ian-beale",
+                  "sharon-watts"
+                ]
+              }
+            },
+            "similarity": 0.23098932546568096
+          }
+        ],
+        "context": [
+          {
+            "evidence_id": "family-peggy-phil",
+            "text": "Peggy married Eric Mitchell (George Russo) because she was pregnant with their son Phil (Steve McFadden).",
+            "sha256": "601d2f2332aa61ff7cecd296e9d2b4be8b78207a8a739e7354b2105847f531f2",
+            "start": 34316,
+            "end": 34421,
+            "source": {
+              "title": "Peggy Mitchell",
+              "url": "https://en.wikipedia.org/wiki/Peggy_Mitchell",
+              "revision_id": "1372787814",
+              "revision_url": "https://en.wikipedia.org/w/index.php?oldid=1372787814",
+              "section": "Storylines / Backstory",
+              "captured_at": "2026-10-17T13:07:31.253971Z",
+              "capture_sha256": "d777ce7a2fffc8e7cb1da6ccd3a87aca45590147a348b5ef5eb6361fb685cacb",
+              "scope": "main_series",
+              "license_url": "https://creativecommons.org/licenses/by-sa/4.0/",
+              "attribution": "Wikipedia contributors; markup removed and whitespace normalized.",
+              "coverage": "Reviewed narrative sections in this captured revision only.",
+              "gaps": [
+                "Partial canon coverage; other paragraphs remain excluded or awaiting review.",
+                "Identity and episode metadata do not independently corroborate story claims."
+              ],
+              "support_status": "source_supported"
+            },
+            "location": {
+              "source_id": "peggy-mitchell-wiki",
+              "paragraph_ordinal": 37,
+              "section_id": "Backstory",
+              "character_ids": [
+                "grant-mitchell",
+                "peggy-mitchell",
+                "phil-mitchell"
+              ]
+            }
+          }
+        ],
+        "review_notices": [
+          {
+            "family": "family",
+            "claim_id": "peggy-phil",
+            "character_ids": [
+              "peggy-mitchell",
+              "phil-mitchell"
+            ],
+            "evidence_ids": [
+              "family-peggy-phil"
+            ],
+            "explanation": "Superseded claim (not current): Peggy Mitchell as Phil Mitchell's biological mother; story date unknown. Current replacement source account: Peggy Mitchell as Phil Mitchell's biological mother; story date unknown. Source passages: family-peggy-phil.",
+            "group_id": "parentage:phil-mitchell",
+            "related_group_ids": [
+              "parentage:phil-mitchell"
+            ],
+            "disputed": false,
+            "reviewer": "issue-15-source-span-audit",
+            "rationale": "The retained source and quote contain 105 Unicode characters; the raw end offset 104 omitted the final full stop. The new Claim preserves parentage and unknown story timing while repairing the locator. Earlier evidence and the raw failure remain retained."
+          }
+        ],
+        "retrieval_k": 3,
+        "route": "text_rag",
+        "baseline_version": "single-query-uncached-v2",
+        "model_settings": {
+          "embedding_model": "embeddinggemma:300m",
+          "embedding_digest": "85462619ee721b466c5927d109d4cb765861907d5417b9109caebc4e614679f1",
+          "embedding_dimensions": 768,
+          "provider_type": "openrouter",
+          "answer_model": "openai/gpt-6-sol",
+          "canonical_slug": "openai/gpt-6-sol-20260922",
+          "provider": "openai",
+          "input_price_per_million": "2",
+          "output_price_per_million": "10",
+          "output_tokens": 8192,
+          "reasoning_effort": "medium",
+          "request_timeout_seconds": 180
+        },
+        "prompt_sha256": "0f66eb91ee1f8ae77c13b7077c4f280be589a56a987f3ecfd093df8696c02809",
+        "application_sha256": "badf2d507c8abcf7cacb8654585026c411f4b64bba531e9513ac0f759318ab07",
+        "trace_id": "tr-86a7b10206b1cd5e99f2229d8c67a7bd",
+        "execution": {
+          "limits": {
+            "model_calls": 2,
+            "tool_calls": 1,
+            "http_calls": 8,
+            "seconds": 180.0,
+            "context_bytes": 1200,
+            "spend_usd": "0",
+            "retries": 0,
+            "capabilities": [
+              "text_retrieval",
+              "family_graph",
+              "event_graph"
+            ],
+            "concurrency": 4
+          },
+          "model_calls": 1,
+          "tool_calls": 1,
+          "http_calls": 2,
+          "reserved_usd": "0",
+          "stop_reason": null
+        },
+        "elapsed_ms": 416.73889799858443,
+        "usage": {
+          "input_tokens": 0,
+          "output_tokens": 0,
+          "embedding_tokens": 17
+        },
+        "expenditure_category": "serving",
+        "estimated_api_cost_usd": 0.0,
+        "cost_scope": "OpenRouter reported inference credits only. Null means unknown cost; the local budget retains a reservation. Credit purchase fees, tax, local embeddings and hosting are excluded.",
+        "limitation": "Source-supported is not independently cross-checked. Coverage is limited to the captured snapshot; this provider baseline is not deployment approval."
+      },
+      "trace_output_matches": true,
+      "citations_resolve": true,
+      "saved_response_matches": true,
+      "span_names": [
+        "text_rag",
+        "text_retrieval",
+        "query_embedding",
+        "assembled_context"
+      ]
+    },
+    {
+      "case_id": "reviewed-cli",
+      "response": {
+        "response_id": "572e2057-1cfa-4580-a8f5-19d6929cb4e7",
+        "question": "Who is Phil Mitchell's mother?",
+        "status": "partial",
+        "answer": "Right, listen. Captured biological ancestors paths: Phil Mitchell → Peggy Mitchell. \nSuperseded claim (not current): Peggy Mitchell as Phil Mitchell's biological mother; story date unknown. Current replacement source account: Peggy Mitchell as Phil Mitchell's biological mother; story date unknown. Source passages: family-peggy-phil.\nReview rationale (issue-15-source-span-audit): The retained source and quote contain 105 Unicode characters; the raw end offset 104 omitted the final full stop. The new Claim preserves parentage and unknown story timing while repairing the locator. Earlier evidence and the raw failure remain retained.\nThis is source review, not independent corroboration. Coverage outside these reviewed accounts remains unknown.\nOnly admitted biological relationships in this reviewed snapshot are traversed. Missing ancestry does not establish that a relationship does not exist. Results are incomplete outside the selected material and traversal bounds. Source-supported does not mean independently cross-checked.",
+        "unanswered": [
+          "Family coverage outside the reviewed spans and traversal bounds."
+        ],
+        "citations": [
+          {
+            "evidence_id": "family-peggy-phil",
+            "text": "Peggy married Eric Mitchell (George Russo) because she was pregnant with their son Phil (Steve McFadden).",
+            "sha256": "601d2f2332aa61ff7cecd296e9d2b4be8b78207a8a739e7354b2105847f531f2",
+            "start": 34316,
+            "end": 34421,
+            "source": {
+              "title": "Peggy Mitchell",
+              "url": "https://en.wikipedia.org/wiki/Peggy_Mitchell",
+              "revision_id": "1372787814",
+              "revision_url": "https://en.wikipedia.org/w/index.php?oldid=1372787814",
+              "section": "Storylines / Backstory",
+              "captured_at": "2026-10-17T13:07:31.253971Z",
+              "capture_sha256": "d777ce7a2fffc8e7cb1da6ccd3a87aca45590147a348b5ef5eb6361fb685cacb",
+              "scope": "main_series",
+              "license_url": "https://creativecommons.org/licenses/by-sa/4.0/",
+              "attribution": "Wikipedia contributors; markup removed and whitespace normalized.",
+              "coverage": "Reviewed narrative sections in this captured revision only.",
+              "gaps": [
+                "Partial canon coverage; other paragraphs remain excluded or awaiting review.",
+                "Identity and episode metadata do not independently corroborate story claims."
+              ],
+              "support_status": "source_supported"
+            },
+            "location": {
+              "source_id": "peggy-mitchell-wiki",
+              "paragraph_ordinal": 37,
+              "section_id": "Backstory",
+              "character_ids": [
+                "grant-mitchell",
+                "peggy-mitchell",
+                "phil-mitchell"
+              ]
+            },
+            "resolve_path": "/v1/snapshots/review-6814f38eedb1834d1e27fa59a2dc8ac6a7389bfcab39d945fa8f69f6dc1b608b/evidence/family-peggy-phil"
+          }
+        ],
+        "snapshot_id": "review-6814f38eedb1834d1e27fa59a2dc8ac6a7389bfcab39d945fa8f69f6dc1b608b",
+        "snapshot_sha256": "6ba987b203258482fbe63c61df8bc11b3a249c420258155a679de59b17174639",
+        "publication": {
+          "compatibility_id": "af2020e29a18c50ace8aaf33569ae401cee8799a7c9e4cd9214dafa7cfc6b9c7",
+          "index_sha256": "98651e03fad7a4df39ff7b8af5021f8c4feccb818249c7da8b32b49fa2e8b3db",
+          "generation": 2
+        },
+        "source": {
+          "title": "Ben Mitchell",
+          "url": "https://en.wikipedia.org/wiki/Ben_Mitchell_(EastEnders)",
+          "revision_id": "1376729134",
+          "revision_url": "https://en.wikipedia.org/w/index.php?oldid=1376729134",
+          "section": "Storylines / 1996–2000",
+          "captured_at": "2026-10-17T13:07:31.530421Z",
+          "capture_sha256": "8ae0fbabb19cf12b2bdf46d7a85e15eea4462b8559584c770224a54a9e47d128",
+          "scope": "main_series",
+          "license_url": "https://creativecommons.org/licenses/by-sa/4.0/",
+          "attribution": "Wikipedia contributors; markup removed and whitespace normalized.",
+          "coverage": "Reviewed narrative sections in this captured revision only.",
+          "gaps": [
+            "Partial canon coverage; other paragraphs remain excluded or awaiting review.",
+            "Identity and episode metadata do not independently corroborate story claims."
+          ],
+          "support_status": "source_supported"
+        },
+        "retrieved": [],
+        "context": [
+          {
+            "evidence_id": "family-peggy-phil",
+            "text": "Peggy married Eric Mitchell (George Russo) because she was pregnant with their son Phil (Steve McFadden).",
+            "sha256": "601d2f2332aa61ff7cecd296e9d2b4be8b78207a8a739e7354b2105847f531f2",
+            "start": 34316,
+            "end": 34421,
+            "source": {
+              "title": "Peggy Mitchell",
+              "url": "https://en.wikipedia.org/wiki/Peggy_Mitchell",
+              "revision_id": "1372787814",
+              "revision_url": "https://en.wikipedia.org/w/index.php?oldid=1372787814",
+              "section": "Storylines / Backstory",
+              "captured_at": "2026-10-17T13:07:31.253971Z",
+              "capture_sha256": "d777ce7a2fffc8e7cb1da6ccd3a87aca45590147a348b5ef5eb6361fb685cacb",
+              "scope": "main_series",
+              "license_url": "https://creativecommons.org/licenses/by-sa/4.0/",
+              "attribution": "Wikipedia contributors; markup removed and whitespace normalized.",
+              "coverage": "Reviewed narrative sections in this captured revision only.",
+              "gaps": [
+                "Partial canon coverage; other paragraphs remain excluded or awaiting review.",
+                "Identity and episode metadata do not independently corroborate story claims."
+              ],
+              "support_status": "source_supported"
+            },
+            "location": {
+              "source_id": "peggy-mitchell-wiki",
+              "paragraph_ordinal": 37,
+              "section_id": "Backstory",
+              "character_ids": [
+                "grant-mitchell",
+                "peggy-mitchell",
+                "phil-mitchell"
+              ]
+            }
+          }
+        ],
+        "review_notices": [
+          {
+            "family": "family",
+            "claim_id": "peggy-phil",
+            "character_ids": [
+              "peggy-mitchell",
+              "phil-mitchell"
+            ],
+            "evidence_ids": [
+              "family-peggy-phil"
+            ],
+            "explanation": "Superseded claim (not current): Peggy Mitchell as Phil Mitchell's biological mother; story date unknown. Current replacement source account: Peggy Mitchell as Phil Mitchell's biological mother; story date unknown. Source passages: family-peggy-phil.",
+            "group_id": "parentage:phil-mitchell",
+            "related_group_ids": [
+              "parentage:phil-mitchell"
+            ],
+            "disputed": false,
+            "reviewer": "issue-15-source-span-audit",
+            "rationale": "The retained source and quote contain 105 Unicode characters; the raw end offset 104 omitted the final full stop. The new Claim preserves parentage and unknown story timing while repairing the locator. Earlier evidence and the raw failure remain retained."
+          }
+        ],
+        "retrieval_k": 0,
+        "route": "graph",
+        "route_override": true,
+        "graph": {
+          "snapshot_id": "review-6814f38eedb1834d1e27fa59a2dc8ac6a7389bfcab39d945fa8f69f6dc1b608b",
+          "snapshot_sha256": "6ba987b203258482fbe63c61df8bc11b3a249c420258155a679de59b17174639",
+          "graph_sha256": "c77d0569f21eb013459282f8fb032d3ff814df735577466e35db4e16124d4104",
+          "query": {
+            "character_id": "phil-mitchell",
+            "direction": "ancestors",
+            "max_depth": 3,
+            "max_paths": 20
+          },
+          "status": "found",
+          "paths": [
+            {
+              "characters": [
+                "phil-mitchell",
+                "peggy-mitchell"
+              ],
+              "edges": [
+                {
+                  "parent_id": "peggy-mitchell",
+                  "child_id": "phil-mitchell",
+                  "claim_ids": [
+                    "peggy-phil-corrected-locator"
+                  ],
+                  "evidence": [
+                    {
+                      "evidence_id": "family-peggy-phil",
+                      "start": 0,
+                      "end": 105,
+                      "quote": "Peggy married Eric Mitchell (George Russo) because she was pregnant with their son Phil (Steve McFadden)."
+                    }
+                  ]
+                }
+              ]
+            }
+          ],
+          "names": {
+            "phil-mitchell": "Phil Mitchell",
+            "grant-mitchell": "Grant Mitchell",
+            "peggy-mitchell": "Peggy Mitchell",
+            "sharon-watts": "Sharon Watts",
+            "ben-mitchell": "Ben Mitchell",
+            "kathy-beale": "Kathy Beale",
+            "den-watts": "Den Watts"
+          },
+          "limitation": "Only admitted biological relationships in this reviewed snapshot are traversed. Missing ancestry does not establish that a relationship does not exist. Results are incomplete outside the selected material and traversal bounds. Source-supported does not mean independently cross-checked."
+        },
+        "baseline_version": "single-query-uncached-v1",
+        "model_settings": null,
+        "prompt_sha256": "f7183350a5a1c8cd4ae9a67af95ff433b5a67761b69c8bc0c936238d44084c56",
+        "application_sha256": "badf2d507c8abcf7cacb8654585026c411f4b64bba531e9513ac0f759318ab07",
+        "trace_id": "tr-80ae7f037b350fb21acf920561590174",
+        "execution": {
+          "limits": {
+            "model_calls": 2,
+            "tool_calls": 1,
+            "http_calls": 8,
+            "seconds": 180.0,
+            "context_bytes": 1200,
+            "spend_usd": "0",
+            "retries": 0,
+            "capabilities": [
+              "text_retrieval",
+              "family_graph",
+              "event_graph"
+            ],
+            "concurrency": 4
+          },
+          "model_calls": 0,
+          "tool_calls": 1,
+          "http_calls": 0,
+          "reserved_usd": "0",
+          "stop_reason": null
+        },
+        "elapsed_ms": 190.21576199884294,
+        "usage": {
+          "input_tokens": 0,
+          "output_tokens": 0,
+          "embedding_tokens": 0
+        },
+        "expenditure_category": "serving",
+        "estimated_api_cost_usd": 0.0,
+        "cost_scope": "No inference calls. Database and hosting costs are excluded.",
+        "limitation": "Only admitted biological relationships in this reviewed snapshot are traversed. Missing ancestry does not establish that a relationship does not exist. Results are incomplete outside the selected material and traversal bounds. Source-supported does not mean independently cross-checked."
+      },
+      "trace_output_matches": true,
+      "citations_resolve": true,
+      "saved_response_matches": true,
+      "span_names": [
+        "graph",
+        "family_graph"
+      ]
+    },
+    {
+      "case_id": "reviewed-session",
+      "response": {
+        "response_id": "21a39fb2-9228-4576-b847-124a4566d795",
+        "question": "Who is Phil Mitchell's mother?",
+        "conversation": {
+          "session_id": "97011290-c274-4df9-9406-7171eef70a33",
+          "turn_id": "43cd5000-dc56-4e92-933f-9ab2ebfc1714",
+          "turn_number": 1,
+          "generation": 0,
+          "reference": {
+            "question": "Who is Phil Mitchell's mother?",
+            "character_ids": [
+              "phil-mitchell"
+            ],
+            "context_turn_id": null,
+            "clarification": null,
+            "followup_requires_name": true
+          }
+        },
+        "status": "partial",
+        "answer": "Right, listen. Captured biological ancestors paths: Phil Mitchell → Peggy Mitchell. \nSuperseded claim (not current): Peggy Mitchell as Phil Mitchell's biological mother; story date unknown. Current replacement source account: Peggy Mitchell as Phil Mitchell's biological mother; story date unknown. Source passages: family-peggy-phil.\nReview rationale (issue-15-source-span-audit): The retained source and quote contain 105 Unicode characters; the raw end offset 104 omitted the final full stop. The new Claim preserves parentage and unknown story timing while repairing the locator. Earlier evidence and the raw failure remain retained.\nThis is source review, not independent corroboration. Coverage outside these reviewed accounts remains unknown.\nOnly admitted biological relationships in this reviewed snapshot are traversed. Missing ancestry does not establish that a relationship does not exist. Results are incomplete outside the selected material and traversal bounds. Source-supported does not mean independently cross-checked.",
+        "unanswered": [
+          "Family coverage outside the reviewed spans and traversal bounds."
+        ],
+        "citations": [
+          {
+            "evidence_id": "family-peggy-phil",
+            "text": "Peggy married Eric Mitchell (George Russo) because she was pregnant with their son Phil (Steve McFadden).",
+            "sha256": "601d2f2332aa61ff7cecd296e9d2b4be8b78207a8a739e7354b2105847f531f2",
+            "start": 34316,
+            "end": 34421,
+            "source": {
+              "title": "Peggy Mitchell",
+              "url": "https://en.wikipedia.org/wiki/Peggy_Mitchell",
+              "revision_id": "1372787814",
+              "revision_url": "https://en.wikipedia.org/w/index.php?oldid=1372787814",
+              "section": "Storylines / Backstory",
+              "captured_at": "2026-10-17T13:07:31.253971Z",
+              "capture_sha256": "d777ce7a2fffc8e7cb1da6ccd3a87aca45590147a348b5ef5eb6361fb685cacb",
+              "scope": "main_series",
+              "license_url": "https://creativecommons.org/licenses/by-sa/4.0/",
+              "attribution": "Wikipedia contributors; markup removed and whitespace normalized.",
+              "coverage": "Reviewed narrative sections in this captured revision only.",
+              "gaps": [
+                "Partial canon coverage; other paragraphs remain excluded or awaiting review.",
+                "Identity and episode metadata do not independently corroborate story claims."
+              ],
+              "support_status": "source_supported"
+            },
+            "location": {
+              "source_id": "peggy-mitchell-wiki",
+              "paragraph_ordinal": 37,
+              "section_id": "Backstory",
+              "character_ids": [
+                "grant-mitchell",
+                "peggy-mitchell",
+                "phil-mitchell"
+              ]
+            },
+            "resolve_path": "/v1/snapshots/review-6814f38eedb1834d1e27fa59a2dc8ac6a7389bfcab39d945fa8f69f6dc1b608b/evidence/family-peggy-phil"
+          }
+        ],
+        "snapshot_id": "review-6814f38eedb1834d1e27fa59a2dc8ac6a7389bfcab39d945fa8f69f6dc1b608b",
+        "snapshot_sha256": "6ba987b203258482fbe63c61df8bc11b3a249c420258155a679de59b17174639",
+        "publication": {
+          "compatibility_id": "af2020e29a18c50ace8aaf33569ae401cee8799a7c9e4cd9214dafa7cfc6b9c7",
+          "index_sha256": "98651e03fad7a4df39ff7b8af5021f8c4feccb818249c7da8b32b49fa2e8b3db",
+          "generation": 2
+        },
+        "source": {
+          "title": "Ben Mitchell",
+          "url": "https://en.wikipedia.org/wiki/Ben_Mitchell_(EastEnders)",
+          "revision_id": "1376729134",
+          "revision_url": "https://en.wikipedia.org/w/index.php?oldid=1376729134",
+          "section": "Storylines / 1996–2000",
+          "captured_at": "2026-10-17T13:07:31.530421Z",
+          "capture_sha256": "8ae0fbabb19cf12b2bdf46d7a85e15eea4462b8559584c770224a54a9e47d128",
+          "scope": "main_series",
+          "license_url": "https://creativecommons.org/licenses/by-sa/4.0/",
+          "attribution": "Wikipedia contributors; markup removed and whitespace normalized.",
+          "coverage": "Reviewed narrative sections in this captured revision only.",
+          "gaps": [
+            "Partial canon coverage; other paragraphs remain excluded or awaiting review.",
+            "Identity and episode metadata do not independently corroborate story claims."
+          ],
+          "support_status": "source_supported"
+        },
+        "retrieved": [],
+        "context": [
+          {
+            "evidence_id": "family-peggy-phil",
+            "text": "Peggy married Eric Mitchell (George Russo) because she was pregnant with their son Phil (Steve McFadden).",
+            "sha256": "601d2f2332aa61ff7cecd296e9d2b4be8b78207a8a739e7354b2105847f531f2",
+            "start": 34316,
+            "end": 34421,
+            "source": {
+              "title": "Peggy Mitchell",
+              "url": "https://en.wikipedia.org/wiki/Peggy_Mitchell",
+              "revision_id": "1372787814",
+              "revision_url": "https://en.wikipedia.org/w/index.php?oldid=1372787814",
+              "section": "Storylines / Backstory",
+              "captured_at": "2026-10-17T13:07:31.253971Z",
+              "capture_sha256": "d777ce7a2fffc8e7cb1da6ccd3a87aca45590147a348b5ef5eb6361fb685cacb",
+              "scope": "main_series",
+              "license_url": "https://creativecommons.org/licenses/by-sa/4.0/",
+              "attribution": "Wikipedia contributors; markup removed and whitespace normalized.",
+              "coverage": "Reviewed narrative sections in this captured revision only.",
+              "gaps": [
+                "Partial canon coverage; other paragraphs remain excluded or awaiting review.",
+                "Identity and episode metadata do not independently corroborate story claims."
+              ],
+              "support_status": "source_supported"
+            },
+            "location": {
+              "source_id": "peggy-mitchell-wiki",
+              "paragraph_ordinal": 37,
+              "section_id": "Backstory",
+              "character_ids": [
+                "grant-mitchell",
+                "peggy-mitchell",
+                "phil-mitchell"
+              ]
+            }
+          }
+        ],
+        "review_notices": [
+          {
+            "family": "family",
+            "claim_id": "peggy-phil",
+            "character_ids": [
+              "peggy-mitchell",
+              "phil-mitchell"
+            ],
+            "evidence_ids": [
+              "family-peggy-phil"
+            ],
+            "explanation": "Superseded claim (not current): Peggy Mitchell as Phil Mitchell's biological mother; story date unknown. Current replacement source account: Peggy Mitchell as Phil Mitchell's biological mother; story date unknown. Source passages: family-peggy-phil.",
+            "group_id": "parentage:phil-mitchell",
+            "related_group_ids": [
+              "parentage:phil-mitchell"
+            ],
+            "disputed": false,
+            "reviewer": "issue-15-source-span-audit",
+            "rationale": "The retained source and quote contain 105 Unicode characters; the raw end offset 104 omitted the final full stop. The new Claim preserves parentage and unknown story timing while repairing the locator. Earlier evidence and the raw failure remain retained."
+          }
+        ],
+        "retrieval_k": 0,
+        "route": "graph",
+        "route_override": true,
+        "graph": {
+          "snapshot_id": "review-6814f38eedb1834d1e27fa59a2dc8ac6a7389bfcab39d945fa8f69f6dc1b608b",
+          "snapshot_sha256": "6ba987b203258482fbe63c61df8bc11b3a249c420258155a679de59b17174639",
+          "graph_sha256": "c77d0569f21eb013459282f8fb032d3ff814df735577466e35db4e16124d4104",
+          "query": {
+            "character_id": "phil-mitchell",
+            "direction": "ancestors",
+            "max_depth": 3,
+            "max_paths": 20
+          },
+          "status": "found",
+          "paths": [
+            {
+              "characters": [
+                "phil-mitchell",
+                "peggy-mitchell"
+              ],
+              "edges": [
+                {
+                  "parent_id": "peggy-mitchell",
+                  "child_id": "phil-mitchell",
+                  "claim_ids": [
+                    "peggy-phil-corrected-locator"
+                  ],
+                  "evidence": [
+                    {
+                      "evidence_id": "family-peggy-phil",
+                      "start": 0,
+                      "end": 105,
+                      "quote": "Peggy married Eric Mitchell (George Russo) because she was pregnant with their son Phil (Steve McFadden)."
+                    }
+                  ]
+                }
+              ]
+            }
+          ],
+          "names": {
+            "phil-mitchell": "Phil Mitchell",
+            "grant-mitchell": "Grant Mitchell",
+            "peggy-mitchell": "Peggy Mitchell",
+            "sharon-watts": "Sharon Watts",
+            "ben-mitchell": "Ben Mitchell",
+            "kathy-beale": "Kathy Beale",
+            "den-watts": "Den Watts"
+          },
+          "limitation": "Only admitted biological relationships in this reviewed snapshot are traversed. Missing ancestry does not establish that a relationship does not exist. Results are incomplete outside the selected material and traversal bounds. Source-supported does not mean independently cross-checked."
+        },
+        "baseline_version": "single-query-uncached-v1",
+        "model_settings": null,
+        "prompt_sha256": "f7183350a5a1c8cd4ae9a67af95ff433b5a67761b69c8bc0c936238d44084c56",
+        "application_sha256": "badf2d507c8abcf7cacb8654585026c411f4b64bba531e9513ac0f759318ab07",
+        "trace_id": "tr-120932f9ab7614262d259e7023a2d80a",
+        "execution": {
+          "limits": {
+            "model_calls": 2,
+            "tool_calls": 1,
+            "http_calls": 8,
+            "seconds": 180.0,
+            "context_bytes": 1200,
+            "spend_usd": "0",
+            "retries": 0,
+            "capabilities": [
+              "text_retrieval",
+              "family_graph",
+              "event_graph"
+            ],
+            "concurrency": 4
+          },
+          "model_calls": 0,
+          "tool_calls": 1,
+          "http_calls": 0,
+          "reserved_usd": "0",
+          "stop_reason": null
+        },
+        "elapsed_ms": 192.44729999627452,
+        "usage": {
+          "input_tokens": 0,
+          "output_tokens": 0,
+          "embedding_tokens": 0
+        },
+        "expenditure_category": "serving",
+        "estimated_api_cost_usd": 0.0,
+        "cost_scope": "No inference calls. Database and hosting costs are excluded.",
+        "limitation": "Only admitted biological relationships in this reviewed snapshot are traversed. Missing ancestry does not establish that a relationship does not exist. Results are incomplete outside the selected material and traversal bounds. Source-supported does not mean independently cross-checked."
+      },
+      "trace_output_matches": true,
+      "citations_resolve": true,
+      "saved_response_matches": true,
+      "span_names": [
+        "graph",
+        "family_graph"
+      ]
+    },
+    {
+      "case_id": "after-rollback",
+      "response": {
+        "response_id": "2ee96162-6441-4ecd-b4a5-8b6469ba3975",
+        "question": "Who is Phil Mitchell's mother?",
+        "status": "insufficient_evidence",
+        "answer": "I can't establish the requested biological paths from this graph (empty). Only admitted biological relationships in this reviewed snapshot are traversed. Missing ancestry does not establish that a relationship does not exist. Results are incomplete outside the selected material and traversal bounds. Source-supported does not mean independently cross-checked.",
+        "unanswered": [
+          "Family coverage outside the reviewed spans and traversal bounds."
+        ],
+        "citations": [],
+        "snapshot_id": "family-pilot-v1",
+        "snapshot_sha256": "118cb99db01b352e9b2793e56873962d9769e00df7c3764bb7201d8a7a281a06",
+        "publication": {
+          "compatibility_id": "0850d2e8111e4a62ecad3964738ddd564485ae8e3871cee91c1189965cd3f157",
+          "index_sha256": "63d804d1a3f874c94b2f3ff5c3fe3d4f64cc07a58f6feb4ddfa564b1a1ff628b",
+          "generation": 3
+        },
+        "source": {
+          "title": "Ben Mitchell",
+          "url": "https://en.wikipedia.org/wiki/Ben_Mitchell_(EastEnders)",
+          "revision_id": "1376729134",
+          "revision_url": "https://en.wikipedia.org/w/index.php?oldid=1376729134",
+          "section": "Storylines / 1996–2000",
+          "captured_at": "2026-10-17T13:07:31.530421Z",
+          "capture_sha256": "8ae0fbabb19cf12b2bdf46d7a85e15eea4462b8559584c770224a54a9e47d128",
+          "scope": "main_series",
+          "license_url": "https://creativecommons.org/licenses/by-sa/4.0/",
+          "attribution": "Wikipedia contributors; markup removed and whitespace normalized.",
+          "coverage": "Reviewed narrative sections in this captured revision only.",
+          "gaps": [
+            "Partial canon coverage; other paragraphs remain excluded or awaiting review.",
+            "Identity and episode metadata do not independently corroborate story claims."
+          ],
+          "support_status": "source_supported"
+        },
+        "retrieved": [],
+        "context": [],
+        "retrieval_k": 0,
+        "route": "graph",
+        "route_override": true,
+        "graph": {
+          "snapshot_id": "family-pilot-v1",
+          "snapshot_sha256": "118cb99db01b352e9b2793e56873962d9769e00df7c3764bb7201d8a7a281a06",
+          "graph_sha256": "a65ff3583121f9a48b7355f88c706fbaaf773e1765f9a0a9398ffee0f9343d95",
+          "query": {
+            "character_id": "phil-mitchell",
+            "direction": "ancestors",
+            "max_depth": 3,
+            "max_paths": 20
+          },
+          "status": "empty",
+          "paths": [],
+          "names": {
+            "phil-mitchell": "Phil Mitchell",
+            "grant-mitchell": "Grant Mitchell",
+            "peggy-mitchell": "Peggy Mitchell",
+            "sharon-watts": "Sharon Watts",
+            "ben-mitchell": "Ben Mitchell",
+            "kathy-beale": "Kathy Beale",
+            "den-watts": "Den Watts"
+          },
+          "limitation": "Only admitted biological relationships in this reviewed snapshot are traversed. Missing ancestry does not establish that a relationship does not exist. Results are incomplete outside the selected material and traversal bounds. Source-supported does not mean independently cross-checked."
+        },
+        "baseline_version": "single-query-uncached-v1",
+        "model_settings": null,
+        "prompt_sha256": "c4f9de91a5c4419d0f69dd2fad73485382fa6e6321583b36f7e255e2b3454341",
+        "application_sha256": "badf2d507c8abcf7cacb8654585026c411f4b64bba531e9513ac0f759318ab07",
+        "trace_id": "tr-a2f505f94ad04bc8cee7978dc8b6d227",
+        "execution": {
+          "limits": {
+            "model_calls": 2,
+            "tool_calls": 1,
+            "http_calls": 8,
+            "seconds": 180.0,
+            "context_bytes": 1200,
+            "spend_usd": "0",
+            "retries": 0,
+            "capabilities": [
+              "text_retrieval",
+              "family_graph",
+              "event_graph"
+            ],
+            "concurrency": 4
+          },
+          "model_calls": 0,
+          "tool_calls": 1,
+          "http_calls": 0,
+          "reserved_usd": "0",
+          "stop_reason": null
+        },
+        "elapsed_ms": 123.92570199881447,
+        "usage": {
+          "input_tokens": 0,
+          "output_tokens": 0,
+          "embedding_tokens": 0
+        },
+        "expenditure_category": "serving",
+        "estimated_api_cost_usd": 0.0,
+        "cost_scope": "No inference calls. Database and hosting costs are excluded.",
+        "limitation": "Only admitted biological relationships in this reviewed snapshot are traversed. Missing ancestry does not establish that a relationship does not exist. Results are incomplete outside the selected material and traversal bounds. Source-supported does not mean independently cross-checked."
+      },
+      "trace_output_matches": true,
+      "citations_resolve": true,
+      "saved_response_matches": true,
+      "span_names": [
+        "graph",
+        "family_graph"
+      ]
+    }
+  ],
+  "original_inputs_unchanged": true,
+  "session_reset": true,
+  "restart_readback_matches": true,
+  "answer_generation_calls": 0,
+  "limitation": "Actual local embeddings and deterministic review explanations; no new extraction, answer-model quality, human adjudication or held-out claim."
+}

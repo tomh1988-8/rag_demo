@@ -1,0 +1,17 @@
+[
+  {
+    "scenario": "locator-correction",
+    "public_responses": 7,
+    "application_sha256": "6d0b3a9f68cf9acf9cfdba10aeceadb1a93439a128c86435d33000952b7b2cdd"
+  },
+  {
+    "scenario": "synthetic-dispute",
+    "public_responses": 6,
+    "application_sha256": "6d0b3a9f68cf9acf9cfdba10aeceadb1a93439a128c86435d33000952b7b2cdd"
+  },
+  {
+    "scenario": "parentage-correction",
+    "public_responses": 6,
+    "application_sha256": "6d0b3a9f68cf9acf9cfdba10aeceadb1a93439a128c86435d33000952b7b2cdd"
+  }
+]

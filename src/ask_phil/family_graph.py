@@ -1,6 +1,6 @@
 """Immutable reviewed claims and their bounded, read-only PostgreSQL family projection."""
 
-from typing import Literal
+from typing import TYPE_CHECKING, Literal
 
 import psycopg
 from psycopg import sql
@@ -14,6 +14,9 @@ from ask_phil.evidence import Fingerprint, Identifier, Record
 from ask_phil.execution import current_execution, read_options
 from ask_phil.parentage import ClaimBatch
 from ask_phil.storage import EvidenceStore
+
+if TYPE_CHECKING:
+    from ask_phil.publications import ActivePublication
 
 GRAPH_LIMITATION = (
     "Only admitted biological relationships in this reviewed snapshot are traversed. "
@@ -68,7 +71,16 @@ class FamilyGraph:
         ).fetchone()
         return FamilyAudit.model_validate(row[0]) if row else None
 
-    def query(self, snapshot_id: str, query: FamilyQuery) -> FamilyResult:
+    def query(
+        self,
+        snapshot_id: str,
+        query: FamilyQuery,
+        *,
+        publication: "ActivePublication | None" = None,
+    ) -> FamilyResult:
+        from ask_phil.publications import PublicationStore
+
+        PublicationStore(self.database_url).pin(snapshot_id, pinned=publication)
         snapshot = EvidenceStore(self.database_url).snapshot(snapshot_id)
         budget = current_execution.get()
         if budget:

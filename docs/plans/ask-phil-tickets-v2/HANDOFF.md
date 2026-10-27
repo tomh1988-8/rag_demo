@@ -1,5 +1,30 @@
 # Ask Phil: publication and next-skill handoff
 
+## Issue #15: correction and dispute review
+
+Implementation, final runtime/source review and all **480 software tests** pass.
+Strict mypy across 109 files and Ruff/formatting pass. Required publication/closure
+checks are in progress; this handoff will record their verified results before the
+issue is complete.
+[Evidence](../../implementation/issue-15/README.md) covers content-bound maintainer
+outcomes, retained correction history, complete competing accounts, compatible
+source/index/claim/graph publication, failed projection/retry, restart and rollback.
+Both independent code-review axes have zero remaining findings. The final runtime
+has nineteen actual API/CLI/session responses; all twelve current reviewed answers
+pass separate source support, grounding, completeness and attribution checks.
+Two deliberately wrong old biological Den/Sharon answers are recovery fixtures,
+not factual passes. The conflict is explicitly synthetic; no original extraction
+score, human canon adjudication or held-out release result is improved by curation.
+
+No paid calls were made. Preserve the shared non-resetting $5 ledger at **$0.464981**,
+zero unsettled reservations, the private key, all 37 original data files and the
+51 pre-existing workspace files. EXT-04 now has scoped implemented evidence;
+checklist counts are 35 Pass and 16 Pending. Wider graph coverage, automatic routing,
+full code/prompt release recovery and representative quality remain pending.
+
+After verified #15 closure, **#16 is next**; #19, #20, #22 and #24 are also unblocked.
+Wait for the user's next implementation instruction before another issue.
+
 ## Issue #13: crimes and justice accepted and closed
 
 [Implementation and evidence](../../implementation/issue-13/README.md) are published

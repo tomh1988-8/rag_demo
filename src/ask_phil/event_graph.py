@@ -1,6 +1,6 @@
 """Immutable admitted event assertions behind a bounded read-only SQL query."""
 
-from typing import Literal, Self
+from typing import TYPE_CHECKING, Literal, Self
 
 import psycopg
 from psycopg.types.json import Jsonb
@@ -12,6 +12,9 @@ from ask_phil.classified_facts import ContextClaim, context_for
 from ask_phil.evidence import Fingerprint, Identifier, Record
 from ask_phil.execution import current_execution, read_options
 from ask_phil.storage import EvidenceStore
+
+if TYPE_CHECKING:
+    from ask_phil.publications import ActivePublication
 from ask_phil.story_events import (
     CLASSIFICATION_LIMITATION,
     EVENT_LIMITATION,
@@ -106,7 +109,12 @@ class EventGraph:
             tuple(c for c in audit.batch.context_claims if c.claim_id in admitted), evidence_ids
         )
 
-    def query(self, snapshot_id: str, query: EventQuery) -> EventResult:
+    def query(
+        self, snapshot_id: str, query: EventQuery, *, publication: "ActivePublication | None" = None
+    ) -> EventResult:
+        from ask_phil.publications import PublicationStore
+
+        PublicationStore(self.database_url).pin(snapshot_id, pinned=publication)
         snapshot = EvidenceStore(self.database_url).snapshot(snapshot_id)
         budget = current_execution.get()
         if budget:

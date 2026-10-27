@@ -1,0 +1,232 @@
+{
+  "evaluation": "Source-based review of complete deterministic outputs from exposed development cases; no new model extraction, human adjudication, independent corroboration or held-out claim.",
+  "application_sha256": "badf2d507c8abcf7cacb8654585026c411f4b64bba531e9513ac0f759318ab07",
+  "artifacts_sha256": {
+    "runtime-accepted/locator-correction-runtime.json": "bb259a66fa4d29ffaa005d88d85b4eea47103ed9479a588e7c9b5062c016fe86",
+    "runtime-accepted/parentage-correction-runtime.json": "90cd445e78fd494ce2d20f24ce4324e87e66b5e62a2efcdf62a1a579eca8d709",
+    "runtime-accepted/synthetic-dispute-runtime.json": "60a8de625259583ec795f1da1e5dba83c4c5159d503b0a5c55844c366d028969"
+  },
+  "current_reviewed_answer_cases": 12,
+  "passing_current_cases": 12,
+  "quality_denominator": "Only reviewed-* responses. Baseline, injected-failure and rollback outcomes are lifecycle checks, not current-correction quality cases.",
+  "dimensions": [
+    "source account correctness",
+    "citation support and grounding",
+    "correction/dispute completeness",
+    "attribution and coverage limits"
+  ],
+  "cases": [
+    {
+      "scenario": "locator-correction",
+      "case_id": "reviewed-graph",
+      "response_id": "b90b302f-98da-439f-93b8-c5b71dc8aa95",
+      "status": "partial",
+      "source_account_correctness": "pass",
+      "citation_support_and_grounding": "pass",
+      "correction_or_dispute_completeness": "pass",
+      "attribution_and_coverage_limits": "pass",
+      "evidence_ids": [
+        "family-peggy-phil"
+      ],
+      "assessment": "The unchanged captured source supports Peggy as Phil’s mother. The superseded raw locator and corrected 105-character replacement are identified; the old failure is not re-scored as a success."
+    },
+    {
+      "scenario": "locator-correction",
+      "case_id": "reviewed-text",
+      "response_id": "3779525f-eda9-422e-9baa-97ab65f087df",
+      "status": "partial",
+      "source_account_correctness": "pass",
+      "citation_support_and_grounding": "pass",
+      "correction_or_dispute_completeness": "pass",
+      "attribution_and_coverage_limits": "pass",
+      "evidence_ids": [
+        "family-peggy-phil"
+      ],
+      "assessment": "The unchanged captured source supports Peggy as Phil’s mother. The superseded raw locator and corrected 105-character replacement are identified; the old failure is not re-scored as a success."
+    },
+    {
+      "scenario": "locator-correction",
+      "case_id": "reviewed-cli",
+      "response_id": "572e2057-1cfa-4580-a8f5-19d6929cb4e7",
+      "status": "partial",
+      "source_account_correctness": "pass",
+      "citation_support_and_grounding": "pass",
+      "correction_or_dispute_completeness": "pass",
+      "attribution_and_coverage_limits": "pass",
+      "evidence_ids": [
+        "family-peggy-phil"
+      ],
+      "assessment": "The unchanged captured source supports Peggy as Phil’s mother. The superseded raw locator and corrected 105-character replacement are identified; the old failure is not re-scored as a success."
+    },
+    {
+      "scenario": "locator-correction",
+      "case_id": "reviewed-session",
+      "response_id": "21a39fb2-9228-4576-b847-124a4566d795",
+      "status": "partial",
+      "source_account_correctness": "pass",
+      "citation_support_and_grounding": "pass",
+      "correction_or_dispute_completeness": "pass",
+      "attribution_and_coverage_limits": "pass",
+      "evidence_ids": [
+        "family-peggy-phil"
+      ],
+      "assessment": "The unchanged captured source supports Peggy as Phil’s mother. The superseded raw locator and corrected 105-character replacement are identified; the old failure is not re-scored as a success."
+    },
+    {
+      "scenario": "parentage-correction",
+      "case_id": "reviewed-graph",
+      "response_id": "ac489333-d155-4c58-8dbf-20fc0ce971a7",
+      "status": "partial",
+      "source_account_correctness": "pass",
+      "citation_support_and_grounding": "pass",
+      "correction_or_dispute_completeness": "pass",
+      "attribution_and_coverage_limits": "pass",
+      "evidence_ids": [
+        "family-sharon-adoption"
+      ],
+      "assessment": "Den/Sharon biological parentage is explicitly superseded by adoption at age three. The original error remains visible; no biological path survives in the current version."
+    },
+    {
+      "scenario": "parentage-correction",
+      "case_id": "reviewed-text",
+      "response_id": "cf67d104-9afc-422f-b703-8e8a00f52c8b",
+      "status": "partial",
+      "source_account_correctness": "pass",
+      "citation_support_and_grounding": "pass",
+      "correction_or_dispute_completeness": "pass",
+      "attribution_and_coverage_limits": "pass",
+      "evidence_ids": [
+        "family-sharon-adoption"
+      ],
+      "assessment": "Den/Sharon biological parentage is explicitly superseded by adoption at age three. The original error remains visible; no biological path survives in the current version."
+    },
+    {
+      "scenario": "parentage-correction",
+      "case_id": "reviewed-cli",
+      "response_id": "1a9836ae-9cf1-44fa-b102-45fd8db867bf",
+      "status": "partial",
+      "source_account_correctness": "pass",
+      "citation_support_and_grounding": "pass",
+      "correction_or_dispute_completeness": "pass",
+      "attribution_and_coverage_limits": "pass",
+      "evidence_ids": [
+        "family-sharon-adoption"
+      ],
+      "assessment": "Den/Sharon biological parentage is explicitly superseded by adoption at age three. The original error remains visible; no biological path survives in the current version."
+    },
+    {
+      "scenario": "parentage-correction",
+      "case_id": "reviewed-session",
+      "response_id": "ef1aa12d-1928-476e-bf82-32e42d15f8c8",
+      "status": "partial",
+      "source_account_correctness": "pass",
+      "citation_support_and_grounding": "pass",
+      "correction_or_dispute_completeness": "pass",
+      "attribution_and_coverage_limits": "pass",
+      "evidence_ids": [
+        "family-sharon-adoption"
+      ],
+      "assessment": "Den/Sharon biological parentage is explicitly superseded by adoption at age three. The original error remains visible; no biological path survives in the current version."
+    },
+    {
+      "scenario": "synthetic-dispute",
+      "case_id": "reviewed-graph",
+      "response_id": "2ecdf87e-5dcf-4c84-a985-b07ed13d4625",
+      "status": "partial",
+      "source_account_correctness": "pass",
+      "citation_support_and_grounding": "pass",
+      "correction_or_dispute_completeness": "pass",
+      "attribution_and_coverage_limits": "pass",
+      "evidence_ids": [
+        "synthetic-account-1",
+        "synthetic-account-2"
+      ],
+      "assessment": "Both authored Phil and Grant father accounts appear as unresolved, explicitly synthetic source accounts. Neither is established as a graph connection or independently corroborated."
+    },
+    {
+      "scenario": "synthetic-dispute",
+      "case_id": "reviewed-text",
+      "response_id": "65ada5fa-e328-44fa-95d1-54fa3ffc6c68",
+      "status": "partial",
+      "source_account_correctness": "pass",
+      "citation_support_and_grounding": "pass",
+      "correction_or_dispute_completeness": "pass",
+      "attribution_and_coverage_limits": "pass",
+      "evidence_ids": [
+        "synthetic-account-1",
+        "synthetic-account-2"
+      ],
+      "assessment": "Both authored Phil and Grant father accounts appear as unresolved, explicitly synthetic source accounts. Neither is established as a graph connection or independently corroborated."
+    },
+    {
+      "scenario": "synthetic-dispute",
+      "case_id": "reviewed-cli",
+      "response_id": "f7161c0d-64cf-4667-8b09-26878f578a23",
+      "status": "partial",
+      "source_account_correctness": "pass",
+      "citation_support_and_grounding": "pass",
+      "correction_or_dispute_completeness": "pass",
+      "attribution_and_coverage_limits": "pass",
+      "evidence_ids": [
+        "synthetic-account-1",
+        "synthetic-account-2"
+      ],
+      "assessment": "Both authored Phil and Grant father accounts appear as unresolved, explicitly synthetic source accounts. Neither is established as a graph connection or independently corroborated."
+    },
+    {
+      "scenario": "synthetic-dispute",
+      "case_id": "reviewed-session",
+      "response_id": "98609d6f-efc2-4332-8312-5e98628c9664",
+      "status": "partial",
+      "source_account_correctness": "pass",
+      "citation_support_and_grounding": "pass",
+      "correction_or_dispute_completeness": "pass",
+      "attribution_and_coverage_limits": "pass",
+      "evidence_ids": [
+        "synthetic-account-1",
+        "synthetic-account-2"
+      ],
+      "assessment": "Both authored Phil and Grant father accounts appear as unresolved, explicitly synthetic source accounts. Neither is established as a graph connection or independently corroborated."
+    }
+  ],
+  "known_error_outputs_excluded_from_factual_passes": [
+    {
+      "scenario": "parentage-correction",
+      "case_id": "before-review",
+      "response_id": "bdec4054-d14c-48f1-960b-dbadcb20eeb2",
+      "reason": "Deliberately authored wrong prior biological assertion; baseline and rollback reproduce that erroneous review. These are not factual passes."
+    },
+    {
+      "scenario": "parentage-correction",
+      "case_id": "after-rollback",
+      "response_id": "fc0c6c2e-08cd-4331-8b6d-6ed11bcf419c",
+      "reason": "Deliberately authored wrong prior biological assertion; baseline and rollback reproduce that erroneous review. These are not factual passes."
+    }
+  ],
+  "runtime_integrity": {
+    "public_responses": 19,
+    "actual_trace_output_matches": 19,
+    "citations_resolve": 19,
+    "saved_response_matches": 19,
+    "three_api_restarts_preserve_answers": true,
+    "three_session_resets": true,
+    "failed_projection_keeps_prior_usable_version": true,
+    "unpublished_candidate_answer_http_status": 503,
+    "exact_retry_publishes": true,
+    "three_verified_rollbacks": true
+  },
+  "paid_generation_calls": 0,
+  "limitations": [
+    "Synthetic conflict is not a real EastEnders source dispute.",
+    "The adoption case injects a deliberate prior-review mistake; it is not historical model output.",
+    "The Peggy correction fixes a locator while preserving the original raw extraction failure.",
+    "Historical extraction and ordinary text-quality failures remain open; these deterministic explanations do not establish answer-model quality."
+  ],
+  "independent_source_review": {
+    "reviewer": "Spec review sub-agent",
+    "report": "review.md#final-runtime-evidence-review",
+    "current_cases_passed": 12,
+    "remaining_findings": 0,
+    "wrong_baseline_cases_explicitly_excluded": 2
+  }
+}

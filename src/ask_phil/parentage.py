@@ -62,14 +62,20 @@ class AdmissionReport(Record):
 
 
 def admit_claims(
-    snapshot: SourceSnapshot, batch: ClaimBatch, reviews: tuple[ClaimReview, ...]
+    snapshot: SourceSnapshot,
+    batch: ClaimBatch,
+    reviews: tuple[ClaimReview, ...],
+    *,
+    prior_reviews: tuple[ClaimReview, ...] = (),
 ) -> AdmissionReport:
     """Check provenance and reviewed semantics; never infer support from a quote match alone."""
-    admission = ClaimAdmission(snapshot, batch, reviews)
+    admission = ClaimAdmission(snapshot, batch, reviews, prior_reviews=prior_reviews)
     polarities: dict[tuple[str, str], set[str]] = {}
     parents: dict[str, set[str]] = {}
     roles: dict[tuple[str, str], set[str]] = {}
     for claim in batch.claims:
+        if admission.superseded(claim.claim_id):
+            continue
         if claim.relation == "biological_parent":
             polarities.setdefault((claim.parent_id, claim.child_id), set()).add(claim.polarity)
             if claim.polarity == "affirmed" and claim.certainty == "certain":
@@ -132,4 +138,5 @@ def admit_claims(
             decisions[i] = AdmissionDecision(
                 claim_id=candidate.claim_id, status="held", reasons=("cycle",)
             )
+    admission.validate_corrections(decisions)
     return AdmissionReport(batch_sha256=batch.fingerprint, decisions=tuple(decisions))

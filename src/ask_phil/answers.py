@@ -25,6 +25,7 @@ from ask_phil.passage_context import assemble_context as assemble_context
 from ask_phil.passage_context import context_text as context_text
 from ask_phil.relationship_graph import RelationshipQuery, RelationshipResult
 from ask_phil.retrieval import RetrievedPassage
+from ask_phil.review_notes import ReviewNotice
 from ask_phil.security import redact_text
 
 Outcome = Literal["answered", "partial", "clarification", "insufficient_evidence"]
@@ -140,6 +141,7 @@ class AnswerRecord(Record):
     retrieved: tuple[RetrievedPassage, ...]
     context: tuple[Passage, ...]
     context_claims: tuple[ContextClaim, ...] = Field(default=(), exclude_if=lambda v: not v)
+    review_notices: tuple[ReviewNotice, ...] = Field(default=(), exclude_if=lambda v: not v)
     retrieval_k: int
     route: Literal["text_rag", "graph"] = "text_rag"
     route_override: bool = Field(default=False, exclude_if=lambda v: not v)
@@ -224,6 +226,7 @@ class AnswerContent:
     unanswered: tuple[str, ...] = ()
     qualifications: tuple[Qualification, ...] = ()
     context_claims: tuple[ContextClaim, ...] = ()
+    review_notices: tuple[ReviewNotice, ...] = ()
     retrieved: tuple[RetrievedPassage, ...] = ()
     retrieval_k: int = 0
     baseline_version: Literal["single-query-uncached-v1", "single-query-uncached-v2"] = (

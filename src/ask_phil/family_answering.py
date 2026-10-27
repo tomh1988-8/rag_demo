@@ -25,6 +25,12 @@ from ask_phil.models import ModelExecution, TokenUsage
 from ask_phil.publications import PublicationStore
 from ask_phil.relationship_graph import RelationshipGraph, RelationshipQuery, RelationshipResult
 from ask_phil.relationships import HISTORY_LIMITATION, RelationshipClaim
+from ask_phil.review_notes import (
+    REVIEW_WORDING,
+    ReviewNotice,
+    complete_review_groups,
+    render_notices,
+)
 from ask_phil.security import require_credential_free
 from ask_phil.storage import EvidenceStore
 
@@ -124,27 +130,60 @@ class FamilyAnswer:
             unanswered = (
                 f"{subject.capitalize()} outside the reviewed assertions and query bounds.",
             )
-            query_graph = partial(EventGraph(self.database_url).query, snapshot_id, request.graph)
+            query_graph = partial(
+                EventGraph(self.database_url).query,
+                snapshot_id,
+                request.graph,
+                publication=self.publication,
+            )
         elif isinstance(request.graph, RelationshipQuery):
             span_name, subject = "relationship_history", "relationship history"
             limitation, wording = HISTORY_LIMITATION, HISTORY_WORDING
             unanswered = ("Relationship coverage outside the reviewed spans and query bounds.",)
             query_graph = partial(
-                RelationshipGraph(self.database_url).query, snapshot_id, request.graph
+                RelationshipGraph(self.database_url).query,
+                snapshot_id,
+                request.graph,
+                publication=self.publication,
             )
         else:
             span_name, subject = "family_graph", "biological paths"
             limitation, wording = GRAPH_LIMITATION, GRAPH_WORDING
             unanswered = ("Family coverage outside the reviewed spans and traversal bounds.",)
-            query_graph = partial(FamilyGraph(self.database_url).query, snapshot_id, request.graph)
+            query_graph = partial(
+                FamilyGraph(self.database_url).query,
+                snapshot_id,
+                request.graph,
+                publication=self.publication,
+            )
         context: tuple[Passage, ...] = ()
         citations: tuple[Citation, ...] = ()
+        notices: tuple[ReviewNotice, ...] = ()
         try:
             budget.check()
             with mlflow.start_span(span_name, span_type="RETRIEVER") as span:
                 span.set_inputs(request.graph.model_dump())
                 result = query_graph()
                 span.set_outputs(result.model_dump(mode="json"))
+            from ask_phil.knowledge_review import review_notices
+
+            family = (
+                "event"
+                if isinstance(request.graph, EventQuery)
+                else "relationship"
+                if isinstance(request.graph, RelationshipQuery)
+                else "family"
+            )
+            if result.status not in {"unknown_character", "ineligible", "unavailable"}:
+                all_notices = review_notices(self.database_url, snapshot_id)
+                notices = complete_review_groups(
+                    all_notices,
+                    tuple(
+                        n
+                        for n in all_notices
+                        if n.family == family and request.graph.character_id in n.character_ids
+                    ),
+                )
             ids = (
                 {e.evidence_id for c in result.claims for e in c.evidence}
                 if isinstance(result, RelationshipResult | EventResult)
@@ -152,10 +191,23 @@ class FamilyAnswer:
                     e.evidence_id for p in result.paths for edge in p.edges for e in edge.evidence
                 }
             )
+            ids.update(eid for n in notices for eid in n.evidence_ids)
             context = tuple(p for p in snapshot.passages if p.evidence_id in ids)
             if len(context) != len(ids):
                 budget.stop("malformed_output")
-            if sum(len(p.text.encode()) for p in context) > budget.limits.context_bytes:
+            if (
+                sum(len(p.text.encode()) for p in context)
+                + (
+                    len(
+                        render_notices(
+                            notices, synthetic=snapshot.source.support_status == "synthetic_fixture"
+                        ).encode()
+                    )
+                    if notices
+                    else 0
+                )
+                > budget.limits.context_bytes
+            ):
                 budget.stop("context_limit")
             citations = tuple(
                 Citation(
@@ -171,6 +223,7 @@ class FamilyAnswer:
             budget.record_stop(str(exc))
         if budget.record().stop_reason:
             result, context, citations = None, (), ()
+            notices = ()
             root.set_status("ERROR")
         supported = bool(
             result
@@ -221,6 +274,20 @@ class FamilyAnswer:
             if turn
             else None
         )
+        if notices:
+            answer += (
+                "\n"
+                + render_notices(
+                    notices,
+                    synthetic=any(
+                        (p.source or snapshot.source).support_status == "synthetic_fixture"
+                        for p in context
+                    ),
+                )
+                + "\n"
+            )
+            wording += REVIEW_WORDING
+            status = "partial"
         return AnswerContent(
             conversation=conversation,
             status=status,
@@ -228,6 +295,7 @@ class FamilyAnswer:
             unanswered=unanswered,
             citations=citations,
             context=context,
+            review_notices=notices,
             graph=result,
             prompt_sha256=hashlib.sha256(wording.encode()).hexdigest(),
             accounting=ModelExecution(

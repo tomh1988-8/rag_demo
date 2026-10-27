@@ -1,0 +1,19 @@
+{
+  "purpose": "Frozen before runtime execution; exposed development cases, no held-out or human adjudication claim.",
+  "sha256": {
+    "data/seed/family-pilot-v1.json": "01273598d2cc36c5012a7813d86b57a35350f7ab66210dc14b3a22fbf5c46cd2",
+    "docs/implementation/issue-11/claims.json": "4cc6ded3e901df4f17defdf20312b0e381c8a4e3fe1231a683e48291413d6c6c",
+    "docs/implementation/issue-11/claim-reviews.json": "a4a01a7ae5c67d6905dbe2b79319c732f131c2b354f4959ec37fed4058c754e9",
+    "data/references/parentage-v1.json": "7f200f7d38c09c66fc2039288180db7f98c8cd2a130672abcfef165f8c8b777e",
+    "docs/implementation/issue-15/locator-correction.json": "2652bf6f6b25565a9236548d9fd8a443feff14f5711c6fd6aec864bdaeaeab02",
+    "docs/implementation/issue-15/synthetic-dispute-action.json": "53f1a81360190eb51c425b3d474ba2708bead26b390bb3d7cc5b371929255469",
+    "docs/implementation/issue-15/synthetic-dispute-claims.json": "9ed9d3f498559f9012fc77d79dd7cc4e75380d77caeb97e3f5abbb9242d39060",
+    "docs/implementation/issue-15/synthetic-dispute-reviews.json": "c0bf3f0d7b7c7363074864a0ca37c027a26de8921b0b0b548e344a51a5c893d1",
+    "docs/implementation/issue-15/synthetic-dispute-source.json": "7fb3408afd25992b09b9a35e70657218658e86d286d1ea8e95f09da5a6d355fd"
+  },
+  "expectations": {
+    "locator-correction": "Earlier raw Peggy claim stays held/superseded; a distinct 105-character source assertion admits Peggy -> Phil, and Ben ancestry gains the path through Phil to Peggy. Both answer routes explain the source-span correction.",
+    "synthetic-dispute": "Both incompatible father accounts remain visible with synthetic attribution; neither enters the established biological graph. No independent corroboration is claimed.",
+    "projection-failure": "The last publication and pinned answers remain usable; the unpublished candidate cannot answer; inspection retains the action, then exact retry succeeds."
+  }
+}

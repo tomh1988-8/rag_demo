@@ -11,6 +11,23 @@ commands so they work even without a configured Git remote.
 
 ## Current Ask Phil handoff
 
+Issue #15 implementation, final runtime review and all **480 software tests** pass.
+Strict mypy across 109 files and Ruff/formatting pass; required publication/closure
+checks are in progress. Do not select another
+ticket until this handoff records verified publication. [Evidence](../implementation/issue-15/README.md)
+records immutable maintainer review, corrected and disputed text/graph answers,
+retained provenance, projection failure/retry and compatible recovery. Both
+independent code-review axes have zero remaining findings; all twelve current
+reviewed runtime answers pass source-based review among nineteen public responses.
+The two authored wrong baseline/rollback answers are explicitly excluded from
+factual passes. No paid generation or extraction calls were made; preserve the
+shared ledger at **$0.464981** and zero unsettled reservations.
+
+After #15 closes, **#16 is next**; #19, #20, #22 and #24 are also unblocked.
+Wait for the user's next implementation instruction before another issue.
+
+### Prior issue #14 handoff
+
 Issue #14 is complete and closed after native publication and exact-tree
 verification of [`1df0a70`](https://github.com/tomh1988-8/rag_demo/commit/1df0a70bb95eafe0522482a7c451fbe875f8ff57).
 The [receipt](../implementation/issue-14/publication.json) records all seven checked

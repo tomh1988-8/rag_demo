@@ -24,6 +24,7 @@ from ask_phil.evidence import Identifier, Inspection
 from ask_phil.execution import ExecutionBudget, ExecutionLimits, ExecutionPolicies, ExecutionStopped
 from ask_phil.family_graph import FamilyAudit, FamilyGraph, FamilyQuery, FamilyResult
 from ask_phil.identity import IdentityResolution
+from ask_phil.knowledge_review import ReviewInspection, inspect_reviews
 from ask_phil.models import ModelConfigurationError, Models
 from ask_phil.openrouter import ProviderError
 from ask_phil.publications import (
@@ -139,13 +140,20 @@ def create_app(
     def active_publication() -> ActivePublication:
         return publications.active()
 
+    @app.get("/v1/snapshots/{snapshot_id}/reviews")
+    def claim_reviews(snapshot_id: Identifier) -> ReviewInspection:
+        try:
+            return inspect_reviews(database_url, snapshot_id)
+        except SnapshotNotFound as exc:
+            raise HTTPException(status_code=404, detail="Snapshot not found.") from exc
+
     @app.post("/v1/snapshots/{snapshot_id}/family")
     def family_query(snapshot_id: Identifier, query: FamilyQuery) -> FamilyResult:
         budget = ExecutionBudget(policies.serving)
         try:
             with budget.activate():
-                publications.pin(snapshot_id)
-                return FamilyGraph(database_url).query(snapshot_id, query)
+                publication = publications.pin(snapshot_id)
+                return FamilyGraph(database_url).query(snapshot_id, query, publication=publication)
         except SnapshotNotFound as exc:
             raise HTTPException(status_code=404, detail="Snapshot not found.") from exc
         except (psycopg.errors.QueryCanceled, psycopg.errors.LockNotAvailable) as exc:
@@ -169,8 +177,10 @@ def create_app(
         budget = ExecutionBudget(policies.serving)
         try:
             with budget.activate():
-                publications.pin(snapshot_id)
-                return RelationshipGraph(database_url).query(snapshot_id, query)
+                publication = publications.pin(snapshot_id)
+                return RelationshipGraph(database_url).query(
+                    snapshot_id, query, publication=publication
+                )
         except SnapshotNotFound as exc:
             raise HTTPException(status_code=404, detail="Snapshot not found.") from exc
         except (psycopg.errors.QueryCanceled, psycopg.errors.LockNotAvailable) as exc:
@@ -196,8 +206,8 @@ def create_app(
         budget = ExecutionBudget(policies.serving)
         try:
             with budget.activate():
-                publications.pin(snapshot_id)
-                return EventGraph(database_url).query(snapshot_id, query)
+                publication = publications.pin(snapshot_id)
+                return EventGraph(database_url).query(snapshot_id, query, publication=publication)
         except SnapshotNotFound as exc:
             raise HTTPException(status_code=404, detail="Snapshot not found.") from exc
         except (psycopg.errors.QueryCanceled, psycopg.errors.LockNotAvailable) as exc:

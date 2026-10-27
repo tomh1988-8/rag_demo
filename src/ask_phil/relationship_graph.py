@@ -1,6 +1,6 @@
 """Immutable admitted relationship assertions behind a bounded read-only SQL query."""
 
-from typing import Literal, Self
+from typing import TYPE_CHECKING, Literal, Self
 
 import psycopg
 from pydantic import Field, model_validator
@@ -16,6 +16,9 @@ from ask_phil.relationships import (
     RelationshipClaim,
 )
 from ask_phil.storage import EvidenceStore
+
+if TYPE_CHECKING:
+    from ask_phil.publications import ActivePublication
 
 
 class RelationshipQuery(Record):
@@ -66,7 +69,16 @@ class RelationshipGraph:
         with psycopg.connect(self.database_url, connect_timeout=5, options=read_options()) as conn:
             return self._audit(conn, snapshot_id)
 
-    def query(self, snapshot_id: str, query: RelationshipQuery) -> RelationshipResult:
+    def query(
+        self,
+        snapshot_id: str,
+        query: RelationshipQuery,
+        *,
+        publication: "ActivePublication | None" = None,
+    ) -> RelationshipResult:
+        from ask_phil.publications import PublicationStore
+
+        PublicationStore(self.database_url).pin(snapshot_id, pinned=publication)
         snapshot = EvidenceStore(self.database_url).snapshot(snapshot_id)
         budget = current_execution.get()
         if budget:

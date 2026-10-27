@@ -1,0 +1,57 @@
+{
+  "scope": "Exposed development and failure regressions. These are not held-out or human canon labels.",
+  "cases": [
+    {
+      "id": "repeated-review-rationale-context",
+      "observed_in": "runtime-initial/synthetic-dispute-runtime.json",
+      "case_id": "reviewed-text",
+      "failure": "Text answer abstained because repeated review rationale plus both source accounts exceeded the unchanged context budget. Graph/CLI/session explanations were already partial.",
+      "fix": "Render shared rationale once, keeping the complete connected source/review group indivisible.",
+      "regression": "tests/test_knowledge_review.py::test_dispute_keeps_both_source_accounts_or_abstains_at_the_context_limit",
+      "verification": "runtime-accepted/synthetic-dispute-runtime.json; complete dispute at 1200 bytes, safe abstention at 250 bytes in the public API regression.",
+      "status": "fixed"
+    },
+    {
+      "id": "inherited-retirement-after-later-review",
+      "observed_by": "Independent Spec review, P2",
+      "failure": "A superseded by B blocked later B-to-C correction or later disputed/uncertain/unsupported B outcome.",
+      "fix": "Prove inherited retirement from the immutable parent audit; resolve acyclic replacement chains to current terminals. Fresh corrections still require support.",
+      "regressions": [
+        "tests/test_claim_review.py",
+        "tests/test_knowledge_review.py::test_published_correction_history_survives_later_review_and_explains_current_accounts"
+      ],
+      "status": "fixed and independently re-reviewed"
+    },
+    {
+      "id": "corrected-identity-dispute-closure",
+      "observed_by": "Independent Spec review, P2; persisted red regression",
+      "failure": "With one vector hit on A, a correction from mistaken child Peggy to Ben omitted the current competing Grant account. Only mistaken-child appeared instead of all three reviewed Claims.",
+      "fix": "Carry terminal replacement groups and expand connected groups in both text and graph answer paths.",
+      "regression": "tests/test_knowledge_review.py::test_dispute_follows_corrected_child_from_retrieved_predecessor",
+      "status": "fixed; independent reviewer reproduced red and verified green"
+    },
+    {
+      "id": "authored-wrong-parentage-baseline",
+      "observed_in": "runtime-accepted/parentage-correction-runtime.json",
+      "case_ids": [
+        "before-review",
+        "after-rollback"
+      ],
+      "failure": "The deliberately wrong prior review admits biological Den/Sharon parentage despite an adoption source. Baseline and explicit rollback reproduce this known error.",
+      "interpretation": "Injected prior review failure, not historical model output or a passing factual answer. Corrected current answers cite adoption at age three and have no biological path. Recovery reproduces a pinned version; it does not re-adjudicate that version.",
+      "status": "retained authored counterexample; current correction passes"
+    },
+    {
+      "id": "historical-extraction-quality",
+      "evidence": [
+        "../issue-11/regressions.json",
+        "../issue-12/regressions.json",
+        "../issue-13/regressions.json",
+        "../issue-14/README.md"
+      ],
+      "failure": "Existing malformed locators, strict grounding, incomplete raw claims and text answerability failures remain preserved.",
+      "interpretation": "Curated correction does not change original extraction labels, predictions, scores or establish automatic extraction accuracy.",
+      "status": "open wider-quality obligations"
+    }
+  ]
+}

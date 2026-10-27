@@ -1,0 +1,79 @@
+........................................................................ [ 15%]
+........................................................................ [ 30%]
+........................................................................ [ 45%]
+........................................................................ [ 60%]
+........................................................................ [ 75%]
+........................................................................ [ 90%]
+................................................                         [100%]
+=============================== warnings summary ===============================
+.venv/lib/python3.12/site-packages/fastapi/testclient.py:1
+  /home/tom/Documents/code/python/rag_demo/.venv/lib/python3.12/site-packages/fastapi/testclient.py:1: StarletteDeprecationWarning: Using `httpx` with `starlette.testclient` is deprecated; install `httpx2` instead.
+    from starlette.testclient import TestClient as TestClient  # noqa
+
+tests/test_execution_api.py::test_model_limit_returns_retained_evidence_and_a_saved_stop_reason[models0]
+  tests/test_execution_api.py:55: PytestWarning: record_property is incompatible with junit_family 'xunit2' (use 'legacy' or 'xunit1')
+    @pytest.mark.parametrize("models", [{"forbid_chat": True}], indirect=True)
+
+tests/test_execution_api.py::test_text_and_family_answers_share_admission_and_retain_stopped_outcomes
+  tests/test_execution_api.py:153: PytestWarning: record_property is incompatible with junit_family 'xunit2' (use 'legacy' or 'xunit1')
+    def test_text_and_family_answers_share_admission_and_retain_stopped_outcomes(
+
+tests/test_execution_api.py::test_http_disconnect_cancels_the_external_call_and_records_the_outcome
+  tests/test_execution_api.py:354: PytestWarning: record_property is incompatible with junit_family 'xunit2' (use 'legacy' or 'xunit1')
+    def test_http_disconnect_cancels_the_external_call_and_records_the_outcome(
+
+tests/test_execution_api.py::test_malformed_embedding_returns_a_safe_stored_failure_without_generation
+  tests/test_execution_api.py:399: PytestWarning: record_property is incompatible with junit_family 'xunit2' (use 'legacy' or 'xunit1')
+    def test_malformed_embedding_returns_a_safe_stored_failure_without_generation(
+
+tests/test_execution_api.py::test_request_and_provider_credentials_are_redacted_before_trace_and_storage[models0]
+  tests/test_execution_api.py:440: PytestWarning: record_property is incompatible with junit_family 'xunit2' (use 'legacy' or 'xunit1')
+    @pytest.mark.parametrize(
+
+tests/test_execution_api.py::test_request_deadline_closes_a_slow_provider_and_keeps_supported_excerpts
+  tests/test_execution_api.py:484: PytestWarning: record_property is incompatible with junit_family 'xunit2' (use 'legacy' or 'xunit1')
+    def test_request_deadline_closes_a_slow_provider_and_keeps_supported_excerpts(
+
+tests/test_execution_api.py::test_retrieved_instructions_and_model_tool_requests_cannot_mutate_captured_evidence[models0]
+  tests/test_execution_api.py:525: PytestWarning: record_property is incompatible with junit_family 'xunit2' (use 'legacy' or 'xunit1')
+    @pytest.mark.parametrize(
+
+tests/test_execution_api.py::test_retrieval_database_timeouts_return_a_saved_stop_outcome[models0-text_indexes-0]
+tests/test_execution_api.py::test_retrieval_database_timeouts_return_a_saved_stop_outcome[models0-vector-1]
+  tests/test_execution_api.py:633: PytestWarning: record_property is incompatible with junit_family 'xunit2' (use 'legacy' or 'xunit1')
+    @pytest.mark.parametrize("locked,attempts", [("text_indexes", 0), ("vector", 1)])
+
+tests/test_extraction_runs.py::test_retained_extraction_matches_its_actual_trace_and_cannot_be_overwritten[False-False-family-pilot-v1.json-parentage-v1.json]
+tests/test_extraction_runs.py::test_retained_extraction_matches_its_actual_trace_and_cannot_be_overwritten[True-False-relationship-pilot-v1.json-relationships-v2.json]
+tests/test_extraction_runs.py::test_retained_extraction_matches_its_actual_trace_and_cannot_be_overwritten[False-True-crime-pilot-v1.json-crime-justice-v1.json]
+  tests/test_extraction_runs.py:202: PytestWarning: record_property is incompatible with junit_family 'xunit2' (use 'legacy' or 'xunit1')
+    @pytest.mark.parametrize(
+
+tests/test_graph_acceptance.py::test_family_acceptance_command_retains_verified_http_and_cli_outcomes
+  tests/test_graph_acceptance.py:115: PytestWarning: record_property is incompatible with junit_family 'xunit2' (use 'legacy' or 'xunit1')
+    @pytest.mark.integration
+
+tests/test_graph_acceptance.py::test_history_acceptance_commands_retain_both_projections_and_actual_traces[relationship-28]
+tests/test_graph_acceptance.py::test_history_acceptance_commands_retain_both_projections_and_actual_traces[event-24]
+  tests/test_graph_acceptance.py:150: PytestWarning: record_property is incompatible with junit_family 'xunit2' (use 'legacy' or 'xunit1')
+    @pytest.mark.integration
+
+-- Docs: https://docs.pytest.org/en/stable/how-to/capture-warnings.html
+============================= slowest 15 durations =============================
+102.76s call     tests/test_graph_acceptance.py::test_history_acceptance_commands_retain_both_projections_and_actual_traces[relationship-28]
+99.34s call     tests/test_graph_acceptance.py::test_history_assessment_uses_the_reference_frozen_after_tracking_setup
+90.74s call     tests/test_graph_acceptance.py::test_history_acceptance_commands_retain_both_projections_and_actual_traces[event-24]
+40.59s call     tests/test_conversation_api.py::test_concurrent_turns_have_distinct_monotonic_identity_and_bounded_context
+38.38s call     tests/test_graph_acceptance.py::test_family_acceptance_command_retains_verified_http_and_cli_outcomes
+28.84s call     tests/test_conversation_api.py::test_cli_creates_private_session_asks_followup_and_resets_over_http
+21.39s call     tests/test_conversation_api.py::test_quality_capture_uses_fresh_api_sessions_and_preserves_each_repeat
+15.65s call     tests/test_conversation_api.py::test_waiting_turns_serialize_within_their_request_budgets
+14.29s call     tests/test_conversation_api.py::test_interactive_cli_conversation_supports_followups_and_reset
+12.80s call     tests/test_conversation_api.py::test_unresolved_and_ambiguous_followups_do_not_ask_model_to_guess
+12.16s call     tests/test_conversation_api.py::test_failed_turn_persistence_keeps_previous_references_and_allows_recovery[write]
+11.75s call     tests/test_conversation_api.py::test_failed_turn_persistence_keeps_previous_references_and_allows_recovery[commit]
+10.85s setup    tests/test_review_refresh.py::test_unchanged_source_refresh_preserves_review_and_rollback_restores_all_artifacts
+10.84s setup    tests/test_refresh.py::test_prefect_refresh_publishes_a_complete_inspectable_source_and_index_pair
+10.66s call     tests/test_graph_acceptance.py::test_life_event_acceptance_verifies_typed_kinds_and_cli_classification_outcomes
+480 passed, 16 warnings in 1242.67s (0:20:42)
+2026/10/27 19:45:21 INFO mlflow.tracing.export.async_export_queue: Flushing the async trace logging queue before program exit. This may take a while...

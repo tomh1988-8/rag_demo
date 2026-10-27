@@ -1,9 +1,9 @@
 """Shared source and support-review obligations for every typed Claim admission."""
 
 from collections.abc import Mapping, Sequence
-from typing import Literal, Protocol
+from typing import Literal, Protocol, Self
 
-from pydantic import Field
+from pydantic import Field, model_validator
 
 from ask_phil.evidence import Fingerprint, Identifier, NonEmpty, Passage, Record, SourceSnapshot
 from ask_phil.identity import IdentityCatalogue
@@ -29,15 +29,48 @@ def evidence_resolves(evidence: tuple[ClaimEvidence, ...], passages: Mapping[str
 class ClaimReview(Record):
     claim_id: Identifier
     claim_sha256: Fingerprint
-    verdict: Literal["supported", "unsupported", "uncertain"]
+    verdict: Literal["supported", "unsupported", "uncertain", "disputed", "superseded"]
     reviewer: NonEmpty
     note: NonEmpty
+    superseded_by: tuple[Identifier, ...] = Field(
+        default=(), max_length=10, exclude_if=lambda value: not value
+    )
+
+    @model_validator(mode="after")
+    def correction_targets(self) -> Self:
+        if (self.verdict == "superseded") != bool(self.superseded_by):
+            raise ValueError("A superseded Claim must identify its supported replacement Claims.")
+        if self.claim_id in self.superseded_by or len(set(self.superseded_by)) != len(
+            self.superseded_by
+        ):
+            raise ValueError("Correction targets must be distinct other Claims.")
+        return self
 
 
 class AdmissionDecision(Record):
     claim_id: Identifier
     status: Literal["admitted", "held"]
     reasons: tuple[str, ...]
+
+
+def replacement_claim_ids(claim_id: str, reviews: Mapping[str, ClaimReview]) -> tuple[str, ...]:
+    """Follow retained correction links without treating an intermediate account as current."""
+
+    def visit(current: str, path: frozenset[str]) -> tuple[str, ...]:
+        if current in path:
+            raise ValueError("Corrections require acyclic, source-supported replacements.")
+        review = reviews.get(current)
+        if review is None or review.verdict != "superseded":
+            return (current,)
+        return tuple(
+            dict.fromkeys(
+                target
+                for child in review.superseded_by
+                for target in visit(child, path | {current})
+            )
+        )
+
+    return visit(claim_id, frozenset())
 
 
 class _Claim(Protocol):
@@ -79,6 +112,7 @@ class ClaimAdmission[Review: ClaimReview]:
         reviews: Sequence[Review],
         *,
         extra_claims: Sequence[_Claim] = (),
+        prior_reviews: Sequence[ClaimReview] = (),
     ) -> None:
         if (batch.snapshot_id, batch.snapshot_sha256) != (
             snapshot.snapshot_id,
@@ -98,6 +132,54 @@ class ClaimAdmission[Review: ClaimReview]:
         self.character_ids = frozenset(c.character_id for c in batch.catalogue.characters)
         self._passages = {p.evidence_id: p for p in snapshot.passages}
         self._reviews = {r.claim_id: r for r in reviews}
+        claims = {c.claim_id: c for c in (*batch.claims, *extra_claims)}
+        self._superseded: set[str] = set()
+        self._inherited: set[str] = set()
+        prior = {r.claim_id: r for r in prior_reviews}
+        self._replacements: dict[str, tuple[str, ...]] = {}
+        for review in reviews:
+            if review.verdict != "superseded":
+                continue
+            claim = claims[review.claim_id]
+            old = prior.get(review.claim_id)
+            if (
+                old
+                and old.verdict == "superseded"
+                and (old.claim_sha256, old.superseded_by)
+                == (review.claim_sha256, review.superseded_by)
+            ):
+                self._inherited.add(review.claim_id)
+            targets = replacement_claim_ids(review.claim_id, self._reviews)
+            if review.claim_sha256 != claim.fingerprint or any(
+                target not in claims
+                or (target_review := self._reviews.get(target)) is None
+                or target_review.claim_sha256 != claims[target].fingerprint
+                or (review.claim_id not in self._inherited and self.reasons(claims[target]))
+                for target in targets
+            ):
+                raise ValueError(
+                    "Corrections require content-bound, source-supported replacements."
+                )
+            self._superseded.add(review.claim_id)
+            self._replacements[review.claim_id] = targets
+
+    def superseded(self, claim_id: str) -> bool:
+        """Only explicit, checked corrections remove earlier accounts from conflict checks."""
+        return claim_id in self._superseded
+
+    def validate_corrections(self, decisions: Sequence[AdmissionDecision]) -> None:
+        """A support label cannot override domain safeguards on a corrective assertion."""
+        by_id = {d.claim_id: d for d in decisions}
+        for claim_id in self._superseded:
+            if claim_id in self._inherited:
+                continue
+            for target in self._replacements[claim_id]:
+                decision = by_id[target]
+                if decision.status == "held" and not set(decision.reasons) <= {
+                    "negated",
+                    "non_biological",
+                }:
+                    raise ValueError("Correction replacement fails domain admission checks.")
 
     def review(self, claim_id: str) -> Review | None:
         """Retain the original review for additional typed obligations, including Crime."""
@@ -109,6 +191,12 @@ class ClaimAdmission[Review: ClaimReview]:
             reasons.append("evidence_span")
         review = self.review(claim.claim_id)
         if (
+            review is not None
+            and review.claim_sha256 == claim.fingerprint
+            and review.verdict in {"superseded", "disputed"}
+        ):
+            reasons.append(review.verdict)
+        elif (
             review is None
             or review.claim_sha256 != claim.fingerprint
             or review.verdict != "supported"

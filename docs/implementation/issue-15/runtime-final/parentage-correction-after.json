@@ -1,0 +1,321 @@
+{
+  "snapshot_id": "review-4af2b9cde5456a95dcbfefa5dbe0a5c696369d670da151beb4a1fc7b67183d2f",
+  "snapshot_sha256": "104d096de2159d1e70d8157de022b6808cfaf0ab4eb38b103358dc8b44076645",
+  "graphs": {
+    "family": "353dff3a9cc5e04c0339f8a13daa598c91e5e1674aacad0f01fb3f40c77fbe41",
+    "relationship": null,
+    "event": null
+  },
+  "family": {
+    "batch": {
+      "claims": [
+        {
+          "claim_id": "authored-biological-error",
+          "parent_id": "den-watts",
+          "child_id": "sharon-watts",
+          "parent_role": "parent",
+          "relation": "biological_parent",
+          "polarity": "affirmed",
+          "certainty": "certain",
+          "story_time": "at the age of three",
+          "time_precision": "relative",
+          "evidence": [
+            {
+              "evidence_id": "family-sharon-adoption",
+              "start": 0,
+              "end": 205,
+              "quote": "Adopted at the age of three by Den (Leslie Grantham) and Angie Watts (Anita Dobson), Sharon is raised at The Queen Victoria public house in Albert Square, Walford, where her adoptive parents are landlords."
+            }
+          ]
+        },
+        {
+          "claim_id": "den-sharon-adoption",
+          "parent_id": "den-watts",
+          "child_id": "sharon-watts",
+          "parent_role": "parent",
+          "relation": "adoptive_parent",
+          "polarity": "affirmed",
+          "certainty": "certain",
+          "story_time": "at the age of three",
+          "time_precision": "relative",
+          "evidence": [
+            {
+              "evidence_id": "family-sharon-adoption",
+              "start": 0,
+              "end": 205,
+              "quote": "Adopted at the age of three by Den (Leslie Grantham) and Angie Watts (Anita Dobson), Sharon is raised at The Queen Victoria public house in Albert Square, Walford, where her adoptive parents are landlords."
+            }
+          ]
+        }
+      ],
+      "snapshot_id": "review-4af2b9cde5456a95dcbfefa5dbe0a5c696369d670da151beb4a1fc7b67183d2f",
+      "snapshot_sha256": "104d096de2159d1e70d8157de022b6808cfaf0ab4eb38b103358dc8b44076645",
+      "catalogue": {
+        "characters": [
+          {
+            "character_id": "phil-mitchell",
+            "name": "Phil Mitchell",
+            "aliases": [],
+            "performers": [
+              "Steve McFadden",
+              "Daniel Delaney"
+            ],
+            "coverage": "core",
+            "wikidata_id": "Q2115259",
+            "review_note": "Codex source inspection, 17 October 2026: captured character article, infobox aliases/performers and revision metadata checked. Prominence-based curated selection, not a ranked or exhaustive canon. Identity linkage is not independent story corroboration.",
+            "evidence_sources": [
+              "phil-mitchell-wiki"
+            ]
+          },
+          {
+            "character_id": "grant-mitchell",
+            "name": "Grant Mitchell",
+            "aliases": [],
+            "performers": [
+              "Ross Kemp",
+              "Teddy Jay"
+            ],
+            "coverage": "core",
+            "wikidata_id": "Q2685036",
+            "review_note": "Codex source inspection, 17 October 2026: captured character article, infobox aliases/performers and revision metadata checked. Prominence-based curated selection, not a ranked or exhaustive canon. Identity linkage is not independent story corroboration.",
+            "evidence_sources": [
+              "grant-mitchell-wiki"
+            ]
+          },
+          {
+            "character_id": "peggy-mitchell",
+            "name": "Peggy Mitchell",
+            "aliases": [
+              "Peggy Butcher"
+            ],
+            "performers": [
+              "Jo Warne",
+              "Barbara Windsor",
+              "Jaime Winstone"
+            ],
+            "coverage": "core",
+            "wikidata_id": "Q13130609",
+            "review_note": "Codex source inspection, 17 October 2026: captured character article, infobox aliases/performers and revision metadata checked. Prominence-based curated selection, not a ranked or exhaustive canon. Identity linkage is not independent story corroboration.",
+            "evidence_sources": [
+              "peggy-mitchell-wiki"
+            ]
+          },
+          {
+            "character_id": "sharon-watts",
+            "name": "Sharon Watts",
+            "aliases": [
+              "Sharon Mitchell",
+              "Sharon Rickman",
+              "Sharon Beale"
+            ],
+            "performers": [
+              "Letitia Dean"
+            ],
+            "coverage": "core",
+            "wikidata_id": "Q7490258",
+            "review_note": "Codex source inspection, 17 October 2026: captured character article, infobox aliases/performers and revision metadata checked. Prominence-based curated selection, not a ranked or exhaustive canon. Identity linkage is not independent story corroboration.",
+            "evidence_sources": [
+              "sharon-watts-wiki"
+            ]
+          },
+          {
+            "character_id": "ben-mitchell",
+            "name": "Ben Mitchell",
+            "aliases": [],
+            "performers": [
+              "Matthew Silver",
+              "Morgan Whittle",
+              "Charlie Jones",
+              "Joshua Pascoe",
+              "Harry Reid",
+              "Max Bowden"
+            ],
+            "coverage": "core",
+            "wikidata_id": "Q2766568",
+            "review_note": "Codex source inspection, 17 October 2026: captured character article, infobox aliases/performers and revision metadata checked. Prominence-based curated selection, not a ranked or exhaustive canon. Identity linkage is not independent story corroboration.",
+            "evidence_sources": [
+              "ben-mitchell-wiki"
+            ]
+          },
+          {
+            "character_id": "kathy-beale",
+            "name": "Kathy Beale",
+            "aliases": [
+              "Kathy Mitchell",
+              "Kathy Sullivan",
+              "Kathy Richards",
+              "Kathy Cotton"
+            ],
+            "performers": [
+              "Gillian Taylforth"
+            ],
+            "coverage": "core",
+            "wikidata_id": "Q6377182",
+            "review_note": "Codex source inspection, 17 October 2026: captured character article, infobox aliases/performers and revision metadata checked. Prominence-based curated selection, not a ranked or exhaustive canon. Identity linkage is not independent story corroboration.",
+            "evidence_sources": [
+              "kathy-beale-wiki"
+            ]
+          },
+          {
+            "character_id": "den-watts",
+            "name": "Den Watts",
+            "aliases": [
+              "Dirty Den",
+              "Dennis Alan Watts"
+            ],
+            "performers": [
+              "Leslie Grantham"
+            ],
+            "coverage": "supporting",
+            "wikidata_id": "Q5256484",
+            "review_note": "Den is evidenced supporting context in Sharon’s captured biography. Identity was also reviewed against retained Den revision 1371930128 in real-sources-v1.json.gz. No separate Den history is admitted here; supporting character mentions do not expand the core roster.",
+            "evidence_sources": [
+              "sharon-watts-wiki"
+            ]
+          }
+        ]
+      },
+      "extractor": "authored-incorrect-extraction-and-review-not-model-output"
+    },
+    "reviews": [
+      {
+        "claim_id": "authored-biological-error",
+        "claim_sha256": "2e5f99a12b07af5bb10a2522094e9b05c6d55334831e98aa8739aff2a080c4b2",
+        "verdict": "superseded",
+        "reviewer": "issue-15-source-meaning-audit",
+        "note": "The captured source explicitly says Den adopted Sharon at age three. It does not support biological parentage. Retire the deliberately wrong prior interpretation.",
+        "superseded_by": [
+          "den-sharon-adoption"
+        ]
+      },
+      {
+        "claim_id": "den-sharon-adoption",
+        "claim_sha256": "821d32f6922cdaa9b7d1b1a02f38d4eb58d1d85af5b545b85cb055a99d99015f",
+        "verdict": "supported",
+        "reviewer": "issue-15-source-meaning-audit",
+        "note": "The retained adoption passage supports the social tie; it cannot enter biological ancestry."
+      }
+    ],
+    "admission": {
+      "batch_sha256": "839e345e926f46e55aa88eb2edaac4377a3a21d43602fafa6e81197bdc4aab39",
+      "decisions": [
+        {
+          "claim_id": "authored-biological-error",
+          "status": "held",
+          "reasons": [
+            "superseded"
+          ]
+        },
+        {
+          "claim_id": "den-sharon-adoption",
+          "status": "held",
+          "reasons": [
+            "non_biological"
+          ]
+        }
+      ],
+      "limitation": "Admission requires a content-bound support review. It is not independent canon corroboration. Held claims remain inspectable outside the biological tree."
+    },
+    "graph_sha256": "353dff3a9cc5e04c0339f8a13daa598c91e5e1674aacad0f01fb3f40c77fbe41"
+  },
+  "relationship": null,
+  "event": null,
+  "evidence": [
+    {
+      "evidence_id": "family-sharon-adoption",
+      "text": "Adopted at the age of three by Den (Leslie Grantham) and Angie Watts (Anita Dobson), Sharon is raised at The Queen Victoria public house in Albert Square, Walford, where her adoptive parents are landlords.",
+      "sha256": "1e54773bc770474ace800fa686ba855dce8b3eac079403d0dd1c78e958023f31",
+      "start": 50624,
+      "end": 50829,
+      "source": {
+        "title": "Sharon Watts",
+        "url": "https://en.wikipedia.org/wiki/Sharon_Watts",
+        "revision_id": "1372798905",
+        "revision_url": "https://en.wikipedia.org/w/index.php?oldid=1372798905",
+        "section": "Storylines / 1985–1995",
+        "captured_at": "2026-10-17T13:07:31.327518Z",
+        "capture_sha256": "9ccef3de99353ff737101d9d00561c217608dd4fa6fba0c8200f80ac0114ea85",
+        "scope": "main_series",
+        "license_url": "https://creativecommons.org/licenses/by-sa/4.0/",
+        "attribution": "Wikipedia contributors; markup removed and whitespace normalized.",
+        "coverage": "Reviewed narrative sections in this captured revision only.",
+        "gaps": [
+          "Partial canon coverage; other paragraphs remain excluded or awaiting review.",
+          "Identity and episode metadata do not independently corroborate story claims."
+        ],
+        "support_status": "source_supported"
+      },
+      "location": {
+        "source_id": "sharon-watts-wiki",
+        "paragraph_ordinal": 53,
+        "section_id": "1985–1995",
+        "character_ids": [
+          "den-watts",
+          "ian-beale",
+          "sharon-watts"
+        ]
+      }
+    }
+  ],
+  "history": [
+    {
+      "snapshot_id": "review-4af2b9cde5456a95dcbfefa5dbe0a5c696369d670da151beb4a1fc7b67183d2f",
+      "snapshot_sha256": "104d096de2159d1e70d8157de022b6808cfaf0ab4eb38b103358dc8b44076645",
+      "request": {
+        "snapshot_id": "authored-parentage-error-v1",
+        "snapshot_sha256": "c6e88001ace0924bde79c86b038fc95822e8b8a2c6aad5bf799494235f1c8f7a",
+        "graphs": {
+          "family": "73f556863c285babfb6266f954e4267366552a4299237124a52e180817045094",
+          "relationship": null,
+          "event": null
+        },
+        "family_reviews": [
+          {
+            "claim_id": "authored-biological-error",
+            "claim_sha256": "2e5f99a12b07af5bb10a2522094e9b05c6d55334831e98aa8739aff2a080c4b2",
+            "verdict": "superseded",
+            "reviewer": "issue-15-source-meaning-audit",
+            "note": "The captured source explicitly says Den adopted Sharon at age three. It does not support biological parentage. Retire the deliberately wrong prior interpretation.",
+            "superseded_by": [
+              "den-sharon-adoption"
+            ]
+          },
+          {
+            "claim_id": "den-sharon-adoption",
+            "claim_sha256": "821d32f6922cdaa9b7d1b1a02f38d4eb58d1d85af5b545b85cb055a99d99015f",
+            "verdict": "supported",
+            "reviewer": "issue-15-source-meaning-audit",
+            "note": "The retained adoption passage supports the social tie; it cannot enter biological ancestry."
+          }
+        ],
+        "relationship_reviews": [],
+        "event_reviews": [],
+        "new_family_claims": [
+          {
+            "claim_id": "den-sharon-adoption",
+            "parent_id": "den-watts",
+            "child_id": "sharon-watts",
+            "parent_role": "parent",
+            "relation": "adoptive_parent",
+            "polarity": "affirmed",
+            "certainty": "certain",
+            "story_time": "at the age of three",
+            "time_precision": "relative",
+            "evidence": [
+              {
+                "evidence_id": "family-sharon-adoption",
+                "start": 0,
+                "end": 205,
+                "quote": "Adopted at the age of three by Den (Leslie Grantham) and Angie Watts (Anita Dobson), Sharon is raised at The Queen Victoria public house in Albert Square, Walford, where her adoptive parents are landlords."
+              }
+            ]
+          }
+        ],
+        "new_relationship_claims": [],
+        "new_event_claims": [],
+        "new_context_claims": []
+      }
+    }
+  ],
+  "limitation": "Reviews record source support and interpretation, not independent corroboration. Earlier snapshots retain original reviews, Claims and evidence."
+}

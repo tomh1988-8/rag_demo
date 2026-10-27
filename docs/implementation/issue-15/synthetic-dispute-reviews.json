@@ -1,0 +1,16 @@
+[
+  {
+    "claim_id": "synthetic-father-1",
+    "claim_sha256": "141527721ccf26621500e531394c4ff22d16ee79e574410fed54f5f202506cbf",
+    "verdict": "supported",
+    "reviewer": "synthetic-source-audit",
+    "note": "This authored account says this; the competing account prevents an established connection."
+  },
+  {
+    "claim_id": "synthetic-father-2",
+    "claim_sha256": "20ea54077b25f45be19c3f4803faf8846bee2fed270e719d3186ae607a2752d6",
+    "verdict": "supported",
+    "reviewer": "synthetic-source-audit",
+    "note": "This authored account says this; the competing account prevents an established connection."
+  }
+]

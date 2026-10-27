@@ -1,0 +1,9 @@
+[
+  {
+    "claim_id": "authored-biological-error",
+    "claim_sha256": "2e5f99a12b07af5bb10a2522094e9b05c6d55334831e98aa8739aff2a080c4b2",
+    "verdict": "supported",
+    "reviewer": "deliberately-incorrect-review-fixture",
+    "note": "Intentionally wrong prior review used to demonstrate a supported correction. The real passage says adoption, not biological parentage."
+  }
+]

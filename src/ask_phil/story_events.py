@@ -171,12 +171,20 @@ class EventAdmission(Record):
 
 
 def admit_events(
-    snapshot: SourceSnapshot, batch: EventBatch, reviews: tuple[EventReview, ...]
+    snapshot: SourceSnapshot,
+    batch: EventBatch,
+    reviews: tuple[EventReview, ...],
+    *,
+    prior_reviews: tuple[ClaimReview, ...] = (),
 ) -> EventAdmission:
-    admission = ClaimAdmission(snapshot, batch, reviews, extra_claims=batch.context_claims)
+    admission = ClaimAdmission(
+        snapshot, batch, reviews, extra_claims=batch.context_claims, prior_reviews=prior_reviews
+    )
     labels: dict[str, set[str]] = {}
     accounts: dict[tuple[object, ...], set[tuple[str, str]]] = {}
     for claim in batch.claims:
+        if admission.superseded(claim.claim_id):
+            continue
         labels.setdefault(claim.event_id, set()).add(claim.event_label)
         key = (
             claim.event_id,
@@ -235,9 +243,9 @@ def admit_events(
             claim.story_time,
             claim.time_precision,
         )
-        if len(accounts[key]) > 1:
+        if len(accounts.get(key, set())) > 1:
             reasons.append("contradiction")
-        if len(labels[claim.event_id]) > 1:
+        if len(labels.get(claim.event_id, set())) > 1:
             reasons.append("event_collision")
         decisions.append(
             AdmissionDecision(
@@ -259,6 +267,7 @@ def admit_events(
                 reasons=tuple(reasons),
             )
         )
+    admission.validate_corrections((*decisions, *text_decisions))
     return EventAdmission(
         batch_sha256=batch.fingerprint,
         decisions=tuple(decisions),

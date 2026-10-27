@@ -57,6 +57,29 @@ class EventAudit(Record):
 type _Audit = FamilyAudit | RelationshipAudit | EventAudit
 
 
+class GraphVersions(Record):
+    family: Fingerprint | None = None
+    relationship: Fingerprint | None = None
+    event: Fingerprint | None = None
+
+
+def graph_versions(conn: psycopg.Connection[tuple[object, ...]], snapshot_id: str) -> GraphVersions:
+    versions: dict[str, str | None] = {}
+    for kind in ("family", "relationship", "event"):
+        table = kind + "_projections"
+        if conn.execute("SELECT to_regclass(%s)", (table,)).fetchone() == (None,):
+            versions[kind] = None
+            continue
+        row = conn.execute(
+            sql.SQL("SELECT graph_sha256 FROM {} WHERE snapshot_id=%s").format(
+                sql.Identifier(table)
+            ),
+            (snapshot_id,),
+        ).fetchone()
+        versions[kind] = str(row[0]) if row else None
+    return GraphVersions.model_validate(versions)
+
+
 @dataclass(frozen=True)
 class _Write:
     statement: str
@@ -108,11 +131,23 @@ def install_projection(
     """Retain the complete derivation and its projection, or leave neither installed."""
     snapshot = EvidenceStore(database_url).snapshot(batch.snapshot_id)
     if isinstance(batch, ClaimBatch):
-        projection = _family(snapshot, batch, reviews)
+        projection = _family(
+            snapshot, batch, reviews, _prior_reviews(database_url, snapshot, "family", FamilyAudit)
+        )
     elif isinstance(batch, RelationshipBatch):
-        projection = _relationships(snapshot, batch, reviews)
+        projection = _relationships(
+            snapshot,
+            batch,
+            reviews,
+            _prior_reviews(database_url, snapshot, "relationship", RelationshipAudit),
+        )
     else:
-        projection = _events(snapshot, batch, cast(tuple[EventReview, ...], reviews))
+        projection = _events(
+            snapshot,
+            batch,
+            cast(tuple[EventReview, ...], reviews),
+            _prior_reviews(database_url, snapshot, "event", EventAudit),
+        )
     audit = projection.audit
     require_credential_free(audit.model_dump_json())
     lock = {"family": 728196, "relationship": 728197, "event": 728198}[projection.kind]
@@ -132,16 +167,65 @@ def install_projection(
                     f"Snapshot already has a different immutable {projection.kind} graph."
                 )
             return previous
+        if conn.execute("SELECT to_regclass('snapshot_publications')").fetchone() != (None,):
+            if conn.execute(
+                "SELECT 1 FROM snapshot_publications WHERE snapshot_id=%s "
+                "AND manifest ? 'graphs' LIMIT 1",
+                (batch.snapshot_id,),
+            ).fetchone():
+                raise SnapshotConflict(
+                    "Published graph membership is immutable; create a review revision."
+                )
         for write in projection.writes:
             for row in write.rows:
                 conn.execute(write.statement, row)
     return audit
 
 
+def _prior_reviews[A: FamilyAudit | RelationshipAudit | EventAudit](
+    database_url: str,
+    snapshot: SourceSnapshot,
+    kind: Literal["family", "relationship", "event"],
+    audit_type: type[A],
+) -> tuple[ClaimReview, ...]:
+    from ask_phil.knowledge_review import review_revision
+
+    revision = review_revision(database_url, snapshot.snapshot_id)
+    if revision is None:
+        return ()
+    request = revision.request
+    if revision.snapshot_sha256 != snapshot.fingerprint:
+        raise ValueError("Review history differs from the projected source.")
+    expected = getattr(request.graphs, kind)
+    if expected is None:
+        return ()
+    with psycopg.connect(database_url, connect_timeout=5, options=database_options()) as conn:
+        if graph_versions(conn, request.snapshot_id) != request.graphs:
+            raise ValueError("Prior projection differs from the inspected review history.")
+        row = conn.execute(
+            sql.SQL("SELECT document FROM {} WHERE snapshot_id=%s").format(
+                sql.Identifier(kind + "_projections")
+            ),
+            (request.snapshot_id,),
+        ).fetchone()
+    if row is None:
+        raise ValueError("The prior immutable Claim audit is unavailable.")
+    previous = audit_type.model_validate(row[0])
+    if previous.graph_sha256 != expected or (
+        previous.batch.snapshot_id,
+        previous.batch.snapshot_sha256,
+    ) != (request.snapshot_id, request.snapshot_sha256):
+        raise ValueError("The prior Claim audit differs from the inspected review history.")
+    return previous.reviews
+
+
 def _family(
-    snapshot: SourceSnapshot, batch: ClaimBatch, reviews: tuple[ClaimReview, ...]
+    snapshot: SourceSnapshot,
+    batch: ClaimBatch,
+    reviews: tuple[ClaimReview, ...],
+    prior_reviews: tuple[ClaimReview, ...],
 ) -> _Projection:
-    report = admit_claims(snapshot, batch, reviews)
+    report = admit_claims(snapshot, batch, reviews, prior_reviews=prior_reviews)
     admitted = {d.claim_id for d in report.decisions if d.status == "admitted"}
     groups: dict[tuple[str, str], list[str]] = {}
     for claim in batch.claims:
@@ -224,9 +308,12 @@ def _family(
 
 
 def _relationships(
-    snapshot: SourceSnapshot, batch: RelationshipBatch, reviews: tuple[ClaimReview, ...]
+    snapshot: SourceSnapshot,
+    batch: RelationshipBatch,
+    reviews: tuple[ClaimReview, ...],
+    prior_reviews: tuple[ClaimReview, ...],
 ) -> _Projection:
-    report = admit_relationships(snapshot, batch, reviews)
+    report = admit_relationships(snapshot, batch, reviews, prior_reviews=prior_reviews)
     audit = RelationshipAudit(
         batch=batch,
         reviews=reviews,
@@ -272,9 +359,12 @@ def _relationships(
 
 
 def _events(
-    snapshot: SourceSnapshot, batch: EventBatch, reviews: tuple[EventReview, ...]
+    snapshot: SourceSnapshot,
+    batch: EventBatch,
+    reviews: tuple[EventReview, ...],
+    prior_reviews: tuple[ClaimReview, ...],
 ) -> _Projection:
-    report = admit_events(snapshot, batch, reviews)
+    report = admit_events(snapshot, batch, reviews, prior_reviews=prior_reviews)
     version = (
         "story-events-sql-v2"
         if batch.context_claims or any(c.event_type in LIFE_EVENT_TYPES for c in batch.claims)

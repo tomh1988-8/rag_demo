@@ -35,7 +35,10 @@ class IncompleteImport(ValueError):
 
 @contextmanager
 def refresh_journal(
-    publications: PublicationStore, flow_run_id: UUID, *, action: Literal["refresh", "rollback"]
+    publications: PublicationStore,
+    flow_run_id: UUID,
+    *,
+    action: Literal["refresh", "rollback", "review"],
 ) -> Iterator["RefreshJournal"]:
     """Own the connection and retain ordinary failures and explicit interruptions."""
     with publications.writer() as conn:
@@ -57,7 +60,7 @@ class RefreshJournal:
         publications: PublicationStore,
         conn: psycopg.Connection[tuple[object, ...]],
         flow_run_id: UUID,
-        action: Literal["refresh", "rollback"],
+        action: Literal["refresh", "rollback", "review"],
     ) -> None:
         self._publications = publications
         self._conn = conn
@@ -67,7 +70,11 @@ class RefreshJournal:
             started_at=datetime.now(UTC),
             status="running",
             action=action,
-            phase="capturing" if action == "refresh" else "recovering",
+            phase="capturing"
+            if action == "refresh"
+            else "recovering"
+            if action == "rollback"
+            else "validating",
         )
         publications.save_run(self._run, conn)
 
@@ -144,6 +151,15 @@ class RefreshJournal:
         self._update(input_sha256=input_id, phase="validating")
         store = EvidenceStore(self._publications.database_url)
         try:
+            current = self._publications.active()
+        except PublicationNotFound:
+            current = None
+        if current and current.manifest.input_sha256 == input_id and current.manifest.review_sha256:
+            # An unchanged recapture must not undo a subsequent Claim review.
+            snapshot = store.snapshot(current.manifest.snapshot_id)
+            self._update(snapshot_id=snapshot.snapshot_id)
+            return snapshot
+        try:
             snapshot = store.snapshot("sources-" + input_id)
         except (SnapshotNotFound, psycopg.errors.UndefinedTable):
             snapshot = build_snapshot(batch, "sources-" + input_id)
@@ -157,6 +173,12 @@ class RefreshJournal:
     def prepare(self, snapshot: SourceSnapshot, retriever: TextRetriever) -> TextIndex:
         self._update(phase="indexing")
         return retriever.prepare(snapshot.snapshot_id)
+
+    def stage_review(self, snapshot: SourceSnapshot, input_sha256: str) -> None:
+        self._update(
+            snapshot_id=snapshot.snapshot_id, input_sha256=input_sha256, phase="validating"
+        )
+        EvidenceStore(self._publications.database_url).load(snapshot)
 
     def publish(self, snapshot: SourceSnapshot, index: TextIndex) -> RefreshRun:
         self._update(phase="publishing")

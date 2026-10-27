@@ -1,0 +1,54 @@
+{
+  "snapshot_id": "authored-parentage-error-v1",
+  "snapshot_sha256": "c6e88001ace0924bde79c86b038fc95822e8b8a2c6aad5bf799494235f1c8f7a",
+  "graphs": {
+    "family": "73f556863c285babfb6266f954e4267366552a4299237124a52e180817045094",
+    "relationship": null,
+    "event": null
+  },
+  "family_reviews": [
+    {
+      "claim_id": "authored-biological-error",
+      "claim_sha256": "2e5f99a12b07af5bb10a2522094e9b05c6d55334831e98aa8739aff2a080c4b2",
+      "verdict": "superseded",
+      "reviewer": "issue-15-source-meaning-audit",
+      "note": "The captured source explicitly says Den adopted Sharon at age three. It does not support biological parentage. Retire the deliberately wrong prior interpretation.",
+      "superseded_by": [
+        "den-sharon-adoption"
+      ]
+    },
+    {
+      "claim_id": "den-sharon-adoption",
+      "claim_sha256": "821d32f6922cdaa9b7d1b1a02f38d4eb58d1d85af5b545b85cb055a99d99015f",
+      "verdict": "supported",
+      "reviewer": "issue-15-source-meaning-audit",
+      "note": "The retained adoption passage supports the social tie; it cannot enter biological ancestry."
+    }
+  ],
+  "relationship_reviews": [],
+  "event_reviews": [],
+  "new_family_claims": [
+    {
+      "claim_id": "den-sharon-adoption",
+      "parent_id": "den-watts",
+      "child_id": "sharon-watts",
+      "parent_role": "parent",
+      "relation": "adoptive_parent",
+      "polarity": "affirmed",
+      "certainty": "certain",
+      "story_time": "at the age of three",
+      "time_precision": "relative",
+      "evidence": [
+        {
+          "evidence_id": "family-sharon-adoption",
+          "start": 0,
+          "end": 205,
+          "quote": "Adopted at the age of three by Den (Leslie Grantham) and Angie Watts (Anita Dobson), Sharon is raised at The Queen Victoria public house in Albert Square, Walford, where her adoptive parents are landlords."
+        }
+      ]
+    }
+  ],
+  "new_relationship_claims": [],
+  "new_event_claims": [],
+  "new_context_claims": []
+}

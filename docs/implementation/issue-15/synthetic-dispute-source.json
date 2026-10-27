@@ -1,0 +1,38 @@
+{
+  "snapshot_id": "synthetic-review-dispute-v1",
+  "fixture_version": 1,
+  "source": {
+    "title": "Synthetic conflicting accounts (not EastEnders canon)",
+    "url": "https://example.invalid/synthetic-review",
+    "revision_id": "synthetic-review-v1",
+    "revision_url": "https://example.invalid/synthetic-review/v1",
+    "section": "Storylines / 1996–2000",
+    "captured_at": "2026-10-17T13:07:31.530421Z",
+    "capture_sha256": "1e81be8d42419cd0af30fe8531c28d149155e37ff152a6eb574e2692b76e1601",
+    "scope": "main_series",
+    "license_url": "https://creativecommons.org/licenses/by-sa/4.0/",
+    "attribution": "Authored regression fixture; not a claim about EastEnders canon.",
+    "coverage": "Reviewed narrative sections in this captured revision only.",
+    "gaps": [
+      "Partial canon coverage; other paragraphs remain excluded or awaiting review.",
+      "Identity and episode metadata do not independently corroborate story claims."
+    ],
+    "support_status": "synthetic_fixture"
+  },
+  "passages": [
+    {
+      "evidence_id": "synthetic-account-1",
+      "text": "Synthetic account A says Phil Mitchell is Ben Mitchell's biological father.",
+      "sha256": "b0a5d88bfbe8a1fb848bb99e4c421b695f67c6ce228aad05d596d30720fe2cd4",
+      "start": 0,
+      "end": 75
+    },
+    {
+      "evidence_id": "synthetic-account-2",
+      "text": "Synthetic account B says Grant Mitchell is Ben Mitchell's biological father. These accounts disagree; neither resolves the other.",
+      "sha256": "5bb2cd4dd771a779182a45ad28d4e5eca327178adcacbccf5fd746a066c5c48c",
+      "start": 0,
+      "end": 129
+    }
+  ]
+}

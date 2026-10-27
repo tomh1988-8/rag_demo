@@ -1,0 +1,1432 @@
+{
+  "scenario": "parentage-correction",
+  "application_sha256": "6d0b3a9f68cf9acf9cfdba10aeceadb1a93439a128c86435d33000952b7b2cdd",
+  "baseline": {
+    "compatibility_id": "b687816148a15e57221f96ef655469d1fa340740ee115b0c63660c416a623787",
+    "manifest": {
+      "format_version": "source-text-publication-v1",
+      "snapshot_id": "authored-parentage-error-v1",
+      "snapshot_sha256": "c6e88001ace0924bde79c86b038fc95822e8b8a2c6aad5bf799494235f1c8f7a",
+      "input_sha256": "c6e88001ace0924bde79c86b038fc95822e8b8a2c6aad5bf799494235f1c8f7a",
+      "sources": [],
+      "index": {
+        "format_version": "pgvector-exact-v1",
+        "snapshot_sha256": "c6e88001ace0924bde79c86b038fc95822e8b8a2c6aad5bf799494235f1c8f7a",
+        "embedding_id": "ca378fa1493585d9a05dbc2ed5b01023a944d96bae9a94ec7349ed0dbd2fd7fd",
+        "dimensions": 768,
+        "passages": 3,
+        "artifact_sha256": "58414cb16f3bd7eb6fc93750d100bc90fba74a073a43b630ce72d8e0f7e40582"
+      },
+      "graphs": {
+        "family": "73f556863c285babfb6266f954e4267366552a4299237124a52e180817045094",
+        "relationship": null,
+        "event": null
+      }
+    },
+    "generation": 1,
+    "published_at": "2026-10-27T19:20:09.000655Z"
+  },
+  "reviewed": {
+    "compatibility_id": "463c9ba74a1e0a27254217bc295afc99ccc562acee19c61c5f67084121b07771",
+    "manifest": {
+      "format_version": "source-text-publication-v1",
+      "snapshot_id": "review-4af2b9cde5456a95dcbfefa5dbe0a5c696369d670da151beb4a1fc7b67183d2f",
+      "snapshot_sha256": "104d096de2159d1e70d8157de022b6808cfaf0ab4eb38b103358dc8b44076645",
+      "input_sha256": "c6e88001ace0924bde79c86b038fc95822e8b8a2c6aad5bf799494235f1c8f7a",
+      "sources": [],
+      "index": {
+        "format_version": "pgvector-exact-v1",
+        "snapshot_sha256": "104d096de2159d1e70d8157de022b6808cfaf0ab4eb38b103358dc8b44076645",
+        "embedding_id": "ca378fa1493585d9a05dbc2ed5b01023a944d96bae9a94ec7349ed0dbd2fd7fd",
+        "dimensions": 768,
+        "passages": 3,
+        "artifact_sha256": "58414cb16f3bd7eb6fc93750d100bc90fba74a073a43b630ce72d8e0f7e40582"
+      },
+      "graphs": {
+        "family": "353dff3a9cc5e04c0339f8a13daa598c91e5e1674aacad0f01fb3f40c77fbe41",
+        "relationship": null,
+        "event": null
+      },
+      "review_sha256": "4af2b9cde5456a95dcbfefa5dbe0a5c696369d670da151beb4a1fc7b67183d2f"
+    },
+    "generation": 2,
+    "published_at": "2026-10-27T19:20:16.279862Z"
+  },
+  "publication_run": {
+    "run_id": "f4444e31-6fe2-4f7d-a5b8-4b7d838de674",
+    "flow_run_id": "dafd4714-b4cf-46da-8b09-c8ae4e3b705d",
+    "started_at": "2026-10-27T19:20:15.542341Z",
+    "finished_at": "2026-10-27T19:20:16.279862Z",
+    "status": "published",
+    "action": "review",
+    "input_sha256": "c6e88001ace0924bde79c86b038fc95822e8b8a2c6aad5bf799494235f1c8f7a",
+    "snapshot_id": "review-4af2b9cde5456a95dcbfefa5dbe0a5c696369d670da151beb4a1fc7b67183d2f",
+    "compatibility_id": "463c9ba74a1e0a27254217bc295afc99ccc562acee19c61c5f67084121b07771",
+    "sources": [],
+    "issues": [],
+    "phase": "complete",
+    "error": null
+  },
+  "failure": null,
+  "recovery": {
+    "run_id": "9e3b9e97-262e-47cf-9cf6-76297dc1d044",
+    "flow_run_id": "aed8c994-663b-4888-9524-0332c029444f",
+    "started_at": "2026-10-27T19:20:32.694887Z",
+    "finished_at": "2026-10-27T19:20:32.799843Z",
+    "status": "rolled_back",
+    "action": "rollback",
+    "input_sha256": null,
+    "snapshot_id": "authored-parentage-error-v1",
+    "compatibility_id": "b687816148a15e57221f96ef655469d1fa340740ee115b0c63660c416a623787",
+    "sources": [],
+    "issues": [],
+    "phase": "complete",
+    "error": null
+  },
+  "responses": [
+    {
+      "case_id": "before-review",
+      "response": {
+        "response_id": "0459bbe5-585e-4ec4-85c7-62fead750f30",
+        "question": "Was Den Watts Sharon's biological father?",
+        "status": "partial",
+        "answer": "Right, listen. Captured biological ancestors paths: Sharon Watts → Den Watts. Only admitted biological relationships in this reviewed snapshot are traversed. Missing ancestry does not establish that a relationship does not exist. Results are incomplete outside the selected material and traversal bounds. Source-supported does not mean independently cross-checked.",
+        "unanswered": [
+          "Family coverage outside the reviewed spans and traversal bounds."
+        ],
+        "citations": [
+          {
+            "evidence_id": "family-sharon-adoption",
+            "text": "Adopted at the age of three by Den (Leslie Grantham) and Angie Watts (Anita Dobson), Sharon is raised at The Queen Victoria public house in Albert Square, Walford, where her adoptive parents are landlords.",
+            "sha256": "1e54773bc770474ace800fa686ba855dce8b3eac079403d0dd1c78e958023f31",
+            "start": 50624,
+            "end": 50829,
+            "source": {
+              "title": "Sharon Watts",
+              "url": "https://en.wikipedia.org/wiki/Sharon_Watts",
+              "revision_id": "1372798905",
+              "revision_url": "https://en.wikipedia.org/w/index.php?oldid=1372798905",
+              "section": "Storylines / 1985–1995",
+              "captured_at": "2026-10-17T13:07:31.327518Z",
+              "capture_sha256": "9ccef3de99353ff737101d9d00561c217608dd4fa6fba0c8200f80ac0114ea85",
+              "scope": "main_series",
+              "license_url": "https://creativecommons.org/licenses/by-sa/4.0/",
+              "attribution": "Wikipedia contributors; markup removed and whitespace normalized.",
+              "coverage": "Reviewed narrative sections in this captured revision only.",
+              "gaps": [
+                "Partial canon coverage; other paragraphs remain excluded or awaiting review.",
+                "Identity and episode metadata do not independently corroborate story claims."
+              ],
+              "support_status": "source_supported"
+            },
+            "location": {
+              "source_id": "sharon-watts-wiki",
+              "paragraph_ordinal": 53,
+              "section_id": "1985–1995",
+              "character_ids": [
+                "den-watts",
+                "ian-beale",
+                "sharon-watts"
+              ]
+            },
+            "resolve_path": "/v1/snapshots/authored-parentage-error-v1/evidence/family-sharon-adoption"
+          }
+        ],
+        "snapshot_id": "authored-parentage-error-v1",
+        "snapshot_sha256": "c6e88001ace0924bde79c86b038fc95822e8b8a2c6aad5bf799494235f1c8f7a",
+        "publication": {
+          "compatibility_id": "b687816148a15e57221f96ef655469d1fa340740ee115b0c63660c416a623787",
+          "index_sha256": "39c3c18244f52aea805b20ce5046eb29350f258be1eb4039b945e8ff9d8238ac",
+          "generation": 1
+        },
+        "source": {
+          "title": "Ben Mitchell",
+          "url": "https://en.wikipedia.org/wiki/Ben_Mitchell_(EastEnders)",
+          "revision_id": "1376729134",
+          "revision_url": "https://en.wikipedia.org/w/index.php?oldid=1376729134",
+          "section": "Storylines / 1996–2000",
+          "captured_at": "2026-10-17T13:07:31.530421Z",
+          "capture_sha256": "8ae0fbabb19cf12b2bdf46d7a85e15eea4462b8559584c770224a54a9e47d128",
+          "scope": "main_series",
+          "license_url": "https://creativecommons.org/licenses/by-sa/4.0/",
+          "attribution": "Wikipedia contributors; markup removed and whitespace normalized.",
+          "coverage": "Reviewed narrative sections in this captured revision only.",
+          "gaps": [
+            "Partial canon coverage; other paragraphs remain excluded or awaiting review.",
+            "Identity and episode metadata do not independently corroborate story claims."
+          ],
+          "support_status": "source_supported"
+        },
+        "retrieved": [],
+        "context": [
+          {
+            "evidence_id": "family-sharon-adoption",
+            "text": "Adopted at the age of three by Den (Leslie Grantham) and Angie Watts (Anita Dobson), Sharon is raised at The Queen Victoria public house in Albert Square, Walford, where her adoptive parents are landlords.",
+            "sha256": "1e54773bc770474ace800fa686ba855dce8b3eac079403d0dd1c78e958023f31",
+            "start": 50624,
+            "end": 50829,
+            "source": {
+              "title": "Sharon Watts",
+              "url": "https://en.wikipedia.org/wiki/Sharon_Watts",
+              "revision_id": "1372798905",
+              "revision_url": "https://en.wikipedia.org/w/index.php?oldid=1372798905",
+              "section": "Storylines / 1985–1995",
+              "captured_at": "2026-10-17T13:07:31.327518Z",
+              "capture_sha256": "9ccef3de99353ff737101d9d00561c217608dd4fa6fba0c8200f80ac0114ea85",
+              "scope": "main_series",
+              "license_url": "https://creativecommons.org/licenses/by-sa/4.0/",
+              "attribution": "Wikipedia contributors; markup removed and whitespace normalized.",
+              "coverage": "Reviewed narrative sections in this captured revision only.",
+              "gaps": [
+                "Partial canon coverage; other paragraphs remain excluded or awaiting review.",
+                "Identity and episode metadata do not independently corroborate story claims."
+              ],
+              "support_status": "source_supported"
+            },
+            "location": {
+              "source_id": "sharon-watts-wiki",
+              "paragraph_ordinal": 53,
+              "section_id": "1985–1995",
+              "character_ids": [
+                "den-watts",
+                "ian-beale",
+                "sharon-watts"
+              ]
+            }
+          }
+        ],
+        "retrieval_k": 0,
+        "route": "graph",
+        "route_override": true,
+        "graph": {
+          "snapshot_id": "authored-parentage-error-v1",
+          "snapshot_sha256": "c6e88001ace0924bde79c86b038fc95822e8b8a2c6aad5bf799494235f1c8f7a",
+          "graph_sha256": "73f556863c285babfb6266f954e4267366552a4299237124a52e180817045094",
+          "query": {
+            "character_id": "sharon-watts",
+            "direction": "ancestors",
+            "max_depth": 3,
+            "max_paths": 20
+          },
+          "status": "found",
+          "paths": [
+            {
+              "characters": [
+                "sharon-watts",
+                "den-watts"
+              ],
+              "edges": [
+                {
+                  "parent_id": "den-watts",
+                  "child_id": "sharon-watts",
+                  "claim_ids": [
+                    "authored-biological-error"
+                  ],
+                  "evidence": [
+                    {
+                      "evidence_id": "family-sharon-adoption",
+                      "start": 0,
+                      "end": 205,
+                      "quote": "Adopted at the age of three by Den (Leslie Grantham) and Angie Watts (Anita Dobson), Sharon is raised at The Queen Victoria public house in Albert Square, Walford, where her adoptive parents are landlords."
+                    }
+                  ]
+                }
+              ]
+            }
+          ],
+          "names": {
+            "phil-mitchell": "Phil Mitchell",
+            "grant-mitchell": "Grant Mitchell",
+            "peggy-mitchell": "Peggy Mitchell",
+            "sharon-watts": "Sharon Watts",
+            "ben-mitchell": "Ben Mitchell",
+            "kathy-beale": "Kathy Beale",
+            "den-watts": "Den Watts"
+          },
+          "limitation": "Only admitted biological relationships in this reviewed snapshot are traversed. Missing ancestry does not establish that a relationship does not exist. Results are incomplete outside the selected material and traversal bounds. Source-supported does not mean independently cross-checked."
+        },
+        "baseline_version": "single-query-uncached-v1",
+        "model_settings": null,
+        "prompt_sha256": "c4f9de91a5c4419d0f69dd2fad73485382fa6e6321583b36f7e255e2b3454341",
+        "application_sha256": "6d0b3a9f68cf9acf9cfdba10aeceadb1a93439a128c86435d33000952b7b2cdd",
+        "trace_id": "tr-fff3358466895a0e6382e1fe34a49079",
+        "execution": {
+          "limits": {
+            "model_calls": 2,
+            "tool_calls": 1,
+            "http_calls": 8,
+            "seconds": 180.0,
+            "context_bytes": 1200,
+            "spend_usd": "0",
+            "retries": 0,
+            "capabilities": [
+              "text_retrieval",
+              "family_graph",
+              "event_graph"
+            ],
+            "concurrency": 4
+          },
+          "model_calls": 0,
+          "tool_calls": 1,
+          "http_calls": 0,
+          "reserved_usd": "0",
+          "stop_reason": null
+        },
+        "elapsed_ms": 126.29519300389802,
+        "usage": {
+          "input_tokens": 0,
+          "output_tokens": 0,
+          "embedding_tokens": 0
+        },
+        "expenditure_category": "serving",
+        "estimated_api_cost_usd": 0.0,
+        "cost_scope": "No inference calls. Database and hosting costs are excluded.",
+        "limitation": "Only admitted biological relationships in this reviewed snapshot are traversed. Missing ancestry does not establish that a relationship does not exist. Results are incomplete outside the selected material and traversal bounds. Source-supported does not mean independently cross-checked."
+      },
+      "trace_output_matches": true,
+      "citations_resolve": true,
+      "saved_response_matches": true,
+      "span_names": [
+        "graph",
+        "family_graph"
+      ]
+    },
+    {
+      "case_id": "reviewed-graph",
+      "response": {
+        "response_id": "574a6ed9-2025-44b8-847c-637d8430f8ed",
+        "question": "Was Den Watts Sharon's biological father?",
+        "status": "partial",
+        "answer": "I can't establish the requested biological paths from this graph (empty). \nSuperseded claim (not current): Den Watts as Sharon Watts's biological parent; at the age of three (relative). Current replacement source account: Den Watts as Sharon Watts's adoptive parent; at the age of three (relative). Source passages: family-sharon-adoption.\nReview rationale (issue-15-source-meaning-audit): The captured source explicitly says Den adopted Sharon at age three. It does not support biological parentage. Retire the deliberately wrong prior interpretation.\nThis is source review, not independent corroboration. Coverage outside these reviewed accounts remains unknown.\nOnly admitted biological relationships in this reviewed snapshot are traversed. Missing ancestry does not establish that a relationship does not exist. Results are incomplete outside the selected material and traversal bounds. Source-supported does not mean independently cross-checked.",
+        "unanswered": [
+          "Family coverage outside the reviewed spans and traversal bounds."
+        ],
+        "citations": [
+          {
+            "evidence_id": "family-sharon-adoption",
+            "text": "Adopted at the age of three by Den (Leslie Grantham) and Angie Watts (Anita Dobson), Sharon is raised at The Queen Victoria public house in Albert Square, Walford, where her adoptive parents are landlords.",
+            "sha256": "1e54773bc770474ace800fa686ba855dce8b3eac079403d0dd1c78e958023f31",
+            "start": 50624,
+            "end": 50829,
+            "source": {
+              "title": "Sharon Watts",
+              "url": "https://en.wikipedia.org/wiki/Sharon_Watts",
+              "revision_id": "1372798905",
+              "revision_url": "https://en.wikipedia.org/w/index.php?oldid=1372798905",
+              "section": "Storylines / 1985–1995",
+              "captured_at": "2026-10-17T13:07:31.327518Z",
+              "capture_sha256": "9ccef3de99353ff737101d9d00561c217608dd4fa6fba0c8200f80ac0114ea85",
+              "scope": "main_series",
+              "license_url": "https://creativecommons.org/licenses/by-sa/4.0/",
+              "attribution": "Wikipedia contributors; markup removed and whitespace normalized.",
+              "coverage": "Reviewed narrative sections in this captured revision only.",
+              "gaps": [
+                "Partial canon coverage; other paragraphs remain excluded or awaiting review.",
+                "Identity and episode metadata do not independently corroborate story claims."
+              ],
+              "support_status": "source_supported"
+            },
+            "location": {
+              "source_id": "sharon-watts-wiki",
+              "paragraph_ordinal": 53,
+              "section_id": "1985–1995",
+              "character_ids": [
+                "den-watts",
+                "ian-beale",
+                "sharon-watts"
+              ]
+            },
+            "resolve_path": "/v1/snapshots/review-4af2b9cde5456a95dcbfefa5dbe0a5c696369d670da151beb4a1fc7b67183d2f/evidence/family-sharon-adoption"
+          }
+        ],
+        "snapshot_id": "review-4af2b9cde5456a95dcbfefa5dbe0a5c696369d670da151beb4a1fc7b67183d2f",
+        "snapshot_sha256": "104d096de2159d1e70d8157de022b6808cfaf0ab4eb38b103358dc8b44076645",
+        "publication": {
+          "compatibility_id": "463c9ba74a1e0a27254217bc295afc99ccc562acee19c61c5f67084121b07771",
+          "index_sha256": "ba469fd3782690320a5d7c7229d58385cbaaa05b79d0921a9f9b635677ac1856",
+          "generation": 2
+        },
+        "source": {
+          "title": "Ben Mitchell",
+          "url": "https://en.wikipedia.org/wiki/Ben_Mitchell_(EastEnders)",
+          "revision_id": "1376729134",
+          "revision_url": "https://en.wikipedia.org/w/index.php?oldid=1376729134",
+          "section": "Storylines / 1996–2000",
+          "captured_at": "2026-10-17T13:07:31.530421Z",
+          "capture_sha256": "8ae0fbabb19cf12b2bdf46d7a85e15eea4462b8559584c770224a54a9e47d128",
+          "scope": "main_series",
+          "license_url": "https://creativecommons.org/licenses/by-sa/4.0/",
+          "attribution": "Wikipedia contributors; markup removed and whitespace normalized.",
+          "coverage": "Reviewed narrative sections in this captured revision only.",
+          "gaps": [
+            "Partial canon coverage; other paragraphs remain excluded or awaiting review.",
+            "Identity and episode metadata do not independently corroborate story claims."
+          ],
+          "support_status": "source_supported"
+        },
+        "retrieved": [],
+        "context": [
+          {
+            "evidence_id": "family-sharon-adoption",
+            "text": "Adopted at the age of three by Den (Leslie Grantham) and Angie Watts (Anita Dobson), Sharon is raised at The Queen Victoria public house in Albert Square, Walford, where her adoptive parents are landlords.",
+            "sha256": "1e54773bc770474ace800fa686ba855dce8b3eac079403d0dd1c78e958023f31",
+            "start": 50624,
+            "end": 50829,
+            "source": {
+              "title": "Sharon Watts",
+              "url": "https://en.wikipedia.org/wiki/Sharon_Watts",
+              "revision_id": "1372798905",
+              "revision_url": "https://en.wikipedia.org/w/index.php?oldid=1372798905",
+              "section": "Storylines / 1985–1995",
+              "captured_at": "2026-10-17T13:07:31.327518Z",
+              "capture_sha256": "9ccef3de99353ff737101d9d00561c217608dd4fa6fba0c8200f80ac0114ea85",
+              "scope": "main_series",
+              "license_url": "https://creativecommons.org/licenses/by-sa/4.0/",
+              "attribution": "Wikipedia contributors; markup removed and whitespace normalized.",
+              "coverage": "Reviewed narrative sections in this captured revision only.",
+              "gaps": [
+                "Partial canon coverage; other paragraphs remain excluded or awaiting review.",
+                "Identity and episode metadata do not independently corroborate story claims."
+              ],
+              "support_status": "source_supported"
+            },
+            "location": {
+              "source_id": "sharon-watts-wiki",
+              "paragraph_ordinal": 53,
+              "section_id": "1985–1995",
+              "character_ids": [
+                "den-watts",
+                "ian-beale",
+                "sharon-watts"
+              ]
+            }
+          }
+        ],
+        "review_notices": [
+          {
+            "family": "family",
+            "claim_id": "authored-biological-error",
+            "character_ids": [
+              "den-watts",
+              "sharon-watts"
+            ],
+            "evidence_ids": [
+              "family-sharon-adoption"
+            ],
+            "explanation": "Superseded claim (not current): Den Watts as Sharon Watts's biological parent; at the age of three (relative). Current replacement source account: Den Watts as Sharon Watts's adoptive parent; at the age of three (relative). Source passages: family-sharon-adoption.",
+            "group_id": "parentage:sharon-watts",
+            "disputed": false,
+            "reviewer": "issue-15-source-meaning-audit",
+            "rationale": "The captured source explicitly says Den adopted Sharon at age three. It does not support biological parentage. Retire the deliberately wrong prior interpretation."
+          }
+        ],
+        "retrieval_k": 0,
+        "route": "graph",
+        "route_override": true,
+        "graph": {
+          "snapshot_id": "review-4af2b9cde5456a95dcbfefa5dbe0a5c696369d670da151beb4a1fc7b67183d2f",
+          "snapshot_sha256": "104d096de2159d1e70d8157de022b6808cfaf0ab4eb38b103358dc8b44076645",
+          "graph_sha256": "353dff3a9cc5e04c0339f8a13daa598c91e5e1674aacad0f01fb3f40c77fbe41",
+          "query": {
+            "character_id": "sharon-watts",
+            "direction": "ancestors",
+            "max_depth": 3,
+            "max_paths": 20
+          },
+          "status": "empty",
+          "paths": [],
+          "names": {
+            "phil-mitchell": "Phil Mitchell",
+            "grant-mitchell": "Grant Mitchell",
+            "peggy-mitchell": "Peggy Mitchell",
+            "sharon-watts": "Sharon Watts",
+            "ben-mitchell": "Ben Mitchell",
+            "kathy-beale": "Kathy Beale",
+            "den-watts": "Den Watts"
+          },
+          "limitation": "Only admitted biological relationships in this reviewed snapshot are traversed. Missing ancestry does not establish that a relationship does not exist. Results are incomplete outside the selected material and traversal bounds. Source-supported does not mean independently cross-checked."
+        },
+        "baseline_version": "single-query-uncached-v1",
+        "model_settings": null,
+        "prompt_sha256": "f7183350a5a1c8cd4ae9a67af95ff433b5a67761b69c8bc0c936238d44084c56",
+        "application_sha256": "6d0b3a9f68cf9acf9cfdba10aeceadb1a93439a128c86435d33000952b7b2cdd",
+        "trace_id": "tr-aac73f423c90d8e6a451910ea2e13d1f",
+        "execution": {
+          "limits": {
+            "model_calls": 2,
+            "tool_calls": 1,
+            "http_calls": 8,
+            "seconds": 180.0,
+            "context_bytes": 1200,
+            "spend_usd": "0",
+            "retries": 0,
+            "capabilities": [
+              "text_retrieval",
+              "family_graph",
+              "event_graph"
+            ],
+            "concurrency": 4
+          },
+          "model_calls": 0,
+          "tool_calls": 1,
+          "http_calls": 0,
+          "reserved_usd": "0",
+          "stop_reason": null
+        },
+        "elapsed_ms": 197.0572530044592,
+        "usage": {
+          "input_tokens": 0,
+          "output_tokens": 0,
+          "embedding_tokens": 0
+        },
+        "expenditure_category": "serving",
+        "estimated_api_cost_usd": 0.0,
+        "cost_scope": "No inference calls. Database and hosting costs are excluded.",
+        "limitation": "Only admitted biological relationships in this reviewed snapshot are traversed. Missing ancestry does not establish that a relationship does not exist. Results are incomplete outside the selected material and traversal bounds. Source-supported does not mean independently cross-checked."
+      },
+      "trace_output_matches": true,
+      "citations_resolve": true,
+      "saved_response_matches": true,
+      "span_names": [
+        "graph",
+        "family_graph"
+      ]
+    },
+    {
+      "case_id": "reviewed-text",
+      "response": {
+        "response_id": "cf6dae58-91b8-41b7-9107-4fe5cc10a399",
+        "question": "Was Den Watts Sharon's biological father?",
+        "status": "partial",
+        "answer": "Right, listen. Superseded claim (not current): Den Watts as Sharon Watts's biological parent; at the age of three (relative). Current replacement source account: Den Watts as Sharon Watts's adoptive parent; at the age of three (relative). Source passages: family-sharon-adoption.\nReview rationale (issue-15-source-meaning-audit): The captured source explicitly says Den adopted Sharon at age three. It does not support biological parentage. Retire the deliberately wrong prior interpretation.\nThis is source review, not independent corroboration. Coverage outside these reviewed accounts remains unknown.",
+        "unanswered": [
+          "Coverage beyond these reviewed source accounts remains unresolved."
+        ],
+        "citations": [
+          {
+            "evidence_id": "family-sharon-adoption",
+            "text": "Adopted at the age of three by Den (Leslie Grantham) and Angie Watts (Anita Dobson), Sharon is raised at The Queen Victoria public house in Albert Square, Walford, where her adoptive parents are landlords.",
+            "sha256": "1e54773bc770474ace800fa686ba855dce8b3eac079403d0dd1c78e958023f31",
+            "start": 50624,
+            "end": 50829,
+            "source": {
+              "title": "Sharon Watts",
+              "url": "https://en.wikipedia.org/wiki/Sharon_Watts",
+              "revision_id": "1372798905",
+              "revision_url": "https://en.wikipedia.org/w/index.php?oldid=1372798905",
+              "section": "Storylines / 1985–1995",
+              "captured_at": "2026-10-17T13:07:31.327518Z",
+              "capture_sha256": "9ccef3de99353ff737101d9d00561c217608dd4fa6fba0c8200f80ac0114ea85",
+              "scope": "main_series",
+              "license_url": "https://creativecommons.org/licenses/by-sa/4.0/",
+              "attribution": "Wikipedia contributors; markup removed and whitespace normalized.",
+              "coverage": "Reviewed narrative sections in this captured revision only.",
+              "gaps": [
+                "Partial canon coverage; other paragraphs remain excluded or awaiting review.",
+                "Identity and episode metadata do not independently corroborate story claims."
+              ],
+              "support_status": "source_supported"
+            },
+            "location": {
+              "source_id": "sharon-watts-wiki",
+              "paragraph_ordinal": 53,
+              "section_id": "1985–1995",
+              "character_ids": [
+                "den-watts",
+                "ian-beale",
+                "sharon-watts"
+              ]
+            },
+            "resolve_path": "/v1/snapshots/review-4af2b9cde5456a95dcbfefa5dbe0a5c696369d670da151beb4a1fc7b67183d2f/evidence/family-sharon-adoption"
+          }
+        ],
+        "snapshot_id": "review-4af2b9cde5456a95dcbfefa5dbe0a5c696369d670da151beb4a1fc7b67183d2f",
+        "snapshot_sha256": "104d096de2159d1e70d8157de022b6808cfaf0ab4eb38b103358dc8b44076645",
+        "publication": {
+          "compatibility_id": "463c9ba74a1e0a27254217bc295afc99ccc562acee19c61c5f67084121b07771",
+          "index_sha256": "ba469fd3782690320a5d7c7229d58385cbaaa05b79d0921a9f9b635677ac1856",
+          "generation": 2
+        },
+        "source": {
+          "title": "Ben Mitchell",
+          "url": "https://en.wikipedia.org/wiki/Ben_Mitchell_(EastEnders)",
+          "revision_id": "1376729134",
+          "revision_url": "https://en.wikipedia.org/w/index.php?oldid=1376729134",
+          "section": "Storylines / 1996–2000",
+          "captured_at": "2026-10-17T13:07:31.530421Z",
+          "capture_sha256": "8ae0fbabb19cf12b2bdf46d7a85e15eea4462b8559584c770224a54a9e47d128",
+          "scope": "main_series",
+          "license_url": "https://creativecommons.org/licenses/by-sa/4.0/",
+          "attribution": "Wikipedia contributors; markup removed and whitespace normalized.",
+          "coverage": "Reviewed narrative sections in this captured revision only.",
+          "gaps": [
+            "Partial canon coverage; other paragraphs remain excluded or awaiting review.",
+            "Identity and episode metadata do not independently corroborate story claims."
+          ],
+          "support_status": "source_supported"
+        },
+        "retrieved": [
+          {
+            "passage": {
+              "evidence_id": "family-sharon-adoption",
+              "text": "Adopted at the age of three by Den (Leslie Grantham) and Angie Watts (Anita Dobson), Sharon is raised at The Queen Victoria public house in Albert Square, Walford, where her adoptive parents are landlords.",
+              "sha256": "1e54773bc770474ace800fa686ba855dce8b3eac079403d0dd1c78e958023f31",
+              "start": 50624,
+              "end": 50829,
+              "source": {
+                "title": "Sharon Watts",
+                "url": "https://en.wikipedia.org/wiki/Sharon_Watts",
+                "revision_id": "1372798905",
+                "revision_url": "https://en.wikipedia.org/w/index.php?oldid=1372798905",
+                "section": "Storylines / 1985–1995",
+                "captured_at": "2026-10-17T13:07:31.327518Z",
+                "capture_sha256": "9ccef3de99353ff737101d9d00561c217608dd4fa6fba0c8200f80ac0114ea85",
+                "scope": "main_series",
+                "license_url": "https://creativecommons.org/licenses/by-sa/4.0/",
+                "attribution": "Wikipedia contributors; markup removed and whitespace normalized.",
+                "coverage": "Reviewed narrative sections in this captured revision only.",
+                "gaps": [
+                  "Partial canon coverage; other paragraphs remain excluded or awaiting review.",
+                  "Identity and episode metadata do not independently corroborate story claims."
+                ],
+                "support_status": "source_supported"
+              },
+              "location": {
+                "source_id": "sharon-watts-wiki",
+                "paragraph_ordinal": 53,
+                "section_id": "1985–1995",
+                "character_ids": [
+                  "den-watts",
+                  "ian-beale",
+                  "sharon-watts"
+                ]
+              }
+            },
+            "similarity": 0.5872983511477429
+          },
+          {
+            "passage": {
+              "evidence_id": "family-ben-birth",
+              "text": "Ben is born to Phil Mitchell (Steve McFadden) and his then wife Kathy Beale (Gillian Taylforth) in March 1996.",
+              "sha256": "8179f5f0724cc08e5a5d51567fb7de0f8e55a4d5fc9881f5e050ae9d153eca08",
+              "start": 17983,
+              "end": 18093,
+              "source": {
+                "title": "Ben Mitchell",
+                "url": "https://en.wikipedia.org/wiki/Ben_Mitchell_(EastEnders)",
+                "revision_id": "1376729134",
+                "revision_url": "https://en.wikipedia.org/w/index.php?oldid=1376729134",
+                "section": "Storylines / 1996–2000",
+                "captured_at": "2026-10-17T13:07:31.530421Z",
+                "capture_sha256": "8ae0fbabb19cf12b2bdf46d7a85e15eea4462b8559584c770224a54a9e47d128",
+                "scope": "main_series",
+                "license_url": "https://creativecommons.org/licenses/by-sa/4.0/",
+                "attribution": "Wikipedia contributors; markup removed and whitespace normalized.",
+                "coverage": "Reviewed narrative sections in this captured revision only.",
+                "gaps": [
+                  "Partial canon coverage; other paragraphs remain excluded or awaiting review.",
+                  "Identity and episode metadata do not independently corroborate story claims."
+                ],
+                "support_status": "source_supported"
+              },
+              "location": {
+                "source_id": "ben-mitchell-wiki",
+                "paragraph_ordinal": 22,
+                "section_id": "1996–2000",
+                "character_ids": [
+                  "ben-mitchell",
+                  "kathy-beale",
+                  "phil-mitchell"
+                ]
+              }
+            },
+            "similarity": 0.2953599799537616
+          },
+          {
+            "passage": {
+              "evidence_id": "family-peggy-phil",
+              "text": "Peggy married Eric Mitchell (George Russo) because she was pregnant with their son Phil (Steve McFadden).",
+              "sha256": "601d2f2332aa61ff7cecd296e9d2b4be8b78207a8a739e7354b2105847f531f2",
+              "start": 34316,
+              "end": 34421,
+              "source": {
+                "title": "Peggy Mitchell",
+                "url": "https://en.wikipedia.org/wiki/Peggy_Mitchell",
+                "revision_id": "1372787814",
+                "revision_url": "https://en.wikipedia.org/w/index.php?oldid=1372787814",
+                "section": "Storylines / Backstory",
+                "captured_at": "2026-10-17T13:07:31.253971Z",
+                "capture_sha256": "d777ce7a2fffc8e7cb1da6ccd3a87aca45590147a348b5ef5eb6361fb685cacb",
+                "scope": "main_series",
+                "license_url": "https://creativecommons.org/licenses/by-sa/4.0/",
+                "attribution": "Wikipedia contributors; markup removed and whitespace normalized.",
+                "coverage": "Reviewed narrative sections in this captured revision only.",
+                "gaps": [
+                  "Partial canon coverage; other paragraphs remain excluded or awaiting review.",
+                  "Identity and episode metadata do not independently corroborate story claims."
+                ],
+                "support_status": "source_supported"
+              },
+              "location": {
+                "source_id": "peggy-mitchell-wiki",
+                "paragraph_ordinal": 37,
+                "section_id": "Backstory",
+                "character_ids": [
+                  "grant-mitchell",
+                  "peggy-mitchell",
+                  "phil-mitchell"
+                ]
+              }
+            },
+            "similarity": 0.16172699674425772
+          }
+        ],
+        "context": [
+          {
+            "evidence_id": "family-sharon-adoption",
+            "text": "Adopted at the age of three by Den (Leslie Grantham) and Angie Watts (Anita Dobson), Sharon is raised at The Queen Victoria public house in Albert Square, Walford, where her adoptive parents are landlords.",
+            "sha256": "1e54773bc770474ace800fa686ba855dce8b3eac079403d0dd1c78e958023f31",
+            "start": 50624,
+            "end": 50829,
+            "source": {
+              "title": "Sharon Watts",
+              "url": "https://en.wikipedia.org/wiki/Sharon_Watts",
+              "revision_id": "1372798905",
+              "revision_url": "https://en.wikipedia.org/w/index.php?oldid=1372798905",
+              "section": "Storylines / 1985–1995",
+              "captured_at": "2026-10-17T13:07:31.327518Z",
+              "capture_sha256": "9ccef3de99353ff737101d9d00561c217608dd4fa6fba0c8200f80ac0114ea85",
+              "scope": "main_series",
+              "license_url": "https://creativecommons.org/licenses/by-sa/4.0/",
+              "attribution": "Wikipedia contributors; markup removed and whitespace normalized.",
+              "coverage": "Reviewed narrative sections in this captured revision only.",
+              "gaps": [
+                "Partial canon coverage; other paragraphs remain excluded or awaiting review.",
+                "Identity and episode metadata do not independently corroborate story claims."
+              ],
+              "support_status": "source_supported"
+            },
+            "location": {
+              "source_id": "sharon-watts-wiki",
+              "paragraph_ordinal": 53,
+              "section_id": "1985–1995",
+              "character_ids": [
+                "den-watts",
+                "ian-beale",
+                "sharon-watts"
+              ]
+            }
+          }
+        ],
+        "review_notices": [
+          {
+            "family": "family",
+            "claim_id": "authored-biological-error",
+            "character_ids": [
+              "den-watts",
+              "sharon-watts"
+            ],
+            "evidence_ids": [
+              "family-sharon-adoption"
+            ],
+            "explanation": "Superseded claim (not current): Den Watts as Sharon Watts's biological parent; at the age of three (relative). Current replacement source account: Den Watts as Sharon Watts's adoptive parent; at the age of three (relative). Source passages: family-sharon-adoption.",
+            "group_id": "parentage:sharon-watts",
+            "disputed": false,
+            "reviewer": "issue-15-source-meaning-audit",
+            "rationale": "The captured source explicitly says Den adopted Sharon at age three. It does not support biological parentage. Retire the deliberately wrong prior interpretation."
+          }
+        ],
+        "retrieval_k": 3,
+        "route": "text_rag",
+        "baseline_version": "single-query-uncached-v2",
+        "model_settings": {
+          "embedding_model": "embeddinggemma:300m",
+          "embedding_digest": "85462619ee721b466c5927d109d4cb765861907d5417b9109caebc4e614679f1",
+          "embedding_dimensions": 768,
+          "provider_type": "openrouter",
+          "answer_model": "openai/gpt-6-sol",
+          "canonical_slug": "openai/gpt-6-sol-20260922",
+          "provider": "openai",
+          "input_price_per_million": "2",
+          "output_price_per_million": "10",
+          "output_tokens": 8192,
+          "reasoning_effort": "medium",
+          "request_timeout_seconds": 180
+        },
+        "prompt_sha256": "0f66eb91ee1f8ae77c13b7077c4f280be589a56a987f3ecfd093df8696c02809",
+        "application_sha256": "6d0b3a9f68cf9acf9cfdba10aeceadb1a93439a128c86435d33000952b7b2cdd",
+        "trace_id": "tr-189daaf9e7153e269c8d3a03044a346b",
+        "execution": {
+          "limits": {
+            "model_calls": 2,
+            "tool_calls": 1,
+            "http_calls": 8,
+            "seconds": 180.0,
+            "context_bytes": 1200,
+            "spend_usd": "0",
+            "retries": 0,
+            "capabilities": [
+              "text_retrieval",
+              "family_graph",
+              "event_graph"
+            ],
+            "concurrency": 4
+          },
+          "model_calls": 1,
+          "tool_calls": 1,
+          "http_calls": 2,
+          "reserved_usd": "0",
+          "stop_reason": null
+        },
+        "elapsed_ms": 452.7945779991569,
+        "usage": {
+          "input_tokens": 0,
+          "output_tokens": 0,
+          "embedding_tokens": 18
+        },
+        "expenditure_category": "serving",
+        "estimated_api_cost_usd": 0.0,
+        "cost_scope": "OpenRouter reported inference credits only. Null means unknown cost; the local budget retains a reservation. Credit purchase fees, tax, local embeddings and hosting are excluded.",
+        "limitation": "Source-supported is not independently cross-checked. Coverage is limited to the captured snapshot; this provider baseline is not deployment approval."
+      },
+      "trace_output_matches": true,
+      "citations_resolve": true,
+      "saved_response_matches": true,
+      "span_names": [
+        "text_rag",
+        "text_retrieval",
+        "query_embedding",
+        "assembled_context"
+      ]
+    },
+    {
+      "case_id": "reviewed-cli",
+      "response": {
+        "response_id": "4578a231-dad4-4f75-beb7-bc3fbafe13ff",
+        "question": "Was Den Watts Sharon's biological father?",
+        "status": "partial",
+        "answer": "I can't establish the requested biological paths from this graph (empty). \nSuperseded claim (not current): Den Watts as Sharon Watts's biological parent; at the age of three (relative). Current replacement source account: Den Watts as Sharon Watts's adoptive parent; at the age of three (relative). Source passages: family-sharon-adoption.\nReview rationale (issue-15-source-meaning-audit): The captured source explicitly says Den adopted Sharon at age three. It does not support biological parentage. Retire the deliberately wrong prior interpretation.\nThis is source review, not independent corroboration. Coverage outside these reviewed accounts remains unknown.\nOnly admitted biological relationships in this reviewed snapshot are traversed. Missing ancestry does not establish that a relationship does not exist. Results are incomplete outside the selected material and traversal bounds. Source-supported does not mean independently cross-checked.",
+        "unanswered": [
+          "Family coverage outside the reviewed spans and traversal bounds."
+        ],
+        "citations": [
+          {
+            "evidence_id": "family-sharon-adoption",
+            "text": "Adopted at the age of three by Den (Leslie Grantham) and Angie Watts (Anita Dobson), Sharon is raised at The Queen Victoria public house in Albert Square, Walford, where her adoptive parents are landlords.",
+            "sha256": "1e54773bc770474ace800fa686ba855dce8b3eac079403d0dd1c78e958023f31",
+            "start": 50624,
+            "end": 50829,
+            "source": {
+              "title": "Sharon Watts",
+              "url": "https://en.wikipedia.org/wiki/Sharon_Watts",
+              "revision_id": "1372798905",
+              "revision_url": "https://en.wikipedia.org/w/index.php?oldid=1372798905",
+              "section": "Storylines / 1985–1995",
+              "captured_at": "2026-10-17T13:07:31.327518Z",
+              "capture_sha256": "9ccef3de99353ff737101d9d00561c217608dd4fa6fba0c8200f80ac0114ea85",
+              "scope": "main_series",
+              "license_url": "https://creativecommons.org/licenses/by-sa/4.0/",
+              "attribution": "Wikipedia contributors; markup removed and whitespace normalized.",
+              "coverage": "Reviewed narrative sections in this captured revision only.",
+              "gaps": [
+                "Partial canon coverage; other paragraphs remain excluded or awaiting review.",
+                "Identity and episode metadata do not independently corroborate story claims."
+              ],
+              "support_status": "source_supported"
+            },
+            "location": {
+              "source_id": "sharon-watts-wiki",
+              "paragraph_ordinal": 53,
+              "section_id": "1985–1995",
+              "character_ids": [
+                "den-watts",
+                "ian-beale",
+                "sharon-watts"
+              ]
+            },
+            "resolve_path": "/v1/snapshots/review-4af2b9cde5456a95dcbfefa5dbe0a5c696369d670da151beb4a1fc7b67183d2f/evidence/family-sharon-adoption"
+          }
+        ],
+        "snapshot_id": "review-4af2b9cde5456a95dcbfefa5dbe0a5c696369d670da151beb4a1fc7b67183d2f",
+        "snapshot_sha256": "104d096de2159d1e70d8157de022b6808cfaf0ab4eb38b103358dc8b44076645",
+        "publication": {
+          "compatibility_id": "463c9ba74a1e0a27254217bc295afc99ccc562acee19c61c5f67084121b07771",
+          "index_sha256": "ba469fd3782690320a5d7c7229d58385cbaaa05b79d0921a9f9b635677ac1856",
+          "generation": 2
+        },
+        "source": {
+          "title": "Ben Mitchell",
+          "url": "https://en.wikipedia.org/wiki/Ben_Mitchell_(EastEnders)",
+          "revision_id": "1376729134",
+          "revision_url": "https://en.wikipedia.org/w/index.php?oldid=1376729134",
+          "section": "Storylines / 1996–2000",
+          "captured_at": "2026-10-17T13:07:31.530421Z",
+          "capture_sha256": "8ae0fbabb19cf12b2bdf46d7a85e15eea4462b8559584c770224a54a9e47d128",
+          "scope": "main_series",
+          "license_url": "https://creativecommons.org/licenses/by-sa/4.0/",
+          "attribution": "Wikipedia contributors; markup removed and whitespace normalized.",
+          "coverage": "Reviewed narrative sections in this captured revision only.",
+          "gaps": [
+            "Partial canon coverage; other paragraphs remain excluded or awaiting review.",
+            "Identity and episode metadata do not independently corroborate story claims."
+          ],
+          "support_status": "source_supported"
+        },
+        "retrieved": [],
+        "context": [
+          {
+            "evidence_id": "family-sharon-adoption",
+            "text": "Adopted at the age of three by Den (Leslie Grantham) and Angie Watts (Anita Dobson), Sharon is raised at The Queen Victoria public house in Albert Square, Walford, where her adoptive parents are landlords.",
+            "sha256": "1e54773bc770474ace800fa686ba855dce8b3eac079403d0dd1c78e958023f31",
+            "start": 50624,
+            "end": 50829,
+            "source": {
+              "title": "Sharon Watts",
+              "url": "https://en.wikipedia.org/wiki/Sharon_Watts",
+              "revision_id": "1372798905",
+              "revision_url": "https://en.wikipedia.org/w/index.php?oldid=1372798905",
+              "section": "Storylines / 1985–1995",
+              "captured_at": "2026-10-17T13:07:31.327518Z",
+              "capture_sha256": "9ccef3de99353ff737101d9d00561c217608dd4fa6fba0c8200f80ac0114ea85",
+              "scope": "main_series",
+              "license_url": "https://creativecommons.org/licenses/by-sa/4.0/",
+              "attribution": "Wikipedia contributors; markup removed and whitespace normalized.",
+              "coverage": "Reviewed narrative sections in this captured revision only.",
+              "gaps": [
+                "Partial canon coverage; other paragraphs remain excluded or awaiting review.",
+                "Identity and episode metadata do not independently corroborate story claims."
+              ],
+              "support_status": "source_supported"
+            },
+            "location": {
+              "source_id": "sharon-watts-wiki",
+              "paragraph_ordinal": 53,
+              "section_id": "1985–1995",
+              "character_ids": [
+                "den-watts",
+                "ian-beale",
+                "sharon-watts"
+              ]
+            }
+          }
+        ],
+        "review_notices": [
+          {
+            "family": "family",
+            "claim_id": "authored-biological-error",
+            "character_ids": [
+              "den-watts",
+              "sharon-watts"
+            ],
+            "evidence_ids": [
+              "family-sharon-adoption"
+            ],
+            "explanation": "Superseded claim (not current): Den Watts as Sharon Watts's biological parent; at the age of three (relative). Current replacement source account: Den Watts as Sharon Watts's adoptive parent; at the age of three (relative). Source passages: family-sharon-adoption.",
+            "group_id": "parentage:sharon-watts",
+            "disputed": false,
+            "reviewer": "issue-15-source-meaning-audit",
+            "rationale": "The captured source explicitly says Den adopted Sharon at age three. It does not support biological parentage. Retire the deliberately wrong prior interpretation."
+          }
+        ],
+        "retrieval_k": 0,
+        "route": "graph",
+        "route_override": true,
+        "graph": {
+          "snapshot_id": "review-4af2b9cde5456a95dcbfefa5dbe0a5c696369d670da151beb4a1fc7b67183d2f",
+          "snapshot_sha256": "104d096de2159d1e70d8157de022b6808cfaf0ab4eb38b103358dc8b44076645",
+          "graph_sha256": "353dff3a9cc5e04c0339f8a13daa598c91e5e1674aacad0f01fb3f40c77fbe41",
+          "query": {
+            "character_id": "sharon-watts",
+            "direction": "ancestors",
+            "max_depth": 3,
+            "max_paths": 20
+          },
+          "status": "empty",
+          "paths": [],
+          "names": {
+            "phil-mitchell": "Phil Mitchell",
+            "grant-mitchell": "Grant Mitchell",
+            "peggy-mitchell": "Peggy Mitchell",
+            "sharon-watts": "Sharon Watts",
+            "ben-mitchell": "Ben Mitchell",
+            "kathy-beale": "Kathy Beale",
+            "den-watts": "Den Watts"
+          },
+          "limitation": "Only admitted biological relationships in this reviewed snapshot are traversed. Missing ancestry does not establish that a relationship does not exist. Results are incomplete outside the selected material and traversal bounds. Source-supported does not mean independently cross-checked."
+        },
+        "baseline_version": "single-query-uncached-v1",
+        "model_settings": null,
+        "prompt_sha256": "f7183350a5a1c8cd4ae9a67af95ff433b5a67761b69c8bc0c936238d44084c56",
+        "application_sha256": "6d0b3a9f68cf9acf9cfdba10aeceadb1a93439a128c86435d33000952b7b2cdd",
+        "trace_id": "tr-4ce094179bcfc9999a21382a7238c397",
+        "execution": {
+          "limits": {
+            "model_calls": 2,
+            "tool_calls": 1,
+            "http_calls": 8,
+            "seconds": 180.0,
+            "context_bytes": 1200,
+            "spend_usd": "0",
+            "retries": 0,
+            "capabilities": [
+              "text_retrieval",
+              "family_graph",
+              "event_graph"
+            ],
+            "concurrency": 4
+          },
+          "model_calls": 0,
+          "tool_calls": 1,
+          "http_calls": 0,
+          "reserved_usd": "0",
+          "stop_reason": null
+        },
+        "elapsed_ms": 200.47340800374513,
+        "usage": {
+          "input_tokens": 0,
+          "output_tokens": 0,
+          "embedding_tokens": 0
+        },
+        "expenditure_category": "serving",
+        "estimated_api_cost_usd": 0.0,
+        "cost_scope": "No inference calls. Database and hosting costs are excluded.",
+        "limitation": "Only admitted biological relationships in this reviewed snapshot are traversed. Missing ancestry does not establish that a relationship does not exist. Results are incomplete outside the selected material and traversal bounds. Source-supported does not mean independently cross-checked."
+      },
+      "trace_output_matches": true,
+      "citations_resolve": true,
+      "saved_response_matches": true,
+      "span_names": [
+        "graph",
+        "family_graph"
+      ]
+    },
+    {
+      "case_id": "reviewed-session",
+      "response": {
+        "response_id": "816a5223-b5f0-473c-ba36-79246e41ec67",
+        "question": "Was Den Watts Sharon's biological father?",
+        "conversation": {
+          "session_id": "778f85fa-bdda-4562-bb54-f76d21097f2c",
+          "turn_id": "7e030e5d-566f-4b95-be97-37b82dab11ef",
+          "turn_number": 1,
+          "generation": 0,
+          "reference": {
+            "question": "Was Den Watts Sharon's biological father?",
+            "character_ids": [
+              "sharon-watts"
+            ],
+            "context_turn_id": null,
+            "clarification": null,
+            "followup_requires_name": true
+          }
+        },
+        "status": "partial",
+        "answer": "I can't establish the requested biological paths from this graph (empty). \nSuperseded claim (not current): Den Watts as Sharon Watts's biological parent; at the age of three (relative). Current replacement source account: Den Watts as Sharon Watts's adoptive parent; at the age of three (relative). Source passages: family-sharon-adoption.\nReview rationale (issue-15-source-meaning-audit): The captured source explicitly says Den adopted Sharon at age three. It does not support biological parentage. Retire the deliberately wrong prior interpretation.\nThis is source review, not independent corroboration. Coverage outside these reviewed accounts remains unknown.\nOnly admitted biological relationships in this reviewed snapshot are traversed. Missing ancestry does not establish that a relationship does not exist. Results are incomplete outside the selected material and traversal bounds. Source-supported does not mean independently cross-checked.",
+        "unanswered": [
+          "Family coverage outside the reviewed spans and traversal bounds."
+        ],
+        "citations": [
+          {
+            "evidence_id": "family-sharon-adoption",
+            "text": "Adopted at the age of three by Den (Leslie Grantham) and Angie Watts (Anita Dobson), Sharon is raised at The Queen Victoria public house in Albert Square, Walford, where her adoptive parents are landlords.",
+            "sha256": "1e54773bc770474ace800fa686ba855dce8b3eac079403d0dd1c78e958023f31",
+            "start": 50624,
+            "end": 50829,
+            "source": {
+              "title": "Sharon Watts",
+              "url": "https://en.wikipedia.org/wiki/Sharon_Watts",
+              "revision_id": "1372798905",
+              "revision_url": "https://en.wikipedia.org/w/index.php?oldid=1372798905",
+              "section": "Storylines / 1985–1995",
+              "captured_at": "2026-10-17T13:07:31.327518Z",
+              "capture_sha256": "9ccef3de99353ff737101d9d00561c217608dd4fa6fba0c8200f80ac0114ea85",
+              "scope": "main_series",
+              "license_url": "https://creativecommons.org/licenses/by-sa/4.0/",
+              "attribution": "Wikipedia contributors; markup removed and whitespace normalized.",
+              "coverage": "Reviewed narrative sections in this captured revision only.",
+              "gaps": [
+                "Partial canon coverage; other paragraphs remain excluded or awaiting review.",
+                "Identity and episode metadata do not independently corroborate story claims."
+              ],
+              "support_status": "source_supported"
+            },
+            "location": {
+              "source_id": "sharon-watts-wiki",
+              "paragraph_ordinal": 53,
+              "section_id": "1985–1995",
+              "character_ids": [
+                "den-watts",
+                "ian-beale",
+                "sharon-watts"
+              ]
+            },
+            "resolve_path": "/v1/snapshots/review-4af2b9cde5456a95dcbfefa5dbe0a5c696369d670da151beb4a1fc7b67183d2f/evidence/family-sharon-adoption"
+          }
+        ],
+        "snapshot_id": "review-4af2b9cde5456a95dcbfefa5dbe0a5c696369d670da151beb4a1fc7b67183d2f",
+        "snapshot_sha256": "104d096de2159d1e70d8157de022b6808cfaf0ab4eb38b103358dc8b44076645",
+        "publication": {
+          "compatibility_id": "463c9ba74a1e0a27254217bc295afc99ccc562acee19c61c5f67084121b07771",
+          "index_sha256": "ba469fd3782690320a5d7c7229d58385cbaaa05b79d0921a9f9b635677ac1856",
+          "generation": 2
+        },
+        "source": {
+          "title": "Ben Mitchell",
+          "url": "https://en.wikipedia.org/wiki/Ben_Mitchell_(EastEnders)",
+          "revision_id": "1376729134",
+          "revision_url": "https://en.wikipedia.org/w/index.php?oldid=1376729134",
+          "section": "Storylines / 1996–2000",
+          "captured_at": "2026-10-17T13:07:31.530421Z",
+          "capture_sha256": "8ae0fbabb19cf12b2bdf46d7a85e15eea4462b8559584c770224a54a9e47d128",
+          "scope": "main_series",
+          "license_url": "https://creativecommons.org/licenses/by-sa/4.0/",
+          "attribution": "Wikipedia contributors; markup removed and whitespace normalized.",
+          "coverage": "Reviewed narrative sections in this captured revision only.",
+          "gaps": [
+            "Partial canon coverage; other paragraphs remain excluded or awaiting review.",
+            "Identity and episode metadata do not independently corroborate story claims."
+          ],
+          "support_status": "source_supported"
+        },
+        "retrieved": [],
+        "context": [
+          {
+            "evidence_id": "family-sharon-adoption",
+            "text": "Adopted at the age of three by Den (Leslie Grantham) and Angie Watts (Anita Dobson), Sharon is raised at The Queen Victoria public house in Albert Square, Walford, where her adoptive parents are landlords.",
+            "sha256": "1e54773bc770474ace800fa686ba855dce8b3eac079403d0dd1c78e958023f31",
+            "start": 50624,
+            "end": 50829,
+            "source": {
+              "title": "Sharon Watts",
+              "url": "https://en.wikipedia.org/wiki/Sharon_Watts",
+              "revision_id": "1372798905",
+              "revision_url": "https://en.wikipedia.org/w/index.php?oldid=1372798905",
+              "section": "Storylines / 1985–1995",
+              "captured_at": "2026-10-17T13:07:31.327518Z",
+              "capture_sha256": "9ccef3de99353ff737101d9d00561c217608dd4fa6fba0c8200f80ac0114ea85",
+              "scope": "main_series",
+              "license_url": "https://creativecommons.org/licenses/by-sa/4.0/",
+              "attribution": "Wikipedia contributors; markup removed and whitespace normalized.",
+              "coverage": "Reviewed narrative sections in this captured revision only.",
+              "gaps": [
+                "Partial canon coverage; other paragraphs remain excluded or awaiting review.",
+                "Identity and episode metadata do not independently corroborate story claims."
+              ],
+              "support_status": "source_supported"
+            },
+            "location": {
+              "source_id": "sharon-watts-wiki",
+              "paragraph_ordinal": 53,
+              "section_id": "1985–1995",
+              "character_ids": [
+                "den-watts",
+                "ian-beale",
+                "sharon-watts"
+              ]
+            }
+          }
+        ],
+        "review_notices": [
+          {
+            "family": "family",
+            "claim_id": "authored-biological-error",
+            "character_ids": [
+              "den-watts",
+              "sharon-watts"
+            ],
+            "evidence_ids": [
+              "family-sharon-adoption"
+            ],
+            "explanation": "Superseded claim (not current): Den Watts as Sharon Watts's biological parent; at the age of three (relative). Current replacement source account: Den Watts as Sharon Watts's adoptive parent; at the age of three (relative). Source passages: family-sharon-adoption.",
+            "group_id": "parentage:sharon-watts",
+            "disputed": false,
+            "reviewer": "issue-15-source-meaning-audit",
+            "rationale": "The captured source explicitly says Den adopted Sharon at age three. It does not support biological parentage. Retire the deliberately wrong prior interpretation."
+          }
+        ],
+        "retrieval_k": 0,
+        "route": "graph",
+        "route_override": true,
+        "graph": {
+          "snapshot_id": "review-4af2b9cde5456a95dcbfefa5dbe0a5c696369d670da151beb4a1fc7b67183d2f",
+          "snapshot_sha256": "104d096de2159d1e70d8157de022b6808cfaf0ab4eb38b103358dc8b44076645",
+          "graph_sha256": "353dff3a9cc5e04c0339f8a13daa598c91e5e1674aacad0f01fb3f40c77fbe41",
+          "query": {
+            "character_id": "sharon-watts",
+            "direction": "ancestors",
+            "max_depth": 3,
+            "max_paths": 20
+          },
+          "status": "empty",
+          "paths": [],
+          "names": {
+            "phil-mitchell": "Phil Mitchell",
+            "grant-mitchell": "Grant Mitchell",
+            "peggy-mitchell": "Peggy Mitchell",
+            "sharon-watts": "Sharon Watts",
+            "ben-mitchell": "Ben Mitchell",
+            "kathy-beale": "Kathy Beale",
+            "den-watts": "Den Watts"
+          },
+          "limitation": "Only admitted biological relationships in this reviewed snapshot are traversed. Missing ancestry does not establish that a relationship does not exist. Results are incomplete outside the selected material and traversal bounds. Source-supported does not mean independently cross-checked."
+        },
+        "baseline_version": "single-query-uncached-v1",
+        "model_settings": null,
+        "prompt_sha256": "f7183350a5a1c8cd4ae9a67af95ff433b5a67761b69c8bc0c936238d44084c56",
+        "application_sha256": "6d0b3a9f68cf9acf9cfdba10aeceadb1a93439a128c86435d33000952b7b2cdd",
+        "trace_id": "tr-b23d5ed5254acf6f1e6375a022b0e574",
+        "execution": {
+          "limits": {
+            "model_calls": 2,
+            "tool_calls": 1,
+            "http_calls": 8,
+            "seconds": 180.0,
+            "context_bytes": 1200,
+            "spend_usd": "0",
+            "retries": 0,
+            "capabilities": [
+              "text_retrieval",
+              "family_graph",
+              "event_graph"
+            ],
+            "concurrency": 4
+          },
+          "model_calls": 0,
+          "tool_calls": 1,
+          "http_calls": 0,
+          "reserved_usd": "0",
+          "stop_reason": null
+        },
+        "elapsed_ms": 194.59706699853996,
+        "usage": {
+          "input_tokens": 0,
+          "output_tokens": 0,
+          "embedding_tokens": 0
+        },
+        "expenditure_category": "serving",
+        "estimated_api_cost_usd": 0.0,
+        "cost_scope": "No inference calls. Database and hosting costs are excluded.",
+        "limitation": "Only admitted biological relationships in this reviewed snapshot are traversed. Missing ancestry does not establish that a relationship does not exist. Results are incomplete outside the selected material and traversal bounds. Source-supported does not mean independently cross-checked."
+      },
+      "trace_output_matches": true,
+      "citations_resolve": true,
+      "saved_response_matches": true,
+      "span_names": [
+        "graph",
+        "family_graph"
+      ]
+    },
+    {
+      "case_id": "after-rollback",
+      "response": {
+        "response_id": "bc8f6a7f-71c0-4895-aae1-762fbc78bdcd",
+        "question": "Was Den Watts Sharon's biological father?",
+        "status": "partial",
+        "answer": "Right, listen. Captured biological ancestors paths: Sharon Watts → Den Watts. Only admitted biological relationships in this reviewed snapshot are traversed. Missing ancestry does not establish that a relationship does not exist. Results are incomplete outside the selected material and traversal bounds. Source-supported does not mean independently cross-checked.",
+        "unanswered": [
+          "Family coverage outside the reviewed spans and traversal bounds."
+        ],
+        "citations": [
+          {
+            "evidence_id": "family-sharon-adoption",
+            "text": "Adopted at the age of three by Den (Leslie Grantham) and Angie Watts (Anita Dobson), Sharon is raised at The Queen Victoria public house in Albert Square, Walford, where her adoptive parents are landlords.",
+            "sha256": "1e54773bc770474ace800fa686ba855dce8b3eac079403d0dd1c78e958023f31",
+            "start": 50624,
+            "end": 50829,
+            "source": {
+              "title": "Sharon Watts",
+              "url": "https://en.wikipedia.org/wiki/Sharon_Watts",
+              "revision_id": "1372798905",
+              "revision_url": "https://en.wikipedia.org/w/index.php?oldid=1372798905",
+              "section": "Storylines / 1985–1995",
+              "captured_at": "2026-10-17T13:07:31.327518Z",
+              "capture_sha256": "9ccef3de99353ff737101d9d00561c217608dd4fa6fba0c8200f80ac0114ea85",
+              "scope": "main_series",
+              "license_url": "https://creativecommons.org/licenses/by-sa/4.0/",
+              "attribution": "Wikipedia contributors; markup removed and whitespace normalized.",
+              "coverage": "Reviewed narrative sections in this captured revision only.",
+              "gaps": [
+                "Partial canon coverage; other paragraphs remain excluded or awaiting review.",
+                "Identity and episode metadata do not independently corroborate story claims."
+              ],
+              "support_status": "source_supported"
+            },
+            "location": {
+              "source_id": "sharon-watts-wiki",
+              "paragraph_ordinal": 53,
+              "section_id": "1985–1995",
+              "character_ids": [
+                "den-watts",
+                "ian-beale",
+                "sharon-watts"
+              ]
+            },
+            "resolve_path": "/v1/snapshots/authored-parentage-error-v1/evidence/family-sharon-adoption"
+          }
+        ],
+        "snapshot_id": "authored-parentage-error-v1",
+        "snapshot_sha256": "c6e88001ace0924bde79c86b038fc95822e8b8a2c6aad5bf799494235f1c8f7a",
+        "publication": {
+          "compatibility_id": "b687816148a15e57221f96ef655469d1fa340740ee115b0c63660c416a623787",
+          "index_sha256": "39c3c18244f52aea805b20ce5046eb29350f258be1eb4039b945e8ff9d8238ac",
+          "generation": 3
+        },
+        "source": {
+          "title": "Ben Mitchell",
+          "url": "https://en.wikipedia.org/wiki/Ben_Mitchell_(EastEnders)",
+          "revision_id": "1376729134",
+          "revision_url": "https://en.wikipedia.org/w/index.php?oldid=1376729134",
+          "section": "Storylines / 1996–2000",
+          "captured_at": "2026-10-17T13:07:31.530421Z",
+          "capture_sha256": "8ae0fbabb19cf12b2bdf46d7a85e15eea4462b8559584c770224a54a9e47d128",
+          "scope": "main_series",
+          "license_url": "https://creativecommons.org/licenses/by-sa/4.0/",
+          "attribution": "Wikipedia contributors; markup removed and whitespace normalized.",
+          "coverage": "Reviewed narrative sections in this captured revision only.",
+          "gaps": [
+            "Partial canon coverage; other paragraphs remain excluded or awaiting review.",
+            "Identity and episode metadata do not independently corroborate story claims."
+          ],
+          "support_status": "source_supported"
+        },
+        "retrieved": [],
+        "context": [
+          {
+            "evidence_id": "family-sharon-adoption",
+            "text": "Adopted at the age of three by Den (Leslie Grantham) and Angie Watts (Anita Dobson), Sharon is raised at The Queen Victoria public house in Albert Square, Walford, where her adoptive parents are landlords.",
+            "sha256": "1e54773bc770474ace800fa686ba855dce8b3eac079403d0dd1c78e958023f31",
+            "start": 50624,
+            "end": 50829,
+            "source": {
+              "title": "Sharon Watts",
+              "url": "https://en.wikipedia.org/wiki/Sharon_Watts",
+              "revision_id": "1372798905",
+              "revision_url": "https://en.wikipedia.org/w/index.php?oldid=1372798905",
+              "section": "Storylines / 1985–1995",
+              "captured_at": "2026-10-17T13:07:31.327518Z",
+              "capture_sha256": "9ccef3de99353ff737101d9d00561c217608dd4fa6fba0c8200f80ac0114ea85",
+              "scope": "main_series",
+              "license_url": "https://creativecommons.org/licenses/by-sa/4.0/",
+              "attribution": "Wikipedia contributors; markup removed and whitespace normalized.",
+              "coverage": "Reviewed narrative sections in this captured revision only.",
+              "gaps": [
+                "Partial canon coverage; other paragraphs remain excluded or awaiting review.",
+                "Identity and episode metadata do not independently corroborate story claims."
+              ],
+              "support_status": "source_supported"
+            },
+            "location": {
+              "source_id": "sharon-watts-wiki",
+              "paragraph_ordinal": 53,
+              "section_id": "1985–1995",
+              "character_ids": [
+                "den-watts",
+                "ian-beale",
+                "sharon-watts"
+              ]
+            }
+          }
+        ],
+        "retrieval_k": 0,
+        "route": "graph",
+        "route_override": true,
+        "graph": {
+          "snapshot_id": "authored-parentage-error-v1",
+          "snapshot_sha256": "c6e88001ace0924bde79c86b038fc95822e8b8a2c6aad5bf799494235f1c8f7a",
+          "graph_sha256": "73f556863c285babfb6266f954e4267366552a4299237124a52e180817045094",
+          "query": {
+            "character_id": "sharon-watts",
+            "direction": "ancestors",
+            "max_depth": 3,
+            "max_paths": 20
+          },
+          "status": "found",
+          "paths": [
+            {
+              "characters": [
+                "sharon-watts",
+                "den-watts"
+              ],
+              "edges": [
+                {
+                  "parent_id": "den-watts",
+                  "child_id": "sharon-watts",
+                  "claim_ids": [
+                    "authored-biological-error"
+                  ],
+                  "evidence": [
+                    {
+                      "evidence_id": "family-sharon-adoption",
+                      "start": 0,
+                      "end": 205,
+                      "quote": "Adopted at the age of three by Den (Leslie Grantham) and Angie Watts (Anita Dobson), Sharon is raised at The Queen Victoria public house in Albert Square, Walford, where her adoptive parents are landlords."
+                    }
+                  ]
+                }
+              ]
+            }
+          ],
+          "names": {
+            "phil-mitchell": "Phil Mitchell",
+            "grant-mitchell": "Grant Mitchell",
+            "peggy-mitchell": "Peggy Mitchell",
+            "sharon-watts": "Sharon Watts",
+            "ben-mitchell": "Ben Mitchell",
+            "kathy-beale": "Kathy Beale",
+            "den-watts": "Den Watts"
+          },
+          "limitation": "Only admitted biological relationships in this reviewed snapshot are traversed. Missing ancestry does not establish that a relationship does not exist. Results are incomplete outside the selected material and traversal bounds. Source-supported does not mean independently cross-checked."
+        },
+        "baseline_version": "single-query-uncached-v1",
+        "model_settings": null,
+        "prompt_sha256": "c4f9de91a5c4419d0f69dd2fad73485382fa6e6321583b36f7e255e2b3454341",
+        "application_sha256": "6d0b3a9f68cf9acf9cfdba10aeceadb1a93439a128c86435d33000952b7b2cdd",
+        "trace_id": "tr-9de82aea5c828dcc503a13f03d369d59",
+        "execution": {
+          "limits": {
+            "model_calls": 2,
+            "tool_calls": 1,
+            "http_calls": 8,
+            "seconds": 180.0,
+            "context_bytes": 1200,
+            "spend_usd": "0",
+            "retries": 0,
+            "capabilities": [
+              "text_retrieval",
+              "family_graph",
+              "event_graph"
+            ],
+            "concurrency": 4
+          },
+          "model_calls": 0,
+          "tool_calls": 1,
+          "http_calls": 0,
+          "reserved_usd": "0",
+          "stop_reason": null
+        },
+        "elapsed_ms": 148.2552060042508,
+        "usage": {
+          "input_tokens": 0,
+          "output_tokens": 0,
+          "embedding_tokens": 0
+        },
+        "expenditure_category": "serving",
+        "estimated_api_cost_usd": 0.0,
+        "cost_scope": "No inference calls. Database and hosting costs are excluded.",
+        "limitation": "Only admitted biological relationships in this reviewed snapshot are traversed. Missing ancestry does not establish that a relationship does not exist. Results are incomplete outside the selected material and traversal bounds. Source-supported does not mean independently cross-checked."
+      },
+      "trace_output_matches": true,
+      "citations_resolve": true,
+      "saved_response_matches": true,
+      "span_names": [
+        "graph",
+        "family_graph"
+      ]
+    }
+  ],
+  "original_inputs_unchanged": true,
+  "session_reset": true,
+  "restart_readback_matches": true,
+  "answer_generation_calls": 0,
+  "limitation": "Actual local embeddings and deterministic review explanations; no new extraction, answer-model quality, human adjudication or held-out claim."
+}

@@ -28,6 +28,7 @@ from ask_phil.execution import ExecutionBudget, ExecutionStopped
 from ask_phil.identity import IdentityCatalogue
 from ask_phil.models import ModelConfigurationError, ModelExecution, Models, TokenUsage
 from ask_phil.retrieval import PinnedText, Retrieval
+from ask_phil.review_notes import REVIEW_WORDING, ReviewNotice, render_notices, review_context
 
 
 class TextAnswer:
@@ -84,6 +85,7 @@ class TextAnswer:
             update={"usage": TokenUsage(input_tokens=0, output_tokens=0, embedding_tokens=0)}
         )
         failure = False
+        notices: tuple[ReviewNotice, ...] = ()
         clarification = conversation.reference.clarification if conversation else None
         try:
             budget.check()
@@ -112,6 +114,13 @@ class TextAnswer:
                         budget.limits.context_bytes,
                         context_claims=retrieved.context_claims,
                     )
+                    if retrieved.review_notices:
+                        context = review_context(
+                            snapshot, retrieved.review_notices, budget.limits.context_bytes
+                        )
+                        # The existing text-answer contract allows three cited passages.
+                        if len(context) > 3:
+                            context = ()
                     span.set_outputs(
                         {
                             "passages": [p.model_dump() for p in context],
@@ -136,6 +145,31 @@ class TextAnswer:
                         unanswered=("The question cannot be answered from the available context.",),
                     )
                     root.set_attribute("answer_model_skipped", "empty_context")
+                elif retrieved.review_notices:
+                    notices = retrieved.review_notices
+                    draft = Draft(
+                        answer="Right, listen. "
+                        + render_notices(
+                            notices,
+                            synthetic=any(
+                                (p.source or snapshot.source).support_status == "synthetic_fixture"
+                                for p in context
+                            ),
+                        ),
+                        status="partial",
+                        evidence_ids=tuple(p.evidence_id for p in context),
+                        unanswered=(
+                            "Coverage beyond these reviewed source accounts remains unresolved.",
+                        ),
+                        qualifications=(),
+                    )
+                    citations = cite_answer(draft, context, snapshot_id)
+                    root.set_attributes(
+                        {
+                            "answer_model_skipped": "reviewed_interpretation",
+                            "prompt": REVIEW_WORDING,
+                        }
+                    )
                 else:
                     execution, draft = self._generate(question, retrieved, context)
                     if execution.failure_type is not None:
@@ -191,6 +225,7 @@ class TextAnswer:
             status="failed" if failure else draft.status,
             answer=answer,
             context_claims=classifications,
+            review_notices=notices,
             unanswered=draft.unanswered,
             qualifications=draft.qualifications,
             citations=citations,
@@ -199,7 +234,9 @@ class TextAnswer:
             retrieval_k=retrieved.k,
             baseline_version="single-query-uncached-v2",
             model_settings=self.models.settings,
-            prompt_sha256=hashlib.sha256(SYSTEM_PROMPT.encode()).hexdigest(),
+            prompt_sha256=hashlib.sha256(
+                (REVIEW_WORDING if notices else SYSTEM_PROMPT).encode()
+            ).hexdigest(),
             accounting=execution,
         )
 

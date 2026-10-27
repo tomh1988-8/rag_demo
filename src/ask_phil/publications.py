@@ -10,9 +10,11 @@ from uuid import UUID
 
 import psycopg
 from psycopg.types.json import Jsonb
-from pydantic import AwareDatetime
+from pydantic import AwareDatetime, Field
 
+from ask_phil.claim_projections import GraphVersions, graph_versions
 from ask_phil.evidence import Fingerprint, Identifier, PublicationRef, Record, SourceSnapshot
+from ask_phil.execution import read_options
 from ask_phil.retrieval import IndexNotReady, TextIndex
 from ask_phil.source_records import CapturedSource, ImportIssue, SourceSummary
 
@@ -32,6 +34,8 @@ class SnapshotManifest(Record):
     input_sha256: Fingerprint
     sources: tuple[SourceSummary, ...]
     index: TextIndex
+    graphs: GraphVersions | None = Field(default=None, exclude_if=lambda v: v is None)
+    review_sha256: Fingerprint | None = Field(default=None, exclude_if=lambda v: v is None)
 
     @property
     def fingerprint(self) -> str:
@@ -71,7 +75,7 @@ class RefreshRun(Record):
     status: Literal[
         "running", "published", "skipped", "partial", "failed", "interrupted", "rolled_back"
     ]
-    action: Literal["refresh", "rollback"] = "refresh"
+    action: Literal["refresh", "rollback", "review"] = "refresh"
     input_sha256: Fingerprint | None = None
     snapshot_id: Identifier | None = None
     compatibility_id: Fingerprint | None = None
@@ -182,18 +186,22 @@ class PublicationStore:
         run: RefreshRun,
         conn: psycopg.Connection[tuple[object, ...]],
     ) -> RefreshRun:
-        if snapshot.imported is None or run.input_sha256 is None:
+        if (snapshot.imported is None and run.action != "review") or run.input_sha256 is None:
             raise ValueError(
                 "Publication requires a reviewed source import and its input identity."
             )
         if index.snapshot_sha256 != snapshot.fingerprint:
             raise ValueError("Source and index must describe the same snapshot.")
+        from ask_phil.knowledge_review import review_revision
+
+        revision = review_revision(self.database_url, snapshot.snapshot_id)
         manifest = SnapshotManifest(
             snapshot_id=snapshot.snapshot_id,
             snapshot_sha256=snapshot.fingerprint,
             input_sha256=run.input_sha256,
-            sources=snapshot.imported.report().sources,
+            sources=snapshot.imported.report().sources if snapshot.imported else (),
             index=index,
+            review_sha256=revision.request.fingerprint if revision else None,
         )
         now = datetime.now(UTC)
         result = run.model_copy(
@@ -202,10 +210,17 @@ class PublicationStore:
                 "phase": "complete",
                 "finished_at": now,
                 "snapshot_id": snapshot.snapshot_id,
-                "compatibility_id": manifest.fingerprint,
             }
         )
         with conn.transaction():
+            # These locks are shared with graph installation. The publication seals
+            # membership, including absent projections, before any installer can race it.
+            for lock in (728196, 728197, 728198):
+                conn.execute("SELECT pg_advisory_xact_lock(%s)", (lock,))
+            manifest = manifest.model_copy(
+                update={"graphs": graph_versions(conn, snapshot.snapshot_id)}
+            )
+            result = result.model_copy(update={"compatibility_id": manifest.fingerprint})
             withdrawn = conn.execute(
                 "SELECT withdrawn FROM snapshot_publications WHERE compatibility_id = %s",
                 (manifest.fingerprint,),
@@ -343,10 +358,19 @@ class PublicationStore:
             return False
         return current.compatibility_id == compatibility_id and current.generation == generation
 
-    def pin(self, snapshot_id: str | None = None) -> ActivePublication | None:
+    def pin(
+        self, snapshot_id: str | None = None, *, pinned: ActivePublication | None = None
+    ) -> ActivePublication | None:
         """Pin a publication once; explicit legacy snapshots remain supported separately."""
+        if pinned is not None:
+            if snapshot_id is not None and snapshot_id != pinned.manifest.snapshot_id:
+                raise IndexNotReady("The requested source differs from the pinned publication.")
+            self.verify(pinned)
+            return pinned
         if snapshot_id is None:
-            return self.active()
+            current = self.active()
+            self.verify(current)
+            return current
         from ask_phil.execution import read_options
 
         with psycopg.connect(self.database_url, connect_timeout=5, options=read_options()) as conn:
@@ -369,9 +393,26 @@ class PublicationStore:
                 return None
         if row[4]:
             raise IndexNotReady("This publication was withdrawn; its evidence remains inspectable.")
-        return ActivePublication(
+        publication = ActivePublication(
             compatibility_id=row[0],
             manifest=SnapshotManifest.model_validate(row[1]),
             generation=row[2],
             published_at=row[3],
         )
+        self.verify(publication)
+        return publication
+
+    def verify(self, publication: ActivePublication) -> None:
+        """Verify the pinned claim/graph and review identities without reselecting current."""
+        from ask_phil.knowledge_review import review_revision
+
+        manifest = publication.manifest
+        with psycopg.connect(self.database_url, connect_timeout=5, options=read_options()) as conn:
+            if (
+                manifest.graphs is not None
+                and graph_versions(conn, manifest.snapshot_id) != manifest.graphs
+            ):
+                raise IndexNotReady("Claim/graph artifacts differ from the pinned publication.")
+        revision = review_revision(self.database_url, manifest.snapshot_id)
+        if (revision.request.fingerprint if revision else None) != manifest.review_sha256:
+            raise IndexNotReady("Review history differs from the pinned publication.")
