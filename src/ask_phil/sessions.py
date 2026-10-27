@@ -194,6 +194,8 @@ class ConversationSessions:
                         budget.cancellation.wait(min(0.05, remaining))
                     else:
                         time.sleep(min(0.05, remaining))
+                    if time.monotonic() >= deadline or (budget and budget.cancellation.is_set()):
+                        raise
             if not row:
                 raise SessionNotFound("Session not found or expired.")
             state = SessionState.model_validate(row[0])

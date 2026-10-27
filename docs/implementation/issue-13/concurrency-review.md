@@ -25,3 +25,9 @@ pass (`concurrency-green.log`). The failed short-budget request does not consume
 turn, and successful concurrent requests retain distinct monotonic identities.
 This necessary shared-conversation repair is re-reviewed before the final full run;
 its completion report is kept separately from the first failed suite.
+
+The follow-up Spec review identified a narrow race after the polling wait: the
+owner could release its row at the moment cancellation/deadline woke the waiter.
+A post-wait stop check now re-raises the same safe lock error before retrying.
+The controlled API regression passes again (`concurrency-final.log`), and both
+independent axes report zero remaining findings on this final guard.

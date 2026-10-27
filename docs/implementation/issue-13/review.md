@@ -38,4 +38,44 @@ unchanged-output rescore, expanded evidence spans and final API regressions.
 
 ## Follow-up
 
-Follow-up independent reviews of the corrected implementation are pending.
+Both reviewers rechecked `8163135` independently against the same baseline.
+
+Standards: **zero remaining findings**. The repeated dispatch is resolved; shared
+assertion semantics, duplicate-support handling and versioned labels introduce no
+new documented-standard violations or significant baseline smells.
+
+Spec: **zero remaining findings**. The reviewer independently verified all five
+relative qualifiers, expanded evidence, correction hashes, unchanged raw candidates,
+content-bound reviews, admission and same-pilot rescore. The initial finding is
+resolved; dispatch and duplicate-support changes introduce no additional concerns.
+
+Final counts: **Standards 0, Spec 0**.
+
+
+## Final runtime evidence review
+
+The Spec reviewer independently read all 22 final MLflow traces at `8163135`.
+Every root output matches the recorded API/CLI response and every tool output
+matches its captured graph result. Reviewed results rescore against v2 references;
+all five corrected qualifiers appear in final wording. False accounts have
+narrative support, Max's conviction never becomes commission, citations retain
+source evidence and duplicate support appears once in prose. Empty, unknown,
+bounded and context-stop results remain qualified. No concrete issue was found.
+
+The reviewed phase has eight partial and three insufficient-evidence outcomes.
+The raw phase has two partial and nine insufficient-evidence outcomes; only two
+raw assertions are admitted. Recall 3/17 and strict full-span grounding 1/4 remain
+quality failures. Zero inference calls were made while serving. This review
+confirms scoped capability, without automatic-extraction, held-out or canon approval.
+
+
+## Full-suite conversation repair review
+
+The first full suite at `8163135` completed with 386 passes and one existing
+concurrent-session failure. `f3cb895` fixes the fixed SQL lock-wait mismatch;
+the initial failure and deterministic red/green evidence are retained separately.
+Standards found zero new findings. Spec found one post-wait deadline/cancellation
+race, resolved by a guard before any new acquisition attempt. Both reviewers
+independently rechecked that guard and report zero remaining findings.
+Authorization, rollback, lock ownership through commit and individual SQL limits
+are preserved. The final full suite and runtime recapture bind this source revision.
