@@ -11,19 +11,30 @@ commands so they work even without a configured Git remote.
 
 ## Current Ask Phil handoff
 
-Issue #15 implementation, final runtime review and all **480 software tests** pass.
-Strict mypy across 109 files and Ruff/formatting pass; required publication/closure
-checks are in progress. Do not select another
-ticket until this handoff records verified publication. [Evidence](../implementation/issue-15/README.md)
-records immutable maintainer review, corrected and disputed text/graph answers,
-retained provenance, projection failure/retry and compatible recovery. Both
-independent code-review axes have zero remaining findings; all twelve current
-reviewed runtime answers pass source-based review among nineteen public responses.
-The two authored wrong baseline/rollback answers are explicitly excluded from
-factual passes. No paid generation or extraction calls were made; preserve the
-shared ledger at **$0.464981** and zero unsettled reservations.
+Issue #15 is complete and closed after native publication and exact-tree verification
+of [`d4d5564`](https://github.com/tomh1988-8/rag_demo/commit/d4d5564929964766b3f1547ef1f6137968d0022e).
+[The receipt](../implementation/issue-15/publication.json) records seven checked
+criteria, completed closure, exact agreement with the prepared issue body and all
+166 frozen software/configuration/data hashes in the published commit.
+[Evidence](../implementation/issue-15/README.md) records immutable maintainer review,
+corrected and disputed text/graph answers, retained provenance, projection
+failure/retry and compatible recovery. All **480 tests** pass, as do strict mypy
+across 109 files and Ruff/formatting. Both independent code-review axes have zero
+remaining findings; all twelve current reviewed answers pass independent source
+review among nineteen actual API/CLI/session responses with exact trace readback.
 
-After #15 closes, **#16 is next**; #19, #20, #22 and #24 are also unblocked.
+The initial text-budget failure and both corrected history/closure defects remain
+recorded. Two deliberately wrong biological Den/Sharon baseline/rollback answers
+are excluded from factual passes. The conflict is explicitly synthetic; no original
+extraction score, human canon adjudication or held-out release result is improved
+by curation. EXT-04 now has scoped implementation evidence; checklist counts are
+35 Pass and 16 Pending. Wider graph coverage and full release recovery remain Pending.
+
+No paid model calls were made. Preserve the shared non-resetting $5 ledger at
+**$0.464981**, zero unsettled reservations, the private key, all 37 original data
+files and all 51 pre-existing workspace files. This supersedes historical balances below.
+
+**#16 is next**; #19, #20, #22 and #24 are also unblocked.
 Wait for the user's next implementation instruction before another issue.
 
 ### Prior issue #14 handoff

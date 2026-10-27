@@ -1,0 +1,84 @@
+{
+  "status": "published_and_closed",
+  "recorded_at": "2026-10-27T19:48:14.686029+00:00",
+  "repository": "tomh1988-8/rag_demo",
+  "destination": "refs/heads/main",
+  "authorization": {
+    "user_message": "$implement next ticket",
+    "implementation_skill": ".agents/skills/implement/SKILL.md",
+    "repository_workflow": "docs/agents/issue-tracker.md#required-at-the-end-of-every-issue",
+    "scope": [
+      "Implement the next ready ticket at the agreed seams",
+      "Run focused/full checks and independent two-axis review",
+      "Commit and push implementation, evidence and handoff; verify exact remote tree",
+      "Update acceptance criteria, close the issue and publish the completion receipt"
+    ],
+    "automatic_approval_events": [],
+    "approval_pending": false
+  },
+  "implementation_acceptance_commit": "d4d5564929964766b3f1547ef1f6137968d0022e",
+  "publication": {
+    "verified_at": "2026-10-27T19:46:49.579462+00:00",
+    "method": "native_git_https",
+    "local_revision": "d4d5564929964766b3f1547ef1f6137968d0022e",
+    "remote_revision": "d4d5564929964766b3f1547ef1f6137968d0022e",
+    "local_tree": "6ff10e1ce3894ff9ccaf77f6697bed1889a6a62c",
+    "remote_tree": "6ff10e1ce3894ff9ccaf77f6697bed1889a6a62c",
+    "tree_diff_empty": true,
+    "frozen_committed_inputs_verified": 166,
+    "commit_url": "https://github.com/tomh1988-8/rag_demo/commit/d4d5564929964766b3f1547ef1f6137968d0022e"
+  },
+  "tracker": {
+    "number": 15,
+    "url": "https://github.com/tomh1988-8/rag_demo/issues/15",
+    "state": "closed",
+    "state_reason": "completed",
+    "closed_at": "2026-10-27T19:47:26Z",
+    "readback_at": "2026-10-27T19:48:14.686047+00:00",
+    "checked_criteria": 7,
+    "unchecked_criteria": 0,
+    "body_matches_prepared_update": true,
+    "body_sha256": "c61d4ffa1681dfe8e3fece3624ca22bd085d1a9239211d965afbf0779176314a",
+    "applied_body_file": "proposed-tracker-update.md"
+  },
+  "validation": {
+    "passed": 480,
+    "failures": 0,
+    "errors": 0,
+    "skips": 0,
+    "mypy_files": 109,
+    "standards_findings": 0,
+    "spec_findings": 0,
+    "public_runtime_responses": 19,
+    "current_reviewed_answers_passed": 12,
+    "known_wrong_old_version_answers_excluded": 2,
+    "actual_trace_outputs_match": 19,
+    "source_changes_after_full_suite": false,
+    "frozen_committed_inputs_verified": 166,
+    "record": "validation.json"
+  },
+  "preservation": {
+    "original_data_files_unchanged": 37,
+    "preexisting_workspace_files_unchanged": 51,
+    "private_key_and_ledger_unchanged": true,
+    "preexisting_user_work_excluded": true,
+    "paid_model_calls": 0,
+    "shared_ledger_usd": 0.464981,
+    "unsettled_reservations": 0
+  },
+  "quality_limitations": [
+    "Exposed deterministic source-review evidence; no new model-quality or held-out claim.",
+    "The unresolved conflict is explicitly synthetic.",
+    "The adoption case deliberately authors a wrong prior review; its baseline and rollback answers are factual failures, excluded from current quality passes.",
+    "Original extraction and ordinary text-quality failures remain unchanged."
+  ],
+  "next_issue_after_closure": 16,
+  "unblocked_frontier": [
+    16,
+    19,
+    20,
+    22,
+    24
+  ],
+  "receipt_note": "The implementation publication and completed issue closure above have been read back. This following documentation-only receipt/handoff commit is pushed and its exact remote tree verified before reporting completion."
+}

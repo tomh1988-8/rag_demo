@@ -150,3 +150,10 @@ The acceptance runner refuses to overwrite evidence. Its model configuration
 identifies the available embedding client; the deterministic review answers make
 no generation call. Preserve the shared non-resetting $5 ledger and original
 source/reference inputs when reproducing this work.
+
+## Publication
+
+[The publication receipt](publication.json) records native exact-tree verification,
+all 166 frozen committed input hashes, seven completed acceptance criteria and
+readback of completed issue closure. The completion receipt/handoff is a separate
+documentation-only publication; tested application inputs are unchanged.

@@ -35,7 +35,9 @@ Recheck when: Admission/review policy, source correction/conflict, graph project
 - #11 — Answer biological family questions from admitted claims: There must be admitted/held claims and a graph projection to inspect and correct.
 
 
-## Completion evidence
+## Completion evidence — 27 October 2026
+
+Implemented and published in [d4d5564](https://github.com/tomh1988-8/rag_demo/commit/d4d5564929964766b3f1547ef1f6137968d0022e). A fresh native fetch verifies exact local/remote tree agreement and all 166 frozen tested input hashes.
 
 Maintainers can inspect held Claims, exact source spans, identities, admission reasons and chronological reviews through the read-only API/CLI. The separate maintainer review command publishes explicit, content-bound outcomes and optional new assertions without overwriting prior Claims or evidence. Corrections retain original links and follow current replacement accounts, including later corrections and disputes. Connected competing groups remain visible even when retrieval initially finds only a predecessor with a mistaken identity.
 
@@ -47,4 +49,4 @@ The evidence includes frozen annotation/matching rules, duplicate and uncertaint
 
 All **480 software tests** pass with zero failures/errors/skips, as do strict mypy across 109 files and Ruff lint/formatting. Both independent code-review axes have zero remaining findings. All 166 frozen implementation inputs, 37 original data files, 51 pre-existing workspace files, the private key and shared ledger remain unchanged. No paid model calls were made; the shared non-resetting $5 ledger remains **$0.464981**, zero unsettled reservations.
 
-[Implementation/evidence](https://github.com/tomh1988-8/rag_demo/blob/main/docs/implementation/issue-15/README.md), [validation](https://github.com/tomh1988-8/rag_demo/blob/main/docs/implementation/issue-15/validation.json), [actual answer quality](https://github.com/tomh1988-8/rag_demo/blob/main/docs/implementation/issue-15/answer-quality.json), [review reports](https://github.com/tomh1988-8/rag_demo/blob/main/docs/implementation/issue-15/review.md), [criterion-to-evidence map](https://github.com/tomh1988-8/rag_demo/blob/main/docs/implementation/issue-15/acceptance-map.json), and [project register](https://github.com/tomh1988-8/rag_demo/blob/main/docs/checklists/ask-phil-profile.md) retain the concrete results and limitations.
+[Implementation/evidence](https://github.com/tomh1988-8/rag_demo/blob/d4d5564929964766b3f1547ef1f6137968d0022e/docs/implementation/issue-15/README.md), [validation](https://github.com/tomh1988-8/rag_demo/blob/d4d5564929964766b3f1547ef1f6137968d0022e/docs/implementation/issue-15/validation.json), [actual answer quality](https://github.com/tomh1988-8/rag_demo/blob/d4d5564929964766b3f1547ef1f6137968d0022e/docs/implementation/issue-15/answer-quality.json), [review reports](https://github.com/tomh1988-8/rag_demo/blob/d4d5564929964766b3f1547ef1f6137968d0022e/docs/implementation/issue-15/review.md), [criterion-to-evidence map](https://github.com/tomh1988-8/rag_demo/blob/d4d5564929964766b3f1547ef1f6137968d0022e/docs/implementation/issue-15/acceptance-map.json), and [project register](https://github.com/tomh1988-8/rag_demo/blob/d4d5564929964766b3f1547ef1f6137968d0022e/docs/checklists/ask-phil-profile.md) retain the concrete results and limitations.

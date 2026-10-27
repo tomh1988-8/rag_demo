@@ -1,28 +1,31 @@
 # Ask Phil: publication and next-skill handoff
 
-## Issue #15: correction and dispute review
+## Issue #15: correction and dispute review accepted and closed
 
-Implementation, final runtime/source review and all **480 software tests** pass.
-Strict mypy across 109 files and Ruff/formatting pass. Required publication/closure
-checks are in progress; this handoff will record their verified results before the
-issue is complete.
-[Evidence](../../implementation/issue-15/README.md) covers content-bound maintainer
-outcomes, retained correction history, complete competing accounts, compatible
-source/index/claim/graph publication, failed projection/retry, restart and rollback.
-Both independent code-review axes have zero remaining findings. The final runtime
-has nineteen actual API/CLI/session responses; all twelve current reviewed answers
-pass separate source support, grounding, completeness and attribution checks.
-Two deliberately wrong old biological Den/Sharon answers are recovery fixtures,
-not factual passes. The conflict is explicitly synthetic; no original extraction
-score, human canon adjudication or held-out release result is improved by curation.
+Issue #15 is complete and closed after native publication and exact-tree verification
+of [`d4d5564`](https://github.com/tomh1988-8/rag_demo/commit/d4d5564929964766b3f1547ef1f6137968d0022e).
+[The receipt](../../implementation/issue-15/publication.json) records seven checked
+criteria, completed closure, exact agreement with the prepared issue body and all
+166 frozen software/configuration/data hashes in the published commit.
+[Evidence](../../implementation/issue-15/README.md) records immutable maintainer review,
+corrected and disputed text/graph answers, retained provenance, projection
+failure/retry and compatible recovery. All **480 tests** pass, as do strict mypy
+across 109 files and Ruff/formatting. Both independent code-review axes have zero
+remaining findings; all twelve current reviewed answers pass independent source
+review among nineteen actual API/CLI/session responses with exact trace readback.
 
-No paid calls were made. Preserve the shared non-resetting $5 ledger at **$0.464981**,
-zero unsettled reservations, the private key, all 37 original data files and the
-51 pre-existing workspace files. EXT-04 now has scoped implemented evidence;
-checklist counts are 35 Pass and 16 Pending. Wider graph coverage, automatic routing,
-full code/prompt release recovery and representative quality remain pending.
+The initial text-budget failure and both corrected history/closure defects remain
+recorded. Two deliberately wrong biological Den/Sharon baseline/rollback answers
+are excluded from factual passes. The conflict is explicitly synthetic; no original
+extraction score, human canon adjudication or held-out release result is improved
+by curation. EXT-04 now has scoped implementation evidence; checklist counts are
+35 Pass and 16 Pending. Wider graph coverage and full release recovery remain Pending.
 
-After verified #15 closure, **#16 is next**; #19, #20, #22 and #24 are also unblocked.
+No paid model calls were made. Preserve the shared non-resetting $5 ledger at
+**$0.464981**, zero unsettled reservations, the private key, all 37 original data
+files and all 51 pre-existing workspace files. This supersedes historical balances below.
+
+**#16 is next**; #19, #20, #22 and #24 are also unblocked.
 Wait for the user's next implementation instruction before another issue.
 
 ## Issue #13: crimes and justice accepted and closed
