@@ -1,24 +1,21 @@
 """Immutable admitted relationship assertions behind a bounded read-only SQL query."""
 
-import hashlib
 from typing import Literal, Self
 
 import psycopg
-from psycopg.types.json import Jsonb
 from pydantic import Field, model_validator
 
+from ask_phil.claim_projections import RelationshipAudit as RelationshipAudit
+from ask_phil.claim_projections import install_projection
+from ask_phil.claims import ClaimReview
 from ask_phil.evidence import Fingerprint, Identifier, Record
-from ask_phil.execution import current_execution, database_options, read_options
-from ask_phil.parentage import ClaimReview
+from ask_phil.execution import current_execution, read_options
 from ask_phil.relationships import (
     HISTORY_LIMITATION,
-    RelationshipAdmission,
     RelationshipBatch,
     RelationshipClaim,
-    admit_relationships,
 )
-from ask_phil.security import require_credential_free
-from ask_phil.storage import EvidenceStore, SnapshotConflict
+from ask_phil.storage import EvidenceStore
 
 
 class RelationshipQuery(Record):
@@ -45,13 +42,6 @@ class RelationshipResult(Record):
     limitation: str = HISTORY_LIMITATION
 
 
-class RelationshipAudit(Record):
-    batch: RelationshipBatch
-    reviews: tuple[ClaimReview, ...]
-    admission: RelationshipAdmission
-    graph_sha256: Fingerprint
-
-
 class RelationshipGraph:
     def __init__(self, database_url: str) -> None:
         self.database_url = database_url
@@ -59,67 +49,7 @@ class RelationshipGraph:
     def install(
         self, batch: RelationshipBatch, reviews: tuple[ClaimReview, ...]
     ) -> RelationshipAudit:
-        """Maintainer-only installation. Preserve candidates and review outcomes atomically."""
-        snapshot = EvidenceStore(self.database_url).snapshot(batch.snapshot_id)
-        report = admit_relationships(snapshot, batch, reviews)
-        derivation = (
-            batch.model_dump_json()
-            + report.model_dump_json()
-            + "".join(r.model_dump_json() for r in sorted(reviews, key=lambda r: r.claim_id))
-        )
-        audit = RelationshipAudit(
-            batch=batch,
-            reviews=reviews,
-            admission=report,
-            graph_sha256=hashlib.sha256(
-                ("relationship-history-sql-v1:" + derivation).encode()
-            ).hexdigest(),
-        )
-        require_credential_free(audit.model_dump_json())
-        with psycopg.connect(
-            self.database_url, connect_timeout=5, options=database_options()
-        ) as conn:
-            conn.execute("SELECT pg_advisory_xact_lock(728197)")
-            conn.execute("""CREATE TABLE IF NOT EXISTS relationship_projections (
-                snapshot_id text PRIMARY KEY REFERENCES source_snapshots(snapshot_id),
-                graph_sha256 text NOT NULL UNIQUE, document jsonb NOT NULL)""")
-            conn.execute("""CREATE TABLE IF NOT EXISTS relationship_assertions (
-                graph_sha256 text REFERENCES relationship_projections(graph_sha256),
-                claim_id text NOT NULL, subject_id text NOT NULL, object_id text NOT NULL,
-                document jsonb NOT NULL, PRIMARY KEY(graph_sha256, claim_id))""")
-            conn.execute("""CREATE INDEX IF NOT EXISTS relationship_subjects
-                ON relationship_assertions(graph_sha256, subject_id)""")
-            conn.execute("""CREATE INDEX IF NOT EXISTS relationship_objects
-                ON relationship_assertions(graph_sha256, object_id)""")
-            existing = conn.execute(
-                "SELECT document FROM relationship_projections WHERE snapshot_id=%s",
-                (batch.snapshot_id,),
-            ).fetchone()
-            if existing:
-                previous = RelationshipAudit.model_validate(existing[0])
-                if previous.graph_sha256 != audit.graph_sha256:
-                    raise SnapshotConflict(
-                        "Snapshot already has a different immutable relationship graph."
-                    )
-                return previous
-            conn.execute(
-                "INSERT INTO relationship_projections VALUES (%s,%s,%s)",
-                (batch.snapshot_id, audit.graph_sha256, Jsonb(audit.model_dump(mode="json"))),
-            )
-            admitted = {d.claim_id for d in report.decisions if d.status == "admitted"}
-            for claim in batch.claims:
-                if claim.claim_id in admitted:
-                    conn.execute(
-                        "INSERT INTO relationship_assertions VALUES (%s,%s,%s,%s,%s)",
-                        (
-                            audit.graph_sha256,
-                            claim.claim_id,
-                            claim.subject_id,
-                            claim.object_id,
-                            Jsonb(claim.model_dump(mode="json")),
-                        ),
-                    )
-        return audit
+        return install_projection(self.database_url, batch, reviews)
 
     @staticmethod
     def _audit(

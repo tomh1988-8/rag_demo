@@ -6,8 +6,8 @@ from typing import Literal, Self
 
 from pydantic import Field, model_validator
 
+from ask_phil.claims import ClaimEvidence
 from ask_phil.evidence import Identifier, NonEmpty, Record
-from ask_phil.parentage import ClaimEvidence
 
 Theme = Literal["domestic_abuse", "manosphere"]
 

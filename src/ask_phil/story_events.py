@@ -5,10 +5,10 @@ from typing import Any, Literal, Self
 
 from pydantic import ConfigDict, Field, model_validator
 
+from ask_phil.claims import AdmissionDecision, ClaimAdmission, ClaimEvidence, ClaimReview
 from ask_phil.classified_facts import ContextClaim
 from ask_phil.evidence import Fingerprint, Identifier, NonEmpty, Record, SourceSnapshot
 from ask_phil.identity import IdentityCatalogue
-from ask_phil.parentage import AdmissionDecision, ClaimEvidence, ClaimReview, evidence_resolves
 
 EventType = Literal[
     "commission",
@@ -173,21 +173,7 @@ class EventAdmission(Record):
 def admit_events(
     snapshot: SourceSnapshot, batch: EventBatch, reviews: tuple[EventReview, ...]
 ) -> EventAdmission:
-    if (batch.snapshot_id, batch.snapshot_sha256) != (snapshot.snapshot_id, snapshot.fingerprint):
-        raise ValueError("Claims belong to a different source snapshot.")
-    claim_ids = {c.claim_id for c in batch.claims} | {c.claim_id for c in batch.context_claims}
-    if (
-        len({r.claim_id for r in reviews}) != len(reviews)
-        or not {r.claim_id for r in reviews} <= claim_ids
-    ):
-        raise ValueError("Reviews must uniquely identify claims in this batch.")
-    identities = {c.character_id for c in batch.catalogue.characters}
-    if snapshot.imported is not None:
-        captured = {c.character_id: c for c in snapshot.imported.catalogue.characters}
-        if any(captured.get(c.character_id) != c for c in batch.catalogue.characters):
-            raise ValueError("Claim identities must match the captured reviewed catalogue.")
-    passages = {p.evidence_id: p for p in snapshot.passages}
-    checked = {r.claim_id: r for r in reviews}
+    admission = ClaimAdmission(snapshot, batch, reviews, extra_claims=batch.context_claims)
     labels: dict[str, set[str]] = {}
     accounts: dict[tuple[object, ...], set[tuple[str, str]]] = {}
     for claim in batch.claims:
@@ -202,10 +188,10 @@ def admit_events(
         accounts.setdefault(key, set()).add((claim.polarity, claim.account_status))
     decisions = []
     for claim in batch.claims:
-        review = checked.get(claim.claim_id)
+        review = admission.review(claim.claim_id)
         reasons = []
         participants = {(p.character_id, p.role) for p in claim.participants}
-        if not {p.character_id for p in claim.participants} <= identities:
+        if not {p.character_id for p in claim.participants} <= admission.character_ids:
             reasons.append("identity")
         required, allowed = EVENT_ROLES[claim.event_type]
         roles = {p.role for p in claim.participants}
@@ -215,14 +201,7 @@ def admit_events(
             or len(participants) != len(claim.participants)
         ):
             reasons.append("participant_role")
-        if not evidence_resolves(claim.evidence, passages):
-            reasons.append("evidence_span")
-        if (
-            review is None
-            or review.claim_sha256 != claim.fingerprint
-            or review.verdict != "supported"
-        ):
-            reasons.append("support_review_required")
+        reasons.extend(admission.reasons(claim))
         if claim.event_type == "commission" and (
             claim.basis != "narrative" or review is None or not review.narrative_commission
         ):
@@ -269,18 +248,10 @@ def admit_events(
         )
     text_decisions = []
     for fact in batch.context_claims:
-        review = checked.get(fact.claim_id)
         reasons = []
-        if not set(fact.character_ids) <= identities:
+        if not set(fact.character_ids) <= admission.character_ids:
             reasons.append("identity")
-        if not evidence_resolves(fact.evidence, passages):
-            reasons.append("evidence_span")
-        if (
-            review is None
-            or review.claim_sha256 != fact.fingerprint
-            or review.verdict != "supported"
-        ):
-            reasons.append("support_review_required")
+        reasons.extend(admission.reasons(fact))
         text_decisions.append(
             AdmissionDecision(
                 claim_id=fact.claim_id,

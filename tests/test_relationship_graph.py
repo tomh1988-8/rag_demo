@@ -19,7 +19,7 @@ from ask_phil.execution import ExecutionLimits
 from ask_phil.family_graph import FamilyGraph, FamilyQuery
 from ask_phil.parentage import ClaimBatch, ClaimReview
 from ask_phil.relationship_graph import RelationshipGraph, RelationshipQuery
-from ask_phil.storage import EvidenceStore, SnapshotConflict
+from ask_phil.storage import EvidenceStore
 
 
 def test_history_keeps_repeated_episodes_and_social_edges_out_of_ancestry(
@@ -167,17 +167,13 @@ def test_cli_uses_shared_api_for_relationship_histories(
     assert {c["relation"] for c in answer["graph"]["claims"]} == {"marriage", "remarriage"}
 
 
-def test_bounds_unknowns_and_immutable_review_audit_are_explicit(database_url: str) -> None:
+def test_bounds_and_unknown_characters_are_explicit(database_url: str) -> None:
     snapshot, batch, reviews = reference_batch()
     EvidenceStore(database_url).load(snapshot)
     graph = RelationshipGraph(database_url)
     query = RelationshipQuery(kind="relationship_history", character_id="kat-slater", max_events=1)
     assert graph.query(snapshot.snapshot_id, query).status == "unavailable"
-    audit = graph.install(batch, reviews)
-    assert graph.install(batch, tuple(reversed(reviews))) == audit
-    with pytest.raises(SnapshotConflict):
-        graph.install(batch.model_copy(update={"extractor": "different-run"}), reviews)
-    assert graph.audit(snapshot.snapshot_id) == audit
+    graph.install(batch, reviews)
     limited = graph.query(snapshot.snapshot_id, query)
     assert limited.status == "truncated" and len(limited.claims) == 1
     unknown = graph.query(

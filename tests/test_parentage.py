@@ -7,7 +7,7 @@ from ask_phil.evidence import SourceSnapshot
 from ask_phil.parentage import ClaimBatch, ClaimReview, ParentageClaim, admit_claims
 
 
-def test_reviewed_birth_claims_enter_the_tree_but_adoption_remains_a_claim() -> None:
+def reference_batch() -> tuple[SourceSnapshot, ClaimBatch, tuple[ClaimReview, ...]]:
     snapshot = SourceSnapshot.model_validate_json(
         Path("data/seed/family-pilot-v1.json").read_text()
     )
@@ -29,6 +29,11 @@ def test_reviewed_birth_claims_enter_the_tree_but_adoption_remains_a_claim() -> 
         )
         for c in batch.claims
     )
+    return snapshot, batch, reviews
+
+
+def test_reviewed_birth_claims_enter_the_tree_but_adoption_remains_a_claim() -> None:
+    snapshot, batch, reviews = reference_batch()
     report = admit_claims(snapshot, batch, reviews)
     assert {d.claim_id for d in report.decisions if d.status == "admitted"} == {
         "phil-ben",

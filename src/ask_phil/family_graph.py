@@ -1,18 +1,19 @@
 """Immutable reviewed claims and their bounded, read-only PostgreSQL family projection."""
 
-import hashlib
 from typing import Literal
 
 import psycopg
 from psycopg import sql
-from psycopg.types.json import Jsonb
 from pydantic import Field
 
+from ask_phil.claim_projections import FamilyAudit as FamilyAudit
+from ask_phil.claim_projections import FamilyEdge as FamilyEdge
+from ask_phil.claim_projections import install_projection
+from ask_phil.claims import ClaimReview
 from ask_phil.evidence import Fingerprint, Identifier, Record
-from ask_phil.execution import current_execution, database_options, read_options
-from ask_phil.parentage import AdmissionReport, ClaimBatch, ClaimEvidence, ClaimReview, admit_claims
-from ask_phil.security import require_credential_free
-from ask_phil.storage import EvidenceStore, SnapshotConflict
+from ask_phil.execution import current_execution, read_options
+from ask_phil.parentage import ClaimBatch
+from ask_phil.storage import EvidenceStore
 
 GRAPH_LIMITATION = (
     "Only admitted biological relationships in this reviewed snapshot are traversed. "
@@ -27,13 +28,6 @@ class FamilyQuery(Record):
     direction: Literal["ancestors", "descendants"]
     max_depth: int = Field(default=3, ge=1, le=6)
     max_paths: int = Field(default=20, ge=1, le=50)
-
-
-class FamilyEdge(Record):
-    parent_id: Identifier
-    child_id: Identifier
-    claim_ids: tuple[Identifier, ...] = Field(min_length=1)
-    evidence: tuple[ClaimEvidence, ...] = Field(min_length=1)
 
 
 class FamilyPath(Record):
@@ -52,117 +46,12 @@ class FamilyResult(Record):
     limitation: str = GRAPH_LIMITATION
 
 
-class FamilyAudit(Record):
-    batch: ClaimBatch
-    reviews: tuple[ClaimReview, ...]
-    admission: AdmissionReport
-    graph_sha256: Fingerprint
-
-
 class FamilyGraph:
     def __init__(self, database_url: str) -> None:
         self.database_url = database_url
 
     def install(self, batch: ClaimBatch, reviews: tuple[ClaimReview, ...]) -> FamilyAudit:
-        """Maintainer-only, atomic derivation. Existing snapshot projections cannot be replaced."""
-        snapshot = EvidenceStore(self.database_url).snapshot(batch.snapshot_id)
-        report = admit_claims(snapshot, batch, reviews)
-        admitted = {d.claim_id for d in report.decisions if d.status == "admitted"}
-        groups: dict[tuple[str, str], list[str]] = {}
-        for claim in batch.claims:
-            if claim.claim_id in admitted:
-                groups.setdefault((claim.parent_id, claim.child_id), []).append(claim.claim_id)
-        edges = []
-        claims = {c.claim_id: c for c in batch.claims}
-        for (parent, child), ids in sorted(groups.items()):
-            edges.append(
-                FamilyEdge(
-                    parent_id=parent,
-                    child_id=child,
-                    claim_ids=tuple(sorted(ids)),
-                    evidence=tuple(e for cid in sorted(ids) for e in claims[cid].evidence),
-                )
-            )
-        derivation = (
-            batch.model_dump_json()
-            + report.model_dump_json()
-            + "".join(r.model_dump_json() for r in sorted(reviews, key=lambda r: r.claim_id))
-        )
-        fingerprint = hashlib.sha256(("biological-sql-v1:" + derivation).encode()).hexdigest()
-        audit = FamilyAudit(
-            batch=batch, reviews=reviews, admission=report, graph_sha256=fingerprint
-        )
-        require_credential_free(audit.model_dump_json())
-        with psycopg.connect(
-            self.database_url, connect_timeout=5, options=database_options()
-        ) as conn:
-            conn.execute("SELECT pg_advisory_xact_lock(728196)")
-            conn.execute("""CREATE TABLE IF NOT EXISTS parentage_batches (
-                batch_sha256 text PRIMARY KEY,
-                snapshot_id text NOT NULL REFERENCES source_snapshots(snapshot_id),
-                document jsonb NOT NULL)""")
-            conn.execute("""CREATE TABLE IF NOT EXISTS parentage_claims (
-                batch_sha256 text REFERENCES parentage_batches(batch_sha256),
-                claim_id text NOT NULL, document jsonb NOT NULL,
-                PRIMARY KEY(batch_sha256, claim_id))""")
-            conn.execute("""CREATE TABLE IF NOT EXISTS family_projections (
-                snapshot_id text PRIMARY KEY REFERENCES source_snapshots(snapshot_id),
-                graph_sha256 text NOT NULL UNIQUE,
-                batch_sha256 text NOT NULL REFERENCES parentage_batches(batch_sha256),
-                document jsonb NOT NULL)""")
-            conn.execute("""CREATE TABLE IF NOT EXISTS family_edges (
-                graph_sha256 text REFERENCES family_projections(graph_sha256),
-                parent_id text NOT NULL, child_id text NOT NULL, document jsonb NOT NULL,
-                PRIMARY KEY(graph_sha256, parent_id, child_id))""")
-            conn.execute("""CREATE INDEX IF NOT EXISTS family_children
-                ON family_edges(graph_sha256, child_id)""")
-            existing = conn.execute(
-                "SELECT graph_sha256, document FROM family_projections WHERE snapshot_id=%s",
-                (batch.snapshot_id,),
-            ).fetchone()
-            if existing:
-                if existing[0] != fingerprint:
-                    raise SnapshotConflict(
-                        "Snapshot already has a different immutable family graph."
-                    )
-                return FamilyAudit.model_validate(existing[1])
-            conn.execute(
-                "INSERT INTO parentage_batches VALUES (%s,%s,%s)",
-                (
-                    batch.fingerprint,
-                    batch.snapshot_id,
-                    Jsonb(batch.model_dump(mode="json")),
-                ),
-            )
-            for claim in batch.claims:
-                conn.execute(
-                    "INSERT INTO parentage_claims VALUES (%s,%s,%s)",
-                    (
-                        batch.fingerprint,
-                        claim.claim_id,
-                        Jsonb(claim.model_dump(mode="json")),
-                    ),
-                )
-            conn.execute(
-                "INSERT INTO family_projections VALUES (%s,%s,%s,%s)",
-                (
-                    batch.snapshot_id,
-                    fingerprint,
-                    batch.fingerprint,
-                    Jsonb(audit.model_dump(mode="json")),
-                ),
-            )
-            for edge in edges:
-                conn.execute(
-                    "INSERT INTO family_edges VALUES (%s,%s,%s,%s)",
-                    (
-                        fingerprint,
-                        edge.parent_id,
-                        edge.child_id,
-                        Jsonb(edge.model_dump(mode="json")),
-                    ),
-                )
-        return audit
+        return install_projection(self.database_url, batch, reviews)
 
     def audit(self, snapshot_id: str) -> FamilyAudit | None:
         with psycopg.connect(self.database_url, connect_timeout=5, options=read_options()) as conn:

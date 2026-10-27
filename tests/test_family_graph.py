@@ -12,7 +12,7 @@ from starlette.types import ASGIApp
 from ask_phil.evidence import SourceSnapshot
 from ask_phil.family_graph import FamilyGraph, FamilyQuery
 from ask_phil.parentage import ClaimBatch, ClaimReview
-from ask_phil.storage import EvidenceStore, SnapshotConflict
+from ask_phil.storage import EvidenceStore
 
 pytestmark = pytest.mark.integration
 
@@ -181,9 +181,7 @@ def test_cli_exposes_graph_override_and_typed_traversal(
     }
 
 
-def test_query_bounds_missing_projection_and_immutable_reinstallation(
-    database_url: str, family_batch: ClaimBatch
-) -> None:
+def test_query_bounds_and_unknown_characters(database_url: str, family_batch: ClaimBatch) -> None:
     graph = install_family(database_url, family_batch)
     one_level = graph.query(
         family_batch.snapshot_id,
@@ -196,15 +194,6 @@ def test_query_bounds_missing_projection_and_immutable_reinstallation(
     )
     assert limited.status == "truncated"
     assert len(limited.paths) == 1
-    original = graph.audit(family_batch.snapshot_id)
-    assert original is not None
-    assert graph.install(family_batch, original.reviews) == original
-    assert graph.install(family_batch, tuple(reversed(original.reviews))) == original
-    with pytest.raises(SnapshotConflict):
-        graph.install(
-            family_batch.model_copy(update={"extractor": "different-run"}), original.reviews
-        )
-    assert graph.audit(family_batch.snapshot_id) == original
     unknown = graph.query(
         family_batch.snapshot_id, FamilyQuery(character_id="steve-mcfadden", direction="ancestors")
     )

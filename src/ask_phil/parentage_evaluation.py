@@ -1,7 +1,8 @@
 """Exact reviewed-slice extraction scores, separating values from evidence support."""
 
+from ask_phil.claims import evidence_resolves
 from ask_phil.evidence import Record, SourceSnapshot
-from ask_phil.parentage import ExtractedClaims, ParentageClaim, evidence_resolves
+from ask_phil.parentage import ExtractedClaims, ParentageClaim
 
 
 class ExtractionScore(Record):

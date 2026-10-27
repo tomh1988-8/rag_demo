@@ -5,9 +5,9 @@ from collections.abc import Sequence
 
 from pydantic import Field
 
+from ask_phil.claims import evidence_resolves
 from ask_phil.classified_facts import ContextClaim
 from ask_phil.evidence import Record, SourceSnapshot
-from ask_phil.parentage import evidence_resolves
 from ask_phil.parentage_evaluation import ExtractionScore
 from ask_phil.story_events import EventClaim, ExtractedEvents
 

@@ -1,0 +1,108 @@
+{
+  "baseline_revision": "1e670e9d089aeccdf5566bf81bd334d44804d76a",
+  "baseline_application_sha256": "f1c4c5b10cfe14bcec0322016328007ee314d4f681164209edf4052bd27eb49b",
+  "application_sha256": "90e61d3d7cc3ae3d3e6ef5f7842636ce2b1e1267eae22de40393d038e1068f31",
+  "existing_projection_readback_matches": true,
+  "fresh_projection_matches": true,
+  "model_calls": 0,
+  "phases": {
+    "family-raw": {
+      "inputs": {
+        "data/seed/family-pilot-v1.json": "01273598d2cc36c5012a7813d86b57a35350f7ab66210dc14b3a22fbf5c46cd2",
+        "docs/implementation/issue-11/claims.json": "4cc6ded3e901df4f17defdf20312b0e381c8a4e3fe1231a683e48291413d6c6c",
+        "docs/implementation/issue-11/claim-reviews.json": "a4a01a7ae5c67d6905dbe2b79319c732f131c2b354f4959ec37fed4058c754e9"
+      },
+      "graph_sha256": "a65ff3583121f9a48b7355f88c706fbaaf773e1765f9a0a9398ffee0f9343d95",
+      "audit_sha256": "7078758bda6ab2bf001cf6f59fae4b515db80d83ce0f3cce5a0bcb24ccabe6ff",
+      "queries_sha256": "c2ed6a02dc1e89b53f34873a1b65bad295a12bffca4194336e57c34bbe3019f8",
+      "typed_queries": 3,
+      "text_context_sha256": "4f53cda18c2baa0c0354bb5f9a3ecbe5ed12ab4d8e11ba873c2f11161202b945",
+      "admitted": 2,
+      "held": 2
+    },
+    "relationship-raw": {
+      "inputs": {
+        "data/seed/relationship-pilot-v1.json": "7777a1d1e669241dc811b495310b23d575e6f1ed9b4d89cb1c60bd4cc1aefb9f",
+        "docs/implementation/issue-12/raw-claims.json": "46c2b7ebf4e183bb757ffa4e5c889ffbe7f54463edb59a92eb3a1960d9cce05f",
+        "docs/implementation/issue-12/raw-claim-reviews.json": "168a315d1cb9490ddd3447e3b26ed1f7cbcfe6aa453b9ef0c3a1f24c660bab74"
+      },
+      "graph_sha256": "9cabe61f89110bb1fd8be6b3cf95da40f96134675711cbab1a4d1ee03dfcf82a",
+      "audit_sha256": "bf32bff9edf47588c2b096bc4766903b6a283f18408bd14471091f3a02442872",
+      "queries_sha256": "94ddf881df96ce65aa07dc8d47a256ec1a3b3bf40d31175696e80a1d67f94e20",
+      "typed_queries": 5,
+      "text_context_sha256": "4f53cda18c2baa0c0354bb5f9a3ecbe5ed12ab4d8e11ba873c2f11161202b945",
+      "admitted": 0,
+      "held": 12
+    },
+    "relationship-reviewed": {
+      "inputs": {
+        "data/seed/relationship-pilot-v1.json": "7777a1d1e669241dc811b495310b23d575e6f1ed9b4d89cb1c60bd4cc1aefb9f",
+        "docs/implementation/issue-12/reviewed-claims-v2.json": "70a2fa88d9ab5e2bbb081bc19a7fe4c80fb088beb61118578c37da31fce31269",
+        "docs/implementation/issue-12/reviewed-claim-reviews-v2.json": "21468e24086d9b02432d0185c55275be34a7a2a474f39741c39839c929565802"
+      },
+      "graph_sha256": "27ab3d6e49f5a58caea59032e6bb5ec5b9d2976b64ce83f52be4113f57e9f8c1",
+      "audit_sha256": "96252591f64a30ce370c3497ae4fd73dd43780bdc4e04dec33eaea60dfedb6b2",
+      "queries_sha256": "f4ab9a490107b20b3d9d6d50d37c4052d2a7dc7022b43668f0169017c952d35e",
+      "typed_queries": 5,
+      "text_context_sha256": "4f53cda18c2baa0c0354bb5f9a3ecbe5ed12ab4d8e11ba873c2f11161202b945",
+      "admitted": 13,
+      "held": 12
+    },
+    "crime-raw": {
+      "inputs": {
+        "data/seed/crime-pilot-v1.json": "31102817a98b3747ef42b64b89ce1a1c455204be79e817d0efda803963589bfd",
+        "docs/implementation/issue-13/raw-claims.json": "06de100c46540356a580cd07fd6a626b2d4448e98f1c99cab59fb280a2a23ee2",
+        "docs/implementation/issue-13/raw-reviews.json": "ef312013e6491e51e23aa9c0187fa99da4acdfcb8558cc38762a70bc8632b50b"
+      },
+      "graph_sha256": "34dba947f5ffeb7a5ffb24faeb8aa82585c91e14bfda8f5b4d58543961da3a4f",
+      "audit_sha256": "cae1ccbe9b7f98c860f43ba1d70f14a0be386d163bfee550cf7ea186eeb91c8a",
+      "queries_sha256": "f2b88a33c6162fc5b14412b5b510d137435795a80e71d0c8185eff0788375907",
+      "typed_queries": 3,
+      "text_context_sha256": "4f53cda18c2baa0c0354bb5f9a3ecbe5ed12ab4d8e11ba873c2f11161202b945",
+      "admitted": 2,
+      "held": 2
+    },
+    "crime-reviewed": {
+      "inputs": {
+        "data/seed/crime-pilot-v1.json": "31102817a98b3747ef42b64b89ce1a1c455204be79e817d0efda803963589bfd",
+        "docs/implementation/issue-13/reviewed-claims-v2.json": "9069e724b6ccd758f9d28f16974a44618ff6a70762182e7a2eb441637c677e7a",
+        "docs/implementation/issue-13/reviewed-reviews-v2.json": "7b784328641a122c7f56b35cd7852061007449f41b4d9b6c3de60903d73600af"
+      },
+      "graph_sha256": "9c443f984273eb887bfcd2f50f57ae0f92e083101ff8755e043419585df7d092",
+      "audit_sha256": "3b22b8fddab914d9aeae4bb348dee07ae736aeb1726c0612c1d8d9a097c26258",
+      "queries_sha256": "d69aee134468a8095a817ba636fb69302132293140e70c09897206af1e3c9dd7",
+      "typed_queries": 3,
+      "text_context_sha256": "4f53cda18c2baa0c0354bb5f9a3ecbe5ed12ab4d8e11ba873c2f11161202b945",
+      "admitted": 19,
+      "held": 2
+    },
+    "life-raw": {
+      "inputs": {
+        "data/seed/life-events-pilot-v1.json": "05aa486d0002372e6ccf2788bb44aaef1361a20ec6d7d7401097c79725f70d72",
+        "docs/implementation/issue-14/raw-claims.json": "fa3740d20b24a7422e130cc0a8d25157788722e10403d400ba7475ad03cf9953",
+        "docs/implementation/issue-14/raw-reviews.json": "ad4792316acb2bb2f89e3c957f0e3abb308af9d3fb840d6f63295de68dc6d628"
+      },
+      "graph_sha256": "b7980b681e39450d92bc40594e526b9fd14d4c443dbc1b666f8ce3ca4faa8e70",
+      "audit_sha256": "2def5d9ae27de5d846dbeba7a13c71de61a18a25aa5b13695e66fe1e9a129daa",
+      "queries_sha256": "2504cd2107f6e0d8b40ebcf59a8a3c79d2157b0e708336e1116a87fcd8ee7f65",
+      "typed_queries": 4,
+      "text_context_sha256": "d40113c7dac3a1f2282e6bcb85c4be2d8a81b68e70360edeab75e02df326b7ac",
+      "admitted": 5,
+      "held": 2
+    },
+    "life-reviewed": {
+      "inputs": {
+        "data/seed/life-events-pilot-v1.json": "05aa486d0002372e6ccf2788bb44aaef1361a20ec6d7d7401097c79725f70d72",
+        "docs/implementation/issue-14/reviewed-claims.json": "e67ee5cce3d3a24ec42225eacce603efdfd1c7aa3774df76b4a93863befa25ce",
+        "docs/implementation/issue-14/reviewed-reviews.json": "9ef55559607b677e567d572d449b00540e3828f64b984f73e117497aad7598e2"
+      },
+      "graph_sha256": "447e99dff23039f985370c30531bf08e068da083fc650e4cad19b45aaef5e3fb",
+      "audit_sha256": "5dd5113bc38ee523300e3d5d02a2563ae1104cb22f946ca319445fbe644a46bc",
+      "queries_sha256": "a58dfc5ff37495a4a1531949c6ce9165e5e91d18f536684622a68748af6d1aad",
+      "typed_queries": 4,
+      "text_context_sha256": "a9a78a3f5a27923417b12d72df8dbf443cfb0d283b483a83a1829856330db6b9",
+      "admitted": 12,
+      "held": 2
+    }
+  }
+}

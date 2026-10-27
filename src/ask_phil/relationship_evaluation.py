@@ -4,8 +4,8 @@ from collections import Counter, defaultdict
 from itertools import combinations, permutations, product
 from math import perm
 
+from ask_phil.claims import evidence_resolves
 from ask_phil.evidence import Record, SourceSnapshot
-from ask_phil.parentage import evidence_resolves
 from ask_phil.relationships import ExtractedRelationships, RelationshipClaim
 
 Key = tuple[str, ...]

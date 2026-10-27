@@ -1,28 +1,26 @@
 """Immutable admitted event assertions behind a bounded read-only SQL query."""
 
-import hashlib
 from typing import Literal, Self
 
 import psycopg
 from psycopg.types.json import Jsonb
 from pydantic import Field, model_validator
 
+from ask_phil.claim_projections import EventAudit as EventAudit
+from ask_phil.claim_projections import install_projection
 from ask_phil.classified_facts import ContextClaim, context_for
 from ask_phil.evidence import Fingerprint, Identifier, Record
-from ask_phil.execution import current_execution, database_options, read_options
-from ask_phil.security import require_credential_free
-from ask_phil.storage import EvidenceStore, SnapshotConflict
+from ask_phil.execution import current_execution, read_options
+from ask_phil.storage import EvidenceStore
 from ask_phil.story_events import (
     CLASSIFICATION_LIMITATION,
     EVENT_LIMITATION,
     EVENT_ROLES,
     LIFE_EVENT_LIMITATION,
     LIFE_EVENT_TYPES,
-    EventAdmission,
     EventBatch,
     EventClaim,
     EventReview,
-    admit_events,
 )
 
 
@@ -76,92 +74,12 @@ class EventResult(Record):
     limitation: str = EVENT_LIMITATION
 
 
-class EventAudit(Record):
-    batch: EventBatch
-    reviews: tuple[EventReview, ...]
-    admission: EventAdmission
-    graph_sha256: Fingerprint
-
-
 class EventGraph:
     def __init__(self, database_url: str) -> None:
         self.database_url = database_url
 
     def install(self, batch: EventBatch, reviews: tuple[EventReview, ...]) -> EventAudit:
-        """Maintainer-only installation. Preserve candidates and review outcomes atomically."""
-        snapshot = EvidenceStore(self.database_url).snapshot(batch.snapshot_id)
-        report = admit_events(snapshot, batch, reviews)
-        derivation = (
-            batch.model_dump_json()
-            + report.model_dump_json()
-            + "".join(r.model_dump_json() for r in sorted(reviews, key=lambda r: r.claim_id))
-        )
-        audit = EventAudit(
-            batch=batch,
-            reviews=reviews,
-            admission=report,
-            graph_sha256=hashlib.sha256(
-                (
-                    (
-                        "story-events-sql-v2:"
-                        if batch.context_claims
-                        or any(c.event_type in LIFE_EVENT_TYPES for c in batch.claims)
-                        else "crime-justice-sql-v1:"
-                    )
-                    + derivation
-                ).encode()
-            ).hexdigest(),
-        )
-        require_credential_free(audit.model_dump_json())
-        with psycopg.connect(
-            self.database_url, connect_timeout=5, options=database_options()
-        ) as conn:
-            conn.execute("SELECT pg_advisory_xact_lock(728198)")
-            conn.execute("""CREATE TABLE IF NOT EXISTS event_projections (
-                snapshot_id text PRIMARY KEY REFERENCES source_snapshots(snapshot_id),
-                graph_sha256 text NOT NULL UNIQUE, document jsonb NOT NULL)""")
-            conn.execute("""CREATE TABLE IF NOT EXISTS event_assertions (
-                graph_sha256 text REFERENCES event_projections(graph_sha256),
-                claim_id text NOT NULL, event_id text NOT NULL,
-                document jsonb NOT NULL, PRIMARY KEY(graph_sha256, claim_id))""")
-            conn.execute("""CREATE TABLE IF NOT EXISTS event_participants (
-                graph_sha256 text REFERENCES event_projections(graph_sha256),
-                event_id text NOT NULL, character_id text NOT NULL,
-                PRIMARY KEY(graph_sha256, event_id, character_id))""")
-            existing = conn.execute(
-                "SELECT document FROM event_projections WHERE snapshot_id=%s",
-                (batch.snapshot_id,),
-            ).fetchone()
-            if existing:
-                previous = EventAudit.model_validate(existing[0])
-                if previous.graph_sha256 != audit.graph_sha256:
-                    raise SnapshotConflict(
-                        "Snapshot already has a different immutable event graph."
-                    )
-                return previous
-            conn.execute(
-                "INSERT INTO event_projections VALUES (%s,%s,%s)",
-                (batch.snapshot_id, audit.graph_sha256, Jsonb(audit.model_dump(mode="json"))),
-            )
-            admitted = {d.claim_id for d in report.decisions if d.status == "admitted"}
-            for claim in batch.claims:
-                if claim.claim_id in admitted:
-                    conn.execute(
-                        "INSERT INTO event_assertions VALUES (%s,%s,%s,%s)",
-                        (
-                            audit.graph_sha256,
-                            claim.claim_id,
-                            claim.event_id,
-                            Jsonb(claim.model_dump(mode="json")),
-                        ),
-                    )
-                    for participant in claim.participants:
-                        conn.execute(
-                            "INSERT INTO event_participants VALUES (%s,%s,%s) "
-                            "ON CONFLICT DO NOTHING",
-                            (audit.graph_sha256, claim.event_id, participant.character_id),
-                        )
-        return audit
+        return install_projection(self.database_url, batch, reviews)
 
     @staticmethod
     def _audit(conn: psycopg.Connection[tuple[object, ...]], snapshot_id: str) -> EventAudit | None:

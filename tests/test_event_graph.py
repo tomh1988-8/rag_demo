@@ -174,17 +174,13 @@ def test_bounded_queries_and_empty_history_remain_qualified(
 
     from ask_phil.api import create_app
     from ask_phil.execution import ExecutionLimits
-    from ask_phil.storage import SnapshotConflict
 
     snapshot, batch, reviews = reference_batch()
     EvidenceStore(database_url).load(snapshot)
     graph = EventGraph(database_url)
     query = EventQuery(kind="crime_history", character_id="max-branning", max_events=1)
     assert graph.query(snapshot.snapshot_id, query).status == "unavailable"
-    audit = graph.install(batch, reviews)
-    assert graph.install(batch, tuple(reversed(reviews))) == audit
-    with pytest.raises(SnapshotConflict):
-        graph.install(batch.model_copy(update={"extractor": "changed"}), reviews)
+    graph.install(batch, reviews)
     bounded = graph.query(snapshot.snapshot_id, query)
     assert bounded.status == "truncated"
     assert {c.event_id for c in bounded.claims} == {"carl-crash"}

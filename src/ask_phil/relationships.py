@@ -5,9 +5,9 @@ from typing import Literal, Self
 
 from pydantic import Field, model_validator
 
+from ask_phil.claims import AdmissionDecision, ClaimAdmission, ClaimEvidence, ClaimReview
 from ask_phil.evidence import Fingerprint, Identifier, NonEmpty, Record, SourceSnapshot
 from ask_phil.identity import IdentityCatalogue
-from ask_phil.parentage import AdmissionDecision, ClaimEvidence, ClaimReview, evidence_resolves
 
 Relation = Literal[
     "biological_parent",
@@ -98,19 +98,7 @@ def admit_relationships(
     snapshot: SourceSnapshot, batch: RelationshipBatch, reviews: tuple[ClaimReview, ...]
 ) -> RelationshipAdmission:
     """Review exact content, preserving unadmitted claims independently of the projection."""
-    if (batch.snapshot_id, batch.snapshot_sha256) != (snapshot.snapshot_id, snapshot.fingerprint):
-        raise ValueError("Claims belong to a different source snapshot.")
-    if len({r.claim_id for r in reviews}) != len(reviews) or not {r.claim_id for r in reviews} <= {
-        c.claim_id for c in batch.claims
-    }:
-        raise ValueError("Reviews must uniquely identify claims in this batch.")
-    identities = {c.character_id for c in batch.catalogue.characters}
-    if snapshot.imported is not None:
-        captured = {c.character_id: c for c in snapshot.imported.catalogue.characters}
-        if any(captured.get(c.character_id) != c for c in batch.catalogue.characters):
-            raise ValueError("Claim identities must match the captured reviewed catalogue.")
-    passages = {p.evidence_id: p for p in snapshot.passages}
-    checked = {r.claim_id: r for r in reviews}
+    admission = ClaimAdmission(snapshot, batch, reviews)
     claims_by_id = {c.claim_id: c for c in batch.claims}
     episodes: dict[str, list[RelationshipClaim]] = {}
     polarities: dict[tuple[object, ...], set[str]] = {}
@@ -141,18 +129,10 @@ def admit_relationships(
         reasons = []
         if (
             claim.subject_id == claim.object_id
-            or not {claim.subject_id, claim.object_id} <= identities
+            or not {claim.subject_id, claim.object_id} <= admission.character_ids
         ):
             reasons.append("identity")
-        if not evidence_resolves(claim.evidence, passages):
-            reasons.append("evidence_span")
-        review = checked.get(claim.claim_id)
-        if (
-            review is None
-            or review.claim_sha256 != claim.fingerprint
-            or review.verdict != "supported"
-        ):
-            reasons.append("support_review_required")
+        reasons.extend(admission.reasons(claim))
         if claim.polarity != "affirmed":
             reasons.append("negated")
         if claim.certainty != "certain":

@@ -1,30 +1,17 @@
 """Evidence-backed parentage claims and explicit admission into the biological tree."""
 
 import hashlib
-from collections.abc import Mapping
 from typing import Literal, Self
 
 from pydantic import Field, model_validator
 
-from ask_phil.evidence import Fingerprint, Identifier, NonEmpty, Passage, Record, SourceSnapshot
+from ask_phil.claims import AdmissionDecision as AdmissionDecision
+from ask_phil.claims import ClaimAdmission
+from ask_phil.claims import ClaimEvidence as ClaimEvidence
+from ask_phil.claims import ClaimReview as ClaimReview
+from ask_phil.claims import evidence_resolves as evidence_resolves
+from ask_phil.evidence import Fingerprint, Identifier, NonEmpty, Record, SourceSnapshot
 from ask_phil.identity import IdentityCatalogue
-
-
-class ClaimEvidence(Record):
-    evidence_id: Identifier
-    start: int = Field(ge=0)
-    end: int = Field(gt=0)
-    quote: NonEmpty
-
-
-def evidence_resolves(evidence: tuple[ClaimEvidence, ...], passages: Mapping[str, Passage]) -> bool:
-    """Resolve exact Unicode source spans; quote equality alone does not establish support."""
-    return all(
-        (passage := passages.get(span.evidence_id)) is not None
-        and 0 <= span.start < span.end <= len(passage.text)
-        and passage.text[span.start : span.end] == span.quote
-        for span in evidence
-    )
 
 
 class ParentageClaim(Record):
@@ -65,20 +52,6 @@ class ClaimBatch(ExtractedClaims):
         return hashlib.sha256(self.model_dump_json().encode()).hexdigest()
 
 
-class ClaimReview(Record):
-    claim_id: Identifier
-    claim_sha256: Fingerprint
-    verdict: Literal["supported", "unsupported", "uncertain"]
-    reviewer: NonEmpty
-    note: NonEmpty
-
-
-class AdmissionDecision(Record):
-    claim_id: Identifier
-    status: Literal["admitted", "held"]
-    reasons: tuple[str, ...]
-
-
 class AdmissionReport(Record):
     batch_sha256: Fingerprint
     decisions: tuple[AdmissionDecision, ...]
@@ -92,19 +65,7 @@ def admit_claims(
     snapshot: SourceSnapshot, batch: ClaimBatch, reviews: tuple[ClaimReview, ...]
 ) -> AdmissionReport:
     """Check provenance and reviewed semantics; never infer support from a quote match alone."""
-    if (batch.snapshot_id, batch.snapshot_sha256) != (snapshot.snapshot_id, snapshot.fingerprint):
-        raise ValueError("Claims belong to a different source snapshot.")
-    if len({r.claim_id for r in reviews}) != len(reviews) or not {r.claim_id for r in reviews} <= {
-        c.claim_id for c in batch.claims
-    }:
-        raise ValueError("Reviews must uniquely identify claims in this batch.")
-    identities = {c.character_id for c in batch.catalogue.characters}
-    if snapshot.imported is not None:
-        captured = {c.character_id: c for c in snapshot.imported.catalogue.characters}
-        if any(captured.get(c.character_id) != c for c in batch.catalogue.characters):
-            raise ValueError("Claim identities must match the captured reviewed catalogue.")
-    passages = {p.evidence_id: p for p in snapshot.passages}
-    checked = {r.claim_id: r for r in reviews}
+    admission = ClaimAdmission(snapshot, batch, reviews)
     polarities: dict[tuple[str, str], set[str]] = {}
     parents: dict[str, set[str]] = {}
     roles: dict[tuple[str, str], set[str]] = {}
@@ -117,17 +78,12 @@ def admit_claims(
     decisions = []
     for claim in batch.claims:
         reasons = []
-        if claim.parent_id == claim.child_id or not {claim.parent_id, claim.child_id} <= identities:
-            reasons.append("identity")
-        if not evidence_resolves(claim.evidence, passages):
-            reasons.append("evidence_span")
-        review = checked.get(claim.claim_id)
         if (
-            review is None
-            or review.claim_sha256 != claim.fingerprint
-            or review.verdict != "supported"
+            claim.parent_id == claim.child_id
+            or not {claim.parent_id, claim.child_id} <= admission.character_ids
         ):
-            reasons.append("support_review_required")
+            reasons.append("identity")
+        reasons.extend(admission.reasons(claim))
         if claim.relation != "biological_parent":
             reasons.append("non_biological")
         if claim.polarity != "affirmed":
