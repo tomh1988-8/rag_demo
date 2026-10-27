@@ -26,11 +26,12 @@ from ask_phil.storage import EvidenceStore
 
 GRAPH_WORDING = "biological-paths-v1: explicit typed query; bounded captured relationships only"
 HISTORY_WORDING = (
-    "relationship-history-v1: reviewed assertions; distinct episodes; explicit order only"
+    "relationship-history-v1: reviewed assertions; distinct episodes; explicit order; "
+    "synthetic labels"
 )
 
 
-def render_history(result: RelationshipResult) -> str:
+def render_history(result: RelationshipResult, *, synthetic: bool = False) -> str:
     verbs = {
         "biological_parent": "was identified as a biological parent of",
         "adoptive_parent": "was identified as an adoptive parent of",
@@ -59,7 +60,10 @@ def render_history(result: RelationshipResult) -> str:
             f"{verbs[claim.relation]} {result.names[claim.object_id]}; {timing}; "
             f"status {claim.status} in the captured account.{ordering}"
         )
-    return "Right, listen. Captured relationship history:\n" + "\n".join(entries) + "\n"
+    label = "Synthetic example, not EastEnders canon. " if synthetic else ""
+    return (
+        "Right, listen. " + label + "Captured relationship history:\n" + "\n".join(entries) + "\n"
+    )
 
 
 class FamilyAnswer:
@@ -133,7 +137,13 @@ class FamilyAnswer:
             "partial" if supported else "insufficient_evidence"
         )
         if isinstance(result, RelationshipResult) and result.claims:
-            answer = render_history(result)
+            answer = render_history(
+                result,
+                synthetic=any(
+                    (p.source or snapshot.source).support_status == "synthetic_fixture"
+                    for p in context
+                ),
+            )
         elif isinstance(result, FamilyResult) and result.paths:
             paths = "; ".join(
                 " → ".join(result.names[c] for c in p.characters) for p in result.paths

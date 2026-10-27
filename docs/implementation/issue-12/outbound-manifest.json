@@ -1,0 +1,41 @@
+{
+  "destination": "https://openrouter.ai/api/v1/chat/completions",
+  "provider": "openai",
+  "model": "openai/gpt-6-sol-20260922",
+  "payload_fields": [
+    "instructions",
+    "ten Wikipedia excerpts already captured by this project",
+    "character names, IDs, aliases and performers",
+    "JSON output schema"
+  ],
+  "excluded": [
+    "repository code",
+    "private documents",
+    "reference annotations",
+    "reference review notes",
+    "GitHub ticket text",
+    "session and response tokens"
+  ],
+  "source_revision_urls": [
+    "https://en.wikipedia.org/w/index.php?oldid=1370914760",
+    "https://en.wikipedia.org/w/index.php?oldid=1372798905",
+    "https://en.wikipedia.org/w/index.php?oldid=1376729134",
+    "https://en.wikipedia.org/w/index.php?oldid=1378939229",
+    "https://en.wikipedia.org/w/index.php?oldid=1379872347",
+    "https://en.wikipedia.org/w/index.php?oldid=1380652225"
+  ],
+  "source_text_characters": 2077,
+  "prompt_sha256": "ad282dd6e0b9389162ad2b2d74f117f989ec07cda83eac1ae09b6ac10e448f3a",
+  "preview_sha256": "7862d903a3f9e13278f9ab7a05af3e1f024646c20c5a73ac981901c1d8739cab",
+  "existing_authorization_documents": [
+    "docs/implementation/openrouter-setup.md: The user authorised a $5 total trial inference-credit limit shared across serving, evaluation and all selected models.",
+    "docs/agents/issue-tracker.md: Current shared non-resetting trial ledger is $0.361573.",
+    "docs/implementation/issue-12/ticket.json: User-requested next ticket explicitly requires source-backed extraction and actual execution evidence."
+  ],
+  "maximum_paid_calls": 1,
+  "automatic_retries": 0,
+  "per_call_execution_cap_usd": 0.15,
+  "existing_provider_lifetime_cap_usd": 5,
+  "shared_ledger_before_usd": 0.361573,
+  "zero_network_calls_in_payload_inspection": true
+}

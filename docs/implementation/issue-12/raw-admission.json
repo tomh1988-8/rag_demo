@@ -1,0 +1,99 @@
+{
+  "batch_sha256": "1178bdb8a2f79069d8beba8896ca8b0eb52092a1dbcadb4464bd5b9a5a58d48b",
+  "decisions": [
+    {
+      "claim_id": "c1",
+      "status": "held",
+      "reasons": [
+        "evidence_span",
+        "support_review_required"
+      ]
+    },
+    {
+      "claim_id": "c2",
+      "status": "held",
+      "reasons": [
+        "evidence_span",
+        "support_review_required"
+      ]
+    },
+    {
+      "claim_id": "c3",
+      "status": "held",
+      "reasons": [
+        "evidence_span"
+      ]
+    },
+    {
+      "claim_id": "c4",
+      "status": "held",
+      "reasons": [
+        "evidence_span",
+        "support_review_required"
+      ]
+    },
+    {
+      "claim_id": "c5",
+      "status": "held",
+      "reasons": [
+        "evidence_span",
+        "support_review_required"
+      ]
+    },
+    {
+      "claim_id": "c6",
+      "status": "held",
+      "reasons": [
+        "evidence_span",
+        "support_review_required"
+      ]
+    },
+    {
+      "claim_id": "c7",
+      "status": "held",
+      "reasons": [
+        "evidence_span",
+        "support_review_required"
+      ]
+    },
+    {
+      "claim_id": "c8",
+      "status": "held",
+      "reasons": [
+        "evidence_span"
+      ]
+    },
+    {
+      "claim_id": "c9",
+      "status": "held",
+      "reasons": [
+        "evidence_span"
+      ]
+    },
+    {
+      "claim_id": "c10",
+      "status": "held",
+      "reasons": [
+        "evidence_span",
+        "support_review_required"
+      ]
+    },
+    {
+      "claim_id": "c11",
+      "status": "held",
+      "reasons": [
+        "support_review_required",
+        "episode_collision"
+      ]
+    },
+    {
+      "claim_id": "c12",
+      "status": "held",
+      "reasons": [
+        "support_review_required",
+        "episode_collision"
+      ]
+    }
+  ],
+  "limitation": "Only admitted assertions from selected reviewed spans are shown. Social ties never establish biological ancestry. Status is as reported in the captured account, not a claim about the present. Only explicit after links establish ordering; otherwise listing order is not chronology. Missing history does not prove a relationship never existed. Source-supported does not mean independently cross-checked."
+}
