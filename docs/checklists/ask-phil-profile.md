@@ -44,6 +44,20 @@ revision. No checklist count changes: RAG-04 remains Pending for the wider graph
 families and checked coverage; corrections, held-out and release acceptance
 remain outstanding.
 
+[Issue #13](../implementation/issue-13/README.md) extends scoped EXT-02/03,
+RAG-04, AD-06.3 and AD-08.4 evidence to shared crime/justice incidents. Seventeen
+source labels precede the one Sol pilot. Four schema-valid predictions have
+three exact matches (precision 3/4, recall 3/17); three locators resolve and one
+meets the conservative full-span grounding proxy. Content-bound review admits two
+raw candidates and holds the malformed false confession and incomplete commission.
+Separate real API/CLI and MLflow evidence exercises all reviewed roles, false
+accounts, shared participants, empty histories and execution bounds while retaining
+the raw failures. No forbidden guilt conflation appears in the recorded final
+answers. This is scoped curated capability with explicit extraction/coverage
+failures, not a broad automatic-extraction, held-out or canon pass. The linked
+regressions and revision-bound validation remain part of the evidence; checklist
+counts are unchanged and wider RAG-04, EXT-04 and AD-08.4 obligations remain Pending.
+
 The [answer execution deepening](../implementation/answer-execution-deepening/README.md)
 rechecks scoped AD-05.4, AD-06.1–3, AD-07.4 and AD-09.1–3 through shared text/Family
 tree admission, separate serving/offline limits, retained stop receipts and actual

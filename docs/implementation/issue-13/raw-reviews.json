@@ -1,0 +1,34 @@
+[
+  {
+    "claim_id": "lucy-ben-arrest",
+    "claim_sha256": "fce77ed7ec1b4ab5b0fc01bfa780dc3fa2fb3f5ad991e2185522f3193f645787",
+    "verdict": "supported",
+    "reviewer": "Codex-source-support-audit-of-unchanged-raw-output",
+    "note": "The exact source explicitly identifies Ben as arrested for Lucy’s murder. No guilt inferred. Raw quote endpoints are checked separately and remain unchanged.",
+    "narrative_commission": false
+  },
+  {
+    "claim_id": "lucy-bobby-commission",
+    "claim_sha256": "88849893e10ab7dc20b39d157ba759037492787f951a827bc5e19b655ba4b7c2",
+    "verdict": "supported",
+    "reviewer": "Codex-source-support-audit-of-unchanged-raw-output",
+    "note": "The narrative revelation identifies Bobby as Lucy’s killer, independently of Max’s conviction and separate allegation. Participants and direction are supported and exact raw locators resolve. Its shorter quote does not meet the conservative frozen full-span grounding proxy.",
+    "narrative_commission": true
+  },
+  {
+    "claim_id": "stella-phil-confession",
+    "claim_sha256": "7701582e151f0d7fcd88e94cd15e78eb6a9a55ce4ca8a40c42efad3a1f56072c",
+    "verdict": "supported",
+    "reviewer": "Codex-source-support-audit-of-unchanged-raw-output",
+    "note": "The first quote explicitly narrates Stella jumping; the second gives Phil’s false claim. Together they support the false-confession qualification and relative Later on. Release is not used to infer innocence. The strict full-reference-span proxy remains separate.",
+    "narrative_commission": false
+  },
+  {
+    "claim_id": "crash-carl-commission",
+    "claim_sha256": "1dcdc7b4602e9ede62dd17a677eb52219f14c430c180e3d892ca85b115088c3c",
+    "verdict": "unsupported",
+    "reviewer": "Codex-source-support-audit-of-unchanged-raw-output",
+    "note": "Only the victim is represented; the required perpetrator is outside the selected catalogue. This incomplete commission assertion is held. The passage supports Phil being harmed, not a completed admissible perpetrator assertion.",
+    "narrative_commission": false
+  }
+]

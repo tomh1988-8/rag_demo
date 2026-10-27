@@ -1,0 +1,239 @@
+{
+  "claims": [
+    {
+      "claim_id": "lucy-ben-arrest",
+      "event_id": "lucy-murder",
+      "event_label": "Lucy Beale's murder",
+      "event_type": "arrest",
+      "basis": "legal_outcome",
+      "participants": [
+        {
+          "character_id": "ben-mitchell",
+          "role": "arrested"
+        }
+      ],
+      "account_status": "as_reported",
+      "polarity": "affirmed",
+      "certainty": "certain",
+      "story_time": "unknown",
+      "time_precision": "unknown",
+      "evidence": [
+        {
+          "evidence_id": "lucy-arrest-charge",
+          "start": 0,
+          "end": 38,
+          "quote": "When Ben is arrested for Lucy's murder"
+        }
+      ]
+    },
+    {
+      "claim_id": "lucy-bobby-commission",
+      "event_id": "lucy-murder",
+      "event_label": "Lucy Beale's murder",
+      "event_type": "commission",
+      "basis": "narrative",
+      "participants": [
+        {
+          "character_id": "bobby-beale",
+          "role": "perpetrator"
+        },
+        {
+          "character_id": "lucy-beale",
+          "role": "victim"
+        }
+      ],
+      "account_status": "as_reported",
+      "polarity": "affirmed",
+      "certainty": "certain",
+      "story_time": "unknown",
+      "time_precision": "unknown",
+      "evidence": [
+        {
+          "evidence_id": "lucy-revelation",
+          "start": 0,
+          "end": 99,
+          "quote": "Max soon realises that Jane's adopted son Bobby Beale (Eliot Carrington) is Lucy's killer all along"
+        }
+      ]
+    },
+    {
+      "claim_id": "stella-phil-confession",
+      "event_id": "stella-death",
+      "event_label": "Stella Crawford's death",
+      "event_type": "confession",
+      "basis": "confession",
+      "participants": [
+        {
+          "character_id": "phil-mitchell",
+          "role": "confessor"
+        }
+      ],
+      "account_status": "explicitly_false",
+      "polarity": "affirmed",
+      "certainty": "certain",
+      "story_time": "Later on",
+      "time_precision": "relative",
+      "evidence": [
+        {
+          "evidence_id": "stella-false-confession",
+          "start": 0,
+          "end": 112,
+          "quote": "Stella flees to an abandoned warehouse with Phil in pursuit – where she kills herself by jumping from the roof."
+        },
+        {
+          "evidence_id": "stella-false-confession",
+          "start": 113,
+          "end": 156,
+          "quote": "Later on, Phil claims to have killed Stella"
+        }
+      ]
+    },
+    {
+      "claim_id": "crash-carl-commission",
+      "event_id": "carl-crash",
+      "event_label": "Carl's car crash",
+      "event_type": "commission",
+      "basis": "narrative",
+      "participants": [
+        {
+          "character_id": "phil-mitchell",
+          "role": "victim"
+        }
+      ],
+      "account_status": "as_reported",
+      "polarity": "affirmed",
+      "certainty": "certain",
+      "story_time": "unknown",
+      "time_precision": "unknown",
+      "evidence": [
+        {
+          "evidence_id": "crash-framing",
+          "start": 0,
+          "end": 190,
+          "quote": "Max's feud with Carl continues, and, determined to get rid of Max so he can win back Kirsty, he purposefully cuts the brakes on his car, and crashes it, leaving Phil in a critical condition."
+        }
+      ]
+    }
+  ],
+  "snapshot_id": "crime-pilot-v1",
+  "snapshot_sha256": "211e2a87675886c73aef22a24d85076ae2850661b88e5a70de66600b12b2baa4",
+  "catalogue": {
+    "characters": [
+      {
+        "character_id": "phil-mitchell",
+        "name": "Phil Mitchell",
+        "aliases": [],
+        "performers": [
+          "Steve McFadden",
+          "Daniel Delaney"
+        ],
+        "coverage": "core",
+        "wikidata_id": "Q2115259",
+        "review_note": "Codex source inspection, 17 October 2026: captured character article, infobox aliases/performers and revision metadata checked. Prominence-based curated selection, not a ranked or exhaustive canon. Identity linkage is not independent story corroboration.",
+        "evidence_sources": [
+          "phil-mitchell-wiki"
+        ]
+      },
+      {
+        "character_id": "grant-mitchell",
+        "name": "Grant Mitchell",
+        "aliases": [],
+        "performers": [
+          "Ross Kemp",
+          "Teddy Jay"
+        ],
+        "coverage": "core",
+        "wikidata_id": "Q2685036",
+        "review_note": "Codex source inspection, 17 October 2026: captured character article, infobox aliases/performers and revision metadata checked. Prominence-based curated selection, not a ranked or exhaustive canon. Identity linkage is not independent story corroboration.",
+        "evidence_sources": [
+          "grant-mitchell-wiki"
+        ]
+      },
+      {
+        "character_id": "ben-mitchell",
+        "name": "Ben Mitchell",
+        "aliases": [],
+        "performers": [
+          "Matthew Silver",
+          "Morgan Whittle",
+          "Charlie Jones",
+          "Joshua Pascoe",
+          "Harry Reid",
+          "Max Bowden"
+        ],
+        "coverage": "core",
+        "wikidata_id": "Q2766568",
+        "review_note": "Codex source inspection, 17 October 2026: captured character article, infobox aliases/performers and revision metadata checked. Prominence-based curated selection, not a ranked or exhaustive canon. Identity linkage is not independent story corroboration.",
+        "evidence_sources": [
+          "ben-mitchell-wiki"
+        ]
+      },
+      {
+        "character_id": "ian-beale",
+        "name": "Ian Beale",
+        "aliases": [
+          "Ian Albert Beale"
+        ],
+        "performers": [
+          "Adam Woodyatt"
+        ],
+        "coverage": "core",
+        "wikidata_id": "Q899011",
+        "review_note": "Codex source inspection, 17 October 2026: captured character article, infobox aliases/performers and revision metadata checked. Prominence-based curated selection, not a ranked or exhaustive canon. Identity linkage is not independent story corroboration.",
+        "evidence_sources": [
+          "ian-beale-wiki"
+        ]
+      },
+      {
+        "character_id": "lucy-beale",
+        "name": "Lucy Beale",
+        "aliases": [],
+        "performers": [
+          "Eva Brittin-Snell",
+          "Casey Anne Rothery",
+          "Melissa Suffield",
+          "Hetti Bywater"
+        ],
+        "coverage": "core",
+        "wikidata_id": "Q3304512",
+        "review_note": "Codex source inspection, 17 October 2026: captured character article, infobox aliases/performers and revision metadata checked. Prominence-based curated selection, not a ranked or exhaustive canon. Identity linkage is not independent story corroboration.",
+        "evidence_sources": [
+          "lucy-beale-wiki"
+        ]
+      },
+      {
+        "character_id": "bobby-beale",
+        "name": "Bobby Beale",
+        "aliases": [],
+        "performers": [
+          "Kevin Curran",
+          "Alex Francis",
+          "Rory Stroud",
+          "Eliot Carrington",
+          "Clay Milner Russell"
+        ],
+        "coverage": "core",
+        "wikidata_id": "Q19650328",
+        "review_note": "Codex source inspection, 17 October 2026: captured character article, infobox aliases/performers and revision metadata checked. Prominence-based curated selection, not a ranked or exhaustive canon. Identity linkage is not independent story corroboration.",
+        "evidence_sources": [
+          "bobby-beale-wiki"
+        ]
+      },
+      {
+        "character_id": "max-branning",
+        "name": "Max Branning",
+        "aliases": [],
+        "performers": [
+          "Jake Wood"
+        ],
+        "coverage": "core",
+        "wikidata_id": "Q6794615",
+        "review_note": "Codex source inspection, 17 October 2026: captured character article, infobox aliases/performers and revision metadata checked. Prominence-based curated selection, not a ranked or exhaustive canon. Identity linkage is not independent story corroboration.",
+        "evidence_sources": [
+          "max-branning-wiki"
+        ]
+      }
+    ]
+  },
+  "extractor": "openai/gpt-6-sol-20260922"
+}

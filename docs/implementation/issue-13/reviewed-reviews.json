@@ -1,0 +1,170 @@
+[
+  {
+    "claim_id": "lucy-ben-arrest",
+    "claim_sha256": "fce77ed7ec1b4ab5b0fc01bfa780dc3fa2fb3f5ad991e2185522f3193f645787",
+    "verdict": "supported",
+    "reviewer": "Codex-source-support-audit-of-unchanged-raw-output",
+    "note": "The exact source explicitly identifies Ben as arrested for Lucy’s murder. No guilt inferred. Raw quote endpoints are checked separately and remain unchanged.",
+    "narrative_commission": false
+  },
+  {
+    "claim_id": "lucy-bobby-commission",
+    "claim_sha256": "88849893e10ab7dc20b39d157ba759037492787f951a827bc5e19b655ba4b7c2",
+    "verdict": "supported",
+    "reviewer": "Codex-source-support-audit-of-unchanged-raw-output",
+    "note": "The narrative revelation identifies Bobby as Lucy’s killer, independently of Max’s conviction and separate allegation. Participants and direction are supported and exact raw locators resolve. Its shorter quote does not meet the conservative frozen full-span grounding proxy.",
+    "narrative_commission": true
+  },
+  {
+    "claim_id": "stella-phil-confession",
+    "claim_sha256": "7701582e151f0d7fcd88e94cd15e78eb6a9a55ce4ca8a40c42efad3a1f56072c",
+    "verdict": "supported",
+    "reviewer": "Codex-source-support-audit-of-unchanged-raw-output",
+    "note": "The first quote explicitly narrates Stella jumping; the second gives Phil’s false claim. Together they support the false-confession qualification and relative Later on. Release is not used to infer innocence. The strict full-reference-span proxy remains separate.",
+    "narrative_commission": false
+  },
+  {
+    "claim_id": "crash-carl-commission",
+    "claim_sha256": "1dcdc7b4602e9ede62dd17a677eb52219f14c430c180e3d892ca85b115088c3c",
+    "verdict": "unsupported",
+    "reviewer": "Codex-source-support-audit-of-unchanged-raw-output",
+    "note": "Only the victim is represented; the required perpetrator is outside the selected catalogue. This incomplete commission assertion is held. The passage supports Phil being harmed, not a completed admissible perpetrator assertion.",
+    "narrative_commission": false
+  },
+  {
+    "claim_id": "reviewed-lucy-ben-arrest",
+    "claim_sha256": "badf8fc3d4914a0ab7479546398ff9da01211de5f020b205d012f0158f8bceca",
+    "verdict": "supported",
+    "reviewer": "Codex-pre-pilot-reference-curation",
+    "note": "Values and source spans unchanged from the frozen pre-pilot reference; only claim IDs are prefixed to retain raw candidates independently.",
+    "narrative_commission": false
+  },
+  {
+    "claim_id": "reviewed-lucy-max-arrest",
+    "claim_sha256": "27dc78212f413ff378dc3ed4ccee1e611d200a071c57786cf96c6106c6fa343b",
+    "verdict": "supported",
+    "reviewer": "Codex-pre-pilot-reference-curation",
+    "note": "Values and source spans unchanged from the frozen pre-pilot reference; only claim IDs are prefixed to retain raw candidates independently.",
+    "narrative_commission": false
+  },
+  {
+    "claim_id": "reviewed-lucy-max-charge",
+    "claim_sha256": "26b5b30f25ebb940e81b903ee3753249f1fd48cdb534aa8c22477966dfe07176",
+    "verdict": "supported",
+    "reviewer": "Codex-pre-pilot-reference-curation",
+    "note": "Values and source spans unchanged from the frozen pre-pilot reference; only claim IDs are prefixed to retain raw candidates independently.",
+    "narrative_commission": false
+  },
+  {
+    "claim_id": "reviewed-lucy-max-conviction",
+    "claim_sha256": "efe3a16c11d0059de6be8d37463678de88d7805bc52a5f06210cd9b92c93cfe6",
+    "verdict": "supported",
+    "reviewer": "Codex-pre-pilot-reference-curation",
+    "note": "Values and source spans unchanged from the frozen pre-pilot reference; only claim IDs are prefixed to retain raw candidates independently.",
+    "narrative_commission": false
+  },
+  {
+    "claim_id": "reviewed-lucy-bobby-commission",
+    "claim_sha256": "590d2c1ff37123ce7f627fa31c950902197ceead06ed1c0615a8070c344d5541",
+    "verdict": "supported",
+    "reviewer": "Codex-pre-pilot-reference-curation",
+    "note": "Values and source spans unchanged from the frozen pre-pilot reference; only claim IDs are prefixed to retain raw candidates independently.",
+    "narrative_commission": true
+  },
+  {
+    "claim_id": "reviewed-lucy-bobby-accusation",
+    "claim_sha256": "c28f82716a78f5a3b110ae7bb9561f6c6f8b5a9da6ae6fa445258137a1dabd6d",
+    "verdict": "supported",
+    "reviewer": "Codex-pre-pilot-reference-curation",
+    "note": "Values and source spans unchanged from the frozen pre-pilot reference; only claim IDs are prefixed to retain raw candidates independently.",
+    "narrative_commission": false
+  },
+  {
+    "claim_id": "reviewed-lucy-max-rearrest",
+    "claim_sha256": "a7ba08e5e220cc151b1eb4abe969f70db6d1c01239f3052ec45685951f692555",
+    "verdict": "supported",
+    "reviewer": "Codex-pre-pilot-reference-curation",
+    "note": "Values and source spans unchanged from the frozen pre-pilot reference; only claim IDs are prefixed to retain raw candidates independently.",
+    "narrative_commission": false
+  },
+  {
+    "claim_id": "reviewed-lucy-max-imprisonment",
+    "claim_sha256": "2340036b36b9c92ac261e104878c37ca58be8069ed33eff29175838787a676b6",
+    "verdict": "supported",
+    "reviewer": "Codex-pre-pilot-reference-curation",
+    "note": "Values and source spans unchanged from the frozen pre-pilot reference; only claim IDs are prefixed to retain raw candidates independently.",
+    "narrative_commission": false
+  },
+  {
+    "claim_id": "reviewed-stella-phil-confession",
+    "claim_sha256": "73c8ab633964f55a295e18158eba6c6820782c60d081cf1fc77de8f21b7205e9",
+    "verdict": "supported",
+    "reviewer": "Codex-pre-pilot-reference-curation",
+    "note": "Values and source spans unchanged from the frozen pre-pilot reference; only claim IDs are prefixed to retain raw candidates independently.",
+    "narrative_commission": false
+  },
+  {
+    "claim_id": "reviewed-stella-phil-release",
+    "claim_sha256": "dfbb82fc7ab6f30f84645755e66dac95a72e229a694fcc10895fae5c9680fcc2",
+    "verdict": "supported",
+    "reviewer": "Codex-pre-pilot-reference-curation",
+    "note": "Values and source spans unchanged from the frozen pre-pilot reference; only claim IDs are prefixed to retain raw candidates independently.",
+    "narrative_commission": false
+  },
+  {
+    "claim_id": "reviewed-crash-max-accusation",
+    "claim_sha256": "9e80a06c0274f38d863e03d489926e22b1365e33013dc1f7c3c0e8bfaf2e5e34",
+    "verdict": "supported",
+    "reviewer": "Codex-pre-pilot-reference-curation",
+    "note": "Values and source spans unchanged from the frozen pre-pilot reference; only claim IDs are prefixed to retain raw candidates independently.",
+    "narrative_commission": false
+  },
+  {
+    "claim_id": "reviewed-crash-max-arrest",
+    "claim_sha256": "6f0937a97b24838f7a633b1ec35c0f7f96a8403f0adce29d31aa8f7bdb3c28e3",
+    "verdict": "supported",
+    "reviewer": "Codex-pre-pilot-reference-curation",
+    "note": "Values and source spans unchanged from the frozen pre-pilot reference; only claim IDs are prefixed to retain raw candidates independently.",
+    "narrative_commission": false
+  },
+  {
+    "claim_id": "reviewed-crash-max-bail",
+    "claim_sha256": "584f08d125db3809fa5110abedce83b1f55c8f6bbb431cbf53e0a73a99f75331",
+    "verdict": "supported",
+    "reviewer": "Codex-pre-pilot-reference-curation",
+    "note": "Values and source spans unchanged from the frozen pre-pilot reference; only claim IDs are prefixed to retain raw candidates independently.",
+    "narrative_commission": false
+  },
+  {
+    "claim_id": "reviewed-crash-max-confession",
+    "claim_sha256": "d2aef417ca11168b5bd0b4034fa97471b3d8e83cacbcc844bc0c259c95ed6161",
+    "verdict": "supported",
+    "reviewer": "Codex-pre-pilot-reference-curation",
+    "note": "Values and source spans unchanged from the frozen pre-pilot reference; only claim IDs are prefixed to retain raw candidates independently.",
+    "narrative_commission": false
+  },
+  {
+    "claim_id": "reviewed-crash-max-trial",
+    "claim_sha256": "1cf07f60ba7e71ca9235cfaaa3c0a53e0e95dce7bbdf5d8a91317a49f167056d",
+    "verdict": "supported",
+    "reviewer": "Codex-pre-pilot-reference-curation",
+    "note": "Values and source spans unchanged from the frozen pre-pilot reference; only claim IDs are prefixed to retain raw candidates independently.",
+    "narrative_commission": false
+  },
+  {
+    "claim_id": "reviewed-crash-max-release",
+    "claim_sha256": "1eb404331fcb005c847a591a71f94e4c23e3ee45fc97027dc78ad01faadcd0d3",
+    "verdict": "supported",
+    "reviewer": "Codex-pre-pilot-reference-curation",
+    "note": "Values and source spans unchanged from the frozen pre-pilot reference; only claim IDs are prefixed to retain raw candidates independently.",
+    "narrative_commission": false
+  },
+  {
+    "claim_id": "reviewed-crash-max-acquittal",
+    "claim_sha256": "4b7fe0aa286b60f04130edda309a7654154b786ea148c18b2c47aa4836293281",
+    "verdict": "supported",
+    "reviewer": "Codex-pre-pilot-reference-curation",
+    "note": "Values and source spans unchanged from the frozen pre-pilot reference; only claim IDs are prefixed to retain raw candidates independently.",
+    "narrative_commission": false
+  }
+]
