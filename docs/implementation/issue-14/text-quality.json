@@ -1,0 +1,67 @@
+{
+  "capture_sha256": "b118fb0dfe80bfeeea9c65b99613ef98db92677685f29088e84e9e7bd2b51b08",
+  "reference_sha256": "081b3a0a147412bf05c284ed5a311d8c0aaba9a89dbdc08fec6e3c7dc9188f4b",
+  "cases": [
+    {
+      "case_id": "unclassified-tape",
+      "response_id": "16e81fdf-598f-4be0-a5e3-b154f6247e9c",
+      "trace_id": "tr-642719de3a6d8b5daec80bc0f220c1c5",
+      "actual_status": "answered",
+      "acceptable_status": [
+        "answered",
+        "partial"
+      ],
+      "answerability_pass": true,
+      "required_facts_complete": true,
+      "source_supported": true,
+      "citation_resolution_pass": true,
+      "citation_support_pass": true,
+      "invented_theme_or_connection": false,
+      "reviewer": "Codex source review, with independent Spec agent inspection",
+      "notes": "Both frozen required facts are supported and the category limitation is visible. Event/theme distinctions and Phil first-person wording are preserved.",
+      "reviewed_classification_disclosed": true
+    },
+    {
+      "case_id": "theme-is-not-connection",
+      "response_id": "a0a7cf73-f3e5-44ba-8605-e7f8ff93353e",
+      "trace_id": "tr-9a447c2df321b56dea74d3f4e3d4ada4",
+      "actual_status": "partial",
+      "acceptable_status": [
+        "answered",
+        "partial"
+      ],
+      "answerability_pass": true,
+      "required_facts_complete": true,
+      "source_supported": true,
+      "citation_resolution_pass": true,
+      "citation_support_pass": true,
+      "invented_theme_or_connection": false,
+      "reviewer": "Codex source review, with independent Spec agent inspection",
+      "notes": "Both frozen required facts are supported and the category limitation is visible. Event/theme distinctions and Phil first-person wording are preserved.",
+      "reviewed_classification_disclosed": true
+    },
+    {
+      "case_id": "unsupported-manosphere",
+      "response_id": "45e7563e-e619-4274-939a-ac6401418679",
+      "trace_id": "tr-8b25ba3bb8fba740a62ea4e1e69635cc",
+      "actual_status": "answered",
+      "acceptable_status": [
+        "insufficient_evidence"
+      ],
+      "answerability_pass": false,
+      "required_facts_complete": false,
+      "source_supported": true,
+      "citation_resolution_pass": true,
+      "citation_support_pass": true,
+      "invented_theme_or_connection": false,
+      "reviewer": "Codex source review, with independent Spec agent inspection",
+      "notes": "Failure retained: expected insufficient_evidence, observed answered. Explicit elsewhere-coverage caveat missing. Cited incidental examples are supported; relevance is partial. No claimed manosphere theme or invented connection.",
+      "reviewed_classification_disclosed": true
+    }
+  ],
+  "passing_cases": 2,
+  "failed_cases": 1,
+  "serving_calls": 3,
+  "reported_serving_cost_usd": "0.0124210",
+  "limitation": "Exposed development examples; no human adjudication, held-out or independent canon acceptance. Correct source support and citation support do not compensate for failed answerability or missing qualifiers."
+}

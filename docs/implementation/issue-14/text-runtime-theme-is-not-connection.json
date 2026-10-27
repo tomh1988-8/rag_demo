@@ -1,0 +1,354 @@
+{
+  "response_id": "a0a7cf73-f3e5-44ba-8605-e7f8ff93353e",
+  "question": "Which theme is supported by Eric's treatment of Peggy and Phil, and does that theme connect Peggy and Sharon?",
+  "status": "partial",
+  "answer": "Right, listen. Eric was often violent towards Peggy and me, supporting a domestic abuse theme. The supplied theme classifications name Peggy and me, not Sharon; they don't establish a theme connection between Peggy and Sharon. That connection remains unsupported.\nTheme: domestic abuse. A shared theme establishes neither a shared event nor a character relationship.",
+  "unanswered": [
+    "Whether the domestic abuse theme connects Peggy and Sharon."
+  ],
+  "citations": [
+    {
+      "evidence_id": "peggy-abuse-theme",
+      "text": "Eric took his anger out on Peggy and was often violent towards her and Phil.",
+      "sha256": "ec4788a5d0d20438fa33ecab23c93de25cd5598d30f3efdf09b8057fa5290b44",
+      "start": 34856,
+      "end": 34932,
+      "source": {
+        "title": "Peggy Mitchell",
+        "url": "https://en.wikipedia.org/wiki/Peggy_Mitchell",
+        "revision_id": "1372787814",
+        "revision_url": "https://en.wikipedia.org/w/index.php?oldid=1372787814",
+        "section": "Storylines / Backstory",
+        "captured_at": "2026-10-17T13:07:31.253971Z",
+        "capture_sha256": "d777ce7a2fffc8e7cb1da6ccd3a87aca45590147a348b5ef5eb6361fb685cacb",
+        "scope": "main_series",
+        "license_url": "https://creativecommons.org/licenses/by-sa/4.0/",
+        "attribution": "Wikipedia contributors; markup removed and whitespace normalized.",
+        "coverage": "Reviewed narrative sections in this captured revision only.",
+        "gaps": [
+          "Partial canon coverage; other paragraphs remain excluded or awaiting review.",
+          "Identity and episode metadata do not independently corroborate story claims."
+        ],
+        "support_status": "source_supported"
+      },
+      "location": {
+        "source_id": "peggy-mitchell-wiki",
+        "paragraph_ordinal": 37,
+        "section_id": "Backstory",
+        "character_ids": [
+          "grant-mitchell",
+          "peggy-mitchell",
+          "phil-mitchell"
+        ]
+      },
+      "resolve_path": "/v1/snapshots/life-events-pilot-v1/evidence/peggy-abuse-theme"
+    }
+  ],
+  "snapshot_id": "life-events-pilot-v1",
+  "snapshot_sha256": "8578158630979e5e33bd739570fd42bd02ba6c487872f992d3502f73a83d83df",
+  "source": {
+    "title": "Peggy Mitchell",
+    "url": "https://en.wikipedia.org/wiki/Peggy_Mitchell",
+    "revision_id": "1372787814",
+    "revision_url": "https://en.wikipedia.org/w/index.php?oldid=1372787814",
+    "section": "Storylines / Backstory",
+    "captured_at": "2026-10-17T13:07:31.253971Z",
+    "capture_sha256": "d777ce7a2fffc8e7cb1da6ccd3a87aca45590147a348b5ef5eb6361fb685cacb",
+    "scope": "main_series",
+    "license_url": "https://creativecommons.org/licenses/by-sa/4.0/",
+    "attribution": "Wikipedia contributors; markup removed and whitespace normalized.",
+    "coverage": "Reviewed narrative sections in this captured revision only.",
+    "gaps": [
+      "Partial canon coverage; other paragraphs remain excluded or awaiting review.",
+      "Identity and episode metadata do not independently corroborate story claims."
+    ],
+    "support_status": "source_supported"
+  },
+  "retrieved": [
+    {
+      "passage": {
+        "evidence_id": "peggy-abuse-theme",
+        "text": "Eric took his anger out on Peggy and was often violent towards her and Phil.",
+        "sha256": "ec4788a5d0d20438fa33ecab23c93de25cd5598d30f3efdf09b8057fa5290b44",
+        "start": 34856,
+        "end": 34932,
+        "source": {
+          "title": "Peggy Mitchell",
+          "url": "https://en.wikipedia.org/wiki/Peggy_Mitchell",
+          "revision_id": "1372787814",
+          "revision_url": "https://en.wikipedia.org/w/index.php?oldid=1372787814",
+          "section": "Storylines / Backstory",
+          "captured_at": "2026-10-17T13:07:31.253971Z",
+          "capture_sha256": "d777ce7a2fffc8e7cb1da6ccd3a87aca45590147a348b5ef5eb6361fb685cacb",
+          "scope": "main_series",
+          "license_url": "https://creativecommons.org/licenses/by-sa/4.0/",
+          "attribution": "Wikipedia contributors; markup removed and whitespace normalized.",
+          "coverage": "Reviewed narrative sections in this captured revision only.",
+          "gaps": [
+            "Partial canon coverage; other paragraphs remain excluded or awaiting review.",
+            "Identity and episode metadata do not independently corroborate story claims."
+          ],
+          "support_status": "source_supported"
+        },
+        "location": {
+          "source_id": "peggy-mitchell-wiki",
+          "paragraph_ordinal": 37,
+          "section_id": "Backstory",
+          "character_ids": [
+            "grant-mitchell",
+            "peggy-mitchell",
+            "phil-mitchell"
+          ]
+        }
+      },
+      "similarity": 0.535685181617752
+    },
+    {
+      "passage": {
+        "evidence_id": "peggy-pregnancy",
+        "text": "Peggy married Eric Mitchell (George Russo) because she was pregnant with their son Phil (Steve McFadden).",
+        "sha256": "601d2f2332aa61ff7cecd296e9d2b4be8b78207a8a739e7354b2105847f531f2",
+        "start": 34316,
+        "end": 34421,
+        "source": {
+          "title": "Peggy Mitchell",
+          "url": "https://en.wikipedia.org/wiki/Peggy_Mitchell",
+          "revision_id": "1372787814",
+          "revision_url": "https://en.wikipedia.org/w/index.php?oldid=1372787814",
+          "section": "Storylines / Backstory",
+          "captured_at": "2026-10-17T13:07:31.253971Z",
+          "capture_sha256": "d777ce7a2fffc8e7cb1da6ccd3a87aca45590147a348b5ef5eb6361fb685cacb",
+          "scope": "main_series",
+          "license_url": "https://creativecommons.org/licenses/by-sa/4.0/",
+          "attribution": "Wikipedia contributors; markup removed and whitespace normalized.",
+          "coverage": "Reviewed narrative sections in this captured revision only.",
+          "gaps": [
+            "Partial canon coverage; other paragraphs remain excluded or awaiting review.",
+            "Identity and episode metadata do not independently corroborate story claims."
+          ],
+          "support_status": "source_supported"
+        },
+        "location": {
+          "source_id": "peggy-mitchell-wiki",
+          "paragraph_ordinal": 37,
+          "section_id": "Backstory",
+          "character_ids": [
+            "grant-mitchell",
+            "peggy-mitchell",
+            "phil-mitchell"
+          ]
+        }
+      },
+      "similarity": 0.4741768929325758
+    },
+    {
+      "passage": {
+        "evidence_id": "peggy-death",
+        "text": "Peggy begins hallucinating the smell of cigarette smoke; this eventually manifests into a vision of Pat. As the two reminisce about past memories, Peggy states she still wants to die now before the cancer gets worse and to be remembered as a strong woman. Upon being reassured by Pat that she will not leave her side, Peggy then commits suicide by taking an overdose of her pills. Phil is devastated to find her body, and a letter from her urges him to love himself as others love him. Peggy's funeral takes place on 4 July 2016.",
+        "sha256": "f40c1040ebdd05512023c580873390dab95e17cb5ab09b07be5c475787b7378f",
+        "start": 47293,
+        "end": 47822,
+        "source": {
+          "title": "Peggy Mitchell",
+          "url": "https://en.wikipedia.org/wiki/Peggy_Mitchell",
+          "revision_id": "1372787814",
+          "revision_url": "https://en.wikipedia.org/w/index.php?oldid=1372787814",
+          "section": "Storylines / 2013\u20132016",
+          "captured_at": "2026-10-17T13:07:31.253971Z",
+          "capture_sha256": "d777ce7a2fffc8e7cb1da6ccd3a87aca45590147a348b5ef5eb6361fb685cacb",
+          "scope": "main_series",
+          "license_url": "https://creativecommons.org/licenses/by-sa/4.0/",
+          "attribution": "Wikipedia contributors; markup removed and whitespace normalized.",
+          "coverage": "Reviewed narrative sections in this captured revision only.",
+          "gaps": [
+            "Partial canon coverage; other paragraphs remain excluded or awaiting review.",
+            "Identity and episode metadata do not independently corroborate story claims."
+          ],
+          "support_status": "source_supported"
+        },
+        "location": {
+          "source_id": "peggy-mitchell-wiki",
+          "paragraph_ordinal": 48,
+          "section_id": "2013\u20132016",
+          "character_ids": [
+            "peggy-mitchell"
+          ]
+        }
+      },
+      "similarity": 0.4159893269542151
+    }
+  ],
+  "context": [
+    {
+      "evidence_id": "peggy-abuse-theme",
+      "text": "Eric took his anger out on Peggy and was often violent towards her and Phil.",
+      "sha256": "ec4788a5d0d20438fa33ecab23c93de25cd5598d30f3efdf09b8057fa5290b44",
+      "start": 34856,
+      "end": 34932,
+      "source": {
+        "title": "Peggy Mitchell",
+        "url": "https://en.wikipedia.org/wiki/Peggy_Mitchell",
+        "revision_id": "1372787814",
+        "revision_url": "https://en.wikipedia.org/w/index.php?oldid=1372787814",
+        "section": "Storylines / Backstory",
+        "captured_at": "2026-10-17T13:07:31.253971Z",
+        "capture_sha256": "d777ce7a2fffc8e7cb1da6ccd3a87aca45590147a348b5ef5eb6361fb685cacb",
+        "scope": "main_series",
+        "license_url": "https://creativecommons.org/licenses/by-sa/4.0/",
+        "attribution": "Wikipedia contributors; markup removed and whitespace normalized.",
+        "coverage": "Reviewed narrative sections in this captured revision only.",
+        "gaps": [
+          "Partial canon coverage; other paragraphs remain excluded or awaiting review.",
+          "Identity and episode metadata do not independently corroborate story claims."
+        ],
+        "support_status": "source_supported"
+      },
+      "location": {
+        "source_id": "peggy-mitchell-wiki",
+        "paragraph_ordinal": 37,
+        "section_id": "Backstory",
+        "character_ids": [
+          "grant-mitchell",
+          "peggy-mitchell",
+          "phil-mitchell"
+        ]
+      }
+    },
+    {
+      "evidence_id": "peggy-pregnancy",
+      "text": "Peggy married Eric Mitchell (George Russo) because she was pregnant with their son Phil (Steve McFadden).",
+      "sha256": "601d2f2332aa61ff7cecd296e9d2b4be8b78207a8a739e7354b2105847f531f2",
+      "start": 34316,
+      "end": 34421,
+      "source": {
+        "title": "Peggy Mitchell",
+        "url": "https://en.wikipedia.org/wiki/Peggy_Mitchell",
+        "revision_id": "1372787814",
+        "revision_url": "https://en.wikipedia.org/w/index.php?oldid=1372787814",
+        "section": "Storylines / Backstory",
+        "captured_at": "2026-10-17T13:07:31.253971Z",
+        "capture_sha256": "d777ce7a2fffc8e7cb1da6ccd3a87aca45590147a348b5ef5eb6361fb685cacb",
+        "scope": "main_series",
+        "license_url": "https://creativecommons.org/licenses/by-sa/4.0/",
+        "attribution": "Wikipedia contributors; markup removed and whitespace normalized.",
+        "coverage": "Reviewed narrative sections in this captured revision only.",
+        "gaps": [
+          "Partial canon coverage; other paragraphs remain excluded or awaiting review.",
+          "Identity and episode metadata do not independently corroborate story claims."
+        ],
+        "support_status": "source_supported"
+      },
+      "location": {
+        "source_id": "peggy-mitchell-wiki",
+        "paragraph_ordinal": 37,
+        "section_id": "Backstory",
+        "character_ids": [
+          "grant-mitchell",
+          "peggy-mitchell",
+          "phil-mitchell"
+        ]
+      }
+    }
+  ],
+  "context_claims": [
+    {
+      "claim_id": "c6",
+      "kind": "theme",
+      "character_ids": [
+        "peggy-mitchell",
+        "phil-mitchell"
+      ],
+      "theme": "domestic_abuse",
+      "classification_gap": null,
+      "evidence": [
+        {
+          "evidence_id": "peggy-abuse-theme",
+          "start": 0,
+          "end": 76,
+          "quote": "Eric took his anger out on Peggy and was often violent towards her and Phil."
+        }
+      ]
+    },
+    {
+      "claim_id": "reviewed-peggy-abuse-theme",
+      "kind": "theme",
+      "character_ids": [
+        "peggy-mitchell",
+        "phil-mitchell"
+      ],
+      "theme": "domestic_abuse",
+      "classification_gap": null,
+      "evidence": [
+        {
+          "evidence_id": "peggy-abuse-theme",
+          "start": 0,
+          "end": 76,
+          "quote": "Eric took his anger out on Peggy and was often violent towards her and Phil."
+        }
+      ]
+    }
+  ],
+  "retrieval_k": 3,
+  "route": "text_rag",
+  "baseline_version": "single-query-uncached-v2",
+  "model_settings": {
+    "embedding_model": "embeddinggemma:300m",
+    "embedding_digest": "85462619ee721b466c5927d109d4cb765861907d5417b9109caebc4e614679f1",
+    "embedding_dimensions": 768,
+    "provider_type": "openrouter",
+    "answer_model": "openai/gpt-6-sol",
+    "canonical_slug": "openai/gpt-6-sol-20260922",
+    "provider": "openai",
+    "input_price_per_million": "2",
+    "output_price_per_million": "10",
+    "output_tokens": 8192,
+    "reasoning_effort": "medium",
+    "request_timeout_seconds": 180
+  },
+  "prompt_sha256": "55eaebf2442099435efad95f9aab668aa410e0ede1ad5b8ad3129665eee3f936",
+  "application_sha256": "f1c4c5b10cfe14bcec0322016328007ee314d4f681164209edf4052bd27eb49b",
+  "trace_id": "tr-9a447c2df321b56dea74d3f4e3d4ada4",
+  "execution": {
+    "limits": {
+      "model_calls": 2,
+      "tool_calls": 1,
+      "http_calls": 8,
+      "seconds": 180.0,
+      "context_bytes": 1200,
+      "spend_usd": "0.15",
+      "retries": 0,
+      "capabilities": [
+        "text_retrieval",
+        "family_graph",
+        "event_graph"
+      ],
+      "concurrency": 4
+    },
+    "model_calls": 2,
+    "tool_calls": 1,
+    "http_calls": 5,
+    "reserved_usd": "0.0024125",
+    "stop_reason": null
+  },
+  "elapsed_ms": 4459.361273002287,
+  "usage": {
+    "input_tokens": 1278,
+    "output_tokens": 168,
+    "embedding_tokens": 32
+  },
+  "expenditure_category": "serving",
+  "estimated_api_cost_usd": 0.0024125,
+  "provider_usage": {
+    "reservation_id": "f8226229c6984286b96669f8f1b5b9c6",
+    "reserved_usd": 0.104818,
+    "cost_usd": 0.0024125,
+    "request_id": "gen-1793119078-bfQ50nBJH3XqLEAlaf1P",
+    "returned_model": "openai/gpt-6-sol",
+    "provider": "OpenAI",
+    "input_tokens": 1278,
+    "output_tokens": 168,
+    "reasoning_tokens": 76
+  },
+  "cost_scope": "OpenRouter reported inference credits only. Null means unknown cost; the local budget retains a reservation. Credit purchase fees, tax, local embeddings and hosting are excluded.",
+  "limitation": "Source-supported is not independently cross-checked. Coverage is limited to the captured snapshot; this provider baseline is not deployment approval."
+}

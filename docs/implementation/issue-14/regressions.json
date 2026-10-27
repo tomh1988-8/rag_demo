@@ -1,0 +1,69 @@
+{
+  "code_revision": "ef77ce8a56ccba2404bfe95d5e44c04193fd9796",
+  "cases": [
+    {
+      "id": "life-locators",
+      "kind": "model_extraction",
+      "capture": "extraction-pilot.json",
+      "claims": [
+        "c2",
+        "c4"
+      ],
+      "failure": "Malformed source offsets",
+      "disposition": "Raw candidates retained and held; explicit reviewed assertions serve separately."
+    },
+    {
+      "id": "life-full-span-grounding",
+      "kind": "strict_grounding_proxy",
+      "capture": "extraction-pilot.json",
+      "result": "0/5 event candidates cover the frozen full supporting spans. Three shorter quotes are source-supported after manual review.",
+      "disposition": "Retain metric failure independently of source support."
+    },
+    {
+      "id": "life-time-wording",
+      "kind": "exact_value_metric",
+      "capture": "extraction-pilot.json",
+      "claims": [
+        "c2"
+      ],
+      "failure": "On Christmas Day 2005 differs literally from Christmas Day 2005. Both denote the same supported story date.",
+      "disposition": "Keep original labels and raw score; do not call this an invented date."
+    },
+    {
+      "id": "unclassified-subject-completeness",
+      "kind": "model_extraction",
+      "capture": "extraction-pilot.json",
+      "claims": [
+        "c7"
+      ],
+      "failure": "Supported text subject subset omits Kathy from the full frozen reference.",
+      "disposition": "Retain 0/1 exact unclassified value score; source-supported subset remains text-only."
+    },
+    {
+      "id": "raw-graph-missing-events",
+      "kind": "end_to_end",
+      "capture": "runtime-initial.json",
+      "failure": "Raw holds remove the Christmas pregnancy and Peggy death from the raw-only graph.",
+      "disposition": "Raw missing results retained; reviewed graph capability evaluated separately."
+    },
+    {
+      "id": "unsupported-manosphere-status",
+      "kind": "text_answerability",
+      "capture": "text-runtime.json",
+      "trace_id": "tr-8b25ba3bb8fba740a62ea4e1e69635cc",
+      "failure": "answered instead of frozen insufficient_evidence; missing explicit elsewhere-coverage caveat.",
+      "disposition": "Retain failed case and partial relevance; factual/citation support still passes. Broader release obligations remain Pending."
+    }
+  ],
+  "software_regressions": [
+    "Life event roles and legal-stage separation",
+    "Unknown death timing despite funeral date",
+    "Pregnancy without unmentioned parentage",
+    "Themes, hallucinations and co-appearance do not supply graph adjacency",
+    "Unclassified facts remain retrievable and answerable in text",
+    "Source-bound classification annotations count toward context budget",
+    "Legacy API audit JSON preserves its published schema"
+  ],
+  "automatic_extraction_quality_pass": false,
+  "broad_release_pass": false
+}

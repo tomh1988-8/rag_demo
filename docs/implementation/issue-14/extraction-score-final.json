@@ -1,0 +1,154 @@
+{
+  "code_revision": "ef77ce8a56ccba2404bfe95d5e44c04193fd9796",
+  "application_sha256": "f1c4c5b10cfe14bcec0322016328007ee314d4f681164209edf4052bd27eb49b",
+  "raw_capture_sha256": "5f9872f38d563bfe1fdd098cbc95ca0d951bd9fa23fed62ad7d773e772fa5f78",
+  "reference_sha256": "10eb79db7ea4a6916113506a0d84c6b274dc07cc15e6d528b53f2f621659c3b0",
+  "raw_unchanged": true,
+  "score": {
+    "schema_valid": true,
+    "expected": 5,
+    "predicted": 5,
+    "duplicates": 0,
+    "true_positive": 4,
+    "resolvable_spans": 3,
+    "grounded": 0,
+    "precision": 0.8,
+    "recall": 0.8,
+    "f1": 0.8000000000000002,
+    "scope": "Exposed selected incidents and in-catalogue assertions only. Exact values include participant-role assignment, event type, basis, account status, polarity, certainty, story time/precision and evidence IDs. Ignore arbitrary claim/event ID spelling and label wording; incident grouping requires separate support review. Full-value duplicates collapse. Each dimension projects unique full assertions onto values plus passage IDs and event type, preserving multiplicity: identity sets, role multisets, assigned identity-role pairs (direction), polarity, timing, or account attribution. These are diagnostics, not independent per-claim accuracies. Grounding separately requires exact resolvable locators covering frozen supporting spans; it is not canon adjudication. Text classifications are scored separately by kind, character subjects, theme and passage IDs; classification-gap wording is source-reviewed rather than exact-matched. A text classification never counts as an event or connection.",
+    "dimensions": {
+      "identity": {
+        "expected": 5,
+        "predicted": 5,
+        "true_positive": 5,
+        "precision": 1.0,
+        "recall": 1.0,
+        "f1": 1.0
+      },
+      "role": {
+        "expected": 5,
+        "predicted": 5,
+        "true_positive": 5,
+        "precision": 1.0,
+        "recall": 1.0,
+        "f1": 1.0
+      },
+      "direction": {
+        "expected": 5,
+        "predicted": 5,
+        "true_positive": 5,
+        "precision": 1.0,
+        "recall": 1.0,
+        "f1": 1.0
+      },
+      "negation": {
+        "expected": 5,
+        "predicted": 5,
+        "true_positive": 5,
+        "precision": 1.0,
+        "recall": 1.0,
+        "f1": 1.0
+      },
+      "timing": {
+        "expected": 5,
+        "predicted": 5,
+        "true_positive": 4,
+        "precision": 0.8,
+        "recall": 0.8,
+        "f1": 0.8000000000000002
+      },
+      "account": {
+        "expected": 5,
+        "predicted": 5,
+        "true_positive": 5,
+        "precision": 1.0,
+        "recall": 1.0,
+        "f1": 1.0
+      }
+    },
+    "by_event_type": {
+      "death": {
+        "schema_valid": true,
+        "expected": 2,
+        "predicted": 2,
+        "duplicates": 0,
+        "true_positive": 2,
+        "resolvable_spans": 1,
+        "grounded": 0,
+        "precision": 1.0,
+        "recall": 1.0,
+        "f1": 1.0,
+        "scope": "Exact normalized values within each completely annotated selected input passage. Instances match on values and sorted unique passage IDs, independently of quote offsets. Claim IDs are ignored; semantic duplicates within a passage collapse and are counted. Grounding additionally requires the entire independently reviewed supporting span. These exposed development scores are not held-out or broad-corpus quality."
+      },
+      "pregnancy": {
+        "schema_valid": true,
+        "expected": 3,
+        "predicted": 3,
+        "duplicates": 0,
+        "true_positive": 2,
+        "resolvable_spans": 2,
+        "grounded": 0,
+        "precision": 0.6666666666666666,
+        "recall": 0.6666666666666666,
+        "f1": 0.6666666666666666,
+        "scope": "Exact normalized values within each completely annotated selected input passage. Instances match on values and sorted unique passage IDs, independently of quote offsets. Claim IDs are ignored; semantic duplicates within a passage collapse and are counted. Grounding additionally requires the entire independently reviewed supporting span. These exposed development scores are not held-out or broad-corpus quality."
+      }
+    },
+    "context_score": {
+      "schema_valid": true,
+      "expected": 2,
+      "predicted": 2,
+      "duplicates": 0,
+      "true_positive": 1,
+      "resolvable_spans": 2,
+      "grounded": 1,
+      "precision": 0.5,
+      "recall": 0.5,
+      "f1": 0.5,
+      "scope": "Exact normalized values within each completely annotated selected input passage. Instances match on values and sorted unique passage IDs, independently of quote offsets. Claim IDs are ignored; semantic duplicates within a passage collapse and are counted. Grounding additionally requires the entire independently reviewed supporting span. These exposed development scores are not held-out or broad-corpus quality."
+    },
+    "by_theme": {
+      "domestic_abuse": {
+        "schema_valid": true,
+        "expected": 1,
+        "predicted": 1,
+        "duplicates": 0,
+        "true_positive": 1,
+        "resolvable_spans": 1,
+        "grounded": 1,
+        "precision": 1.0,
+        "recall": 1.0,
+        "f1": 1.0,
+        "scope": "Exact normalized values within each completely annotated selected input passage. Instances match on values and sorted unique passage IDs, independently of quote offsets. Claim IDs are ignored; semantic duplicates within a passage collapse and are counted. Grounding additionally requires the entire independently reviewed supporting span. These exposed development scores are not held-out or broad-corpus quality."
+      }
+    },
+    "by_classification": {
+      "theme": {
+        "schema_valid": true,
+        "expected": 1,
+        "predicted": 1,
+        "duplicates": 0,
+        "true_positive": 1,
+        "resolvable_spans": 1,
+        "grounded": 1,
+        "precision": 1.0,
+        "recall": 1.0,
+        "f1": 1.0,
+        "scope": "Exact normalized values within each completely annotated selected input passage. Instances match on values and sorted unique passage IDs, independently of quote offsets. Claim IDs are ignored; semantic duplicates within a passage collapse and are counted. Grounding additionally requires the entire independently reviewed supporting span. These exposed development scores are not held-out or broad-corpus quality."
+      },
+      "unclassified": {
+        "schema_valid": true,
+        "expected": 1,
+        "predicted": 1,
+        "duplicates": 0,
+        "true_positive": 0,
+        "resolvable_spans": 1,
+        "grounded": 0,
+        "precision": 0.0,
+        "recall": 0.0,
+        "f1": 0.0,
+        "scope": "Exact normalized values within each completely annotated selected input passage. Instances match on values and sorted unique passage IDs, independently of quote offsets. Claim IDs are ignored; semantic duplicates within a passage collapse and are counted. Grounding additionally requires the entire independently reviewed supporting span. These exposed development scores are not held-out or broad-corpus quality."
+      }
+    }
+  }
+}

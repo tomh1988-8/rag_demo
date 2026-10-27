@@ -67,20 +67,34 @@ stays in the audit and shares prose. This is curated capability, not successful
 automatic extraction, a held-out comparison, human adjudication, or independent
 canon corroboration.
 
-The extraction cost **$0.0352235**. After extraction, the non-resetting shared $5
-ledger is **$0.452559**, with zero unsettled reservations. Serving text charges
-are recorded separately by the text capture. Graph answers require no inference.
-Database and hosting costs are excluded.
+The extraction cost **$0.0352235** and three serving calls cost **$0.0124210**:
+**$0.0476445** in reported inference cost for this issue. The non-resetting shared
+$5 ledger is **$0.464981**, with zero unsettled reservations; per-call upward
+rounding accounts for the slightly larger ledger delta. Graph answers require no
+inference. Database and hosting costs are excluded.
 
 ## Validation and retained failures
 
-[The initial graph capture](runtime-initial.json) records thirty actual API,
-CLI and session outcomes for the raw and reviewed projections, with exact
+[The final graph capture](runtime-final.json) at `ef77ce8` records thirty actual
+API, CLI and session outcomes for the raw and reviewed projections, with exact
 MLflow output readback, citation resolution, saved-response restart and reset
 checks. The raw phase exposes missing pregnancy/death coverage after its holds;
 the curated phase supplies all five reviewed events. Theme/unclassified queries,
 unmentioned parentage, hallucinations, co-appearance and unknown identities all
-retain limited outcomes.
+retain limited outcomes. The [initial capture](runtime-initial.json) and
+[unchanged-output rescore](extraction-score-final.json) remain inspectable.
+
+[Three actual text responses](text-runtime.json) use pinned local embeddings,
+PostgreSQL retrieval and capped OpenRouter generation through the public HTTP API.
+Their saved responses, citations and actual MLflow root outputs match. The
+[source-based quality review](text-quality.json) passes the tape revelation and
+domestic-abuse cases: the unclassified fact stays available with a visible gap,
+and the theme does not establish a connection. The unsupported-manosphere case
+fails its frozen answerability expectation (`answered` instead of
+`insufficient_evidence`) and omits the explicit caveat about coverage elsewhere.
+Its incidental examples and citations are supported; it invents no theme or
+connection. This remains one failed text case, separately from trace integrity.
+[Regressions](regressions.json) retain it alongside all extraction failures.
 
 Focused red/green tests cover admission, PostgreSQL projections and retrieval,
 API/CLI answers, context sizing, extraction and metric distinctions. A controlled
@@ -94,6 +108,15 @@ The strict output contract follows the provider requirement that every property
 be required in the outbound schema, while legacy retained batches can omit the
 new empty list. [OpenAI Structured Outputs](https://developers.openai.com/api/docs/guides/structured-outputs#all-fields-must-be-required).
 
-Final text capture, independent reviews and the complete software run are recorded
-before publication. RAG-04, EXT-04 and wider release obligations remain Pending;
-scoped evidence does not change their broader acceptance requirements.
+[Independent Standards and Spec reviews](review.md) found zero implementation
+issues. A further read-only evidence audit matched all thirty graph responses and
+all three text responses to actual MLflow records, and verified the reviewed
+claims, roles, timing, citations and retained failures. The final full-suite
+run passes **414 tests**, with zero failures, errors or skips. Strict mypy passes
+across 99 files; Ruff lint and formatting pass. [Validation](validation.json)
+binds the [software report](software-tests.xml), final captures and source
+fingerprint to `ef77ce8`. Sixteen warnings concern the existing Starlette/httpx
+deprecation and pytest's `record_property`/xunit2 compatibility. All 34 original
+data files, 51 pre-existing workspace files and seven frozen pilot files remain
+unchanged. RAG-04, EXT-04 and wider release obligations remain Pending; scoped
+evidence does not change their broader requirements.

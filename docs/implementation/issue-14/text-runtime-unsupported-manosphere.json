@@ -1,0 +1,386 @@
+{
+  "response_id": "45e7563e-e619-4274-939a-ac6401418679",
+  "question": "Do the captured passages establish a manosphere theme involving these characters?",
+  "status": "answered",
+  "answer": "Right, listen. The captured passages don\u2019t establish a manosphere theme. One describes Grant playing a tape about Sharon\u2019s affair with me; its reviewed claims are unclassified, with no theme assigned. The other says Sharon was pregnant and unsure whether I or Keanu was the father. That doesn\u2019t establish a theme either.\nClassification gap: No checked category covers Grant's public playing of a tape about Sharon's affair with Phil. This fact remains text-only.\nClassification gap: Public revelation of an affair has no checked event category in this graph. This fact remains text-only.",
+  "citations": [
+    {
+      "evidence_id": "tape-revelation",
+      "text": "Sharon and Grant patch up their relationship; however, in the autumn of 1994, Grant discovers a tape on which Sharon talks about her affair with Phil, and plays it to a packed pub at Phil's engagement party to his fianc\u00e9e, Kathy Beale (Gillian Taylforth).",
+      "sha256": "e63beb685636d1dda9e77057095a4437788895b5bfe489c5e0e0ba3f2a2b21d4",
+      "start": 22406,
+      "end": 22661,
+      "source": {
+        "title": "Grant Mitchell",
+        "url": "https://en.wikipedia.org/wiki/Grant_Mitchell_(EastEnders)",
+        "revision_id": "1370914760",
+        "revision_url": "https://en.wikipedia.org/w/index.php?oldid=1370914760",
+        "section": "Storylines / 1990\u20131999",
+        "captured_at": "2026-10-17T13:08:22.582778Z",
+        "capture_sha256": "2548b2c8780b1bda430939378a28ab3b7f98eca424480b7cccfaf2eb76f42ebf",
+        "scope": "main_series",
+        "license_url": "https://creativecommons.org/licenses/by-sa/4.0/",
+        "attribution": "Wikipedia contributors; markup removed and whitespace normalized.",
+        "coverage": "Reviewed narrative sections in this captured revision only.",
+        "gaps": [
+          "Partial canon coverage; other paragraphs remain excluded or awaiting review.",
+          "Identity and episode metadata do not independently corroborate story claims."
+        ],
+        "support_status": "source_supported"
+      },
+      "location": {
+        "source_id": "grant-mitchell-wiki",
+        "paragraph_ordinal": 24,
+        "section_id": "1990\u20131999",
+        "character_ids": [
+          "grant-mitchell",
+          "kathy-beale"
+        ]
+      },
+      "resolve_path": "/v1/snapshots/life-events-pilot-v1/evidence/tape-revelation"
+    },
+    {
+      "evidence_id": "sharon-uncertain-paternity",
+      "text": "However, Sharon also discovers she is pregnant but does not know if Phil or Keanu is the father. She settles on having an abortion, but Phil discovers she's pregnant, and Sharon lies letting Phil believe he is the father.",
+      "sha256": "58a54d25d3179499cff866bbaef27ced938997fcd7ac9139d4ac6a29cc68a15e",
+      "start": 77363,
+      "end": 77584,
+      "source": {
+        "title": "Sharon Watts",
+        "url": "https://en.wikipedia.org/wiki/Sharon_Watts",
+        "revision_id": "1372798905",
+        "revision_url": "https://en.wikipedia.org/w/index.php?oldid=1372798905",
+        "section": "Storylines / 2012\u2013present",
+        "captured_at": "2026-10-17T13:07:31.327518Z",
+        "capture_sha256": "9ccef3de99353ff737101d9d00561c217608dd4fa6fba0c8200f80ac0114ea85",
+        "scope": "main_series",
+        "license_url": "https://creativecommons.org/licenses/by-sa/4.0/",
+        "attribution": "Wikipedia contributors; markup removed and whitespace normalized.",
+        "coverage": "Reviewed narrative sections in this captured revision only.",
+        "gaps": [
+          "Partial canon coverage; other paragraphs remain excluded or awaiting review.",
+          "Identity and episode metadata do not independently corroborate story claims."
+        ],
+        "support_status": "source_supported"
+      },
+      "location": {
+        "source_id": "sharon-watts-wiki",
+        "paragraph_ordinal": 75,
+        "section_id": "2012\u2013present",
+        "character_ids": [
+          "martin-fowler",
+          "sharon-watts"
+        ]
+      },
+      "resolve_path": "/v1/snapshots/life-events-pilot-v1/evidence/sharon-uncertain-paternity"
+    }
+  ],
+  "snapshot_id": "life-events-pilot-v1",
+  "snapshot_sha256": "8578158630979e5e33bd739570fd42bd02ba6c487872f992d3502f73a83d83df",
+  "source": {
+    "title": "Peggy Mitchell",
+    "url": "https://en.wikipedia.org/wiki/Peggy_Mitchell",
+    "revision_id": "1372787814",
+    "revision_url": "https://en.wikipedia.org/w/index.php?oldid=1372787814",
+    "section": "Storylines / Backstory",
+    "captured_at": "2026-10-17T13:07:31.253971Z",
+    "capture_sha256": "d777ce7a2fffc8e7cb1da6ccd3a87aca45590147a348b5ef5eb6361fb685cacb",
+    "scope": "main_series",
+    "license_url": "https://creativecommons.org/licenses/by-sa/4.0/",
+    "attribution": "Wikipedia contributors; markup removed and whitespace normalized.",
+    "coverage": "Reviewed narrative sections in this captured revision only.",
+    "gaps": [
+      "Partial canon coverage; other paragraphs remain excluded or awaiting review.",
+      "Identity and episode metadata do not independently corroborate story claims."
+    ],
+    "support_status": "source_supported"
+  },
+  "retrieved": [
+    {
+      "passage": {
+        "evidence_id": "tape-revelation",
+        "text": "Sharon and Grant patch up their relationship; however, in the autumn of 1994, Grant discovers a tape on which Sharon talks about her affair with Phil, and plays it to a packed pub at Phil's engagement party to his fianc\u00e9e, Kathy Beale (Gillian Taylforth).",
+        "sha256": "e63beb685636d1dda9e77057095a4437788895b5bfe489c5e0e0ba3f2a2b21d4",
+        "start": 22406,
+        "end": 22661,
+        "source": {
+          "title": "Grant Mitchell",
+          "url": "https://en.wikipedia.org/wiki/Grant_Mitchell_(EastEnders)",
+          "revision_id": "1370914760",
+          "revision_url": "https://en.wikipedia.org/w/index.php?oldid=1370914760",
+          "section": "Storylines / 1990\u20131999",
+          "captured_at": "2026-10-17T13:08:22.582778Z",
+          "capture_sha256": "2548b2c8780b1bda430939378a28ab3b7f98eca424480b7cccfaf2eb76f42ebf",
+          "scope": "main_series",
+          "license_url": "https://creativecommons.org/licenses/by-sa/4.0/",
+          "attribution": "Wikipedia contributors; markup removed and whitespace normalized.",
+          "coverage": "Reviewed narrative sections in this captured revision only.",
+          "gaps": [
+            "Partial canon coverage; other paragraphs remain excluded or awaiting review.",
+            "Identity and episode metadata do not independently corroborate story claims."
+          ],
+          "support_status": "source_supported"
+        },
+        "location": {
+          "source_id": "grant-mitchell-wiki",
+          "paragraph_ordinal": 24,
+          "section_id": "1990\u20131999",
+          "character_ids": [
+            "grant-mitchell",
+            "kathy-beale"
+          ]
+        }
+      },
+      "similarity": 0.23208962167378389
+    },
+    {
+      "passage": {
+        "evidence_id": "peggy-abuse-theme",
+        "text": "Eric took his anger out on Peggy and was often violent towards her and Phil.",
+        "sha256": "ec4788a5d0d20438fa33ecab23c93de25cd5598d30f3efdf09b8057fa5290b44",
+        "start": 34856,
+        "end": 34932,
+        "source": {
+          "title": "Peggy Mitchell",
+          "url": "https://en.wikipedia.org/wiki/Peggy_Mitchell",
+          "revision_id": "1372787814",
+          "revision_url": "https://en.wikipedia.org/w/index.php?oldid=1372787814",
+          "section": "Storylines / Backstory",
+          "captured_at": "2026-10-17T13:07:31.253971Z",
+          "capture_sha256": "d777ce7a2fffc8e7cb1da6ccd3a87aca45590147a348b5ef5eb6361fb685cacb",
+          "scope": "main_series",
+          "license_url": "https://creativecommons.org/licenses/by-sa/4.0/",
+          "attribution": "Wikipedia contributors; markup removed and whitespace normalized.",
+          "coverage": "Reviewed narrative sections in this captured revision only.",
+          "gaps": [
+            "Partial canon coverage; other paragraphs remain excluded or awaiting review.",
+            "Identity and episode metadata do not independently corroborate story claims."
+          ],
+          "support_status": "source_supported"
+        },
+        "location": {
+          "source_id": "peggy-mitchell-wiki",
+          "paragraph_ordinal": 37,
+          "section_id": "Backstory",
+          "character_ids": [
+            "grant-mitchell",
+            "peggy-mitchell",
+            "phil-mitchell"
+          ]
+        }
+      },
+      "similarity": 0.18533341201147202
+    },
+    {
+      "passage": {
+        "evidence_id": "sharon-uncertain-paternity",
+        "text": "However, Sharon also discovers she is pregnant but does not know if Phil or Keanu is the father. She settles on having an abortion, but Phil discovers she's pregnant, and Sharon lies letting Phil believe he is the father.",
+        "sha256": "58a54d25d3179499cff866bbaef27ced938997fcd7ac9139d4ac6a29cc68a15e",
+        "start": 77363,
+        "end": 77584,
+        "source": {
+          "title": "Sharon Watts",
+          "url": "https://en.wikipedia.org/wiki/Sharon_Watts",
+          "revision_id": "1372798905",
+          "revision_url": "https://en.wikipedia.org/w/index.php?oldid=1372798905",
+          "section": "Storylines / 2012\u2013present",
+          "captured_at": "2026-10-17T13:07:31.327518Z",
+          "capture_sha256": "9ccef3de99353ff737101d9d00561c217608dd4fa6fba0c8200f80ac0114ea85",
+          "scope": "main_series",
+          "license_url": "https://creativecommons.org/licenses/by-sa/4.0/",
+          "attribution": "Wikipedia contributors; markup removed and whitespace normalized.",
+          "coverage": "Reviewed narrative sections in this captured revision only.",
+          "gaps": [
+            "Partial canon coverage; other paragraphs remain excluded or awaiting review.",
+            "Identity and episode metadata do not independently corroborate story claims."
+          ],
+          "support_status": "source_supported"
+        },
+        "location": {
+          "source_id": "sharon-watts-wiki",
+          "paragraph_ordinal": 75,
+          "section_id": "2012\u2013present",
+          "character_ids": [
+            "martin-fowler",
+            "sharon-watts"
+          ]
+        }
+      },
+      "similarity": 0.17527237534523132
+    }
+  ],
+  "context": [
+    {
+      "evidence_id": "tape-revelation",
+      "text": "Sharon and Grant patch up their relationship; however, in the autumn of 1994, Grant discovers a tape on which Sharon talks about her affair with Phil, and plays it to a packed pub at Phil's engagement party to his fianc\u00e9e, Kathy Beale (Gillian Taylforth).",
+      "sha256": "e63beb685636d1dda9e77057095a4437788895b5bfe489c5e0e0ba3f2a2b21d4",
+      "start": 22406,
+      "end": 22661,
+      "source": {
+        "title": "Grant Mitchell",
+        "url": "https://en.wikipedia.org/wiki/Grant_Mitchell_(EastEnders)",
+        "revision_id": "1370914760",
+        "revision_url": "https://en.wikipedia.org/w/index.php?oldid=1370914760",
+        "section": "Storylines / 1990\u20131999",
+        "captured_at": "2026-10-17T13:08:22.582778Z",
+        "capture_sha256": "2548b2c8780b1bda430939378a28ab3b7f98eca424480b7cccfaf2eb76f42ebf",
+        "scope": "main_series",
+        "license_url": "https://creativecommons.org/licenses/by-sa/4.0/",
+        "attribution": "Wikipedia contributors; markup removed and whitespace normalized.",
+        "coverage": "Reviewed narrative sections in this captured revision only.",
+        "gaps": [
+          "Partial canon coverage; other paragraphs remain excluded or awaiting review.",
+          "Identity and episode metadata do not independently corroborate story claims."
+        ],
+        "support_status": "source_supported"
+      },
+      "location": {
+        "source_id": "grant-mitchell-wiki",
+        "paragraph_ordinal": 24,
+        "section_id": "1990\u20131999",
+        "character_ids": [
+          "grant-mitchell",
+          "kathy-beale"
+        ]
+      }
+    },
+    {
+      "evidence_id": "sharon-uncertain-paternity",
+      "text": "However, Sharon also discovers she is pregnant but does not know if Phil or Keanu is the father. She settles on having an abortion, but Phil discovers she's pregnant, and Sharon lies letting Phil believe he is the father.",
+      "sha256": "58a54d25d3179499cff866bbaef27ced938997fcd7ac9139d4ac6a29cc68a15e",
+      "start": 77363,
+      "end": 77584,
+      "source": {
+        "title": "Sharon Watts",
+        "url": "https://en.wikipedia.org/wiki/Sharon_Watts",
+        "revision_id": "1372798905",
+        "revision_url": "https://en.wikipedia.org/w/index.php?oldid=1372798905",
+        "section": "Storylines / 2012\u2013present",
+        "captured_at": "2026-10-17T13:07:31.327518Z",
+        "capture_sha256": "9ccef3de99353ff737101d9d00561c217608dd4fa6fba0c8200f80ac0114ea85",
+        "scope": "main_series",
+        "license_url": "https://creativecommons.org/licenses/by-sa/4.0/",
+        "attribution": "Wikipedia contributors; markup removed and whitespace normalized.",
+        "coverage": "Reviewed narrative sections in this captured revision only.",
+        "gaps": [
+          "Partial canon coverage; other paragraphs remain excluded or awaiting review.",
+          "Identity and episode metadata do not independently corroborate story claims."
+        ],
+        "support_status": "source_supported"
+      },
+      "location": {
+        "source_id": "sharon-watts-wiki",
+        "paragraph_ordinal": 75,
+        "section_id": "2012\u2013present",
+        "character_ids": [
+          "martin-fowler",
+          "sharon-watts"
+        ]
+      }
+    }
+  ],
+  "context_claims": [
+    {
+      "claim_id": "c7",
+      "kind": "unclassified",
+      "character_ids": [
+        "grant-mitchell",
+        "sharon-watts",
+        "phil-mitchell"
+      ],
+      "theme": null,
+      "classification_gap": "No checked category covers Grant's public playing of a tape about Sharon's affair with Phil.",
+      "evidence": [
+        {
+          "evidence_id": "tape-revelation",
+          "start": 78,
+          "end": 179,
+          "quote": "Grant discovers a tape on which Sharon talks about her affair with Phil, and plays it to a packed pub"
+        }
+      ]
+    },
+    {
+      "claim_id": "reviewed-tape-revelation",
+      "kind": "unclassified",
+      "character_ids": [
+        "grant-mitchell",
+        "sharon-watts",
+        "phil-mitchell",
+        "kathy-beale"
+      ],
+      "theme": null,
+      "classification_gap": "Public revelation of an affair has no checked event category in this graph.",
+      "evidence": [
+        {
+          "evidence_id": "tape-revelation",
+          "start": 0,
+          "end": 255,
+          "quote": "Sharon and Grant patch up their relationship; however, in the autumn of 1994, Grant discovers a tape on which Sharon talks about her affair with Phil, and plays it to a packed pub at Phil's engagement party to his fianc\u00e9e, Kathy Beale (Gillian Taylforth)."
+        }
+      ]
+    }
+  ],
+  "retrieval_k": 3,
+  "route": "text_rag",
+  "baseline_version": "single-query-uncached-v2",
+  "model_settings": {
+    "embedding_model": "embeddinggemma:300m",
+    "embedding_digest": "85462619ee721b466c5927d109d4cb765861907d5417b9109caebc4e614679f1",
+    "embedding_dimensions": 768,
+    "provider_type": "openrouter",
+    "answer_model": "openai/gpt-6-sol",
+    "canonical_slug": "openai/gpt-6-sol-20260922",
+    "provider": "openai",
+    "input_price_per_million": "2",
+    "output_price_per_million": "10",
+    "output_tokens": 8192,
+    "reasoning_effort": "medium",
+    "request_timeout_seconds": 180
+  },
+  "prompt_sha256": "55eaebf2442099435efad95f9aab668aa410e0ede1ad5b8ad3129665eee3f936",
+  "application_sha256": "f1c4c5b10cfe14bcec0322016328007ee314d4f681164209edf4052bd27eb49b",
+  "trace_id": "tr-8b25ba3bb8fba740a62ea4e1e69635cc",
+  "execution": {
+    "limits": {
+      "model_calls": 2,
+      "tool_calls": 1,
+      "http_calls": 8,
+      "seconds": 180.0,
+      "context_bytes": 1200,
+      "spend_usd": "0.15",
+      "retries": 0,
+      "capabilities": [
+        "text_retrieval",
+        "family_graph",
+        "event_graph"
+      ],
+      "concurrency": 4
+    },
+    "model_calls": 2,
+    "tool_calls": 1,
+    "http_calls": 5,
+    "reserved_usd": "0.005015",
+    "stop_reason": null
+  },
+  "elapsed_ms": 8078.587746997073,
+  "usage": {
+    "input_tokens": 1375,
+    "output_tokens": 404,
+    "embedding_tokens": 22
+  },
+  "expenditure_category": "serving",
+  "estimated_api_cost_usd": 0.005015,
+  "provider_usage": {
+    "reservation_id": "3f6148d7e45d43ce8103ecc7b53f70fc",
+    "reserved_usd": 0.10577,
+    "cost_usd": 0.005015,
+    "request_id": "gen-1793119083-a7rjrC7M830A9on8qsT2",
+    "returned_model": "openai/gpt-6-sol",
+    "provider": "OpenAI",
+    "input_tokens": 1375,
+    "output_tokens": 404,
+    "reasoning_tokens": 296
+  },
+  "cost_scope": "OpenRouter reported inference credits only. Null means unknown cost; the local budget retains a reservation. Credit purchase fees, tax, local embeddings and hosting are excluded.",
+  "limitation": "Source-supported is not independently cross-checked. Coverage is limited to the captured snapshot; this provider baseline is not deployment approval."
+}

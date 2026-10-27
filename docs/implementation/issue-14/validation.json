@@ -1,0 +1,128 @@
+{
+  "captured_at": "2026-10-27T17:07:26.738353+00:00",
+  "tested_revision": "ef77ce8a56ccba2404bfe95d5e44c04193fd9796",
+  "tested_tree": "737eb0c1330fe6fa0ccf45df5e30d26b959c02f5",
+  "application_sha256": "f1c4c5b10cfe14bcec0322016328007ee314d4f681164209edf4052bd27eb49b",
+  "software": {
+    "tests": 414,
+    "failures": 0,
+    "errors": 0,
+    "skipped": 0,
+    "passed": 414,
+    "seconds": 1549.266,
+    "report": "software-tests.xml",
+    "report_sha256": "e0414d261529a17e8ca64d53b7f27fb98758003cf9ccbb3ab7b03c368878ca5e",
+    "command": "MLFLOW_DISABLE_AGENT_HINT=1 .venv/bin/pytest -q --durations=15 --test-database-url LOCAL_DISPOSABLE_POSTGRES --junitxml=docs/implementation/issue-14/software-tests.xml",
+    "strict_mypy": {
+      "passed": true,
+      "files": 99,
+      "command": ".venv/bin/mypy src scripts tests"
+    },
+    "ruff": {
+      "lint": true,
+      "format": true,
+      "formatted_files": 266
+    },
+    "application_changes_after_full_suite_started": false,
+    "process_exit_code": 0,
+    "warnings": {
+      "count": 16,
+      "kinds": [
+        "Starlette/httpx TestClient deprecation",
+        "pytest record_property and xunit2 compatibility"
+      ]
+    }
+  },
+  "reviews": {
+    "baseline": "54689cba44618f847a49304c1ea9bbe4c2901f1d",
+    "standards_remaining": 0,
+    "spec_remaining": 0,
+    "source_and_final_trace_review": "review.md"
+  },
+  "graph_runtime": {
+    "artifact": "runtime-final.json",
+    "sha256": "19ea3ee52d07a1447a491d0912e664f9047bb79a64fcf46c4c41940684bd11e1",
+    "responses": 30,
+    "same_revision_and_application": true,
+    "all_trace_outputs_exact": true,
+    "citations_resolve": true,
+    "saved_responses_survive_restart": true,
+    "sessions_reset": true,
+    "inference_calls": 0,
+    "inference_usd": 0
+  },
+  "text_runtime": {
+    "artifact": "text-runtime.json",
+    "sha256": "b118fb0dfe80bfeeea9c65b99613ef98db92677685f29088e84e9e7bd2b51b08",
+    "responses": 3,
+    "same_revision_and_application": true,
+    "all_trace_outputs_exact": true,
+    "citations_resolve": true,
+    "saved_response_readback_matches": true,
+    "quality": "text-quality.json",
+    "passing_cases": 2,
+    "failed_cases": 1,
+    "failure": "Unsupported manosphere response has answered status and omits explicit elsewhere-coverage caveat. Incidental facts and citations remain supported.",
+    "inference_calls": 3,
+    "reported_inference_usd": "0.0124210"
+  },
+  "extraction": {
+    "artifact": "extraction-pilot.json",
+    "model_calls": 1,
+    "cost_usd": "0.0352235",
+    "event_value_matches": 4,
+    "events_expected": 5,
+    "event_resolvable_spans": 3,
+    "event_strict_full_span_grounding": 0,
+    "context_value_matches": 1,
+    "contexts_expected": 2,
+    "context_resolvable_spans": 2,
+    "context_strict_full_span_grounding": 1,
+    "raw_events_admitted": 3,
+    "raw_events_held": 2,
+    "raw_context_admitted": 2,
+    "final_unchanged_output_score": "extraction-score-final.json",
+    "quality": "Locator, strict grounding, literal timing wording and subject-completeness failures remain separate from curated capability."
+  },
+  "preservation": {
+    "frozen_files": {
+      "checked": 7,
+      "changed": []
+    },
+    "original_tracked_data": {
+      "checked": 34,
+      "changed": []
+    },
+    "pre_existing_work": {
+      "checked": 51,
+      "changed": []
+    }
+  },
+  "unchanged_raw_candidates_retained": true,
+  "key_storage": {
+    "private_file_mode": "0o600",
+    "private_directory_mode": "0o700"
+  },
+  "reported_issue_inference_usd": "0.0476445",
+  "shared_ledger_usd": 0.464981,
+  "unsettled_reservations": 0,
+  "checklist_status_counts_unchanged": {
+    "Pass": 34,
+    "Pending": 17,
+    "Deferred": 1
+  },
+  "python": "3.12.3",
+  "packages": {
+    "pytest": "9.1.1",
+    "mypy": "1.20.2",
+    "ruff": "0.16.8",
+    "fastapi": "0.141.1",
+    "httpx": "0.28.1",
+    "pydantic": "2.13.5",
+    "psycopg": "3.3.6",
+    "mlflow": "3.16.1",
+    "llama-index-core": "0.14.25",
+    "prefect": "3.8.6"
+  },
+  "limits": "Exposed source-reviewed capability only; automatic extraction and text-quality failures remain retained. Wider graph, correction, held-out, canon and release obligations remain Pending."
+}

@@ -11,6 +11,31 @@ commands so they work even without a configured Git remote.
 
 ## Current Ask Phil handoff
 
+Issue #14 implementation and validation are complete; verified publication and
+tracker closure are still pending. [Evidence](../implementation/issue-14/README.md)
+records pregnancy/death roles and timing, separate theme/unclassified text,
+thirty actual graph API/CLI/session outcomes with exact MLflow readback, and
+zero remaining implementation findings on both independent review axes. All
+**414 tests** pass, as do strict mypy across 99 files and Ruff/formatting.
+
+The raw extraction preserves two malformed event locators, the conservative
+full-span grounding failures, a literal date-wording mismatch and an incomplete
+unclassified subject set. Reviewed assertions supply all five scoped event
+meanings while retaining every raw record. Of three live text cases, two pass;
+the unsupported-manosphere case fails the expected answerability status and
+explicit coverage caveat. Its incidental facts and citations remain supported.
+Wider graph, correction, answerability and release obligations remain Pending.
+
+Preserve the shared non-resetting $5 ledger at **$0.464981**, with zero unsettled
+reservations. This supersedes the historical balances below. Four calls cost
+**$0.0476445** in reported inference charges. All 34 original data files and
+51 pre-existing workspace files remain hash-checked unchanged.
+
+After #14 closes, **#15 is next**; #16, #19, #22 and #24 are also unblocked.
+Wait for the user's next implementation instruction before another issue.
+
+### Prior issue #13 handoff
+
 Issue #13 is complete and closed after native publication and exact-tree
 verification of [`3723db0`](https://github.com/tomh1988-8/rag_demo/commit/3723db0d8a39b08b541d7504ec64317bdbb27938).
 [Evidence](../implementation/issue-13/README.md) records **388 passing tests**,

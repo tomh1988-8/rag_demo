@@ -71,10 +71,16 @@ values, 3/5 resolvable event locators and 0/5 conservative full-span grounding;
 content-bound review admits three shorter supported event quotes and holds two
 malformed locators. Theme/unclassified values match 1/2, with 2/2 resolvable
 locators and 1/2 strict grounding. The curated projection retains every raw
-record. Thirty initial API/CLI/session outcomes have actual trace readback;
-final text evidence, full validation and independent reviews are being recorded.
-This is a scoped extension with explicit extraction failures. Checklist counts
-are unchanged; wider RAG-04 and EXT-04 remain Pending.
+record. Thirty final API/CLI/session outcomes have exact actual trace readback.
+Three live text cases retain the tape fact and the theme distinction; two pass
+source-based quality review, while the unsupported-manosphere response fails its
+expected status and explicit coverage caveat. Its incidental facts and citations
+are supported. Both independent reviews found zero implementation issues, and
+the final trace audit passed. This is a scoped extension with explicit extraction
+and text-quality failures. [Validation](../implementation/issue-14/validation.json)
+records 414 passing tests, strict mypy across 99 files, Ruff/formatting and the
+unchanged application fingerprint at `ef77ce8`. Checklist counts are unchanged;
+wider RAG-04 and EXT-04 remain Pending.
 
 The [answer execution deepening](../implementation/answer-execution-deepening/README.md)
 rechecks scoped AD-05.4, AD-06.1–3, AD-07.4 and AD-09.1–3 through shared text/Family
