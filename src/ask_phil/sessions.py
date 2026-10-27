@@ -2,6 +2,7 @@
 
 import hashlib
 import secrets
+import time
 from collections.abc import Callable, Iterator
 from contextlib import contextmanager
 from datetime import UTC, datetime, timedelta
@@ -18,7 +19,7 @@ from ask_phil.conversation import (
     TurnIdentity,
 )
 from ask_phil.evidence import Record
-from ask_phil.execution import database_options
+from ask_phil.execution import current_execution, database_options
 
 SESSION_LIFETIME = timedelta(hours=2)
 CONTEXT_IDLE_LIFETIME = timedelta(minutes=30)
@@ -168,14 +169,31 @@ class ConversationSessions:
         self, session_id: UUID, token: str
     ) -> Iterator[tuple[psycopg.Connection[tuple[object, ...]], SessionState]]:
         self._ensure_schema()
+        budget = current_execution.get()
+        deadline = time.monotonic() + (budget.remaining_seconds if budget else 5)
         with psycopg.connect(
             self.database_url, connect_timeout=5, options=database_options()
         ) as conn:
-            row = conn.execute(
-                """SELECT document FROM conversation_sessions
-                WHERE session_id = %s AND token_sha256 = %s AND expires_at > %s FOR UPDATE""",
-                (session_id, hashlib.sha256(token.encode()).hexdigest(), self._clock()),
-            ).fetchone()
+            while True:
+                try:
+                    row = conn.execute(
+                        """SELECT document FROM conversation_sessions
+                        WHERE session_id = %s AND token_sha256 = %s AND expires_at > %s
+                        FOR UPDATE NOWAIT""",
+                        (session_id, hashlib.sha256(token.encode()).hexdigest(), self._clock()),
+                    ).fetchone()
+                    break
+                except psycopg.errors.LockNotAvailable:
+                    conn.rollback()
+                    remaining = deadline - time.monotonic()
+                    if remaining <= 0 or (budget and budget.cancellation.is_set()):
+                        raise
+                    # Serializing a turn can take longer than one bounded SQL statement.
+                    # Poll without holding a failed transaction; disconnect wakes the wait.
+                    if budget:
+                        budget.cancellation.wait(min(0.05, remaining))
+                    else:
+                        time.sleep(min(0.05, remaining))
             if not row:
                 raise SessionNotFound("Session not found or expired.")
             state = SessionState.model_validate(row[0])

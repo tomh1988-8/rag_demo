@@ -672,3 +672,95 @@ def test_interactive_cli_conversation_supports_followups_and_reset(
     assert result.stdout.count("February 1990") >= 2
     assert "Which character do you mean?" in result.stdout
     assert '"generation": 1' in result.stdout
+
+
+def test_waiting_turns_serialize_within_their_request_budgets(
+    database_url: str,
+    tmp_path: Path,
+    conversation_models: Models,
+) -> None:
+    import time
+    from dataclasses import replace
+    from threading import Event
+
+    from ask_phil.execution import ExecutionLimits
+
+    entered, release = Event(), Event()
+    snapshot = EvidenceStore(database_url).snapshot("chat")
+
+    def provider(request: httpx.Request) -> httpx.Response:
+        if request.url.path == "/api/tags":
+            return httpx.Response(
+                200,
+                json={
+                    "models": [
+                        {"model": "test-answer", "digest": "a" * 64},
+                        {"model": "test-embedding", "digest": "b" * 64},
+                    ]
+                },
+            )
+        if not entered.is_set():
+            entered.set()
+            assert release.wait(30), "Controlled slow model was not released."
+        return httpx.Response(
+            200,
+            json={
+                "model": "test-answer",
+                "done": True,
+                "message": {
+                    "role": "assistant",
+                    "content": json.dumps(
+                        {
+                            "status": "answered",
+                            "answer": "Right, listen. I arrived in February 1990.",
+                            "evidence_ids": [snapshot.passages[0].evidence_id],
+                            "unanswered": [],
+                            "qualifications": [],
+                        }
+                    ),
+                },
+            },
+        )
+
+    models = replace(
+        conversation_models,
+        llm=Ollama(
+            model="test-answer",
+            context_window=4096,
+            client=Client(host="http://model.invalid", transport=httpx.MockTransport(provider)),
+        ),
+    )
+    tracking = f"sqlite:///{tmp_path}/queue.db"
+    with (
+        TestClient(create_app(database_url, models=models, tracking_uri=tracking)) as client,
+        TestClient(
+            create_app(
+                database_url,
+                models=models,
+                tracking_uri=tracking,
+                execution_limits=ExecutionLimits(seconds=0.2),
+            )
+        ) as limited,
+    ):
+        created = client.post("/v1/sessions").json()
+        base = f"/v1/sessions/{created['session']['session_id']}"
+        headers = {"Authorization": f"Bearer {created['session_token']}"}
+        request = {"snapshot_id": "chat", "question": "When did Phil Mitchell arrive?"}
+        with ThreadPoolExecutor(max_workers=2) as executor:
+            first = executor.submit(client.post, base + "/turns", headers=headers, json=request)
+            try:
+                assert entered.wait(15), "The first model request did not start."
+                waiting = executor.submit(
+                    client.post, base + "/turns", headers=headers, json=request
+                )
+                expired = limited.post(base + "/turns", headers=headers, json=request)
+                assert expired.status_code == 503
+                time.sleep(6)
+                assert not waiting.done(), "A valid queued request exhausted a fixed SQL lock wait."
+            finally:
+                release.set()
+            responses = [first.result(timeout=30), waiting.result(timeout=30)]
+        assert [r.status_code for r in responses] == [200, 200]
+        turns = [r.json()["response"]["conversation"]["turn_number"] for r in responses]
+        assert turns == [1, 2]
+        assert client.get(base, headers=headers).json()["turn_number"] == 2

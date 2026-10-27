@@ -250,6 +250,38 @@ def main() -> int:
                     )
                     cli_record["transport"] = "cli"
                     responses.append(cli_record)
+                    session = client.post("/v1/sessions")
+                    session.raise_for_status()
+                    created = session.json()
+                    session_path = f"/v1/sessions/{created['session']['session_id']}"
+                    headers = {"Authorization": f"Bearer {created['session_token']}"}
+                    turn = client.post(
+                        session_path + "/turns",
+                        headers=headers,
+                        json={
+                            "snapshot_id": snapshot.snapshot_id,
+                            "question": "Did Phil kill Stella?",
+                            "route": "graph",
+                            "graph": {"kind": "crime_history", "character_id": "phil-mitchell"},
+                        },
+                    )
+                    turn.raise_for_status()
+                    required = ExtractedEvents(
+                        claims=tuple(c for c in expected.claims if c.event_id == "stella-death")
+                    )
+                    responses.append(
+                        inspect_answer(
+                            client,
+                            phase,
+                            "session-false-confession",
+                            turn.json()["response"],
+                            required,
+                            snapshot,
+                        )
+                    )
+                    reset = client.post(session_path + "/reset", headers=headers)
+                    reset.raise_for_status()
+                    assert reset.json()["generation"] == 1 and not reset.json()["history"]
                     lookup = client.get(f"/v1/snapshots/{snapshot.snapshot_id}/event-claims")
                     assert lookup.json() == audit.model_dump(mode="json")
                 with (
@@ -271,6 +303,7 @@ def main() -> int:
                         invalid_mixed_query_http=422,
                         audit_readback_matches=True,
                         original_response_survives_api_restart=True,
+                        event_session_and_reset=True,
                     )
                 )
             finally:
