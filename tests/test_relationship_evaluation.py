@@ -74,3 +74,60 @@ def test_schema_and_directed_role_errors_remain_separate_from_quote_resolution()
         '{"claims": [{"relation": "guardian-is-adoption"}]}', expected, snapshot
     )
     assert not invalid.schema_valid and invalid.precision is None and invalid.grounded is None
+
+
+def test_identical_unknown_values_in_distinct_episodes_cannot_hide_a_missing_affair() -> None:
+    snapshot, batch, _ = reference_batch()
+    affair = batch.claims[3]
+    other = affair.model_copy(update={"claim_id": "second-affair", "episode_id": "second-episode"})
+    reference = ExtractedRelationships(claims=(affair, other))
+    score = score_relationships(
+        ExtractedRelationships(claims=(affair,)).model_dump_json(), reference, snapshot
+    )
+    assert score.expected == 2 and score.true_positive == 1
+    assert score.recall == 0.5
+    assert score.episode_pairs_expected == 1 and score.episode_pairs_correct == 0
+
+
+def test_repeated_unknown_episode_matching_ignores_input_order_and_id_spellings() -> None:
+    snapshot, batch, _ = reference_batch()
+    affair = batch.claims[3]
+    other = affair.model_copy(update={"claim_id": "second-affair", "episode_id": "second-episode"})
+    separation = affair.model_copy(
+        update={
+            "claim_id": "first-separation",
+            "relation": "separation",
+            "after_claim_id": affair.claim_id,
+        }
+    )
+    reference = ExtractedRelationships(claims=(affair, other, separation))
+    first = affair.model_copy(update={"claim_id": "model-a", "episode_id": "x"})
+    second = other.model_copy(update={"claim_id": "model-b", "episode_id": "y"})
+    end = separation.model_copy(
+        update={"claim_id": "model-end", "episode_id": "x", "after_claim_id": "model-a"}
+    )
+    score = score_relationships(
+        ExtractedRelationships(claims=(second, end, first)).model_dump_json(), reference, snapshot
+    )
+    assert score.true_positive == 3 and score.recall == 1.0
+    assert score.episode_pairs_correct == 3 and score.ordering_correct == 1
+
+
+def test_unresolved_alignment_size_has_no_fabricated_episode_or_order_score() -> None:
+    snapshot, batch, _ = reference_batch()
+    # Synthetic multiplicity stress case for scorer arithmetic, not canon labels.
+    reference = ExtractedRelationships(
+        claims=tuple(
+            batch.claims[3].model_copy(
+                update={
+                    "claim_id": f"synthetic-affair-{i}",
+                    "episode_id": f"episode-{i}",
+                }
+            )
+            for i in range(8)
+        )
+    )
+    score = score_relationships(reference.model_dump_json(), reference, snapshot)
+    assert score.true_positive == 8 and score.recall == 1.0
+    assert score.alignment_limited
+    assert score.episode_pairs_correct is None and score.ordering_correct is None

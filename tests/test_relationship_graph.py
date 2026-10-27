@@ -9,6 +9,7 @@ from pathlib import Path
 
 import pytest
 from fastapi.testclient import TestClient
+from pydantic import ValidationError
 from starlette.types import ASGIApp
 from test_relationship_claims import reference_batch, support_reviews
 
@@ -67,6 +68,13 @@ def test_history_keeps_repeated_episodes_and_social_edges_out_of_ancestry(
 pytestmark = pytest.mark.integration
 
 
+def test_a_self_pair_does_not_widen_into_all_partners() -> None:
+    with pytest.raises(ValidationError):
+        RelationshipQuery(
+            kind="relationship_history", character_id="phil-mitchell", partner_id="phil-mitchell"
+        )
+
+
 def test_history_answers_are_typed_cited_and_saved_without_model_configuration(
     database_url: str, tmp_path: Path
 ) -> None:
@@ -104,7 +112,8 @@ def test_history_answers_are_typed_cited_and_saved_without_model_configuration(
         assert answer["model_settings"] is None
         assert answer["execution"]["model_calls"] == 0
         assert answer["execution"]["tool_calls"] == 1
-        assert len(answer["citations"]) == 3
+        assert len(answer["citations"]) == 4
+        assert answer["answer"].count("Phil Mitchell married Kathy Beale") == 1
         for citation in answer["citations"]:
             assert client.get(citation["resolve_path"]).status_code == 200
         saved = client.get(
@@ -115,7 +124,7 @@ def test_history_answers_are_typed_cited_and_saved_without_model_configuration(
         typed = client.post(f"/v1/snapshots/{snapshot.snapshot_id}/relationships", json=query)
         assert typed.json() == answer["graph"]
         audit = client.get(f"/v1/snapshots/{snapshot.snapshot_id}/relationship-claims")
-        assert len(audit.json()["batch"]["claims"]) == 12
+        assert len(audit.json()["batch"]["claims"]) == 13
 
 
 def test_cli_uses_shared_api_for_relationship_histories(

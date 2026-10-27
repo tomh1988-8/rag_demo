@@ -1,16 +1,17 @@
 {
-  "dataset": "relationships-v1",
+  "dataset": "relationships-v2",
   "split": "exposed-development",
   "reference_labels_changed_after_pilot": false,
+  "reference_correction": "Original v1 labels/pilot remain unchanged. Independent source review added a missed then-wife marriage assertion in v2; twelve pre-pilot curated records plus one documented post-pilot correction.",
   "failures": [
     {"id": "relationship-offsets", "stage": "extraction-grounding", "observed": "10 of 12 quote endpoints do not resolve even where the full quotation is correct.", "disposition": "Retain raw output and hold the candidates. Improve locator generation in a separately measured follow-up; never repair raw evidence silently."},
-    {"id": "relationship-status-timing", "stage": "normalized-values", "observed": "7 of 12 exact records differ on status and/or timing. Separation does not establish a former marriage; unanchored eventually/then and unsupported current/former status remain conservative failures.", "disposition": "Retain per-relation scores and content-bound review. Curated pre-pilot assertions provide known supported values without claiming model success."},
+    {"id": "relationship-status-timing", "stage": "normalized-values", "observed": "7 of 12 exact predictions differ on status and/or timing; the corrected thirteenth reference assertion is also missing. Precision 5/12, recall 5/13 and F1 0.4. Separation does not establish a former marriage; unanchored eventually/then and unsupported current/former status remain conservative failures.", "disposition": "Retain per-relation scores and content-bound review. Curated assertions provide known supported values without claiming model success."},
     {"id": "relationship-birth-episodes", "stage": "admission", "observed": "The model assigns both parents' relationships to one ben-birth episode. Both are held; a birth event is distinct from each directed relationship episode.", "disposition": "Preserve the episode_collision safeguard and its counterexample; do not infer a general shared-event model in this ticket."},
     {"id": "relationship-ordering", "stage": "component-ordering", "observed": "0/3 reference links match under the frozen value matching rule. The model emits 4 links; the Grant/Sharon cross-excerpt link is not established by the selected excerpts.", "disposition": "Only reviewed, acyclic, same-participant ordering with admitted predecessors can enter the projection."},
     {"id": "relationship-raw-graph-recall", "stage": "graph-and-final-answer", "observed": "All 12 raw candidates are held; raw-only graph recall is zero and actual raw API/CLI answers abstain.", "disposition": "Keep this model-quality failure visible. Separate manually curated graph capability from extraction quality."}
   ],
   "limitations": [
-    "Twelve agent-reviewed, pre-frozen claims in ten public captured excerpts; no held-out or human-adjudicated acceptance.",
+    "Thirteen reviewed source assertions in ten public captured excerpts: twelve pre-pilot labels plus one documented source correction. Twelve distinct semantic assertions; no held-out or human-adjudicated acceptance.",
     "Ward/current/former and hostile-input software fixtures are synthetic, not added canon claims.",
     "Typed route overrides require reviewed IDs. Automatic natural-language query selection and routing remain later work.",
     "Snapshot projections cannot be overwritten. Wider corrections, disagreement explanation and refresh integration remain issue #15.",

@@ -45,7 +45,7 @@ def main() -> int:
         else "data/seed/family-pilot-v1.json"
     )
     args.reference = args.reference or Path(
-        "data/references/relationships-v1.json"
+        "data/references/relationships-v2.json"
         if args.relationships
         else "data/references/parentage-v1.json"
     )

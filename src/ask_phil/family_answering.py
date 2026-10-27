@@ -20,14 +20,14 @@ from ask_phil.family_graph import GRAPH_LIMITATION, FamilyGraph, FamilyResult
 from ask_phil.models import ModelExecution, TokenUsage
 from ask_phil.publications import PublicationStore
 from ask_phil.relationship_graph import RelationshipGraph, RelationshipQuery, RelationshipResult
-from ask_phil.relationships import HISTORY_LIMITATION
+from ask_phil.relationships import HISTORY_LIMITATION, RelationshipClaim
 from ask_phil.security import require_credential_free
 from ask_phil.storage import EvidenceStore
 
 GRAPH_WORDING = "biological-paths-v1: explicit typed query; bounded captured relationships only"
 HISTORY_WORDING = (
     "relationship-history-v1: reviewed assertions; distinct episodes; explicit order; "
-    "synthetic labels"
+    "synthetic labels; same-episode evidence grouping"
 )
 
 
@@ -45,16 +45,40 @@ def render_history(result: RelationshipResult, *, synthetic: bool = False) -> st
         "affair": "had an affair with",
         "partnership": "had a partnership with",
     }
-    positions = {c.claim_id: i for i, c in enumerate(result.claims, 1)}
-    entries = []
+    groups: dict[tuple[object, ...], list[RelationshipClaim]] = {}
     for claim in result.claims:
+        groups.setdefault((claim.episode_id, claim.assertion, claim.status), []).append(claim)
+    positions = {
+        claim.claim_id: position
+        for position, group in enumerate(groups.values(), 1)
+        for claim in group
+    }
+    entries = []
+    for group in groups.values():
+        claim = group[0]
         timing = (
             "story date unknown"
             if claim.time_precision == "unknown"
             else (f"story timing {claim.story_time} ({claim.time_precision})")
         )
-        previous = positions.get(claim.after_claim_id or "")
-        ordering = f" Follows entry {previous}." if previous else ""
+        previous = sorted(
+            {
+                positions[c.after_claim_id]
+                for c in group
+                if c.after_claim_id in positions
+                and positions[c.after_claim_id] != positions[claim.claim_id]
+            }
+        )
+        ordering = (
+            (
+                " Follows "
+                + ("entry " if len(previous) == 1 else "entries ")
+                + ", ".join(map(str, previous))
+                + "."
+            )
+            if previous
+            else ""
+        )
         entries.append(
             f"{positions[claim.claim_id]}. {result.names[claim.subject_id]} "
             f"{verbs[claim.relation]} {result.names[claim.object_id]}; {timing}; "

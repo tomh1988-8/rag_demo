@@ -1,0 +1,164 @@
+{
+  "batch_sha256": "7647879ec4d3d7601655c6d3933f899859baa80df12440c35b42556ede77716d",
+  "decisions": [
+    {
+      "claim_id": "c1",
+      "status": "held",
+      "reasons": [
+        "evidence_span",
+        "support_review_required"
+      ]
+    },
+    {
+      "claim_id": "c2",
+      "status": "held",
+      "reasons": [
+        "evidence_span",
+        "support_review_required"
+      ]
+    },
+    {
+      "claim_id": "c3",
+      "status": "held",
+      "reasons": [
+        "evidence_span"
+      ]
+    },
+    {
+      "claim_id": "c4",
+      "status": "held",
+      "reasons": [
+        "evidence_span",
+        "support_review_required"
+      ]
+    },
+    {
+      "claim_id": "c5",
+      "status": "held",
+      "reasons": [
+        "evidence_span",
+        "support_review_required"
+      ]
+    },
+    {
+      "claim_id": "c6",
+      "status": "held",
+      "reasons": [
+        "evidence_span",
+        "support_review_required"
+      ]
+    },
+    {
+      "claim_id": "c7",
+      "status": "held",
+      "reasons": [
+        "evidence_span",
+        "support_review_required"
+      ]
+    },
+    {
+      "claim_id": "c8",
+      "status": "held",
+      "reasons": [
+        "evidence_span"
+      ]
+    },
+    {
+      "claim_id": "c9",
+      "status": "held",
+      "reasons": [
+        "evidence_span"
+      ]
+    },
+    {
+      "claim_id": "c10",
+      "status": "held",
+      "reasons": [
+        "evidence_span",
+        "support_review_required"
+      ]
+    },
+    {
+      "claim_id": "c11",
+      "status": "held",
+      "reasons": [
+        "support_review_required",
+        "episode_collision"
+      ]
+    },
+    {
+      "claim_id": "c12",
+      "status": "held",
+      "reasons": [
+        "support_review_required",
+        "episode_collision"
+      ]
+    },
+    {
+      "claim_id": "phil-kathy-marriage",
+      "status": "admitted",
+      "reasons": []
+    },
+    {
+      "claim_id": "phil-kathy-separation",
+      "status": "admitted",
+      "reasons": []
+    },
+    {
+      "claim_id": "phil-kathy-reconciliation",
+      "status": "admitted",
+      "reasons": []
+    },
+    {
+      "claim_id": "phil-sharon-affair",
+      "status": "admitted",
+      "reasons": []
+    },
+    {
+      "claim_id": "grant-sharon-reconciliation",
+      "status": "admitted",
+      "reasons": []
+    },
+    {
+      "claim_id": "grant-sharon-divorce",
+      "status": "admitted",
+      "reasons": []
+    },
+    {
+      "claim_id": "kat-alfie-marriage",
+      "status": "admitted",
+      "reasons": []
+    },
+    {
+      "claim_id": "kat-alfie-remarriage",
+      "status": "admitted",
+      "reasons": []
+    },
+    {
+      "claim_id": "den-sharon-adoption",
+      "status": "admitted",
+      "reasons": []
+    },
+    {
+      "claim_id": "denise-amy-step",
+      "status": "admitted",
+      "reasons": []
+    },
+    {
+      "claim_id": "phil-ben-birth",
+      "status": "admitted",
+      "reasons": []
+    },
+    {
+      "claim_id": "kathy-ben-birth",
+      "status": "admitted",
+      "reasons": []
+    },
+    {
+      "claim_id": "phil-kathy-marriage-additional-evidence",
+      "status": "admitted",
+      "reasons": []
+    }
+  ],
+  "limitation": "Only admitted assertions from selected reviewed spans are shown. Social ties never establish biological ancestry. Status is as reported in the captured account, not a claim about the present. Only explicit after links establish ordering; otherwise listing order is not chronology. Missing history does not prove a relationship never existed. Source-supported does not mean independently cross-checked."
+}

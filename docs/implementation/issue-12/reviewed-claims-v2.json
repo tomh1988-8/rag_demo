@@ -1,0 +1,707 @@
+{
+  "claims": [
+    {
+      "claim_id": "c1",
+      "subject_id": "phil-mitchell",
+      "object_id": "kathy-beale",
+      "relation": "marriage",
+      "episode_id": "phil-kathy-marriage",
+      "status": "unknown",
+      "polarity": "affirmed",
+      "certainty": "certain",
+      "story_time": "eventually",
+      "time_precision": "relative",
+      "after_claim_id": null,
+      "evidence": [
+        {
+          "evidence_id": "history-kathy-marriage",
+          "start": 0,
+          "end": 89,
+          "quote": "Kathy and Phil eventually sort out their differences, up to the point where they get married"
+        }
+      ]
+    },
+    {
+      "claim_id": "c2",
+      "subject_id": "phil-mitchell",
+      "object_id": "kathy-beale",
+      "relation": "separation",
+      "episode_id": "phil-kathy-marriage",
+      "status": "former",
+      "polarity": "affirmed",
+      "certainty": "certain",
+      "story_time": "As time goes on",
+      "time_precision": "relative",
+      "after_claim_id": "c1",
+      "evidence": [
+        {
+          "evidence_id": "history-kathy-separation",
+          "start": 0,
+          "end": 202,
+          "quote": "As time goes on, however, Phil becomes depressed and turns to alcohol – which causes him to develop an addiction. This makes him bitter and neglectful towards Kathy and Ben, so Kathy takes Ben and moves out."
+        }
+      ]
+    },
+    {
+      "claim_id": "c3",
+      "subject_id": "phil-mitchell",
+      "object_id": "kathy-beale",
+      "relation": "reconciliation",
+      "episode_id": "phil-kathy-marriage",
+      "status": "unknown",
+      "polarity": "affirmed",
+      "certainty": "certain",
+      "story_time": "when he attends counselling",
+      "time_precision": "relative",
+      "after_claim_id": "c2",
+      "evidence": [
+        {
+          "evidence_id": "history-kathy-reconciliation",
+          "start": 0,
+          "end": 371,
+          "quote": "Realizing what he has lost, Phil gives up alcohol and attends Alcoholics Anonymous. This progressively helps Phil, up to the point where it manages to reveal the basis of his problem – the physical abuse he received from his late father, Eric Mitchell (George Russo) when he was a boy, and his fear that he may abuse Ben. He and Kathy reconcile when he attends counselling,"
+        }
+      ]
+    },
+    {
+      "claim_id": "c4",
+      "subject_id": "phil-mitchell",
+      "object_id": "sharon-watts",
+      "relation": "affair",
+      "episode_id": "phil-sharon-affair",
+      "status": "former",
+      "polarity": "affirmed",
+      "certainty": "certain",
+      "story_time": "In his absence",
+      "time_precision": "relative",
+      "after_claim_id": null,
+      "evidence": [
+        {
+          "evidence_id": "history-affair-reconciliation",
+          "start": 0,
+          "end": 138,
+          "quote": "In his absence, Phil and Sharon continue their affair but when Grant is released, Sharon reconciles with him, leaving Phil heartbroken."
+        }
+      ]
+    },
+    {
+      "claim_id": "c5",
+      "subject_id": "grant-mitchell",
+      "object_id": "sharon-watts",
+      "relation": "reconciliation",
+      "episode_id": "grant-sharon-marriage",
+      "status": "former",
+      "polarity": "affirmed",
+      "certainty": "certain",
+      "story_time": "when Grant is released",
+      "time_precision": "relative",
+      "after_claim_id": null,
+      "evidence": [
+        {
+          "evidence_id": "history-affair-reconciliation",
+          "start": 0,
+          "end": 138,
+          "quote": "In his absence, Phil and Sharon continue their affair but when Grant is released, Sharon reconciles with him, leaving Phil heartbroken."
+        }
+      ]
+    },
+    {
+      "claim_id": "c6",
+      "subject_id": "grant-mitchell",
+      "object_id": "sharon-watts",
+      "relation": "divorce",
+      "episode_id": "grant-sharon-marriage",
+      "status": "former",
+      "polarity": "affirmed",
+      "certainty": "certain",
+      "story_time": "then",
+      "time_precision": "relative",
+      "after_claim_id": "c5",
+      "evidence": [
+        {
+          "evidence_id": "history-grant-sharon-divorce",
+          "start": 0,
+          "end": 377,
+          "quote": "Sharon is ready to turn him down in front of a packed pub and his family; however, in the end, she cannot go through with it, and stops him from publicly proposing before he humiliates himself. She then tells him that she loves him too but their relationship can no longer work, before returning to the US, leaving Grant heartbroken. They are then divorced and do not see each other for more than 10 years after this."
+        }
+      ]
+    },
+    {
+      "claim_id": "c7",
+      "subject_id": "kat-slater",
+      "object_id": "alfie-moon",
+      "relation": "marriage",
+      "episode_id": "kat-alfie-first-marriage",
+      "status": "unknown",
+      "polarity": "affirmed",
+      "certainty": "certain",
+      "story_time": "Christmas Day",
+      "time_precision": "exact",
+      "after_claim_id": null,
+      "evidence": [
+        {
+          "evidence_id": "history-kat-marriage",
+          "start": 0,
+          "end": 56,
+          "quote": "Kat leaves Andy, and she and Alfie marry on Christmas Day."
+        }
+      ]
+    },
+    {
+      "claim_id": "c8",
+      "subject_id": "kat-slater",
+      "object_id": "alfie-moon",
+      "relation": "remarriage",
+      "episode_id": "kat-alfie-second-marriage",
+      "status": "unknown",
+      "polarity": "affirmed",
+      "certainty": "certain",
+      "story_time": "On leaving hospital",
+      "time_precision": "relative",
+      "after_claim_id": "c7",
+      "evidence": [
+        {
+          "evidence_id": "history-kat-remarriage",
+          "start": 0,
+          "end": 324,
+          "quote": "He does so, but is unaware Kat is inside at the time. She becomes trapped although Alfie rescues her. She is badly burnt and suffers permanent scarring to her face. On leaving hospital, she and Alfie remarry, with two nurses as the only witnesses, before returning to the square and moving into a flat Alfie had organised for them to squat in."
+        }
+      ]
+    },
+    {
+      "claim_id": "c9",
+      "subject_id": "den-watts",
+      "object_id": "sharon-watts",
+      "relation": "adoptive_parent",
+      "episode_id": "den-sharon-adoption",
+      "status": "unknown",
+      "polarity": "affirmed",
+      "certainty": "certain",
+      "story_time": "at the age of three",
+      "time_precision": "relative",
+      "after_claim_id": null,
+      "evidence": [
+        {
+          "evidence_id": "history-den-adoption",
+          "start": 0,
+          "end": 198,
+          "quote": "Adopted at the age of three by Den (Leslie Grantham) and Angie Watts (Anita Dobson), Sharon is raised at The Queen Victoria public house in Albert Square, Walford, where her adoptive parents are landlords."
+        }
+      ]
+    },
+    {
+      "claim_id": "c10",
+      "subject_id": "denise-fox",
+      "object_id": "amy-mitchell",
+      "relation": "step_parent",
+      "episode_id": "denise-amy-step",
+      "status": "current",
+      "polarity": "affirmed",
+      "certainty": "certain",
+      "story_time": "early 2023",
+      "time_precision": "approximate",
+      "after_claim_id": null,
+      "evidence": [
+        {
+          "evidence_id": "history-denise-step",
+          "start": 0,
+          "end": 138,
+          "quote": "In early 2023, Denise faces her stepdaughter Amy Mitchell's (Ellie Dadd) self-harming and Ricky impregnating Lily Slater (Lillia Turner)."
+        }
+      ]
+    },
+    {
+      "claim_id": "c11",
+      "subject_id": "phil-mitchell",
+      "object_id": "ben-mitchell",
+      "relation": "biological_parent",
+      "episode_id": "ben-birth",
+      "status": "unknown",
+      "polarity": "affirmed",
+      "certainty": "certain",
+      "story_time": "March 1996",
+      "time_precision": "exact",
+      "after_claim_id": null,
+      "evidence": [
+        {
+          "evidence_id": "history-ben-birth",
+          "start": 0,
+          "end": 110,
+          "quote": "Ben is born to Phil Mitchell (Steve McFadden) and his then wife Kathy Beale (Gillian Taylforth) in March 1996."
+        }
+      ]
+    },
+    {
+      "claim_id": "c12",
+      "subject_id": "kathy-beale",
+      "object_id": "ben-mitchell",
+      "relation": "biological_parent",
+      "episode_id": "ben-birth",
+      "status": "unknown",
+      "polarity": "affirmed",
+      "certainty": "certain",
+      "story_time": "March 1996",
+      "time_precision": "exact",
+      "after_claim_id": null,
+      "evidence": [
+        {
+          "evidence_id": "history-ben-birth",
+          "start": 0,
+          "end": 110,
+          "quote": "Ben is born to Phil Mitchell (Steve McFadden) and his then wife Kathy Beale (Gillian Taylforth) in March 1996."
+        }
+      ]
+    },
+    {
+      "claim_id": "phil-kathy-marriage",
+      "subject_id": "phil-mitchell",
+      "object_id": "kathy-beale",
+      "relation": "marriage",
+      "episode_id": "phil-kathy-first",
+      "status": "unknown",
+      "polarity": "affirmed",
+      "certainty": "certain",
+      "story_time": "unknown",
+      "time_precision": "unknown",
+      "after_claim_id": null,
+      "evidence": [
+        {
+          "evidence_id": "history-kathy-marriage",
+          "start": 0,
+          "end": 92,
+          "quote": "Kathy and Phil eventually sort out their differences, up to the point where they get married"
+        }
+      ]
+    },
+    {
+      "claim_id": "phil-kathy-separation",
+      "subject_id": "phil-mitchell",
+      "object_id": "kathy-beale",
+      "relation": "separation",
+      "episode_id": "phil-kathy-first",
+      "status": "unknown",
+      "polarity": "affirmed",
+      "certainty": "certain",
+      "story_time": "unknown",
+      "time_precision": "unknown",
+      "after_claim_id": "phil-kathy-marriage",
+      "evidence": [
+        {
+          "evidence_id": "history-kathy-separation",
+          "start": 0,
+          "end": 207,
+          "quote": "As time goes on, however, Phil becomes depressed and turns to alcohol – which causes him to develop an addiction. This makes him bitter and neglectful towards Kathy and Ben, so Kathy takes Ben and moves out."
+        }
+      ]
+    },
+    {
+      "claim_id": "phil-kathy-reconciliation",
+      "subject_id": "phil-mitchell",
+      "object_id": "kathy-beale",
+      "relation": "reconciliation",
+      "episode_id": "phil-kathy-first",
+      "status": "unknown",
+      "polarity": "affirmed",
+      "certainty": "certain",
+      "story_time": "when he attends counselling",
+      "time_precision": "relative",
+      "after_claim_id": "phil-kathy-separation",
+      "evidence": [
+        {
+          "evidence_id": "history-kathy-reconciliation",
+          "start": 0,
+          "end": 373,
+          "quote": "Realizing what he has lost, Phil gives up alcohol and attends Alcoholics Anonymous. This progressively helps Phil, up to the point where it manages to reveal the basis of his problem – the physical abuse he received from his late father, Eric Mitchell (George Russo) when he was a boy, and his fear that he may abuse Ben. He and Kathy reconcile when he attends counselling,"
+        }
+      ]
+    },
+    {
+      "claim_id": "phil-sharon-affair",
+      "subject_id": "phil-mitchell",
+      "object_id": "sharon-watts",
+      "relation": "affair",
+      "episode_id": "phil-sharon-affair",
+      "status": "unknown",
+      "polarity": "affirmed",
+      "certainty": "certain",
+      "story_time": "unknown",
+      "time_precision": "unknown",
+      "after_claim_id": null,
+      "evidence": [
+        {
+          "evidence_id": "history-affair-reconciliation",
+          "start": 0,
+          "end": 135,
+          "quote": "In his absence, Phil and Sharon continue their affair but when Grant is released, Sharon reconciles with him, leaving Phil heartbroken."
+        }
+      ]
+    },
+    {
+      "claim_id": "grant-sharon-reconciliation",
+      "subject_id": "grant-mitchell",
+      "object_id": "sharon-watts",
+      "relation": "reconciliation",
+      "episode_id": "grant-sharon-first",
+      "status": "unknown",
+      "polarity": "affirmed",
+      "certainty": "certain",
+      "story_time": "when Grant is released",
+      "time_precision": "relative",
+      "after_claim_id": null,
+      "evidence": [
+        {
+          "evidence_id": "history-affair-reconciliation",
+          "start": 0,
+          "end": 135,
+          "quote": "In his absence, Phil and Sharon continue their affair but when Grant is released, Sharon reconciles with him, leaving Phil heartbroken."
+        }
+      ]
+    },
+    {
+      "claim_id": "grant-sharon-divorce",
+      "subject_id": "grant-mitchell",
+      "object_id": "sharon-watts",
+      "relation": "divorce",
+      "episode_id": "grant-sharon-first",
+      "status": "former",
+      "polarity": "affirmed",
+      "certainty": "certain",
+      "story_time": "unknown",
+      "time_precision": "unknown",
+      "after_claim_id": null,
+      "evidence": [
+        {
+          "evidence_id": "history-grant-sharon-divorce",
+          "start": 0,
+          "end": 417,
+          "quote": "Sharon is ready to turn him down in front of a packed pub and his family; however, in the end, she cannot go through with it, and stops him from publicly proposing before he humiliates himself. She then tells him that she loves him too but their relationship can no longer work, before returning to the US, leaving Grant heartbroken. They are then divorced and do not see each other for more than 10 years after this."
+        }
+      ]
+    },
+    {
+      "claim_id": "kat-alfie-marriage",
+      "subject_id": "kat-slater",
+      "object_id": "alfie-moon",
+      "relation": "marriage",
+      "episode_id": "kat-alfie-first",
+      "status": "unknown",
+      "polarity": "affirmed",
+      "certainty": "certain",
+      "story_time": "Christmas Day",
+      "time_precision": "relative",
+      "after_claim_id": null,
+      "evidence": [
+        {
+          "evidence_id": "history-kat-marriage",
+          "start": 0,
+          "end": 58,
+          "quote": "Kat leaves Andy, and she and Alfie marry on Christmas Day."
+        }
+      ]
+    },
+    {
+      "claim_id": "kat-alfie-remarriage",
+      "subject_id": "kat-slater",
+      "object_id": "alfie-moon",
+      "relation": "remarriage",
+      "episode_id": "kat-alfie-second",
+      "status": "unknown",
+      "polarity": "affirmed",
+      "certainty": "certain",
+      "story_time": "On leaving hospital",
+      "time_precision": "relative",
+      "after_claim_id": "kat-alfie-marriage",
+      "evidence": [
+        {
+          "evidence_id": "history-kat-remarriage",
+          "start": 0,
+          "end": 343,
+          "quote": "He does so, but is unaware Kat is inside at the time. She becomes trapped although Alfie rescues her. She is badly burnt and suffers permanent scarring to her face. On leaving hospital, she and Alfie remarry, with two nurses as the only witnesses, before returning to the square and moving into a flat Alfie had organised for them to squat in."
+        }
+      ]
+    },
+    {
+      "claim_id": "den-sharon-adoption",
+      "subject_id": "den-watts",
+      "object_id": "sharon-watts",
+      "relation": "adoptive_parent",
+      "episode_id": "den-sharon-adoption",
+      "status": "unknown",
+      "polarity": "affirmed",
+      "certainty": "certain",
+      "story_time": "at the age of three",
+      "time_precision": "relative",
+      "after_claim_id": null,
+      "evidence": [
+        {
+          "evidence_id": "history-den-adoption",
+          "start": 0,
+          "end": 205,
+          "quote": "Adopted at the age of three by Den (Leslie Grantham) and Angie Watts (Anita Dobson), Sharon is raised at The Queen Victoria public house in Albert Square, Walford, where her adoptive parents are landlords."
+        }
+      ]
+    },
+    {
+      "claim_id": "denise-amy-step",
+      "subject_id": "denise-fox",
+      "object_id": "amy-mitchell",
+      "relation": "step_parent",
+      "episode_id": "denise-amy-step",
+      "status": "unknown",
+      "polarity": "affirmed",
+      "certainty": "certain",
+      "story_time": "early 2023",
+      "time_precision": "approximate",
+      "after_claim_id": null,
+      "evidence": [
+        {
+          "evidence_id": "history-denise-step",
+          "start": 0,
+          "end": 137,
+          "quote": "In early 2023, Denise faces her stepdaughter Amy Mitchell's (Ellie Dadd) self-harming and Ricky impregnating Lily Slater (Lillia Turner)."
+        }
+      ]
+    },
+    {
+      "claim_id": "phil-ben-birth",
+      "subject_id": "phil-mitchell",
+      "object_id": "ben-mitchell",
+      "relation": "biological_parent",
+      "episode_id": "phil-ben-parentage",
+      "status": "unknown",
+      "polarity": "affirmed",
+      "certainty": "certain",
+      "story_time": "March 1996",
+      "time_precision": "exact",
+      "after_claim_id": null,
+      "evidence": [
+        {
+          "evidence_id": "history-ben-birth",
+          "start": 0,
+          "end": 110,
+          "quote": "Ben is born to Phil Mitchell (Steve McFadden) and his then wife Kathy Beale (Gillian Taylforth) in March 1996."
+        }
+      ]
+    },
+    {
+      "claim_id": "kathy-ben-birth",
+      "subject_id": "kathy-beale",
+      "object_id": "ben-mitchell",
+      "relation": "biological_parent",
+      "episode_id": "kathy-ben-parentage",
+      "status": "unknown",
+      "polarity": "affirmed",
+      "certainty": "certain",
+      "story_time": "March 1996",
+      "time_precision": "exact",
+      "after_claim_id": null,
+      "evidence": [
+        {
+          "evidence_id": "history-ben-birth",
+          "start": 0,
+          "end": 110,
+          "quote": "Ben is born to Phil Mitchell (Steve McFadden) and his then wife Kathy Beale (Gillian Taylforth) in March 1996."
+        }
+      ]
+    },
+    {
+      "claim_id": "phil-kathy-marriage-additional-evidence",
+      "subject_id": "phil-mitchell",
+      "object_id": "kathy-beale",
+      "relation": "marriage",
+      "episode_id": "phil-kathy-first",
+      "status": "unknown",
+      "polarity": "affirmed",
+      "certainty": "certain",
+      "story_time": "unknown",
+      "time_precision": "unknown",
+      "after_claim_id": null,
+      "evidence": [
+        {
+          "evidence_id": "history-ben-birth",
+          "start": 0,
+          "end": 110,
+          "quote": "Ben is born to Phil Mitchell (Steve McFadden) and his then wife Kathy Beale (Gillian Taylforth) in March 1996."
+        }
+      ]
+    }
+  ],
+  "snapshot_id": "relationship-pilot-v1",
+  "snapshot_sha256": "973509567ae163bd48866e389b77fcafb8b3d6d346f51a4741b00626b95cadd1",
+  "catalogue": {
+    "characters": [
+      {
+        "character_id": "phil-mitchell",
+        "name": "Phil Mitchell",
+        "aliases": [],
+        "performers": [
+          "Steve McFadden",
+          "Daniel Delaney"
+        ],
+        "coverage": "core",
+        "wikidata_id": "Q2115259",
+        "review_note": "Codex source inspection, 17 October 2026: captured character article, infobox aliases/performers and revision metadata checked. Prominence-based curated selection, not a ranked or exhaustive canon. Identity linkage is not independent story corroboration.",
+        "evidence_sources": [
+          "phil-mitchell-wiki"
+        ]
+      },
+      {
+        "character_id": "grant-mitchell",
+        "name": "Grant Mitchell",
+        "aliases": [],
+        "performers": [
+          "Ross Kemp",
+          "Teddy Jay"
+        ],
+        "coverage": "core",
+        "wikidata_id": "Q2685036",
+        "review_note": "Codex source inspection, 17 October 2026: captured character article, infobox aliases/performers and revision metadata checked. Prominence-based curated selection, not a ranked or exhaustive canon. Identity linkage is not independent story corroboration.",
+        "evidence_sources": [
+          "grant-mitchell-wiki"
+        ]
+      },
+      {
+        "character_id": "sharon-watts",
+        "name": "Sharon Watts",
+        "aliases": [
+          "Sharon Mitchell",
+          "Sharon Rickman",
+          "Sharon Beale"
+        ],
+        "performers": [
+          "Letitia Dean"
+        ],
+        "coverage": "core",
+        "wikidata_id": "Q7490258",
+        "review_note": "Codex source inspection, 17 October 2026: captured character article, infobox aliases/performers and revision metadata checked. Prominence-based curated selection, not a ranked or exhaustive canon. Identity linkage is not independent story corroboration.",
+        "evidence_sources": [
+          "sharon-watts-wiki"
+        ]
+      },
+      {
+        "character_id": "ben-mitchell",
+        "name": "Ben Mitchell",
+        "aliases": [],
+        "performers": [
+          "Matthew Silver",
+          "Morgan Whittle",
+          "Charlie Jones",
+          "Joshua Pascoe",
+          "Harry Reid",
+          "Max Bowden"
+        ],
+        "coverage": "core",
+        "wikidata_id": "Q2766568",
+        "review_note": "Codex source inspection, 17 October 2026: captured character article, infobox aliases/performers and revision metadata checked. Prominence-based curated selection, not a ranked or exhaustive canon. Identity linkage is not independent story corroboration.",
+        "evidence_sources": [
+          "ben-mitchell-wiki"
+        ]
+      },
+      {
+        "character_id": "kathy-beale",
+        "name": "Kathy Beale",
+        "aliases": [
+          "Kathy Mitchell",
+          "Kathy Sullivan",
+          "Kathy Richards",
+          "Kathy Cotton"
+        ],
+        "performers": [
+          "Gillian Taylforth"
+        ],
+        "coverage": "core",
+        "wikidata_id": "Q6377182",
+        "review_note": "Codex source inspection, 17 October 2026: captured character article, infobox aliases/performers and revision metadata checked. Prominence-based curated selection, not a ranked or exhaustive canon. Identity linkage is not independent story corroboration.",
+        "evidence_sources": [
+          "kathy-beale-wiki"
+        ]
+      },
+      {
+        "character_id": "kat-slater",
+        "name": "Kat Slater",
+        "aliases": [
+          "Kat Moon",
+          "Kat Mitchell"
+        ],
+        "performers": [
+          "Jessie Wallace",
+          "Kate Peck",
+          "Sumar-Elise Sandford",
+          "Amelia Crouch"
+        ],
+        "coverage": "core",
+        "wikidata_id": "Q3955054",
+        "review_note": "Codex source inspection, 17 October 2026: captured character article, infobox aliases/performers and revision metadata checked. Prominence-based curated selection, not a ranked or exhaustive canon. Identity linkage is not independent story corroboration.",
+        "evidence_sources": [
+          "kat-slater-wiki"
+        ]
+      },
+      {
+        "character_id": "alfie-moon",
+        "name": "Alfie Moon",
+        "aliases": [
+          "Alfred William Moon",
+          "Chris Wright"
+        ],
+        "performers": [
+          "Shane Richie"
+        ],
+        "coverage": "core",
+        "wikidata_id": "Q4721932",
+        "review_note": "Codex source inspection, 17 October 2026: captured character article, infobox aliases/performers and revision metadata checked. Prominence-based curated selection, not a ranked or exhaustive canon. Identity linkage is not independent story corroboration.",
+        "evidence_sources": [
+          "alfie-moon-wiki"
+        ]
+      },
+      {
+        "character_id": "denise-fox",
+        "name": "Denise Fox",
+        "aliases": [
+          "Denise Johnson",
+          "Denise Wicks"
+        ],
+        "performers": [
+          "Diane Parish"
+        ],
+        "coverage": "core",
+        "wikidata_id": "Q5257665",
+        "review_note": "Codex source inspection, 17 October 2026: captured character article, infobox aliases/performers and revision metadata checked. Prominence-based curated selection, not a ranked or exhaustive canon. Identity linkage is not independent story corroboration.",
+        "evidence_sources": [
+          "denise-fox-wiki"
+        ]
+      },
+      {
+        "character_id": "den-watts",
+        "name": "Den Watts",
+        "aliases": [
+          "Dirty Den",
+          "Dennis Alan Watts"
+        ],
+        "performers": [
+          "Leslie Grantham"
+        ],
+        "coverage": "supporting",
+        "wikidata_id": "Q5256484",
+        "review_note": "Den is evidenced supporting context in Sharon’s captured biography. Identity was also reviewed against retained Den revision 1371930128 in real-sources-v1.json.gz. No separate Den history is admitted here; supporting character mentions do not expand the core roster.",
+        "evidence_sources": [
+          "sharon-watts-wiki"
+        ]
+      },
+      {
+        "character_id": "amy-mitchell",
+        "name": "Amy Mitchell",
+        "aliases": [],
+        "performers": [
+          "Ellie Dadd"
+        ],
+        "coverage": "supporting",
+        "wikidata_id": "Q136428618",
+        "review_note": "Explicit stepdaughter identity in the captured Denise biography; performer is separate.",
+        "evidence_sources": [
+          "denise-fox-wiki"
+        ]
+      }
+    ]
+  },
+  "extractor": "raw-sol-retained-plus-source-reviewed-reference-v2"
+}

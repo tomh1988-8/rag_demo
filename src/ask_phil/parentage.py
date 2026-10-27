@@ -1,11 +1,12 @@
 """Evidence-backed parentage claims and explicit admission into the biological tree."""
 
 import hashlib
+from collections.abc import Mapping
 from typing import Literal, Self
 
 from pydantic import Field, model_validator
 
-from ask_phil.evidence import Fingerprint, Identifier, NonEmpty, Record, SourceSnapshot
+from ask_phil.evidence import Fingerprint, Identifier, NonEmpty, Passage, Record, SourceSnapshot
 from ask_phil.identity import IdentityCatalogue
 
 
@@ -14,6 +15,16 @@ class ClaimEvidence(Record):
     start: int = Field(ge=0)
     end: int = Field(gt=0)
     quote: NonEmpty
+
+
+def evidence_resolves(evidence: tuple[ClaimEvidence, ...], passages: Mapping[str, Passage]) -> bool:
+    """Resolve exact Unicode source spans; quote equality alone does not establish support."""
+    return all(
+        (passage := passages.get(span.evidence_id)) is not None
+        and 0 <= span.start < span.end <= len(passage.text)
+        and passage.text[span.start : span.end] == span.quote
+        for span in evidence
+    )
 
 
 class ParentageClaim(Record):
@@ -108,15 +119,8 @@ def admit_claims(
         reasons = []
         if claim.parent_id == claim.child_id or not {claim.parent_id, claim.child_id} <= identities:
             reasons.append("identity")
-        for evidence in claim.evidence:
-            passage = passages.get(evidence.evidence_id)
-            if (
-                passage is None
-                or not 0 <= evidence.start < evidence.end <= len(passage.text)
-                or passage.text[evidence.start : evidence.end] != evidence.quote
-            ):
-                reasons.append("evidence_span")
-                break
+        if not evidence_resolves(claim.evidence, passages):
+            reasons.append("evidence_span")
         review = checked.get(claim.claim_id)
         if (
             review is None

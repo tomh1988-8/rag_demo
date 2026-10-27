@@ -1,11 +1,11 @@
 """Immutable admitted relationship assertions behind a bounded read-only SQL query."""
 
 import hashlib
-from typing import Literal
+from typing import Literal, Self
 
 import psycopg
 from psycopg.types.json import Jsonb
-from pydantic import Field
+from pydantic import Field, model_validator
 
 from ask_phil.evidence import Fingerprint, Identifier, Record
 from ask_phil.execution import current_execution, database_options, read_options
@@ -26,6 +26,12 @@ class RelationshipQuery(Record):
     character_id: Identifier
     partner_id: Identifier | None = None
     max_events: int = Field(default=20, ge=1, le=50)
+
+    @model_validator(mode="after")
+    def distinct_participants(self) -> Self:
+        if self.partner_id == self.character_id:
+            raise ValueError("Relationship history requires distinct participants.")
+        return self
 
 
 class RelationshipResult(Record):

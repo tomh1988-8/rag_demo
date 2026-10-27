@@ -1,7 +1,7 @@
 """Exact reviewed-slice extraction scores, separating values from evidence support."""
 
 from ask_phil.evidence import Record, SourceSnapshot
-from ask_phil.parentage import ExtractedClaims, ParentageClaim
+from ask_phil.parentage import ExtractedClaims, ParentageClaim, evidence_resolves
 
 
 class ExtractionScore(Record):
@@ -54,12 +54,7 @@ def score_extraction(
     passages = {p.evidence_id: p for p in snapshot.passages}
     resolvable = grounded = 0
     for claim in parsed.claims:
-        resolved = all(
-            (p := passages.get(e.evidence_id)) is not None
-            and 0 <= e.start < e.end <= len(p.text)
-            and p.text[e.start : e.end] == e.quote
-            for e in claim.evidence
-        )
+        resolved = evidence_resolves(claim.evidence, passages)
         resolvable += int(resolved)
         supported = expected.get(_span_claim_key(claim))
         grounded += int(

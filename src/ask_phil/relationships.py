@@ -7,7 +7,7 @@ from pydantic import Field, model_validator
 
 from ask_phil.evidence import Fingerprint, Identifier, NonEmpty, Record, SourceSnapshot
 from ask_phil.identity import IdentityCatalogue
-from ask_phil.parentage import AdmissionDecision, ClaimEvidence, ClaimReview
+from ask_phil.parentage import AdmissionDecision, ClaimEvidence, ClaimReview, evidence_resolves
 
 Relation = Literal[
     "biological_parent",
@@ -144,12 +144,7 @@ def admit_relationships(
             or not {claim.subject_id, claim.object_id} <= identities
         ):
             reasons.append("identity")
-        if not all(
-            (p := passages.get(e.evidence_id)) is not None
-            and 0 <= e.start < e.end <= len(p.text)
-            and p.text[e.start : e.end] == e.quote
-            for e in claim.evidence
-        ):
+        if not evidence_resolves(claim.evidence, passages):
             reasons.append("evidence_span")
         review = checked.get(claim.claim_id)
         if (

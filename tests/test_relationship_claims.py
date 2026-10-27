@@ -12,7 +12,7 @@ def reference_batch() -> tuple[SourceSnapshot, RelationshipBatch, tuple[ClaimRev
     snapshot = SourceSnapshot.model_validate_json(
         Path("data/seed/relationship-pilot-v1.json").read_bytes()
     )
-    reference = json.loads(Path("data/references/relationships-v1.json").read_bytes())
+    reference = json.loads(Path("data/references/relationships-v2.json").read_bytes())
     batch = RelationshipBatch(
         snapshot_id=snapshot.snapshot_id,
         snapshot_sha256=snapshot.fingerprint,

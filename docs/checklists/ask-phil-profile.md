@@ -25,6 +25,25 @@ Of the 51 current checks, **34 Pass** and **17 remain Pending**. [Issue #9](../i
 
 [Issue #11](../implementation/issue-11/README.md) adds scoped AD-05.2 and EXT-02/03 evidence: reviewed parentage extraction, separate normalized-value and grounding measurements, content-bound admission and typed bounded SQL graph answers. Its final runtime and independent reviews match the accepted implementation. Values pass 4/4, while strict grounding is 2/4 and raw-pilot graph recall is 2/3. These remain explicit model-quality/completeness failures; measurement and conservative admission do not pass wider family coverage. RAG-04 and EXT-04 remain Pending for their broader graph-family and correction/review obligations.
 
+[Issue #12](../implementation/issue-12/README.md) extends scoped RAG-04,
+EXT-02/03, AD-06.3 and AD-08.1 evidence to family/romantic histories. The
+original pre-frozen twelve-claim reference and a separately versioned thirteenth
+source correction separate directed biological/adoptive/step/ward
+meanings, repeated marriage episodes, separation/divorce, reconciliation,
+reported status and uncertain timing. The one actual extraction has valid schema,
+5 matched values (precision 5/12, corrected recall 5/13) and 2/12
+resolvable/strict-grounded locators; all twelve raw
+candidates are held after content-bound review. The retained raw-only graph
+therefore has zero recall. Actual API/CLI and MLflow evidence separately exercises
+the twelve pre-pilot curated claims plus documented extra supporting marriage
+assertion while retaining the raw holds; this is
+manually curated capability, not a model-quality pass. The
+[regression record](../implementation/issue-12/regressions.json) preserves those
+failures, and the issue evidence binds final validation/reviews to the tested
+revision. No checklist count changes: RAG-04 remains Pending for the wider graph
+families and checked coverage; corrections, held-out and release acceptance
+remain outstanding.
+
 The [answer execution deepening](../implementation/answer-execution-deepening/README.md)
 rechecks scoped AD-05.4, AD-06.1–3, AD-07.4 and AD-09.1–3 through shared text/Family
 tree admission, separate serving/offline limits, retained stop receipts and actual

@@ -41,7 +41,7 @@ def main() -> int:
     snapshot = SourceSnapshot.model_validate_json(
         Path("data/seed/relationship-pilot-v1.json").read_bytes()
     )
-    reference = json.loads(Path("data/references/relationships-v1.json").read_bytes())
+    reference = json.loads(Path("data/references/relationships-v2.json").read_bytes())
     expected = ExtractedRelationships(claims=reference["expected_claims"])
     cases = [
         ("repeated-marriages", "kat-slater", "alfie-moon", 20),
@@ -64,7 +64,11 @@ def main() -> int:
     with psycopg.connect(args.database_url, autocommit=True) as admin:
         for phase, batch_file, review_file in (
             ("raw-pilot", "raw-claims.json", "raw-claim-reviews.json"),
-            ("reviewed-with-raw-retained", "claims.json", "claim-reviews.json"),
+            (
+                "reviewed-with-raw-retained",
+                "reviewed-claims-v2.json",
+                "reviewed-claim-reviews-v2.json",
+            ),
         ):
             name = "ask_phil_relationship_acceptance_" + uuid4().hex
             admin.execute(

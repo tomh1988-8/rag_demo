@@ -8,10 +8,13 @@ routing and wider correction/refresh behavior remain later tickets.
 
 ## Evidence before extraction
 
-[Twelve reviewed annotations](../../../data/references/relationships-v1.json)
+[Thirteen reviewed source assertions](../../../data/references/relationships-v2.json)
 cover ten short excerpts from the unchanged captured `core-profiles-v2` corpus.
-[The source review](reference-review.md) and [hash freeze](pre-pilot.json) precede
-the one paid extraction. Original source revisions, document offsets, paragraph
+The original twelve labels, [source review](reference-review.md) and
+[hash freeze](pre-pilot.json) precede the one paid extraction. A thirteenth
+marriage mention was added after independent review in a
+[versioned source correction](reference-review-v2.md); the original v1 reference
+and pilot remain unchanged. Original source revisions, document offsets, paragraph
 locators, capture hashes, attribution and licenses are preserved. Amy Mitchell
 is a reviewed supporting identity; the other nine reuse the captured catalogue.
 All cases are exposed development material, reviewed by an agent, without human
@@ -40,14 +43,16 @@ new approval review; it is not a current blocker.
 | Pilot component | Actual result |
 | --- | --- |
 | Schema | 1/1 response valid; 12 candidates |
-| Exact normalized values | 5/12; precision/recall/F1 0.4167 |
+| Exact normalized values, corrected reference | 5 matches; precision 5/12, recall 5/13, F1 0.4 |
 | Resolvable source/quote locators | 2/12 |
 | Conservative full-reference-excerpt grounding | 2/12 |
-| Reference episode pairs | 0/5 correct with missing matches counted as failures |
+| Reference episode pairs, corrected reference | 0/8 correct with missing matches counted as failures |
 | Supported reference ordering | 0/3 correct; 4 model links emitted |
 | Raw candidate admission after support review | 0 admitted, 12 held |
 
-The score reports each relation type separately. Values for adoption, biological
+[The corrected score](reference-correction-v2.json) reports each relation type
+separately; the original twelve-label pilot score is preserved as historical,
+incomplete-reference evidence. Values for adoption, biological
 parentage and remarriage match; other records have status/timing differences.
 Wrong quote endpoints affect ten records. Both correctly located biological
 claims conflate two directed relationships into one birth-event episode.
@@ -55,11 +60,13 @@ claims conflate two directed relationships into one birth-event episode.
 [raw admission](raw-admission.json) retain these failures. Neither model records
 nor frozen labels were repaired to make the pilot pass.
 
-For a usable reviewed slice, [the installed batch](claims.json) retains all twelve
-raw candidates unchanged and adds the twelve source-reviewed assertions frozen
-before the model call. [Reviews](claim-reviews.json) bind each complete record's
-hash; [admission](admission.json) admits the curated twelve and holds the raw
-twelve. This demonstrates manually curated capability, not successful automatic
+For a usable reviewed slice, [the installed v2 batch](reviewed-claims-v2.json)
+retains all twelve raw candidates unchanged and adds thirteen source-reviewed
+assertions: twelve frozen before the model call and the documented thirteenth
+source correction. [Reviews](reviewed-claim-reviews-v2.json) bind each complete
+record's hash; [admission](reviewed-admission-v2.json) admits the curated thirteen
+and holds the raw twelve. The first combined batch is retained unchanged too.
+This demonstrates manually curated capability, not successful automatic
 extraction. The raw-only and combined projections are exercised in separate
 disposable databases with the same frozen source snapshot.
 
@@ -71,10 +78,12 @@ earlier source/reference inputs remain unchanged apart from the recorded spend.
 ## Public contract
 
 `RelationshipQuery` uses `kind: relationship_history`, a reviewed `character_id`,
-an optional `partner_id` and `max_events` from 1–50 (default 20). Results preserve
+an optional distinct `partner_id` and `max_events` from 1–50 (default 20). The cap
+counts source assertion records; multiple sources may support one event. Results preserve
 each admitted assertion, claim/episode identifiers, source-bound quote locators,
 reported status, timing precision and optional `after_claim_id`. Parent/guardian
-roles remain directed; romantic pairs are symmetric. Only explicit supported
+roles remain directed; romantic pairs are symmetric. Same-episode assertions
+with identical meaning share one prose entry and retain all evidence. Only explicit supported
 ordering links establish chronology; otherwise listing order has no temporal
 meaning. Ward means subject guardian → object ward, never adoption.
 
@@ -96,7 +105,7 @@ tool. Stops discard selected assertions and citations and retain a limited answe
 ```sh
 export DATABASE_URL=postgresql://YOUR_USER@HOST:PORT/YOUR_DATABASE
 .venv/bin/ask-phil load data/seed/relationship-pilot-v1.json
-.venv/bin/ask-phil install-relationships docs/implementation/issue-12/claims.json docs/implementation/issue-12/claim-reviews.json
+.venv/bin/ask-phil install-relationships docs/implementation/issue-12/reviewed-claims-v2.json docs/implementation/issue-12/reviewed-claim-reviews-v2.json
 ```
 
 Start the API against that database, then:

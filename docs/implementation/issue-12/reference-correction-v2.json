@@ -1,0 +1,105 @@
+{
+  "captured_at": "2026-10-27T10:53:33.254089+00:00",
+  "code_revision": "097bf7dc6317c5fc1e789b4f9dbac485ec54fc1a",
+  "application_changes_uncommitted": true,
+  "reference_file": "data/references/relationships-v2.json",
+  "reference_sha256": "09c258dfb092b7f85672d6c77a749cf5bb6994ffa7f4916078ed688d2807caf8",
+  "pilot_file": "docs/implementation/issue-12/extraction-pilot.json",
+  "pilot_sha256": "2a0f25b90153490ede0e9baccc598f7cd3097c517b6fef1805ea9773e34cccb8",
+  "original_pilot_retained": true,
+  "original_v1_scope_complete": false,
+  "new_paid_calls": 0,
+  "score": {
+    "expected": 13,
+    "predicted": 12,
+    "true_positive": 5,
+    "precision": 0.4166666666666667,
+    "recall": 0.38461538461538464,
+    "f1": 0.4,
+    "schema_valid": true,
+    "duplicates": 0,
+    "resolvable_spans": 2,
+    "grounded": 2,
+    "episode_pairs_expected": 8,
+    "episode_pairs_correct": 0,
+    "ordering_expected": 3,
+    "ordering_predicted": 4,
+    "ordering_correct": 0,
+    "alignment_limited": false,
+    "by_relation": {
+      "adoptive_parent": {
+        "expected": 1,
+        "predicted": 1,
+        "true_positive": 1,
+        "precision": 1.0,
+        "recall": 1.0,
+        "f1": 1.0
+      },
+      "affair": {
+        "expected": 1,
+        "predicted": 1,
+        "true_positive": 0,
+        "precision": 0.0,
+        "recall": 0.0,
+        "f1": 0.0
+      },
+      "biological_parent": {
+        "expected": 2,
+        "predicted": 2,
+        "true_positive": 2,
+        "precision": 1.0,
+        "recall": 1.0,
+        "f1": 1.0
+      },
+      "divorce": {
+        "expected": 1,
+        "predicted": 1,
+        "true_positive": 0,
+        "precision": 0.0,
+        "recall": 0.0,
+        "f1": 0.0
+      },
+      "marriage": {
+        "expected": 3,
+        "predicted": 2,
+        "true_positive": 0,
+        "precision": 0.0,
+        "recall": 0.0,
+        "f1": 0.0
+      },
+      "reconciliation": {
+        "expected": 2,
+        "predicted": 2,
+        "true_positive": 1,
+        "precision": 0.5,
+        "recall": 0.5,
+        "f1": 0.5
+      },
+      "remarriage": {
+        "expected": 1,
+        "predicted": 1,
+        "true_positive": 1,
+        "precision": 1.0,
+        "recall": 1.0,
+        "f1": 1.0
+      },
+      "separation": {
+        "expected": 1,
+        "predicted": 1,
+        "true_positive": 0,
+        "precision": 0.0,
+        "recall": 0.0,
+        "f1": 0.0
+      },
+      "step_parent": {
+        "expected": 1,
+        "predicted": 1,
+        "true_positive": 0,
+        "precision": 0.0,
+        "recall": 0.0,
+        "f1": 0.0
+      }
+    },
+    "scope": "Exposed, completely annotated in-catalogue spans only. Match values and unique passage IDs, with frozen timing alternatives; ignore arbitrary claim/episode IDs. Romantic pairs are symmetric; parent/guardian roles are directed. Distinct episode instances retain multiplicity; duplicates within the same episode collapse. One-to-one value matching ignores ID spelling. Ambiguous alignments maximize episode agreement, then ordering; over 4096 alternatives leaves those two scores unavailable. Raw duplicates and full-reference-span grounding are separate. Missing episode pairs fail. This conservative grounding proxy is not independent semantic/canon adjudication."
+  }
+}
