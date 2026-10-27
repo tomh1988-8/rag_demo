@@ -14,6 +14,8 @@ from ask_phil.conversation import (
     ReferenceTurn,
     TurnIdentity,
 )
+from ask_phil.event_graph import EventGraph, EventQuery, EventResult
+from ask_phil.event_wording import EVENT_WORDING, render_events
 from ask_phil.evidence import Passage
 from ask_phil.execution import ExecutionBudget, ExecutionStopped
 from ask_phil.family_graph import GRAPH_LIMITATION, FamilyGraph, FamilyResult
@@ -23,6 +25,7 @@ from ask_phil.relationship_graph import RelationshipGraph, RelationshipQuery, Re
 from ask_phil.relationships import HISTORY_LIMITATION, RelationshipClaim
 from ask_phil.security import require_credential_free
 from ask_phil.storage import EvidenceStore
+from ask_phil.story_events import EVENT_LIMITATION
 
 GRAPH_WORDING = "biological-paths-v1: explicit typed query; bounded captured relationships only"
 HISTORY_WORDING = (
@@ -110,26 +113,36 @@ class FamilyAnswer:
     ) -> AnswerContent:
         snapshot = self.snapshot
         snapshot_id = snapshot.snapshot_id
-        result: FamilyResult | RelationshipResult | None = None
+        result: FamilyResult | RelationshipResult | EventResult | None = None
         is_history = isinstance(request.graph, RelationshipQuery)
-        limitation = HISTORY_LIMITATION if is_history else GRAPH_LIMITATION
+        is_event = isinstance(request.graph, EventQuery)
+        limitation = (
+            EVENT_LIMITATION
+            if is_event
+            else (HISTORY_LIMITATION if is_history else GRAPH_LIMITATION)
+        )
         context: tuple[Passage, ...] = ()
         citations: tuple[Citation, ...] = ()
         try:
             budget.check()
             assert request.graph is not None
             with mlflow.start_span(
-                "relationship_history" if is_history else "family_graph", span_type="RETRIEVER"
+                "crime_history"
+                if is_event
+                else ("relationship_history" if is_history else "family_graph"),
+                span_type="RETRIEVER",
             ) as span:
                 span.set_inputs(request.graph.model_dump())
-                if isinstance(request.graph, RelationshipQuery):
+                if isinstance(request.graph, EventQuery):
+                    result = EventGraph(self.database_url).query(snapshot_id, request.graph)
+                elif isinstance(request.graph, RelationshipQuery):
                     result = RelationshipGraph(self.database_url).query(snapshot_id, request.graph)
                 else:
                     result = FamilyGraph(self.database_url).query(snapshot_id, request.graph)
                 span.set_outputs(result.model_dump(mode="json"))
             ids = (
                 {e.evidence_id for c in result.claims for e in c.evidence}
-                if isinstance(result, RelationshipResult)
+                if isinstance(result, RelationshipResult | EventResult)
                 else {
                     e.evidence_id for p in result.paths for edge in p.edges for e in edge.evidence
                 }
@@ -155,12 +168,25 @@ class FamilyAnswer:
             result, context, citations = None, (), ()
             root.set_status("ERROR")
         supported = bool(
-            result and (result.claims if isinstance(result, RelationshipResult) else result.paths)
+            result
+            and (
+                result.claims
+                if isinstance(result, RelationshipResult | EventResult)
+                else result.paths
+            )
         )
         status: Literal["partial", "insufficient_evidence"] = (
             "partial" if supported else "insufficient_evidence"
         )
-        if isinstance(result, RelationshipResult) and result.claims:
+        if isinstance(result, EventResult) and result.claims:
+            answer = render_events(
+                result,
+                synthetic=any(
+                    (p.source or snapshot.source).support_status == "synthetic_fixture"
+                    for p in context
+                ),
+            )
+        elif isinstance(result, RelationshipResult) and result.claims:
             answer = render_history(
                 result,
                 synthetic=any(
@@ -175,7 +201,11 @@ class FamilyAnswer:
             answer = f"Right, listen. Captured biological {result.query.direction} paths: {paths}. "
         else:
             reason = budget.record().stop_reason or (result.status if result else "unavailable")
-            subject = "relationship history" if is_history else "biological paths"
+            subject = (
+                "crime/justice history"
+                if is_event
+                else ("relationship history" if is_history else "biological paths")
+            )
             answer = f"I can't establish the requested {subject} from this graph ({reason}). "
         conversation = (
             ConversationReference(
@@ -195,14 +225,20 @@ class FamilyAnswer:
             conversation=conversation,
             status=status,
             answer=answer + limitation,
-            unanswered=("Relationship coverage outside the reviewed spans and query bounds.",)
+            unanswered=("Crime/justice coverage outside the reviewed incidents and query bounds.",)
+            if is_event
+            else ("Relationship coverage outside the reviewed spans and query bounds.",)
             if is_history
             else ("Family coverage outside the reviewed spans and traversal bounds.",),
             citations=citations,
             context=context,
             graph=result,
             prompt_sha256=hashlib.sha256(
-                (HISTORY_WORDING if is_history else GRAPH_WORDING).encode()
+                (
+                    EVENT_WORDING
+                    if is_event
+                    else (HISTORY_WORDING if is_history else GRAPH_WORDING)
+                ).encode()
             ).hexdigest(),
             accounting=ModelExecution(
                 content=None,

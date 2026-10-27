@@ -1,0 +1,138 @@
+[
+  {
+    "claim_id": "lucy-ben-arrest",
+    "claim_sha256": "fce77ed7ec1b4ab5b0fc01bfa780dc3fa2fb3f5ad991e2185522f3193f645787",
+    "verdict": "supported",
+    "reviewer": "Codex-source-review-before-extraction",
+    "note": "Read the whole frozen excerpt and original captured paragraph; legal stage/role, attribution, scope and date precision checked. False accounts have independent contradictory narrative in the excerpt.",
+    "narrative_commission": false
+  },
+  {
+    "claim_id": "lucy-max-arrest",
+    "claim_sha256": "5921eafd2a05124b66b0ac124e3014fd8ad334013214d1d526ac256bcb82adc0",
+    "verdict": "supported",
+    "reviewer": "Codex-source-review-before-extraction",
+    "note": "Read the whole frozen excerpt and original captured paragraph; legal stage/role, attribution, scope and date precision checked. False accounts have independent contradictory narrative in the excerpt.",
+    "narrative_commission": false
+  },
+  {
+    "claim_id": "lucy-max-charge",
+    "claim_sha256": "bae3080aee39267e0ede139e7d73c1feca46ca14e0e0ef53640a1eb19e571300",
+    "verdict": "supported",
+    "reviewer": "Codex-source-review-before-extraction",
+    "note": "Read the whole frozen excerpt and original captured paragraph; legal stage/role, attribution, scope and date precision checked. False accounts have independent contradictory narrative in the excerpt.",
+    "narrative_commission": false
+  },
+  {
+    "claim_id": "lucy-max-conviction",
+    "claim_sha256": "95722f41de3face5443046afa9bbb42ce20753f4af3c7617fb0d9920422fdadc",
+    "verdict": "supported",
+    "reviewer": "Codex-source-review-before-extraction",
+    "note": "Read the whole frozen excerpt and original captured paragraph; legal stage/role, attribution, scope and date precision checked. False accounts have independent contradictory narrative in the excerpt.",
+    "narrative_commission": false
+  },
+  {
+    "claim_id": "lucy-bobby-commission",
+    "claim_sha256": "b6d5586235ea9ef0dcb7d051c8ffb1c627b48b5be70ba413f4612ee51e2af515",
+    "verdict": "supported",
+    "reviewer": "Codex-source-review-before-extraction",
+    "note": "Read the whole frozen excerpt and original captured paragraph; legal stage/role, attribution, scope and date precision checked. False accounts have independent contradictory narrative in the excerpt.",
+    "narrative_commission": true
+  },
+  {
+    "claim_id": "lucy-bobby-accusation",
+    "claim_sha256": "7e778308b9a90f231a032b825a11bb8279b2527e48df833902198d1d69746e05",
+    "verdict": "supported",
+    "reviewer": "Codex-source-review-before-extraction",
+    "note": "Read the whole frozen excerpt and original captured paragraph; legal stage/role, attribution, scope and date precision checked. False accounts have independent contradictory narrative in the excerpt.",
+    "narrative_commission": false
+  },
+  {
+    "claim_id": "lucy-max-rearrest",
+    "claim_sha256": "a4df5e6497ac5ac75dc42605309ae5260a9dacd396a6f3c524ec3c8b2b0a5695",
+    "verdict": "supported",
+    "reviewer": "Codex-source-review-before-extraction",
+    "note": "Read the whole frozen excerpt and original captured paragraph; legal stage/role, attribution, scope and date precision checked. False accounts have independent contradictory narrative in the excerpt.",
+    "narrative_commission": false
+  },
+  {
+    "claim_id": "lucy-max-imprisonment",
+    "claim_sha256": "9e5da2f2ebbab2621745d15e16196647dbc98cb17f5385361bff3d8f8489c7b0",
+    "verdict": "supported",
+    "reviewer": "Codex-source-review-before-extraction",
+    "note": "Read the whole frozen excerpt and original captured paragraph; legal stage/role, attribution, scope and date precision checked. False accounts have independent contradictory narrative in the excerpt.",
+    "narrative_commission": false
+  },
+  {
+    "claim_id": "stella-phil-confession",
+    "claim_sha256": "e03409817a811a3270e5493e45065cabbc8f0eb1dc563a676757eddbb08f2b9a",
+    "verdict": "supported",
+    "reviewer": "Codex-source-review-before-extraction",
+    "note": "Read the whole frozen excerpt and original captured paragraph; legal stage/role, attribution, scope and date precision checked. False accounts have independent contradictory narrative in the excerpt.",
+    "narrative_commission": false
+  },
+  {
+    "claim_id": "stella-phil-release",
+    "claim_sha256": "a0f94b858ce3cd84b37a230c6792e74c2397448429b1d773a82b5ddfd38b0078",
+    "verdict": "supported",
+    "reviewer": "Codex-source-review-before-extraction",
+    "note": "Read the whole frozen excerpt and original captured paragraph; legal stage/role, attribution, scope and date precision checked. False accounts have independent contradictory narrative in the excerpt.",
+    "narrative_commission": false
+  },
+  {
+    "claim_id": "crash-max-accusation",
+    "claim_sha256": "e582dce7161f128dbb5211c9477373c83c03f90abb9a2dcd25da63b224d71748",
+    "verdict": "supported",
+    "reviewer": "Codex-source-review-before-extraction",
+    "note": "Read the whole frozen excerpt and original captured paragraph; legal stage/role, attribution, scope and date precision checked. False accounts have independent contradictory narrative in the excerpt.",
+    "narrative_commission": false
+  },
+  {
+    "claim_id": "crash-max-arrest",
+    "claim_sha256": "667d3538c699046c42d79b736d7f2d77d62acea5a908577949a4b1cc63896fe4",
+    "verdict": "supported",
+    "reviewer": "Codex-source-review-before-extraction",
+    "note": "Read the whole frozen excerpt and original captured paragraph; legal stage/role, attribution, scope and date precision checked. False accounts have independent contradictory narrative in the excerpt.",
+    "narrative_commission": false
+  },
+  {
+    "claim_id": "crash-max-bail",
+    "claim_sha256": "bdd958dcd50a783097f5035363c217134de9742b1560e3f7efd54df3f8c37dd9",
+    "verdict": "supported",
+    "reviewer": "Codex-source-review-before-extraction",
+    "note": "Read the whole frozen excerpt and original captured paragraph; legal stage/role, attribution, scope and date precision checked. False accounts have independent contradictory narrative in the excerpt.",
+    "narrative_commission": false
+  },
+  {
+    "claim_id": "crash-max-confession",
+    "claim_sha256": "c3ccd2d761f4c4bed83bfaa78707e3caf876ca05174f7e4d5c2b84af06886935",
+    "verdict": "supported",
+    "reviewer": "Codex-source-review-before-extraction",
+    "note": "Read the whole frozen excerpt and original captured paragraph; legal stage/role, attribution, scope and date precision checked. False accounts have independent contradictory narrative in the excerpt.",
+    "narrative_commission": false
+  },
+  {
+    "claim_id": "crash-max-trial",
+    "claim_sha256": "acf01fc7c41abee2019943a2fa8aa96056a1757d5bd8c88e0d600a72c2821a4a",
+    "verdict": "supported",
+    "reviewer": "Codex-source-review-before-extraction",
+    "note": "Read the whole frozen excerpt and original captured paragraph; legal stage/role, attribution, scope and date precision checked. False accounts have independent contradictory narrative in the excerpt.",
+    "narrative_commission": false
+  },
+  {
+    "claim_id": "crash-max-release",
+    "claim_sha256": "486ee4daa99cbbcd4be367a004962acdeb4efec1734cada857bda28992565070",
+    "verdict": "supported",
+    "reviewer": "Codex-source-review-before-extraction",
+    "note": "Read the whole frozen excerpt and original captured paragraph; legal stage/role, attribution, scope and date precision checked. False accounts have independent contradictory narrative in the excerpt.",
+    "narrative_commission": false
+  },
+  {
+    "claim_id": "crash-max-acquittal",
+    "claim_sha256": "011e7408ea89fb0d9f78c58911fa38b47590df3dcbb9f407c0cc0b3a7b6837c8",
+    "verdict": "supported",
+    "reviewer": "Codex-source-review-before-extraction",
+    "note": "Read the whole frozen excerpt and original captured paragraph; legal stage/role, attribution, scope and date precision checked. False accounts have independent contradictory narrative in the excerpt.",
+    "narrative_commission": false
+  }
+]

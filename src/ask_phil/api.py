@@ -19,6 +19,7 @@ from pydantic import StringConstraints
 from ask_phil.answering import AnswerService
 from ask_phil.answers import AnswerReceipt, AnswerRecord, AskRequest
 from ask_phil.conversation import ReferenceTurn, TurnIdentity
+from ask_phil.event_graph import EventAudit, EventGraph, EventQuery, EventResult
 from ask_phil.evidence import Identifier, Inspection
 from ask_phil.execution import ExecutionBudget, ExecutionLimits, ExecutionPolicies, ExecutionStopped
 from ask_phil.family_graph import FamilyAudit, FamilyGraph, FamilyQuery, FamilyResult
@@ -187,6 +188,31 @@ def create_app(
         if audit is None:
             raise HTTPException(
                 status_code=404, detail="No reviewed relationship graph for this snapshot."
+            )
+        return audit
+
+    @app.post("/v1/snapshots/{snapshot_id}/events")
+    def event_query(snapshot_id: Identifier, query: EventQuery) -> EventResult:
+        budget = ExecutionBudget(policies.serving)
+        try:
+            with budget.activate():
+                publications.pin(snapshot_id)
+                return EventGraph(database_url).query(snapshot_id, query)
+        except SnapshotNotFound as exc:
+            raise HTTPException(status_code=404, detail="Snapshot not found.") from exc
+        except (psycopg.errors.QueryCanceled, psycopg.errors.LockNotAvailable) as exc:
+            raise HTTPException(status_code=503, detail="Event query timed out.") from exc
+        except ExecutionStopped as exc:
+            raise HTTPException(status_code=503, detail=f"Event graph stopped: {exc}.") from exc
+        except IndexNotReady as exc:
+            raise HTTPException(status_code=503, detail=str(exc)) from exc
+
+    @app.get("/v1/snapshots/{snapshot_id}/event-claims")
+    def event_claims(snapshot_id: Identifier) -> EventAudit:
+        audit = EventGraph(database_url).audit(snapshot_id)
+        if audit is None:
+            raise HTTPException(
+                status_code=404, detail="No reviewed event graph for this snapshot."
             )
         return audit
 

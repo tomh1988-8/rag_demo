@@ -7,6 +7,7 @@ from uuid import UUID
 from pydantic import Field, StringConstraints, field_validator, model_validator
 
 from ask_phil.conversation import ConversationReference
+from ask_phil.event_graph import EventQuery, EventResult
 from ask_phil.evidence import Fingerprint, Identifier, Passage, PublicationRef, Record, Source
 from ask_phil.execution import ExecutionRecord
 from ask_phil.family_graph import FamilyQuery, FamilyResult
@@ -97,7 +98,7 @@ class AskRequest(Record):
     snapshot_id: Identifier | None = None
     question: Annotated[str, StringConstraints(strip_whitespace=True, min_length=1, max_length=500)]
     route: Literal["text_rag", "graph"] = "text_rag"
-    graph: FamilyQuery | RelationshipQuery | None = None
+    graph: FamilyQuery | RelationshipQuery | EventQuery | None = None
 
     @model_validator(mode="after")
     def route_arguments(self) -> Self:
@@ -135,7 +136,7 @@ class AnswerRecord(Record):
     retrieval_k: int
     route: Literal["text_rag", "graph"] = "text_rag"
     route_override: bool = Field(default=False, exclude_if=lambda v: not v)
-    graph: FamilyResult | RelationshipResult | None = Field(
+    graph: FamilyResult | RelationshipResult | EventResult | None = Field(
         default=None, exclude_if=lambda v: v is None
     )
     baseline_version: Literal["single-query-uncached-v1", "single-query-uncached-v2"] = (
@@ -221,4 +222,4 @@ class AnswerContent:
         "single-query-uncached-v1"
     )
     model_settings: ModelSettings | OpenRouterSettings | None = None
-    graph: FamilyResult | RelationshipResult | None = None
+    graph: FamilyResult | RelationshipResult | EventResult | None = None

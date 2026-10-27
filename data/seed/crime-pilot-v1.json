@@ -1,0 +1,226 @@
+{
+  "snapshot_id": "crime-pilot-v1",
+  "fixture_version": 1,
+  "source": {
+    "title": "Max Branning",
+    "url": "https://en.wikipedia.org/wiki/Max_Branning",
+    "revision_id": "1378782554",
+    "revision_url": "https://en.wikipedia.org/w/index.php?oldid=1378782554",
+    "section": "Storylines / 2006–2021",
+    "captured_at": "2026-10-17T13:07:34.684245Z",
+    "capture_sha256": "48c3bdd9d5f7110e9cbcd9e6cbc7f32970c519fee14c1a32b231b42c639dc615",
+    "scope": "main_series",
+    "license_url": "https://creativecommons.org/licenses/by-sa/4.0/",
+    "attribution": "Wikipedia contributors; markup removed and whitespace normalized.",
+    "coverage": "Reviewed narrative sections in this captured revision only.",
+    "gaps": [
+      "Partial canon coverage; other paragraphs remain excluded or awaiting review.",
+      "Identity and episode metadata do not independently corroborate story claims."
+    ],
+    "support_status": "source_supported"
+  },
+  "passages": [
+    {
+      "evidence_id": "lucy-arrest-charge",
+      "text": "When Ben is arrested for Lucy's murder, Phil manipulates Abi into coming forward about Max's fake alibi to the police. Max is arrested and is charged with her murder when Lucy's blood is found on his shoe, from where Jake Stone caused Lucy's nose to bleed on the night she died.",
+      "sha256": "49dfd9a4f22c14f3e1240b45100f89f707f4a09edae8ee17ef990e0f7424576c",
+      "start": 28208,
+      "end": 28486,
+      "source": {
+        "title": "Max Branning",
+        "url": "https://en.wikipedia.org/wiki/Max_Branning",
+        "revision_id": "1378782554",
+        "revision_url": "https://en.wikipedia.org/w/index.php?oldid=1378782554",
+        "section": "Storylines / 2006–2021",
+        "captured_at": "2026-10-17T13:07:34.684245Z",
+        "capture_sha256": "48c3bdd9d5f7110e9cbcd9e6cbc7f32970c519fee14c1a32b231b42c639dc615",
+        "scope": "main_series",
+        "license_url": "https://creativecommons.org/licenses/by-sa/4.0/",
+        "attribution": "Wikipedia contributors; markup removed and whitespace normalized.",
+        "coverage": "Reviewed narrative sections in this captured revision only.",
+        "gaps": [
+          "Partial canon coverage; other paragraphs remain excluded or awaiting review.",
+          "Identity and episode metadata do not independently corroborate story claims."
+        ],
+        "support_status": "source_supported"
+      },
+      "location": {
+        "source_id": "max-branning-wiki",
+        "paragraph_ordinal": 27,
+        "section_id": "2006–2021",
+        "character_ids": [
+          "bobby-beale",
+          "max-branning"
+        ]
+      }
+    },
+    {
+      "evidence_id": "lucy-conviction",
+      "text": "Despite Ian's wife Jane (Laurie Brett) giving him a false alibi, he is found guilty thanks to Phil paying off the jury foreman.",
+      "sha256": "ab037575ab0976ec8b9309db31a87dbb3cce2835e29af2903cceff3a27256b82",
+      "start": 28675,
+      "end": 28802,
+      "source": {
+        "title": "Max Branning",
+        "url": "https://en.wikipedia.org/wiki/Max_Branning",
+        "revision_id": "1378782554",
+        "revision_url": "https://en.wikipedia.org/w/index.php?oldid=1378782554",
+        "section": "Storylines / 2006–2021",
+        "captured_at": "2026-10-17T13:07:34.684245Z",
+        "capture_sha256": "48c3bdd9d5f7110e9cbcd9e6cbc7f32970c519fee14c1a32b231b42c639dc615",
+        "scope": "main_series",
+        "license_url": "https://creativecommons.org/licenses/by-sa/4.0/",
+        "attribution": "Wikipedia contributors; markup removed and whitespace normalized.",
+        "coverage": "Reviewed narrative sections in this captured revision only.",
+        "gaps": [
+          "Partial canon coverage; other paragraphs remain excluded or awaiting review.",
+          "Identity and episode metadata do not independently corroborate story claims."
+        ],
+        "support_status": "source_supported"
+      },
+      "location": {
+        "source_id": "max-branning-wiki",
+        "paragraph_ordinal": 27,
+        "section_id": "2006–2021",
+        "character_ids": [
+          "bobby-beale",
+          "max-branning"
+        ]
+      }
+    },
+    {
+      "evidence_id": "lucy-revelation",
+      "text": "Max soon realises that Jane's adopted son Bobby Beale (Eliot Carrington) is Lucy's killer all along and that Jane had been covering up for her. He then discovers that Lauren knew the truth and disowns her as the police arrive to arrest him once more. As he is being arrested, Max shouts out to everyone that Bobby killed Lucy but they all dismiss his claims as an act of desperation; Max is later sentenced to life imprisonment with a recommendation he should serve at least 21 years.",
+      "sha256": "19f4d15331225d7db9d5fd6da40227c552a8bc61a569c13bf757df477329548c",
+      "start": 29247,
+      "end": 29731,
+      "source": {
+        "title": "Max Branning",
+        "url": "https://en.wikipedia.org/wiki/Max_Branning",
+        "revision_id": "1378782554",
+        "revision_url": "https://en.wikipedia.org/w/index.php?oldid=1378782554",
+        "section": "Storylines / 2006–2021",
+        "captured_at": "2026-10-17T13:07:34.684245Z",
+        "capture_sha256": "48c3bdd9d5f7110e9cbcd9e6cbc7f32970c519fee14c1a32b231b42c639dc615",
+        "scope": "main_series",
+        "license_url": "https://creativecommons.org/licenses/by-sa/4.0/",
+        "attribution": "Wikipedia contributors; markup removed and whitespace normalized.",
+        "coverage": "Reviewed narrative sections in this captured revision only.",
+        "gaps": [
+          "Partial canon coverage; other paragraphs remain excluded or awaiting review.",
+          "Identity and episode metadata do not independently corroborate story claims."
+        ],
+        "support_status": "source_supported"
+      },
+      "location": {
+        "source_id": "max-branning-wiki",
+        "paragraph_ordinal": 27,
+        "section_id": "2006–2021",
+        "character_ids": [
+          "bobby-beale",
+          "max-branning"
+        ]
+      }
+    },
+    {
+      "evidence_id": "stella-false-confession",
+      "text": "Stella flees to an abandoned warehouse with Phil in pursuit – where she kills herself by jumping from the roof. Later on, Phil claims to have killed Stella and is taken into custody – but is later released without charge.",
+      "sha256": "9a5ef67010e19e02fe16e70154f8ed986ea01065437042b1526fa99ef2481621",
+      "start": 36817,
+      "end": 37038,
+      "source": {
+        "title": "Phil Mitchell",
+        "url": "https://en.wikipedia.org/wiki/Phil_Mitchell",
+        "revision_id": "1379872347",
+        "revision_url": "https://en.wikipedia.org/w/index.php?oldid=1379872347",
+        "section": "Storylines / 2005–present",
+        "captured_at": "2026-10-17T13:07:31.014189Z",
+        "capture_sha256": "a338d3065203be54e383f2c9c141bca22ae9aedbb950e2e1eada601bcccfe313",
+        "scope": "main_series",
+        "license_url": "https://creativecommons.org/licenses/by-sa/4.0/",
+        "attribution": "Wikipedia contributors; markup removed and whitespace normalized.",
+        "coverage": "Reviewed narrative sections in this captured revision only.",
+        "gaps": [
+          "Partial canon coverage; other paragraphs remain excluded or awaiting review.",
+          "Identity and episode metadata do not independently corroborate story claims."
+        ],
+        "support_status": "source_supported"
+      },
+      "location": {
+        "source_id": "phil-mitchell-wiki",
+        "paragraph_ordinal": 35,
+        "section_id": "2005–present",
+        "character_ids": [
+          "phil-mitchell"
+        ]
+      }
+    },
+    {
+      "evidence_id": "crash-framing",
+      "text": "Max's feud with Carl continues, and, determined to get rid of Max so he can win back Kirsty, he purposefully cuts the brakes on his car, and crashes it, leaving Phil in a critical condition. He frames Max for cutting the brakes, and forces Ian to become a false witness. Max is arrested and released on bail, until Carl goads him into attacking him, and he is remanded in custody. He then ends his relationship with Kirsty under Carl's instructions, partially because Carl has also threatened Lauren's safety as well. Carl also forces Max to tell his family he is guilty, and Lauren is the only person who believes he is innocent. On the day of Max's trial, Ian fails to turn up, and Max is released without charge, to Carl's fury.",
+      "sha256": "d13d71cc469d7ed626e3df1f5157b97fa031ad2140dc26f98f2a9e1531e5558d",
+      "start": 22468,
+      "end": 23199,
+      "source": {
+        "title": "Max Branning",
+        "url": "https://en.wikipedia.org/wiki/Max_Branning",
+        "revision_id": "1378782554",
+        "revision_url": "https://en.wikipedia.org/w/index.php?oldid=1378782554",
+        "section": "Storylines / 2006–2021",
+        "captured_at": "2026-10-17T13:07:34.684245Z",
+        "capture_sha256": "48c3bdd9d5f7110e9cbcd9e6cbc7f32970c519fee14c1a32b231b42c639dc615",
+        "scope": "main_series",
+        "license_url": "https://creativecommons.org/licenses/by-sa/4.0/",
+        "attribution": "Wikipedia contributors; markup removed and whitespace normalized.",
+        "coverage": "Reviewed narrative sections in this captured revision only.",
+        "gaps": [
+          "Partial canon coverage; other paragraphs remain excluded or awaiting review.",
+          "Identity and episode metadata do not independently corroborate story claims."
+        ],
+        "support_status": "source_supported"
+      },
+      "location": {
+        "source_id": "max-branning-wiki",
+        "paragraph_ordinal": 24,
+        "section_id": "2006–2021",
+        "character_ids": [
+          "max-branning"
+        ]
+      }
+    },
+    {
+      "evidence_id": "crash-acquittal",
+      "text": "Phil kidnaps Ian on the day of Max's trial so he cannot testify, and then kidnaps Carl once Max is acquitted.",
+      "sha256": "d2824f238d75baa22ca39fe76ea28b485a80f6010bffed29e582e5a1204be65d",
+      "start": 48707,
+      "end": 48816,
+      "source": {
+        "title": "Phil Mitchell",
+        "url": "https://en.wikipedia.org/wiki/Phil_Mitchell",
+        "revision_id": "1379872347",
+        "revision_url": "https://en.wikipedia.org/w/index.php?oldid=1379872347",
+        "section": "Storylines / 2005–present",
+        "captured_at": "2026-10-17T13:07:31.014189Z",
+        "capture_sha256": "a338d3065203be54e383f2c9c141bca22ae9aedbb950e2e1eada601bcccfe313",
+        "scope": "main_series",
+        "license_url": "https://creativecommons.org/licenses/by-sa/4.0/",
+        "attribution": "Wikipedia contributors; markup removed and whitespace normalized.",
+        "coverage": "Reviewed narrative sections in this captured revision only.",
+        "gaps": [
+          "Partial canon coverage; other paragraphs remain excluded or awaiting review.",
+          "Identity and episode metadata do not independently corroborate story claims."
+        ],
+        "support_status": "source_supported"
+      },
+      "location": {
+        "source_id": "phil-mitchell-wiki",
+        "paragraph_ordinal": 43,
+        "section_id": "2005–present",
+        "character_ids": [
+          "max-branning",
+          "phil-mitchell"
+        ]
+      }
+    }
+  ]
+}

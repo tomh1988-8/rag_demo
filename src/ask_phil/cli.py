@@ -74,6 +74,11 @@ def main() -> int:
     graph_kind.add_argument(
         "--history", action="store_true", help="Query reviewed relationship history."
     )
+    graph_kind.add_argument(
+        "--crime-history", action="store_true", help="Query reviewed crime and justice roles."
+    )
+    ask.add_argument("--participant", help="Optional second character for --crime-history.")
+    ask.add_argument("--event", help="Optional reviewed incident ID for --crime-history.")
     ask.add_argument("--partner", help="Optional second character for --history.")
     ask.add_argument("--max-events", type=int, default=20)
     ask.add_argument("--depth", type=int, default=3)
@@ -96,6 +101,15 @@ def main() -> int:
         "relationship-claims", help="Inspect retained relationship claims and admission reviews."
     )
     history_audit.add_argument("--snapshot", required=True)
+    event_install = commands.add_parser(
+        "install-events", help="Maintainer: admit reviewed crime and justice assertions."
+    )
+    event_install.add_argument("batch", type=Path)
+    event_install.add_argument("reviews", type=Path)
+    event_audit = commands.add_parser(
+        "event-claims", help="Inspect retained event claims and reviews."
+    )
+    event_audit.add_argument("--snapshot", required=True)
     session = commands.add_parser("start-session", help="Create a bounded anonymous conversation.")
     session.add_argument("receipt", type=Path, help="New private local session receipt file.")
     reset = commands.add_parser("reset", help="Clear reference context, keeping saved answers.")
@@ -128,14 +142,28 @@ def main() -> int:
     )
     args = parser.parse_args()
     if args.command == "ask":
-        if args.route == "graph" and (not args.character or not (args.direction or args.history)):
-            parser.error("--route graph requires --character and --direction or --history.")
+        if args.route == "graph" and (
+            not args.character or not (args.direction or args.history or args.crime_history)
+        ):
+            parser.error(
+                "--route graph requires --character and --direction, --history or --crime-history."
+            )
         if args.route != "graph" and (
-            args.character or args.direction or args.history or args.partner
+            args.character
+            or args.direction
+            or args.history
+            or args.partner
+            or args.crime_history
+            or args.participant
+            or args.event
         ):
             parser.error("Graph query arguments require --route graph.")
         if args.partner and not args.history:
             parser.error("--partner requires --history.")
+        if args.participant and not args.crime_history:
+            parser.error("--participant requires --crime-history.")
+        if args.event and not args.crime_history:
+            parser.error("--event requires --crime-history.")
     try:
         if args.command == "configure-openrouter":
             if not sys.stdin.isatty():
@@ -171,6 +199,7 @@ def main() -> int:
             "rollback-snapshot",
             "install-family",
             "install-relationships",
+            "install-events",
         }:
             database_url = os.environ.get("DATABASE_URL")
             if not database_url:
@@ -200,6 +229,19 @@ def main() -> int:
                 except ModelConfigurationError as exc:
                     raise ValueError(str(exc)) from None
                 print(outcome.model_dump_json())
+            elif args.command == "install-events":
+                from pydantic import TypeAdapter
+
+                from ask_phil.event_graph import EventGraph
+                from ask_phil.story_events import EventBatch, EventReview
+
+                event_reviews = TypeAdapter(tuple[EventReview, ...]).validate_json(
+                    args.reviews.read_bytes()
+                )
+                event_audit_record = EventGraph(database_url).install(
+                    EventBatch.model_validate_json(args.batch.read_bytes()), event_reviews
+                )
+                print(event_audit_record.model_dump_json())
             elif args.command in {"install-family", "install-relationships"}:
                 from pydantic import TypeAdapter
 
@@ -293,6 +335,14 @@ def main() -> int:
                             "route": args.route,
                             "graph": (
                                 {
+                                    "kind": "crime_history",
+                                    "character_id": args.character,
+                                    "participant_id": args.participant,
+                                    "event_id": args.event,
+                                    "max_events": args.max_events,
+                                }
+                                if args.crime_history
+                                else {
                                     "kind": "relationship_history",
                                     "character_id": args.character,
                                     "partner_id": args.partner,
@@ -324,6 +374,8 @@ def main() -> int:
                     result = client.get(f"/v1/snapshots/{args.snapshot}/family-claims")
                 elif args.command == "relationship-claims":
                     result = client.get(f"/v1/snapshots/{args.snapshot}/relationship-claims")
+                elif args.command == "event-claims":
+                    result = client.get(f"/v1/snapshots/{args.snapshot}/event-claims")
                 elif args.command == "source":
                     result = client.get(f"/v1/snapshots/{args.snapshot}/sources/{args.source_id}")
                 elif args.command == "resolve-character":

@@ -154,10 +154,11 @@ def test_a_new_run_does_not_reuse_a_previous_runs_charge_when_tracking_setup_fai
 
 
 @pytest.mark.parametrize(
-    "relationships,snapshot_name,reference_name",
+    "relationships,events,snapshot_name,reference_name",
     [
-        (False, "family-pilot-v1.json", "parentage-v1.json"),
-        (True, "relationship-pilot-v1.json", "relationships-v2.json"),
+        (False, False, "family-pilot-v1.json", "parentage-v1.json"),
+        (True, False, "relationship-pilot-v1.json", "relationships-v2.json"),
+        (False, True, "crime-pilot-v1.json", "crime-justice-v1.json"),
     ],
 )
 def test_retained_extraction_matches_its_actual_trace_and_cannot_be_overwritten(
@@ -166,6 +167,7 @@ def test_retained_extraction_matches_its_actual_trace_and_cannot_be_overwritten(
     extraction_tracking: MlflowClient,
     record_property: Callable[[str, object], None],
     relationships: bool,
+    events: bool,
     snapshot_name: str,
     reference_name: str,
 ) -> None:
@@ -184,10 +186,10 @@ def test_retained_extraction_matches_its_actual_trace_and_cannot_be_overwritten(
             budget=budget,
             tracking=extraction_tracking,
         )
-        result = runner.run(snapshot, reference, output, relationships=relationships)
+        result = runner.run(snapshot, reference, output, relationships=relationships, events=events)
         original = output.read_bytes()
         with pytest.raises(FileExistsError):
-            runner.run(snapshot, reference, output, relationships=relationships)
+            runner.run(snapshot, reference, output, relationships=relationships, events=events)
 
     assert output.read_bytes() == original
     assert result["state"] == "complete" and result["failure"] is None

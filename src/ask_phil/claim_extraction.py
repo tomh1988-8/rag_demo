@@ -16,9 +16,11 @@ import httpx
 import mlflow
 from mlflow import MlflowClient
 from mlflow.entities import MlflowExperimentLocation
-from pydantic import BaseModel
+from pydantic import BaseModel, TypeAdapter
 
 from ask_phil.answering import application_fingerprint
+from ask_phil.event_evaluation import score_events
+from ask_phil.event_extraction import EVENT_PROMPT, IncidentScope, extract_events
 from ask_phil.evidence import Record, SourceSnapshot
 from ask_phil.execution import ExecutionBudget, ExecutionLimits
 from ask_phil.identity import IdentityCatalogue
@@ -29,6 +31,7 @@ from ask_phil.parentage_extraction import EXTRACTION_PROMPT, ClaimLLM, extract_p
 from ask_phil.relationship_evaluation import score_relationships
 from ask_phil.relationship_extraction import RELATIONSHIP_PROMPT, extract_relationships
 from ask_phil.relationships import ExtractedRelationships, RelationshipBatch
+from ask_phil.story_events import EventBatch, ExtractedEvents
 from ask_phil.tracing import experiment_for
 
 
@@ -42,14 +45,33 @@ class _ExtractionSlice:
     output_cls: type[BaseModel]
     prompt: str
     extract: Callable[
-        [SourceSnapshot, IdentityCatalogue, ClaimLLM], tuple[ClaimBatch | RelationshipBatch, float]
+        [SourceSnapshot, IdentityCatalogue, ClaimLLM],
+        tuple[ClaimBatch | RelationshipBatch | EventBatch, float],
     ]
     score: Callable[[str], Record]
 
 
 def _slice(
-    relationships: bool, snapshot: SourceSnapshot, reference: dict[str, Any]
+    relationships: bool,
+    snapshot: SourceSnapshot,
+    reference: dict[str, Any],
+    *,
+    events: bool = False,
 ) -> _ExtractionSlice:
+    if relationships and events:
+        raise ValueError("Choose one extraction slice.")
+    if events:
+        expected_events = ExtractedEvents.model_validate({"claims": reference["expected_claims"]})
+        incidents = TypeAdapter(dict[str, IncidentScope]).validate_python(reference["incidents"])
+        if set(incidents) != {p.evidence_id for p in snapshot.passages}:
+            raise ExtractionInputMismatch("Incident scope must identify each captured passage.")
+        return _ExtractionSlice(
+            "crime_justice_extraction",
+            ExtractedEvents,
+            EVENT_PROMPT,
+            lambda s, c, llm: extract_events(s, c, llm, incidents),
+            lambda raw: score_events(raw, expected_events, snapshot),
+        )
     if relationships:
         expected_relationships = ExtractedRelationships.model_validate(
             {"claims": reference["expected_claims"]}
@@ -82,7 +104,9 @@ class _FrozenInputs:
     selected: _ExtractionSlice
 
 
-def _load_inputs(snapshot_path: Path, reference_path: Path, relationships: bool) -> _FrozenInputs:
+def _load_inputs(
+    snapshot_path: Path, reference_path: Path, relationships: bool, *, events: bool = False
+) -> _FrozenInputs:
     snapshot_bytes = snapshot_path.read_bytes()
     reference_bytes = reference_path.read_bytes()
     snapshot = SourceSnapshot.model_validate_json(snapshot_bytes)
@@ -94,15 +118,15 @@ def _load_inputs(snapshot_path: Path, reference_path: Path, relationships: bool)
         reference_bytes,
         snapshot,
         IdentityCatalogue.model_validate(reference["catalogue"]),
-        _slice(relationships, snapshot, reference),
+        _slice(relationships, snapshot, reference, events=events),
     )
 
 
 def validate_extraction_inputs(
-    snapshot_path: Path, reference_path: Path, *, relationships: bool = False
+    snapshot_path: Path, reference_path: Path, *, relationships: bool = False, events: bool = False
 ) -> None:
     """Allow command usage errors before credentials/setup; run always validates afresh."""
-    _load_inputs(snapshot_path, reference_path, relationships)
+    _load_inputs(snapshot_path, reference_path, relationships, events=events)
 
 
 class ClaimExtractionRun:
@@ -128,8 +152,9 @@ class ClaimExtractionRun:
         output: Path,
         *,
         relationships: bool = False,
+        events: bool = False,
     ) -> dict[str, Any]:
-        frozen = _load_inputs(snapshot_path, reference_path, relationships)
+        frozen = _load_inputs(snapshot_path, reference_path, relationships, events=events)
         snapshot, catalogue, selected = frozen.snapshot, frozen.catalogue, frozen.selected
         chat = OpenRouterChat(self._profile, self._key, self._budget, self._client)
         llm = ClaimLLM(chat, selected.output_cls)
