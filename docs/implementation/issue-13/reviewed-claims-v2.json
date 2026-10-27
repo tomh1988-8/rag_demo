@@ -1,0 +1,689 @@
+{
+  "claims": [
+    {
+      "claim_id": "lucy-ben-arrest",
+      "event_id": "lucy-murder",
+      "event_label": "Lucy Beale's murder",
+      "event_type": "arrest",
+      "basis": "legal_outcome",
+      "participants": [
+        {
+          "character_id": "ben-mitchell",
+          "role": "arrested"
+        }
+      ],
+      "account_status": "as_reported",
+      "polarity": "affirmed",
+      "certainty": "certain",
+      "story_time": "unknown",
+      "time_precision": "unknown",
+      "evidence": [
+        {
+          "evidence_id": "lucy-arrest-charge",
+          "start": 0,
+          "end": 38,
+          "quote": "When Ben is arrested for Lucy's murder"
+        }
+      ]
+    },
+    {
+      "claim_id": "lucy-bobby-commission",
+      "event_id": "lucy-murder",
+      "event_label": "Lucy Beale's murder",
+      "event_type": "commission",
+      "basis": "narrative",
+      "participants": [
+        {
+          "character_id": "bobby-beale",
+          "role": "perpetrator"
+        },
+        {
+          "character_id": "lucy-beale",
+          "role": "victim"
+        }
+      ],
+      "account_status": "as_reported",
+      "polarity": "affirmed",
+      "certainty": "certain",
+      "story_time": "unknown",
+      "time_precision": "unknown",
+      "evidence": [
+        {
+          "evidence_id": "lucy-revelation",
+          "start": 0,
+          "end": 99,
+          "quote": "Max soon realises that Jane's adopted son Bobby Beale (Eliot Carrington) is Lucy's killer all along"
+        }
+      ]
+    },
+    {
+      "claim_id": "stella-phil-confession",
+      "event_id": "stella-death",
+      "event_label": "Stella Crawford's death",
+      "event_type": "confession",
+      "basis": "confession",
+      "participants": [
+        {
+          "character_id": "phil-mitchell",
+          "role": "confessor"
+        }
+      ],
+      "account_status": "explicitly_false",
+      "polarity": "affirmed",
+      "certainty": "certain",
+      "story_time": "Later on",
+      "time_precision": "relative",
+      "evidence": [
+        {
+          "evidence_id": "stella-false-confession",
+          "start": 0,
+          "end": 112,
+          "quote": "Stella flees to an abandoned warehouse with Phil in pursuit – where she kills herself by jumping from the roof."
+        },
+        {
+          "evidence_id": "stella-false-confession",
+          "start": 113,
+          "end": 156,
+          "quote": "Later on, Phil claims to have killed Stella"
+        }
+      ]
+    },
+    {
+      "claim_id": "crash-carl-commission",
+      "event_id": "carl-crash",
+      "event_label": "Carl's car crash",
+      "event_type": "commission",
+      "basis": "narrative",
+      "participants": [
+        {
+          "character_id": "phil-mitchell",
+          "role": "victim"
+        }
+      ],
+      "account_status": "as_reported",
+      "polarity": "affirmed",
+      "certainty": "certain",
+      "story_time": "unknown",
+      "time_precision": "unknown",
+      "evidence": [
+        {
+          "evidence_id": "crash-framing",
+          "start": 0,
+          "end": 190,
+          "quote": "Max's feud with Carl continues, and, determined to get rid of Max so he can win back Kirsty, he purposefully cuts the brakes on his car, and crashes it, leaving Phil in a critical condition."
+        }
+      ]
+    },
+    {
+      "claim_id": "reviewed-lucy-ben-arrest",
+      "event_id": "lucy-murder",
+      "event_label": "Lucy Beale's murder",
+      "event_type": "arrest",
+      "basis": "legal_outcome",
+      "participants": [
+        {
+          "character_id": "ben-mitchell",
+          "role": "arrested"
+        }
+      ],
+      "account_status": "as_reported",
+      "polarity": "affirmed",
+      "certainty": "certain",
+      "story_time": "unknown",
+      "time_precision": "unknown",
+      "evidence": [
+        {
+          "evidence_id": "lucy-arrest-charge",
+          "start": 0,
+          "end": 38,
+          "quote": "When Ben is arrested for Lucy's murder"
+        }
+      ]
+    },
+    {
+      "claim_id": "reviewed-lucy-max-arrest",
+      "event_id": "lucy-murder",
+      "event_label": "Lucy Beale's murder",
+      "event_type": "arrest",
+      "basis": "legal_outcome",
+      "participants": [
+        {
+          "character_id": "max-branning",
+          "role": "arrested"
+        }
+      ],
+      "account_status": "as_reported",
+      "polarity": "affirmed",
+      "certainty": "certain",
+      "story_time": "when Lucy's blood is found on his shoe",
+      "time_precision": "relative",
+      "evidence": [
+        {
+          "evidence_id": "lucy-arrest-charge",
+          "start": 119,
+          "end": 278,
+          "quote": "Max is arrested and is charged with her murder when Lucy's blood is found on his shoe, from where Jake Stone caused Lucy's nose to bleed on the night she died."
+        }
+      ]
+    },
+    {
+      "claim_id": "reviewed-lucy-max-charge",
+      "event_id": "lucy-murder",
+      "event_label": "Lucy Beale's murder",
+      "event_type": "charge",
+      "basis": "legal_outcome",
+      "participants": [
+        {
+          "character_id": "max-branning",
+          "role": "accused"
+        }
+      ],
+      "account_status": "as_reported",
+      "polarity": "affirmed",
+      "certainty": "certain",
+      "story_time": "when Lucy's blood is found on his shoe",
+      "time_precision": "relative",
+      "evidence": [
+        {
+          "evidence_id": "lucy-arrest-charge",
+          "start": 119,
+          "end": 278,
+          "quote": "Max is arrested and is charged with her murder when Lucy's blood is found on his shoe, from where Jake Stone caused Lucy's nose to bleed on the night she died."
+        }
+      ]
+    },
+    {
+      "claim_id": "reviewed-lucy-max-conviction",
+      "event_id": "lucy-murder",
+      "event_label": "Lucy Beale's murder",
+      "event_type": "conviction",
+      "basis": "legal_outcome",
+      "participants": [
+        {
+          "character_id": "max-branning",
+          "role": "convicted"
+        }
+      ],
+      "account_status": "as_reported",
+      "polarity": "affirmed",
+      "certainty": "certain",
+      "story_time": "unknown",
+      "time_precision": "unknown",
+      "evidence": [
+        {
+          "evidence_id": "lucy-conviction",
+          "start": 0,
+          "end": 127,
+          "quote": "Despite Ian's wife Jane (Laurie Brett) giving him a false alibi, he is found guilty thanks to Phil paying off the jury foreman."
+        }
+      ]
+    },
+    {
+      "claim_id": "reviewed-lucy-bobby-commission",
+      "event_id": "lucy-murder",
+      "event_label": "Lucy Beale's murder",
+      "event_type": "commission",
+      "basis": "narrative",
+      "participants": [
+        {
+          "character_id": "bobby-beale",
+          "role": "perpetrator"
+        },
+        {
+          "character_id": "lucy-beale",
+          "role": "victim"
+        }
+      ],
+      "account_status": "as_reported",
+      "polarity": "affirmed",
+      "certainty": "certain",
+      "story_time": "unknown",
+      "time_precision": "unknown",
+      "evidence": [
+        {
+          "evidence_id": "lucy-revelation",
+          "start": 0,
+          "end": 143,
+          "quote": "Max soon realises that Jane's adopted son Bobby Beale (Eliot Carrington) is Lucy's killer all along and that Jane had been covering up for her."
+        }
+      ]
+    },
+    {
+      "claim_id": "reviewed-lucy-bobby-accusation",
+      "event_id": "lucy-murder",
+      "event_label": "Lucy Beale's murder",
+      "event_type": "accusation",
+      "basis": "allegation",
+      "participants": [
+        {
+          "character_id": "bobby-beale",
+          "role": "accused"
+        },
+        {
+          "character_id": "max-branning",
+          "role": "accuser"
+        }
+      ],
+      "account_status": "as_reported",
+      "polarity": "affirmed",
+      "certainty": "certain",
+      "story_time": "As he is being arrested",
+      "time_precision": "relative",
+      "evidence": [
+        {
+          "evidence_id": "lucy-revelation",
+          "start": 251,
+          "end": 382,
+          "quote": "As he is being arrested, Max shouts out to everyone that Bobby killed Lucy but they all dismiss his claims as an act of desperation"
+        }
+      ]
+    },
+    {
+      "claim_id": "reviewed-lucy-max-rearrest",
+      "event_id": "lucy-murder",
+      "event_label": "Lucy Beale's murder",
+      "event_type": "arrest",
+      "basis": "legal_outcome",
+      "participants": [
+        {
+          "character_id": "max-branning",
+          "role": "arrested"
+        }
+      ],
+      "account_status": "as_reported",
+      "polarity": "affirmed",
+      "certainty": "certain",
+      "story_time": "unknown",
+      "time_precision": "unknown",
+      "evidence": [
+        {
+          "evidence_id": "lucy-revelation",
+          "start": 251,
+          "end": 382,
+          "quote": "As he is being arrested, Max shouts out to everyone that Bobby killed Lucy but they all dismiss his claims as an act of desperation"
+        }
+      ]
+    },
+    {
+      "claim_id": "reviewed-lucy-max-imprisonment",
+      "event_id": "lucy-murder",
+      "event_label": "Lucy Beale's murder",
+      "event_type": "imprisonment",
+      "basis": "legal_outcome",
+      "participants": [
+        {
+          "character_id": "max-branning",
+          "role": "prisoner"
+        }
+      ],
+      "account_status": "as_reported",
+      "polarity": "affirmed",
+      "certainty": "certain",
+      "story_time": "later",
+      "time_precision": "relative",
+      "evidence": [
+        {
+          "evidence_id": "lucy-revelation",
+          "start": 384,
+          "end": 484,
+          "quote": "Max is later sentenced to life imprisonment with a recommendation he should serve at least 21 years."
+        }
+      ]
+    },
+    {
+      "claim_id": "reviewed-stella-phil-confession",
+      "event_id": "stella-death",
+      "event_label": "Stella Crawford's death",
+      "event_type": "confession",
+      "basis": "confession",
+      "participants": [
+        {
+          "character_id": "phil-mitchell",
+          "role": "confessor"
+        }
+      ],
+      "account_status": "explicitly_false",
+      "polarity": "affirmed",
+      "certainty": "certain",
+      "story_time": "Later on",
+      "time_precision": "relative",
+      "evidence": [
+        {
+          "evidence_id": "stella-false-confession",
+          "start": 0,
+          "end": 221,
+          "quote": "Stella flees to an abandoned warehouse with Phil in pursuit – where she kills herself by jumping from the roof. Later on, Phil claims to have killed Stella and is taken into custody – but is later released without charge."
+        }
+      ]
+    },
+    {
+      "claim_id": "reviewed-stella-phil-release",
+      "event_id": "stella-death",
+      "event_label": "Stella Crawford's death",
+      "event_type": "release",
+      "basis": "legal_outcome",
+      "participants": [
+        {
+          "character_id": "phil-mitchell",
+          "role": "released"
+        }
+      ],
+      "account_status": "as_reported",
+      "polarity": "affirmed",
+      "certainty": "certain",
+      "story_time": "later",
+      "time_precision": "relative",
+      "evidence": [
+        {
+          "evidence_id": "stella-false-confession",
+          "start": 0,
+          "end": 221,
+          "quote": "Stella flees to an abandoned warehouse with Phil in pursuit – where she kills herself by jumping from the roof. Later on, Phil claims to have killed Stella and is taken into custody – but is later released without charge."
+        }
+      ]
+    },
+    {
+      "claim_id": "reviewed-crash-max-accusation",
+      "event_id": "carl-crash",
+      "event_label": "Carl's car crash",
+      "event_type": "accusation",
+      "basis": "allegation",
+      "participants": [
+        {
+          "character_id": "max-branning",
+          "role": "accused"
+        }
+      ],
+      "account_status": "explicitly_false",
+      "polarity": "affirmed",
+      "certainty": "certain",
+      "story_time": "unknown",
+      "time_precision": "unknown",
+      "evidence": [
+        {
+          "evidence_id": "crash-framing",
+          "start": 191,
+          "end": 270,
+          "quote": "He frames Max for cutting the brakes, and forces Ian to become a false witness."
+        }
+      ]
+    },
+    {
+      "claim_id": "reviewed-crash-max-arrest",
+      "event_id": "carl-crash",
+      "event_label": "Carl's car crash",
+      "event_type": "arrest",
+      "basis": "legal_outcome",
+      "participants": [
+        {
+          "character_id": "max-branning",
+          "role": "arrested"
+        }
+      ],
+      "account_status": "as_reported",
+      "polarity": "affirmed",
+      "certainty": "certain",
+      "story_time": "unknown",
+      "time_precision": "unknown",
+      "evidence": [
+        {
+          "evidence_id": "crash-framing",
+          "start": 271,
+          "end": 380,
+          "quote": "Max is arrested and released on bail, until Carl goads him into attacking him, and he is remanded in custody."
+        }
+      ]
+    },
+    {
+      "claim_id": "reviewed-crash-max-bail",
+      "event_id": "carl-crash",
+      "event_label": "Carl's car crash",
+      "event_type": "release",
+      "basis": "legal_outcome",
+      "participants": [
+        {
+          "character_id": "max-branning",
+          "role": "released"
+        }
+      ],
+      "account_status": "as_reported",
+      "polarity": "affirmed",
+      "certainty": "certain",
+      "story_time": "unknown",
+      "time_precision": "unknown",
+      "evidence": [
+        {
+          "evidence_id": "crash-framing",
+          "start": 271,
+          "end": 380,
+          "quote": "Max is arrested and released on bail, until Carl goads him into attacking him, and he is remanded in custody."
+        }
+      ]
+    },
+    {
+      "claim_id": "reviewed-crash-max-confession",
+      "event_id": "carl-crash",
+      "event_label": "Carl's car crash",
+      "event_type": "confession",
+      "basis": "confession",
+      "participants": [
+        {
+          "character_id": "max-branning",
+          "role": "confessor"
+        }
+      ],
+      "account_status": "explicitly_false",
+      "polarity": "affirmed",
+      "certainty": "certain",
+      "story_time": "unknown",
+      "time_precision": "unknown",
+      "evidence": [
+        {
+          "evidence_id": "crash-framing",
+          "start": 518,
+          "end": 630,
+          "quote": "Carl also forces Max to tell his family he is guilty, and Lauren is the only person who believes he is innocent."
+        }
+      ]
+    },
+    {
+      "claim_id": "reviewed-crash-max-trial",
+      "event_id": "carl-crash",
+      "event_label": "Carl's car crash",
+      "event_type": "trial",
+      "basis": "legal_outcome",
+      "participants": [
+        {
+          "character_id": "max-branning",
+          "role": "defendant"
+        }
+      ],
+      "account_status": "as_reported",
+      "polarity": "affirmed",
+      "certainty": "certain",
+      "story_time": "unknown",
+      "time_precision": "unknown",
+      "evidence": [
+        {
+          "evidence_id": "crash-framing",
+          "start": 631,
+          "end": 731,
+          "quote": "On the day of Max's trial, Ian fails to turn up, and Max is released without charge, to Carl's fury."
+        }
+      ]
+    },
+    {
+      "claim_id": "reviewed-crash-max-release",
+      "event_id": "carl-crash",
+      "event_label": "Carl's car crash",
+      "event_type": "release",
+      "basis": "legal_outcome",
+      "participants": [
+        {
+          "character_id": "max-branning",
+          "role": "released"
+        }
+      ],
+      "account_status": "as_reported",
+      "polarity": "affirmed",
+      "certainty": "certain",
+      "story_time": "On the day of Max's trial",
+      "time_precision": "relative",
+      "evidence": [
+        {
+          "evidence_id": "crash-framing",
+          "start": 631,
+          "end": 731,
+          "quote": "On the day of Max's trial, Ian fails to turn up, and Max is released without charge, to Carl's fury."
+        }
+      ]
+    },
+    {
+      "claim_id": "reviewed-crash-max-acquittal",
+      "event_id": "carl-crash",
+      "event_label": "Carl's car crash",
+      "event_type": "acquittal",
+      "basis": "legal_outcome",
+      "participants": [
+        {
+          "character_id": "max-branning",
+          "role": "acquitted"
+        }
+      ],
+      "account_status": "as_reported",
+      "polarity": "affirmed",
+      "certainty": "certain",
+      "story_time": "unknown",
+      "time_precision": "unknown",
+      "evidence": [
+        {
+          "evidence_id": "crash-acquittal",
+          "start": 87,
+          "end": 109,
+          "quote": "once Max is acquitted."
+        }
+      ]
+    }
+  ],
+  "snapshot_id": "crime-pilot-v1",
+  "snapshot_sha256": "211e2a87675886c73aef22a24d85076ae2850661b88e5a70de66600b12b2baa4",
+  "catalogue": {
+    "characters": [
+      {
+        "character_id": "phil-mitchell",
+        "name": "Phil Mitchell",
+        "aliases": [],
+        "performers": [
+          "Steve McFadden",
+          "Daniel Delaney"
+        ],
+        "coverage": "core",
+        "wikidata_id": "Q2115259",
+        "review_note": "Codex source inspection, 17 October 2026: captured character article, infobox aliases/performers and revision metadata checked. Prominence-based curated selection, not a ranked or exhaustive canon. Identity linkage is not independent story corroboration.",
+        "evidence_sources": [
+          "phil-mitchell-wiki"
+        ]
+      },
+      {
+        "character_id": "grant-mitchell",
+        "name": "Grant Mitchell",
+        "aliases": [],
+        "performers": [
+          "Ross Kemp",
+          "Teddy Jay"
+        ],
+        "coverage": "core",
+        "wikidata_id": "Q2685036",
+        "review_note": "Codex source inspection, 17 October 2026: captured character article, infobox aliases/performers and revision metadata checked. Prominence-based curated selection, not a ranked or exhaustive canon. Identity linkage is not independent story corroboration.",
+        "evidence_sources": [
+          "grant-mitchell-wiki"
+        ]
+      },
+      {
+        "character_id": "ben-mitchell",
+        "name": "Ben Mitchell",
+        "aliases": [],
+        "performers": [
+          "Matthew Silver",
+          "Morgan Whittle",
+          "Charlie Jones",
+          "Joshua Pascoe",
+          "Harry Reid",
+          "Max Bowden"
+        ],
+        "coverage": "core",
+        "wikidata_id": "Q2766568",
+        "review_note": "Codex source inspection, 17 October 2026: captured character article, infobox aliases/performers and revision metadata checked. Prominence-based curated selection, not a ranked or exhaustive canon. Identity linkage is not independent story corroboration.",
+        "evidence_sources": [
+          "ben-mitchell-wiki"
+        ]
+      },
+      {
+        "character_id": "ian-beale",
+        "name": "Ian Beale",
+        "aliases": [
+          "Ian Albert Beale"
+        ],
+        "performers": [
+          "Adam Woodyatt"
+        ],
+        "coverage": "core",
+        "wikidata_id": "Q899011",
+        "review_note": "Codex source inspection, 17 October 2026: captured character article, infobox aliases/performers and revision metadata checked. Prominence-based curated selection, not a ranked or exhaustive canon. Identity linkage is not independent story corroboration.",
+        "evidence_sources": [
+          "ian-beale-wiki"
+        ]
+      },
+      {
+        "character_id": "lucy-beale",
+        "name": "Lucy Beale",
+        "aliases": [],
+        "performers": [
+          "Eva Brittin-Snell",
+          "Casey Anne Rothery",
+          "Melissa Suffield",
+          "Hetti Bywater"
+        ],
+        "coverage": "core",
+        "wikidata_id": "Q3304512",
+        "review_note": "Codex source inspection, 17 October 2026: captured character article, infobox aliases/performers and revision metadata checked. Prominence-based curated selection, not a ranked or exhaustive canon. Identity linkage is not independent story corroboration.",
+        "evidence_sources": [
+          "lucy-beale-wiki"
+        ]
+      },
+      {
+        "character_id": "bobby-beale",
+        "name": "Bobby Beale",
+        "aliases": [],
+        "performers": [
+          "Kevin Curran",
+          "Alex Francis",
+          "Rory Stroud",
+          "Eliot Carrington",
+          "Clay Milner Russell"
+        ],
+        "coverage": "core",
+        "wikidata_id": "Q19650328",
+        "review_note": "Codex source inspection, 17 October 2026: captured character article, infobox aliases/performers and revision metadata checked. Prominence-based curated selection, not a ranked or exhaustive canon. Identity linkage is not independent story corroboration.",
+        "evidence_sources": [
+          "bobby-beale-wiki"
+        ]
+      },
+      {
+        "character_id": "max-branning",
+        "name": "Max Branning",
+        "aliases": [],
+        "performers": [
+          "Jake Wood"
+        ],
+        "coverage": "core",
+        "wikidata_id": "Q6794615",
+        "review_note": "Codex source inspection, 17 October 2026: captured character article, infobox aliases/performers and revision metadata checked. Prominence-based curated selection, not a ranked or exhaustive canon. Identity linkage is not independent story corroboration.",
+        "evidence_sources": [
+          "max-branning-wiki"
+        ]
+      }
+    ]
+  },
+  "extractor": "unchanged-raw-pilot-plus-source-correction-v2"
+}

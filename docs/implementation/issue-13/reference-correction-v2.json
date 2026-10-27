@@ -1,0 +1,160 @@
+{
+  "original_reference": "data/references/crime-justice-v1.json",
+  "corrected_reference": "data/references/crime-justice-v2.json",
+  "corrected_reference_sha256": "9dca294792ccb1cd83cb950cf9b0a8dd7d03f19b6162d833cbf3bd3ecbf351ae",
+  "raw_pilot_sha256": "c9a888fa7b94505586c5f28dceb0d6ebe3af213c2ac16467a78beb956e2d0406",
+  "changed_assertions": {
+    "lucy-max-arrest": "when Lucy's blood is found on his shoe",
+    "lucy-max-charge": "when Lucy's blood is found on his shoe",
+    "lucy-bobby-accusation": "As he is being arrested",
+    "lucy-max-imprisonment": "later",
+    "stella-phil-release": "later"
+  },
+  "reason": "Post-pilot independent Spec review found five omitted explicit relative qualifiers. V1 and the model pilot remain unchanged. Only timing and the two arrest/charge support spans change; identities, roles and incident coverage do not.",
+  "score": {
+    "schema_valid": true,
+    "expected": 17,
+    "predicted": 4,
+    "duplicates": 0,
+    "true_positive": 3,
+    "resolvable_spans": 3,
+    "grounded": 1,
+    "precision": 0.75,
+    "recall": 0.17647058823529413,
+    "f1": 0.2857142857142857,
+    "scope": "Exposed selected incidents and in-catalogue assertions only. Exact values include participant-role assignment, event type, basis, account status, polarity, certainty, story time/precision and evidence IDs. Ignore arbitrary claim/event ID spelling and label wording; incident grouping requires separate support review. Full-value duplicates collapse. Each dimension projects unique full assertions onto values plus passage IDs and event type, preserving multiplicity: identity sets, role multisets, assigned identity-role pairs (direction), polarity, timing, or account attribution. These are diagnostics, not independent per-claim accuracies. Grounding separately requires exact resolvable locators covering frozen supporting spans; it is not canon adjudication.",
+    "dimensions": {
+      "identity": {
+        "expected": 17,
+        "predicted": 4,
+        "true_positive": 3,
+        "precision": 0.75,
+        "recall": 0.17647058823529413,
+        "f1": 0.2857142857142857
+      },
+      "role": {
+        "expected": 17,
+        "predicted": 4,
+        "true_positive": 3,
+        "precision": 0.75,
+        "recall": 0.17647058823529413,
+        "f1": 0.2857142857142857
+      },
+      "direction": {
+        "expected": 17,
+        "predicted": 4,
+        "true_positive": 3,
+        "precision": 0.75,
+        "recall": 0.17647058823529413,
+        "f1": 0.2857142857142857
+      },
+      "negation": {
+        "expected": 17,
+        "predicted": 4,
+        "true_positive": 3,
+        "precision": 0.75,
+        "recall": 0.17647058823529413,
+        "f1": 0.2857142857142857
+      },
+      "timing": {
+        "expected": 17,
+        "predicted": 4,
+        "true_positive": 3,
+        "precision": 0.75,
+        "recall": 0.17647058823529413,
+        "f1": 0.2857142857142857
+      },
+      "account": {
+        "expected": 17,
+        "predicted": 4,
+        "true_positive": 3,
+        "precision": 0.75,
+        "recall": 0.17647058823529413,
+        "f1": 0.2857142857142857
+      }
+    },
+    "by_event_type": {
+      "accusation": {
+        "expected": 2,
+        "predicted": 0,
+        "true_positive": 0,
+        "precision": 0.0,
+        "recall": 0.0,
+        "f1": 0.0
+      },
+      "acquittal": {
+        "expected": 1,
+        "predicted": 0,
+        "true_positive": 0,
+        "precision": 0.0,
+        "recall": 0.0,
+        "f1": 0.0
+      },
+      "arrest": {
+        "expected": 4,
+        "predicted": 1,
+        "true_positive": 1,
+        "precision": 1.0,
+        "recall": 0.25,
+        "f1": 0.4
+      },
+      "charge": {
+        "expected": 1,
+        "predicted": 0,
+        "true_positive": 0,
+        "precision": 0.0,
+        "recall": 0.0,
+        "f1": 0.0
+      },
+      "commission": {
+        "expected": 1,
+        "predicted": 2,
+        "true_positive": 1,
+        "precision": 0.5,
+        "recall": 1.0,
+        "f1": 0.6666666666666666
+      },
+      "confession": {
+        "expected": 2,
+        "predicted": 1,
+        "true_positive": 1,
+        "precision": 1.0,
+        "recall": 0.5,
+        "f1": 0.6666666666666666
+      },
+      "conviction": {
+        "expected": 1,
+        "predicted": 0,
+        "true_positive": 0,
+        "precision": 0.0,
+        "recall": 0.0,
+        "f1": 0.0
+      },
+      "imprisonment": {
+        "expected": 1,
+        "predicted": 0,
+        "true_positive": 0,
+        "precision": 0.0,
+        "recall": 0.0,
+        "f1": 0.0
+      },
+      "release": {
+        "expected": 3,
+        "predicted": 0,
+        "true_positive": 0,
+        "precision": 0.0,
+        "recall": 0.0,
+        "f1": 0.0
+      },
+      "trial": {
+        "expected": 1,
+        "predicted": 0,
+        "true_positive": 0,
+        "precision": 0.0,
+        "recall": 0.0,
+        "f1": 0.0
+      }
+    }
+  },
+  "paid_calls": 0
+}

@@ -138,9 +138,9 @@ def reference_batch() -> tuple[SourceSnapshot, EventBatch, tuple[EventReview, ..
     snapshot = SourceSnapshot.model_validate_json(
         Path("data/seed/crime-pilot-v1.json").read_bytes()
     )
-    batch = EventBatch.model_validate_json((directory / "reference-claims.json").read_bytes())
+    batch = EventBatch.model_validate_json((directory / "reference-claims-v2.json").read_bytes())
     reviews = TypeAdapter(tuple[EventReview, ...]).validate_json(
-        (directory / "reference-reviews.json").read_bytes()
+        (directory / "reference-reviews-v2.json").read_bytes()
     )
     return snapshot, batch, reviews
 

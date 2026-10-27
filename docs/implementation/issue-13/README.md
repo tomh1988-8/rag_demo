@@ -12,7 +12,7 @@ Answers use deterministic factual wording and make no inference calls.
 [hash freeze](pre-pilot.json) precede the one model call. Six short excerpts from
 the unchanged captured `core-profiles-v2` sources support seventeen labelled
 assertions about Lucy's murder, Stella's death and Carl's crash. The
-[reference](../../../data/references/crime-justice-v1.json) preserves paragraph
+[original reference](../../../data/references/crime-justice-v1.json) preserves paragraph
 origins, document offsets, source revisions, capture hashes and the seven reviewed
 identities. These are exposed development labels, without human adjudication or
 independent canon corroboration.
@@ -36,11 +36,17 @@ perpetrator is outside the selected catalogue; no substitute perpetrator is infe
 [Raw admission](raw-admission.json) retains every failure and unchanged candidate.
 The raw slice misses fourteen of seventeen reference assertions.
 
-[The reviewed serving batch](reviewed-claims.json) retains all four raw candidates
-and adds the unchanged seventeen pre-pilot assertions with prefixed claim IDs.
-[Its reviews](reviewed-reviews.json) bind each complete claim's fingerprint.
-[Admission](reviewed-admission.json) separates the nineteen admitted source records
-(including two duplicate supports) from the two holds. The reviewed capability
+[The v2 serving batch](reviewed-claims-v2.json) retains all four raw candidates
+and adds seventeen reviewed assertions with prefixed claim IDs.
+[Independent source review](reference-review-v2.md) corrected five omitted relative
+qualifiers in a separately versioned reference after the pilot; the two arrest/charge
+quotes now include the supported timing clause. V1 and all original evidence remain
+unchanged. [The unchanged-pilot rescore](reference-correction-v2.json) preserves
+the original quality failures. [V2 reviews](reviewed-reviews-v2.json) bind each
+complete claim's fingerprint. [Admission](reviewed-admission-v2.json) separates the nineteen admitted source records
+(including two duplicate supports) from the two holds. Duplicate source support
+remains in the typed audit while identical source-anchored assertions share one
+prose entry. The reviewed capability
 must not be reported as successful automatic extraction.
 
 The sole offline call cost **$0.030536**. The preserved shared non-resetting $5
@@ -74,7 +80,7 @@ graph argument inference and wider corrections/refresh remain later tickets.
 ```sh
 export DATABASE_URL=postgresql://YOUR_USER@HOST:PORT/YOUR_DATABASE
 .venv/bin/ask-phil load data/seed/crime-pilot-v1.json
-.venv/bin/ask-phil install-events docs/implementation/issue-13/reviewed-claims.json docs/implementation/issue-13/reviewed-reviews.json
+.venv/bin/ask-phil install-events docs/implementation/issue-13/reviewed-claims-v2.json docs/implementation/issue-13/reviewed-reviews-v2.json
 ```
 
 Start the API against that database, then:

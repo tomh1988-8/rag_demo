@@ -67,6 +67,7 @@ def test_final_answers_preserve_false_accounts_roles_and_citations(
         assert "Max Branning was convicted" in answer["answer"]
         assert "neither commission nor innocence" in answer["answer"]
         assert "Max Branning committed" not in answer["answer"]
+        assert "story timing later (relative)" in answer["answer"]
         assert answer["execution"]["model_calls"] == 0 and answer["execution"]["tool_calls"] == 1
         assert len(answer["citations"]) == 3
         for citation in answer["citations"]:
@@ -92,6 +93,8 @@ def test_final_answers_preserve_false_accounts_roles_and_citations(
         assert "I confessed" in stella["answer"]
         assert "confession as false" in stella["answer"]
         assert "I committed" not in stella["answer"]
+        release = next(c for c in stella["graph"]["claims"] if c["event_type"] == "release")
+        assert release["story_time"] == "later" and release["time_precision"] == "relative"
 
 
 def test_cli_exposes_shared_event_roles_through_the_api(
@@ -249,3 +252,35 @@ def test_family_only_policy_does_not_authorize_the_new_event_tool(
         assert response["status"] == "insufficient_evidence"
         assert response["execution"]["stop_reason"] == "capability_denied"
         assert not response["citations"] and "graph" not in response
+
+
+def test_duplicate_source_support_is_retained_without_repeating_the_assertion(
+    database_url: str,
+    tmp_path: Path,
+) -> None:
+    from fastapi.testclient import TestClient
+
+    from ask_phil.api import create_app
+
+    snapshot, batch, reviews = reference_batch()
+    duplicate = batch.claims[4].model_copy(update={"claim_id": "another-supported-source-record"})
+    duplicate_review = reviews[4].model_copy(
+        update={"claim_id": duplicate.claim_id, "claim_sha256": duplicate.fingerprint}
+    )
+    batch = batch.model_copy(update={"claims": batch.claims + (duplicate,)})
+    EvidenceStore(database_url).load(snapshot)
+    EventGraph(database_url).install(batch, reviews + (duplicate_review,))
+    with TestClient(
+        create_app(database_url, tracking_uri=f"sqlite:///{tmp_path}/duplicate.db")
+    ) as client:
+        answer = client.post(
+            "/v1/answers",
+            json={
+                "snapshot_id": snapshot.snapshot_id,
+                "question": "Who killed Lucy?",
+                "route": "graph",
+                "graph": {"kind": "crime_history", "character_id": "bobby-beale"},
+            },
+        ).json()["response"]
+        assert len(answer["graph"]["claims"]) == 9
+        assert answer["answer"].count("Bobby Beale committed the act") == 1

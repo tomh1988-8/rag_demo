@@ -46,7 +46,9 @@ remain outstanding.
 
 [Issue #13](../implementation/issue-13/README.md) extends scoped EXT-02/03,
 RAG-04, AD-06.3 and AD-08.4 evidence to shared crime/justice incidents. Seventeen
-source labels precede the one Sol pilot. Four schema-valid predictions have
+source labels precede the one Sol pilot; a versioned post-pilot source correction
+restores five relative timing qualifiers without changing the original labels or
+raw output. Four schema-valid predictions have
 three exact matches (precision 3/4, recall 3/17); three locators resolve and one
 meets the conservative full-span grounding proxy. Content-bound review admits two
 raw candidates and holds the malformed false confession and incomplete commission.

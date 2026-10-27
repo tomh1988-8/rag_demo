@@ -80,6 +80,21 @@ class EventClaim(Record):
     def fingerprint(self) -> str:
         return hashlib.sha256(self.model_dump_json().encode()).hexdigest()
 
+    @property
+    def assertion(self) -> tuple[object, ...]:
+        """Source-anchored meaning, independently of generated claim/incident ID spelling."""
+        return (
+            self.event_type,
+            tuple(sorted((p.character_id, p.role) for p in self.participants)),
+            self.basis,
+            self.account_status,
+            self.polarity,
+            self.certainty,
+            self.story_time,
+            self.time_precision,
+            tuple(sorted({e.evidence_id for e in self.evidence})),
+        )
+
 
 class ExtractedEvents(Record):
     claims: tuple[EventClaim, ...] = Field(max_length=100)

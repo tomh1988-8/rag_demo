@@ -30,7 +30,7 @@ def main() -> int:
     parser.add_argument("--tracking-uri")
     args = parser.parse_args()
     if args.events:
-        default_snapshot, default_reference, issue = "crime-pilot-v1", "crime-justice-v1", 13
+        default_snapshot, default_reference, issue = "crime-pilot-v1", "crime-justice-v2", 13
     elif args.relationships:
         default_snapshot, default_reference, issue = "relationship-pilot-v1", "relationships-v2", 12
     else:

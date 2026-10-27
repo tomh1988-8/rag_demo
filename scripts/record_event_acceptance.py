@@ -40,7 +40,7 @@ def main() -> int:
     snapshot = SourceSnapshot.model_validate_json(
         Path("data/seed/crime-pilot-v1.json").read_bytes()
     )
-    reference = json.loads(Path("data/references/crime-justice-v1.json").read_bytes())
+    reference = json.loads(Path("data/references/crime-justice-v2.json").read_bytes())
     expected = ExtractedEvents(claims=reference["expected_claims"])
     cases = [
         (
@@ -123,7 +123,7 @@ def main() -> int:
     with psycopg.connect(args.database_url, autocommit=True) as admin:
         for phase, batch_file, review_file in (
             ("raw-pilot", "raw-claims.json", "raw-reviews.json"),
-            ("reviewed-with-raw-retained", "reviewed-claims.json", "reviewed-reviews.json"),
+            ("reviewed-with-raw-retained", "reviewed-claims-v2.json", "reviewed-reviews-v2.json"),
         ):
             name = "ask_phil_crime_acceptance_" + uuid4().hex
             admin.execute(

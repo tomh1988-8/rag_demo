@@ -1,0 +1,117 @@
+{
+  "batch_sha256": "87a6c71769175d272875580530d15e10c22b52c239326f75ff605fb95dcae3f6",
+  "decisions": [
+    {
+      "claim_id": "lucy-ben-arrest",
+      "status": "admitted",
+      "reasons": []
+    },
+    {
+      "claim_id": "lucy-bobby-commission",
+      "status": "admitted",
+      "reasons": []
+    },
+    {
+      "claim_id": "stella-phil-confession",
+      "status": "held",
+      "reasons": [
+        "evidence_span"
+      ]
+    },
+    {
+      "claim_id": "crash-carl-commission",
+      "status": "held",
+      "reasons": [
+        "participant_role",
+        "support_review_required",
+        "commission_support"
+      ]
+    },
+    {
+      "claim_id": "reviewed-lucy-ben-arrest",
+      "status": "admitted",
+      "reasons": []
+    },
+    {
+      "claim_id": "reviewed-lucy-max-arrest",
+      "status": "admitted",
+      "reasons": []
+    },
+    {
+      "claim_id": "reviewed-lucy-max-charge",
+      "status": "admitted",
+      "reasons": []
+    },
+    {
+      "claim_id": "reviewed-lucy-max-conviction",
+      "status": "admitted",
+      "reasons": []
+    },
+    {
+      "claim_id": "reviewed-lucy-bobby-commission",
+      "status": "admitted",
+      "reasons": []
+    },
+    {
+      "claim_id": "reviewed-lucy-bobby-accusation",
+      "status": "admitted",
+      "reasons": []
+    },
+    {
+      "claim_id": "reviewed-lucy-max-rearrest",
+      "status": "admitted",
+      "reasons": []
+    },
+    {
+      "claim_id": "reviewed-lucy-max-imprisonment",
+      "status": "admitted",
+      "reasons": []
+    },
+    {
+      "claim_id": "reviewed-stella-phil-confession",
+      "status": "admitted",
+      "reasons": []
+    },
+    {
+      "claim_id": "reviewed-stella-phil-release",
+      "status": "admitted",
+      "reasons": []
+    },
+    {
+      "claim_id": "reviewed-crash-max-accusation",
+      "status": "admitted",
+      "reasons": []
+    },
+    {
+      "claim_id": "reviewed-crash-max-arrest",
+      "status": "admitted",
+      "reasons": []
+    },
+    {
+      "claim_id": "reviewed-crash-max-bail",
+      "status": "admitted",
+      "reasons": []
+    },
+    {
+      "claim_id": "reviewed-crash-max-confession",
+      "status": "admitted",
+      "reasons": []
+    },
+    {
+      "claim_id": "reviewed-crash-max-trial",
+      "status": "admitted",
+      "reasons": []
+    },
+    {
+      "claim_id": "reviewed-crash-max-release",
+      "status": "admitted",
+      "reasons": []
+    },
+    {
+      "claim_id": "reviewed-crash-max-acquittal",
+      "status": "admitted",
+      "reasons": []
+    }
+  ],
+  "limitation": "Only admitted assertions about selected captured incidents are shown. An accusation, confession, charge, conviction, acquittal, imprisonment, release or court appearance alone establishes neither commission nor innocence. Only separately reviewed narrative support establishes commission. An empty legal history does not prove that a character committed no crime. Listing order is not chronology; unknown dates remain unknown. Source-supported does not mean independently cross-checked."
+}

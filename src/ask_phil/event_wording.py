@@ -23,7 +23,12 @@ ROLE_WORDING = {
 
 def render_events(result: EventResult, *, synthetic: bool = False) -> str:
     entries = []
+    seen = set()
     for claim in result.claims:
+        key = (claim.event_id, claim.assertion)
+        if key in seen:
+            continue
+        seen.add(key)
         participants = []
         for person in claim.participants:
             name = result.names[person.character_id]

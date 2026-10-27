@@ -1,6 +1,8 @@
 """Family tree evidence and deterministic wording; inference is never required."""
 
 import hashlib
+from collections.abc import Callable
+from functools import partial
 from typing import Literal
 
 import mlflow
@@ -114,31 +116,34 @@ class FamilyAnswer:
         snapshot = self.snapshot
         snapshot_id = snapshot.snapshot_id
         result: FamilyResult | RelationshipResult | EventResult | None = None
-        is_history = isinstance(request.graph, RelationshipQuery)
-        is_event = isinstance(request.graph, EventQuery)
-        limitation = (
-            EVENT_LIMITATION
-            if is_event
-            else (HISTORY_LIMITATION if is_history else GRAPH_LIMITATION)
-        )
+        assert request.graph is not None
+        query_graph: Callable[[], FamilyResult | RelationshipResult | EventResult]
+        if isinstance(request.graph, EventQuery):
+            span_name, subject = "crime_history", "crime/justice history"
+            limitation, wording = EVENT_LIMITATION, EVENT_WORDING
+            unanswered = (
+                "Crime/justice coverage outside the reviewed incidents and query bounds.",
+            )
+            query_graph = partial(EventGraph(self.database_url).query, snapshot_id, request.graph)
+        elif isinstance(request.graph, RelationshipQuery):
+            span_name, subject = "relationship_history", "relationship history"
+            limitation, wording = HISTORY_LIMITATION, HISTORY_WORDING
+            unanswered = ("Relationship coverage outside the reviewed spans and query bounds.",)
+            query_graph = partial(
+                RelationshipGraph(self.database_url).query, snapshot_id, request.graph
+            )
+        else:
+            span_name, subject = "family_graph", "biological paths"
+            limitation, wording = GRAPH_LIMITATION, GRAPH_WORDING
+            unanswered = ("Family coverage outside the reviewed spans and traversal bounds.",)
+            query_graph = partial(FamilyGraph(self.database_url).query, snapshot_id, request.graph)
         context: tuple[Passage, ...] = ()
         citations: tuple[Citation, ...] = ()
         try:
             budget.check()
-            assert request.graph is not None
-            with mlflow.start_span(
-                "crime_history"
-                if is_event
-                else ("relationship_history" if is_history else "family_graph"),
-                span_type="RETRIEVER",
-            ) as span:
+            with mlflow.start_span(span_name, span_type="RETRIEVER") as span:
                 span.set_inputs(request.graph.model_dump())
-                if isinstance(request.graph, EventQuery):
-                    result = EventGraph(self.database_url).query(snapshot_id, request.graph)
-                elif isinstance(request.graph, RelationshipQuery):
-                    result = RelationshipGraph(self.database_url).query(snapshot_id, request.graph)
-                else:
-                    result = FamilyGraph(self.database_url).query(snapshot_id, request.graph)
+                result = query_graph()
                 span.set_outputs(result.model_dump(mode="json"))
             ids = (
                 {e.evidence_id for c in result.claims for e in c.evidence}
@@ -201,11 +206,6 @@ class FamilyAnswer:
             answer = f"Right, listen. Captured biological {result.query.direction} paths: {paths}. "
         else:
             reason = budget.record().stop_reason or (result.status if result else "unavailable")
-            subject = (
-                "crime/justice history"
-                if is_event
-                else ("relationship history" if is_history else "biological paths")
-            )
             answer = f"I can't establish the requested {subject} from this graph ({reason}). "
         conversation = (
             ConversationReference(
@@ -225,21 +225,11 @@ class FamilyAnswer:
             conversation=conversation,
             status=status,
             answer=answer + limitation,
-            unanswered=("Crime/justice coverage outside the reviewed incidents and query bounds.",)
-            if is_event
-            else ("Relationship coverage outside the reviewed spans and query bounds.",)
-            if is_history
-            else ("Family coverage outside the reviewed spans and traversal bounds.",),
+            unanswered=unanswered,
             citations=citations,
             context=context,
             graph=result,
-            prompt_sha256=hashlib.sha256(
-                (
-                    EVENT_WORDING
-                    if is_event
-                    else (HISTORY_WORDING if is_history else GRAPH_WORDING)
-                ).encode()
-            ).hexdigest(),
+            prompt_sha256=hashlib.sha256(wording.encode()).hexdigest(),
             accounting=ModelExecution(
                 content=None,
                 usage=TokenUsage(input_tokens=0, output_tokens=0, embedding_tokens=0),

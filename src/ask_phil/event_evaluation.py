@@ -35,20 +35,6 @@ class EventScore(ExtractionScore):
     )
 
 
-def event_values(claim: EventClaim) -> Key:
-    return (
-        claim.event_type,
-        tuple(sorted((p.character_id, p.role) for p in claim.participants)),
-        claim.basis,
-        claim.account_status,
-        claim.polarity,
-        claim.certainty,
-        claim.story_time,
-        claim.time_precision,
-        tuple(sorted({e.evidence_id for e in claim.evidence})),
-    )
-
-
 def _values(expected: Counter[Key], predicted: Counter[Key]) -> ValueScore:
     correct = (expected & predicted).total()
     precision = correct / predicted.total() if predicted else (0.0 if expected else 1.0)
@@ -76,14 +62,14 @@ def _dimensions(claim: EventClaim) -> dict[str, Key]:
 
 
 def score_events(raw: str, reference: ExtractedEvents, snapshot: SourceSnapshot) -> EventScore:
-    expected = {event_values(c): c for c in reference.claims}
+    expected = {c.assertion: c for c in reference.claims}
     try:
         parsed = ExtractedEvents.model_validate_json(raw)
     except ValueError:
         return EventScore(
             schema_valid=False, expected=len(expected), dimensions={}, by_event_type={}
         )
-    predicted = {event_values(c): c for c in parsed.claims}
+    predicted = {c.assertion: c for c in parsed.claims}
     values = _values(Counter(expected.keys()), Counter(predicted.keys())).model_dump()
     values["predicted"] = len(parsed.claims)
     passages = {p.evidence_id: p for p in snapshot.passages}
@@ -91,7 +77,7 @@ def score_events(raw: str, reference: ExtractedEvents, snapshot: SourceSnapshot)
     for claim in parsed.claims:
         valid = evidence_resolves(claim.evidence, passages)
         resolved += int(valid)
-        support = expected.get(event_values(claim))
+        support = expected.get(claim.assertion)
         grounded += int(
             valid
             and support is not None
