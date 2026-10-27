@@ -570,6 +570,88 @@ def test_partial_live_capture_retains_received_source_and_keeps_prior_publicatio
     assert publications.active() == before
 
 
+def test_interrupted_capture_immediately_retains_its_outcome_and_received_source(
+    database_url: str, source_batch: SourceBatch, changed_batch: SourceBatch
+) -> None:
+    from ask_phil.publications import PublicationStore
+    from ask_phil.refresh import SourceRefresh
+    from ask_phil.source_records import CapturePlan, SourceRequest
+
+    refresh = SourceRefresh(database_url, MockEmbedding(embed_dim=3), "test-embedding-v1", 3)
+    refresh.run(source_batch)
+    publications = PublicationStore(database_url)
+    before = publications.active()
+    plan = CapturePlan(
+        format_version=1,
+        catalogue=changed_batch.catalogue,
+        policies=changed_batch.policies,
+        requests=(
+            SourceRequest(
+                source_id="sharon-wiki",
+                kind="wikipedia",
+                character_id="sharon-watts",
+                url=changed_batch.captures[0].url,
+            ),
+            SourceRequest(
+                source_id="sharon-identity",
+                kind="wikidata",
+                url=HttpUrl("https://www.wikidata.org/wiki/Special:EntityData/Q7490258.json"),
+            ),
+        ),
+    )
+
+    def interrupted_source(request: httpx.Request) -> httpx.Response:
+        if request.url.host == "en.wikipedia.org":
+            return httpx.Response(200, text=changed_batch.captures[0].content)
+        raise KeyboardInterrupt("Source capture interrupted.")
+
+    with httpx.Client(transport=httpx.MockTransport(interrupted_source)) as client:
+        with pytest.raises(KeyboardInterrupt):
+            refresh.run(plan, client=client)
+
+    run = publications.runs()[0]
+    assert run.status == "interrupted"
+    assert run.finished_at is not None
+    assert [(s.source_id, s.outcome) for s in run.sources] == [("sharon-wiki", "changed")]
+    assert publications.captures(run.run_id)[0].content == changed_batch.captures[0].content
+    assert publications.active() == before
+
+
+def test_capture_and_source_outcome_commit_together_when_storage_rejects_the_record(
+    database_url: str, source_batch: SourceBatch
+) -> None:
+    import psycopg
+
+    from ask_phil.publications import PublicationStore
+    from ask_phil.refresh import RefreshFailed, SourceRefresh
+
+    refresh = SourceRefresh(database_url, MockEmbedding(embed_dim=3), "test-embedding-v1", 3)
+    refresh.run(source_batch)
+    publications = PublicationStore(database_url)
+    before = publications.active()
+    # Fail a real storage write after a capture has been received; inspect only public results.
+    with psycopg.connect(database_url) as conn:
+        conn.execute("""CREATE FUNCTION reject_capture_outcome() RETURNS trigger
+            LANGUAGE plpgsql AS $$ BEGIN
+                IF NEW.document->>'status' = 'running'
+                   AND jsonb_array_length(NEW.document->'sources') > 0 THEN
+                    RAISE EXCEPTION 'Injected record-write failure';
+                END IF;
+                RETURN NEW;
+            END $$""")
+        conn.execute("""CREATE TRIGGER reject_capture_outcome BEFORE UPDATE ON refresh_runs
+            FOR EACH ROW EXECUTE FUNCTION reject_capture_outcome()""")
+
+    with pytest.raises(RefreshFailed) as failure:
+        refresh.run(source_batch)
+
+    run = publications.run(failure.value.run_id)
+    assert run.status == "failed"
+    assert run.sources == ()
+    assert publications.captures(run.run_id) == ()
+    assert publications.active() == before
+
+
 def test_rollback_restores_compatible_pair_and_withdraws_newer_version_for_new_requests(
     database_url: str, source_batch: SourceBatch, changed_batch: SourceBatch
 ) -> None:

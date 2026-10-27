@@ -1,0 +1,4058 @@
+{
+  "captured_at": "2026-10-27T15:38:13.550069+00:00",
+  "application_sha256": "b41ba1822f8184595a6c8e9c00bc7770b39f0a8ce9cfe75f0f1e53ede7c4c0d7",
+  "summary": [
+    {
+      "kind": "family",
+      "responses": 9,
+      "captured_artifact_sha256": "b4870ee4b52aebe2e6cd8e331402a4eb7af9c57b16900707148a318d6bf166ca",
+      "source_snapshot_sha256": "118cb99db01b352e9b2793e56873962d9769e00df7c3764bb7201d8a7a281a06",
+      "admission_phases": [
+        "raw-pilot"
+      ],
+      "all_actual_trace_outputs_match": true,
+      "all_citations_resolve": true,
+      "original_responses_survive_restart": true,
+      "graph_reference_comparison": {
+        "expected_paths": [
+          [
+            "ben-mitchell",
+            "kathy-beale"
+          ],
+          [
+            "ben-mitchell",
+            "phil-mitchell"
+          ],
+          [
+            "ben-mitchell",
+            "phil-mitchell",
+            "peggy-mitchell"
+          ]
+        ],
+        "actual_paths": [
+          [
+            "ben-mitchell",
+            "kathy-beale"
+          ],
+          [
+            "ben-mitchell",
+            "phil-mitchell"
+          ]
+        ],
+        "precision": 1.0,
+        "recall": 0.6666666666666666,
+        "f1": 0.8,
+        "missing": [
+          [
+            "ben-mitchell",
+            "phil-mitchell",
+            "peggy-mitchell"
+          ]
+        ],
+        "explanation": "Peggy edge correctly held for malformed model locator; graph completeness fails."
+      },
+      "checks": [
+        {
+          "phase": "raw-pilot",
+          "invalid_mixed_query_http": 422,
+          "audit_readback_matches": true,
+          "original_response_survives_restart": true
+        }
+      ]
+    },
+    {
+      "kind": "relationship",
+      "responses": 28,
+      "captured_artifact_sha256": "1e45abc4145064e1cb5f33d15e5495ea343012694f907d82ce72a7b7505e2d91",
+      "source_snapshot_sha256": "973509567ae163bd48866e389b77fcafb8b3d6d346f51a4741b00626b95cadd1",
+      "admission_phases": [
+        "raw-pilot",
+        "reviewed-with-raw-retained"
+      ],
+      "all_actual_trace_outputs_match": true,
+      "all_citations_resolve": true,
+      "original_responses_survive_restart": true,
+      "graph_reference_comparison": null,
+      "checks": [
+        {
+          "phase": "raw-pilot",
+          "invalid_mixed_query_http": 422,
+          "audit_readback_matches": true,
+          "original_response_survives_restart": true
+        },
+        {
+          "phase": "reviewed-with-raw-retained",
+          "invalid_mixed_query_http": 422,
+          "audit_readback_matches": true,
+          "original_response_survives_restart": true
+        }
+      ]
+    },
+    {
+      "kind": "event",
+      "responses": 24,
+      "captured_artifact_sha256": "ef4d1387e51efd8147e771fe0004c47de4958c0888c87756f60116860fad5b25",
+      "source_snapshot_sha256": "211e2a87675886c73aef22a24d85076ae2850661b88e5a70de66600b12b2baa4",
+      "admission_phases": [
+        "raw-pilot",
+        "reviewed-with-raw-retained"
+      ],
+      "all_actual_trace_outputs_match": true,
+      "all_citations_resolve": true,
+      "original_responses_survive_restart": true,
+      "graph_reference_comparison": null,
+      "checks": [
+        {
+          "phase": "raw-pilot",
+          "invalid_mixed_query_http": 422,
+          "audit_readback_matches": true,
+          "original_response_survives_restart": true,
+          "event_session_and_reset": true,
+          "original_response_survives_api_restart": true
+        },
+        {
+          "phase": "reviewed-with-raw-retained",
+          "invalid_mixed_query_http": 422,
+          "audit_readback_matches": true,
+          "original_response_survives_restart": true,
+          "event_session_and_reset": true,
+          "original_response_survives_api_restart": true
+        }
+      ]
+    }
+  ],
+  "responses": [
+    {
+      "kind": "family",
+      "phase": "raw-pilot",
+      "case_id": "ben-ancestors",
+      "transport": "api",
+      "response_id": "9e2b7bb4-5361-4141-a818-c6dad90483a5",
+      "trace_id": "tr-e6ac05e99b1f0422cc4301945cb828cc",
+      "status": "partial",
+      "stop_reason": null,
+      "response_sha256": "e0667fece46e0761905705be45bb0b4caa29996ca299ba45710c7f408a3f2942",
+      "actual_root_output_sha256": "e0667fece46e0761905705be45bb0b4caa29996ca299ba45710c7f408a3f2942",
+      "actual_tool_output_sha256": "95df7e484685f1eb01fd389901fc37cace97c98730b8ac72199811917f24242a",
+      "trace_outputs_match": true,
+      "historical_domain_outcome_and_scores_match": true,
+      "model_calls": 0,
+      "tool_calls": 1,
+      "span_names": [
+        "graph",
+        "family_graph"
+      ]
+    },
+    {
+      "kind": "family",
+      "phase": "raw-pilot",
+      "case_id": "phil-descendants",
+      "transport": "api",
+      "response_id": "5c85bbc6-5d8d-4912-9e76-0bc370eac8cb",
+      "trace_id": "tr-3b3172561305d7dc5aeff9624330e205",
+      "status": "partial",
+      "stop_reason": null,
+      "response_sha256": "b5d0d692bebe99c14c5c1caa1ee5224b284a99de12b2455652dde2dfaf8f0767",
+      "actual_root_output_sha256": "b5d0d692bebe99c14c5c1caa1ee5224b284a99de12b2455652dde2dfaf8f0767",
+      "actual_tool_output_sha256": "d3793565c2b20cefb3fe0a65f9a4c687099ad1a19dc83efd22c3ff70dfdfd920",
+      "trace_outputs_match": true,
+      "historical_domain_outcome_and_scores_match": true,
+      "model_calls": 0,
+      "tool_calls": 1,
+      "span_names": [
+        "graph",
+        "family_graph"
+      ]
+    },
+    {
+      "kind": "family",
+      "phase": "raw-pilot",
+      "case_id": "held-peggy",
+      "transport": "api",
+      "response_id": "d1073595-b00e-4623-abca-4d07cc49768e",
+      "trace_id": "tr-5018132d013d0b6d4c605470803f633c",
+      "status": "insufficient_evidence",
+      "stop_reason": null,
+      "response_sha256": "c18b2b7a50c06a2bf58b83ea066feee92cd064392a48e817449ec61c6ea7aada",
+      "actual_root_output_sha256": "c18b2b7a50c06a2bf58b83ea066feee92cd064392a48e817449ec61c6ea7aada",
+      "actual_tool_output_sha256": "7cabad8a749edc1fa9ad4d1a88642b369ae1fe89a8bc82809b94c5e2dc085730",
+      "trace_outputs_match": true,
+      "historical_domain_outcome_and_scores_match": true,
+      "model_calls": 0,
+      "tool_calls": 1,
+      "span_names": [
+        "graph",
+        "family_graph"
+      ]
+    },
+    {
+      "kind": "family",
+      "phase": "raw-pilot",
+      "case_id": "adopted-sharon",
+      "transport": "api",
+      "response_id": "4526f773-a417-46ab-b13b-757dff8ef27d",
+      "trace_id": "tr-11b140dc515c758fa7da6d83ac140c8c",
+      "status": "insufficient_evidence",
+      "stop_reason": null,
+      "response_sha256": "96e9643ac7e3fafe8d6e3032e293604cdac21f2e4c7cfb7b1bbfd179bdec6202",
+      "actual_root_output_sha256": "96e9643ac7e3fafe8d6e3032e293604cdac21f2e4c7cfb7b1bbfd179bdec6202",
+      "actual_tool_output_sha256": "661435ec945741490245fcc47e292589f62ce143649dbc7ce82e9102d843b535",
+      "trace_outputs_match": true,
+      "historical_domain_outcome_and_scores_match": true,
+      "model_calls": 0,
+      "tool_calls": 1,
+      "span_names": [
+        "graph",
+        "family_graph"
+      ]
+    },
+    {
+      "kind": "family",
+      "phase": "raw-pilot",
+      "case_id": "adoptive-den",
+      "transport": "api",
+      "response_id": "b5c3b290-3d17-4f6d-8ffe-f7207e1b4737",
+      "trace_id": "tr-5d47c19f824dd2a069a2aca80215ef30",
+      "status": "insufficient_evidence",
+      "stop_reason": null,
+      "response_sha256": "5c48fd2ca84cd46e0a65437b8922ae345cc77df19a597533846656830d595679",
+      "actual_root_output_sha256": "5c48fd2ca84cd46e0a65437b8922ae345cc77df19a597533846656830d595679",
+      "actual_tool_output_sha256": "bcc37155de3b0af6fd55e7b51831d4bc5a8565873ac2cc5b52d83a9ce1fa350a",
+      "trace_outputs_match": true,
+      "historical_domain_outcome_and_scores_match": true,
+      "model_calls": 0,
+      "tool_calls": 1,
+      "span_names": [
+        "graph",
+        "family_graph"
+      ]
+    },
+    {
+      "kind": "family",
+      "phase": "raw-pilot",
+      "case_id": "uncovered-grant",
+      "transport": "api",
+      "response_id": "3d8b12fe-ffc3-4a26-826c-1341fc822b53",
+      "trace_id": "tr-b5307ed9562f8a20dbbda358ef0040fa",
+      "status": "insufficient_evidence",
+      "stop_reason": null,
+      "response_sha256": "0a7cf9c74c274a73021bf5bdd0611b2476715eb0521010bbf8bdafd80f95bc18",
+      "actual_root_output_sha256": "0a7cf9c74c274a73021bf5bdd0611b2476715eb0521010bbf8bdafd80f95bc18",
+      "actual_tool_output_sha256": "565ec2acbeab0f5c3d8f8d96e382cf71e5c03bac4a2c5ff21cdefa78bb1cfe76",
+      "trace_outputs_match": true,
+      "historical_domain_outcome_and_scores_match": true,
+      "model_calls": 0,
+      "tool_calls": 1,
+      "span_names": [
+        "graph",
+        "family_graph"
+      ]
+    },
+    {
+      "kind": "family",
+      "phase": "raw-pilot",
+      "case_id": "performer-id",
+      "transport": "api",
+      "response_id": "2682bd0d-5301-4bff-a69b-11a559c7e137",
+      "trace_id": "tr-ef42728be537197cfebcac8aaaeaa4e5",
+      "status": "insufficient_evidence",
+      "stop_reason": null,
+      "response_sha256": "2f0c27ee796e34da200d7f32e00dc504ab11d9ff0f96e84d0875042a6832e20f",
+      "actual_root_output_sha256": "2f0c27ee796e34da200d7f32e00dc504ab11d9ff0f96e84d0875042a6832e20f",
+      "actual_tool_output_sha256": "b259be499cac2c784b59edfa5efcf8ad2ae4f64891ec97df003b32e36a4d14de",
+      "trace_outputs_match": true,
+      "historical_domain_outcome_and_scores_match": true,
+      "model_calls": 0,
+      "tool_calls": 1,
+      "span_names": [
+        "graph",
+        "family_graph"
+      ]
+    },
+    {
+      "kind": "family",
+      "phase": "raw-pilot",
+      "case_id": "path-limit",
+      "transport": "api",
+      "response_id": "322aa2ff-1fa6-4263-b4fb-8c12143230f7",
+      "trace_id": "tr-bfac16f2575f8d74c592a76b15c9b433",
+      "status": "partial",
+      "stop_reason": null,
+      "response_sha256": "dbbfee91f0147f8ce8f17f12db6c24f9dbfd833495e7fd0cb80ac916b800a95c",
+      "actual_root_output_sha256": "dbbfee91f0147f8ce8f17f12db6c24f9dbfd833495e7fd0cb80ac916b800a95c",
+      "actual_tool_output_sha256": "e8e1ba0da4b036459ef82d221e40c158ff88875b79b23039bcf11336cb263ded",
+      "trace_outputs_match": true,
+      "historical_domain_outcome_and_scores_match": true,
+      "model_calls": 0,
+      "tool_calls": 1,
+      "span_names": [
+        "graph",
+        "family_graph"
+      ]
+    },
+    {
+      "kind": "family",
+      "phase": "raw-pilot",
+      "case_id": "cli-descendants",
+      "transport": "cli",
+      "response_id": "16b6e284-ce2d-472c-a93f-6138114b8df7",
+      "trace_id": "tr-bb8455f154eae40671fc10dd4dace768",
+      "status": "partial",
+      "stop_reason": null,
+      "response_sha256": "373f7e4f55aeb5995e549c90013142d2c1f295a7a34199ef01b3071e170b50d2",
+      "actual_root_output_sha256": "373f7e4f55aeb5995e549c90013142d2c1f295a7a34199ef01b3071e170b50d2",
+      "actual_tool_output_sha256": "d3793565c2b20cefb3fe0a65f9a4c687099ad1a19dc83efd22c3ff70dfdfd920",
+      "trace_outputs_match": true,
+      "historical_domain_outcome_and_scores_match": true,
+      "model_calls": 0,
+      "tool_calls": 1,
+      "span_names": [
+        "graph",
+        "family_graph"
+      ]
+    },
+    {
+      "kind": "relationship",
+      "phase": "raw-pilot",
+      "case_id": "repeated-marriages",
+      "transport": "api",
+      "response_id": "5ca8d6f8-d60a-43c5-86ff-fea5fa32c931",
+      "trace_id": "tr-0fc33d1e921ff25ba53ea04a83e71ae5",
+      "status": "insufficient_evidence",
+      "stop_reason": null,
+      "response_sha256": "0bd8a8744a81f0067dee371082966ffd696181ee81a5fa08eab8677dfd64bc13",
+      "actual_root_output_sha256": "0bd8a8744a81f0067dee371082966ffd696181ee81a5fa08eab8677dfd64bc13",
+      "actual_tool_output_sha256": "6bb08dd71143007266b0b9da694bb9285810524c222ba70490f2862ff2d06a14",
+      "trace_outputs_match": true,
+      "historical_domain_outcome_and_scores_match": true,
+      "model_calls": 0,
+      "tool_calls": 1,
+      "span_names": [
+        "graph",
+        "relationship_history"
+      ]
+    },
+    {
+      "kind": "relationship",
+      "phase": "raw-pilot",
+      "case_id": "separation-is-not-divorce",
+      "transport": "api",
+      "response_id": "fab43517-ceca-4e70-a765-3da2d344dc9b",
+      "trace_id": "tr-4883d95d9e95a0946d4c07823d62422d",
+      "status": "insufficient_evidence",
+      "stop_reason": null,
+      "response_sha256": "4ce3820d2dc5ce8f623a4c900bcd6b250c444ea658357841ef3d3559b331ecf5",
+      "actual_root_output_sha256": "4ce3820d2dc5ce8f623a4c900bcd6b250c444ea658357841ef3d3559b331ecf5",
+      "actual_tool_output_sha256": "36df7a74537f763f5a005b9d828a658bfce6573781e34e7ac707e328e8f27d3b",
+      "trace_outputs_match": true,
+      "historical_domain_outcome_and_scores_match": true,
+      "model_calls": 0,
+      "tool_calls": 1,
+      "span_names": [
+        "graph",
+        "relationship_history"
+      ]
+    },
+    {
+      "kind": "relationship",
+      "phase": "raw-pilot",
+      "case_id": "affair",
+      "transport": "api",
+      "response_id": "a4a71da6-e45e-4d19-aa33-cda07e82e55f",
+      "trace_id": "tr-21fe6c747c2f89c629b5feb6386545e9",
+      "status": "insufficient_evidence",
+      "stop_reason": null,
+      "response_sha256": "36124d36884df325b6074d1369b7926081ecb339cd6e1c9fe5f49b5365f8aa53",
+      "actual_root_output_sha256": "36124d36884df325b6074d1369b7926081ecb339cd6e1c9fe5f49b5365f8aa53",
+      "actual_tool_output_sha256": "3ae1baf77fb46eff5543c5a7452f4d52ff4e3244fe606c88fe775245af983e4c",
+      "trace_outputs_match": true,
+      "historical_domain_outcome_and_scores_match": true,
+      "model_calls": 0,
+      "tool_calls": 1,
+      "span_names": [
+        "graph",
+        "relationship_history"
+      ]
+    },
+    {
+      "kind": "relationship",
+      "phase": "raw-pilot",
+      "case_id": "divorce",
+      "transport": "api",
+      "response_id": "00b08d84-d03b-401e-9829-a580f85b8a5c",
+      "trace_id": "tr-9a6b6a33b0ff7d4412727f2516a68c1d",
+      "status": "insufficient_evidence",
+      "stop_reason": null,
+      "response_sha256": "cc56d530675f7e9cadefb6d03ed0ebcf499921b771720b68008be3bcfca884a9",
+      "actual_root_output_sha256": "cc56d530675f7e9cadefb6d03ed0ebcf499921b771720b68008be3bcfca884a9",
+      "actual_tool_output_sha256": "f87ff538c17497126db2f038f596b668929fc3ee995668e75d3049960d848ca1",
+      "trace_outputs_match": true,
+      "historical_domain_outcome_and_scores_match": true,
+      "model_calls": 0,
+      "tool_calls": 1,
+      "span_names": [
+        "graph",
+        "relationship_history"
+      ]
+    },
+    {
+      "kind": "relationship",
+      "phase": "raw-pilot",
+      "case_id": "adoptive-parent",
+      "transport": "api",
+      "response_id": "52542001-0245-4d40-ad4b-057334ecd67f",
+      "trace_id": "tr-db43eebfbc0df8a7e819501c49fb7e15",
+      "status": "insufficient_evidence",
+      "stop_reason": null,
+      "response_sha256": "9766daf5a6ea20352d2c605efb6c380aa720511cd1beed2b3f96e741039bd7c0",
+      "actual_root_output_sha256": "9766daf5a6ea20352d2c605efb6c380aa720511cd1beed2b3f96e741039bd7c0",
+      "actual_tool_output_sha256": "20f7f1a9e4ff4b0dc38cf5c91a0b16896b76f98ab2ebd8f5cdf75d76c9c203f4",
+      "trace_outputs_match": true,
+      "historical_domain_outcome_and_scores_match": true,
+      "model_calls": 0,
+      "tool_calls": 1,
+      "span_names": [
+        "graph",
+        "relationship_history"
+      ]
+    },
+    {
+      "kind": "relationship",
+      "phase": "raw-pilot",
+      "case_id": "adoptive-direction",
+      "transport": "api",
+      "response_id": "3b21d376-bb09-4bee-a042-3df73f691a88",
+      "trace_id": "tr-d2b1916076323ff9d1338cdb5a2af94e",
+      "status": "insufficient_evidence",
+      "stop_reason": null,
+      "response_sha256": "c24fcb05f827f019de04465f8beb067f4dd8e862d5c745b6f20b0c9cbd8a862b",
+      "actual_root_output_sha256": "c24fcb05f827f019de04465f8beb067f4dd8e862d5c745b6f20b0c9cbd8a862b",
+      "actual_tool_output_sha256": "f8d6438ac3534cd158fed99df41b1095a1cff93cf0d73e5461f87a78d160989c",
+      "trace_outputs_match": true,
+      "historical_domain_outcome_and_scores_match": true,
+      "model_calls": 0,
+      "tool_calls": 1,
+      "span_names": [
+        "graph",
+        "relationship_history"
+      ]
+    },
+    {
+      "kind": "relationship",
+      "phase": "raw-pilot",
+      "case_id": "step-parent",
+      "transport": "api",
+      "response_id": "31cabb75-0d35-4b53-8481-140897da30ef",
+      "trace_id": "tr-c84398166b47355a3db220fbc66c3f4c",
+      "status": "insufficient_evidence",
+      "stop_reason": null,
+      "response_sha256": "ec0e8da902ba77b5ed579875b84e64e6674e21157ecb3a13840496f94334f4ce",
+      "actual_root_output_sha256": "ec0e8da902ba77b5ed579875b84e64e6674e21157ecb3a13840496f94334f4ce",
+      "actual_tool_output_sha256": "4e8e6dcdcf3e1f5e4d666cdaef77ce1b8f53b003405d8aae4061a88047e525a9",
+      "trace_outputs_match": true,
+      "historical_domain_outcome_and_scores_match": true,
+      "model_calls": 0,
+      "tool_calls": 1,
+      "span_names": [
+        "graph",
+        "relationship_history"
+      ]
+    },
+    {
+      "kind": "relationship",
+      "phase": "raw-pilot",
+      "case_id": "step-direction",
+      "transport": "api",
+      "response_id": "50ba4ee0-4e32-4ed2-8214-ba9e26ebecb4",
+      "trace_id": "tr-3c718dc4276ea6e74fc4ca4a7db44171",
+      "status": "insufficient_evidence",
+      "stop_reason": null,
+      "response_sha256": "15215588a166bf0c57764b3118fe2508ccd7700d714d651aecbe2f35e2b23edf",
+      "actual_root_output_sha256": "15215588a166bf0c57764b3118fe2508ccd7700d714d651aecbe2f35e2b23edf",
+      "actual_tool_output_sha256": "03f78a78117121ce861918e253e993d9f3e5f213a0cdc609b122c4ed3df60875",
+      "trace_outputs_match": true,
+      "historical_domain_outcome_and_scores_match": true,
+      "model_calls": 0,
+      "tool_calls": 1,
+      "span_names": [
+        "graph",
+        "relationship_history"
+      ]
+    },
+    {
+      "kind": "relationship",
+      "phase": "raw-pilot",
+      "case_id": "biological-parent",
+      "transport": "api",
+      "response_id": "1e9331ff-6e57-4c98-be50-99f854326a57",
+      "trace_id": "tr-78a01bec1f8b629420ec87f152c9d553",
+      "status": "insufficient_evidence",
+      "stop_reason": null,
+      "response_sha256": "e53777dfc323499b9c4b79824dbfb44c6900f059e23859588500c12020e4bea1",
+      "actual_root_output_sha256": "e53777dfc323499b9c4b79824dbfb44c6900f059e23859588500c12020e4bea1",
+      "actual_tool_output_sha256": "1ca002aaefd7941f742a926ae62c854dd24d2429bb83c803b00dad2d9be81579",
+      "trace_outputs_match": true,
+      "historical_domain_outcome_and_scores_match": true,
+      "model_calls": 0,
+      "tool_calls": 1,
+      "span_names": [
+        "graph",
+        "relationship_history"
+      ]
+    },
+    {
+      "kind": "relationship",
+      "phase": "raw-pilot",
+      "case_id": "both-biological-parents",
+      "transport": "api",
+      "response_id": "c9a7a678-0ba7-4a24-b735-399ff747ba0f",
+      "trace_id": "tr-538c65f9956976b28d6fd6eebc858e4d",
+      "status": "insufficient_evidence",
+      "stop_reason": null,
+      "response_sha256": "cbb4b54a81ea96f38e502e6d90ab2513ede5977c7a54ff1a2bd26d0e24d50257",
+      "actual_root_output_sha256": "cbb4b54a81ea96f38e502e6d90ab2513ede5977c7a54ff1a2bd26d0e24d50257",
+      "actual_tool_output_sha256": "16aaa4d4130207434f7e524b5e6ca5fe78ac6154cda575bcd4bd846383a1984f",
+      "trace_outputs_match": true,
+      "historical_domain_outcome_and_scores_match": true,
+      "model_calls": 0,
+      "tool_calls": 1,
+      "span_names": [
+        "graph",
+        "relationship_history"
+      ]
+    },
+    {
+      "kind": "relationship",
+      "phase": "raw-pilot",
+      "case_id": "empty-is-not-negative",
+      "transport": "api",
+      "response_id": "6acb5e3a-8c88-42dc-a4e7-81806af7c125",
+      "trace_id": "tr-55671a72042c56f66a5c51ab6530e1da",
+      "status": "insufficient_evidence",
+      "stop_reason": null,
+      "response_sha256": "673b712d17c3a3dcdacc53bd7a95f951aa0277dd6015f620007d0226d92fc56f",
+      "actual_root_output_sha256": "673b712d17c3a3dcdacc53bd7a95f951aa0277dd6015f620007d0226d92fc56f",
+      "actual_tool_output_sha256": "6e4f26962f76403915c6a99a2228593d9d630b680c95ba8f9af9c16aee83d289",
+      "trace_outputs_match": true,
+      "historical_domain_outcome_and_scores_match": true,
+      "model_calls": 0,
+      "tool_calls": 1,
+      "span_names": [
+        "graph",
+        "relationship_history"
+      ]
+    },
+    {
+      "kind": "relationship",
+      "phase": "raw-pilot",
+      "case_id": "performer-is-not-character",
+      "transport": "api",
+      "response_id": "7c045a3c-5db3-414d-8698-c2fdf218f266",
+      "trace_id": "tr-9ed699636de764f7b15f8258e6e8db08",
+      "status": "insufficient_evidence",
+      "stop_reason": null,
+      "response_sha256": "0f1fb9da8518f0723cf975afc7729698eb3e79b299f89acbc34a5afa123c6c64",
+      "actual_root_output_sha256": "0f1fb9da8518f0723cf975afc7729698eb3e79b299f89acbc34a5afa123c6c64",
+      "actual_tool_output_sha256": "a82c106b856d726a0d3186f35fc786bd28888d085400dc20e653bc6ec0dfa13e",
+      "trace_outputs_match": true,
+      "historical_domain_outcome_and_scores_match": true,
+      "model_calls": 0,
+      "tool_calls": 1,
+      "span_names": [
+        "graph",
+        "relationship_history"
+      ]
+    },
+    {
+      "kind": "relationship",
+      "phase": "raw-pilot",
+      "case_id": "bounded",
+      "transport": "api",
+      "response_id": "e0c82ff9-d385-4a05-b40a-79140dc2be9c",
+      "trace_id": "tr-711866470ebd3df0ac429384cf097728",
+      "status": "insufficient_evidence",
+      "stop_reason": null,
+      "response_sha256": "8b1064867f7422613e51f50a6659643adddf4b383455e11109af9762978ced67",
+      "actual_root_output_sha256": "8b1064867f7422613e51f50a6659643adddf4b383455e11109af9762978ced67",
+      "actual_tool_output_sha256": "c33a32c2a0311e875b4380a2e48e8a861f469ef38d33819ceabbe06df49cb94f",
+      "trace_outputs_match": true,
+      "historical_domain_outcome_and_scores_match": true,
+      "model_calls": 0,
+      "tool_calls": 1,
+      "span_names": [
+        "graph",
+        "relationship_history"
+      ]
+    },
+    {
+      "kind": "relationship",
+      "phase": "raw-pilot",
+      "case_id": "cli-marriages",
+      "transport": "cli",
+      "response_id": "a2c1501e-1ec4-418a-8927-d69817db5624",
+      "trace_id": "tr-5e276d0817b4fcadc942bd0160448e2c",
+      "status": "insufficient_evidence",
+      "stop_reason": null,
+      "response_sha256": "aca99d14c77ada554a737c8f6187112bc416c883d74f76b1b82f6206a6977bce",
+      "actual_root_output_sha256": "aca99d14c77ada554a737c8f6187112bc416c883d74f76b1b82f6206a6977bce",
+      "actual_tool_output_sha256": "6bb08dd71143007266b0b9da694bb9285810524c222ba70490f2862ff2d06a14",
+      "trace_outputs_match": true,
+      "historical_domain_outcome_and_scores_match": true,
+      "model_calls": 0,
+      "tool_calls": 1,
+      "span_names": [
+        "graph",
+        "relationship_history"
+      ]
+    },
+    {
+      "kind": "relationship",
+      "phase": "reviewed-with-raw-retained",
+      "case_id": "repeated-marriages",
+      "transport": "api",
+      "response_id": "55cc6540-1686-4878-b059-e04e8f605b1c",
+      "trace_id": "tr-05f316e9e97b3a3ea75c1ebd87f91deb",
+      "status": "partial",
+      "stop_reason": null,
+      "response_sha256": "f8ec6f57069df386c876907f72e0b82902ca6890e5856ca4c53e863a2f912c5b",
+      "actual_root_output_sha256": "f8ec6f57069df386c876907f72e0b82902ca6890e5856ca4c53e863a2f912c5b",
+      "actual_tool_output_sha256": "d4a490429d2266f96433dcad6c0d0b8e6103de02eed96eecdc6109e97b1b13db",
+      "trace_outputs_match": true,
+      "historical_domain_outcome_and_scores_match": true,
+      "model_calls": 0,
+      "tool_calls": 1,
+      "span_names": [
+        "graph",
+        "relationship_history"
+      ]
+    },
+    {
+      "kind": "relationship",
+      "phase": "reviewed-with-raw-retained",
+      "case_id": "separation-is-not-divorce",
+      "transport": "api",
+      "response_id": "db370178-45c2-41f9-9a55-46a6182760b4",
+      "trace_id": "tr-2012d6d356b2f4042b1063281f8e2856",
+      "status": "partial",
+      "stop_reason": null,
+      "response_sha256": "387ad10a26dea42c4190687400de24dc2d6a66b3ecfa565b2d866c20f6482b09",
+      "actual_root_output_sha256": "387ad10a26dea42c4190687400de24dc2d6a66b3ecfa565b2d866c20f6482b09",
+      "actual_tool_output_sha256": "c04373a53dfdb0863cabdc5fbe644b995aa95d5566429c831f1adbb99487776d",
+      "trace_outputs_match": true,
+      "historical_domain_outcome_and_scores_match": true,
+      "model_calls": 0,
+      "tool_calls": 1,
+      "span_names": [
+        "graph",
+        "relationship_history"
+      ]
+    },
+    {
+      "kind": "relationship",
+      "phase": "reviewed-with-raw-retained",
+      "case_id": "affair",
+      "transport": "api",
+      "response_id": "24c3c999-0553-47d7-a727-3e4901fc8bd1",
+      "trace_id": "tr-10753cf75118f2362da4e9d705ef689f",
+      "status": "partial",
+      "stop_reason": null,
+      "response_sha256": "f3c67b090ab2c1f573bc19f08fe955d5fc1fc8be871af22624d822d24e2c2639",
+      "actual_root_output_sha256": "f3c67b090ab2c1f573bc19f08fe955d5fc1fc8be871af22624d822d24e2c2639",
+      "actual_tool_output_sha256": "f7afb070478e842c0a85d78404bfd924fdd5285b0759a2b084a01c7fdbd3fecc",
+      "trace_outputs_match": true,
+      "historical_domain_outcome_and_scores_match": true,
+      "model_calls": 0,
+      "tool_calls": 1,
+      "span_names": [
+        "graph",
+        "relationship_history"
+      ]
+    },
+    {
+      "kind": "relationship",
+      "phase": "reviewed-with-raw-retained",
+      "case_id": "divorce",
+      "transport": "api",
+      "response_id": "83a47193-0f3c-427c-bf13-32d9c59f5a68",
+      "trace_id": "tr-5d6ddc4376740b72210fb8bf02ef058f",
+      "status": "partial",
+      "stop_reason": null,
+      "response_sha256": "912f2b84dd0d7b7b1191f328fb74062af890415086bf18f4ac369a4929f25e6c",
+      "actual_root_output_sha256": "912f2b84dd0d7b7b1191f328fb74062af890415086bf18f4ac369a4929f25e6c",
+      "actual_tool_output_sha256": "49441bc9566c2e31d99d647a286ee4d50515da2352a2f7b5916172b709f13e38",
+      "trace_outputs_match": true,
+      "historical_domain_outcome_and_scores_match": true,
+      "model_calls": 0,
+      "tool_calls": 1,
+      "span_names": [
+        "graph",
+        "relationship_history"
+      ]
+    },
+    {
+      "kind": "relationship",
+      "phase": "reviewed-with-raw-retained",
+      "case_id": "adoptive-parent",
+      "transport": "api",
+      "response_id": "b610775e-4022-4506-a1dc-6983d1ce3075",
+      "trace_id": "tr-66ae227c0f15cc2bb53088127fe9e717",
+      "status": "partial",
+      "stop_reason": null,
+      "response_sha256": "52d2456765cd8e409898d9a71b5cc0cddf0bd0a11f99f8a4b5da3dfb4baf3cf8",
+      "actual_root_output_sha256": "52d2456765cd8e409898d9a71b5cc0cddf0bd0a11f99f8a4b5da3dfb4baf3cf8",
+      "actual_tool_output_sha256": "144689dc4529804a023803850255512d71711f36a9a2b5451c9e9dd5727006a4",
+      "trace_outputs_match": true,
+      "historical_domain_outcome_and_scores_match": true,
+      "model_calls": 0,
+      "tool_calls": 1,
+      "span_names": [
+        "graph",
+        "relationship_history"
+      ]
+    },
+    {
+      "kind": "relationship",
+      "phase": "reviewed-with-raw-retained",
+      "case_id": "adoptive-direction",
+      "transport": "api",
+      "response_id": "b9ce44f8-481f-42a8-b415-5623c9ebf285",
+      "trace_id": "tr-f78e405ced6e696b5a3b88129c1d59c4",
+      "status": "partial",
+      "stop_reason": null,
+      "response_sha256": "6efa9c1c59b20416ac0b1ea68435a935373b97e3ec6a7c7265ff3d956bb92c02",
+      "actual_root_output_sha256": "6efa9c1c59b20416ac0b1ea68435a935373b97e3ec6a7c7265ff3d956bb92c02",
+      "actual_tool_output_sha256": "f1337301fa15cefeba313b9d80ec60f6f348abf9325f04e98cd0a338049835e9",
+      "trace_outputs_match": true,
+      "historical_domain_outcome_and_scores_match": true,
+      "model_calls": 0,
+      "tool_calls": 1,
+      "span_names": [
+        "graph",
+        "relationship_history"
+      ]
+    },
+    {
+      "kind": "relationship",
+      "phase": "reviewed-with-raw-retained",
+      "case_id": "step-parent",
+      "transport": "api",
+      "response_id": "1fe8ed66-2439-4671-ab93-551d601cd4c6",
+      "trace_id": "tr-a4af1f5fef256658c3cc8d72c767b579",
+      "status": "partial",
+      "stop_reason": null,
+      "response_sha256": "68b95931f2153f2cbf53cd46f5dfb24b40070a0666df068e99970e9d9a2bdded",
+      "actual_root_output_sha256": "68b95931f2153f2cbf53cd46f5dfb24b40070a0666df068e99970e9d9a2bdded",
+      "actual_tool_output_sha256": "73f9feeeed9d591fe40d84f353a505e7a0c82de10e04bcbc11b21131b89ab3e0",
+      "trace_outputs_match": true,
+      "historical_domain_outcome_and_scores_match": true,
+      "model_calls": 0,
+      "tool_calls": 1,
+      "span_names": [
+        "graph",
+        "relationship_history"
+      ]
+    },
+    {
+      "kind": "relationship",
+      "phase": "reviewed-with-raw-retained",
+      "case_id": "step-direction",
+      "transport": "api",
+      "response_id": "27d7eae2-4cbe-4499-acf2-a1ae7b152bf3",
+      "trace_id": "tr-7b147e3d0e33746d33c0afe524a44f36",
+      "status": "partial",
+      "stop_reason": null,
+      "response_sha256": "681c2cd66c5cbc9bc9b98f8c9fc38406bc1bbd3c62c7dcb0e081befd902b72a9",
+      "actual_root_output_sha256": "681c2cd66c5cbc9bc9b98f8c9fc38406bc1bbd3c62c7dcb0e081befd902b72a9",
+      "actual_tool_output_sha256": "4b3adff94806b9a32c11368896ab22829fbe84a39a465338dd6fcca8e29f1822",
+      "trace_outputs_match": true,
+      "historical_domain_outcome_and_scores_match": true,
+      "model_calls": 0,
+      "tool_calls": 1,
+      "span_names": [
+        "graph",
+        "relationship_history"
+      ]
+    },
+    {
+      "kind": "relationship",
+      "phase": "reviewed-with-raw-retained",
+      "case_id": "biological-parent",
+      "transport": "api",
+      "response_id": "4386b8c3-e45e-4416-a21b-615171a23a9d",
+      "trace_id": "tr-9059927aed54a33d95b8e8f4329f6667",
+      "status": "partial",
+      "stop_reason": null,
+      "response_sha256": "a53498d9ac9c7f6cf04424be0c1b20270cf848e8da35b2bf339bc3ea74f0c299",
+      "actual_root_output_sha256": "a53498d9ac9c7f6cf04424be0c1b20270cf848e8da35b2bf339bc3ea74f0c299",
+      "actual_tool_output_sha256": "798fa3ef127d6fcd3ab0d6699765fbadd2e1188ba215577c84505d65f112922a",
+      "trace_outputs_match": true,
+      "historical_domain_outcome_and_scores_match": true,
+      "model_calls": 0,
+      "tool_calls": 1,
+      "span_names": [
+        "graph",
+        "relationship_history"
+      ]
+    },
+    {
+      "kind": "relationship",
+      "phase": "reviewed-with-raw-retained",
+      "case_id": "both-biological-parents",
+      "transport": "api",
+      "response_id": "adc881d3-2ee3-4e4c-a286-52dd41bffdfa",
+      "trace_id": "tr-febe08c97837d1235ba77192e78f8516",
+      "status": "partial",
+      "stop_reason": null,
+      "response_sha256": "f9ae72e11eefc4f5ccbe05fe1cd8c5359030c479995a3fcab70aed5ab2036e90",
+      "actual_root_output_sha256": "f9ae72e11eefc4f5ccbe05fe1cd8c5359030c479995a3fcab70aed5ab2036e90",
+      "actual_tool_output_sha256": "c1780040dbea5e529cf4f6a98695f7d0ec5baecd9b6eb34f5203e226fc077e70",
+      "trace_outputs_match": true,
+      "historical_domain_outcome_and_scores_match": true,
+      "model_calls": 0,
+      "tool_calls": 1,
+      "span_names": [
+        "graph",
+        "relationship_history"
+      ]
+    },
+    {
+      "kind": "relationship",
+      "phase": "reviewed-with-raw-retained",
+      "case_id": "empty-is-not-negative",
+      "transport": "api",
+      "response_id": "e675fb8b-a364-4fa8-87a1-e491c99cdf70",
+      "trace_id": "tr-17d5f17fc07dbedd7b6e206f1ad18f69",
+      "status": "insufficient_evidence",
+      "stop_reason": null,
+      "response_sha256": "3578c3000530516d0fd7fa36441dec7856535d6a875dcf7f5d1debadb4de7fe7",
+      "actual_root_output_sha256": "3578c3000530516d0fd7fa36441dec7856535d6a875dcf7f5d1debadb4de7fe7",
+      "actual_tool_output_sha256": "b2f926969927da6985e3c4aa8ef88da1a5a7bc56311269c020fa0e9f4684e04f",
+      "trace_outputs_match": true,
+      "historical_domain_outcome_and_scores_match": true,
+      "model_calls": 0,
+      "tool_calls": 1,
+      "span_names": [
+        "graph",
+        "relationship_history"
+      ]
+    },
+    {
+      "kind": "relationship",
+      "phase": "reviewed-with-raw-retained",
+      "case_id": "performer-is-not-character",
+      "transport": "api",
+      "response_id": "90279663-b7c1-47b4-892c-082e495e10c1",
+      "trace_id": "tr-10336520a76a64b59377f86f177421ae",
+      "status": "insufficient_evidence",
+      "stop_reason": null,
+      "response_sha256": "65fdd766d9b865864d13b0e63108ffdc7aa0f31fee59cdd713b8fa9902aa4a21",
+      "actual_root_output_sha256": "65fdd766d9b865864d13b0e63108ffdc7aa0f31fee59cdd713b8fa9902aa4a21",
+      "actual_tool_output_sha256": "9f9de4a2b80000f4da96d2833e5064f4405d5090792a1046246c72620f7892d5",
+      "trace_outputs_match": true,
+      "historical_domain_outcome_and_scores_match": true,
+      "model_calls": 0,
+      "tool_calls": 1,
+      "span_names": [
+        "graph",
+        "relationship_history"
+      ]
+    },
+    {
+      "kind": "relationship",
+      "phase": "reviewed-with-raw-retained",
+      "case_id": "bounded",
+      "transport": "api",
+      "response_id": "862746c3-6b4d-4891-a392-7753314da49a",
+      "trace_id": "tr-79be57b21cf89a07304b7158c1fe193e",
+      "status": "partial",
+      "stop_reason": null,
+      "response_sha256": "eae8d5f48474d61a0dbc83913c49f96d79985fd5b9dccd2d11f1148438ae211a",
+      "actual_root_output_sha256": "eae8d5f48474d61a0dbc83913c49f96d79985fd5b9dccd2d11f1148438ae211a",
+      "actual_tool_output_sha256": "922e4bed38d90a4d9641815de9a61d03c30be8b4e04429c2e703965bfa05497c",
+      "trace_outputs_match": true,
+      "historical_domain_outcome_and_scores_match": true,
+      "model_calls": 0,
+      "tool_calls": 1,
+      "span_names": [
+        "graph",
+        "relationship_history"
+      ]
+    },
+    {
+      "kind": "relationship",
+      "phase": "reviewed-with-raw-retained",
+      "case_id": "cli-marriages",
+      "transport": "cli",
+      "response_id": "a7e6f23f-2d90-4192-8562-470203102b26",
+      "trace_id": "tr-4b2d624f52d55e2d0098113273d6ca1b",
+      "status": "partial",
+      "stop_reason": null,
+      "response_sha256": "070480e01333f365dc8c37c13e435be7a2c03bfdfdc2950276e771080d0e2ddb",
+      "actual_root_output_sha256": "070480e01333f365dc8c37c13e435be7a2c03bfdfdc2950276e771080d0e2ddb",
+      "actual_tool_output_sha256": "d4a490429d2266f96433dcad6c0d0b8e6103de02eed96eecdc6109e97b1b13db",
+      "trace_outputs_match": true,
+      "historical_domain_outcome_and_scores_match": true,
+      "model_calls": 0,
+      "tool_calls": 1,
+      "span_names": [
+        "graph",
+        "relationship_history"
+      ]
+    },
+    {
+      "kind": "event",
+      "phase": "raw-pilot",
+      "case_id": "conviction-is-not-guilt",
+      "transport": "api",
+      "response_id": "a1a5b207-a769-49d7-b6cd-fe4967082c6b",
+      "trace_id": "tr-5f649877792fe0bcfee161bff8ee6ff9",
+      "status": "insufficient_evidence",
+      "stop_reason": null,
+      "response_sha256": "b1199d16360f07e3e1085e92d4b5b75534ad409c6799c4d9068d6cde6f2f2f20",
+      "actual_root_output_sha256": "b1199d16360f07e3e1085e92d4b5b75534ad409c6799c4d9068d6cde6f2f2f20",
+      "actual_tool_output_sha256": "e4a3ebfc157c87a195db90ec5f7489d894f2c3f973c88f10b9c6d602a8c3dab4",
+      "trace_outputs_match": true,
+      "historical_domain_outcome_and_scores_match": true,
+      "model_calls": 0,
+      "tool_calls": 1,
+      "span_names": [
+        "graph",
+        "crime_history"
+      ]
+    },
+    {
+      "kind": "event",
+      "phase": "raw-pilot",
+      "case_id": "narrative-commission",
+      "transport": "api",
+      "response_id": "5d56cca6-e8a4-4aee-931e-7838e9220580",
+      "trace_id": "tr-ee8b9a37984d97eee98145c3448cf43d",
+      "status": "partial",
+      "stop_reason": null,
+      "response_sha256": "b7d6c543ab6bd0bcb3b3ad020490dbbfdf15610ccd65d56d7a6853e873e855dc",
+      "actual_root_output_sha256": "b7d6c543ab6bd0bcb3b3ad020490dbbfdf15610ccd65d56d7a6853e873e855dc",
+      "actual_tool_output_sha256": "52c85a1204362a99b82c64d0d644961eb6e89bc9233a866dc87188e92a1dae3f",
+      "trace_outputs_match": true,
+      "historical_domain_outcome_and_scores_match": true,
+      "model_calls": 0,
+      "tool_calls": 1,
+      "span_names": [
+        "graph",
+        "crime_history"
+      ]
+    },
+    {
+      "kind": "event",
+      "phase": "raw-pilot",
+      "case_id": "shared-participants",
+      "transport": "api",
+      "response_id": "81103d91-0bb1-410e-a862-d60f04b9ee13",
+      "trace_id": "tr-ad72dd1e5dc93fd41fdf96cd9140d397",
+      "status": "insufficient_evidence",
+      "stop_reason": null,
+      "response_sha256": "27847640e2c54eae7a782c3f927b1b7862ffa02e30bd79560f425078021ad3c2",
+      "actual_root_output_sha256": "27847640e2c54eae7a782c3f927b1b7862ffa02e30bd79560f425078021ad3c2",
+      "actual_tool_output_sha256": "20a8823cee7bfbfea960b4c3bddfc1bb1a233d3c0d6ccaf19f6c2240349f52d8",
+      "trace_outputs_match": true,
+      "historical_domain_outcome_and_scores_match": true,
+      "model_calls": 0,
+      "tool_calls": 1,
+      "span_names": [
+        "graph",
+        "crime_history"
+      ]
+    },
+    {
+      "kind": "event",
+      "phase": "raw-pilot",
+      "case_id": "victim-role",
+      "transport": "api",
+      "response_id": "63999244-c19a-4bb8-9bd5-63301033d27d",
+      "trace_id": "tr-30b0b685fc64a74be856a2ee349e75ac",
+      "status": "partial",
+      "stop_reason": null,
+      "response_sha256": "abae0435c6058508363e0964d5f9735ece0c2a565468c05bb010c0808048a139",
+      "actual_root_output_sha256": "abae0435c6058508363e0964d5f9735ece0c2a565468c05bb010c0808048a139",
+      "actual_tool_output_sha256": "8b0539bb9aefa2f540642bcdbc86251493d514067d6df7aa129e0cd405470f91",
+      "trace_outputs_match": true,
+      "historical_domain_outcome_and_scores_match": true,
+      "model_calls": 0,
+      "tool_calls": 1,
+      "span_names": [
+        "graph",
+        "crime_history"
+      ]
+    },
+    {
+      "kind": "event",
+      "phase": "raw-pilot",
+      "case_id": "false-confession",
+      "transport": "api",
+      "response_id": "22233523-dcd9-4e19-977f-56558b4c7c04",
+      "trace_id": "tr-2863f0e016e71a808957b26e51e06568",
+      "status": "insufficient_evidence",
+      "stop_reason": null,
+      "response_sha256": "53426329ecda4a916f76acef2746636f1187eb710087e15b84775ae7880ad9fc",
+      "actual_root_output_sha256": "53426329ecda4a916f76acef2746636f1187eb710087e15b84775ae7880ad9fc",
+      "actual_tool_output_sha256": "4f11e0c3bc42738e4a7c64b73a32fa1d351fba60194f2731b4a62fcd7b3ef8e7",
+      "trace_outputs_match": true,
+      "historical_domain_outcome_and_scores_match": true,
+      "model_calls": 0,
+      "tool_calls": 1,
+      "span_names": [
+        "graph",
+        "crime_history"
+      ]
+    },
+    {
+      "kind": "event",
+      "phase": "raw-pilot",
+      "case_id": "false-accusation",
+      "transport": "api",
+      "response_id": "f3b84e17-6846-435c-9252-b18f5e6006f1",
+      "trace_id": "tr-be9e76bb3cdaed23628c05612f4e0013",
+      "status": "insufficient_evidence",
+      "stop_reason": null,
+      "response_sha256": "1408ec790d4a9514366121854674391a05cbf7c0b75012be0e0328287bc6090e",
+      "actual_root_output_sha256": "1408ec790d4a9514366121854674391a05cbf7c0b75012be0e0328287bc6090e",
+      "actual_tool_output_sha256": "23fba477205ba0eebcb396b32afac97629540991809d5f22833020cf3a434382",
+      "trace_outputs_match": true,
+      "historical_domain_outcome_and_scores_match": true,
+      "model_calls": 0,
+      "tool_calls": 1,
+      "span_names": [
+        "graph",
+        "crime_history"
+      ]
+    },
+    {
+      "kind": "event",
+      "phase": "raw-pilot",
+      "case_id": "empty-is-not-negative",
+      "transport": "api",
+      "response_id": "6016fb2e-9bd4-4f02-9228-9f1bc7bfdb0a",
+      "trace_id": "tr-d48c74e45557662fb57500ba338a7012",
+      "status": "insufficient_evidence",
+      "stop_reason": null,
+      "response_sha256": "1c49223c525b63227ef823343cc9f4e2f09e08f68726f14154a8d021320527d4",
+      "actual_root_output_sha256": "1c49223c525b63227ef823343cc9f4e2f09e08f68726f14154a8d021320527d4",
+      "actual_tool_output_sha256": "bd41a0f12b4ec5df27f8503926a3eb9eec4880e0e60b89db886bff38dca6852d",
+      "trace_outputs_match": true,
+      "historical_domain_outcome_and_scores_match": true,
+      "model_calls": 0,
+      "tool_calls": 1,
+      "span_names": [
+        "graph",
+        "crime_history"
+      ]
+    },
+    {
+      "kind": "event",
+      "phase": "raw-pilot",
+      "case_id": "performer-is-not-character",
+      "transport": "api",
+      "response_id": "a7792483-3eeb-4f93-9515-2bee408d594a",
+      "trace_id": "tr-0e4af1f1056371507d4fd164a9b678bf",
+      "status": "insufficient_evidence",
+      "stop_reason": null,
+      "response_sha256": "d5d90d86a4982a49ead76557cec698b21cc9c3de8fccc561b4d09a5db320b145",
+      "actual_root_output_sha256": "d5d90d86a4982a49ead76557cec698b21cc9c3de8fccc561b4d09a5db320b145",
+      "actual_tool_output_sha256": "912e6f3a707adfdbb066476d08d45aae042b7bcd77c3b76870a916b846224568",
+      "trace_outputs_match": true,
+      "historical_domain_outcome_and_scores_match": true,
+      "model_calls": 0,
+      "tool_calls": 1,
+      "span_names": [
+        "graph",
+        "crime_history"
+      ]
+    },
+    {
+      "kind": "event",
+      "phase": "raw-pilot",
+      "case_id": "bounded-incidents",
+      "transport": "api",
+      "response_id": "3ca60956-7378-43d1-b201-47b5ece5ef36",
+      "trace_id": "tr-becb2315f24e5c5102a69d856467a826",
+      "status": "insufficient_evidence",
+      "stop_reason": null,
+      "response_sha256": "8b07ccc641f7facd299334e06aa262f689d790744833d903433dee4bd26ba4e4",
+      "actual_root_output_sha256": "8b07ccc641f7facd299334e06aa262f689d790744833d903433dee4bd26ba4e4",
+      "actual_tool_output_sha256": "f738ac2cbc1f1c270e4c8e6de358dd4f98dc0dd85603ac256e1c65fa7ab3bf77",
+      "trace_outputs_match": true,
+      "historical_domain_outcome_and_scores_match": true,
+      "model_calls": 0,
+      "tool_calls": 1,
+      "span_names": [
+        "graph",
+        "crime_history"
+      ]
+    },
+    {
+      "kind": "event",
+      "phase": "raw-pilot",
+      "case_id": "context-stop",
+      "transport": "api",
+      "response_id": "9851df63-5242-461f-af97-c62aa354f69d",
+      "trace_id": "tr-0cf37f05780d2b0d03fb344cb2b8e264",
+      "status": "insufficient_evidence",
+      "stop_reason": null,
+      "response_sha256": "8984f2950b1b7ece0d699ffea8ab3d9ebe561b15cf8d3107e1c0a14dfc0688fd",
+      "actual_root_output_sha256": "8984f2950b1b7ece0d699ffea8ab3d9ebe561b15cf8d3107e1c0a14dfc0688fd",
+      "actual_tool_output_sha256": "aab0e58dc58996bef77cb487e561cc4f5ec96441cf1e1cb91a716114d91fa277",
+      "trace_outputs_match": true,
+      "historical_domain_outcome_and_scores_match": true,
+      "model_calls": 0,
+      "tool_calls": 1,
+      "span_names": [
+        "graph",
+        "crime_history"
+      ]
+    },
+    {
+      "kind": "event",
+      "phase": "raw-pilot",
+      "case_id": "cli-false-confession",
+      "transport": "cli",
+      "response_id": "5f44fe55-4803-4c30-92ab-33825dd0eded",
+      "trace_id": "tr-ab8328ec50c31b1763199d4efed613af",
+      "status": "insufficient_evidence",
+      "stop_reason": null,
+      "response_sha256": "d3038dc927fad5275cac9a2d109b750cb1d488b9e1d9493a2f2e4020a42ed048",
+      "actual_root_output_sha256": "d3038dc927fad5275cac9a2d109b750cb1d488b9e1d9493a2f2e4020a42ed048",
+      "actual_tool_output_sha256": "fd04abe1336bfc1f1345d59d873f480c858ce9d590d1952dd296644c577673a6",
+      "trace_outputs_match": true,
+      "historical_domain_outcome_and_scores_match": true,
+      "model_calls": 0,
+      "tool_calls": 1,
+      "span_names": [
+        "graph",
+        "crime_history"
+      ]
+    },
+    {
+      "kind": "event",
+      "phase": "raw-pilot",
+      "case_id": "session-false-confession",
+      "transport": "api",
+      "response_id": "cfdbe550-f254-436b-a36c-e54c4e2d08f1",
+      "trace_id": "tr-d115ac69b5551a4319e05d5b50d4b0bd",
+      "status": "insufficient_evidence",
+      "stop_reason": null,
+      "response_sha256": "8e767fb09d7f09fe01b9583e91329fbaab3b37a7293eef1721fa8f0e9b421721",
+      "actual_root_output_sha256": "8e767fb09d7f09fe01b9583e91329fbaab3b37a7293eef1721fa8f0e9b421721",
+      "actual_tool_output_sha256": "e4cd993d41f7a31e8bf7a17d67e3c292cf3d6243425cc0c85d0f00ad89538671",
+      "trace_outputs_match": true,
+      "historical_domain_outcome_and_scores_match": true,
+      "model_calls": 0,
+      "tool_calls": 1,
+      "span_names": [
+        "graph",
+        "crime_history"
+      ]
+    },
+    {
+      "kind": "event",
+      "phase": "reviewed-with-raw-retained",
+      "case_id": "conviction-is-not-guilt",
+      "transport": "api",
+      "response_id": "7176a624-7b02-4506-b697-210806f4a39a",
+      "trace_id": "tr-7837b04ce22f974f2c25b29423ef5eff",
+      "status": "partial",
+      "stop_reason": null,
+      "response_sha256": "e4c85ff955788a54a9fdace733435777428168ef7670e62d22f0026f695cd84f",
+      "actual_root_output_sha256": "e4c85ff955788a54a9fdace733435777428168ef7670e62d22f0026f695cd84f",
+      "actual_tool_output_sha256": "9f423aa7f51378b741e81045d576bacee4031ac03b9db98ade65b9686bfb20b6",
+      "trace_outputs_match": true,
+      "historical_domain_outcome_and_scores_match": true,
+      "model_calls": 0,
+      "tool_calls": 1,
+      "span_names": [
+        "graph",
+        "crime_history"
+      ]
+    },
+    {
+      "kind": "event",
+      "phase": "reviewed-with-raw-retained",
+      "case_id": "narrative-commission",
+      "transport": "api",
+      "response_id": "e3b7e4f8-960a-4fa7-b282-23fb07116a73",
+      "trace_id": "tr-6e627d5e7d5200838717cc04a40e2d06",
+      "status": "partial",
+      "stop_reason": null,
+      "response_sha256": "464a5e46c217bf1b9a8fe413e7e8bb1b258caa3bc4806b4405187fa0d62f64c6",
+      "actual_root_output_sha256": "464a5e46c217bf1b9a8fe413e7e8bb1b258caa3bc4806b4405187fa0d62f64c6",
+      "actual_tool_output_sha256": "f4799ba0a00f46d383bc7cdc77f67c2e1884d43aba6b79b977c11f9cb032daed",
+      "trace_outputs_match": true,
+      "historical_domain_outcome_and_scores_match": true,
+      "model_calls": 0,
+      "tool_calls": 1,
+      "span_names": [
+        "graph",
+        "crime_history"
+      ]
+    },
+    {
+      "kind": "event",
+      "phase": "reviewed-with-raw-retained",
+      "case_id": "shared-participants",
+      "transport": "api",
+      "response_id": "e805d2c6-2205-4380-b1bd-eac3c605a605",
+      "trace_id": "tr-51fc3db8d53f6051e10b18697b0e9b5f",
+      "status": "partial",
+      "stop_reason": null,
+      "response_sha256": "6b939a1f95317763bc31e3caa1776438d7f9c6eeee9ea1cce821a5379c083425",
+      "actual_root_output_sha256": "6b939a1f95317763bc31e3caa1776438d7f9c6eeee9ea1cce821a5379c083425",
+      "actual_tool_output_sha256": "57f5a9ed5fe720d9b4276bb3d6f6388304ca9c074692e78976ac5f161f606d4c",
+      "trace_outputs_match": true,
+      "historical_domain_outcome_and_scores_match": true,
+      "model_calls": 0,
+      "tool_calls": 1,
+      "span_names": [
+        "graph",
+        "crime_history"
+      ]
+    },
+    {
+      "kind": "event",
+      "phase": "reviewed-with-raw-retained",
+      "case_id": "victim-role",
+      "transport": "api",
+      "response_id": "f3a94aed-3993-48b6-a36b-e0b96c74623c",
+      "trace_id": "tr-54e4f1ca66c79dda33600670499d9c2b",
+      "status": "partial",
+      "stop_reason": null,
+      "response_sha256": "369be10e11c49f3ada5dbc8c205923f9beb805b8f32c8da2d5316866bf1df002",
+      "actual_root_output_sha256": "369be10e11c49f3ada5dbc8c205923f9beb805b8f32c8da2d5316866bf1df002",
+      "actual_tool_output_sha256": "2887f9093a8d83c2f8757347b12d1f97afd442d5e19ab14d637e4805e1394e38",
+      "trace_outputs_match": true,
+      "historical_domain_outcome_and_scores_match": true,
+      "model_calls": 0,
+      "tool_calls": 1,
+      "span_names": [
+        "graph",
+        "crime_history"
+      ]
+    },
+    {
+      "kind": "event",
+      "phase": "reviewed-with-raw-retained",
+      "case_id": "false-confession",
+      "transport": "api",
+      "response_id": "badf3ea5-b7a9-493a-afe4-66dd0adcd03b",
+      "trace_id": "tr-16c42e2afe5d352150fe079ff0015114",
+      "status": "partial",
+      "stop_reason": null,
+      "response_sha256": "82e637176c042e7ae2fbb0ec735287246b72ebacbdfcf64f4e102314059a98c9",
+      "actual_root_output_sha256": "82e637176c042e7ae2fbb0ec735287246b72ebacbdfcf64f4e102314059a98c9",
+      "actual_tool_output_sha256": "d6be74bd69c7d226bba2a464442fe615f9a7f802104aca14df1f5669302cd3e0",
+      "trace_outputs_match": true,
+      "historical_domain_outcome_and_scores_match": true,
+      "model_calls": 0,
+      "tool_calls": 1,
+      "span_names": [
+        "graph",
+        "crime_history"
+      ]
+    },
+    {
+      "kind": "event",
+      "phase": "reviewed-with-raw-retained",
+      "case_id": "false-accusation",
+      "transport": "api",
+      "response_id": "9cb2f144-5142-4976-9f08-36ca285a7d05",
+      "trace_id": "tr-1112a3fe0f021ac9405267b505db28fe",
+      "status": "partial",
+      "stop_reason": null,
+      "response_sha256": "20874b69c4aeb6d42055aa0292dcd44012f2f95e21451e335b736f064e54a53b",
+      "actual_root_output_sha256": "20874b69c4aeb6d42055aa0292dcd44012f2f95e21451e335b736f064e54a53b",
+      "actual_tool_output_sha256": "86d2da7e5f942ae8886e72195009f96b76a00ddb762f1e1f8e6f5eade2bd0ecb",
+      "trace_outputs_match": true,
+      "historical_domain_outcome_and_scores_match": true,
+      "model_calls": 0,
+      "tool_calls": 1,
+      "span_names": [
+        "graph",
+        "crime_history"
+      ]
+    },
+    {
+      "kind": "event",
+      "phase": "reviewed-with-raw-retained",
+      "case_id": "empty-is-not-negative",
+      "transport": "api",
+      "response_id": "32660784-5aee-4caa-95c5-02634e9d07c5",
+      "trace_id": "tr-3d95532fdb8b015882cf748fb25e2342",
+      "status": "insufficient_evidence",
+      "stop_reason": null,
+      "response_sha256": "937b1f65891f58b08e185e1047c457feee1a9b8d35a15b6e696182e34b41f7d4",
+      "actual_root_output_sha256": "937b1f65891f58b08e185e1047c457feee1a9b8d35a15b6e696182e34b41f7d4",
+      "actual_tool_output_sha256": "6848aa3918ae1de94da0a8fe7ba9a14f1c49bd3c4de7b1d8b15ad3ec9e604551",
+      "trace_outputs_match": true,
+      "historical_domain_outcome_and_scores_match": true,
+      "model_calls": 0,
+      "tool_calls": 1,
+      "span_names": [
+        "graph",
+        "crime_history"
+      ]
+    },
+    {
+      "kind": "event",
+      "phase": "reviewed-with-raw-retained",
+      "case_id": "performer-is-not-character",
+      "transport": "api",
+      "response_id": "78456c4f-7b8e-4b07-a252-a08bd91c3bae",
+      "trace_id": "tr-794b66a65edd23ce9d9ed9d7be416f4f",
+      "status": "insufficient_evidence",
+      "stop_reason": null,
+      "response_sha256": "db583ed2a2ac7d945095dfc1804e14f0731c771902401c8b7ab48dddef28356e",
+      "actual_root_output_sha256": "db583ed2a2ac7d945095dfc1804e14f0731c771902401c8b7ab48dddef28356e",
+      "actual_tool_output_sha256": "7a8208f8e1ee5c95274b284500477e0d09b0d7b8774fecc493bae3c0fd22970b",
+      "trace_outputs_match": true,
+      "historical_domain_outcome_and_scores_match": true,
+      "model_calls": 0,
+      "tool_calls": 1,
+      "span_names": [
+        "graph",
+        "crime_history"
+      ]
+    },
+    {
+      "kind": "event",
+      "phase": "reviewed-with-raw-retained",
+      "case_id": "bounded-incidents",
+      "transport": "api",
+      "response_id": "c4744629-1839-4216-ba09-cbaf7fb55cf8",
+      "trace_id": "tr-4b3468f1ce67dfde06100d1add16cf67",
+      "status": "partial",
+      "stop_reason": null,
+      "response_sha256": "4cff0e2a7ffa33bf65e498d109962b26ad7fd2fcc03e86175b689c389ba4fffb",
+      "actual_root_output_sha256": "4cff0e2a7ffa33bf65e498d109962b26ad7fd2fcc03e86175b689c389ba4fffb",
+      "actual_tool_output_sha256": "e50badedc4d0980b6cf991c6467b6730806d5d4f73c48982edd3cb6c65953bf1",
+      "trace_outputs_match": true,
+      "historical_domain_outcome_and_scores_match": true,
+      "model_calls": 0,
+      "tool_calls": 1,
+      "span_names": [
+        "graph",
+        "crime_history"
+      ]
+    },
+    {
+      "kind": "event",
+      "phase": "reviewed-with-raw-retained",
+      "case_id": "context-stop",
+      "transport": "api",
+      "response_id": "6ab5f9fc-7858-45d2-852c-26aaf69051ca",
+      "trace_id": "tr-0bf64232acd14bce1dae49fa48446de9",
+      "status": "insufficient_evidence",
+      "stop_reason": "context_limit",
+      "response_sha256": "afdf6dc384898c57fd77d2b905bb4d541d0955d3ae4a357fadfd3b02cdd1effe",
+      "actual_root_output_sha256": "afdf6dc384898c57fd77d2b905bb4d541d0955d3ae4a357fadfd3b02cdd1effe",
+      "actual_tool_output_sha256": "6d6f4f432849c820f4abbccae66b837b7bcca2e11217ff515d547c222788894a",
+      "trace_outputs_match": true,
+      "historical_domain_outcome_and_scores_match": true,
+      "model_calls": 0,
+      "tool_calls": 1,
+      "span_names": [
+        "graph",
+        "crime_history"
+      ]
+    },
+    {
+      "kind": "event",
+      "phase": "reviewed-with-raw-retained",
+      "case_id": "cli-false-confession",
+      "transport": "cli",
+      "response_id": "d188f0ef-de23-4d17-858e-f2e8663c175c",
+      "trace_id": "tr-7b98e69f0bef89baeaae2e98ce850e2a",
+      "status": "partial",
+      "stop_reason": null,
+      "response_sha256": "d01a231a1238e1d93ecec2519645f6de6506bb267fbba1d417d1fc27355b300b",
+      "actual_root_output_sha256": "d01a231a1238e1d93ecec2519645f6de6506bb267fbba1d417d1fc27355b300b",
+      "actual_tool_output_sha256": "7a6fd0333fcb3ffe39cc11ba923c8371978bfb20c3c7fd7756e3a8eebe125d74",
+      "trace_outputs_match": true,
+      "historical_domain_outcome_and_scores_match": true,
+      "model_calls": 0,
+      "tool_calls": 1,
+      "span_names": [
+        "graph",
+        "crime_history"
+      ]
+    },
+    {
+      "kind": "event",
+      "phase": "reviewed-with-raw-retained",
+      "case_id": "session-false-confession",
+      "transport": "api",
+      "response_id": "5f2d6f8c-52bf-4115-821a-ae29739d8f14",
+      "trace_id": "tr-d07ae001203a38fad47f15a2d3ecb11a",
+      "status": "partial",
+      "stop_reason": null,
+      "response_sha256": "661fea64882cfc275e5f21f3dad62850e545b181420e0103bb3201eb13f1ca63",
+      "actual_root_output_sha256": "661fea64882cfc275e5f21f3dad62850e545b181420e0103bb3201eb13f1ca63",
+      "actual_tool_output_sha256": "19f70e6f9b7a29a74fc65e404487feeafbe7d546263c58eb4835f7b43ce48d63",
+      "trace_outputs_match": true,
+      "historical_domain_outcome_and_scores_match": true,
+      "model_calls": 0,
+      "tool_calls": 1,
+      "span_names": [
+        "graph",
+        "crime_history"
+      ]
+    }
+  ],
+  "selected_actual_outputs": [
+    {
+      "kind": "family",
+      "phase": "raw-pilot",
+      "case_id": "ben-ancestors",
+      "actual_root_output": {
+        "response_id": "9e2b7bb4-5361-4141-a818-c6dad90483a5",
+        "question": "Show biological ancestors of ben-mitchell",
+        "status": "partial",
+        "answer": "Right, listen. Captured biological ancestors paths: Ben Mitchell → Kathy Beale; Ben Mitchell → Phil Mitchell. Only admitted biological relationships in this reviewed snapshot are traversed. Missing ancestry does not establish that a relationship does not exist. Results are incomplete outside the selected material and traversal bounds. Source-supported does not mean independently cross-checked.",
+        "unanswered": [
+          "Family coverage outside the reviewed spans and traversal bounds."
+        ],
+        "citations": [
+          {
+            "evidence_id": "family-ben-birth",
+            "text": "Ben is born to Phil Mitchell (Steve McFadden) and his then wife Kathy Beale (Gillian Taylforth) in March 1996.",
+            "sha256": "8179f5f0724cc08e5a5d51567fb7de0f8e55a4d5fc9881f5e050ae9d153eca08",
+            "start": 17983,
+            "end": 18093,
+            "source": {
+              "title": "Ben Mitchell",
+              "url": "https://en.wikipedia.org/wiki/Ben_Mitchell_(EastEnders)",
+              "revision_id": "1376729134",
+              "revision_url": "https://en.wikipedia.org/w/index.php?oldid=1376729134",
+              "section": "Storylines / 1996–2000",
+              "captured_at": "2026-10-17T13:07:31.530421Z",
+              "capture_sha256": "8ae0fbabb19cf12b2bdf46d7a85e15eea4462b8559584c770224a54a9e47d128",
+              "scope": "main_series",
+              "license_url": "https://creativecommons.org/licenses/by-sa/4.0/",
+              "attribution": "Wikipedia contributors; markup removed and whitespace normalized.",
+              "coverage": "Reviewed narrative sections in this captured revision only.",
+              "gaps": [
+                "Partial canon coverage; other paragraphs remain excluded or awaiting review.",
+                "Identity and episode metadata do not independently corroborate story claims."
+              ],
+              "support_status": "source_supported"
+            },
+            "location": {
+              "source_id": "ben-mitchell-wiki",
+              "paragraph_ordinal": 22,
+              "section_id": "1996–2000",
+              "character_ids": [
+                "ben-mitchell",
+                "kathy-beale",
+                "phil-mitchell"
+              ]
+            },
+            "resolve_path": "/v1/snapshots/family-pilot-v1/evidence/family-ben-birth"
+          }
+        ],
+        "snapshot_id": "family-pilot-v1",
+        "snapshot_sha256": "118cb99db01b352e9b2793e56873962d9769e00df7c3764bb7201d8a7a281a06",
+        "source": {
+          "title": "Ben Mitchell",
+          "url": "https://en.wikipedia.org/wiki/Ben_Mitchell_(EastEnders)",
+          "revision_id": "1376729134",
+          "revision_url": "https://en.wikipedia.org/w/index.php?oldid=1376729134",
+          "section": "Storylines / 1996–2000",
+          "captured_at": "2026-10-17T13:07:31.530421Z",
+          "capture_sha256": "8ae0fbabb19cf12b2bdf46d7a85e15eea4462b8559584c770224a54a9e47d128",
+          "scope": "main_series",
+          "license_url": "https://creativecommons.org/licenses/by-sa/4.0/",
+          "attribution": "Wikipedia contributors; markup removed and whitespace normalized.",
+          "coverage": "Reviewed narrative sections in this captured revision only.",
+          "gaps": [
+            "Partial canon coverage; other paragraphs remain excluded or awaiting review.",
+            "Identity and episode metadata do not independently corroborate story claims."
+          ],
+          "support_status": "source_supported"
+        },
+        "retrieved": [],
+        "context": [
+          {
+            "evidence_id": "family-ben-birth",
+            "text": "Ben is born to Phil Mitchell (Steve McFadden) and his then wife Kathy Beale (Gillian Taylforth) in March 1996.",
+            "sha256": "8179f5f0724cc08e5a5d51567fb7de0f8e55a4d5fc9881f5e050ae9d153eca08",
+            "start": 17983,
+            "end": 18093,
+            "source": {
+              "title": "Ben Mitchell",
+              "url": "https://en.wikipedia.org/wiki/Ben_Mitchell_(EastEnders)",
+              "revision_id": "1376729134",
+              "revision_url": "https://en.wikipedia.org/w/index.php?oldid=1376729134",
+              "section": "Storylines / 1996–2000",
+              "captured_at": "2026-10-17T13:07:31.530421Z",
+              "capture_sha256": "8ae0fbabb19cf12b2bdf46d7a85e15eea4462b8559584c770224a54a9e47d128",
+              "scope": "main_series",
+              "license_url": "https://creativecommons.org/licenses/by-sa/4.0/",
+              "attribution": "Wikipedia contributors; markup removed and whitespace normalized.",
+              "coverage": "Reviewed narrative sections in this captured revision only.",
+              "gaps": [
+                "Partial canon coverage; other paragraphs remain excluded or awaiting review.",
+                "Identity and episode metadata do not independently corroborate story claims."
+              ],
+              "support_status": "source_supported"
+            },
+            "location": {
+              "source_id": "ben-mitchell-wiki",
+              "paragraph_ordinal": 22,
+              "section_id": "1996–2000",
+              "character_ids": [
+                "ben-mitchell",
+                "kathy-beale",
+                "phil-mitchell"
+              ]
+            }
+          }
+        ],
+        "retrieval_k": 0,
+        "route": "graph",
+        "route_override": true,
+        "graph": {
+          "snapshot_id": "family-pilot-v1",
+          "snapshot_sha256": "118cb99db01b352e9b2793e56873962d9769e00df7c3764bb7201d8a7a281a06",
+          "graph_sha256": "a65ff3583121f9a48b7355f88c706fbaaf773e1765f9a0a9398ffee0f9343d95",
+          "query": {
+            "character_id": "ben-mitchell",
+            "direction": "ancestors",
+            "max_depth": 3,
+            "max_paths": 20
+          },
+          "status": "found",
+          "paths": [
+            {
+              "characters": [
+                "ben-mitchell",
+                "kathy-beale"
+              ],
+              "edges": [
+                {
+                  "parent_id": "kathy-beale",
+                  "child_id": "ben-mitchell",
+                  "claim_ids": [
+                    "kathy-ben"
+                  ],
+                  "evidence": [
+                    {
+                      "evidence_id": "family-ben-birth",
+                      "start": 0,
+                      "end": 110,
+                      "quote": "Ben is born to Phil Mitchell (Steve McFadden) and his then wife Kathy Beale (Gillian Taylforth) in March 1996."
+                    }
+                  ]
+                }
+              ]
+            },
+            {
+              "characters": [
+                "ben-mitchell",
+                "phil-mitchell"
+              ],
+              "edges": [
+                {
+                  "parent_id": "phil-mitchell",
+                  "child_id": "ben-mitchell",
+                  "claim_ids": [
+                    "phil-ben"
+                  ],
+                  "evidence": [
+                    {
+                      "evidence_id": "family-ben-birth",
+                      "start": 0,
+                      "end": 110,
+                      "quote": "Ben is born to Phil Mitchell (Steve McFadden) and his then wife Kathy Beale (Gillian Taylforth) in March 1996."
+                    }
+                  ]
+                }
+              ]
+            }
+          ],
+          "names": {
+            "phil-mitchell": "Phil Mitchell",
+            "grant-mitchell": "Grant Mitchell",
+            "peggy-mitchell": "Peggy Mitchell",
+            "sharon-watts": "Sharon Watts",
+            "ben-mitchell": "Ben Mitchell",
+            "kathy-beale": "Kathy Beale",
+            "den-watts": "Den Watts"
+          },
+          "limitation": "Only admitted biological relationships in this reviewed snapshot are traversed. Missing ancestry does not establish that a relationship does not exist. Results are incomplete outside the selected material and traversal bounds. Source-supported does not mean independently cross-checked."
+        },
+        "baseline_version": "single-query-uncached-v1",
+        "model_settings": null,
+        "prompt_sha256": "c4f9de91a5c4419d0f69dd2fad73485382fa6e6321583b36f7e255e2b3454341",
+        "application_sha256": "b41ba1822f8184595a6c8e9c00bc7770b39f0a8ce9cfe75f0f1e53ede7c4c0d7",
+        "trace_id": "tr-e6ac05e99b1f0422cc4301945cb828cc",
+        "execution": {
+          "limits": {
+            "model_calls": 2,
+            "tool_calls": 1,
+            "http_calls": 8,
+            "seconds": 180.0,
+            "context_bytes": 1200,
+            "spend_usd": "0.15",
+            "retries": 0,
+            "capabilities": [
+              "text_retrieval",
+              "family_graph",
+              "event_graph"
+            ],
+            "concurrency": 4
+          },
+          "model_calls": 0,
+          "tool_calls": 1,
+          "http_calls": 0,
+          "reserved_usd": "0",
+          "stop_reason": null
+        },
+        "elapsed_ms": 173.09347599803004,
+        "usage": {
+          "input_tokens": 0,
+          "output_tokens": 0,
+          "embedding_tokens": 0
+        },
+        "expenditure_category": "serving",
+        "estimated_api_cost_usd": 0.0,
+        "cost_scope": "No inference calls. Database and hosting costs are excluded.",
+        "limitation": "Only admitted biological relationships in this reviewed snapshot are traversed. Missing ancestry does not establish that a relationship does not exist. Results are incomplete outside the selected material and traversal bounds. Source-supported does not mean independently cross-checked."
+      },
+      "actual_tool_output": {
+        "snapshot_id": "family-pilot-v1",
+        "snapshot_sha256": "118cb99db01b352e9b2793e56873962d9769e00df7c3764bb7201d8a7a281a06",
+        "graph_sha256": "a65ff3583121f9a48b7355f88c706fbaaf773e1765f9a0a9398ffee0f9343d95",
+        "query": {
+          "character_id": "ben-mitchell",
+          "direction": "ancestors",
+          "max_depth": 3,
+          "max_paths": 20
+        },
+        "status": "found",
+        "paths": [
+          {
+            "characters": [
+              "ben-mitchell",
+              "kathy-beale"
+            ],
+            "edges": [
+              {
+                "parent_id": "kathy-beale",
+                "child_id": "ben-mitchell",
+                "claim_ids": [
+                  "kathy-ben"
+                ],
+                "evidence": [
+                  {
+                    "evidence_id": "family-ben-birth",
+                    "start": 0,
+                    "end": 110,
+                    "quote": "Ben is born to Phil Mitchell (Steve McFadden) and his then wife Kathy Beale (Gillian Taylforth) in March 1996."
+                  }
+                ]
+              }
+            ]
+          },
+          {
+            "characters": [
+              "ben-mitchell",
+              "phil-mitchell"
+            ],
+            "edges": [
+              {
+                "parent_id": "phil-mitchell",
+                "child_id": "ben-mitchell",
+                "claim_ids": [
+                  "phil-ben"
+                ],
+                "evidence": [
+                  {
+                    "evidence_id": "family-ben-birth",
+                    "start": 0,
+                    "end": 110,
+                    "quote": "Ben is born to Phil Mitchell (Steve McFadden) and his then wife Kathy Beale (Gillian Taylforth) in March 1996."
+                  }
+                ]
+              }
+            ]
+          }
+        ],
+        "names": {
+          "phil-mitchell": "Phil Mitchell",
+          "grant-mitchell": "Grant Mitchell",
+          "peggy-mitchell": "Peggy Mitchell",
+          "sharon-watts": "Sharon Watts",
+          "ben-mitchell": "Ben Mitchell",
+          "kathy-beale": "Kathy Beale",
+          "den-watts": "Den Watts"
+        },
+        "limitation": "Only admitted biological relationships in this reviewed snapshot are traversed. Missing ancestry does not establish that a relationship does not exist. Results are incomplete outside the selected material and traversal bounds. Source-supported does not mean independently cross-checked."
+      }
+    },
+    {
+      "kind": "relationship",
+      "phase": "raw-pilot",
+      "case_id": "repeated-marriages",
+      "actual_root_output": {
+        "response_id": "5ca8d6f8-d60a-43c5-86ff-fea5fa32c931",
+        "question": "Explain the history of kat-slater and alfie-moon",
+        "status": "insufficient_evidence",
+        "answer": "I can't establish the requested relationship history from this graph (empty). Only admitted assertions from selected reviewed spans are shown. Social ties never establish biological ancestry. Status is as reported in the captured account, not a claim about the present. Only explicit after links establish ordering; otherwise listing order is not chronology. Missing history does not prove a relationship never existed. Source-supported does not mean independently cross-checked.",
+        "unanswered": [
+          "Relationship coverage outside the reviewed spans and query bounds."
+        ],
+        "citations": [],
+        "snapshot_id": "relationship-pilot-v1",
+        "snapshot_sha256": "973509567ae163bd48866e389b77fcafb8b3d6d346f51a4741b00626b95cadd1",
+        "source": {
+          "title": "Phil Mitchell",
+          "url": "https://en.wikipedia.org/wiki/Phil_Mitchell",
+          "revision_id": "1379872347",
+          "revision_url": "https://en.wikipedia.org/w/index.php?oldid=1379872347",
+          "section": "Storylines / 1990–2003",
+          "captured_at": "2026-10-17T13:07:31.014189Z",
+          "capture_sha256": "a338d3065203be54e383f2c9c141bca22ae9aedbb950e2e1eada601bcccfe313",
+          "scope": "main_series",
+          "license_url": "https://creativecommons.org/licenses/by-sa/4.0/",
+          "attribution": "Wikipedia contributors; markup removed and whitespace normalized.",
+          "coverage": "Reviewed narrative sections in this captured revision only.",
+          "gaps": [
+            "Partial canon coverage; other paragraphs remain excluded or awaiting review.",
+            "Identity and episode metadata do not independently corroborate story claims."
+          ],
+          "support_status": "source_supported"
+        },
+        "retrieved": [],
+        "context": [],
+        "retrieval_k": 0,
+        "route": "graph",
+        "route_override": true,
+        "graph": {
+          "snapshot_id": "relationship-pilot-v1",
+          "snapshot_sha256": "973509567ae163bd48866e389b77fcafb8b3d6d346f51a4741b00626b95cadd1",
+          "graph_sha256": "9cabe61f89110bb1fd8be6b3cf95da40f96134675711cbab1a4d1ee03dfcf82a",
+          "query": {
+            "kind": "relationship_history",
+            "character_id": "kat-slater",
+            "partner_id": "alfie-moon",
+            "max_events": 20
+          },
+          "status": "empty",
+          "claims": [],
+          "names": {
+            "phil-mitchell": "Phil Mitchell",
+            "grant-mitchell": "Grant Mitchell",
+            "sharon-watts": "Sharon Watts",
+            "ben-mitchell": "Ben Mitchell",
+            "kathy-beale": "Kathy Beale",
+            "kat-slater": "Kat Slater",
+            "alfie-moon": "Alfie Moon",
+            "denise-fox": "Denise Fox",
+            "den-watts": "Den Watts",
+            "amy-mitchell": "Amy Mitchell"
+          },
+          "limitation": "Only admitted assertions from selected reviewed spans are shown. Social ties never establish biological ancestry. Status is as reported in the captured account, not a claim about the present. Only explicit after links establish ordering; otherwise listing order is not chronology. Missing history does not prove a relationship never existed. Source-supported does not mean independently cross-checked."
+        },
+        "baseline_version": "single-query-uncached-v1",
+        "model_settings": null,
+        "prompt_sha256": "2a4d4271d553b476b70d087b399235e5d47515f57c8eb8df3eaa89ef8ec2c27f",
+        "application_sha256": "b41ba1822f8184595a6c8e9c00bc7770b39f0a8ce9cfe75f0f1e53ede7c4c0d7",
+        "trace_id": "tr-0fc33d1e921ff25ba53ea04a83e71ae5",
+        "execution": {
+          "limits": {
+            "model_calls": 2,
+            "tool_calls": 1,
+            "http_calls": 8,
+            "seconds": 180.0,
+            "context_bytes": 1200,
+            "spend_usd": "0.15",
+            "retries": 0,
+            "capabilities": [
+              "text_retrieval",
+              "family_graph",
+              "event_graph"
+            ],
+            "concurrency": 4
+          },
+          "model_calls": 0,
+          "tool_calls": 1,
+          "http_calls": 0,
+          "reserved_usd": "0",
+          "stop_reason": null
+        },
+        "elapsed_ms": 153.99898200121243,
+        "usage": {
+          "input_tokens": 0,
+          "output_tokens": 0,
+          "embedding_tokens": 0
+        },
+        "expenditure_category": "serving",
+        "estimated_api_cost_usd": 0.0,
+        "cost_scope": "No inference calls. Database and hosting costs are excluded.",
+        "limitation": "Only admitted assertions from selected reviewed spans are shown. Social ties never establish biological ancestry. Status is as reported in the captured account, not a claim about the present. Only explicit after links establish ordering; otherwise listing order is not chronology. Missing history does not prove a relationship never existed. Source-supported does not mean independently cross-checked."
+      },
+      "actual_tool_output": {
+        "snapshot_id": "relationship-pilot-v1",
+        "snapshot_sha256": "973509567ae163bd48866e389b77fcafb8b3d6d346f51a4741b00626b95cadd1",
+        "graph_sha256": "9cabe61f89110bb1fd8be6b3cf95da40f96134675711cbab1a4d1ee03dfcf82a",
+        "query": {
+          "kind": "relationship_history",
+          "character_id": "kat-slater",
+          "partner_id": "alfie-moon",
+          "max_events": 20
+        },
+        "status": "empty",
+        "claims": [],
+        "names": {
+          "phil-mitchell": "Phil Mitchell",
+          "grant-mitchell": "Grant Mitchell",
+          "sharon-watts": "Sharon Watts",
+          "ben-mitchell": "Ben Mitchell",
+          "kathy-beale": "Kathy Beale",
+          "kat-slater": "Kat Slater",
+          "alfie-moon": "Alfie Moon",
+          "denise-fox": "Denise Fox",
+          "den-watts": "Den Watts",
+          "amy-mitchell": "Amy Mitchell"
+        },
+        "limitation": "Only admitted assertions from selected reviewed spans are shown. Social ties never establish biological ancestry. Status is as reported in the captured account, not a claim about the present. Only explicit after links establish ordering; otherwise listing order is not chronology. Missing history does not prove a relationship never existed. Source-supported does not mean independently cross-checked."
+      }
+    },
+    {
+      "kind": "relationship",
+      "phase": "reviewed-with-raw-retained",
+      "case_id": "repeated-marriages",
+      "actual_root_output": {
+        "response_id": "55cc6540-1686-4878-b059-e04e8f605b1c",
+        "question": "Explain the history of kat-slater and alfie-moon",
+        "status": "partial",
+        "answer": "Right, listen. Captured relationship history:\n1. Kat Slater married Alfie Moon; story timing Christmas Day (relative); status unknown in the captured account.\n2. Kat Slater remarried Alfie Moon; story timing On leaving hospital (relative); status unknown in the captured account. Follows entry 1.\nOnly admitted assertions from selected reviewed spans are shown. Social ties never establish biological ancestry. Status is as reported in the captured account, not a claim about the present. Only explicit after links establish ordering; otherwise listing order is not chronology. Missing history does not prove a relationship never existed. Source-supported does not mean independently cross-checked.",
+        "unanswered": [
+          "Relationship coverage outside the reviewed spans and query bounds."
+        ],
+        "citations": [
+          {
+            "evidence_id": "history-kat-marriage",
+            "text": "Kat leaves Andy, and she and Alfie marry on Christmas Day.",
+            "sha256": "1a9d7812763769194371b2564ab8c6708b2eafb204949da315d1fff60b54510a",
+            "start": 33621,
+            "end": 33679,
+            "source": {
+              "title": "Kat Slater",
+              "url": "https://en.wikipedia.org/wiki/Kat_Slater",
+              "revision_id": "1380652225",
+              "revision_url": "https://en.wikipedia.org/w/index.php?oldid=1380652225",
+              "section": "Storylines / 2000–2005",
+              "captured_at": "2026-10-17T13:07:33.048959Z",
+              "capture_sha256": "f3852a9f1c3fa3f0c254f123fa8ed739d6f6a4388eb5f19c7de975858a537bd7",
+              "scope": "main_series",
+              "license_url": "https://creativecommons.org/licenses/by-sa/4.0/",
+              "attribution": "Wikipedia contributors; markup removed and whitespace normalized.",
+              "coverage": "Reviewed narrative sections in this captured revision only.",
+              "gaps": [
+                "Partial canon coverage; other paragraphs remain excluded or awaiting review.",
+                "Identity and episode metadata do not independently corroborate story claims."
+              ],
+              "support_status": "source_supported"
+            },
+            "location": {
+              "source_id": "kat-slater-wiki",
+              "paragraph_ordinal": 42,
+              "section_id": "2000–2005",
+              "character_ids": [
+                "alfie-moon",
+                "kat-slater"
+              ]
+            },
+            "resolve_path": "/v1/snapshots/relationship-pilot-v1/evidence/history-kat-marriage"
+          },
+          {
+            "evidence_id": "history-kat-remarriage",
+            "text": "He does so, but is unaware Kat is inside at the time. She becomes trapped although Alfie rescues her. She is badly burnt and suffers permanent scarring to her face. On leaving hospital, she and Alfie remarry, with two nurses as the only witnesses, before returning to the square and moving into a flat Alfie had organised for them to squat in.",
+            "sha256": "5173ddd46d2a973bf1a6f5c82cb49592a63b54f664ede1d73f7020ffc9f87327",
+            "start": 46181,
+            "end": 46524,
+            "source": {
+              "title": "Kat Slater",
+              "url": "https://en.wikipedia.org/wiki/Kat_Slater",
+              "revision_id": "1380652225",
+              "revision_url": "https://en.wikipedia.org/w/index.php?oldid=1380652225",
+              "section": "Storylines / 2010–2016",
+              "captured_at": "2026-10-17T13:07:33.048959Z",
+              "capture_sha256": "f3852a9f1c3fa3f0c254f123fa8ed739d6f6a4388eb5f19c7de975858a537bd7",
+              "scope": "main_series",
+              "license_url": "https://creativecommons.org/licenses/by-sa/4.0/",
+              "attribution": "Wikipedia contributors; markup removed and whitespace normalized.",
+              "coverage": "Reviewed narrative sections in this captured revision only.",
+              "gaps": [
+                "Partial canon coverage; other paragraphs remain excluded or awaiting review.",
+                "Identity and episode metadata do not independently corroborate story claims."
+              ],
+              "support_status": "source_supported"
+            },
+            "location": {
+              "source_id": "kat-slater-wiki",
+              "paragraph_ordinal": 53,
+              "section_id": "2010–2016",
+              "character_ids": [
+                "kat-slater"
+              ]
+            },
+            "resolve_path": "/v1/snapshots/relationship-pilot-v1/evidence/history-kat-remarriage"
+          }
+        ],
+        "snapshot_id": "relationship-pilot-v1",
+        "snapshot_sha256": "973509567ae163bd48866e389b77fcafb8b3d6d346f51a4741b00626b95cadd1",
+        "source": {
+          "title": "Phil Mitchell",
+          "url": "https://en.wikipedia.org/wiki/Phil_Mitchell",
+          "revision_id": "1379872347",
+          "revision_url": "https://en.wikipedia.org/w/index.php?oldid=1379872347",
+          "section": "Storylines / 1990–2003",
+          "captured_at": "2026-10-17T13:07:31.014189Z",
+          "capture_sha256": "a338d3065203be54e383f2c9c141bca22ae9aedbb950e2e1eada601bcccfe313",
+          "scope": "main_series",
+          "license_url": "https://creativecommons.org/licenses/by-sa/4.0/",
+          "attribution": "Wikipedia contributors; markup removed and whitespace normalized.",
+          "coverage": "Reviewed narrative sections in this captured revision only.",
+          "gaps": [
+            "Partial canon coverage; other paragraphs remain excluded or awaiting review.",
+            "Identity and episode metadata do not independently corroborate story claims."
+          ],
+          "support_status": "source_supported"
+        },
+        "retrieved": [],
+        "context": [
+          {
+            "evidence_id": "history-kat-marriage",
+            "text": "Kat leaves Andy, and she and Alfie marry on Christmas Day.",
+            "sha256": "1a9d7812763769194371b2564ab8c6708b2eafb204949da315d1fff60b54510a",
+            "start": 33621,
+            "end": 33679,
+            "source": {
+              "title": "Kat Slater",
+              "url": "https://en.wikipedia.org/wiki/Kat_Slater",
+              "revision_id": "1380652225",
+              "revision_url": "https://en.wikipedia.org/w/index.php?oldid=1380652225",
+              "section": "Storylines / 2000–2005",
+              "captured_at": "2026-10-17T13:07:33.048959Z",
+              "capture_sha256": "f3852a9f1c3fa3f0c254f123fa8ed739d6f6a4388eb5f19c7de975858a537bd7",
+              "scope": "main_series",
+              "license_url": "https://creativecommons.org/licenses/by-sa/4.0/",
+              "attribution": "Wikipedia contributors; markup removed and whitespace normalized.",
+              "coverage": "Reviewed narrative sections in this captured revision only.",
+              "gaps": [
+                "Partial canon coverage; other paragraphs remain excluded or awaiting review.",
+                "Identity and episode metadata do not independently corroborate story claims."
+              ],
+              "support_status": "source_supported"
+            },
+            "location": {
+              "source_id": "kat-slater-wiki",
+              "paragraph_ordinal": 42,
+              "section_id": "2000–2005",
+              "character_ids": [
+                "alfie-moon",
+                "kat-slater"
+              ]
+            }
+          },
+          {
+            "evidence_id": "history-kat-remarriage",
+            "text": "He does so, but is unaware Kat is inside at the time. She becomes trapped although Alfie rescues her. She is badly burnt and suffers permanent scarring to her face. On leaving hospital, she and Alfie remarry, with two nurses as the only witnesses, before returning to the square and moving into a flat Alfie had organised for them to squat in.",
+            "sha256": "5173ddd46d2a973bf1a6f5c82cb49592a63b54f664ede1d73f7020ffc9f87327",
+            "start": 46181,
+            "end": 46524,
+            "source": {
+              "title": "Kat Slater",
+              "url": "https://en.wikipedia.org/wiki/Kat_Slater",
+              "revision_id": "1380652225",
+              "revision_url": "https://en.wikipedia.org/w/index.php?oldid=1380652225",
+              "section": "Storylines / 2010–2016",
+              "captured_at": "2026-10-17T13:07:33.048959Z",
+              "capture_sha256": "f3852a9f1c3fa3f0c254f123fa8ed739d6f6a4388eb5f19c7de975858a537bd7",
+              "scope": "main_series",
+              "license_url": "https://creativecommons.org/licenses/by-sa/4.0/",
+              "attribution": "Wikipedia contributors; markup removed and whitespace normalized.",
+              "coverage": "Reviewed narrative sections in this captured revision only.",
+              "gaps": [
+                "Partial canon coverage; other paragraphs remain excluded or awaiting review.",
+                "Identity and episode metadata do not independently corroborate story claims."
+              ],
+              "support_status": "source_supported"
+            },
+            "location": {
+              "source_id": "kat-slater-wiki",
+              "paragraph_ordinal": 53,
+              "section_id": "2010–2016",
+              "character_ids": [
+                "kat-slater"
+              ]
+            }
+          }
+        ],
+        "retrieval_k": 0,
+        "route": "graph",
+        "route_override": true,
+        "graph": {
+          "snapshot_id": "relationship-pilot-v1",
+          "snapshot_sha256": "973509567ae163bd48866e389b77fcafb8b3d6d346f51a4741b00626b95cadd1",
+          "graph_sha256": "27ab3d6e49f5a58caea59032e6bb5ec5b9d2976b64ce83f52be4113f57e9f8c1",
+          "query": {
+            "kind": "relationship_history",
+            "character_id": "kat-slater",
+            "partner_id": "alfie-moon",
+            "max_events": 20
+          },
+          "status": "found",
+          "claims": [
+            {
+              "claim_id": "kat-alfie-marriage",
+              "subject_id": "kat-slater",
+              "object_id": "alfie-moon",
+              "relation": "marriage",
+              "episode_id": "kat-alfie-first",
+              "status": "unknown",
+              "polarity": "affirmed",
+              "certainty": "certain",
+              "story_time": "Christmas Day",
+              "time_precision": "relative",
+              "after_claim_id": null,
+              "evidence": [
+                {
+                  "evidence_id": "history-kat-marriage",
+                  "start": 0,
+                  "end": 58,
+                  "quote": "Kat leaves Andy, and she and Alfie marry on Christmas Day."
+                }
+              ]
+            },
+            {
+              "claim_id": "kat-alfie-remarriage",
+              "subject_id": "kat-slater",
+              "object_id": "alfie-moon",
+              "relation": "remarriage",
+              "episode_id": "kat-alfie-second",
+              "status": "unknown",
+              "polarity": "affirmed",
+              "certainty": "certain",
+              "story_time": "On leaving hospital",
+              "time_precision": "relative",
+              "after_claim_id": "kat-alfie-marriage",
+              "evidence": [
+                {
+                  "evidence_id": "history-kat-remarriage",
+                  "start": 0,
+                  "end": 343,
+                  "quote": "He does so, but is unaware Kat is inside at the time. She becomes trapped although Alfie rescues her. She is badly burnt and suffers permanent scarring to her face. On leaving hospital, she and Alfie remarry, with two nurses as the only witnesses, before returning to the square and moving into a flat Alfie had organised for them to squat in."
+                }
+              ]
+            }
+          ],
+          "names": {
+            "phil-mitchell": "Phil Mitchell",
+            "grant-mitchell": "Grant Mitchell",
+            "sharon-watts": "Sharon Watts",
+            "ben-mitchell": "Ben Mitchell",
+            "kathy-beale": "Kathy Beale",
+            "kat-slater": "Kat Slater",
+            "alfie-moon": "Alfie Moon",
+            "denise-fox": "Denise Fox",
+            "den-watts": "Den Watts",
+            "amy-mitchell": "Amy Mitchell"
+          },
+          "limitation": "Only admitted assertions from selected reviewed spans are shown. Social ties never establish biological ancestry. Status is as reported in the captured account, not a claim about the present. Only explicit after links establish ordering; otherwise listing order is not chronology. Missing history does not prove a relationship never existed. Source-supported does not mean independently cross-checked."
+        },
+        "baseline_version": "single-query-uncached-v1",
+        "model_settings": null,
+        "prompt_sha256": "2a4d4271d553b476b70d087b399235e5d47515f57c8eb8df3eaa89ef8ec2c27f",
+        "application_sha256": "b41ba1822f8184595a6c8e9c00bc7770b39f0a8ce9cfe75f0f1e53ede7c4c0d7",
+        "trace_id": "tr-05f316e9e97b3a3ea75c1ebd87f91deb",
+        "execution": {
+          "limits": {
+            "model_calls": 2,
+            "tool_calls": 1,
+            "http_calls": 8,
+            "seconds": 180.0,
+            "context_bytes": 1200,
+            "spend_usd": "0.15",
+            "retries": 0,
+            "capabilities": [
+              "text_retrieval",
+              "family_graph",
+              "event_graph"
+            ],
+            "concurrency": 4
+          },
+          "model_calls": 0,
+          "tool_calls": 1,
+          "http_calls": 0,
+          "reserved_usd": "0",
+          "stop_reason": null
+        },
+        "elapsed_ms": 51.66936600289773,
+        "usage": {
+          "input_tokens": 0,
+          "output_tokens": 0,
+          "embedding_tokens": 0
+        },
+        "expenditure_category": "serving",
+        "estimated_api_cost_usd": 0.0,
+        "cost_scope": "No inference calls. Database and hosting costs are excluded.",
+        "limitation": "Only admitted assertions from selected reviewed spans are shown. Social ties never establish biological ancestry. Status is as reported in the captured account, not a claim about the present. Only explicit after links establish ordering; otherwise listing order is not chronology. Missing history does not prove a relationship never existed. Source-supported does not mean independently cross-checked."
+      },
+      "actual_tool_output": {
+        "snapshot_id": "relationship-pilot-v1",
+        "snapshot_sha256": "973509567ae163bd48866e389b77fcafb8b3d6d346f51a4741b00626b95cadd1",
+        "graph_sha256": "27ab3d6e49f5a58caea59032e6bb5ec5b9d2976b64ce83f52be4113f57e9f8c1",
+        "query": {
+          "kind": "relationship_history",
+          "character_id": "kat-slater",
+          "partner_id": "alfie-moon",
+          "max_events": 20
+        },
+        "status": "found",
+        "claims": [
+          {
+            "claim_id": "kat-alfie-marriage",
+            "subject_id": "kat-slater",
+            "object_id": "alfie-moon",
+            "relation": "marriage",
+            "episode_id": "kat-alfie-first",
+            "status": "unknown",
+            "polarity": "affirmed",
+            "certainty": "certain",
+            "story_time": "Christmas Day",
+            "time_precision": "relative",
+            "after_claim_id": null,
+            "evidence": [
+              {
+                "evidence_id": "history-kat-marriage",
+                "start": 0,
+                "end": 58,
+                "quote": "Kat leaves Andy, and she and Alfie marry on Christmas Day."
+              }
+            ]
+          },
+          {
+            "claim_id": "kat-alfie-remarriage",
+            "subject_id": "kat-slater",
+            "object_id": "alfie-moon",
+            "relation": "remarriage",
+            "episode_id": "kat-alfie-second",
+            "status": "unknown",
+            "polarity": "affirmed",
+            "certainty": "certain",
+            "story_time": "On leaving hospital",
+            "time_precision": "relative",
+            "after_claim_id": "kat-alfie-marriage",
+            "evidence": [
+              {
+                "evidence_id": "history-kat-remarriage",
+                "start": 0,
+                "end": 343,
+                "quote": "He does so, but is unaware Kat is inside at the time. She becomes trapped although Alfie rescues her. She is badly burnt and suffers permanent scarring to her face. On leaving hospital, she and Alfie remarry, with two nurses as the only witnesses, before returning to the square and moving into a flat Alfie had organised for them to squat in."
+              }
+            ]
+          }
+        ],
+        "names": {
+          "phil-mitchell": "Phil Mitchell",
+          "grant-mitchell": "Grant Mitchell",
+          "sharon-watts": "Sharon Watts",
+          "ben-mitchell": "Ben Mitchell",
+          "kathy-beale": "Kathy Beale",
+          "kat-slater": "Kat Slater",
+          "alfie-moon": "Alfie Moon",
+          "denise-fox": "Denise Fox",
+          "den-watts": "Den Watts",
+          "amy-mitchell": "Amy Mitchell"
+        },
+        "limitation": "Only admitted assertions from selected reviewed spans are shown. Social ties never establish biological ancestry. Status is as reported in the captured account, not a claim about the present. Only explicit after links establish ordering; otherwise listing order is not chronology. Missing history does not prove a relationship never existed. Source-supported does not mean independently cross-checked."
+      }
+    },
+    {
+      "kind": "event",
+      "phase": "raw-pilot",
+      "case_id": "conviction-is-not-guilt",
+      "actual_root_output": {
+        "response_id": "a1a5b207-a769-49d7-b6cd-fe4967082c6b",
+        "question": "Did Max murder Lucy because he was convicted?",
+        "status": "insufficient_evidence",
+        "answer": "I can't establish the requested crime/justice history from this graph (empty). Only admitted assertions about selected captured incidents are shown. An accusation, confession, charge, conviction, acquittal, imprisonment, release or court appearance alone establishes neither commission nor innocence. Only separately reviewed narrative support establishes commission. An empty legal history does not prove that a character committed no crime. Listing order is not chronology; unknown dates remain unknown. Source-supported does not mean independently cross-checked.",
+        "unanswered": [
+          "Crime/justice coverage outside the reviewed incidents and query bounds."
+        ],
+        "citations": [],
+        "snapshot_id": "crime-pilot-v1",
+        "snapshot_sha256": "211e2a87675886c73aef22a24d85076ae2850661b88e5a70de66600b12b2baa4",
+        "source": {
+          "title": "Max Branning",
+          "url": "https://en.wikipedia.org/wiki/Max_Branning",
+          "revision_id": "1378782554",
+          "revision_url": "https://en.wikipedia.org/w/index.php?oldid=1378782554",
+          "section": "Storylines / 2006–2021",
+          "captured_at": "2026-10-17T13:07:34.684245Z",
+          "capture_sha256": "48c3bdd9d5f7110e9cbcd9e6cbc7f32970c519fee14c1a32b231b42c639dc615",
+          "scope": "main_series",
+          "license_url": "https://creativecommons.org/licenses/by-sa/4.0/",
+          "attribution": "Wikipedia contributors; markup removed and whitespace normalized.",
+          "coverage": "Reviewed narrative sections in this captured revision only.",
+          "gaps": [
+            "Partial canon coverage; other paragraphs remain excluded or awaiting review.",
+            "Identity and episode metadata do not independently corroborate story claims."
+          ],
+          "support_status": "source_supported"
+        },
+        "retrieved": [],
+        "context": [],
+        "retrieval_k": 0,
+        "route": "graph",
+        "route_override": true,
+        "graph": {
+          "snapshot_id": "crime-pilot-v1",
+          "snapshot_sha256": "211e2a87675886c73aef22a24d85076ae2850661b88e5a70de66600b12b2baa4",
+          "graph_sha256": "34dba947f5ffeb7a5ffb24faeb8aa82585c91e14bfda8f5b4d58543961da3a4f",
+          "query": {
+            "kind": "crime_history",
+            "character_id": "max-branning",
+            "participant_id": null,
+            "event_id": "lucy-murder",
+            "max_events": 10
+          },
+          "status": "empty",
+          "claims": [],
+          "names": {
+            "phil-mitchell": "Phil Mitchell",
+            "grant-mitchell": "Grant Mitchell",
+            "ben-mitchell": "Ben Mitchell",
+            "ian-beale": "Ian Beale",
+            "lucy-beale": "Lucy Beale",
+            "bobby-beale": "Bobby Beale",
+            "max-branning": "Max Branning"
+          },
+          "limitation": "Only admitted assertions about selected captured incidents are shown. An accusation, confession, charge, conviction, acquittal, imprisonment, release or court appearance alone establishes neither commission nor innocence. Only separately reviewed narrative support establishes commission. An empty legal history does not prove that a character committed no crime. Listing order is not chronology; unknown dates remain unknown. Source-supported does not mean independently cross-checked."
+        },
+        "baseline_version": "single-query-uncached-v1",
+        "model_settings": null,
+        "prompt_sha256": "8a713579e4f9428d16042ebc4db4d27459cda8e7f56986c10fe794ceaf5d3225",
+        "application_sha256": "b41ba1822f8184595a6c8e9c00bc7770b39f0a8ce9cfe75f0f1e53ede7c4c0d7",
+        "trace_id": "tr-5f649877792fe0bcfee161bff8ee6ff9",
+        "execution": {
+          "limits": {
+            "model_calls": 2,
+            "tool_calls": 1,
+            "http_calls": 8,
+            "seconds": 180.0,
+            "context_bytes": 1200,
+            "spend_usd": "0.15",
+            "retries": 0,
+            "capabilities": [
+              "text_retrieval",
+              "family_graph",
+              "event_graph"
+            ],
+            "concurrency": 4
+          },
+          "model_calls": 0,
+          "tool_calls": 1,
+          "http_calls": 0,
+          "reserved_usd": "0",
+          "stop_reason": null
+        },
+        "elapsed_ms": 143.7246529967524,
+        "usage": {
+          "input_tokens": 0,
+          "output_tokens": 0,
+          "embedding_tokens": 0
+        },
+        "expenditure_category": "serving",
+        "estimated_api_cost_usd": 0.0,
+        "cost_scope": "No inference calls. Database and hosting costs are excluded.",
+        "limitation": "Only admitted assertions about selected captured incidents are shown. An accusation, confession, charge, conviction, acquittal, imprisonment, release or court appearance alone establishes neither commission nor innocence. Only separately reviewed narrative support establishes commission. An empty legal history does not prove that a character committed no crime. Listing order is not chronology; unknown dates remain unknown. Source-supported does not mean independently cross-checked."
+      },
+      "actual_tool_output": {
+        "snapshot_id": "crime-pilot-v1",
+        "snapshot_sha256": "211e2a87675886c73aef22a24d85076ae2850661b88e5a70de66600b12b2baa4",
+        "graph_sha256": "34dba947f5ffeb7a5ffb24faeb8aa82585c91e14bfda8f5b4d58543961da3a4f",
+        "query": {
+          "kind": "crime_history",
+          "character_id": "max-branning",
+          "participant_id": null,
+          "event_id": "lucy-murder",
+          "max_events": 10
+        },
+        "status": "empty",
+        "claims": [],
+        "names": {
+          "phil-mitchell": "Phil Mitchell",
+          "grant-mitchell": "Grant Mitchell",
+          "ben-mitchell": "Ben Mitchell",
+          "ian-beale": "Ian Beale",
+          "lucy-beale": "Lucy Beale",
+          "bobby-beale": "Bobby Beale",
+          "max-branning": "Max Branning"
+        },
+        "limitation": "Only admitted assertions about selected captured incidents are shown. An accusation, confession, charge, conviction, acquittal, imprisonment, release or court appearance alone establishes neither commission nor innocence. Only separately reviewed narrative support establishes commission. An empty legal history does not prove that a character committed no crime. Listing order is not chronology; unknown dates remain unknown. Source-supported does not mean independently cross-checked."
+      }
+    },
+    {
+      "kind": "event",
+      "phase": "reviewed-with-raw-retained",
+      "case_id": "conviction-is-not-guilt",
+      "actual_root_output": {
+        "response_id": "7176a624-7b02-4506-b697-210806f4a39a",
+        "question": "Did Max murder Lucy because he was convicted?",
+        "status": "partial",
+        "answer": "Right, listen. Captured crime and justice history:\nLucy Beale's murder — arrest: Ben Mitchell was arrested; story date unknown.\nLucy Beale's murder — commission: Bobby Beale committed the act described in this incident; Lucy Beale was the victim; story date unknown. Separately reviewed narrative supports commission.\nLucy Beale's murder — accusation: Bobby Beale was accused; Max Branning made the accusation; story timing As he is being arrested (relative).\nLucy Beale's murder — arrest: Max Branning was arrested; story timing when Lucy's blood is found on his shoe (relative).\nLucy Beale's murder — charge: Max Branning was accused; story timing when Lucy's blood is found on his shoe (relative).\nLucy Beale's murder — conviction: Max Branning was convicted; story date unknown.\nLucy Beale's murder — imprisonment: Max Branning was imprisoned; story timing later (relative).\nLucy Beale's murder — arrest: Max Branning was arrested; story date unknown.\nOnly admitted assertions about selected captured incidents are shown. An accusation, confession, charge, conviction, acquittal, imprisonment, release or court appearance alone establishes neither commission nor innocence. Only separately reviewed narrative support establishes commission. An empty legal history does not prove that a character committed no crime. Listing order is not chronology; unknown dates remain unknown. Source-supported does not mean independently cross-checked.",
+        "unanswered": [
+          "Crime/justice coverage outside the reviewed incidents and query bounds."
+        ],
+        "citations": [
+          {
+            "evidence_id": "lucy-arrest-charge",
+            "text": "When Ben is arrested for Lucy's murder, Phil manipulates Abi into coming forward about Max's fake alibi to the police. Max is arrested and is charged with her murder when Lucy's blood is found on his shoe, from where Jake Stone caused Lucy's nose to bleed on the night she died.",
+            "sha256": "49dfd9a4f22c14f3e1240b45100f89f707f4a09edae8ee17ef990e0f7424576c",
+            "start": 28208,
+            "end": 28486,
+            "source": {
+              "title": "Max Branning",
+              "url": "https://en.wikipedia.org/wiki/Max_Branning",
+              "revision_id": "1378782554",
+              "revision_url": "https://en.wikipedia.org/w/index.php?oldid=1378782554",
+              "section": "Storylines / 2006–2021",
+              "captured_at": "2026-10-17T13:07:34.684245Z",
+              "capture_sha256": "48c3bdd9d5f7110e9cbcd9e6cbc7f32970c519fee14c1a32b231b42c639dc615",
+              "scope": "main_series",
+              "license_url": "https://creativecommons.org/licenses/by-sa/4.0/",
+              "attribution": "Wikipedia contributors; markup removed and whitespace normalized.",
+              "coverage": "Reviewed narrative sections in this captured revision only.",
+              "gaps": [
+                "Partial canon coverage; other paragraphs remain excluded or awaiting review.",
+                "Identity and episode metadata do not independently corroborate story claims."
+              ],
+              "support_status": "source_supported"
+            },
+            "location": {
+              "source_id": "max-branning-wiki",
+              "paragraph_ordinal": 27,
+              "section_id": "2006–2021",
+              "character_ids": [
+                "bobby-beale",
+                "max-branning"
+              ]
+            },
+            "resolve_path": "/v1/snapshots/crime-pilot-v1/evidence/lucy-arrest-charge"
+          },
+          {
+            "evidence_id": "lucy-conviction",
+            "text": "Despite Ian's wife Jane (Laurie Brett) giving him a false alibi, he is found guilty thanks to Phil paying off the jury foreman.",
+            "sha256": "ab037575ab0976ec8b9309db31a87dbb3cce2835e29af2903cceff3a27256b82",
+            "start": 28675,
+            "end": 28802,
+            "source": {
+              "title": "Max Branning",
+              "url": "https://en.wikipedia.org/wiki/Max_Branning",
+              "revision_id": "1378782554",
+              "revision_url": "https://en.wikipedia.org/w/index.php?oldid=1378782554",
+              "section": "Storylines / 2006–2021",
+              "captured_at": "2026-10-17T13:07:34.684245Z",
+              "capture_sha256": "48c3bdd9d5f7110e9cbcd9e6cbc7f32970c519fee14c1a32b231b42c639dc615",
+              "scope": "main_series",
+              "license_url": "https://creativecommons.org/licenses/by-sa/4.0/",
+              "attribution": "Wikipedia contributors; markup removed and whitespace normalized.",
+              "coverage": "Reviewed narrative sections in this captured revision only.",
+              "gaps": [
+                "Partial canon coverage; other paragraphs remain excluded or awaiting review.",
+                "Identity and episode metadata do not independently corroborate story claims."
+              ],
+              "support_status": "source_supported"
+            },
+            "location": {
+              "source_id": "max-branning-wiki",
+              "paragraph_ordinal": 27,
+              "section_id": "2006–2021",
+              "character_ids": [
+                "bobby-beale",
+                "max-branning"
+              ]
+            },
+            "resolve_path": "/v1/snapshots/crime-pilot-v1/evidence/lucy-conviction"
+          },
+          {
+            "evidence_id": "lucy-revelation",
+            "text": "Max soon realises that Jane's adopted son Bobby Beale (Eliot Carrington) is Lucy's killer all along and that Jane had been covering up for her. He then discovers that Lauren knew the truth and disowns her as the police arrive to arrest him once more. As he is being arrested, Max shouts out to everyone that Bobby killed Lucy but they all dismiss his claims as an act of desperation; Max is later sentenced to life imprisonment with a recommendation he should serve at least 21 years.",
+            "sha256": "19f4d15331225d7db9d5fd6da40227c552a8bc61a569c13bf757df477329548c",
+            "start": 29247,
+            "end": 29731,
+            "source": {
+              "title": "Max Branning",
+              "url": "https://en.wikipedia.org/wiki/Max_Branning",
+              "revision_id": "1378782554",
+              "revision_url": "https://en.wikipedia.org/w/index.php?oldid=1378782554",
+              "section": "Storylines / 2006–2021",
+              "captured_at": "2026-10-17T13:07:34.684245Z",
+              "capture_sha256": "48c3bdd9d5f7110e9cbcd9e6cbc7f32970c519fee14c1a32b231b42c639dc615",
+              "scope": "main_series",
+              "license_url": "https://creativecommons.org/licenses/by-sa/4.0/",
+              "attribution": "Wikipedia contributors; markup removed and whitespace normalized.",
+              "coverage": "Reviewed narrative sections in this captured revision only.",
+              "gaps": [
+                "Partial canon coverage; other paragraphs remain excluded or awaiting review.",
+                "Identity and episode metadata do not independently corroborate story claims."
+              ],
+              "support_status": "source_supported"
+            },
+            "location": {
+              "source_id": "max-branning-wiki",
+              "paragraph_ordinal": 27,
+              "section_id": "2006–2021",
+              "character_ids": [
+                "bobby-beale",
+                "max-branning"
+              ]
+            },
+            "resolve_path": "/v1/snapshots/crime-pilot-v1/evidence/lucy-revelation"
+          }
+        ],
+        "snapshot_id": "crime-pilot-v1",
+        "snapshot_sha256": "211e2a87675886c73aef22a24d85076ae2850661b88e5a70de66600b12b2baa4",
+        "source": {
+          "title": "Max Branning",
+          "url": "https://en.wikipedia.org/wiki/Max_Branning",
+          "revision_id": "1378782554",
+          "revision_url": "https://en.wikipedia.org/w/index.php?oldid=1378782554",
+          "section": "Storylines / 2006–2021",
+          "captured_at": "2026-10-17T13:07:34.684245Z",
+          "capture_sha256": "48c3bdd9d5f7110e9cbcd9e6cbc7f32970c519fee14c1a32b231b42c639dc615",
+          "scope": "main_series",
+          "license_url": "https://creativecommons.org/licenses/by-sa/4.0/",
+          "attribution": "Wikipedia contributors; markup removed and whitespace normalized.",
+          "coverage": "Reviewed narrative sections in this captured revision only.",
+          "gaps": [
+            "Partial canon coverage; other paragraphs remain excluded or awaiting review.",
+            "Identity and episode metadata do not independently corroborate story claims."
+          ],
+          "support_status": "source_supported"
+        },
+        "retrieved": [],
+        "context": [
+          {
+            "evidence_id": "lucy-arrest-charge",
+            "text": "When Ben is arrested for Lucy's murder, Phil manipulates Abi into coming forward about Max's fake alibi to the police. Max is arrested and is charged with her murder when Lucy's blood is found on his shoe, from where Jake Stone caused Lucy's nose to bleed on the night she died.",
+            "sha256": "49dfd9a4f22c14f3e1240b45100f89f707f4a09edae8ee17ef990e0f7424576c",
+            "start": 28208,
+            "end": 28486,
+            "source": {
+              "title": "Max Branning",
+              "url": "https://en.wikipedia.org/wiki/Max_Branning",
+              "revision_id": "1378782554",
+              "revision_url": "https://en.wikipedia.org/w/index.php?oldid=1378782554",
+              "section": "Storylines / 2006–2021",
+              "captured_at": "2026-10-17T13:07:34.684245Z",
+              "capture_sha256": "48c3bdd9d5f7110e9cbcd9e6cbc7f32970c519fee14c1a32b231b42c639dc615",
+              "scope": "main_series",
+              "license_url": "https://creativecommons.org/licenses/by-sa/4.0/",
+              "attribution": "Wikipedia contributors; markup removed and whitespace normalized.",
+              "coverage": "Reviewed narrative sections in this captured revision only.",
+              "gaps": [
+                "Partial canon coverage; other paragraphs remain excluded or awaiting review.",
+                "Identity and episode metadata do not independently corroborate story claims."
+              ],
+              "support_status": "source_supported"
+            },
+            "location": {
+              "source_id": "max-branning-wiki",
+              "paragraph_ordinal": 27,
+              "section_id": "2006–2021",
+              "character_ids": [
+                "bobby-beale",
+                "max-branning"
+              ]
+            }
+          },
+          {
+            "evidence_id": "lucy-conviction",
+            "text": "Despite Ian's wife Jane (Laurie Brett) giving him a false alibi, he is found guilty thanks to Phil paying off the jury foreman.",
+            "sha256": "ab037575ab0976ec8b9309db31a87dbb3cce2835e29af2903cceff3a27256b82",
+            "start": 28675,
+            "end": 28802,
+            "source": {
+              "title": "Max Branning",
+              "url": "https://en.wikipedia.org/wiki/Max_Branning",
+              "revision_id": "1378782554",
+              "revision_url": "https://en.wikipedia.org/w/index.php?oldid=1378782554",
+              "section": "Storylines / 2006–2021",
+              "captured_at": "2026-10-17T13:07:34.684245Z",
+              "capture_sha256": "48c3bdd9d5f7110e9cbcd9e6cbc7f32970c519fee14c1a32b231b42c639dc615",
+              "scope": "main_series",
+              "license_url": "https://creativecommons.org/licenses/by-sa/4.0/",
+              "attribution": "Wikipedia contributors; markup removed and whitespace normalized.",
+              "coverage": "Reviewed narrative sections in this captured revision only.",
+              "gaps": [
+                "Partial canon coverage; other paragraphs remain excluded or awaiting review.",
+                "Identity and episode metadata do not independently corroborate story claims."
+              ],
+              "support_status": "source_supported"
+            },
+            "location": {
+              "source_id": "max-branning-wiki",
+              "paragraph_ordinal": 27,
+              "section_id": "2006–2021",
+              "character_ids": [
+                "bobby-beale",
+                "max-branning"
+              ]
+            }
+          },
+          {
+            "evidence_id": "lucy-revelation",
+            "text": "Max soon realises that Jane's adopted son Bobby Beale (Eliot Carrington) is Lucy's killer all along and that Jane had been covering up for her. He then discovers that Lauren knew the truth and disowns her as the police arrive to arrest him once more. As he is being arrested, Max shouts out to everyone that Bobby killed Lucy but they all dismiss his claims as an act of desperation; Max is later sentenced to life imprisonment with a recommendation he should serve at least 21 years.",
+            "sha256": "19f4d15331225d7db9d5fd6da40227c552a8bc61a569c13bf757df477329548c",
+            "start": 29247,
+            "end": 29731,
+            "source": {
+              "title": "Max Branning",
+              "url": "https://en.wikipedia.org/wiki/Max_Branning",
+              "revision_id": "1378782554",
+              "revision_url": "https://en.wikipedia.org/w/index.php?oldid=1378782554",
+              "section": "Storylines / 2006–2021",
+              "captured_at": "2026-10-17T13:07:34.684245Z",
+              "capture_sha256": "48c3bdd9d5f7110e9cbcd9e6cbc7f32970c519fee14c1a32b231b42c639dc615",
+              "scope": "main_series",
+              "license_url": "https://creativecommons.org/licenses/by-sa/4.0/",
+              "attribution": "Wikipedia contributors; markup removed and whitespace normalized.",
+              "coverage": "Reviewed narrative sections in this captured revision only.",
+              "gaps": [
+                "Partial canon coverage; other paragraphs remain excluded or awaiting review.",
+                "Identity and episode metadata do not independently corroborate story claims."
+              ],
+              "support_status": "source_supported"
+            },
+            "location": {
+              "source_id": "max-branning-wiki",
+              "paragraph_ordinal": 27,
+              "section_id": "2006–2021",
+              "character_ids": [
+                "bobby-beale",
+                "max-branning"
+              ]
+            }
+          }
+        ],
+        "retrieval_k": 0,
+        "route": "graph",
+        "route_override": true,
+        "graph": {
+          "snapshot_id": "crime-pilot-v1",
+          "snapshot_sha256": "211e2a87675886c73aef22a24d85076ae2850661b88e5a70de66600b12b2baa4",
+          "graph_sha256": "9c443f984273eb887bfcd2f50f57ae0f92e083101ff8755e043419585df7d092",
+          "query": {
+            "kind": "crime_history",
+            "character_id": "max-branning",
+            "participant_id": null,
+            "event_id": "lucy-murder",
+            "max_events": 10
+          },
+          "status": "found",
+          "claims": [
+            {
+              "claim_id": "lucy-ben-arrest",
+              "event_id": "lucy-murder",
+              "event_label": "Lucy Beale's murder",
+              "event_type": "arrest",
+              "basis": "legal_outcome",
+              "participants": [
+                {
+                  "character_id": "ben-mitchell",
+                  "role": "arrested"
+                }
+              ],
+              "account_status": "as_reported",
+              "polarity": "affirmed",
+              "certainty": "certain",
+              "story_time": "unknown",
+              "time_precision": "unknown",
+              "evidence": [
+                {
+                  "evidence_id": "lucy-arrest-charge",
+                  "start": 0,
+                  "end": 38,
+                  "quote": "When Ben is arrested for Lucy's murder"
+                }
+              ]
+            },
+            {
+              "claim_id": "lucy-bobby-commission",
+              "event_id": "lucy-murder",
+              "event_label": "Lucy Beale's murder",
+              "event_type": "commission",
+              "basis": "narrative",
+              "participants": [
+                {
+                  "character_id": "bobby-beale",
+                  "role": "perpetrator"
+                },
+                {
+                  "character_id": "lucy-beale",
+                  "role": "victim"
+                }
+              ],
+              "account_status": "as_reported",
+              "polarity": "affirmed",
+              "certainty": "certain",
+              "story_time": "unknown",
+              "time_precision": "unknown",
+              "evidence": [
+                {
+                  "evidence_id": "lucy-revelation",
+                  "start": 0,
+                  "end": 99,
+                  "quote": "Max soon realises that Jane's adopted son Bobby Beale (Eliot Carrington) is Lucy's killer all along"
+                }
+              ]
+            },
+            {
+              "claim_id": "reviewed-lucy-ben-arrest",
+              "event_id": "lucy-murder",
+              "event_label": "Lucy Beale's murder",
+              "event_type": "arrest",
+              "basis": "legal_outcome",
+              "participants": [
+                {
+                  "character_id": "ben-mitchell",
+                  "role": "arrested"
+                }
+              ],
+              "account_status": "as_reported",
+              "polarity": "affirmed",
+              "certainty": "certain",
+              "story_time": "unknown",
+              "time_precision": "unknown",
+              "evidence": [
+                {
+                  "evidence_id": "lucy-arrest-charge",
+                  "start": 0,
+                  "end": 38,
+                  "quote": "When Ben is arrested for Lucy's murder"
+                }
+              ]
+            },
+            {
+              "claim_id": "reviewed-lucy-bobby-accusation",
+              "event_id": "lucy-murder",
+              "event_label": "Lucy Beale's murder",
+              "event_type": "accusation",
+              "basis": "allegation",
+              "participants": [
+                {
+                  "character_id": "bobby-beale",
+                  "role": "accused"
+                },
+                {
+                  "character_id": "max-branning",
+                  "role": "accuser"
+                }
+              ],
+              "account_status": "as_reported",
+              "polarity": "affirmed",
+              "certainty": "certain",
+              "story_time": "As he is being arrested",
+              "time_precision": "relative",
+              "evidence": [
+                {
+                  "evidence_id": "lucy-revelation",
+                  "start": 251,
+                  "end": 382,
+                  "quote": "As he is being arrested, Max shouts out to everyone that Bobby killed Lucy but they all dismiss his claims as an act of desperation"
+                }
+              ]
+            },
+            {
+              "claim_id": "reviewed-lucy-bobby-commission",
+              "event_id": "lucy-murder",
+              "event_label": "Lucy Beale's murder",
+              "event_type": "commission",
+              "basis": "narrative",
+              "participants": [
+                {
+                  "character_id": "bobby-beale",
+                  "role": "perpetrator"
+                },
+                {
+                  "character_id": "lucy-beale",
+                  "role": "victim"
+                }
+              ],
+              "account_status": "as_reported",
+              "polarity": "affirmed",
+              "certainty": "certain",
+              "story_time": "unknown",
+              "time_precision": "unknown",
+              "evidence": [
+                {
+                  "evidence_id": "lucy-revelation",
+                  "start": 0,
+                  "end": 143,
+                  "quote": "Max soon realises that Jane's adopted son Bobby Beale (Eliot Carrington) is Lucy's killer all along and that Jane had been covering up for her."
+                }
+              ]
+            },
+            {
+              "claim_id": "reviewed-lucy-max-arrest",
+              "event_id": "lucy-murder",
+              "event_label": "Lucy Beale's murder",
+              "event_type": "arrest",
+              "basis": "legal_outcome",
+              "participants": [
+                {
+                  "character_id": "max-branning",
+                  "role": "arrested"
+                }
+              ],
+              "account_status": "as_reported",
+              "polarity": "affirmed",
+              "certainty": "certain",
+              "story_time": "when Lucy's blood is found on his shoe",
+              "time_precision": "relative",
+              "evidence": [
+                {
+                  "evidence_id": "lucy-arrest-charge",
+                  "start": 119,
+                  "end": 278,
+                  "quote": "Max is arrested and is charged with her murder when Lucy's blood is found on his shoe, from where Jake Stone caused Lucy's nose to bleed on the night she died."
+                }
+              ]
+            },
+            {
+              "claim_id": "reviewed-lucy-max-charge",
+              "event_id": "lucy-murder",
+              "event_label": "Lucy Beale's murder",
+              "event_type": "charge",
+              "basis": "legal_outcome",
+              "participants": [
+                {
+                  "character_id": "max-branning",
+                  "role": "accused"
+                }
+              ],
+              "account_status": "as_reported",
+              "polarity": "affirmed",
+              "certainty": "certain",
+              "story_time": "when Lucy's blood is found on his shoe",
+              "time_precision": "relative",
+              "evidence": [
+                {
+                  "evidence_id": "lucy-arrest-charge",
+                  "start": 119,
+                  "end": 278,
+                  "quote": "Max is arrested and is charged with her murder when Lucy's blood is found on his shoe, from where Jake Stone caused Lucy's nose to bleed on the night she died."
+                }
+              ]
+            },
+            {
+              "claim_id": "reviewed-lucy-max-conviction",
+              "event_id": "lucy-murder",
+              "event_label": "Lucy Beale's murder",
+              "event_type": "conviction",
+              "basis": "legal_outcome",
+              "participants": [
+                {
+                  "character_id": "max-branning",
+                  "role": "convicted"
+                }
+              ],
+              "account_status": "as_reported",
+              "polarity": "affirmed",
+              "certainty": "certain",
+              "story_time": "unknown",
+              "time_precision": "unknown",
+              "evidence": [
+                {
+                  "evidence_id": "lucy-conviction",
+                  "start": 0,
+                  "end": 127,
+                  "quote": "Despite Ian's wife Jane (Laurie Brett) giving him a false alibi, he is found guilty thanks to Phil paying off the jury foreman."
+                }
+              ]
+            },
+            {
+              "claim_id": "reviewed-lucy-max-imprisonment",
+              "event_id": "lucy-murder",
+              "event_label": "Lucy Beale's murder",
+              "event_type": "imprisonment",
+              "basis": "legal_outcome",
+              "participants": [
+                {
+                  "character_id": "max-branning",
+                  "role": "prisoner"
+                }
+              ],
+              "account_status": "as_reported",
+              "polarity": "affirmed",
+              "certainty": "certain",
+              "story_time": "later",
+              "time_precision": "relative",
+              "evidence": [
+                {
+                  "evidence_id": "lucy-revelation",
+                  "start": 384,
+                  "end": 484,
+                  "quote": "Max is later sentenced to life imprisonment with a recommendation he should serve at least 21 years."
+                }
+              ]
+            },
+            {
+              "claim_id": "reviewed-lucy-max-rearrest",
+              "event_id": "lucy-murder",
+              "event_label": "Lucy Beale's murder",
+              "event_type": "arrest",
+              "basis": "legal_outcome",
+              "participants": [
+                {
+                  "character_id": "max-branning",
+                  "role": "arrested"
+                }
+              ],
+              "account_status": "as_reported",
+              "polarity": "affirmed",
+              "certainty": "certain",
+              "story_time": "unknown",
+              "time_precision": "unknown",
+              "evidence": [
+                {
+                  "evidence_id": "lucy-revelation",
+                  "start": 251,
+                  "end": 382,
+                  "quote": "As he is being arrested, Max shouts out to everyone that Bobby killed Lucy but they all dismiss his claims as an act of desperation"
+                }
+              ]
+            }
+          ],
+          "names": {
+            "phil-mitchell": "Phil Mitchell",
+            "grant-mitchell": "Grant Mitchell",
+            "ben-mitchell": "Ben Mitchell",
+            "ian-beale": "Ian Beale",
+            "lucy-beale": "Lucy Beale",
+            "bobby-beale": "Bobby Beale",
+            "max-branning": "Max Branning"
+          },
+          "limitation": "Only admitted assertions about selected captured incidents are shown. An accusation, confession, charge, conviction, acquittal, imprisonment, release or court appearance alone establishes neither commission nor innocence. Only separately reviewed narrative support establishes commission. An empty legal history does not prove that a character committed no crime. Listing order is not chronology; unknown dates remain unknown. Source-supported does not mean independently cross-checked."
+        },
+        "baseline_version": "single-query-uncached-v1",
+        "model_settings": null,
+        "prompt_sha256": "8a713579e4f9428d16042ebc4db4d27459cda8e7f56986c10fe794ceaf5d3225",
+        "application_sha256": "b41ba1822f8184595a6c8e9c00bc7770b39f0a8ce9cfe75f0f1e53ede7c4c0d7",
+        "trace_id": "tr-7837b04ce22f974f2c25b29423ef5eff",
+        "execution": {
+          "limits": {
+            "model_calls": 2,
+            "tool_calls": 1,
+            "http_calls": 8,
+            "seconds": 180.0,
+            "context_bytes": 1200,
+            "spend_usd": "0.15",
+            "retries": 0,
+            "capabilities": [
+              "text_retrieval",
+              "family_graph",
+              "event_graph"
+            ],
+            "concurrency": 4
+          },
+          "model_calls": 0,
+          "tool_calls": 1,
+          "http_calls": 0,
+          "reserved_usd": "0",
+          "stop_reason": null
+        },
+        "elapsed_ms": 51.61953200149583,
+        "usage": {
+          "input_tokens": 0,
+          "output_tokens": 0,
+          "embedding_tokens": 0
+        },
+        "expenditure_category": "serving",
+        "estimated_api_cost_usd": 0.0,
+        "cost_scope": "No inference calls. Database and hosting costs are excluded.",
+        "limitation": "Only admitted assertions about selected captured incidents are shown. An accusation, confession, charge, conviction, acquittal, imprisonment, release or court appearance alone establishes neither commission nor innocence. Only separately reviewed narrative support establishes commission. An empty legal history does not prove that a character committed no crime. Listing order is not chronology; unknown dates remain unknown. Source-supported does not mean independently cross-checked."
+      },
+      "actual_tool_output": {
+        "snapshot_id": "crime-pilot-v1",
+        "snapshot_sha256": "211e2a87675886c73aef22a24d85076ae2850661b88e5a70de66600b12b2baa4",
+        "graph_sha256": "9c443f984273eb887bfcd2f50f57ae0f92e083101ff8755e043419585df7d092",
+        "query": {
+          "kind": "crime_history",
+          "character_id": "max-branning",
+          "participant_id": null,
+          "event_id": "lucy-murder",
+          "max_events": 10
+        },
+        "status": "found",
+        "claims": [
+          {
+            "claim_id": "lucy-ben-arrest",
+            "event_id": "lucy-murder",
+            "event_label": "Lucy Beale's murder",
+            "event_type": "arrest",
+            "basis": "legal_outcome",
+            "participants": [
+              {
+                "character_id": "ben-mitchell",
+                "role": "arrested"
+              }
+            ],
+            "account_status": "as_reported",
+            "polarity": "affirmed",
+            "certainty": "certain",
+            "story_time": "unknown",
+            "time_precision": "unknown",
+            "evidence": [
+              {
+                "evidence_id": "lucy-arrest-charge",
+                "start": 0,
+                "end": 38,
+                "quote": "When Ben is arrested for Lucy's murder"
+              }
+            ]
+          },
+          {
+            "claim_id": "lucy-bobby-commission",
+            "event_id": "lucy-murder",
+            "event_label": "Lucy Beale's murder",
+            "event_type": "commission",
+            "basis": "narrative",
+            "participants": [
+              {
+                "character_id": "bobby-beale",
+                "role": "perpetrator"
+              },
+              {
+                "character_id": "lucy-beale",
+                "role": "victim"
+              }
+            ],
+            "account_status": "as_reported",
+            "polarity": "affirmed",
+            "certainty": "certain",
+            "story_time": "unknown",
+            "time_precision": "unknown",
+            "evidence": [
+              {
+                "evidence_id": "lucy-revelation",
+                "start": 0,
+                "end": 99,
+                "quote": "Max soon realises that Jane's adopted son Bobby Beale (Eliot Carrington) is Lucy's killer all along"
+              }
+            ]
+          },
+          {
+            "claim_id": "reviewed-lucy-ben-arrest",
+            "event_id": "lucy-murder",
+            "event_label": "Lucy Beale's murder",
+            "event_type": "arrest",
+            "basis": "legal_outcome",
+            "participants": [
+              {
+                "character_id": "ben-mitchell",
+                "role": "arrested"
+              }
+            ],
+            "account_status": "as_reported",
+            "polarity": "affirmed",
+            "certainty": "certain",
+            "story_time": "unknown",
+            "time_precision": "unknown",
+            "evidence": [
+              {
+                "evidence_id": "lucy-arrest-charge",
+                "start": 0,
+                "end": 38,
+                "quote": "When Ben is arrested for Lucy's murder"
+              }
+            ]
+          },
+          {
+            "claim_id": "reviewed-lucy-bobby-accusation",
+            "event_id": "lucy-murder",
+            "event_label": "Lucy Beale's murder",
+            "event_type": "accusation",
+            "basis": "allegation",
+            "participants": [
+              {
+                "character_id": "bobby-beale",
+                "role": "accused"
+              },
+              {
+                "character_id": "max-branning",
+                "role": "accuser"
+              }
+            ],
+            "account_status": "as_reported",
+            "polarity": "affirmed",
+            "certainty": "certain",
+            "story_time": "As he is being arrested",
+            "time_precision": "relative",
+            "evidence": [
+              {
+                "evidence_id": "lucy-revelation",
+                "start": 251,
+                "end": 382,
+                "quote": "As he is being arrested, Max shouts out to everyone that Bobby killed Lucy but they all dismiss his claims as an act of desperation"
+              }
+            ]
+          },
+          {
+            "claim_id": "reviewed-lucy-bobby-commission",
+            "event_id": "lucy-murder",
+            "event_label": "Lucy Beale's murder",
+            "event_type": "commission",
+            "basis": "narrative",
+            "participants": [
+              {
+                "character_id": "bobby-beale",
+                "role": "perpetrator"
+              },
+              {
+                "character_id": "lucy-beale",
+                "role": "victim"
+              }
+            ],
+            "account_status": "as_reported",
+            "polarity": "affirmed",
+            "certainty": "certain",
+            "story_time": "unknown",
+            "time_precision": "unknown",
+            "evidence": [
+              {
+                "evidence_id": "lucy-revelation",
+                "start": 0,
+                "end": 143,
+                "quote": "Max soon realises that Jane's adopted son Bobby Beale (Eliot Carrington) is Lucy's killer all along and that Jane had been covering up for her."
+              }
+            ]
+          },
+          {
+            "claim_id": "reviewed-lucy-max-arrest",
+            "event_id": "lucy-murder",
+            "event_label": "Lucy Beale's murder",
+            "event_type": "arrest",
+            "basis": "legal_outcome",
+            "participants": [
+              {
+                "character_id": "max-branning",
+                "role": "arrested"
+              }
+            ],
+            "account_status": "as_reported",
+            "polarity": "affirmed",
+            "certainty": "certain",
+            "story_time": "when Lucy's blood is found on his shoe",
+            "time_precision": "relative",
+            "evidence": [
+              {
+                "evidence_id": "lucy-arrest-charge",
+                "start": 119,
+                "end": 278,
+                "quote": "Max is arrested and is charged with her murder when Lucy's blood is found on his shoe, from where Jake Stone caused Lucy's nose to bleed on the night she died."
+              }
+            ]
+          },
+          {
+            "claim_id": "reviewed-lucy-max-charge",
+            "event_id": "lucy-murder",
+            "event_label": "Lucy Beale's murder",
+            "event_type": "charge",
+            "basis": "legal_outcome",
+            "participants": [
+              {
+                "character_id": "max-branning",
+                "role": "accused"
+              }
+            ],
+            "account_status": "as_reported",
+            "polarity": "affirmed",
+            "certainty": "certain",
+            "story_time": "when Lucy's blood is found on his shoe",
+            "time_precision": "relative",
+            "evidence": [
+              {
+                "evidence_id": "lucy-arrest-charge",
+                "start": 119,
+                "end": 278,
+                "quote": "Max is arrested and is charged with her murder when Lucy's blood is found on his shoe, from where Jake Stone caused Lucy's nose to bleed on the night she died."
+              }
+            ]
+          },
+          {
+            "claim_id": "reviewed-lucy-max-conviction",
+            "event_id": "lucy-murder",
+            "event_label": "Lucy Beale's murder",
+            "event_type": "conviction",
+            "basis": "legal_outcome",
+            "participants": [
+              {
+                "character_id": "max-branning",
+                "role": "convicted"
+              }
+            ],
+            "account_status": "as_reported",
+            "polarity": "affirmed",
+            "certainty": "certain",
+            "story_time": "unknown",
+            "time_precision": "unknown",
+            "evidence": [
+              {
+                "evidence_id": "lucy-conviction",
+                "start": 0,
+                "end": 127,
+                "quote": "Despite Ian's wife Jane (Laurie Brett) giving him a false alibi, he is found guilty thanks to Phil paying off the jury foreman."
+              }
+            ]
+          },
+          {
+            "claim_id": "reviewed-lucy-max-imprisonment",
+            "event_id": "lucy-murder",
+            "event_label": "Lucy Beale's murder",
+            "event_type": "imprisonment",
+            "basis": "legal_outcome",
+            "participants": [
+              {
+                "character_id": "max-branning",
+                "role": "prisoner"
+              }
+            ],
+            "account_status": "as_reported",
+            "polarity": "affirmed",
+            "certainty": "certain",
+            "story_time": "later",
+            "time_precision": "relative",
+            "evidence": [
+              {
+                "evidence_id": "lucy-revelation",
+                "start": 384,
+                "end": 484,
+                "quote": "Max is later sentenced to life imprisonment with a recommendation he should serve at least 21 years."
+              }
+            ]
+          },
+          {
+            "claim_id": "reviewed-lucy-max-rearrest",
+            "event_id": "lucy-murder",
+            "event_label": "Lucy Beale's murder",
+            "event_type": "arrest",
+            "basis": "legal_outcome",
+            "participants": [
+              {
+                "character_id": "max-branning",
+                "role": "arrested"
+              }
+            ],
+            "account_status": "as_reported",
+            "polarity": "affirmed",
+            "certainty": "certain",
+            "story_time": "unknown",
+            "time_precision": "unknown",
+            "evidence": [
+              {
+                "evidence_id": "lucy-revelation",
+                "start": 251,
+                "end": 382,
+                "quote": "As he is being arrested, Max shouts out to everyone that Bobby killed Lucy but they all dismiss his claims as an act of desperation"
+              }
+            ]
+          }
+        ],
+        "names": {
+          "phil-mitchell": "Phil Mitchell",
+          "grant-mitchell": "Grant Mitchell",
+          "ben-mitchell": "Ben Mitchell",
+          "ian-beale": "Ian Beale",
+          "lucy-beale": "Lucy Beale",
+          "bobby-beale": "Bobby Beale",
+          "max-branning": "Max Branning"
+        },
+        "limitation": "Only admitted assertions about selected captured incidents are shown. An accusation, confession, charge, conviction, acquittal, imprisonment, release or court appearance alone establishes neither commission nor innocence. Only separately reviewed narrative support establishes commission. An empty legal history does not prove that a character committed no crime. Listing order is not chronology; unknown dates remain unknown. Source-supported does not mean independently cross-checked."
+      }
+    },
+    {
+      "kind": "event",
+      "phase": "reviewed-with-raw-retained",
+      "case_id": "context-stop",
+      "actual_root_output": {
+        "response_id": "6ab5f9fc-7858-45d2-852c-26aaf69051ca",
+        "question": "Show every captured case involving Max",
+        "status": "insufficient_evidence",
+        "answer": "I can't establish the requested crime/justice history from this graph (context_limit). Only admitted assertions about selected captured incidents are shown. An accusation, confession, charge, conviction, acquittal, imprisonment, release or court appearance alone establishes neither commission nor innocence. Only separately reviewed narrative support establishes commission. An empty legal history does not prove that a character committed no crime. Listing order is not chronology; unknown dates remain unknown. Source-supported does not mean independently cross-checked.",
+        "unanswered": [
+          "Crime/justice coverage outside the reviewed incidents and query bounds."
+        ],
+        "citations": [],
+        "snapshot_id": "crime-pilot-v1",
+        "snapshot_sha256": "211e2a87675886c73aef22a24d85076ae2850661b88e5a70de66600b12b2baa4",
+        "source": {
+          "title": "Max Branning",
+          "url": "https://en.wikipedia.org/wiki/Max_Branning",
+          "revision_id": "1378782554",
+          "revision_url": "https://en.wikipedia.org/w/index.php?oldid=1378782554",
+          "section": "Storylines / 2006–2021",
+          "captured_at": "2026-10-17T13:07:34.684245Z",
+          "capture_sha256": "48c3bdd9d5f7110e9cbcd9e6cbc7f32970c519fee14c1a32b231b42c639dc615",
+          "scope": "main_series",
+          "license_url": "https://creativecommons.org/licenses/by-sa/4.0/",
+          "attribution": "Wikipedia contributors; markup removed and whitespace normalized.",
+          "coverage": "Reviewed narrative sections in this captured revision only.",
+          "gaps": [
+            "Partial canon coverage; other paragraphs remain excluded or awaiting review.",
+            "Identity and episode metadata do not independently corroborate story claims."
+          ],
+          "support_status": "source_supported"
+        },
+        "retrieved": [],
+        "context": [],
+        "retrieval_k": 0,
+        "route": "graph",
+        "route_override": true,
+        "baseline_version": "single-query-uncached-v1",
+        "model_settings": null,
+        "prompt_sha256": "8a713579e4f9428d16042ebc4db4d27459cda8e7f56986c10fe794ceaf5d3225",
+        "application_sha256": "b41ba1822f8184595a6c8e9c00bc7770b39f0a8ce9cfe75f0f1e53ede7c4c0d7",
+        "trace_id": "tr-0bf64232acd14bce1dae49fa48446de9",
+        "execution": {
+          "limits": {
+            "model_calls": 2,
+            "tool_calls": 1,
+            "http_calls": 8,
+            "seconds": 180.0,
+            "context_bytes": 1200,
+            "spend_usd": "0.15",
+            "retries": 0,
+            "capabilities": [
+              "text_retrieval",
+              "family_graph",
+              "event_graph"
+            ],
+            "concurrency": 4
+          },
+          "model_calls": 0,
+          "tool_calls": 1,
+          "http_calls": 0,
+          "reserved_usd": "0",
+          "stop_reason": "context_limit"
+        },
+        "elapsed_ms": 52.71714700211305,
+        "usage": {
+          "input_tokens": 0,
+          "output_tokens": 0,
+          "embedding_tokens": 0
+        },
+        "expenditure_category": "serving",
+        "estimated_api_cost_usd": 0.0,
+        "cost_scope": "No inference calls. Database and hosting costs are excluded.",
+        "limitation": "Only admitted assertions about selected captured incidents are shown. An accusation, confession, charge, conviction, acquittal, imprisonment, release or court appearance alone establishes neither commission nor innocence. Only separately reviewed narrative support establishes commission. An empty legal history does not prove that a character committed no crime. Listing order is not chronology; unknown dates remain unknown. Source-supported does not mean independently cross-checked."
+      },
+      "actual_tool_output": {
+        "snapshot_id": "crime-pilot-v1",
+        "snapshot_sha256": "211e2a87675886c73aef22a24d85076ae2850661b88e5a70de66600b12b2baa4",
+        "graph_sha256": "9c443f984273eb887bfcd2f50f57ae0f92e083101ff8755e043419585df7d092",
+        "query": {
+          "kind": "crime_history",
+          "character_id": "max-branning",
+          "participant_id": null,
+          "event_id": null,
+          "max_events": 10
+        },
+        "status": "found",
+        "claims": [
+          {
+            "claim_id": "reviewed-crash-max-accusation",
+            "event_id": "carl-crash",
+            "event_label": "Carl's car crash",
+            "event_type": "accusation",
+            "basis": "allegation",
+            "participants": [
+              {
+                "character_id": "max-branning",
+                "role": "accused"
+              }
+            ],
+            "account_status": "explicitly_false",
+            "polarity": "affirmed",
+            "certainty": "certain",
+            "story_time": "unknown",
+            "time_precision": "unknown",
+            "evidence": [
+              {
+                "evidence_id": "crash-framing",
+                "start": 191,
+                "end": 270,
+                "quote": "He frames Max for cutting the brakes, and forces Ian to become a false witness."
+              }
+            ]
+          },
+          {
+            "claim_id": "reviewed-crash-max-acquittal",
+            "event_id": "carl-crash",
+            "event_label": "Carl's car crash",
+            "event_type": "acquittal",
+            "basis": "legal_outcome",
+            "participants": [
+              {
+                "character_id": "max-branning",
+                "role": "acquitted"
+              }
+            ],
+            "account_status": "as_reported",
+            "polarity": "affirmed",
+            "certainty": "certain",
+            "story_time": "unknown",
+            "time_precision": "unknown",
+            "evidence": [
+              {
+                "evidence_id": "crash-acquittal",
+                "start": 87,
+                "end": 109,
+                "quote": "once Max is acquitted."
+              }
+            ]
+          },
+          {
+            "claim_id": "reviewed-crash-max-arrest",
+            "event_id": "carl-crash",
+            "event_label": "Carl's car crash",
+            "event_type": "arrest",
+            "basis": "legal_outcome",
+            "participants": [
+              {
+                "character_id": "max-branning",
+                "role": "arrested"
+              }
+            ],
+            "account_status": "as_reported",
+            "polarity": "affirmed",
+            "certainty": "certain",
+            "story_time": "unknown",
+            "time_precision": "unknown",
+            "evidence": [
+              {
+                "evidence_id": "crash-framing",
+                "start": 271,
+                "end": 380,
+                "quote": "Max is arrested and released on bail, until Carl goads him into attacking him, and he is remanded in custody."
+              }
+            ]
+          },
+          {
+            "claim_id": "reviewed-crash-max-bail",
+            "event_id": "carl-crash",
+            "event_label": "Carl's car crash",
+            "event_type": "release",
+            "basis": "legal_outcome",
+            "participants": [
+              {
+                "character_id": "max-branning",
+                "role": "released"
+              }
+            ],
+            "account_status": "as_reported",
+            "polarity": "affirmed",
+            "certainty": "certain",
+            "story_time": "unknown",
+            "time_precision": "unknown",
+            "evidence": [
+              {
+                "evidence_id": "crash-framing",
+                "start": 271,
+                "end": 380,
+                "quote": "Max is arrested and released on bail, until Carl goads him into attacking him, and he is remanded in custody."
+              }
+            ]
+          },
+          {
+            "claim_id": "reviewed-crash-max-confession",
+            "event_id": "carl-crash",
+            "event_label": "Carl's car crash",
+            "event_type": "confession",
+            "basis": "confession",
+            "participants": [
+              {
+                "character_id": "max-branning",
+                "role": "confessor"
+              }
+            ],
+            "account_status": "explicitly_false",
+            "polarity": "affirmed",
+            "certainty": "certain",
+            "story_time": "unknown",
+            "time_precision": "unknown",
+            "evidence": [
+              {
+                "evidence_id": "crash-framing",
+                "start": 518,
+                "end": 630,
+                "quote": "Carl also forces Max to tell his family he is guilty, and Lauren is the only person who believes he is innocent."
+              }
+            ]
+          },
+          {
+            "claim_id": "reviewed-crash-max-release",
+            "event_id": "carl-crash",
+            "event_label": "Carl's car crash",
+            "event_type": "release",
+            "basis": "legal_outcome",
+            "participants": [
+              {
+                "character_id": "max-branning",
+                "role": "released"
+              }
+            ],
+            "account_status": "as_reported",
+            "polarity": "affirmed",
+            "certainty": "certain",
+            "story_time": "On the day of Max's trial",
+            "time_precision": "relative",
+            "evidence": [
+              {
+                "evidence_id": "crash-framing",
+                "start": 631,
+                "end": 731,
+                "quote": "On the day of Max's trial, Ian fails to turn up, and Max is released without charge, to Carl's fury."
+              }
+            ]
+          },
+          {
+            "claim_id": "reviewed-crash-max-trial",
+            "event_id": "carl-crash",
+            "event_label": "Carl's car crash",
+            "event_type": "trial",
+            "basis": "legal_outcome",
+            "participants": [
+              {
+                "character_id": "max-branning",
+                "role": "defendant"
+              }
+            ],
+            "account_status": "as_reported",
+            "polarity": "affirmed",
+            "certainty": "certain",
+            "story_time": "unknown",
+            "time_precision": "unknown",
+            "evidence": [
+              {
+                "evidence_id": "crash-framing",
+                "start": 631,
+                "end": 731,
+                "quote": "On the day of Max's trial, Ian fails to turn up, and Max is released without charge, to Carl's fury."
+              }
+            ]
+          },
+          {
+            "claim_id": "lucy-ben-arrest",
+            "event_id": "lucy-murder",
+            "event_label": "Lucy Beale's murder",
+            "event_type": "arrest",
+            "basis": "legal_outcome",
+            "participants": [
+              {
+                "character_id": "ben-mitchell",
+                "role": "arrested"
+              }
+            ],
+            "account_status": "as_reported",
+            "polarity": "affirmed",
+            "certainty": "certain",
+            "story_time": "unknown",
+            "time_precision": "unknown",
+            "evidence": [
+              {
+                "evidence_id": "lucy-arrest-charge",
+                "start": 0,
+                "end": 38,
+                "quote": "When Ben is arrested for Lucy's murder"
+              }
+            ]
+          },
+          {
+            "claim_id": "lucy-bobby-commission",
+            "event_id": "lucy-murder",
+            "event_label": "Lucy Beale's murder",
+            "event_type": "commission",
+            "basis": "narrative",
+            "participants": [
+              {
+                "character_id": "bobby-beale",
+                "role": "perpetrator"
+              },
+              {
+                "character_id": "lucy-beale",
+                "role": "victim"
+              }
+            ],
+            "account_status": "as_reported",
+            "polarity": "affirmed",
+            "certainty": "certain",
+            "story_time": "unknown",
+            "time_precision": "unknown",
+            "evidence": [
+              {
+                "evidence_id": "lucy-revelation",
+                "start": 0,
+                "end": 99,
+                "quote": "Max soon realises that Jane's adopted son Bobby Beale (Eliot Carrington) is Lucy's killer all along"
+              }
+            ]
+          },
+          {
+            "claim_id": "reviewed-lucy-ben-arrest",
+            "event_id": "lucy-murder",
+            "event_label": "Lucy Beale's murder",
+            "event_type": "arrest",
+            "basis": "legal_outcome",
+            "participants": [
+              {
+                "character_id": "ben-mitchell",
+                "role": "arrested"
+              }
+            ],
+            "account_status": "as_reported",
+            "polarity": "affirmed",
+            "certainty": "certain",
+            "story_time": "unknown",
+            "time_precision": "unknown",
+            "evidence": [
+              {
+                "evidence_id": "lucy-arrest-charge",
+                "start": 0,
+                "end": 38,
+                "quote": "When Ben is arrested for Lucy's murder"
+              }
+            ]
+          },
+          {
+            "claim_id": "reviewed-lucy-bobby-accusation",
+            "event_id": "lucy-murder",
+            "event_label": "Lucy Beale's murder",
+            "event_type": "accusation",
+            "basis": "allegation",
+            "participants": [
+              {
+                "character_id": "bobby-beale",
+                "role": "accused"
+              },
+              {
+                "character_id": "max-branning",
+                "role": "accuser"
+              }
+            ],
+            "account_status": "as_reported",
+            "polarity": "affirmed",
+            "certainty": "certain",
+            "story_time": "As he is being arrested",
+            "time_precision": "relative",
+            "evidence": [
+              {
+                "evidence_id": "lucy-revelation",
+                "start": 251,
+                "end": 382,
+                "quote": "As he is being arrested, Max shouts out to everyone that Bobby killed Lucy but they all dismiss his claims as an act of desperation"
+              }
+            ]
+          },
+          {
+            "claim_id": "reviewed-lucy-bobby-commission",
+            "event_id": "lucy-murder",
+            "event_label": "Lucy Beale's murder",
+            "event_type": "commission",
+            "basis": "narrative",
+            "participants": [
+              {
+                "character_id": "bobby-beale",
+                "role": "perpetrator"
+              },
+              {
+                "character_id": "lucy-beale",
+                "role": "victim"
+              }
+            ],
+            "account_status": "as_reported",
+            "polarity": "affirmed",
+            "certainty": "certain",
+            "story_time": "unknown",
+            "time_precision": "unknown",
+            "evidence": [
+              {
+                "evidence_id": "lucy-revelation",
+                "start": 0,
+                "end": 143,
+                "quote": "Max soon realises that Jane's adopted son Bobby Beale (Eliot Carrington) is Lucy's killer all along and that Jane had been covering up for her."
+              }
+            ]
+          },
+          {
+            "claim_id": "reviewed-lucy-max-arrest",
+            "event_id": "lucy-murder",
+            "event_label": "Lucy Beale's murder",
+            "event_type": "arrest",
+            "basis": "legal_outcome",
+            "participants": [
+              {
+                "character_id": "max-branning",
+                "role": "arrested"
+              }
+            ],
+            "account_status": "as_reported",
+            "polarity": "affirmed",
+            "certainty": "certain",
+            "story_time": "when Lucy's blood is found on his shoe",
+            "time_precision": "relative",
+            "evidence": [
+              {
+                "evidence_id": "lucy-arrest-charge",
+                "start": 119,
+                "end": 278,
+                "quote": "Max is arrested and is charged with her murder when Lucy's blood is found on his shoe, from where Jake Stone caused Lucy's nose to bleed on the night she died."
+              }
+            ]
+          },
+          {
+            "claim_id": "reviewed-lucy-max-charge",
+            "event_id": "lucy-murder",
+            "event_label": "Lucy Beale's murder",
+            "event_type": "charge",
+            "basis": "legal_outcome",
+            "participants": [
+              {
+                "character_id": "max-branning",
+                "role": "accused"
+              }
+            ],
+            "account_status": "as_reported",
+            "polarity": "affirmed",
+            "certainty": "certain",
+            "story_time": "when Lucy's blood is found on his shoe",
+            "time_precision": "relative",
+            "evidence": [
+              {
+                "evidence_id": "lucy-arrest-charge",
+                "start": 119,
+                "end": 278,
+                "quote": "Max is arrested and is charged with her murder when Lucy's blood is found on his shoe, from where Jake Stone caused Lucy's nose to bleed on the night she died."
+              }
+            ]
+          },
+          {
+            "claim_id": "reviewed-lucy-max-conviction",
+            "event_id": "lucy-murder",
+            "event_label": "Lucy Beale's murder",
+            "event_type": "conviction",
+            "basis": "legal_outcome",
+            "participants": [
+              {
+                "character_id": "max-branning",
+                "role": "convicted"
+              }
+            ],
+            "account_status": "as_reported",
+            "polarity": "affirmed",
+            "certainty": "certain",
+            "story_time": "unknown",
+            "time_precision": "unknown",
+            "evidence": [
+              {
+                "evidence_id": "lucy-conviction",
+                "start": 0,
+                "end": 127,
+                "quote": "Despite Ian's wife Jane (Laurie Brett) giving him a false alibi, he is found guilty thanks to Phil paying off the jury foreman."
+              }
+            ]
+          },
+          {
+            "claim_id": "reviewed-lucy-max-imprisonment",
+            "event_id": "lucy-murder",
+            "event_label": "Lucy Beale's murder",
+            "event_type": "imprisonment",
+            "basis": "legal_outcome",
+            "participants": [
+              {
+                "character_id": "max-branning",
+                "role": "prisoner"
+              }
+            ],
+            "account_status": "as_reported",
+            "polarity": "affirmed",
+            "certainty": "certain",
+            "story_time": "later",
+            "time_precision": "relative",
+            "evidence": [
+              {
+                "evidence_id": "lucy-revelation",
+                "start": 384,
+                "end": 484,
+                "quote": "Max is later sentenced to life imprisonment with a recommendation he should serve at least 21 years."
+              }
+            ]
+          },
+          {
+            "claim_id": "reviewed-lucy-max-rearrest",
+            "event_id": "lucy-murder",
+            "event_label": "Lucy Beale's murder",
+            "event_type": "arrest",
+            "basis": "legal_outcome",
+            "participants": [
+              {
+                "character_id": "max-branning",
+                "role": "arrested"
+              }
+            ],
+            "account_status": "as_reported",
+            "polarity": "affirmed",
+            "certainty": "certain",
+            "story_time": "unknown",
+            "time_precision": "unknown",
+            "evidence": [
+              {
+                "evidence_id": "lucy-revelation",
+                "start": 251,
+                "end": 382,
+                "quote": "As he is being arrested, Max shouts out to everyone that Bobby killed Lucy but they all dismiss his claims as an act of desperation"
+              }
+            ]
+          }
+        ],
+        "names": {
+          "phil-mitchell": "Phil Mitchell",
+          "grant-mitchell": "Grant Mitchell",
+          "ben-mitchell": "Ben Mitchell",
+          "ian-beale": "Ian Beale",
+          "lucy-beale": "Lucy Beale",
+          "bobby-beale": "Bobby Beale",
+          "max-branning": "Max Branning"
+        },
+        "limitation": "Only admitted assertions about selected captured incidents are shown. An accusation, confession, charge, conviction, acquittal, imprisonment, release or court appearance alone establishes neither commission nor innocence. Only separately reviewed narrative support establishes commission. An empty legal history does not prove that a character committed no crime. Listing order is not chronology; unknown dates remain unknown. Source-supported does not mean independently cross-checked."
+      }
+    },
+    {
+      "kind": "event",
+      "phase": "reviewed-with-raw-retained",
+      "case_id": "session-false-confession",
+      "actual_root_output": {
+        "response_id": "5f2d6f8c-52bf-4115-821a-ae29739d8f14",
+        "question": "Did Phil kill Stella?",
+        "conversation": {
+          "session_id": "803d4a6c-849b-45fd-8b92-2a0b548e4be8",
+          "turn_id": "bfc1a001-cc03-4411-8d5c-9c5b04f2bcc2",
+          "turn_number": 1,
+          "generation": 0,
+          "reference": {
+            "question": "Did Phil kill Stella?",
+            "character_ids": [
+              "phil-mitchell"
+            ],
+            "context_turn_id": null,
+            "clarification": null,
+            "followup_requires_name": true
+          }
+        },
+        "status": "partial",
+        "answer": "Right, listen. Captured crime and justice history:\nStella Crawford's death — confession: I confessed; story timing Later on (relative). The captured narrative identifies this confession as false.\nStella Crawford's death — release: I was released; story timing later (relative).\nOnly admitted assertions about selected captured incidents are shown. An accusation, confession, charge, conviction, acquittal, imprisonment, release or court appearance alone establishes neither commission nor innocence. Only separately reviewed narrative support establishes commission. An empty legal history does not prove that a character committed no crime. Listing order is not chronology; unknown dates remain unknown. Source-supported does not mean independently cross-checked.",
+        "unanswered": [
+          "Crime/justice coverage outside the reviewed incidents and query bounds."
+        ],
+        "citations": [
+          {
+            "evidence_id": "stella-false-confession",
+            "text": "Stella flees to an abandoned warehouse with Phil in pursuit – where she kills herself by jumping from the roof. Later on, Phil claims to have killed Stella and is taken into custody – but is later released without charge.",
+            "sha256": "9a5ef67010e19e02fe16e70154f8ed986ea01065437042b1526fa99ef2481621",
+            "start": 36817,
+            "end": 37038,
+            "source": {
+              "title": "Phil Mitchell",
+              "url": "https://en.wikipedia.org/wiki/Phil_Mitchell",
+              "revision_id": "1379872347",
+              "revision_url": "https://en.wikipedia.org/w/index.php?oldid=1379872347",
+              "section": "Storylines / 2005–present",
+              "captured_at": "2026-10-17T13:07:31.014189Z",
+              "capture_sha256": "a338d3065203be54e383f2c9c141bca22ae9aedbb950e2e1eada601bcccfe313",
+              "scope": "main_series",
+              "license_url": "https://creativecommons.org/licenses/by-sa/4.0/",
+              "attribution": "Wikipedia contributors; markup removed and whitespace normalized.",
+              "coverage": "Reviewed narrative sections in this captured revision only.",
+              "gaps": [
+                "Partial canon coverage; other paragraphs remain excluded or awaiting review.",
+                "Identity and episode metadata do not independently corroborate story claims."
+              ],
+              "support_status": "source_supported"
+            },
+            "location": {
+              "source_id": "phil-mitchell-wiki",
+              "paragraph_ordinal": 35,
+              "section_id": "2005–present",
+              "character_ids": [
+                "phil-mitchell"
+              ]
+            },
+            "resolve_path": "/v1/snapshots/crime-pilot-v1/evidence/stella-false-confession"
+          }
+        ],
+        "snapshot_id": "crime-pilot-v1",
+        "snapshot_sha256": "211e2a87675886c73aef22a24d85076ae2850661b88e5a70de66600b12b2baa4",
+        "source": {
+          "title": "Max Branning",
+          "url": "https://en.wikipedia.org/wiki/Max_Branning",
+          "revision_id": "1378782554",
+          "revision_url": "https://en.wikipedia.org/w/index.php?oldid=1378782554",
+          "section": "Storylines / 2006–2021",
+          "captured_at": "2026-10-17T13:07:34.684245Z",
+          "capture_sha256": "48c3bdd9d5f7110e9cbcd9e6cbc7f32970c519fee14c1a32b231b42c639dc615",
+          "scope": "main_series",
+          "license_url": "https://creativecommons.org/licenses/by-sa/4.0/",
+          "attribution": "Wikipedia contributors; markup removed and whitespace normalized.",
+          "coverage": "Reviewed narrative sections in this captured revision only.",
+          "gaps": [
+            "Partial canon coverage; other paragraphs remain excluded or awaiting review.",
+            "Identity and episode metadata do not independently corroborate story claims."
+          ],
+          "support_status": "source_supported"
+        },
+        "retrieved": [],
+        "context": [
+          {
+            "evidence_id": "stella-false-confession",
+            "text": "Stella flees to an abandoned warehouse with Phil in pursuit – where she kills herself by jumping from the roof. Later on, Phil claims to have killed Stella and is taken into custody – but is later released without charge.",
+            "sha256": "9a5ef67010e19e02fe16e70154f8ed986ea01065437042b1526fa99ef2481621",
+            "start": 36817,
+            "end": 37038,
+            "source": {
+              "title": "Phil Mitchell",
+              "url": "https://en.wikipedia.org/wiki/Phil_Mitchell",
+              "revision_id": "1379872347",
+              "revision_url": "https://en.wikipedia.org/w/index.php?oldid=1379872347",
+              "section": "Storylines / 2005–present",
+              "captured_at": "2026-10-17T13:07:31.014189Z",
+              "capture_sha256": "a338d3065203be54e383f2c9c141bca22ae9aedbb950e2e1eada601bcccfe313",
+              "scope": "main_series",
+              "license_url": "https://creativecommons.org/licenses/by-sa/4.0/",
+              "attribution": "Wikipedia contributors; markup removed and whitespace normalized.",
+              "coverage": "Reviewed narrative sections in this captured revision only.",
+              "gaps": [
+                "Partial canon coverage; other paragraphs remain excluded or awaiting review.",
+                "Identity and episode metadata do not independently corroborate story claims."
+              ],
+              "support_status": "source_supported"
+            },
+            "location": {
+              "source_id": "phil-mitchell-wiki",
+              "paragraph_ordinal": 35,
+              "section_id": "2005–present",
+              "character_ids": [
+                "phil-mitchell"
+              ]
+            }
+          }
+        ],
+        "retrieval_k": 0,
+        "route": "graph",
+        "route_override": true,
+        "graph": {
+          "snapshot_id": "crime-pilot-v1",
+          "snapshot_sha256": "211e2a87675886c73aef22a24d85076ae2850661b88e5a70de66600b12b2baa4",
+          "graph_sha256": "9c443f984273eb887bfcd2f50f57ae0f92e083101ff8755e043419585df7d092",
+          "query": {
+            "kind": "crime_history",
+            "character_id": "phil-mitchell",
+            "participant_id": null,
+            "event_id": null,
+            "max_events": 10
+          },
+          "status": "found",
+          "claims": [
+            {
+              "claim_id": "reviewed-stella-phil-confession",
+              "event_id": "stella-death",
+              "event_label": "Stella Crawford's death",
+              "event_type": "confession",
+              "basis": "confession",
+              "participants": [
+                {
+                  "character_id": "phil-mitchell",
+                  "role": "confessor"
+                }
+              ],
+              "account_status": "explicitly_false",
+              "polarity": "affirmed",
+              "certainty": "certain",
+              "story_time": "Later on",
+              "time_precision": "relative",
+              "evidence": [
+                {
+                  "evidence_id": "stella-false-confession",
+                  "start": 0,
+                  "end": 221,
+                  "quote": "Stella flees to an abandoned warehouse with Phil in pursuit – where she kills herself by jumping from the roof. Later on, Phil claims to have killed Stella and is taken into custody – but is later released without charge."
+                }
+              ]
+            },
+            {
+              "claim_id": "reviewed-stella-phil-release",
+              "event_id": "stella-death",
+              "event_label": "Stella Crawford's death",
+              "event_type": "release",
+              "basis": "legal_outcome",
+              "participants": [
+                {
+                  "character_id": "phil-mitchell",
+                  "role": "released"
+                }
+              ],
+              "account_status": "as_reported",
+              "polarity": "affirmed",
+              "certainty": "certain",
+              "story_time": "later",
+              "time_precision": "relative",
+              "evidence": [
+                {
+                  "evidence_id": "stella-false-confession",
+                  "start": 0,
+                  "end": 221,
+                  "quote": "Stella flees to an abandoned warehouse with Phil in pursuit – where she kills herself by jumping from the roof. Later on, Phil claims to have killed Stella and is taken into custody – but is later released without charge."
+                }
+              ]
+            }
+          ],
+          "names": {
+            "phil-mitchell": "Phil Mitchell",
+            "grant-mitchell": "Grant Mitchell",
+            "ben-mitchell": "Ben Mitchell",
+            "ian-beale": "Ian Beale",
+            "lucy-beale": "Lucy Beale",
+            "bobby-beale": "Bobby Beale",
+            "max-branning": "Max Branning"
+          },
+          "limitation": "Only admitted assertions about selected captured incidents are shown. An accusation, confession, charge, conviction, acquittal, imprisonment, release or court appearance alone establishes neither commission nor innocence. Only separately reviewed narrative support establishes commission. An empty legal history does not prove that a character committed no crime. Listing order is not chronology; unknown dates remain unknown. Source-supported does not mean independently cross-checked."
+        },
+        "baseline_version": "single-query-uncached-v1",
+        "model_settings": null,
+        "prompt_sha256": "8a713579e4f9428d16042ebc4db4d27459cda8e7f56986c10fe794ceaf5d3225",
+        "application_sha256": "b41ba1822f8184595a6c8e9c00bc7770b39f0a8ce9cfe75f0f1e53ede7c4c0d7",
+        "trace_id": "tr-d07ae001203a38fad47f15a2d3ecb11a",
+        "execution": {
+          "limits": {
+            "model_calls": 2,
+            "tool_calls": 1,
+            "http_calls": 8,
+            "seconds": 180.0,
+            "context_bytes": 1200,
+            "spend_usd": "0.15",
+            "retries": 0,
+            "capabilities": [
+              "text_retrieval",
+              "family_graph",
+              "event_graph"
+            ],
+            "concurrency": 4
+          },
+          "model_calls": 0,
+          "tool_calls": 1,
+          "http_calls": 0,
+          "reserved_usd": "0",
+          "stop_reason": null
+        },
+        "elapsed_ms": 54.16343899560161,
+        "usage": {
+          "input_tokens": 0,
+          "output_tokens": 0,
+          "embedding_tokens": 0
+        },
+        "expenditure_category": "serving",
+        "estimated_api_cost_usd": 0.0,
+        "cost_scope": "No inference calls. Database and hosting costs are excluded.",
+        "limitation": "Only admitted assertions about selected captured incidents are shown. An accusation, confession, charge, conviction, acquittal, imprisonment, release or court appearance alone establishes neither commission nor innocence. Only separately reviewed narrative support establishes commission. An empty legal history does not prove that a character committed no crime. Listing order is not chronology; unknown dates remain unknown. Source-supported does not mean independently cross-checked."
+      },
+      "actual_tool_output": {
+        "snapshot_id": "crime-pilot-v1",
+        "snapshot_sha256": "211e2a87675886c73aef22a24d85076ae2850661b88e5a70de66600b12b2baa4",
+        "graph_sha256": "9c443f984273eb887bfcd2f50f57ae0f92e083101ff8755e043419585df7d092",
+        "query": {
+          "kind": "crime_history",
+          "character_id": "phil-mitchell",
+          "participant_id": null,
+          "event_id": null,
+          "max_events": 10
+        },
+        "status": "found",
+        "claims": [
+          {
+            "claim_id": "reviewed-stella-phil-confession",
+            "event_id": "stella-death",
+            "event_label": "Stella Crawford's death",
+            "event_type": "confession",
+            "basis": "confession",
+            "participants": [
+              {
+                "character_id": "phil-mitchell",
+                "role": "confessor"
+              }
+            ],
+            "account_status": "explicitly_false",
+            "polarity": "affirmed",
+            "certainty": "certain",
+            "story_time": "Later on",
+            "time_precision": "relative",
+            "evidence": [
+              {
+                "evidence_id": "stella-false-confession",
+                "start": 0,
+                "end": 221,
+                "quote": "Stella flees to an abandoned warehouse with Phil in pursuit – where she kills herself by jumping from the roof. Later on, Phil claims to have killed Stella and is taken into custody – but is later released without charge."
+              }
+            ]
+          },
+          {
+            "claim_id": "reviewed-stella-phil-release",
+            "event_id": "stella-death",
+            "event_label": "Stella Crawford's death",
+            "event_type": "release",
+            "basis": "legal_outcome",
+            "participants": [
+              {
+                "character_id": "phil-mitchell",
+                "role": "released"
+              }
+            ],
+            "account_status": "as_reported",
+            "polarity": "affirmed",
+            "certainty": "certain",
+            "story_time": "later",
+            "time_precision": "relative",
+            "evidence": [
+              {
+                "evidence_id": "stella-false-confession",
+                "start": 0,
+                "end": 221,
+                "quote": "Stella flees to an abandoned warehouse with Phil in pursuit – where she kills herself by jumping from the roof. Later on, Phil claims to have killed Stella and is taken into custody – but is later released without charge."
+              }
+            ]
+          }
+        ],
+        "names": {
+          "phil-mitchell": "Phil Mitchell",
+          "grant-mitchell": "Grant Mitchell",
+          "ben-mitchell": "Ben Mitchell",
+          "ian-beale": "Ian Beale",
+          "lucy-beale": "Lucy Beale",
+          "bobby-beale": "Bobby Beale",
+          "max-branning": "Max Branning"
+        },
+        "limitation": "Only admitted assertions about selected captured incidents are shown. An accusation, confession, charge, conviction, acquittal, imprisonment, release or court appearance alone establishes neither commission nor innocence. Only separately reviewed narrative support establishes commission. An empty legal history does not prove that a character committed no crime. Listing order is not chronology; unknown dates remain unknown. Source-supported does not mean independently cross-checked."
+      }
+    }
+  ],
+  "scope": "Real software integrations on exposed source-reviewed fixtures; no model-quality, held-out or canon acceptance."
+}
