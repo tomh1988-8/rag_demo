@@ -1,0 +1,49 @@
+{
+  "application_sha256": "f603f88006e1eb20b65a88d3a06f6eac435ae88ed748fb9088e608fef916efee",
+  "baseline_revision": "1ff6207264669fe2a733fdcdf99bcf9e225491c4",
+  "compatibility": {
+    "actual_trace_readbacks_match": true,
+    "extraction_kinds": 4,
+    "normalized_retained_outputs_match": true,
+    "outbound_requests_match": true,
+    "public_paths": 24,
+    "public_records": 76,
+    "source": "compatibility.json"
+  },
+  "independent_review": {
+    "source": "review.md",
+    "spec_findings": 0,
+    "standards_actionable_judgment_calls": 0,
+    "standards_hard_violations": 0
+  },
+  "limitations": [
+    "Controlled provider compatibility and software tests do not establish improved model quality, held-out accuracy or independent canon support.",
+    "Existing source/reference labels, retained extraction failures, correction evidence and product-ticket frontier are unchanged."
+  ],
+  "preservation": {
+    "all_frozen_inputs_unchanged": true,
+    "all_protected_files_unchanged": true,
+    "paid_model_calls": 0,
+    "protected_existing_files": 2302,
+    "shared_ledger_usd": 0.464981,
+    "software_configuration_data_hashes": 167,
+    "unsettled_reservations": 0
+  },
+  "software_tests": {
+    "command": "ASK_PHIL_TEST_DATABASE_URL=LOCAL_DISPOSABLE_POSTGRES PREFECT_HOME=/tmp/review-extraction-prefect PREFECT_SERVER_ANALYTICS_ENABLED=false MLFLOW_DISABLE_AGENT_HINT=1 .venv/bin/pytest -v -p no:cacheprovider --durations=15 --junitxml=docs/implementation/review-extraction-deepening/software-tests.xml",
+    "errors": 0,
+    "failures": 0,
+    "full_suite_executions": 1,
+    "seconds": 1197.486,
+    "skipped": 0,
+    "tests": 481
+  },
+  "static_checks": {
+    "git_diff_check": "passed",
+    "ruff_check": "passed",
+    "ruff_format": "111 files passed",
+    "staged_secret_scan": "passed",
+    "strict_mypy": "111 source files passed"
+  },
+  "tested_code_revision": "b3362481937fc2cd06b5075eab97f1348babbb47"
+}

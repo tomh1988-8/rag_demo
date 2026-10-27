@@ -62,7 +62,7 @@ The parentage and relationship prompts retain their existing prompt-side schema
 copy. The event prompt retains its omission of that copy. Removing further copies
 would change model inputs and needs separate evaluation.
 
-## Verification in progress
+## Verification
 
 The two existing review-answer regressions passed before restructuring after
 extending the context-limit case to both routes. The affected review and refresh
@@ -70,6 +70,8 @@ files then passed 13 checks. The relationship extraction case first failed when
 an unconfigured adapter sent parentage schema, then passed with both default and
 legacy explicitly configured adapters. The extraction files passed all 16 checks,
 including immutable evidence, failed tracing, interruption and accounting.
+The graph and acceptance files passed 29 checks, including actual HTTP/CLI answers
+and exact saved-trace readback across the existing graph kinds.
 
 [Compatibility captures](compatibility.json) compare archived starting source
 with the refactor using controlled provider responses for parentage, relationship,
@@ -79,3 +81,28 @@ with each saved result checked against its actual MLflow trace. Per-run IDs and
 timing are excluded from behavioral equality. All 24 HTTP paths and 76 public
 records have identical schemas. These are software compatibility checks, not new
 model-quality or independent canon results.
+
+After both [independent review axes](review.md) reported zero remaining findings,
+the full suite ran once and passed **481 tests** in **1197.486 seconds**, with zero
+failures, errors or skips. The [test report](software-tests.xml) and
+[execution log](software-tests.log) retain the outcomes. The 16 warnings are the
+existing Starlette/httpx deprecation and JUnit `record_property` categories.
+Strict mypy passed all **111 files**; Ruff, formatting and the staged secret
+scan passed as well.
+
+The [validation record](validation.json) binds these results to all **167 frozen
+software, configuration and data inputs**. Their hashes still match the tested
+files. All **2302 protected existing files**, including source/reference inputs,
+credentials, the spending ledger, retained artifacts and pre-existing workspace
+changes, remain unchanged. No paid model calls were made; the shared ledger stays
+at **$0.464981**, with zero unsettled reservations.
+
+To reproduce with a disposable PostgreSQL/pgvector admin connection:
+
+```sh
+export ASK_PHIL_TEST_DATABASE_URL=postgresql://USER:PASSWORD@HOST:PORT/postgres
+PREFECT_HOME=/tmp/review-extraction-prefect PREFECT_SERVER_ANALYTICS_ENABLED=false MLFLOW_DISABLE_AGENT_HINT=1 .venv/bin/pytest -v -p no:cacheprovider
+.venv/bin/mypy src tests scripts docs/implementation/issue-9/apply_support.py
+.venv/bin/ruff check src tests scripts docs/implementation/issue-9/apply_support.py
+.venv/bin/ruff format --check src tests scripts docs/implementation/issue-9/apply_support.py
+```
