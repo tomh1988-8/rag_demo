@@ -64,6 +64,18 @@ failures, not a broad automatic-extraction, held-out or canon pass. The linked
 regressions and revision-bound validation remain part of the evidence; checklist
 counts are unchanged and wider RAG-04, EXT-04 and AD-08.4 obligations remain Pending.
 
+[Issue #14](../implementation/issue-14/README.md) extends scoped EXT-02, EXT-04,
+RAG-04, AD-06.3 and RAG-03 evidence to pregnancy/death roles and separate thematic
+or unclassified text. Its frozen seven-passage pilot records 4/5 exact event
+values, 3/5 resolvable event locators and 0/5 conservative full-span grounding;
+content-bound review admits three shorter supported event quotes and holds two
+malformed locators. Theme/unclassified values match 1/2, with 2/2 resolvable
+locators and 1/2 strict grounding. The curated projection retains every raw
+record. Thirty initial API/CLI/session outcomes have actual trace readback;
+final text evidence, full validation and independent reviews are being recorded.
+This is a scoped extension with explicit extraction failures. Checklist counts
+are unchanged; wider RAG-04 and EXT-04 remain Pending.
+
 The [answer execution deepening](../implementation/answer-execution-deepening/README.md)
 rechecks scoped AD-05.4, AD-06.1–3, AD-07.4 and AD-09.1–3 through shared text/Family
 tree admission, separate serving/offline limits, retained stop receipts and actual
