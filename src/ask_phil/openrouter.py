@@ -166,6 +166,15 @@ class Budget:
                 (units, identifier),
             )
 
+    def summary(self) -> tuple[float, int]:
+        """Read conservative shared spend and unsettled reservations without changing them."""
+        with self._connection() as conn:
+            spent, unsettled = conn.execute(
+                "SELECT COALESCE(SUM(microdollars), 0), "
+                "COALESCE(SUM(CASE WHEN settled=0 THEN 1 ELSE 0 END), 0) FROM reservations"
+            ).fetchone()
+        return spent / 1000000, unsettled
+
 
 class OpenRouterProfile(Record):
     provider_type: Literal["openrouter"] = "openrouter"
@@ -223,10 +232,16 @@ class OpenRouterChat:
         self._budget = budget
         self._client = client
         self._last_call = ContextVar[ProviderUsage | None]("openrouter_call", default=None)
+        self._last_content = ContextVar[str | None]("openrouter_content", default=None)
 
     @property
     def last_call(self) -> ProviderUsage | None:
         return self._last_call.get()
+
+    @property
+    def last_content(self) -> str | None:
+        """Redacted received completion text, including rejected incomplete responses."""
+        return self._last_content.get()
 
     def redact(self, text: str) -> str:
         return redact_text(text, (self._key,))
@@ -246,6 +261,7 @@ class OpenRouterChat:
 
     def chat(self, messages: Sequence[ChatMessage], *, format: dict[str, Any]) -> ChatResponse:
         self._last_call.set(None)
+        self._last_content.set(None)
         profile = self.profile
         budget = current_execution.get()
         if budget:
@@ -299,6 +315,12 @@ class OpenRouterChat:
             )
             response.raise_for_status()
             data = json.loads(self.redact(response.text))
+            # Retain redacted candidate text even if usage or completion checks reject it.
+            choices = data.get("choices") if isinstance(data, dict) else None
+            if isinstance(choices, list) and choices and isinstance(choices[0], dict):
+                message = choices[0].get("message")
+                if isinstance(message, dict) and isinstance(message.get("content"), str):
+                    self._last_content.set(message["content"])
             usage = data.get("usage") or {}
             cost = money(usage["cost"]) if usage.get("cost") is not None else None
             accounting = ProviderUsage.model_validate(
@@ -321,12 +343,12 @@ class OpenRouterChat:
                 if budget:
                     budget.settle(cost)
             choice = data["choices"][0]
+            content = self.last_content
             if choice.get("finish_reason") != "stop" or data.get("model") not in {
                 profile.answer_model,
                 profile.canonical_slug,
             }:
                 raise ProviderError("Provider returned an incomplete or unexpected model response.")
-            content = choice["message"]["content"]
             if not isinstance(content, str):
                 raise ProviderError("Provider returned no usable answer.")
             return ChatResponse(

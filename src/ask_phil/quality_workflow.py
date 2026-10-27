@@ -13,7 +13,7 @@ import httpx
 from pydantic import TypeAdapter
 
 from ask_phil.answering import application_fingerprint
-from ask_phil.answers import SYSTEM_PROMPT, AnswerReceipt
+from ask_phil.answers import SYSTEM_PROMPT, AnswerReceipt, AnswerRecord
 from ask_phil.evaluation import (
     EvaluationRun,
     EvaluationTracking,
@@ -26,7 +26,9 @@ from ask_phil.evaluation import (
 from ask_phil.evidence import Identifier
 from ask_phil.models import OpenRouterSettings
 from ask_phil.openrouter import maximum_call_cost
+from ask_phil.passage_context import CONTEXT_BYTE_BUDGET
 from ask_phil.quality_comparison import (
+    ComparisonCase,
     ComparisonConfiguration,
     ComparisonDataset,
     ComparisonObservation,
@@ -148,41 +150,16 @@ def capture_quality(
                 raise ValueError("The public API answered from a different snapshot.")
             if response.application_sha256 != frozen_application:
                 raise ValueError("Serving code changed or differs from the frozen source identity.")
-            if response.model_settings is None:
-                raise ValueError("This comparison requires a text answer model configuration.")
-            actual = ComparisonConfiguration(
-                configuration_id="single-query-uncached-v2",
-                retrieval_version="original-query-v1",
-                context_version="whole-passages-v2",
-                context_bytes=1200,
-                retrieval_k=3,
-                answer_settings_sha256=document_fingerprint(
-                    response.model_settings.model_dump(mode="json")
-                ),
-                prompt_sha256=response.prompt_sha256,
-                snapshot_sha256=response.snapshot_sha256,
-                cache_mode="off",
-                cache_namespace=namespace,
-            )
+            actual = _answer_configuration(response, namespace)
             if profile is not None and response.model_settings != profile:
                 raise ValueError("The public API is not using the frozen model profile.")
             if profile is None and usage is not None:
                 raise ValueError("Supply the paid model profile before live capture.")
-            if response.baseline_version != "single-query-uncached-v2":
-                raise ValueError("Capture requires the declared uncached single-query baseline.")
-            if response.retrieval_k not in (0, 3):
-                raise ValueError("Unexpected retrieval limit in the recorded response.")
             if configuration is not None and configuration != actual:
                 raise ValueError("Serving controls changed during the frozen capture.")
             configuration = actual
             run.annotate(configuration=actual.model_dump(mode="json"))
-            reference = RetrievalReference(
-                case_id=row["comparison_case_id"],
-                question=row["question"],
-                answerable=row["expected_status"] in ("answered", "partial"),
-                relevant_ids=tuple(p["evidence_id"] for p in row["evidence"]),
-                required_facts=cases[row["comparison_case_id"]].required_facts,
-            )
+            reference = _retrieval_reference(cases[row["comparison_case_id"]])
             stages: dict[str, float | None] = {
                 "text_retrieval": None,
                 "assembled_context": None,
@@ -209,14 +186,51 @@ def capture_quality(
             run.capture(row["case_id"], partial(execute, row))
 
 
+def _answer_configuration(response: AnswerRecord, namespace: str) -> ComparisonConfiguration:
+    if response.route != "text_rag" or response.model_settings is None:
+        raise ValueError("This comparison requires a text answer model configuration.")
+    if response.baseline_version != "single-query-uncached-v2":
+        raise ValueError("Capture requires the declared uncached single-query baseline.")
+    if response.retrieval_k not in (0, 3):
+        raise ValueError("Unexpected retrieval limit in the recorded response.")
+    return ComparisonConfiguration(
+        configuration_id=response.baseline_version,
+        retrieval_version="original-query-v1",
+        context_version="whole-passages-v2",
+        # Historical v2 receipts predate execution records and used this fixed limit.
+        context_bytes=response.execution.limits.context_bytes
+        if response.execution
+        else CONTEXT_BYTE_BUDGET,
+        retrieval_k=3,
+        answer_settings_sha256=document_fingerprint(
+            response.model_settings.model_dump(mode="json")
+        ),
+        prompt_sha256=response.prompt_sha256,
+        snapshot_sha256=response.snapshot_sha256,
+        cache_mode="off",
+        cache_namespace=namespace,
+    )
+
+
+def _retrieval_reference(case: ComparisonCase) -> RetrievalReference:
+    return RetrievalReference(
+        case_id=case.case_id,
+        question=case.question,
+        answerable=case.expected_status in ("answered", "partial"),
+        relevant_ids=tuple(p.evidence_id for p in case.evidence),
+        required_facts=case.required_facts,
+    )
+
+
 def reviewed_comparison_run(
     dataset: ComparisonDataset, capture_path: Path, review_path: Path
 ) -> ComparisonRun:
-    capture = json.loads(capture_path.read_bytes())
+    capture_bytes = capture_path.read_bytes()
+    capture = json.loads(capture_bytes)
     review = json.loads(review_path.read_bytes())
     if capture["state"] != "complete" or review["state"] != "complete":
         raise ValueError("Both capture and frozen review must be complete.")
-    if review["capture_sha256"] != hashlib.sha256(capture_path.read_bytes()).hexdigest():
+    if review["capture_sha256"] != hashlib.sha256(capture_bytes).hexdigest():
         raise ValueError("The review belongs to a different capture.")
     if capture["dataset_sha256"] != dataset.fingerprint:
         raise ValueError("The capture belongs to a different frozen dataset.")
@@ -225,11 +239,32 @@ def reviewed_comparison_run(
         raise ValueError("Review every captured observation exactly once.")
     if [row["case_id"] for row in capture["cases"]] != capture["case_ids"]:
         raise ValueError("Capture must contain its declared observations once in order.")
+    configuration = ComparisonConfiguration.model_validate(capture["configuration"])
+    cases = {case.case_id: case for case in dataset.cases}
     for row in capture["cases"]:
         if row.get("state") != "complete":
             raise ValueError("Every captured observation must be complete.")
         annotation = QualityReview.model_validate(scored[row["case_id"]]["review"])
         original = row["reference"]
+        case = cases.get(original.get("comparison_case_id"))
+        repeat = original.get("repeat")
+        if (
+            case is None
+            or case.split != "development"
+            or type(repeat) is not int
+            or not 0 <= repeat < 3
+            or row["case_id"] != f"{case.case_id}-r{repeat}"
+            or annotation.case_id != row["case_id"]
+            or original
+            != {
+                **case.model_dump(mode="json"),
+                "case_id": row["case_id"],
+                "comparison_case_id": case.case_id,
+                "repeat": repeat,
+            }
+            or row.get("reference_sha256") != document_fingerprint(original)
+        ):
+            raise ValueError("Captured reference differs from its frozen dataset case.")
         checked = score_captured_answer(
             annotation,
             row["response"],
@@ -240,11 +275,30 @@ def reviewed_comparison_run(
             raise ValueError("Recorded scores differ from their frozen review.")
         if document_fingerprint(row["response"]) != row["response_sha256"]:
             raise ValueError("The captured response fingerprint differs.")
+        response = AnswerRecord.model_validate(row["response"])
+        if response.snapshot_id != case.snapshot_id or response.question != case.question:
+            raise ValueError("The saved answer differs from its frozen dataset case.")
+        if (
+            configuration != _answer_configuration(response, configuration.cache_namespace)
+            or capture.get("application_sha256") != response.application_sha256
+            or capture.get("prompt_sha256") != response.prompt_sha256
+            or capture.get("cache_mode") != configuration.cache_mode
+            or capture.get("cache_namespace") != configuration.cache_namespace
+        ):
+            raise ValueError("Declared comparison controls differ from the saved answer.")
+        retrieval = score_retrieval(
+            _retrieval_reference(case),
+            tuple(hit.passage.evidence_id for hit in response.retrieved),
+            tuple(p.evidence_id for p in response.context),
+            k=configuration.retrieval_k,
+        )
+        if row["retrieval_score"] != retrieval.model_dump(mode="json"):
+            raise ValueError("Recorded retrieval scores differ from the saved answer evidence.")
     return ComparisonRun(
         dataset_sha256=dataset.fingerprint,
         code_revision=capture["code_revision"],
         application_sha256=capture["application_sha256"],
-        configuration=ComparisonConfiguration.model_validate(capture["configuration"]),
+        configuration=configuration,
         observations=tuple(
             ComparisonObservation(
                 case_id=row["reference"]["comparison_case_id"],

@@ -1,0 +1,34 @@
+{
+  "kind": "controlled-claim-extraction-trace-readback-v1",
+  "traces": [
+    {
+      "trace_id": "tr-97f4cf678fa416ddafd8a798febe3098",
+      "root_name": "relationship_extraction",
+      "span_count": 1,
+      "snapshot_id": "relationship-pilot-v1",
+      "snapshot_sha256": "973509567ae163bd48866e389b77fcafb8b3d6d346f51a4741b00626b95cadd1",
+      "reference_sha256": "09c258dfb092b7f85672d6c77a749cf5bb6994ffa7f4916078ed688d2807caf8",
+      "application_sha256": "84f3dbf0da784b69db9228131f862baad29dc76ec0883342e8fdc78a7bfc2b08",
+      "retained_output_sha256": "c0a5fb8bf875a83b5d290778a247b81e9848f9468cc41052356da5ed292b79fa",
+      "actual_trace_output_sha256": "c0a5fb8bf875a83b5d290778a247b81e9848f9468cc41052356da5ed292b79fa",
+      "raw_sha256": "ebde4e85c240854d53f0ce9b5f2827dc2d8d37b93fc058e00dba53e3b06d621f",
+      "extraction_f1": 1.0,
+      "provider": "controlled HTTP fixture; no paid model call"
+    },
+    {
+      "trace_id": "tr-adf8ed765fd212db6ea51ea08b772ce2",
+      "root_name": "parentage_extraction",
+      "span_count": 1,
+      "snapshot_id": "family-pilot-v1",
+      "snapshot_sha256": "118cb99db01b352e9b2793e56873962d9769e00df7c3764bb7201d8a7a281a06",
+      "reference_sha256": "7f200f7d38c09c66fc2039288180db7f98c8cd2a130672abcfef165f8c8b777e",
+      "application_sha256": "84f3dbf0da784b69db9228131f862baad29dc76ec0883342e8fdc78a7bfc2b08",
+      "retained_output_sha256": "f8eeb7c9cca2dafe50a7cda6ec760d69de9e5d3e99b934a8cb833ddeb6db5a33",
+      "actual_trace_output_sha256": "f8eeb7c9cca2dafe50a7cda6ec760d69de9e5d3e99b934a8cb833ddeb6db5a33",
+      "raw_sha256": "ba75072910cc5030286b67f145eee3d0bdb1a1a6f4eb7ba38153e0ad00b9fc67",
+      "extraction_f1": 1.0,
+      "provider": "controlled HTTP fixture; no paid model call"
+    }
+  ],
+  "limitation": "Deterministic software verification; no live model or canon acceptance."
+}

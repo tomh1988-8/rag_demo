@@ -1,11 +1,124 @@
 """Quality comparisons at the already confirmed evaluation/scorer boundary."""
 
+import hashlib
+import json
 from pathlib import Path
 
 import pytest
 
 from ask_phil.evaluation import QualityReview, score_answer_review
 from ask_phil.quality_comparison import ComparisonDataset, ComparisonRun
+
+
+@pytest.mark.parametrize(
+    "section,field,value",
+    [
+        ("configuration", "prompt_sha256", "f" * 64),
+        ("configuration", "snapshot_sha256", "f" * 64),
+        ("configuration", "answer_settings_sha256", "f" * 64),
+        ("configuration", "context_bytes", 600),
+        ("configuration", "retrieval_k", 2),
+        ("configuration", "retrieval_version", "unrecorded-retrieval"),
+        ("configuration", "context_version", "unrecorded-context"),
+        ("configuration", "cache_mode", "warm"),
+        ("capture", "application_sha256", "f" * 64),
+        ("capture", "prompt_sha256", "f" * 64),
+        ("capture", "cache_namespace", "different-namespace"),
+    ],
+)
+def test_comparison_rejects_declared_controls_that_differ_from_saved_answers(
+    tmp_path: Path, section: str, field: str, value: str | int
+) -> None:
+    from ask_phil.quality_workflow import reviewed_comparison_run
+
+    evidence = Path("docs/implementation/issue-9")
+    dataset = ComparisonDataset.model_validate_json(
+        Path("data/references/quality-comparison-v1.json").read_bytes()
+    )
+    capture = json.loads((evidence / "baseline-capture-v2.json").read_bytes())
+    review = json.loads((evidence / "baseline-review.json").read_bytes())
+    target = capture["configuration"] if section == "configuration" else capture
+    target[field] = value
+    capture_path = tmp_path / "capture.json"
+    capture_path.write_text(json.dumps(capture))
+    review["capture_sha256"] = hashlib.sha256(capture_path.read_bytes()).hexdigest()
+    review_path = tmp_path / "review.json"
+    review_path.write_text(json.dumps(review))
+
+    with pytest.raises(ValueError, match="controls.*saved answer"):
+        reviewed_comparison_run(dataset, capture_path, review_path)
+
+
+def test_comparison_rejects_relabelled_frozen_reference_even_with_fresh_hashes(
+    tmp_path: Path,
+) -> None:
+    from ask_phil.evaluation import document_fingerprint
+    from ask_phil.quality_workflow import reviewed_comparison_run
+
+    evidence = Path("docs/implementation/issue-9")
+    dataset = ComparisonDataset.model_validate_json(
+        Path("data/references/quality-comparison-v1.json").read_bytes()
+    )
+    capture = json.loads((evidence / "baseline-capture-v2.json").read_bytes())
+    review = json.loads((evidence / "baseline-review.json").read_bytes())
+    row = capture["cases"][0]
+    row["reference"]["category"] = "relabelled-category"
+    row["reference_sha256"] = document_fingerprint(row["reference"])
+    review["cases"][0]["review"]["reference_sha256"] = row["reference_sha256"]
+    capture_path = tmp_path / "capture.json"
+    capture_path.write_text(json.dumps(capture))
+    review["capture_sha256"] = hashlib.sha256(capture_path.read_bytes()).hexdigest()
+    review_path = tmp_path / "review.json"
+    review_path.write_text(json.dumps(review))
+
+    with pytest.raises(ValueError, match="frozen dataset case"):
+        reviewed_comparison_run(dataset, capture_path, review_path)
+
+
+def test_retained_comparison_replays_without_rewriting_historical_answers() -> None:
+    from ask_phil.quality_comparison import compare_development
+    from ask_phil.quality_workflow import reviewed_comparison_run
+
+    evidence = Path("docs/implementation/issue-9")
+    dataset = ComparisonDataset.model_validate_json(
+        Path("data/references/quality-comparison-v1.json").read_bytes()
+    )
+    baseline = reviewed_comparison_run(
+        dataset, evidence / "baseline-capture-v2.json", evidence / "baseline-review.json"
+    )
+    candidate = reviewed_comparison_run(
+        dataset, evidence / "candidate-capture.json", evidence / "candidate-review.json"
+    )
+    report = compare_development(dataset, baseline, candidate, changed_factor="answer_settings")
+    assert report["case_count"] == 7
+    assert report["paired_observations"] == 14
+    assert report["critical_gates"] == {"baseline": "failed", "candidate": "failed"}
+    assert (
+        report["dimensions"]
+        == json.loads((evidence / "comparison.json").read_bytes())["dimensions"]
+    )
+
+
+def test_comparison_rejects_retrieval_scores_that_differ_from_saved_evidence(
+    tmp_path: Path,
+) -> None:
+    from ask_phil.quality_workflow import reviewed_comparison_run
+
+    evidence = Path("docs/implementation/issue-9")
+    dataset = ComparisonDataset.model_validate_json(
+        Path("data/references/quality-comparison-v1.json").read_bytes()
+    )
+    capture = json.loads((evidence / "baseline-capture-v2.json").read_bytes())
+    review = json.loads((evidence / "baseline-review.json").read_bytes())
+    capture["cases"][0]["retrieval_score"]["recall_at_k"] = 0.0
+    capture_path = tmp_path / "capture.json"
+    capture_path.write_text(json.dumps(capture))
+    review["capture_sha256"] = hashlib.sha256(capture_path.read_bytes()).hexdigest()
+    review_path = tmp_path / "review.json"
+    review_path.write_text(json.dumps(review))
+
+    with pytest.raises(ValueError, match="retrieval scores.*saved answer"):
+        reviewed_comparison_run(dataset, capture_path, review_path)
 
 
 def test_comparison_rejects_scores_that_do_not_match_the_frozen_review(tmp_path: Path) -> None:

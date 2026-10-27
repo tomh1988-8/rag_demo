@@ -59,11 +59,14 @@ class ClaimLLM(CustomLLM):
 
     @llm_completion_callback()
     def complete(self, prompt: str, formatted: bool = False, **kwargs: Any) -> CompletionResponse:
-        result = self._chat.chat(
-            [ChatMessage(role="user", content=prompt)], format=self._output_cls.model_json_schema()
-        )
-        self._raw = result.message.content or ""
-        return CompletionResponse(text=self._raw)
+        try:
+            result = self._chat.chat(
+                [ChatMessage(role="user", content=prompt)],
+                format=self._output_cls.model_json_schema(),
+            )
+        finally:
+            self._raw = self._chat.last_content
+        return CompletionResponse(text=result.message.content or "")
 
     def stream_complete(self, prompt: str, formatted: bool = False, **kwargs: Any) -> Any:
         raise NotImplementedError("The extraction pilot uses one bounded non-streaming call.")
