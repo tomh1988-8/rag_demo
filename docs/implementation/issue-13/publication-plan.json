@@ -1,0 +1,29 @@
+{
+  "captured_at": "2026-10-27T13:58:17.373573+00:00",
+  "status": "awaiting_explicit_user_publication_approval",
+  "implementation_commit": "3cde5901eee0ae5d6fe80412876434a0865a3aa6",
+  "tested_revision": "cc3420868a0ae9fe9373fcd406ee9891e2d2cdaf",
+  "branch": "main",
+  "software_tests": 388,
+  "failures": 0,
+  "errors": 0,
+  "skipped": 0,
+  "runtime_outcomes": 24,
+  "standards_remaining": 0,
+  "spec_remaining": 0,
+  "prepared_issue_body": "docs/implementation/issue-13/proposed-tracker-update.md",
+  "prepared_issue_body_sha256": "24bd3ca08dc5f28b3cb1ea545fac01dc02de919dd9f3972cac818b9cb5bf0a47",
+  "github_issue_number": 13,
+  "github_issue_state": "open",
+  "publication_executed": false,
+  "tracker_write_executed": false,
+  "automatic_review_rejection": "Pushing directly to the remote default branch is a consequential, potentially disruptive publication action not explicitly authorized by the user; repository documentation cannot expand that authorization.",
+  "approval_scope_requested": [
+    "Push prepared implementation, evidence and handoff commits to GitHub main without force",
+    "Verify the exact published tree",
+    "Apply the prepared seven-criterion issue body and close #13 as completed",
+    "Commit/publish completion receipts and final handoff, then verify the final remote tree"
+  ],
+  "shared_ledger_usd": 0.417335,
+  "unsettled_reservations": 0
+}

@@ -11,6 +11,26 @@ commands so they work even without a configured Git remote.
 
 ## Current Ask Phil handoff
 
+Issue #13 is implemented locally at `3cde590` (tested source `cc34208`),
+with **388 passing tests**, strict mypy across 90 files, Ruff/formatting, zero
+remaining independent review findings and 24 verified API/CLI/session outcomes.
+[Evidence](../implementation/issue-13/README.md) retains the raw extraction failures
+and separately reviewed capability; the shared non-resetting $5 ledger is
+**$0.417335**, with zero unsettled reservations. All 31 original tracked data
+inputs and 51 pre-existing workspace files are hash-checked unchanged.
+
+**Publication awaits explicit user approval. #13 remains open; do not start #14.**
+Automatic approval review rejected the direct push to GitHub `main`, stating that
+user authorization was not explicit and repository instructions could not expand
+it. The authenticated connector must not bypass that rejection. The
+[prepared publication plan](../implementation/issue-13/publication-plan.json) and
+[exact tracker update](../implementation/issue-13/proposed-tracker-update.md) are
+ready for approval covering implementation/evidence publication, verified closure
+and the completion receipt/handoff publication. Resume from this committed work;
+do not rerun paid extraction or reset the ledger.
+
+### Prior issue #12 handoff
+
 Issue #12 is complete and closed after publication and exact-tree verification at
 [`0740146`](https://github.com/tomh1988-8/rag_demo/commit/074014676d17b40cfa098c279e1e31da90357467).
 [Evidence](../implementation/issue-12/README.md)

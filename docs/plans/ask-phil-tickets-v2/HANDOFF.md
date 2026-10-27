@@ -1,5 +1,25 @@
 # Ask Phil: publication and next-skill handoff
 
+## Issue #13 implementation: publication approval pending
+
+Issue #13 is implemented at `3cde590`, with tested source `cc34208`, 388 passing
+tests, strict mypy/formatting/lint, zero remaining independent review findings and
+24 verified API/CLI/session outcomes. [Evidence](../../implementation/issue-13/README.md)
+retains the pilot quality failures, reviewed serving capability and initial
+concurrency-test failure/fix. Trial ledger: $0.417335; zero unsettled reservations.
+
+Automatic approval review rejected direct publication to `main` because explicit
+user authorization was absent; repo documentation was insufficient. **#13 remains
+open and #14 must not begin.** [The exact tracker body](../../implementation/issue-13/proposed-tracker-update.md)
+and [publication plan](../../implementation/issue-13/publication-plan.json) are ready.
+Approval must cover pushing the prepared implementation/evidence, applying that
+body/closing #13 and publishing the completion receipt/handoff. Do not bypass the
+rejection through another publisher, rerun paid extraction or reset the ledger.
+
+The earlier completed-issue records below remain historical; this status takes
+precedence until publication and closure are read back.
+
+
 Updated 27 October 2026. The user approved the initial checklist/ticket breakdown, authorised publication, and subsequently required user feedback and online evaluation. Checklist v1.1 and the amended 24-ticket breakdown are published. Issues #2–#12 are complete and closed. Issues #5–#8 passed their full software suites, independent reviews, exact-tree publication verification and closure readback. Issue #4 passed its scoped cloud policy acceptance.
 
 ## Issue #12: relationship histories accepted and closed

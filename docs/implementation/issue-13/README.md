@@ -130,3 +130,10 @@ Starlette/httpx and record_property/xunit2 compatibility warnings remain
 non-blocking.
 The original source labels, raw output and all earlier runtime evidence remain
 available. Wider RAG-04, EXT-04 and AD-08.4 release obligations retain their status.
+
+
+Implementation and acceptance evidence are committed locally at `3cde590`.
+Publication is pending explicit user approval after automatic review rejected the
+direct push to GitHub `main`; #13 remains open. The exact tracker update and
+publication plan are prepared. This blocker concerns publication authorization,
+not software validation or the separately documented extraction-quality failures.
