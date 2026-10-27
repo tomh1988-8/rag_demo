@@ -1,8 +1,8 @@
 # Ask Phil: publication and next-skill handoff
 
-Updated 27 October 2026. The user approved the initial checklist/ticket breakdown, authorised publication, and subsequently required user feedback and online evaluation. Checklist v1.1 and the amended 24-ticket breakdown are published. Issues #2–#11 are complete and closed; #12 implementation and acceptance are complete with publication/closure in progress. Issues #5–#8 passed their full software suites, independent reviews, exact-tree publication verification and closure readback. Issue #4 passed its scoped cloud policy acceptance.
+Updated 27 October 2026. The user approved the initial checklist/ticket breakdown, authorised publication, and subsequently required user feedback and online evaluation. Checklist v1.1 and the amended 24-ticket breakdown are published. Issues #2–#12 are complete and closed. Issues #5–#8 passed their full software suites, independent reviews, exact-tree publication verification and closure readback. Issue #4 passed its scoped cloud policy acceptance.
 
-## Issue #12: relationship histories accepted; publication in progress
+## Issue #12: relationship histories accepted and closed
 
 [Implementation and evidence](../../implementation/issue-12/README.md) add typed
 read-only family/romantic histories with preserved role direction, reported status,
@@ -29,8 +29,18 @@ historical amounts. Original tracked data and the user's pre-existing work are
 preserved. Checklist counts remain 34 Pass and 17 Pending; wider graph, correction,
 routing and final acceptance obligations remain outstanding.
 
-**#13 is next** after publication/closure; #15, #19, #22 and #24 also remain
-unblocked. Wait for the next implementation instruction before another issue.
+Native publication of
+[`0740146`](https://github.com/tomh1988-8/rag_demo/commit/074014676d17b40cfa098c279e1e31da90357467)
+and fetched exact-tree verification passed after the user replied `approve`.
+[The receipt](../../implementation/issue-12/publication.json) records the result.
+The user's subsequent `I approve` explicitly covered the remaining tracker
+update/closure and receipt publication. All seven checked criteria, completed
+closure and exact agreement with the
+[prepared body](../../implementation/issue-12/proposed-tracker-update.md) were
+read back. Earlier automatic rejections are superseded, with no current blocker.
+
+**#13 is next**; #15, #19, #22 and #24 also remain unblocked. Wait for the next
+implementation instruction before another ticket.
 
 ## Issue #11: biological family accepted and closed
 
@@ -275,7 +285,7 @@ use #3. A persistent cloud deployment has not been configured.
 ## Published and verified
 
 - [Specification #1](https://github.com/tomh1988-8/rag_demo/issues/1) contains the agreed specification with the feedback/online-evaluation and fusion/cache amendments (130 stories).
-- Implementation tickets **#2–#25** are published and labelled `ready-for-agent`. **#2–#11 are closed as completed**; #12–#25 remain open.
+- Implementation tickets **#2–#25** are published and labelled `ready-for-agent`. **#2–#12 are closed as completed**; #13–#25 remain open.
 - All 25 remote bodies, states and ready-for-agent labels were read back and checked against the intended content after the fusion/cache amendment.
 - The 41 blocking relationships are recorded as real issue references in ticket bodies and as a machine-readable mapping in [publication.json](publication.json).
 - Issue #2 has a reviewed captured seed, CLI/API/PostgreSQL behavior, 17 passing tests in both native and Docker environments, and recorded deterministic baseline outputs. [Fresh Compose startup and database/API restart passed](../../implementation/issue-2/README.md); no generative model quality is claimed. GitHub closure and all seven checked criteria were read back and verified.
@@ -284,7 +294,7 @@ The [to-spec skill](../../../.agents/skills/to-spec/SKILL.md) authorised specifi
 
 ## First available work
 
-**[#13 — Explain crimes and criminal justice roles](https://github.com/tomh1988-8/rag_demo/issues/13)** is next after #12 publication/closure. #15, #19, #22 and #24 are also unblocked. Wait for the next implementation instruction before starting another ticket. Specification #1 remains parent context.
+**[#13 — Explain crimes and criminal justice roles](https://github.com/tomh1988-8/rag_demo/issues/13)** is next. #15, #19, #22 and #24 are also unblocked. Wait for the next implementation instruction before starting another ticket. Specification #1 remains parent context.
 
 For subsequent work, read the current issue and comments, the relevant domain/ADR decisions and the checklist profile. Work the dependency frontier; the shared `ready-for-agent` label does not mean a blocked ticket can begin. Existing approved decisions and the six public test boundaries do not need another design interview.
 

@@ -1,0 +1,85 @@
+{
+  "status": "published_and_closed",
+  "recorded_at": "2026-10-27T11:24:59.837521+00:00",
+  "repository": "tomh1988-8/rag_demo",
+  "destination": "refs/heads/main",
+  "authorization": {
+    "user_messages": [
+      "approve",
+      "I approve"
+    ],
+    "scope": [
+      "Publish completed issue #12 commits to main",
+      "Apply the prepared seven acceptance checks and close issue #12 after exact-tree verification",
+      "Publish the final completion receipt and handoff to main"
+    ],
+    "publication_approval_pending": false,
+    "tracker_update_approval_pending": false,
+    "receipt_publication_approval_pending": false,
+    "supersedes_initial_automatic_rejections": true
+  },
+  "automatic_approval_events": [
+    {
+      "action": "git push origin main",
+      "initial_status": "rejected",
+      "reason": "Publication to default main branch was considered high impact without explicit current user approval.",
+      "resolution": "User replied approve; subsequent automatic review approved the push."
+    },
+    {
+      "action": "gh issue edit 12 --body-file plus gh issue close 12 --reason completed",
+      "status": "rejected_not_executed",
+      "reason": "Automatic review interpreted the prior approval as covering Git publication but not checking off or closing the issue.",
+      "resolution": "User subsequently replied I approve after both tracker closure and final receipt publication were named. Automatic review then approved the exact prepared update and closure; completed state and all seven checks were read back."
+    },
+    {
+      "action": "Additional documentation-only receipt commit and push to main",
+      "initial_status": "rejected_not_executed",
+      "reason": "Automatic review interpreted the first approval as covering the earlier publication only.",
+      "resolution": "User subsequently replied I approve after both pending tracker closure and final receipt publication were explicitly identified. Final receipt publication follows under that approval."
+    }
+  ],
+  "reviewed_code_revision": "0c9918c74c9e005135b1f8cb8d2e95568928eccb",
+  "publication": {
+    "method": "native_git_https",
+    "local_revision": "074014676d17b40cfa098c279e1e31da90357467",
+    "remote_revision": "074014676d17b40cfa098c279e1e31da90357467",
+    "local_tree": "00ccf4fcb90286679789440f98ea62d547315801",
+    "remote_tree": "00ccf4fcb90286679789440f98ea62d547315801",
+    "tree_diff_empty": true,
+    "commit_url": "https://github.com/tomh1988-8/rag_demo/commit/074014676d17b40cfa098c279e1e31da90357467"
+  },
+  "tracker": {
+    "number": 12,
+    "url": "https://github.com/tomh1988-8/rag_demo/issues/12",
+    "state": "closed",
+    "state_reason": "completed",
+    "closed_at": "2026-10-27T11:23:31Z",
+    "readback_at": "2026-10-27T11:24:59.837576+00:00",
+    "checked_criteria": 7,
+    "unchecked_criteria": 0,
+    "body_matches_prepared_update": true,
+    "body_sha256": "19bee15f23bfd3fefd00489482e50fc4611c842f2bf144835f6bfcf27d946b79",
+    "applied_body_file": "proposed-tracker-update.md"
+  },
+  "validation": {
+    "passed": 340,
+    "failures": 0,
+    "errors": 0,
+    "skips": 0,
+    "mypy_files": 79,
+    "standards_findings": 0,
+    "spec_findings": 0,
+    "runtime_outcomes": 28,
+    "runtime_trace_outputs_match": 28,
+    "source_changes_after_full_suite": false
+  },
+  "preservation": {
+    "shared_ledger_usd": 0.386799,
+    "unsettled_reservations": 0,
+    "publication_paid_calls": 0,
+    "preexisting_user_work_excluded": true,
+    "original_data_files_unchanged": 28
+  },
+  "next_issue_after_closure": 13,
+  "receipt_note": "This receipt records verified implementation publication and completed tracker closure. The subsequent documentation-only receipt commit is pushed and its remote tree verified before reporting completion."
+}

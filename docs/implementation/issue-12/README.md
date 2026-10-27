@@ -153,5 +153,15 @@ original tracked data files and the user's unrelated work are preserved.
 Broader graph coverage, corrections, automatic routing, held-out quality and
 human/canon acceptance remain outstanding project obligations.
 
-Implementation and acceptance are complete. Native publication, exact-tree
-verification and tracker closure are the remaining completion steps.
+Implementation and acceptance are published in
+[`0740146`](https://github.com/tomh1988-8/rag_demo/commit/074014676d17b40cfa098c279e1e31da90357467).
+Native fetch/readback confirms the remote commit and tree exactly match the local
+publication. [The receipt](publication.json) records the user's explicit `approve`
+and subsequent `I approve` replies covering publication, tracker closure and the
+final completion receipt.
+
+Issue **#12 is closed as completed**. All seven checked criteria, zero unchecked
+criteria and exact agreement with [the prepared body](proposed-tracker-update.md)
+were read back. Earlier automatic rejections are superseded by those explicit
+approvals; there is no current publication or tracker blocker. #13 is next; wait
+for the user's next implementation instruction before another ticket.

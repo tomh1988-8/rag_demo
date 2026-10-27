@@ -11,8 +11,9 @@ commands so they work even without a configured Git remote.
 
 ## Current Ask Phil handoff
 
-Issue #12 implementation and acceptance are complete; publication, remote-tree
-verification and tracker closure are in progress. [Evidence](../implementation/issue-12/README.md)
+Issue #12 is complete and closed after publication and exact-tree verification at
+[`0740146`](https://github.com/tomh1988-8/rag_demo/commit/074014676d17b40cfa098c279e1e31da90357467).
+[Evidence](../implementation/issue-12/README.md)
 records **340 passing tests**, strict mypy across 79 files, Ruff/formatting and
 zero remaining findings on both independent review axes. All 28 final API/CLI
 outcomes match actual MLflow outputs. Typed read-only history queries preserve
@@ -32,8 +33,15 @@ ledger at **$0.386799**, zero unsettled reservations. All 28 original tracked da
 files, the private key and the user's pre-existing work are preserved. This
 current ledger supersedes the historical amounts below.
 
-**#13 is next** once #12 publication/closure completes; #15, #19, #22 and #24
-remain unblocked. Wait for the user's next implementation instruction.
+[The publication receipt](../implementation/issue-12/publication.json) records the
+user's `approve` and subsequent `I approve` replies covering publication, the
+prepared tracker update/closure and final receipt publication. All seven checked
+criteria, completed closure and exact agreement with the prepared body were read
+back. The earlier automatic rejections are superseded; there is no current
+publication or tracker blocker.
+
+**#13 is next**; #15, #19, #22 and #24 also remain unblocked. Wait for the user's
+next implementation instruction before another issue.
 
 ### Earlier handoffs
 
