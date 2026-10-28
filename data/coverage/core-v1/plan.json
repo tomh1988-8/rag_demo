@@ -1,0 +1,445 @@
+{
+  "version": 1,
+  "roster": [
+    "phil-mitchell",
+    "grant-mitchell",
+    "peggy-mitchell",
+    "sharon-watts",
+    "ben-mitchell",
+    "ian-beale",
+    "kathy-beale",
+    "cindy-beale",
+    "lucy-beale",
+    "bobby-beale",
+    "martin-fowler",
+    "kat-slater",
+    "stacey-slater",
+    "alfie-moon",
+    "pat-butcher",
+    "janine-butcher",
+    "dot-cotton",
+    "denise-fox",
+    "max-branning",
+    "linda-carter"
+  ],
+  "batches": [
+    {
+      "batch_id": "phil-mitchell",
+      "character_id": "phil-mitchell",
+      "kind": "family",
+      "snapshot": "phil-mitchell-source.json",
+      "snapshot_file_sha256": "49a34cf133e6d84f6df436201631586b5320b6e02075371493ce82f7d77f46c5",
+      "reference": "phil-mitchell-reference.json",
+      "reference_sha256": "81db6d6e634ee50d66f1adb6292e943b8e4d011f452dd522a75723de512d7305",
+      "split": "exposed_development",
+      "story_groups": [
+        "ben-birth"
+      ],
+      "reference_complete": true,
+      "review_note": "Birth to their son supports both biological parents. Giving birth establishes Kathy’s mother role; no explicit father role or calendar time is stated for Phil.",
+      "gaps": [
+        "Only the selected excerpts and catalogue identities are completely annotated. Other narrative passages, supporting identities, relations and incidents remain unassessed.",
+        "Captured source support is not independent corroboration or exhaustive canon. Unknown dates are retained; capture and broadcast dates are not story dates."
+      ]
+    },
+    {
+      "batch_id": "grant-mitchell",
+      "character_id": "grant-mitchell",
+      "kind": "relationships",
+      "snapshot": "grant-mitchell-source.json",
+      "snapshot_file_sha256": "355e22b21029c81a7508d6a13a9fda58c02f9fd0c74662f8b0f52d990abb0d34",
+      "reference": "grant-mitchell-reference.json",
+      "reference_sha256": "bf7f87e9eb4ec9c5925b6dc191affb6fb5e9e77b71eafcf153b5efc326e5da1c",
+      "split": "exposed_development",
+      "story_groups": [
+        "grant-sharon-marriage"
+      ],
+      "reference_complete": true,
+      "review_note": "Actual marriage, month precision; running a pub supplies no additional relationship type. Present narrative does not prove current status.",
+      "gaps": [
+        "Only the selected excerpts and catalogue identities are completely annotated. Other narrative passages, supporting identities, relations and incidents remain unassessed.",
+        "Captured source support is not independent corroboration or exhaustive canon. Unknown dates are retained; capture and broadcast dates are not story dates."
+      ]
+    },
+    {
+      "batch_id": "peggy-mitchell",
+      "character_id": "peggy-mitchell",
+      "kind": "family",
+      "snapshot": "peggy-mitchell-source.json",
+      "snapshot_file_sha256": "7cd1059e7ea3697d517e728743e4a5fc4e5b410044135b8a829097ddd75bfb86",
+      "reference": "peggy-mitchell-reference.json",
+      "reference_sha256": "f25f58f2c042c55f9db4856f02ea51623860b6d6ea01689ac23d3489e40c500e",
+      "split": "exposed_development",
+      "story_groups": [
+        "peggy-phil-parentage"
+      ],
+      "reference_complete": true,
+      "review_note": "Pregnancy establishes Peggy as biological mother. Eric is outside this selected catalogue; his parentage is not measured. Backstory retained without fabricating a calendar date.",
+      "gaps": [
+        "Only the selected excerpts and catalogue identities are completely annotated. Other narrative passages, supporting identities, relations and incidents remain unassessed.",
+        "Captured source support is not independent corroboration or exhaustive canon. Unknown dates are retained; capture and broadcast dates are not story dates."
+      ]
+    },
+    {
+      "batch_id": "sharon-watts",
+      "character_id": "sharon-watts",
+      "kind": "relationships",
+      "snapshot": "sharon-watts-source.json",
+      "snapshot_file_sha256": "098825a826f6930bc9b33ef3cb270290736bf11a8369c784f4dc83009926bf8c",
+      "reference": "sharon-watts-reference.json",
+      "reference_sha256": "f44a772e7bd7f6dd5152acce3da67307b9a13e1d2c972d2a34b68313a8f497ba",
+      "split": "exposed_development",
+      "story_groups": [
+        "sharon-adoption"
+      ],
+      "reference_complete": true,
+      "review_note": "Explicit adoption at age three; retain supporting character Den, and exclude this tie from biological ancestry. Angie is outside this selected identity scope.",
+      "gaps": [
+        "Only the selected excerpts and catalogue identities are completely annotated. Other narrative passages, supporting identities, relations and incidents remain unassessed.",
+        "Captured source support is not independent corroboration or exhaustive canon. Unknown dates are retained; capture and broadcast dates are not story dates."
+      ]
+    },
+    {
+      "batch_id": "ben-mitchell",
+      "character_id": "ben-mitchell",
+      "kind": "family",
+      "snapshot": "ben-mitchell-source.json",
+      "snapshot_file_sha256": "49ffa95fa557f0ae6ad3897320376eee9fffdd1e3d1e106a471f12acc481fd17",
+      "reference": "ben-mitchell-reference.json",
+      "reference_sha256": "60fe521fe242fd1af8a8adee147fe12553352dad43cd76ceafce688b49264139",
+      "split": "exposed_development",
+      "story_groups": [
+        "ben-birth"
+      ],
+      "reference_complete": true,
+      "review_note": "Born to establishes biological parentage with generic roles. Month precision exactly matches the prior pilot. Same story as Phil and Kathy profiles, not independent evidence.",
+      "gaps": [
+        "Only the selected excerpts and catalogue identities are completely annotated. Other narrative passages, supporting identities, relations and incidents remain unassessed.",
+        "Captured source support is not independent corroboration or exhaustive canon. Unknown dates are retained; capture and broadcast dates are not story dates."
+      ]
+    },
+    {
+      "batch_id": "ian-beale",
+      "character_id": "ian-beale",
+      "kind": "family",
+      "snapshot": "ian-beale-source.json",
+      "snapshot_file_sha256": "529bc1947f0380d3306dc7cde1f476066d06ce56ceaa870e200514bad0f14d09",
+      "reference": "ian-beale-reference.json",
+      "reference_sha256": "080f48c3d705df7516da26242b7f7afba35423c6ccaec0ae023e504d00f374b8",
+      "split": "exposed_development",
+      "story_groups": [
+        "lucy-birth"
+      ],
+      "reference_complete": true,
+      "review_note": "Becoming father to newborn twins supports Ian as biological father of Lucy. Peter and Cindy are outside this narrow catalogue, so neither is a negative reference.",
+      "gaps": [
+        "Only the selected excerpts and catalogue identities are completely annotated. Other narrative passages, supporting identities, relations and incidents remain unassessed.",
+        "Captured source support is not independent corroboration or exhaustive canon. Unknown dates are retained; capture and broadcast dates are not story dates."
+      ]
+    },
+    {
+      "batch_id": "kathy-beale",
+      "character_id": "kathy-beale",
+      "kind": "family",
+      "snapshot": "kathy-beale-source.json",
+      "snapshot_file_sha256": "a497545ebbe77c7498b9a5efaf0e1afe4d0584ff3c1cc374457529ac8d9019da",
+      "reference": "kathy-beale-reference.json",
+      "reference_sha256": "251c8b306911f82a0e8c7b1623e983835d67d55ac22fbc6e1d7f24031fd0fd46",
+      "split": "exposed_development",
+      "story_groups": [
+        "ben-birth"
+      ],
+      "reference_complete": true,
+      "review_note": "Kathy gives birth to their son, then names him Ben. Early 1995 explicitly dates the marriage, not the birth; preserve unknown birth time and do not infer it from the paragraph. The explicit phrase becoming a father supports Phil’s father role.",
+      "gaps": [
+        "Only the selected excerpts and catalogue identities are completely annotated. Other narrative passages, supporting identities, relations and incidents remain unassessed.",
+        "Captured source support is not independent corroboration or exhaustive canon. Unknown dates are retained; capture and broadcast dates are not story dates."
+      ]
+    },
+    {
+      "batch_id": "cindy-beale",
+      "character_id": "cindy-beale",
+      "kind": "events",
+      "snapshot": "cindy-beale-source.json",
+      "snapshot_file_sha256": "876e32a38115fc9715b1be41e80052788e11348931b67c1b296d54b0883f9a22",
+      "reference": "cindy-beale-reference.json",
+      "reference_sha256": "01f3eb63fa7ce488878da7a2942141eaff5df21cfcd7719c8311fae3dfbe3863",
+      "split": "exposed_development",
+      "story_groups": [
+        "cindy-twins-pregnancy"
+      ],
+      "reference_complete": true,
+      "review_note": "Only explicit pregnancy and its year. No parentage is inferred from pregnancy; paternity rumours elsewhere are not imported.",
+      "gaps": [
+        "Only the selected excerpts and catalogue identities are completely annotated. Other narrative passages, supporting identities, relations and incidents remain unassessed.",
+        "Captured source support is not independent corroboration or exhaustive canon. Unknown dates are retained; capture and broadcast dates are not story dates."
+      ]
+    },
+    {
+      "batch_id": "lucy-beale",
+      "character_id": "lucy-beale",
+      "kind": "family",
+      "snapshot": "lucy-beale-source.json",
+      "snapshot_file_sha256": "8ca93342b5109a4d3b71c4eb95d447f67e7216a2a26735c78efa91e15c68ae65",
+      "reference": "lucy-beale-reference.json",
+      "reference_sha256": "6dcd9100ba41d2b9b6b10ff234f20727528e7f747f03161908ba97f37f616b59",
+      "split": "exposed_development",
+      "story_groups": [
+        "lucy-birth"
+      ],
+      "reference_complete": true,
+      "review_note": "Explicit born-to parentage and full date. Peter remains outside the selected catalogue. This is the same birth reported in Ian’s profile, kept in one development group.",
+      "gaps": [
+        "Only the selected excerpts and catalogue identities are completely annotated. Other narrative passages, supporting identities, relations and incidents remain unassessed.",
+        "Captured source support is not independent corroboration or exhaustive canon. Unknown dates are retained; capture and broadcast dates are not story dates."
+      ]
+    },
+    {
+      "batch_id": "bobby-beale",
+      "character_id": "bobby-beale",
+      "kind": "events",
+      "snapshot": "bobby-beale-source.json",
+      "snapshot_file_sha256": "0e11a5a20c57c4c5ccf34539da7bbb214ab039901ba018853e6e282a971c12e9",
+      "reference": "bobby-beale-reference.json",
+      "reference_sha256": "fe012b69cff8e0fc70a05a181a83b62b8e94446f31bd3af8dc6fee2f285a85bd",
+      "split": "exposed_development",
+      "story_groups": [
+        "lucy-murder"
+      ],
+      "reference_complete": true,
+      "review_note": "Narrative establishes commission by Bobby and death of Lucy. Relative timing is anchored to Ian/Jane’s remarriage, not a fabricated calendar date. No allegation or conviction is substituted for commission.",
+      "gaps": [
+        "Only the selected excerpts and catalogue identities are completely annotated. Other narrative passages, supporting identities, relations and incidents remain unassessed.",
+        "Captured source support is not independent corroboration or exhaustive canon. Unknown dates are retained; capture and broadcast dates are not story dates."
+      ]
+    },
+    {
+      "batch_id": "martin-fowler",
+      "character_id": "martin-fowler",
+      "kind": "relationships",
+      "snapshot": "martin-fowler-source.json",
+      "snapshot_file_sha256": "55bc0bc98fd4005d0420834aea25f8c77748dfd9c1940abffad28170d38f5a6e",
+      "reference": "martin-fowler-reference.json",
+      "reference_sha256": "0d73cd1bf4affb3ca8d7616159824695c7badc00be6dfce36e385365a2c2dbfe",
+      "split": "exposed_development",
+      "story_groups": [
+        "martin-stacey-marriage"
+      ],
+      "reference_complete": true,
+      "review_note": "Actual marriage crossing a text chunk boundary. No date is supplied by this sentence; capture time and nearby event order do not create one.",
+      "gaps": [
+        "Only the selected excerpts and catalogue identities are completely annotated. Other narrative passages, supporting identities, relations and incidents remain unassessed.",
+        "Captured source support is not independent corroboration or exhaustive canon. Unknown dates are retained; capture and broadcast dates are not story dates."
+      ]
+    },
+    {
+      "batch_id": "kat-slater",
+      "character_id": "kat-slater",
+      "kind": "relationships",
+      "snapshot": "kat-slater-source.json",
+      "snapshot_file_sha256": "e4a3a9ef4ccbeb1281a6a36dde7b54cb4cec8b012501d82cb0d6688e50f4f675",
+      "reference": "kat-slater-reference.json",
+      "reference_sha256": "549432ca10d18a8183d24f8ef70853499232e63ac67aa4578a4d7e5a5eb7f8cd",
+      "split": "exposed_development",
+      "story_groups": [
+        "kat-alfie-marriages"
+      ],
+      "reference_complete": true,
+      "review_note": "Kat is named before the pronoun; actual remarriage is a distinct episode from Alfie’s earlier wedding. On leaving hospital is relative timing; the fire is not a relationship assertion.",
+      "gaps": [
+        "Only the selected excerpts and catalogue identities are completely annotated. Other narrative passages, supporting identities, relations and incidents remain unassessed.",
+        "Captured source support is not independent corroboration or exhaustive canon. Unknown dates are retained; capture and broadcast dates are not story dates."
+      ]
+    },
+    {
+      "batch_id": "stacey-slater",
+      "character_id": "stacey-slater",
+      "kind": "relationships",
+      "snapshot": "stacey-slater-source.json",
+      "snapshot_file_sha256": "ef69079bc28985b7425319de40993b51c30cc7d2cf4303845d6a6193f3e8f7d1",
+      "reference": "stacey-slater-reference.json",
+      "reference_sha256": "5acc0b8db59ec8dba968026e3c7a46f9fc03e11b9c69eaa5219a41ceb6252099",
+      "split": "exposed_development",
+      "story_groups": [
+        "martin-stacey-marriage"
+      ],
+      "reference_complete": true,
+      "review_note": "Stacey is the continuing subject of “She and Martin”. Then relates the wedding to Peggy’s death but supplies no date. Marriage shares its episode with Martin’s account.",
+      "gaps": [
+        "Only the selected excerpts and catalogue identities are completely annotated. Other narrative passages, supporting identities, relations and incidents remain unassessed.",
+        "Captured source support is not independent corroboration or exhaustive canon. Unknown dates are retained; capture and broadcast dates are not story dates."
+      ]
+    },
+    {
+      "batch_id": "alfie-moon",
+      "character_id": "alfie-moon",
+      "kind": "relationships",
+      "snapshot": "alfie-moon-source.json",
+      "snapshot_file_sha256": "06dba040a5a8f897a7d42f98f7b0a2f47a58bedd6c46991e0b589465deb3b47c",
+      "reference": "alfie-moon-reference.json",
+      "reference_sha256": "09af3d296b674e7b67db207f70863a9143ced7fd232f70012bc71720ebac3dc7",
+      "split": "exposed_development",
+      "story_groups": [
+        "kat-alfie-marriages"
+      ],
+      "reference_complete": true,
+      "review_note": "Actual earlier marriage; the minister’s Christmas lunch does not establish a calendar year. This excerpt alone does not explicitly date the ceremony, so timing remains unknown.",
+      "gaps": [
+        "Only the selected excerpts and catalogue identities are completely annotated. Other narrative passages, supporting identities, relations and incidents remain unassessed.",
+        "Captured source support is not independent corroboration or exhaustive canon. Unknown dates are retained; capture and broadcast dates are not story dates."
+      ]
+    },
+    {
+      "batch_id": "pat-butcher",
+      "character_id": "pat-butcher",
+      "kind": "events",
+      "snapshot": "pat-butcher-source.json",
+      "snapshot_file_sha256": "94301df6482ee8a5b5b0e18b6e64b3b5a16bd64416c8e7fe9385cb8a945aaeaa",
+      "reference": "pat-butcher-reference.json",
+      "reference_sha256": "db84b72e22e783975c630dd6df1a9a7092e4ac096de103f4c5d9b1bc45471853",
+      "split": "exposed_development",
+      "story_groups": [
+        "pat-death"
+      ],
+      "reference_complete": true,
+      "review_note": "Actual death. “Moments before” describes reconciliation, not a death date; the preceding New Year paragraph and later funeral must not silently supply one.",
+      "gaps": [
+        "Only the selected excerpts and catalogue identities are completely annotated. Other narrative passages, supporting identities, relations and incidents remain unassessed.",
+        "Captured source support is not independent corroboration or exhaustive canon. Unknown dates are retained; capture and broadcast dates are not story dates."
+      ]
+    },
+    {
+      "batch_id": "janine-butcher",
+      "character_id": "janine-butcher",
+      "kind": "events",
+      "snapshot": "janine-butcher-source.json",
+      "snapshot_file_sha256": "e3ac9db95d3c3ecf489e98744f9c7a9b065e8b63de0ec272d797c0d80442908b",
+      "reference": "janine-butcher-reference.json",
+      "reference_sha256": "a933913351db9702da2fa22dcf63004f0187e55fc90a2c21a04804ec4cd5c16e",
+      "split": "exposed_development",
+      "story_groups": [
+        "laura-death-charge"
+      ],
+      "reference_complete": true,
+      "review_note": "Arrest, murder charge and remand are legal roles, not commission. The same account places Janine with Pat when Laura died. Laura is outside the evaluated identity catalogue; her death is not included in recall.",
+      "gaps": [
+        "Only the selected excerpts and catalogue identities are completely annotated. Other narrative passages, supporting identities, relations and incidents remain unassessed.",
+        "Captured source support is not independent corroboration or exhaustive canon. Unknown dates are retained; capture and broadcast dates are not story dates."
+      ]
+    },
+    {
+      "batch_id": "dot-cotton",
+      "character_id": "dot-cotton",
+      "kind": "events",
+      "snapshot": "dot-cotton-source.json",
+      "snapshot_file_sha256": "db284096398f4dfb36d0c4832690e654f723c2005ac458d227cc1b76e4390c5e",
+      "reference": "dot-cotton-reference.json",
+      "reference_sha256": "b527a0f60f346cf33f38616ff94dcabab27e21f42ed0c3b9703daccb7e1d8861",
+      "split": "exposed_development",
+      "story_groups": [
+        "dot-death"
+      ],
+      "reference_complete": true,
+      "review_note": "Over a year later dates receiving the news relative to prior events, not the actual death. Death is reported without a supported date; no imaginary witness is added.",
+      "gaps": [
+        "Only the selected excerpts and catalogue identities are completely annotated. Other narrative passages, supporting identities, relations and incidents remain unassessed.",
+        "Captured source support is not independent corroboration or exhaustive canon. Unknown dates are retained; capture and broadcast dates are not story dates."
+      ]
+    },
+    {
+      "batch_id": "denise-fox",
+      "character_id": "denise-fox",
+      "kind": "events",
+      "snapshot": "denise-fox-source.json",
+      "snapshot_file_sha256": "ee391cedb015b99e4953e89ac00c3a35b13edb82c3fec8b85562601eb77b448b",
+      "reference": "denise-fox-reference.json",
+      "reference_sha256": "5fdcc355409513d42aa02c9807018e18a0ac9e035c5c4672945be12b15eed7b5",
+      "split": "exposed_development",
+      "story_groups": [
+        "denise-pregnancy"
+      ],
+      "reference_complete": true,
+      "review_note": "Confirmed pregnancy. Initial fear of cancer is not a confirmed diagnosis. No paternity or unborn character is inferred.",
+      "gaps": [
+        "Only the selected excerpts and catalogue identities are completely annotated. Other narrative passages, supporting identities, relations and incidents remain unassessed.",
+        "Captured source support is not independent corroboration or exhaustive canon. Unknown dates are retained; capture and broadcast dates are not story dates."
+      ]
+    },
+    {
+      "batch_id": "max-branning",
+      "character_id": "max-branning",
+      "kind": "relationships",
+      "snapshot": "max-branning-source.json",
+      "snapshot_file_sha256": "feba2a886aa50911937e1dac813e88a648d58946d996ba83d3dbf36fb57f6e81",
+      "reference": "max-branning-reference.json",
+      "reference_sha256": "6af364658ab407072bac042fd07991242b5d78a4789a378400681f0ce4a28bfe",
+      "split": "exposed_development",
+      "story_groups": [
+        "max-stacey-affair"
+      ],
+      "reference_complete": true,
+      "review_note": "An explicit affair. Christmas 2006 dates the approach/kiss; the affair starts “soon” after. Preserve relative start, not an invented date or current status.",
+      "gaps": [
+        "Only the selected excerpts and catalogue identities are completely annotated. Other narrative passages, supporting identities, relations and incidents remain unassessed.",
+        "Captured source support is not independent corroboration or exhaustive canon. Unknown dates are retained; capture and broadcast dates are not story dates."
+      ]
+    },
+    {
+      "batch_id": "linda-carter",
+      "character_id": "linda-carter",
+      "kind": "events",
+      "snapshot": "linda-carter-source.json",
+      "snapshot_file_sha256": "db50a7a4162649dbd118c950014c345225cb055a2774a0a409c42f351e52b03f",
+      "reference": "linda-carter-reference.json",
+      "reference_sha256": "a058031a676a1bff39f22995d17378b43f232d63f73056066b281963c046c894",
+      "split": "exposed_development",
+      "story_groups": [
+        "linda-pregnancy"
+      ],
+      "reference_complete": true,
+      "review_note": "The test confirms pregnancy; theory alone would not. No father, child identity or date is inferred. The wider assault context remains in the full captured source.",
+      "gaps": [
+        "Only the selected excerpts and catalogue identities are completely annotated. Other narrative passages, supporting identities, relations and incidents remain unassessed.",
+        "Captured source support is not independent corroboration or exhaustive canon. Unknown dates are retained; capture and broadcast dates are not story dates."
+      ]
+    },
+    {
+      "batch_id": "phil-tape",
+      "character_id": "phil-mitchell",
+      "kind": "events",
+      "snapshot": "phil-tape-source.json",
+      "snapshot_file_sha256": "24d2e7092c82331986a6b8eb2bd951a47a1d1ce0e6602c8fec53dcab2eba125a",
+      "reference": "phil-tape-reference.json",
+      "reference_sha256": "088326b5f35ddb7efedeb6f8f89199d4ca36206303a9860562538e441bf27a21",
+      "split": "exposed_development",
+      "story_groups": [
+        "sharongate"
+      ],
+      "reference_complete": true,
+      "review_note": "The public tape revelation has no checked event category. Preserve all four explicit character subjects for text retrieval; co-appearance does not create a shared event.",
+      "gaps": [
+        "Only the selected excerpts and catalogue identities are completely annotated. Other narrative passages, supporting identities, relations and incidents remain unassessed.",
+        "Captured source support is not independent corroboration or exhaustive canon. Unknown dates are retained; capture and broadcast dates are not story dates."
+      ]
+    },
+    {
+      "batch_id": "grant-abuse",
+      "character_id": "grant-mitchell",
+      "kind": "events",
+      "snapshot": "grant-abuse-source.json",
+      "snapshot_file_sha256": "be2d500b53faaa240d20f35dc291ee87ceed2a48b9bb22a509596b6c2eef2e7e",
+      "reference": "grant-abuse-reference.json",
+      "reference_sha256": "36b3149e5d216be11fc9308c6df273385cfd1ceb7f034e47cdb32ae2ea96b043",
+      "split": "exposed_development",
+      "story_groups": [
+        "sharongate"
+      ],
+      "reference_complete": true,
+      "review_note": "The captured partner violence establishes the theme and the explicitly reported arrest/imprisonment. It does not give a conviction, exact date or a separately explicit perpetrator assignment for a commission claim.",
+      "gaps": [
+        "Only the selected excerpts and catalogue identities are completely annotated. Other narrative passages, supporting identities, relations and incidents remain unassessed.",
+        "Captured source support is not independent corroboration or exhaustive canon. Unknown dates are retained; capture and broadcast dates are not story dates."
+      ]
+    }
+  ]
+}

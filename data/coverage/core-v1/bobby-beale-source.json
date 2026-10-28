@@ -1,0 +1,57 @@
+{
+  "snapshot_id": "bobby-beale-coverage-v1",
+  "fixture_version": 1,
+  "source": {
+    "title": "Phil Mitchell",
+    "url": "https://en.wikipedia.org/wiki/Phil_Mitchell",
+    "revision_id": "1379872347",
+    "revision_url": "https://en.wikipedia.org/w/index.php?oldid=1379872347",
+    "section": "Storylines / 1990–2003",
+    "captured_at": "2026-10-17T13:07:31.014189Z",
+    "capture_sha256": "a338d3065203be54e383f2c9c141bca22ae9aedbb950e2e1eada601bcccfe313",
+    "scope": "main_series",
+    "license_url": "https://creativecommons.org/licenses/by-sa/4.0/",
+    "attribution": "Wikipedia contributors; markup removed and whitespace normalized.",
+    "coverage": "Reviewed narrative sections in this captured revision only.",
+    "gaps": [
+      "Partial canon coverage; other paragraphs remain excluded or awaiting review.",
+      "Identity and episode metadata do not independently corroborate story claims."
+    ],
+    "support_status": "source_supported"
+  },
+  "passages": [
+    {
+      "evidence_id": "coverage-bobby-beale",
+      "text": "On the night of Ian and Jane's remarriage, it is revealed in a flashback episode that Bobby had accidentally killed Lucy ten months before, after attacking her with a jewellery box out of frustration at her actions",
+      "sha256": "5527222530ae00ee394fd5f3cc6ee1e22f58ab57cfc7b2e37df2da2b0ac705d7",
+      "start": 15841,
+      "end": 16055,
+      "source": {
+        "title": "Bobby Beale",
+        "url": "https://en.wikipedia.org/wiki/Bobby_Beale_(EastEnders)",
+        "revision_id": "1364396059",
+        "revision_url": "https://en.wikipedia.org/w/index.php?oldid=1364396059",
+        "section": "Storylines / 2003–2017",
+        "captured_at": "2026-10-17T13:08:22.656156Z",
+        "capture_sha256": "e88dce74d995d7b4eddcf67a34199d41b8b3cfb1033480df16387788fc3527f0",
+        "scope": "main_series",
+        "license_url": "https://creativecommons.org/licenses/by-sa/4.0/",
+        "attribution": "Wikipedia contributors; markup removed and whitespace normalized.",
+        "coverage": "Reviewed narrative sections in this captured revision only.",
+        "gaps": [
+          "Partial canon coverage; other paragraphs remain excluded or awaiting review.",
+          "Identity and episode metadata do not independently corroborate story claims."
+        ],
+        "support_status": "source_supported"
+      },
+      "location": {
+        "source_id": "bobby-beale-wiki",
+        "paragraph_ordinal": 19,
+        "section_id": "2003–2017",
+        "character_ids": [
+          "bobby-beale"
+        ]
+      }
+    }
+  ]
+}

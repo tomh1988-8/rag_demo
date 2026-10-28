@@ -1,0 +1,58 @@
+{
+  "snapshot_id": "grant-mitchell-coverage-v1",
+  "fixture_version": 1,
+  "source": {
+    "title": "Phil Mitchell",
+    "url": "https://en.wikipedia.org/wiki/Phil_Mitchell",
+    "revision_id": "1379872347",
+    "revision_url": "https://en.wikipedia.org/w/index.php?oldid=1379872347",
+    "section": "Storylines / 1990–2003",
+    "captured_at": "2026-10-17T13:07:31.014189Z",
+    "capture_sha256": "a338d3065203be54e383f2c9c141bca22ae9aedbb950e2e1eada601bcccfe313",
+    "scope": "main_series",
+    "license_url": "https://creativecommons.org/licenses/by-sa/4.0/",
+    "attribution": "Wikipedia contributors; markup removed and whitespace normalized.",
+    "coverage": "Reviewed narrative sections in this captured revision only.",
+    "gaps": [
+      "Partial canon coverage; other paragraphs remain excluded or awaiting review.",
+      "Identity and episode metadata do not independently corroborate story claims."
+    ],
+    "support_status": "source_supported"
+  },
+  "passages": [
+    {
+      "evidence_id": "coverage-grant-mitchell",
+      "text": "Grant marries Sharon in December 1991 and together they run The Queen Vic.",
+      "sha256": "ee6d7aaf305f22882dc741a8300c693d4d0c2d96eddabe2731d0aeaf81675893",
+      "start": 21156,
+      "end": 21230,
+      "source": {
+        "title": "Grant Mitchell",
+        "url": "https://en.wikipedia.org/wiki/Grant_Mitchell_(EastEnders)",
+        "revision_id": "1370914760",
+        "revision_url": "https://en.wikipedia.org/w/index.php?oldid=1370914760",
+        "section": "Storylines / 1990–1999",
+        "captured_at": "2026-10-17T13:08:22.582778Z",
+        "capture_sha256": "2548b2c8780b1bda430939378a28ab3b7f98eca424480b7cccfaf2eb76f42ebf",
+        "scope": "main_series",
+        "license_url": "https://creativecommons.org/licenses/by-sa/4.0/",
+        "attribution": "Wikipedia contributors; markup removed and whitespace normalized.",
+        "coverage": "Reviewed narrative sections in this captured revision only.",
+        "gaps": [
+          "Partial canon coverage; other paragraphs remain excluded or awaiting review.",
+          "Identity and episode metadata do not independently corroborate story claims."
+        ],
+        "support_status": "source_supported"
+      },
+      "location": {
+        "source_id": "grant-mitchell-wiki",
+        "paragraph_ordinal": 24,
+        "section_id": "1990–1999",
+        "character_ids": [
+          "grant-mitchell",
+          "kathy-beale"
+        ]
+      }
+    }
+  ]
+}

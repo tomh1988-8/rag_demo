@@ -1,0 +1,57 @@
+{
+  "snapshot_id": "kat-slater-coverage-v1",
+  "fixture_version": 1,
+  "source": {
+    "title": "Phil Mitchell",
+    "url": "https://en.wikipedia.org/wiki/Phil_Mitchell",
+    "revision_id": "1379872347",
+    "revision_url": "https://en.wikipedia.org/w/index.php?oldid=1379872347",
+    "section": "Storylines / 1990–2003",
+    "captured_at": "2026-10-17T13:07:31.014189Z",
+    "capture_sha256": "a338d3065203be54e383f2c9c141bca22ae9aedbb950e2e1eada601bcccfe313",
+    "scope": "main_series",
+    "license_url": "https://creativecommons.org/licenses/by-sa/4.0/",
+    "attribution": "Wikipedia contributors; markup removed and whitespace normalized.",
+    "coverage": "Reviewed narrative sections in this captured revision only.",
+    "gaps": [
+      "Partial canon coverage; other paragraphs remain excluded or awaiting review.",
+      "Identity and episode metadata do not independently corroborate story claims."
+    ],
+    "support_status": "source_supported"
+  },
+  "passages": [
+    {
+      "evidence_id": "coverage-kat-slater",
+      "text": "Kat briefly works on the market again, but market inspector Aleks Shirovs (Kristian Kiehling) forces her off her stall when he discovers she is working and claiming maternity benefit. Alfie lies to her that he has managed to convince the council to give them more time to rally together the money they need, but secretly plans to claim house insurance by setting fire to their house. He does so, but is unaware Kat is inside at the time. She becomes trapped although Alfie rescues her. She is badly burnt and suffers permanent scarring to her face. On leaving hospital, she and Alfie remarry, with two nurses as the only witnesses, before returning to the square and moving into a flat Alfie had organised for them to squat in.",
+      "sha256": "09f3ebf889901ab9b300ecbb20e2e671de44d0acbb90a2d796093a5f34726a15",
+      "start": 45797,
+      "end": 46524,
+      "source": {
+        "title": "Kat Slater",
+        "url": "https://en.wikipedia.org/wiki/Kat_Slater",
+        "revision_id": "1380652225",
+        "revision_url": "https://en.wikipedia.org/w/index.php?oldid=1380652225",
+        "section": "Storylines / 2010–2016",
+        "captured_at": "2026-10-17T13:07:33.048959Z",
+        "capture_sha256": "f3852a9f1c3fa3f0c254f123fa8ed739d6f6a4388eb5f19c7de975858a537bd7",
+        "scope": "main_series",
+        "license_url": "https://creativecommons.org/licenses/by-sa/4.0/",
+        "attribution": "Wikipedia contributors; markup removed and whitespace normalized.",
+        "coverage": "Reviewed narrative sections in this captured revision only.",
+        "gaps": [
+          "Partial canon coverage; other paragraphs remain excluded or awaiting review.",
+          "Identity and episode metadata do not independently corroborate story claims."
+        ],
+        "support_status": "source_supported"
+      },
+      "location": {
+        "source_id": "kat-slater-wiki",
+        "paragraph_ordinal": 53,
+        "section_id": "2010–2016",
+        "character_ids": [
+          "kat-slater"
+        ]
+      }
+    }
+  ]
+}

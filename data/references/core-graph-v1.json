@@ -1,0 +1,1380 @@
+{
+  "version": 1,
+  "capture": "data/sources/core-profiles-v2.json.gz",
+  "capture_sha256": "1cebb5169b4f36b12f900e3d73f43b4c483c6903b02a566c8f8dee96e5eba457",
+  "snapshot_id": "core-graph-v1",
+  "reviewer": "Codex source-based annotation, before extraction; not human canon adjudication",
+  "batches": [
+    {
+      "batch_id": "phil-mitchell",
+      "character_id": "phil-mitchell",
+      "kind": "family",
+      "catalogue_ids": [
+        "phil-mitchell",
+        "kathy-beale",
+        "ben-mitchell"
+      ],
+      "selections": [
+        {
+          "source_id": "phil-mitchell-wiki",
+          "quote": "Kathy and Phil eventually sort out their differences, up to the point where they get married and Kathy later gives birth to their son – Ben (Matthew Silver).",
+          "evidence_id": "coverage-phil-mitchell"
+        }
+      ],
+      "reference": {
+        "expected_claims": [
+          {
+            "parent_id": "phil-mitchell",
+            "child_id": "ben-mitchell",
+            "parent_role": "parent",
+            "relation": "biological_parent",
+            "polarity": "affirmed",
+            "certainty": "certain",
+            "story_time": "unknown",
+            "time_precision": "unknown",
+            "claim_id": "ref-phil-mitchell-1",
+            "evidence": [
+              {
+                "evidence_id": "coverage-phil-mitchell",
+                "start": 0,
+                "end": 157,
+                "quote": "Kathy and Phil eventually sort out their differences, up to the point where they get married and Kathy later gives birth to their son – Ben (Matthew Silver)."
+              }
+            ]
+          },
+          {
+            "parent_id": "kathy-beale",
+            "child_id": "ben-mitchell",
+            "parent_role": "mother",
+            "relation": "biological_parent",
+            "polarity": "affirmed",
+            "certainty": "certain",
+            "story_time": "unknown",
+            "time_precision": "unknown",
+            "claim_id": "ref-phil-mitchell-2",
+            "evidence": [
+              {
+                "evidence_id": "coverage-phil-mitchell",
+                "start": 0,
+                "end": 157,
+                "quote": "Kathy and Phil eventually sort out their differences, up to the point where they get married and Kathy later gives birth to their son – Ben (Matthew Silver)."
+              }
+            ]
+          }
+        ]
+      },
+      "story_groups": [
+        "ben-birth"
+      ],
+      "review_note": "Birth to their son supports both biological parents. Giving birth establishes Kathy’s mother role; no explicit father role or calendar time is stated for Phil.",
+      "gaps": [
+        "Only the selected excerpts and catalogue identities are completely annotated. Other narrative passages, supporting identities, relations and incidents remain unassessed.",
+        "Captured source support is not independent corroboration or exhaustive canon. Unknown dates are retained; capture and broadcast dates are not story dates."
+      ]
+    },
+    {
+      "batch_id": "grant-mitchell",
+      "character_id": "grant-mitchell",
+      "kind": "relationships",
+      "catalogue_ids": [
+        "grant-mitchell",
+        "sharon-watts"
+      ],
+      "selections": [
+        {
+          "source_id": "grant-mitchell-wiki",
+          "quote": "Grant marries Sharon in December 1991 and together they run The Queen Vic.",
+          "evidence_id": "coverage-grant-mitchell"
+        }
+      ],
+      "reference": {
+        "expected_claims": [
+          {
+            "subject_id": "grant-mitchell",
+            "object_id": "sharon-watts",
+            "relation": "marriage",
+            "episode_id": "grant-sharon-first",
+            "status": "unknown",
+            "polarity": "affirmed",
+            "certainty": "certain",
+            "story_time": "December 1991",
+            "time_precision": "exact",
+            "after_claim_id": null,
+            "claim_id": "ref-grant-mitchell-1",
+            "evidence": [
+              {
+                "evidence_id": "coverage-grant-mitchell",
+                "start": 0,
+                "end": 74,
+                "quote": "Grant marries Sharon in December 1991 and together they run The Queen Vic."
+              }
+            ]
+          }
+        ]
+      },
+      "story_groups": [
+        "grant-sharon-marriage"
+      ],
+      "review_note": "Actual marriage, month precision; running a pub supplies no additional relationship type. Present narrative does not prove current status.",
+      "gaps": [
+        "Only the selected excerpts and catalogue identities are completely annotated. Other narrative passages, supporting identities, relations and incidents remain unassessed.",
+        "Captured source support is not independent corroboration or exhaustive canon. Unknown dates are retained; capture and broadcast dates are not story dates."
+      ]
+    },
+    {
+      "batch_id": "peggy-mitchell",
+      "character_id": "peggy-mitchell",
+      "kind": "family",
+      "catalogue_ids": [
+        "peggy-mitchell",
+        "phil-mitchell"
+      ],
+      "selections": [
+        {
+          "source_id": "peggy-mitchell-wiki",
+          "quote": "Peggy married Eric Mitchell (George Russo) because she was pregnant with their son Phil (Steve McFadden).",
+          "evidence_id": "coverage-peggy-mitchell"
+        }
+      ],
+      "reference": {
+        "expected_claims": [
+          {
+            "parent_id": "peggy-mitchell",
+            "child_id": "phil-mitchell",
+            "parent_role": "mother",
+            "relation": "biological_parent",
+            "polarity": "affirmed",
+            "certainty": "certain",
+            "story_time": "unknown",
+            "time_precision": "unknown",
+            "claim_id": "ref-peggy-mitchell-1",
+            "evidence": [
+              {
+                "evidence_id": "coverage-peggy-mitchell",
+                "start": 0,
+                "end": 105,
+                "quote": "Peggy married Eric Mitchell (George Russo) because she was pregnant with their son Phil (Steve McFadden)."
+              }
+            ]
+          }
+        ]
+      },
+      "story_groups": [
+        "peggy-phil-parentage"
+      ],
+      "review_note": "Pregnancy establishes Peggy as biological mother. Eric is outside this selected catalogue; his parentage is not measured. Backstory retained without fabricating a calendar date.",
+      "gaps": [
+        "Only the selected excerpts and catalogue identities are completely annotated. Other narrative passages, supporting identities, relations and incidents remain unassessed.",
+        "Captured source support is not independent corroboration or exhaustive canon. Unknown dates are retained; capture and broadcast dates are not story dates."
+      ]
+    },
+    {
+      "batch_id": "sharon-watts",
+      "character_id": "sharon-watts",
+      "kind": "relationships",
+      "catalogue_ids": [
+        "den-watts",
+        "sharon-watts"
+      ],
+      "selections": [
+        {
+          "source_id": "sharon-watts-wiki",
+          "quote": "Adopted at the age of three by Den (Leslie Grantham) and Angie Watts (Anita Dobson), Sharon is raised at The Queen Victoria public house in Albert Square, Walford, where her adoptive parents are landlords.",
+          "evidence_id": "coverage-sharon-watts"
+        }
+      ],
+      "reference": {
+        "expected_claims": [
+          {
+            "subject_id": "den-watts",
+            "object_id": "sharon-watts",
+            "relation": "adoptive_parent",
+            "episode_id": "den-sharon-adoption",
+            "status": "unknown",
+            "polarity": "affirmed",
+            "certainty": "certain",
+            "story_time": "at the age of three",
+            "time_precision": "relative",
+            "after_claim_id": null,
+            "claim_id": "ref-sharon-watts-1",
+            "evidence": [
+              {
+                "evidence_id": "coverage-sharon-watts",
+                "start": 0,
+                "end": 205,
+                "quote": "Adopted at the age of three by Den (Leslie Grantham) and Angie Watts (Anita Dobson), Sharon is raised at The Queen Victoria public house in Albert Square, Walford, where her adoptive parents are landlords."
+              }
+            ]
+          }
+        ]
+      },
+      "story_groups": [
+        "sharon-adoption"
+      ],
+      "review_note": "Explicit adoption at age three; retain supporting character Den, and exclude this tie from biological ancestry. Angie is outside this selected identity scope.",
+      "gaps": [
+        "Only the selected excerpts and catalogue identities are completely annotated. Other narrative passages, supporting identities, relations and incidents remain unassessed.",
+        "Captured source support is not independent corroboration or exhaustive canon. Unknown dates are retained; capture and broadcast dates are not story dates."
+      ]
+    },
+    {
+      "batch_id": "ben-mitchell",
+      "character_id": "ben-mitchell",
+      "kind": "family",
+      "catalogue_ids": [
+        "phil-mitchell",
+        "kathy-beale",
+        "ben-mitchell"
+      ],
+      "selections": [
+        {
+          "source_id": "ben-mitchell-wiki",
+          "quote": "Ben is born to Phil Mitchell (Steve McFadden) and his then wife Kathy Beale (Gillian Taylforth) in March 1996.",
+          "evidence_id": "coverage-ben-mitchell"
+        }
+      ],
+      "reference": {
+        "expected_claims": [
+          {
+            "parent_id": "phil-mitchell",
+            "child_id": "ben-mitchell",
+            "parent_role": "parent",
+            "relation": "biological_parent",
+            "polarity": "affirmed",
+            "certainty": "certain",
+            "story_time": "March 1996",
+            "time_precision": "exact",
+            "claim_id": "ref-ben-mitchell-1",
+            "evidence": [
+              {
+                "evidence_id": "coverage-ben-mitchell",
+                "start": 0,
+                "end": 110,
+                "quote": "Ben is born to Phil Mitchell (Steve McFadden) and his then wife Kathy Beale (Gillian Taylforth) in March 1996."
+              }
+            ]
+          },
+          {
+            "parent_id": "kathy-beale",
+            "child_id": "ben-mitchell",
+            "parent_role": "parent",
+            "relation": "biological_parent",
+            "polarity": "affirmed",
+            "certainty": "certain",
+            "story_time": "March 1996",
+            "time_precision": "exact",
+            "claim_id": "ref-ben-mitchell-2",
+            "evidence": [
+              {
+                "evidence_id": "coverage-ben-mitchell",
+                "start": 0,
+                "end": 110,
+                "quote": "Ben is born to Phil Mitchell (Steve McFadden) and his then wife Kathy Beale (Gillian Taylforth) in March 1996."
+              }
+            ]
+          }
+        ]
+      },
+      "story_groups": [
+        "ben-birth"
+      ],
+      "review_note": "Born to establishes biological parentage with generic roles. Month precision exactly matches the prior pilot. Same story as Phil and Kathy profiles, not independent evidence.",
+      "gaps": [
+        "Only the selected excerpts and catalogue identities are completely annotated. Other narrative passages, supporting identities, relations and incidents remain unassessed.",
+        "Captured source support is not independent corroboration or exhaustive canon. Unknown dates are retained; capture and broadcast dates are not story dates."
+      ]
+    },
+    {
+      "batch_id": "ian-beale",
+      "character_id": "ian-beale",
+      "kind": "family",
+      "catalogue_ids": [
+        "ian-beale",
+        "lucy-beale"
+      ],
+      "selections": [
+        {
+          "source_id": "ian-beale-wiki",
+          "quote": "He and Cindy later reconcile and Ian is overjoyed to become a father to twins, Peter (Francis Brittin-Snell) and Lucy Beale (Eva Brittin-Snell) in December 1993.",
+          "evidence_id": "coverage-ian-beale"
+        }
+      ],
+      "reference": {
+        "expected_claims": [
+          {
+            "parent_id": "ian-beale",
+            "child_id": "lucy-beale",
+            "parent_role": "father",
+            "relation": "biological_parent",
+            "polarity": "affirmed",
+            "certainty": "certain",
+            "story_time": "December 1993",
+            "time_precision": "exact",
+            "claim_id": "ref-ian-beale-1",
+            "evidence": [
+              {
+                "evidence_id": "coverage-ian-beale",
+                "start": 0,
+                "end": 161,
+                "quote": "He and Cindy later reconcile and Ian is overjoyed to become a father to twins, Peter (Francis Brittin-Snell) and Lucy Beale (Eva Brittin-Snell) in December 1993."
+              }
+            ]
+          }
+        ]
+      },
+      "story_groups": [
+        "lucy-birth"
+      ],
+      "review_note": "Becoming father to newborn twins supports Ian as biological father of Lucy. Peter and Cindy are outside this narrow catalogue, so neither is a negative reference.",
+      "gaps": [
+        "Only the selected excerpts and catalogue identities are completely annotated. Other narrative passages, supporting identities, relations and incidents remain unassessed.",
+        "Captured source support is not independent corroboration or exhaustive canon. Unknown dates are retained; capture and broadcast dates are not story dates."
+      ]
+    },
+    {
+      "batch_id": "kathy-beale",
+      "character_id": "kathy-beale",
+      "kind": "family",
+      "catalogue_ids": [
+        "phil-mitchell",
+        "kathy-beale",
+        "ben-mitchell"
+      ],
+      "selections": [
+        {
+          "source_id": "kathy-beale-wiki",
+          "quote": "Phil and Kathy sort out their differences and get married in secret in early 1995. Kathy keeps fainting and refuses to see Dr Legg, she relents and is told she is pregnant. Phil is overjoyed about becoming a father, as is Phil's mother, Peggy Mitchell (Barbara Windsor). Kathy goes into labour with Pat helping her and Phil meets their son shortly after he is born. Kathy is opposed to Peggy's name suggestion of Eric, named after Phil and Grant's father and Peggy's husband, Eric Mitchell (George Russo), and names him Ben Mitchell (Matthew Silver).",
+          "evidence_id": "coverage-kathy-beale"
+        }
+      ],
+      "reference": {
+        "expected_claims": [
+          {
+            "parent_id": "phil-mitchell",
+            "child_id": "ben-mitchell",
+            "parent_role": "father",
+            "relation": "biological_parent",
+            "polarity": "affirmed",
+            "certainty": "certain",
+            "story_time": "unknown",
+            "time_precision": "unknown",
+            "claim_id": "ref-kathy-beale-1",
+            "evidence": [
+              {
+                "evidence_id": "coverage-kathy-beale",
+                "start": 0,
+                "end": 550,
+                "quote": "Phil and Kathy sort out their differences and get married in secret in early 1995. Kathy keeps fainting and refuses to see Dr Legg, she relents and is told she is pregnant. Phil is overjoyed about becoming a father, as is Phil's mother, Peggy Mitchell (Barbara Windsor). Kathy goes into labour with Pat helping her and Phil meets their son shortly after he is born. Kathy is opposed to Peggy's name suggestion of Eric, named after Phil and Grant's father and Peggy's husband, Eric Mitchell (George Russo), and names him Ben Mitchell (Matthew Silver)."
+              }
+            ]
+          },
+          {
+            "parent_id": "kathy-beale",
+            "child_id": "ben-mitchell",
+            "parent_role": "mother",
+            "relation": "biological_parent",
+            "polarity": "affirmed",
+            "certainty": "certain",
+            "story_time": "unknown",
+            "time_precision": "unknown",
+            "claim_id": "ref-kathy-beale-2",
+            "evidence": [
+              {
+                "evidence_id": "coverage-kathy-beale",
+                "start": 0,
+                "end": 550,
+                "quote": "Phil and Kathy sort out their differences and get married in secret in early 1995. Kathy keeps fainting and refuses to see Dr Legg, she relents and is told she is pregnant. Phil is overjoyed about becoming a father, as is Phil's mother, Peggy Mitchell (Barbara Windsor). Kathy goes into labour with Pat helping her and Phil meets their son shortly after he is born. Kathy is opposed to Peggy's name suggestion of Eric, named after Phil and Grant's father and Peggy's husband, Eric Mitchell (George Russo), and names him Ben Mitchell (Matthew Silver)."
+              }
+            ]
+          }
+        ]
+      },
+      "story_groups": [
+        "ben-birth"
+      ],
+      "review_note": "Kathy gives birth to their son, then names him Ben. Early 1995 explicitly dates the marriage, not the birth; preserve unknown birth time and do not infer it from the paragraph. The explicit phrase becoming a father supports Phil’s father role.",
+      "gaps": [
+        "Only the selected excerpts and catalogue identities are completely annotated. Other narrative passages, supporting identities, relations and incidents remain unassessed.",
+        "Captured source support is not independent corroboration or exhaustive canon. Unknown dates are retained; capture and broadcast dates are not story dates."
+      ]
+    },
+    {
+      "batch_id": "cindy-beale",
+      "character_id": "cindy-beale",
+      "kind": "events",
+      "catalogue_ids": [
+        "cindy-beale"
+      ],
+      "selections": [
+        {
+          "source_id": "cindy-beale-wiki",
+          "quote": "They reunite and Cindy gets pregnant in 1993.",
+          "evidence_id": "coverage-cindy-beale"
+        }
+      ],
+      "reference": {
+        "expected_claims": [
+          {
+            "event_id": "cindy-twins-pregnancy",
+            "event_label": "Cindy's pregnancy in 1993",
+            "event_type": "pregnancy",
+            "basis": "narrative",
+            "participants": [
+              {
+                "character_id": "cindy-beale",
+                "role": "pregnant_person"
+              }
+            ],
+            "account_status": "as_reported",
+            "polarity": "affirmed",
+            "certainty": "certain",
+            "story_time": "1993",
+            "time_precision": "exact",
+            "claim_id": "ref-cindy-beale-1",
+            "evidence": [
+              {
+                "evidence_id": "coverage-cindy-beale",
+                "start": 0,
+                "end": 45,
+                "quote": "They reunite and Cindy gets pregnant in 1993."
+              }
+            ]
+          }
+        ],
+        "expected_context_claims": [],
+        "incidents": {
+          "coverage-cindy-beale": {
+            "event_id": "cindy-twins-pregnancy",
+            "event_label": "Cindy's pregnancy in 1993"
+          }
+        }
+      },
+      "story_groups": [
+        "cindy-twins-pregnancy"
+      ],
+      "review_note": "Only explicit pregnancy and its year. No parentage is inferred from pregnancy; paternity rumours elsewhere are not imported.",
+      "gaps": [
+        "Only the selected excerpts and catalogue identities are completely annotated. Other narrative passages, supporting identities, relations and incidents remain unassessed.",
+        "Captured source support is not independent corroboration or exhaustive canon. Unknown dates are retained; capture and broadcast dates are not story dates."
+      ]
+    },
+    {
+      "batch_id": "lucy-beale",
+      "character_id": "lucy-beale",
+      "kind": "family",
+      "catalogue_ids": [
+        "ian-beale",
+        "cindy-beale",
+        "lucy-beale"
+      ],
+      "selections": [
+        {
+          "source_id": "lucy-beale-wiki",
+          "quote": "Lucy and her twin brother Peter Beale (Francis Brittin-Snell) are born off-screen on 9 December 1993, to Ian (Adam Woodyatt) and Cindy Beale (Michelle Collins).",
+          "evidence_id": "coverage-lucy-beale"
+        }
+      ],
+      "reference": {
+        "expected_claims": [
+          {
+            "parent_id": "ian-beale",
+            "child_id": "lucy-beale",
+            "parent_role": "parent",
+            "relation": "biological_parent",
+            "polarity": "affirmed",
+            "certainty": "certain",
+            "story_time": "9 December 1993",
+            "time_precision": "exact",
+            "claim_id": "ref-lucy-beale-1",
+            "evidence": [
+              {
+                "evidence_id": "coverage-lucy-beale",
+                "start": 0,
+                "end": 160,
+                "quote": "Lucy and her twin brother Peter Beale (Francis Brittin-Snell) are born off-screen on 9 December 1993, to Ian (Adam Woodyatt) and Cindy Beale (Michelle Collins)."
+              }
+            ]
+          },
+          {
+            "parent_id": "cindy-beale",
+            "child_id": "lucy-beale",
+            "parent_role": "parent",
+            "relation": "biological_parent",
+            "polarity": "affirmed",
+            "certainty": "certain",
+            "story_time": "9 December 1993",
+            "time_precision": "exact",
+            "claim_id": "ref-lucy-beale-2",
+            "evidence": [
+              {
+                "evidence_id": "coverage-lucy-beale",
+                "start": 0,
+                "end": 160,
+                "quote": "Lucy and her twin brother Peter Beale (Francis Brittin-Snell) are born off-screen on 9 December 1993, to Ian (Adam Woodyatt) and Cindy Beale (Michelle Collins)."
+              }
+            ]
+          }
+        ]
+      },
+      "story_groups": [
+        "lucy-birth"
+      ],
+      "review_note": "Explicit born-to parentage and full date. Peter remains outside the selected catalogue. This is the same birth reported in Ian’s profile, kept in one development group.",
+      "gaps": [
+        "Only the selected excerpts and catalogue identities are completely annotated. Other narrative passages, supporting identities, relations and incidents remain unassessed.",
+        "Captured source support is not independent corroboration or exhaustive canon. Unknown dates are retained; capture and broadcast dates are not story dates."
+      ]
+    },
+    {
+      "batch_id": "bobby-beale",
+      "character_id": "bobby-beale",
+      "kind": "events",
+      "catalogue_ids": [
+        "bobby-beale",
+        "lucy-beale"
+      ],
+      "selections": [
+        {
+          "source_id": "bobby-beale-wiki",
+          "quote": "On the night of Ian and Jane's remarriage, it is revealed in a flashback episode that Bobby had accidentally killed Lucy ten months before, after attacking her with a jewellery box out of frustration at her actions",
+          "evidence_id": "coverage-bobby-beale"
+        }
+      ],
+      "reference": {
+        "expected_claims": [
+          {
+            "event_id": "lucy-murder",
+            "event_label": "Lucy's killing by Bobby",
+            "event_type": "commission",
+            "basis": "narrative",
+            "participants": [
+              {
+                "character_id": "bobby-beale",
+                "role": "perpetrator"
+              },
+              {
+                "character_id": "lucy-beale",
+                "role": "victim"
+              }
+            ],
+            "account_status": "as_reported",
+            "polarity": "affirmed",
+            "certainty": "certain",
+            "story_time": "ten months before",
+            "time_precision": "relative",
+            "claim_id": "ref-bobby-beale-1",
+            "evidence": [
+              {
+                "evidence_id": "coverage-bobby-beale",
+                "start": 0,
+                "end": 214,
+                "quote": "On the night of Ian and Jane's remarriage, it is revealed in a flashback episode that Bobby had accidentally killed Lucy ten months before, after attacking her with a jewellery box out of frustration at her actions"
+              }
+            ]
+          },
+          {
+            "event_id": "lucy-murder",
+            "event_label": "Lucy's killing by Bobby",
+            "event_type": "death",
+            "basis": "narrative",
+            "participants": [
+              {
+                "character_id": "lucy-beale",
+                "role": "deceased"
+              }
+            ],
+            "account_status": "as_reported",
+            "polarity": "affirmed",
+            "certainty": "certain",
+            "story_time": "ten months before",
+            "time_precision": "relative",
+            "claim_id": "ref-bobby-beale-2",
+            "evidence": [
+              {
+                "evidence_id": "coverage-bobby-beale",
+                "start": 0,
+                "end": 214,
+                "quote": "On the night of Ian and Jane's remarriage, it is revealed in a flashback episode that Bobby had accidentally killed Lucy ten months before, after attacking her with a jewellery box out of frustration at her actions"
+              }
+            ]
+          }
+        ],
+        "expected_context_claims": [],
+        "incidents": {
+          "coverage-bobby-beale": {
+            "event_id": "lucy-murder",
+            "event_label": "Lucy's killing by Bobby"
+          }
+        }
+      },
+      "story_groups": [
+        "lucy-murder"
+      ],
+      "review_note": "Narrative establishes commission by Bobby and death of Lucy. Relative timing is anchored to Ian/Jane’s remarriage, not a fabricated calendar date. No allegation or conviction is substituted for commission.",
+      "gaps": [
+        "Only the selected excerpts and catalogue identities are completely annotated. Other narrative passages, supporting identities, relations and incidents remain unassessed.",
+        "Captured source support is not independent corroboration or exhaustive canon. Unknown dates are retained; capture and broadcast dates are not story dates."
+      ]
+    },
+    {
+      "batch_id": "martin-fowler",
+      "character_id": "martin-fowler",
+      "kind": "relationships",
+      "catalogue_ids": [
+        "martin-fowler",
+        "stacey-slater"
+      ],
+      "selections": [
+        {
+          "source_id": "martin-fowler-wiki",
+          "quote": "Martin and Stacey marry at the registry office.",
+          "evidence_id": "coverage-martin-fowler"
+        }
+      ],
+      "reference": {
+        "expected_claims": [
+          {
+            "subject_id": "martin-fowler",
+            "object_id": "stacey-slater",
+            "relation": "marriage",
+            "episode_id": "martin-stacey-first",
+            "status": "unknown",
+            "polarity": "affirmed",
+            "certainty": "certain",
+            "story_time": "unknown",
+            "time_precision": "unknown",
+            "after_claim_id": null,
+            "claim_id": "ref-martin-fowler-1",
+            "evidence": [
+              {
+                "evidence_id": "coverage-martin-fowler",
+                "start": 0,
+                "end": 47,
+                "quote": "Martin and Stacey marry at the registry office."
+              }
+            ]
+          }
+        ]
+      },
+      "story_groups": [
+        "martin-stacey-marriage"
+      ],
+      "review_note": "Actual marriage crossing a text chunk boundary. No date is supplied by this sentence; capture time and nearby event order do not create one.",
+      "gaps": [
+        "Only the selected excerpts and catalogue identities are completely annotated. Other narrative passages, supporting identities, relations and incidents remain unassessed.",
+        "Captured source support is not independent corroboration or exhaustive canon. Unknown dates are retained; capture and broadcast dates are not story dates."
+      ]
+    },
+    {
+      "batch_id": "kat-slater",
+      "character_id": "kat-slater",
+      "kind": "relationships",
+      "catalogue_ids": [
+        "kat-slater",
+        "alfie-moon"
+      ],
+      "selections": [
+        {
+          "source_id": "kat-slater-wiki",
+          "quote": "Kat briefly works on the market again, but market inspector Aleks Shirovs (Kristian Kiehling) forces her off her stall when he discovers she is working and claiming maternity benefit. Alfie lies to her that he has managed to convince the council to give them more time to rally together the money they need, but secretly plans to claim house insurance by setting fire to their house. He does so, but is unaware Kat is inside at the time. She becomes trapped although Alfie rescues her. She is badly burnt and suffers permanent scarring to her face. On leaving hospital, she and Alfie remarry, with two nurses as the only witnesses, before returning to the square and moving into a flat Alfie had organised for them to squat in.",
+          "evidence_id": "coverage-kat-slater"
+        }
+      ],
+      "reference": {
+        "expected_claims": [
+          {
+            "subject_id": "alfie-moon",
+            "object_id": "kat-slater",
+            "relation": "remarriage",
+            "episode_id": "kat-alfie-second",
+            "status": "unknown",
+            "polarity": "affirmed",
+            "certainty": "certain",
+            "story_time": "On leaving hospital",
+            "time_precision": "relative",
+            "after_claim_id": null,
+            "claim_id": "ref-kat-slater-1",
+            "evidence": [
+              {
+                "evidence_id": "coverage-kat-slater",
+                "start": 0,
+                "end": 727,
+                "quote": "Kat briefly works on the market again, but market inspector Aleks Shirovs (Kristian Kiehling) forces her off her stall when he discovers she is working and claiming maternity benefit. Alfie lies to her that he has managed to convince the council to give them more time to rally together the money they need, but secretly plans to claim house insurance by setting fire to their house. He does so, but is unaware Kat is inside at the time. She becomes trapped although Alfie rescues her. She is badly burnt and suffers permanent scarring to her face. On leaving hospital, she and Alfie remarry, with two nurses as the only witnesses, before returning to the square and moving into a flat Alfie had organised for them to squat in."
+              }
+            ]
+          }
+        ]
+      },
+      "story_groups": [
+        "kat-alfie-marriages"
+      ],
+      "review_note": "Kat is named before the pronoun; actual remarriage is a distinct episode from Alfie’s earlier wedding. On leaving hospital is relative timing; the fire is not a relationship assertion.",
+      "gaps": [
+        "Only the selected excerpts and catalogue identities are completely annotated. Other narrative passages, supporting identities, relations and incidents remain unassessed.",
+        "Captured source support is not independent corroboration or exhaustive canon. Unknown dates are retained; capture and broadcast dates are not story dates."
+      ]
+    },
+    {
+      "batch_id": "stacey-slater",
+      "character_id": "stacey-slater",
+      "kind": "relationships",
+      "catalogue_ids": [
+        "stacey-slater",
+        "martin-fowler"
+      ],
+      "selections": [
+        {
+          "source_id": "stacey-slater-wiki",
+          "quote": "Stacey receives forgiveness from Peggy before she dies. She and Martin then marry.",
+          "evidence_id": "coverage-stacey-slater"
+        }
+      ],
+      "reference": {
+        "expected_claims": [
+          {
+            "subject_id": "martin-fowler",
+            "object_id": "stacey-slater",
+            "relation": "marriage",
+            "episode_id": "martin-stacey-first",
+            "status": "unknown",
+            "polarity": "affirmed",
+            "certainty": "certain",
+            "story_time": "then",
+            "time_precision": "relative",
+            "after_claim_id": null,
+            "claim_id": "ref-stacey-slater-1",
+            "evidence": [
+              {
+                "evidence_id": "coverage-stacey-slater",
+                "start": 0,
+                "end": 82,
+                "quote": "Stacey receives forgiveness from Peggy before she dies. She and Martin then marry."
+              }
+            ]
+          }
+        ]
+      },
+      "story_groups": [
+        "martin-stacey-marriage"
+      ],
+      "review_note": "Stacey is the continuing subject of “She and Martin”. Then relates the wedding to Peggy’s death but supplies no date. Marriage shares its episode with Martin’s account.",
+      "gaps": [
+        "Only the selected excerpts and catalogue identities are completely annotated. Other narrative passages, supporting identities, relations and incidents remain unassessed.",
+        "Captured source support is not independent corroboration or exhaustive canon. Unknown dates are retained; capture and broadcast dates are not story dates."
+      ]
+    },
+    {
+      "batch_id": "alfie-moon",
+      "character_id": "alfie-moon",
+      "kind": "relationships",
+      "catalogue_ids": [
+        "alfie-moon",
+        "kat-slater"
+      ],
+      "selections": [
+        {
+          "source_id": "alfie-moon-wiki",
+          "quote": "Alfie convinces the minister to cancel his Christmas lunch, and Alfie and Kat marry.",
+          "evidence_id": "coverage-alfie-moon"
+        }
+      ],
+      "reference": {
+        "expected_claims": [
+          {
+            "subject_id": "alfie-moon",
+            "object_id": "kat-slater",
+            "relation": "marriage",
+            "episode_id": "kat-alfie-first",
+            "status": "unknown",
+            "polarity": "affirmed",
+            "certainty": "certain",
+            "story_time": "unknown",
+            "time_precision": "unknown",
+            "after_claim_id": null,
+            "claim_id": "ref-alfie-moon-1",
+            "evidence": [
+              {
+                "evidence_id": "coverage-alfie-moon",
+                "start": 0,
+                "end": 84,
+                "quote": "Alfie convinces the minister to cancel his Christmas lunch, and Alfie and Kat marry."
+              }
+            ]
+          }
+        ]
+      },
+      "story_groups": [
+        "kat-alfie-marriages"
+      ],
+      "review_note": "Actual earlier marriage; the minister’s Christmas lunch does not establish a calendar year. This excerpt alone does not explicitly date the ceremony, so timing remains unknown.",
+      "gaps": [
+        "Only the selected excerpts and catalogue identities are completely annotated. Other narrative passages, supporting identities, relations and incidents remain unassessed.",
+        "Captured source support is not independent corroboration or exhaustive canon. Unknown dates are retained; capture and broadcast dates are not story dates."
+      ]
+    },
+    {
+      "batch_id": "pat-butcher",
+      "character_id": "pat-butcher",
+      "kind": "events",
+      "catalogue_ids": [
+        "pat-butcher"
+      ],
+      "selections": [
+        {
+          "source_id": "pat-butcher-wiki",
+          "quote": "Despite admitting that she is scared, Pat is able to make peace with her son moments before she ultimately succumbs and dies.",
+          "evidence_id": "coverage-pat-butcher"
+        }
+      ],
+      "reference": {
+        "expected_claims": [
+          {
+            "event_id": "pat-death",
+            "event_label": "Pat's death",
+            "event_type": "death",
+            "basis": "narrative",
+            "participants": [
+              {
+                "character_id": "pat-butcher",
+                "role": "deceased"
+              }
+            ],
+            "account_status": "as_reported",
+            "polarity": "affirmed",
+            "certainty": "certain",
+            "story_time": "unknown",
+            "time_precision": "unknown",
+            "claim_id": "ref-pat-butcher-1",
+            "evidence": [
+              {
+                "evidence_id": "coverage-pat-butcher",
+                "start": 0,
+                "end": 125,
+                "quote": "Despite admitting that she is scared, Pat is able to make peace with her son moments before she ultimately succumbs and dies."
+              }
+            ]
+          }
+        ],
+        "expected_context_claims": [],
+        "incidents": {
+          "coverage-pat-butcher": {
+            "event_id": "pat-death",
+            "event_label": "Pat's death"
+          }
+        }
+      },
+      "story_groups": [
+        "pat-death"
+      ],
+      "review_note": "Actual death. “Moments before” describes reconciliation, not a death date; the preceding New Year paragraph and later funeral must not silently supply one.",
+      "gaps": [
+        "Only the selected excerpts and catalogue identities are completely annotated. Other narrative passages, supporting identities, relations and incidents remain unassessed.",
+        "Captured source support is not independent corroboration or exhaustive canon. Unknown dates are retained; capture and broadcast dates are not story dates."
+      ]
+    },
+    {
+      "batch_id": "janine-butcher",
+      "character_id": "janine-butcher",
+      "kind": "events",
+      "catalogue_ids": [
+        "janine-butcher"
+      ],
+      "selections": [
+        {
+          "source_id": "janine-butcher-wiki",
+          "quote": "In April 2004, Janine and Laura are seen fighting just before Laura dies after falling down the stairs. It is noted in the post mortem that Laura had recently been in a fight due to bruising, and Janine's skin is found under her nails. Although Janine was with Pat when Laura died, Pat refuses to give Janine an alibi, and brands her \"pure evil\". In desperation, Janine goes to Paul and offers to sleep with him in return for an alibi, but Paul refuses. She is arrested by the police, charged with Laura's murder, and remanded in custody in May 2004.",
+          "evidence_id": "coverage-janine-butcher"
+        }
+      ],
+      "reference": {
+        "expected_claims": [
+          {
+            "event_id": "laura-death-charge",
+            "event_label": "Janine's charge over Laura's death",
+            "event_type": "arrest",
+            "basis": "legal_outcome",
+            "participants": [
+              {
+                "character_id": "janine-butcher",
+                "role": "arrested"
+              }
+            ],
+            "account_status": "as_reported",
+            "polarity": "affirmed",
+            "certainty": "certain",
+            "story_time": "May 2004",
+            "time_precision": "exact",
+            "claim_id": "ref-janine-butcher-1",
+            "evidence": [
+              {
+                "evidence_id": "coverage-janine-butcher",
+                "start": 0,
+                "end": 550,
+                "quote": "In April 2004, Janine and Laura are seen fighting just before Laura dies after falling down the stairs. It is noted in the post mortem that Laura had recently been in a fight due to bruising, and Janine's skin is found under her nails. Although Janine was with Pat when Laura died, Pat refuses to give Janine an alibi, and brands her \"pure evil\". In desperation, Janine goes to Paul and offers to sleep with him in return for an alibi, but Paul refuses. She is arrested by the police, charged with Laura's murder, and remanded in custody in May 2004."
+              }
+            ]
+          },
+          {
+            "event_id": "laura-death-charge",
+            "event_label": "Janine's charge over Laura's death",
+            "event_type": "charge",
+            "basis": "legal_outcome",
+            "participants": [
+              {
+                "character_id": "janine-butcher",
+                "role": "accused"
+              }
+            ],
+            "account_status": "as_reported",
+            "polarity": "affirmed",
+            "certainty": "certain",
+            "story_time": "May 2004",
+            "time_precision": "exact",
+            "claim_id": "ref-janine-butcher-2",
+            "evidence": [
+              {
+                "evidence_id": "coverage-janine-butcher",
+                "start": 0,
+                "end": 550,
+                "quote": "In April 2004, Janine and Laura are seen fighting just before Laura dies after falling down the stairs. It is noted in the post mortem that Laura had recently been in a fight due to bruising, and Janine's skin is found under her nails. Although Janine was with Pat when Laura died, Pat refuses to give Janine an alibi, and brands her \"pure evil\". In desperation, Janine goes to Paul and offers to sleep with him in return for an alibi, but Paul refuses. She is arrested by the police, charged with Laura's murder, and remanded in custody in May 2004."
+              }
+            ]
+          },
+          {
+            "event_id": "laura-death-charge",
+            "event_label": "Janine's charge over Laura's death",
+            "event_type": "imprisonment",
+            "basis": "legal_outcome",
+            "participants": [
+              {
+                "character_id": "janine-butcher",
+                "role": "prisoner"
+              }
+            ],
+            "account_status": "as_reported",
+            "polarity": "affirmed",
+            "certainty": "certain",
+            "story_time": "May 2004",
+            "time_precision": "exact",
+            "claim_id": "ref-janine-butcher-3",
+            "evidence": [
+              {
+                "evidence_id": "coverage-janine-butcher",
+                "start": 0,
+                "end": 550,
+                "quote": "In April 2004, Janine and Laura are seen fighting just before Laura dies after falling down the stairs. It is noted in the post mortem that Laura had recently been in a fight due to bruising, and Janine's skin is found under her nails. Although Janine was with Pat when Laura died, Pat refuses to give Janine an alibi, and brands her \"pure evil\". In desperation, Janine goes to Paul and offers to sleep with him in return for an alibi, but Paul refuses. She is arrested by the police, charged with Laura's murder, and remanded in custody in May 2004."
+              }
+            ]
+          }
+        ],
+        "expected_context_claims": [],
+        "incidents": {
+          "coverage-janine-butcher": {
+            "event_id": "laura-death-charge",
+            "event_label": "Janine's charge over Laura's death"
+          }
+        }
+      },
+      "story_groups": [
+        "laura-death-charge"
+      ],
+      "review_note": "Arrest, murder charge and remand are legal roles, not commission. The same account places Janine with Pat when Laura died. Laura is outside the evaluated identity catalogue; her death is not included in recall.",
+      "gaps": [
+        "Only the selected excerpts and catalogue identities are completely annotated. Other narrative passages, supporting identities, relations and incidents remain unassessed.",
+        "Captured source support is not independent corroboration or exhaustive canon. Unknown dates are retained; capture and broadcast dates are not story dates."
+      ]
+    },
+    {
+      "batch_id": "dot-cotton",
+      "character_id": "dot-cotton",
+      "kind": "events",
+      "catalogue_ids": [
+        "dot-cotton"
+      ],
+      "selections": [
+        {
+          "source_id": "dot-cotton-wiki",
+          "quote": "Over a year later, Sonia receives news from Charlie that Dot has died peacefully in her sleep.",
+          "evidence_id": "coverage-dot-cotton"
+        }
+      ],
+      "reference": {
+        "expected_claims": [
+          {
+            "event_id": "dot-death",
+            "event_label": "Dot's death",
+            "event_type": "death",
+            "basis": "narrative",
+            "participants": [
+              {
+                "character_id": "dot-cotton",
+                "role": "deceased"
+              }
+            ],
+            "account_status": "as_reported",
+            "polarity": "affirmed",
+            "certainty": "certain",
+            "story_time": "unknown",
+            "time_precision": "unknown",
+            "claim_id": "ref-dot-cotton-1",
+            "evidence": [
+              {
+                "evidence_id": "coverage-dot-cotton",
+                "start": 0,
+                "end": 94,
+                "quote": "Over a year later, Sonia receives news from Charlie that Dot has died peacefully in her sleep."
+              }
+            ]
+          }
+        ],
+        "expected_context_claims": [],
+        "incidents": {
+          "coverage-dot-cotton": {
+            "event_id": "dot-death",
+            "event_label": "Dot's death"
+          }
+        }
+      },
+      "story_groups": [
+        "dot-death"
+      ],
+      "review_note": "Over a year later dates receiving the news relative to prior events, not the actual death. Death is reported without a supported date; no imaginary witness is added.",
+      "gaps": [
+        "Only the selected excerpts and catalogue identities are completely annotated. Other narrative passages, supporting identities, relations and incidents remain unassessed.",
+        "Captured source support is not independent corroboration or exhaustive canon. Unknown dates are retained; capture and broadcast dates are not story dates."
+      ]
+    },
+    {
+      "batch_id": "denise-fox",
+      "character_id": "denise-fox",
+      "kind": "events",
+      "catalogue_ids": [
+        "denise-fox"
+      ],
+      "selections": [
+        {
+          "source_id": "denise-fox-wiki",
+          "quote": "When Denise faints, she researches her symptoms and initially fears that she has cancer but discovers that she is pregnant.",
+          "evidence_id": "coverage-denise-fox"
+        }
+      ],
+      "reference": {
+        "expected_claims": [
+          {
+            "event_id": "denise-pregnancy",
+            "event_label": "Denise's pregnancy",
+            "event_type": "pregnancy",
+            "basis": "narrative",
+            "participants": [
+              {
+                "character_id": "denise-fox",
+                "role": "pregnant_person"
+              }
+            ],
+            "account_status": "as_reported",
+            "polarity": "affirmed",
+            "certainty": "certain",
+            "story_time": "unknown",
+            "time_precision": "unknown",
+            "claim_id": "ref-denise-fox-1",
+            "evidence": [
+              {
+                "evidence_id": "coverage-denise-fox",
+                "start": 0,
+                "end": 123,
+                "quote": "When Denise faints, she researches her symptoms and initially fears that she has cancer but discovers that she is pregnant."
+              }
+            ]
+          }
+        ],
+        "expected_context_claims": [],
+        "incidents": {
+          "coverage-denise-fox": {
+            "event_id": "denise-pregnancy",
+            "event_label": "Denise's pregnancy"
+          }
+        }
+      },
+      "story_groups": [
+        "denise-pregnancy"
+      ],
+      "review_note": "Confirmed pregnancy. Initial fear of cancer is not a confirmed diagnosis. No paternity or unborn character is inferred.",
+      "gaps": [
+        "Only the selected excerpts and catalogue identities are completely annotated. Other narrative passages, supporting identities, relations and incidents remain unassessed.",
+        "Captured source support is not independent corroboration or exhaustive canon. Unknown dates are retained; capture and broadcast dates are not story dates."
+      ]
+    },
+    {
+      "batch_id": "max-branning",
+      "character_id": "max-branning",
+      "kind": "relationships",
+      "catalogue_ids": [
+        "max-branning",
+        "stacey-slater"
+      ],
+      "selections": [
+        {
+          "source_id": "max-branning-wiki",
+          "quote": "However, the abortion ends the relationship Stacey decides to hurt Bradley by making a move on Max during Christmas 2006; Max and Stacey kiss and the two soon embark on a passionate affair that lasts for several months going into 2007.",
+          "evidence_id": "coverage-max-branning"
+        }
+      ],
+      "reference": {
+        "expected_claims": [
+          {
+            "subject_id": "max-branning",
+            "object_id": "stacey-slater",
+            "relation": "affair",
+            "episode_id": "max-stacey-affair",
+            "status": "unknown",
+            "polarity": "affirmed",
+            "certainty": "certain",
+            "story_time": "soon",
+            "time_precision": "relative",
+            "after_claim_id": null,
+            "claim_id": "ref-max-branning-1",
+            "evidence": [
+              {
+                "evidence_id": "coverage-max-branning",
+                "start": 0,
+                "end": 235,
+                "quote": "However, the abortion ends the relationship Stacey decides to hurt Bradley by making a move on Max during Christmas 2006; Max and Stacey kiss and the two soon embark on a passionate affair that lasts for several months going into 2007."
+              }
+            ]
+          }
+        ]
+      },
+      "story_groups": [
+        "max-stacey-affair"
+      ],
+      "review_note": "An explicit affair. Christmas 2006 dates the approach/kiss; the affair starts “soon” after. Preserve relative start, not an invented date or current status.",
+      "gaps": [
+        "Only the selected excerpts and catalogue identities are completely annotated. Other narrative passages, supporting identities, relations and incidents remain unassessed.",
+        "Captured source support is not independent corroboration or exhaustive canon. Unknown dates are retained; capture and broadcast dates are not story dates."
+      ]
+    },
+    {
+      "batch_id": "linda-carter",
+      "character_id": "linda-carter",
+      "kind": "events",
+      "catalogue_ids": [
+        "linda-carter"
+      ],
+      "selections": [
+        {
+          "source_id": "linda-carter-wiki",
+          "quote": "Mick theorises that Linda is pregnant when she vomits at the smell of lavender bath soap, and she, is horrified to discover he is correct, when she takes a test.",
+          "evidence_id": "coverage-linda-carter"
+        }
+      ],
+      "reference": {
+        "expected_claims": [
+          {
+            "event_id": "linda-pregnancy",
+            "event_label": "Linda's confirmed pregnancy",
+            "event_type": "pregnancy",
+            "basis": "narrative",
+            "participants": [
+              {
+                "character_id": "linda-carter",
+                "role": "pregnant_person"
+              }
+            ],
+            "account_status": "as_reported",
+            "polarity": "affirmed",
+            "certainty": "certain",
+            "story_time": "unknown",
+            "time_precision": "unknown",
+            "claim_id": "ref-linda-carter-1",
+            "evidence": [
+              {
+                "evidence_id": "coverage-linda-carter",
+                "start": 0,
+                "end": 161,
+                "quote": "Mick theorises that Linda is pregnant when she vomits at the smell of lavender bath soap, and she, is horrified to discover he is correct, when she takes a test."
+              }
+            ]
+          }
+        ],
+        "expected_context_claims": [],
+        "incidents": {
+          "coverage-linda-carter": {
+            "event_id": "linda-pregnancy",
+            "event_label": "Linda's confirmed pregnancy"
+          }
+        }
+      },
+      "story_groups": [
+        "linda-pregnancy"
+      ],
+      "review_note": "The test confirms pregnancy; theory alone would not. No father, child identity or date is inferred. The wider assault context remains in the full captured source.",
+      "gaps": [
+        "Only the selected excerpts and catalogue identities are completely annotated. Other narrative passages, supporting identities, relations and incidents remain unassessed.",
+        "Captured source support is not independent corroboration or exhaustive canon. Unknown dates are retained; capture and broadcast dates are not story dates."
+      ]
+    },
+    {
+      "batch_id": "phil-tape",
+      "character_id": "phil-mitchell",
+      "kind": "events",
+      "catalogue_ids": [
+        "phil-mitchell",
+        "kathy-beale",
+        "grant-mitchell",
+        "sharon-watts"
+      ],
+      "selections": [
+        {
+          "source_id": "phil-mitchell-wiki",
+          "quote": "During Phil and Kathy's engagement party, Grant plays an audio cassette recording of Sharon admitting to the affair.",
+          "evidence_id": "coverage-phil-tape"
+        }
+      ],
+      "reference": {
+        "expected_claims": [],
+        "expected_context_claims": [
+          {
+            "kind": "unclassified",
+            "character_ids": [
+              "phil-mitchell",
+              "kathy-beale",
+              "grant-mitchell",
+              "sharon-watts"
+            ],
+            "theme": null,
+            "classification_gap": "Public revelation by playing an affair recording has no checked event category.",
+            "claim_id": "ref-phil-tape-text-1",
+            "evidence": [
+              {
+                "evidence_id": "coverage-phil-tape",
+                "start": 0,
+                "end": 116,
+                "quote": "During Phil and Kathy's engagement party, Grant plays an audio cassette recording of Sharon admitting to the affair."
+              }
+            ]
+          }
+        ],
+        "incidents": {
+          "coverage-phil-tape": {
+            "event_id": "sharongate-tape",
+            "event_label": "The engagement-party tape revelation"
+          }
+        }
+      },
+      "story_groups": [
+        "sharongate"
+      ],
+      "review_note": "The public tape revelation has no checked event category. Preserve all four explicit character subjects for text retrieval; co-appearance does not create a shared event.",
+      "gaps": [
+        "Only the selected excerpts and catalogue identities are completely annotated. Other narrative passages, supporting identities, relations and incidents remain unassessed.",
+        "Captured source support is not independent corroboration or exhaustive canon. Unknown dates are retained; capture and broadcast dates are not story dates."
+      ]
+    },
+    {
+      "batch_id": "grant-abuse",
+      "character_id": "grant-mitchell",
+      "kind": "events",
+      "catalogue_ids": [
+        "grant-mitchell",
+        "sharon-watts"
+      ],
+      "selections": [
+        {
+          "source_id": "phil-mitchell-wiki",
+          "quote": "Sharon and Phil have sex but she stays with Grant, who is unaware of their betrayal. Sharon and Grant's reconciliation is brief, and amidst more rowing and physical violence, Grant is arrested and imprisoned.",
+          "evidence_id": "coverage-grant-abuse"
+        }
+      ],
+      "reference": {
+        "expected_claims": [
+          {
+            "event_id": "grant-domestic-abuse",
+            "event_label": "Grant and Sharon domestic abuse",
+            "event_type": "arrest",
+            "basis": "legal_outcome",
+            "participants": [
+              {
+                "character_id": "grant-mitchell",
+                "role": "arrested"
+              }
+            ],
+            "account_status": "as_reported",
+            "polarity": "affirmed",
+            "certainty": "certain",
+            "story_time": "unknown",
+            "time_precision": "unknown",
+            "claim_id": "ref-grant-abuse-1",
+            "evidence": [
+              {
+                "evidence_id": "coverage-grant-abuse",
+                "start": 0,
+                "end": 208,
+                "quote": "Sharon and Phil have sex but she stays with Grant, who is unaware of their betrayal. Sharon and Grant's reconciliation is brief, and amidst more rowing and physical violence, Grant is arrested and imprisoned."
+              }
+            ]
+          },
+          {
+            "event_id": "grant-domestic-abuse",
+            "event_label": "Grant and Sharon domestic abuse",
+            "event_type": "imprisonment",
+            "basis": "legal_outcome",
+            "participants": [
+              {
+                "character_id": "grant-mitchell",
+                "role": "prisoner"
+              }
+            ],
+            "account_status": "as_reported",
+            "polarity": "affirmed",
+            "certainty": "certain",
+            "story_time": "unknown",
+            "time_precision": "unknown",
+            "claim_id": "ref-grant-abuse-2",
+            "evidence": [
+              {
+                "evidence_id": "coverage-grant-abuse",
+                "start": 0,
+                "end": 208,
+                "quote": "Sharon and Phil have sex but she stays with Grant, who is unaware of their betrayal. Sharon and Grant's reconciliation is brief, and amidst more rowing and physical violence, Grant is arrested and imprisoned."
+              }
+            ]
+          }
+        ],
+        "expected_context_claims": [
+          {
+            "kind": "theme",
+            "character_ids": [
+              "grant-mitchell",
+              "sharon-watts"
+            ],
+            "theme": "domestic_abuse",
+            "classification_gap": null,
+            "claim_id": "ref-grant-abuse-text-1",
+            "evidence": [
+              {
+                "evidence_id": "coverage-grant-abuse",
+                "start": 0,
+                "end": 208,
+                "quote": "Sharon and Phil have sex but she stays with Grant, who is unaware of their betrayal. Sharon and Grant's reconciliation is brief, and amidst more rowing and physical violence, Grant is arrested and imprisoned."
+              }
+            ]
+          }
+        ],
+        "incidents": {
+          "coverage-grant-abuse": {
+            "event_id": "grant-domestic-abuse",
+            "event_label": "Grant and Sharon domestic abuse"
+          }
+        }
+      },
+      "story_groups": [
+        "sharongate"
+      ],
+      "review_note": "The captured partner violence establishes the theme and the explicitly reported arrest/imprisonment. It does not give a conviction, exact date or a separately explicit perpetrator assignment for a commission claim.",
+      "gaps": [
+        "Only the selected excerpts and catalogue identities are completely annotated. Other narrative passages, supporting identities, relations and incidents remain unassessed.",
+        "Captured source support is not independent corroboration or exhaustive canon. Unknown dates are retained; capture and broadcast dates are not story dates."
+      ]
+    }
+  ]
+}

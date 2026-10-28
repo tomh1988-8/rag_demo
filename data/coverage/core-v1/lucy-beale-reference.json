@@ -1,0 +1,108 @@
+{
+  "expected_claims": [
+    {
+      "parent_id": "ian-beale",
+      "child_id": "lucy-beale",
+      "parent_role": "parent",
+      "relation": "biological_parent",
+      "polarity": "affirmed",
+      "certainty": "certain",
+      "story_time": "9 December 1993",
+      "time_precision": "exact",
+      "claim_id": "ref-lucy-beale-1",
+      "evidence": [
+        {
+          "evidence_id": "coverage-lucy-beale",
+          "start": 0,
+          "end": 160,
+          "quote": "Lucy and her twin brother Peter Beale (Francis Brittin-Snell) are born off-screen on 9 December 1993, to Ian (Adam Woodyatt) and Cindy Beale (Michelle Collins)."
+        }
+      ]
+    },
+    {
+      "parent_id": "cindy-beale",
+      "child_id": "lucy-beale",
+      "parent_role": "parent",
+      "relation": "biological_parent",
+      "polarity": "affirmed",
+      "certainty": "certain",
+      "story_time": "9 December 1993",
+      "time_precision": "exact",
+      "claim_id": "ref-lucy-beale-2",
+      "evidence": [
+        {
+          "evidence_id": "coverage-lucy-beale",
+          "start": 0,
+          "end": 160,
+          "quote": "Lucy and her twin brother Peter Beale (Francis Brittin-Snell) are born off-screen on 9 December 1993, to Ian (Adam Woodyatt) and Cindy Beale (Michelle Collins)."
+        }
+      ]
+    }
+  ],
+  "snapshot_sha256": "de6f030878bfabcc355f86cc0d018a4934bd15cbc25b06f63764dba7a7185109",
+  "catalogue": {
+    "characters": [
+      {
+        "character_id": "ian-beale",
+        "name": "Ian Beale",
+        "aliases": [
+          "Ian Albert Beale"
+        ],
+        "performers": [
+          "Adam Woodyatt"
+        ],
+        "coverage": "core",
+        "wikidata_id": "Q899011",
+        "review_note": "Codex source inspection, 17 October 2026: captured character article, infobox aliases/performers and revision metadata checked. Prominence-based curated selection, not a ranked or exhaustive canon. Identity linkage is not independent story corroboration.",
+        "evidence_sources": [
+          "ian-beale-wiki"
+        ]
+      },
+      {
+        "character_id": "cindy-beale",
+        "name": "Cindy Beale",
+        "aliases": [
+          "Rose Sawyer",
+          "Rose Knight"
+        ],
+        "performers": [
+          "Michelle Collins"
+        ],
+        "coverage": "core",
+        "wikidata_id": "Q5120478",
+        "review_note": "Codex source inspection, 17 October 2026: captured character article, infobox aliases/performers and revision metadata checked. Prominence-based curated selection, not a ranked or exhaustive canon. Identity linkage is not independent story corroboration. The genuine maternal maiden alias Cindy Williams is deliberately withheld because the captured narratives also evidence her daughter of that name; ambiguous names/daughter links remain unresolved until separately catalogued.",
+        "evidence_sources": [
+          "cindy-beale-wiki"
+        ]
+      },
+      {
+        "character_id": "lucy-beale",
+        "name": "Lucy Beale",
+        "aliases": [],
+        "performers": [
+          "Eva Brittin-Snell",
+          "Casey Anne Rothery",
+          "Melissa Suffield",
+          "Hetti Bywater"
+        ],
+        "coverage": "core",
+        "wikidata_id": "Q3304512",
+        "review_note": "Codex source inspection, 17 October 2026: captured character article, infobox aliases/performers and revision metadata checked. Prominence-based curated selection, not a ranked or exhaustive canon. Identity linkage is not independent story corroboration.",
+        "evidence_sources": [
+          "lucy-beale-wiki"
+        ]
+      }
+    ]
+  },
+  "origin_snapshot_sha256": "2ea666180ca9600a6d8e35ae7049d21f682d9090cddc92f63630d9250d7a6c76",
+  "annotation_sha256": "56275247f9cf2976827f1fd6d9df6ae7682c73da343bc615b819e3f22a7571bb",
+  "reviewer": "Codex source-based annotation, before extraction; not human canon adjudication",
+  "review_note": "Explicit born-to parentage and full date. Peter remains outside the selected catalogue. This is the same birth reported in Ian’s profile, kept in one development group.",
+  "synthetic": false,
+  "cross_source_checked": false,
+  "split": "exposed_development",
+  "story_groups": [
+    "lucy-birth"
+  ],
+  "completeness": "All explicit in-catalogue assertions of the selected family within these excerpts; events are restricted to the declared incidents."
+}

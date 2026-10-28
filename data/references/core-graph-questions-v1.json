@@ -1,0 +1,1154 @@
+{
+  "version": 1,
+  "reviewer": "Codex source-based pre-capture reference; agent review, not human canon adjudication",
+  "cases": [
+    {
+      "case_id": "phil-mitchell",
+      "question": "Which biological child of Phil is supported here?",
+      "query": {
+        "character_id": "phil-mitchell",
+        "direction": "descendants",
+        "max_depth": 1
+      },
+      "expected_status": "found",
+      "expected_claims": [],
+      "expected_paths": [
+        [
+          "phil-mitchell",
+          "ben-mitchell"
+        ]
+      ],
+      "transport": "api",
+      "forbidden_text": [],
+      "synthetic": false,
+      "split": "exposed_development",
+      "cross_source_checked": false
+    },
+    {
+      "case_id": "peggy-mitchell",
+      "question": "Which biological child of Peggy is supported here?",
+      "query": {
+        "character_id": "peggy-mitchell",
+        "direction": "descendants",
+        "max_depth": 1
+      },
+      "expected_status": "found",
+      "expected_claims": [],
+      "expected_paths": [
+        [
+          "peggy-mitchell",
+          "phil-mitchell"
+        ]
+      ],
+      "transport": "api",
+      "forbidden_text": [],
+      "synthetic": false,
+      "split": "exposed_development",
+      "cross_source_checked": false
+    },
+    {
+      "case_id": "ben-mitchell",
+      "question": "Who are Ben’s biological parents?",
+      "query": {
+        "character_id": "ben-mitchell",
+        "direction": "ancestors",
+        "max_depth": 1
+      },
+      "expected_status": "found",
+      "expected_claims": [],
+      "expected_paths": [
+        [
+          "ben-mitchell",
+          "phil-mitchell"
+        ],
+        [
+          "ben-mitchell",
+          "kathy-beale"
+        ]
+      ],
+      "transport": "cli",
+      "forbidden_text": [],
+      "synthetic": false,
+      "split": "exposed_development",
+      "cross_source_checked": false
+    },
+    {
+      "case_id": "ian-beale",
+      "question": "Which biological child of Ian is supported here?",
+      "query": {
+        "character_id": "ian-beale",
+        "direction": "descendants",
+        "max_depth": 1
+      },
+      "expected_status": "found",
+      "expected_claims": [],
+      "expected_paths": [
+        [
+          "ian-beale",
+          "lucy-beale"
+        ]
+      ],
+      "transport": "api",
+      "forbidden_text": [],
+      "synthetic": false,
+      "split": "exposed_development",
+      "cross_source_checked": false
+    },
+    {
+      "case_id": "kathy-beale",
+      "question": "Which biological child of Kathy is supported here?",
+      "query": {
+        "character_id": "kathy-beale",
+        "direction": "descendants",
+        "max_depth": 1
+      },
+      "expected_status": "found",
+      "expected_claims": [],
+      "expected_paths": [
+        [
+          "kathy-beale",
+          "ben-mitchell"
+        ]
+      ],
+      "transport": "api",
+      "forbidden_text": [],
+      "synthetic": false,
+      "split": "exposed_development",
+      "cross_source_checked": false
+    },
+    {
+      "case_id": "lucy-beale",
+      "question": "Who are Lucy’s biological parents?",
+      "query": {
+        "character_id": "lucy-beale",
+        "direction": "ancestors",
+        "max_depth": 1
+      },
+      "expected_status": "found",
+      "expected_claims": [],
+      "expected_paths": [
+        [
+          "lucy-beale",
+          "ian-beale"
+        ],
+        [
+          "lucy-beale",
+          "cindy-beale"
+        ]
+      ],
+      "transport": "api",
+      "forbidden_text": [],
+      "synthetic": false,
+      "split": "exposed_development",
+      "cross_source_checked": false
+    },
+    {
+      "case_id": "grant-mitchell",
+      "question": "What marriage between Grant and Sharon is supported?",
+      "query": {
+        "kind": "relationship_history",
+        "character_id": "grant-mitchell",
+        "partner_id": "sharon-watts"
+      },
+      "expected_status": "found",
+      "expected_claims": [
+        "ref-grant-mitchell-1"
+      ],
+      "expected_paths": [],
+      "transport": "api",
+      "forbidden_text": [],
+      "synthetic": false,
+      "split": "exposed_development",
+      "cross_source_checked": false
+    },
+    {
+      "case_id": "sharon-watts",
+      "question": "What was Den’s parental relationship to Sharon?",
+      "query": {
+        "kind": "relationship_history",
+        "character_id": "sharon-watts",
+        "partner_id": "den-watts"
+      },
+      "expected_status": "found",
+      "expected_claims": [
+        "ref-sharon-watts-1"
+      ],
+      "expected_paths": [],
+      "transport": "api",
+      "forbidden_text": [],
+      "synthetic": false,
+      "split": "exposed_development",
+      "cross_source_checked": false
+    },
+    {
+      "case_id": "martin-fowler",
+      "question": "What marriage between Martin and Stacey is supported?",
+      "query": {
+        "kind": "relationship_history",
+        "character_id": "martin-fowler",
+        "partner_id": "stacey-slater"
+      },
+      "expected_status": "found",
+      "expected_claims": [
+        "ref-martin-fowler-1",
+        "ref-stacey-slater-1"
+      ],
+      "expected_paths": [],
+      "transport": "api",
+      "forbidden_text": [],
+      "synthetic": false,
+      "split": "exposed_development",
+      "cross_source_checked": false
+    },
+    {
+      "case_id": "stacey-slater",
+      "question": "What supported history connects Stacey and Martin?",
+      "query": {
+        "kind": "relationship_history",
+        "character_id": "stacey-slater",
+        "partner_id": "martin-fowler"
+      },
+      "expected_status": "found",
+      "expected_claims": [
+        "ref-martin-fowler-1",
+        "ref-stacey-slater-1"
+      ],
+      "expected_paths": [],
+      "transport": "api",
+      "forbidden_text": [],
+      "synthetic": false,
+      "split": "exposed_development",
+      "cross_source_checked": false
+    },
+    {
+      "case_id": "kat-slater",
+      "question": "Which distinct marriages of Kat and Alfie are recorded?",
+      "query": {
+        "kind": "relationship_history",
+        "character_id": "kat-slater",
+        "partner_id": "alfie-moon"
+      },
+      "expected_status": "found",
+      "expected_claims": [
+        "ref-kat-slater-1",
+        "ref-alfie-moon-1"
+      ],
+      "expected_paths": [],
+      "transport": "api",
+      "forbidden_text": [],
+      "synthetic": false,
+      "split": "exposed_development",
+      "cross_source_checked": false
+    },
+    {
+      "case_id": "alfie-moon",
+      "question": "What marriage and remarriage connect Alfie and Kat?",
+      "query": {
+        "kind": "relationship_history",
+        "character_id": "alfie-moon",
+        "partner_id": "kat-slater"
+      },
+      "expected_status": "found",
+      "expected_claims": [
+        "ref-kat-slater-1",
+        "ref-alfie-moon-1"
+      ],
+      "expected_paths": [],
+      "transport": "cli",
+      "forbidden_text": [],
+      "synthetic": false,
+      "split": "exposed_development",
+      "cross_source_checked": false
+    },
+    {
+      "case_id": "max-branning",
+      "question": "What affair between Max and Stacey is supported?",
+      "query": {
+        "kind": "relationship_history",
+        "character_id": "max-branning",
+        "partner_id": "stacey-slater"
+      },
+      "expected_status": "found",
+      "expected_claims": [
+        "ref-max-branning-1"
+      ],
+      "expected_paths": [],
+      "transport": "api",
+      "forbidden_text": [],
+      "synthetic": false,
+      "split": "exposed_development",
+      "cross_source_checked": false
+    },
+    {
+      "case_id": "cindy-beale",
+      "question": "What pregnancy of Cindy is supported and when?",
+      "query": {
+        "kind": "life_events",
+        "character_id": "cindy-beale"
+      },
+      "expected_status": "found",
+      "expected_claims": [
+        "ref-cindy-beale-1"
+      ],
+      "expected_paths": [],
+      "transport": "api",
+      "forbidden_text": [],
+      "synthetic": false,
+      "split": "exposed_development",
+      "cross_source_checked": false
+    },
+    {
+      "case_id": "bobby-beale",
+      "question": "What crime did Bobby commit involving Lucy?",
+      "query": {
+        "kind": "crime_history",
+        "character_id": "bobby-beale"
+      },
+      "expected_status": "found",
+      "expected_claims": [
+        "ref-bobby-beale-1"
+      ],
+      "expected_paths": [],
+      "transport": "api",
+      "forbidden_text": [],
+      "synthetic": false,
+      "split": "exposed_development",
+      "cross_source_checked": false
+    },
+    {
+      "case_id": "pat-butcher",
+      "question": "What does the source say about Pat’s death?",
+      "query": {
+        "kind": "life_events",
+        "character_id": "pat-butcher"
+      },
+      "expected_status": "found",
+      "expected_claims": [
+        "ref-pat-butcher-1"
+      ],
+      "expected_paths": [],
+      "transport": "api",
+      "forbidden_text": [],
+      "synthetic": false,
+      "split": "exposed_development",
+      "cross_source_checked": false
+    },
+    {
+      "case_id": "janine-butcher",
+      "question": "What happened to Janine in the Laura investigation?",
+      "query": {
+        "kind": "crime_history",
+        "character_id": "janine-butcher"
+      },
+      "expected_status": "found",
+      "expected_claims": [
+        "ref-janine-butcher-1",
+        "ref-janine-butcher-2",
+        "ref-janine-butcher-3"
+      ],
+      "expected_paths": [],
+      "transport": "cli",
+      "forbidden_text": [],
+      "synthetic": false,
+      "split": "exposed_development",
+      "cross_source_checked": false
+    },
+    {
+      "case_id": "dot-cotton",
+      "question": "What does the source report about Dot’s death?",
+      "query": {
+        "kind": "life_events",
+        "character_id": "dot-cotton"
+      },
+      "expected_status": "found",
+      "expected_claims": [
+        "ref-dot-cotton-1"
+      ],
+      "expected_paths": [],
+      "transport": "api",
+      "forbidden_text": [],
+      "synthetic": false,
+      "split": "exposed_development",
+      "cross_source_checked": false
+    },
+    {
+      "case_id": "denise-fox",
+      "question": "What pregnancy of Denise is supported?",
+      "query": {
+        "kind": "life_events",
+        "character_id": "denise-fox"
+      },
+      "expected_status": "found",
+      "expected_claims": [
+        "ref-denise-fox-1"
+      ],
+      "expected_paths": [],
+      "transport": "api",
+      "forbidden_text": [],
+      "synthetic": false,
+      "split": "exposed_development",
+      "cross_source_checked": false
+    },
+    {
+      "case_id": "linda-carter",
+      "question": "Was Linda’s pregnancy confirmed?",
+      "query": {
+        "kind": "life_events",
+        "character_id": "linda-carter"
+      },
+      "expected_status": "found",
+      "expected_claims": [
+        "ref-linda-carter-1"
+      ],
+      "expected_paths": [],
+      "transport": "api",
+      "forbidden_text": [],
+      "synthetic": false,
+      "split": "exposed_development",
+      "cross_source_checked": false
+    },
+    {
+      "case_id": "shared-event",
+      "question": "What crime connects Bobby and Lucy?",
+      "query": {
+        "kind": "crime_history",
+        "character_id": "bobby-beale",
+        "participant_id": "lucy-beale"
+      },
+      "expected_status": "found",
+      "expected_claims": [
+        "ref-bobby-beale-1"
+      ],
+      "expected_paths": [],
+      "transport": "session",
+      "forbidden_text": [],
+      "synthetic": false,
+      "split": "exposed_development",
+      "cross_source_checked": false
+    },
+    {
+      "case_id": "adoption-not-biology",
+      "question": "Is Den shown as Sharon’s biological father?",
+      "query": {
+        "character_id": "sharon-watts",
+        "direction": "ancestors",
+        "max_depth": 1
+      },
+      "expected_status": "empty",
+      "expected_claims": [],
+      "expected_paths": [],
+      "transport": "api",
+      "forbidden_text": [],
+      "synthetic": false,
+      "split": "exposed_development",
+      "cross_source_checked": false
+    },
+    {
+      "case_id": "unclassified-not-event",
+      "question": "Can the tape revelation form a shared-event graph link?",
+      "query": {
+        "kind": "unclassified",
+        "character_id": "phil-mitchell"
+      },
+      "expected_status": "ineligible",
+      "expected_claims": [],
+      "expected_paths": [],
+      "transport": "api",
+      "forbidden_text": [],
+      "synthetic": false,
+      "split": "exposed_development",
+      "cross_source_checked": false
+    },
+    {
+      "case_id": "theme-not-event",
+      "question": "Does sharing a domestic-abuse theme create a graph connection?",
+      "query": {
+        "kind": "theme",
+        "character_id": "grant-mitchell",
+        "participant_id": "sharon-watts"
+      },
+      "expected_status": "ineligible",
+      "expected_claims": [],
+      "expected_paths": [],
+      "transport": "api",
+      "forbidden_text": [],
+      "synthetic": false,
+      "split": "exposed_development",
+      "cross_source_checked": false
+    },
+    {
+      "case_id": "grant-legal-history",
+      "question": "What legal stages are supported for Grant’s domestic abuse incident?",
+      "query": {
+        "kind": "crime_history",
+        "character_id": "grant-mitchell"
+      },
+      "expected_status": "found",
+      "expected_claims": [
+        "ref-grant-abuse-1",
+        "ref-grant-abuse-2"
+      ],
+      "expected_paths": [],
+      "transport": "api",
+      "forbidden_text": [],
+      "synthetic": false,
+      "split": "exposed_development",
+      "cross_source_checked": false
+    }
+  ],
+  "expected_claims": {
+    "ref-phil-mitchell-1": {
+      "parent_id": "phil-mitchell",
+      "child_id": "ben-mitchell",
+      "parent_role": "parent",
+      "relation": "biological_parent",
+      "polarity": "affirmed",
+      "certainty": "certain",
+      "story_time": "unknown",
+      "time_precision": "unknown",
+      "claim_id": "ref-phil-mitchell-1",
+      "evidence": [
+        {
+          "evidence_id": "coverage-phil-mitchell",
+          "start": 0,
+          "end": 157,
+          "quote": "Kathy and Phil eventually sort out their differences, up to the point where they get married and Kathy later gives birth to their son – Ben (Matthew Silver)."
+        }
+      ]
+    },
+    "ref-phil-mitchell-2": {
+      "parent_id": "kathy-beale",
+      "child_id": "ben-mitchell",
+      "parent_role": "mother",
+      "relation": "biological_parent",
+      "polarity": "affirmed",
+      "certainty": "certain",
+      "story_time": "unknown",
+      "time_precision": "unknown",
+      "claim_id": "ref-phil-mitchell-2",
+      "evidence": [
+        {
+          "evidence_id": "coverage-phil-mitchell",
+          "start": 0,
+          "end": 157,
+          "quote": "Kathy and Phil eventually sort out their differences, up to the point where they get married and Kathy later gives birth to their son – Ben (Matthew Silver)."
+        }
+      ]
+    },
+    "ref-grant-mitchell-1": {
+      "subject_id": "grant-mitchell",
+      "object_id": "sharon-watts",
+      "relation": "marriage",
+      "episode_id": "grant-sharon-first",
+      "status": "unknown",
+      "polarity": "affirmed",
+      "certainty": "certain",
+      "story_time": "December 1991",
+      "time_precision": "exact",
+      "after_claim_id": null,
+      "claim_id": "ref-grant-mitchell-1",
+      "evidence": [
+        {
+          "evidence_id": "coverage-grant-mitchell",
+          "start": 0,
+          "end": 74,
+          "quote": "Grant marries Sharon in December 1991 and together they run The Queen Vic."
+        }
+      ]
+    },
+    "ref-peggy-mitchell-1": {
+      "parent_id": "peggy-mitchell",
+      "child_id": "phil-mitchell",
+      "parent_role": "mother",
+      "relation": "biological_parent",
+      "polarity": "affirmed",
+      "certainty": "certain",
+      "story_time": "unknown",
+      "time_precision": "unknown",
+      "claim_id": "ref-peggy-mitchell-1",
+      "evidence": [
+        {
+          "evidence_id": "coverage-peggy-mitchell",
+          "start": 0,
+          "end": 105,
+          "quote": "Peggy married Eric Mitchell (George Russo) because she was pregnant with their son Phil (Steve McFadden)."
+        }
+      ]
+    },
+    "ref-sharon-watts-1": {
+      "subject_id": "den-watts",
+      "object_id": "sharon-watts",
+      "relation": "adoptive_parent",
+      "episode_id": "den-sharon-adoption",
+      "status": "unknown",
+      "polarity": "affirmed",
+      "certainty": "certain",
+      "story_time": "at the age of three",
+      "time_precision": "relative",
+      "after_claim_id": null,
+      "claim_id": "ref-sharon-watts-1",
+      "evidence": [
+        {
+          "evidence_id": "coverage-sharon-watts",
+          "start": 0,
+          "end": 205,
+          "quote": "Adopted at the age of three by Den (Leslie Grantham) and Angie Watts (Anita Dobson), Sharon is raised at The Queen Victoria public house in Albert Square, Walford, where her adoptive parents are landlords."
+        }
+      ]
+    },
+    "ref-ben-mitchell-1": {
+      "parent_id": "phil-mitchell",
+      "child_id": "ben-mitchell",
+      "parent_role": "parent",
+      "relation": "biological_parent",
+      "polarity": "affirmed",
+      "certainty": "certain",
+      "story_time": "March 1996",
+      "time_precision": "exact",
+      "claim_id": "ref-ben-mitchell-1",
+      "evidence": [
+        {
+          "evidence_id": "coverage-ben-mitchell",
+          "start": 0,
+          "end": 110,
+          "quote": "Ben is born to Phil Mitchell (Steve McFadden) and his then wife Kathy Beale (Gillian Taylforth) in March 1996."
+        }
+      ]
+    },
+    "ref-ben-mitchell-2": {
+      "parent_id": "kathy-beale",
+      "child_id": "ben-mitchell",
+      "parent_role": "parent",
+      "relation": "biological_parent",
+      "polarity": "affirmed",
+      "certainty": "certain",
+      "story_time": "March 1996",
+      "time_precision": "exact",
+      "claim_id": "ref-ben-mitchell-2",
+      "evidence": [
+        {
+          "evidence_id": "coverage-ben-mitchell",
+          "start": 0,
+          "end": 110,
+          "quote": "Ben is born to Phil Mitchell (Steve McFadden) and his then wife Kathy Beale (Gillian Taylforth) in March 1996."
+        }
+      ]
+    },
+    "ref-ian-beale-1": {
+      "parent_id": "ian-beale",
+      "child_id": "lucy-beale",
+      "parent_role": "father",
+      "relation": "biological_parent",
+      "polarity": "affirmed",
+      "certainty": "certain",
+      "story_time": "December 1993",
+      "time_precision": "exact",
+      "claim_id": "ref-ian-beale-1",
+      "evidence": [
+        {
+          "evidence_id": "coverage-ian-beale",
+          "start": 0,
+          "end": 161,
+          "quote": "He and Cindy later reconcile and Ian is overjoyed to become a father to twins, Peter (Francis Brittin-Snell) and Lucy Beale (Eva Brittin-Snell) in December 1993."
+        }
+      ]
+    },
+    "ref-kathy-beale-1": {
+      "parent_id": "phil-mitchell",
+      "child_id": "ben-mitchell",
+      "parent_role": "father",
+      "relation": "biological_parent",
+      "polarity": "affirmed",
+      "certainty": "certain",
+      "story_time": "unknown",
+      "time_precision": "unknown",
+      "claim_id": "ref-kathy-beale-1",
+      "evidence": [
+        {
+          "evidence_id": "coverage-kathy-beale",
+          "start": 0,
+          "end": 550,
+          "quote": "Phil and Kathy sort out their differences and get married in secret in early 1995. Kathy keeps fainting and refuses to see Dr Legg, she relents and is told she is pregnant. Phil is overjoyed about becoming a father, as is Phil's mother, Peggy Mitchell (Barbara Windsor). Kathy goes into labour with Pat helping her and Phil meets their son shortly after he is born. Kathy is opposed to Peggy's name suggestion of Eric, named after Phil and Grant's father and Peggy's husband, Eric Mitchell (George Russo), and names him Ben Mitchell (Matthew Silver)."
+        }
+      ]
+    },
+    "ref-kathy-beale-2": {
+      "parent_id": "kathy-beale",
+      "child_id": "ben-mitchell",
+      "parent_role": "mother",
+      "relation": "biological_parent",
+      "polarity": "affirmed",
+      "certainty": "certain",
+      "story_time": "unknown",
+      "time_precision": "unknown",
+      "claim_id": "ref-kathy-beale-2",
+      "evidence": [
+        {
+          "evidence_id": "coverage-kathy-beale",
+          "start": 0,
+          "end": 550,
+          "quote": "Phil and Kathy sort out their differences and get married in secret in early 1995. Kathy keeps fainting and refuses to see Dr Legg, she relents and is told she is pregnant. Phil is overjoyed about becoming a father, as is Phil's mother, Peggy Mitchell (Barbara Windsor). Kathy goes into labour with Pat helping her and Phil meets their son shortly after he is born. Kathy is opposed to Peggy's name suggestion of Eric, named after Phil and Grant's father and Peggy's husband, Eric Mitchell (George Russo), and names him Ben Mitchell (Matthew Silver)."
+        }
+      ]
+    },
+    "ref-cindy-beale-1": {
+      "event_id": "cindy-twins-pregnancy",
+      "event_label": "Cindy's pregnancy in 1993",
+      "event_type": "pregnancy",
+      "basis": "narrative",
+      "participants": [
+        {
+          "character_id": "cindy-beale",
+          "role": "pregnant_person"
+        }
+      ],
+      "account_status": "as_reported",
+      "polarity": "affirmed",
+      "certainty": "certain",
+      "story_time": "1993",
+      "time_precision": "exact",
+      "claim_id": "ref-cindy-beale-1",
+      "evidence": [
+        {
+          "evidence_id": "coverage-cindy-beale",
+          "start": 0,
+          "end": 45,
+          "quote": "They reunite and Cindy gets pregnant in 1993."
+        }
+      ]
+    },
+    "ref-lucy-beale-1": {
+      "parent_id": "ian-beale",
+      "child_id": "lucy-beale",
+      "parent_role": "parent",
+      "relation": "biological_parent",
+      "polarity": "affirmed",
+      "certainty": "certain",
+      "story_time": "9 December 1993",
+      "time_precision": "exact",
+      "claim_id": "ref-lucy-beale-1",
+      "evidence": [
+        {
+          "evidence_id": "coverage-lucy-beale",
+          "start": 0,
+          "end": 160,
+          "quote": "Lucy and her twin brother Peter Beale (Francis Brittin-Snell) are born off-screen on 9 December 1993, to Ian (Adam Woodyatt) and Cindy Beale (Michelle Collins)."
+        }
+      ]
+    },
+    "ref-lucy-beale-2": {
+      "parent_id": "cindy-beale",
+      "child_id": "lucy-beale",
+      "parent_role": "parent",
+      "relation": "biological_parent",
+      "polarity": "affirmed",
+      "certainty": "certain",
+      "story_time": "9 December 1993",
+      "time_precision": "exact",
+      "claim_id": "ref-lucy-beale-2",
+      "evidence": [
+        {
+          "evidence_id": "coverage-lucy-beale",
+          "start": 0,
+          "end": 160,
+          "quote": "Lucy and her twin brother Peter Beale (Francis Brittin-Snell) are born off-screen on 9 December 1993, to Ian (Adam Woodyatt) and Cindy Beale (Michelle Collins)."
+        }
+      ]
+    },
+    "ref-bobby-beale-1": {
+      "event_id": "lucy-murder",
+      "event_label": "Lucy's killing by Bobby",
+      "event_type": "commission",
+      "basis": "narrative",
+      "participants": [
+        {
+          "character_id": "bobby-beale",
+          "role": "perpetrator"
+        },
+        {
+          "character_id": "lucy-beale",
+          "role": "victim"
+        }
+      ],
+      "account_status": "as_reported",
+      "polarity": "affirmed",
+      "certainty": "certain",
+      "story_time": "ten months before",
+      "time_precision": "relative",
+      "claim_id": "ref-bobby-beale-1",
+      "evidence": [
+        {
+          "evidence_id": "coverage-bobby-beale",
+          "start": 0,
+          "end": 214,
+          "quote": "On the night of Ian and Jane's remarriage, it is revealed in a flashback episode that Bobby had accidentally killed Lucy ten months before, after attacking her with a jewellery box out of frustration at her actions"
+        }
+      ]
+    },
+    "ref-bobby-beale-2": {
+      "event_id": "lucy-murder",
+      "event_label": "Lucy's killing by Bobby",
+      "event_type": "death",
+      "basis": "narrative",
+      "participants": [
+        {
+          "character_id": "lucy-beale",
+          "role": "deceased"
+        }
+      ],
+      "account_status": "as_reported",
+      "polarity": "affirmed",
+      "certainty": "certain",
+      "story_time": "ten months before",
+      "time_precision": "relative",
+      "claim_id": "ref-bobby-beale-2",
+      "evidence": [
+        {
+          "evidence_id": "coverage-bobby-beale",
+          "start": 0,
+          "end": 214,
+          "quote": "On the night of Ian and Jane's remarriage, it is revealed in a flashback episode that Bobby had accidentally killed Lucy ten months before, after attacking her with a jewellery box out of frustration at her actions"
+        }
+      ]
+    },
+    "ref-martin-fowler-1": {
+      "subject_id": "martin-fowler",
+      "object_id": "stacey-slater",
+      "relation": "marriage",
+      "episode_id": "martin-stacey-first",
+      "status": "unknown",
+      "polarity": "affirmed",
+      "certainty": "certain",
+      "story_time": "unknown",
+      "time_precision": "unknown",
+      "after_claim_id": null,
+      "claim_id": "ref-martin-fowler-1",
+      "evidence": [
+        {
+          "evidence_id": "coverage-martin-fowler",
+          "start": 0,
+          "end": 47,
+          "quote": "Martin and Stacey marry at the registry office."
+        }
+      ]
+    },
+    "ref-kat-slater-1": {
+      "subject_id": "alfie-moon",
+      "object_id": "kat-slater",
+      "relation": "remarriage",
+      "episode_id": "kat-alfie-second",
+      "status": "unknown",
+      "polarity": "affirmed",
+      "certainty": "certain",
+      "story_time": "On leaving hospital",
+      "time_precision": "relative",
+      "after_claim_id": null,
+      "claim_id": "ref-kat-slater-1",
+      "evidence": [
+        {
+          "evidence_id": "coverage-kat-slater",
+          "start": 0,
+          "end": 727,
+          "quote": "Kat briefly works on the market again, but market inspector Aleks Shirovs (Kristian Kiehling) forces her off her stall when he discovers she is working and claiming maternity benefit. Alfie lies to her that he has managed to convince the council to give them more time to rally together the money they need, but secretly plans to claim house insurance by setting fire to their house. He does so, but is unaware Kat is inside at the time. She becomes trapped although Alfie rescues her. She is badly burnt and suffers permanent scarring to her face. On leaving hospital, she and Alfie remarry, with two nurses as the only witnesses, before returning to the square and moving into a flat Alfie had organised for them to squat in."
+        }
+      ]
+    },
+    "ref-stacey-slater-1": {
+      "subject_id": "martin-fowler",
+      "object_id": "stacey-slater",
+      "relation": "marriage",
+      "episode_id": "martin-stacey-first",
+      "status": "unknown",
+      "polarity": "affirmed",
+      "certainty": "certain",
+      "story_time": "then",
+      "time_precision": "relative",
+      "after_claim_id": null,
+      "claim_id": "ref-stacey-slater-1",
+      "evidence": [
+        {
+          "evidence_id": "coverage-stacey-slater",
+          "start": 0,
+          "end": 82,
+          "quote": "Stacey receives forgiveness from Peggy before she dies. She and Martin then marry."
+        }
+      ]
+    },
+    "ref-alfie-moon-1": {
+      "subject_id": "alfie-moon",
+      "object_id": "kat-slater",
+      "relation": "marriage",
+      "episode_id": "kat-alfie-first",
+      "status": "unknown",
+      "polarity": "affirmed",
+      "certainty": "certain",
+      "story_time": "unknown",
+      "time_precision": "unknown",
+      "after_claim_id": null,
+      "claim_id": "ref-alfie-moon-1",
+      "evidence": [
+        {
+          "evidence_id": "coverage-alfie-moon",
+          "start": 0,
+          "end": 84,
+          "quote": "Alfie convinces the minister to cancel his Christmas lunch, and Alfie and Kat marry."
+        }
+      ]
+    },
+    "ref-pat-butcher-1": {
+      "event_id": "pat-death",
+      "event_label": "Pat's death",
+      "event_type": "death",
+      "basis": "narrative",
+      "participants": [
+        {
+          "character_id": "pat-butcher",
+          "role": "deceased"
+        }
+      ],
+      "account_status": "as_reported",
+      "polarity": "affirmed",
+      "certainty": "certain",
+      "story_time": "unknown",
+      "time_precision": "unknown",
+      "claim_id": "ref-pat-butcher-1",
+      "evidence": [
+        {
+          "evidence_id": "coverage-pat-butcher",
+          "start": 0,
+          "end": 125,
+          "quote": "Despite admitting that she is scared, Pat is able to make peace with her son moments before she ultimately succumbs and dies."
+        }
+      ]
+    },
+    "ref-janine-butcher-1": {
+      "event_id": "laura-death-charge",
+      "event_label": "Janine's charge over Laura's death",
+      "event_type": "arrest",
+      "basis": "legal_outcome",
+      "participants": [
+        {
+          "character_id": "janine-butcher",
+          "role": "arrested"
+        }
+      ],
+      "account_status": "as_reported",
+      "polarity": "affirmed",
+      "certainty": "certain",
+      "story_time": "May 2004",
+      "time_precision": "exact",
+      "claim_id": "ref-janine-butcher-1",
+      "evidence": [
+        {
+          "evidence_id": "coverage-janine-butcher",
+          "start": 0,
+          "end": 550,
+          "quote": "In April 2004, Janine and Laura are seen fighting just before Laura dies after falling down the stairs. It is noted in the post mortem that Laura had recently been in a fight due to bruising, and Janine's skin is found under her nails. Although Janine was with Pat when Laura died, Pat refuses to give Janine an alibi, and brands her \"pure evil\". In desperation, Janine goes to Paul and offers to sleep with him in return for an alibi, but Paul refuses. She is arrested by the police, charged with Laura's murder, and remanded in custody in May 2004."
+        }
+      ]
+    },
+    "ref-janine-butcher-2": {
+      "event_id": "laura-death-charge",
+      "event_label": "Janine's charge over Laura's death",
+      "event_type": "charge",
+      "basis": "legal_outcome",
+      "participants": [
+        {
+          "character_id": "janine-butcher",
+          "role": "accused"
+        }
+      ],
+      "account_status": "as_reported",
+      "polarity": "affirmed",
+      "certainty": "certain",
+      "story_time": "May 2004",
+      "time_precision": "exact",
+      "claim_id": "ref-janine-butcher-2",
+      "evidence": [
+        {
+          "evidence_id": "coverage-janine-butcher",
+          "start": 0,
+          "end": 550,
+          "quote": "In April 2004, Janine and Laura are seen fighting just before Laura dies after falling down the stairs. It is noted in the post mortem that Laura had recently been in a fight due to bruising, and Janine's skin is found under her nails. Although Janine was with Pat when Laura died, Pat refuses to give Janine an alibi, and brands her \"pure evil\". In desperation, Janine goes to Paul and offers to sleep with him in return for an alibi, but Paul refuses. She is arrested by the police, charged with Laura's murder, and remanded in custody in May 2004."
+        }
+      ]
+    },
+    "ref-janine-butcher-3": {
+      "event_id": "laura-death-charge",
+      "event_label": "Janine's charge over Laura's death",
+      "event_type": "imprisonment",
+      "basis": "legal_outcome",
+      "participants": [
+        {
+          "character_id": "janine-butcher",
+          "role": "prisoner"
+        }
+      ],
+      "account_status": "as_reported",
+      "polarity": "affirmed",
+      "certainty": "certain",
+      "story_time": "May 2004",
+      "time_precision": "exact",
+      "claim_id": "ref-janine-butcher-3",
+      "evidence": [
+        {
+          "evidence_id": "coverage-janine-butcher",
+          "start": 0,
+          "end": 550,
+          "quote": "In April 2004, Janine and Laura are seen fighting just before Laura dies after falling down the stairs. It is noted in the post mortem that Laura had recently been in a fight due to bruising, and Janine's skin is found under her nails. Although Janine was with Pat when Laura died, Pat refuses to give Janine an alibi, and brands her \"pure evil\". In desperation, Janine goes to Paul and offers to sleep with him in return for an alibi, but Paul refuses. She is arrested by the police, charged with Laura's murder, and remanded in custody in May 2004."
+        }
+      ]
+    },
+    "ref-dot-cotton-1": {
+      "event_id": "dot-death",
+      "event_label": "Dot's death",
+      "event_type": "death",
+      "basis": "narrative",
+      "participants": [
+        {
+          "character_id": "dot-cotton",
+          "role": "deceased"
+        }
+      ],
+      "account_status": "as_reported",
+      "polarity": "affirmed",
+      "certainty": "certain",
+      "story_time": "unknown",
+      "time_precision": "unknown",
+      "claim_id": "ref-dot-cotton-1",
+      "evidence": [
+        {
+          "evidence_id": "coverage-dot-cotton",
+          "start": 0,
+          "end": 94,
+          "quote": "Over a year later, Sonia receives news from Charlie that Dot has died peacefully in her sleep."
+        }
+      ]
+    },
+    "ref-denise-fox-1": {
+      "event_id": "denise-pregnancy",
+      "event_label": "Denise's pregnancy",
+      "event_type": "pregnancy",
+      "basis": "narrative",
+      "participants": [
+        {
+          "character_id": "denise-fox",
+          "role": "pregnant_person"
+        }
+      ],
+      "account_status": "as_reported",
+      "polarity": "affirmed",
+      "certainty": "certain",
+      "story_time": "unknown",
+      "time_precision": "unknown",
+      "claim_id": "ref-denise-fox-1",
+      "evidence": [
+        {
+          "evidence_id": "coverage-denise-fox",
+          "start": 0,
+          "end": 123,
+          "quote": "When Denise faints, she researches her symptoms and initially fears that she has cancer but discovers that she is pregnant."
+        }
+      ]
+    },
+    "ref-max-branning-1": {
+      "subject_id": "max-branning",
+      "object_id": "stacey-slater",
+      "relation": "affair",
+      "episode_id": "max-stacey-affair",
+      "status": "unknown",
+      "polarity": "affirmed",
+      "certainty": "certain",
+      "story_time": "soon",
+      "time_precision": "relative",
+      "after_claim_id": null,
+      "claim_id": "ref-max-branning-1",
+      "evidence": [
+        {
+          "evidence_id": "coverage-max-branning",
+          "start": 0,
+          "end": 235,
+          "quote": "However, the abortion ends the relationship Stacey decides to hurt Bradley by making a move on Max during Christmas 2006; Max and Stacey kiss and the two soon embark on a passionate affair that lasts for several months going into 2007."
+        }
+      ]
+    },
+    "ref-linda-carter-1": {
+      "event_id": "linda-pregnancy",
+      "event_label": "Linda's confirmed pregnancy",
+      "event_type": "pregnancy",
+      "basis": "narrative",
+      "participants": [
+        {
+          "character_id": "linda-carter",
+          "role": "pregnant_person"
+        }
+      ],
+      "account_status": "as_reported",
+      "polarity": "affirmed",
+      "certainty": "certain",
+      "story_time": "unknown",
+      "time_precision": "unknown",
+      "claim_id": "ref-linda-carter-1",
+      "evidence": [
+        {
+          "evidence_id": "coverage-linda-carter",
+          "start": 0,
+          "end": 161,
+          "quote": "Mick theorises that Linda is pregnant when she vomits at the smell of lavender bath soap, and she, is horrified to discover he is correct, when she takes a test."
+        }
+      ]
+    },
+    "ref-grant-abuse-1": {
+      "event_id": "grant-domestic-abuse",
+      "event_label": "Grant and Sharon domestic abuse",
+      "event_type": "arrest",
+      "basis": "legal_outcome",
+      "participants": [
+        {
+          "character_id": "grant-mitchell",
+          "role": "arrested"
+        }
+      ],
+      "account_status": "as_reported",
+      "polarity": "affirmed",
+      "certainty": "certain",
+      "story_time": "unknown",
+      "time_precision": "unknown",
+      "claim_id": "ref-grant-abuse-1",
+      "evidence": [
+        {
+          "evidence_id": "coverage-grant-abuse",
+          "start": 0,
+          "end": 208,
+          "quote": "Sharon and Phil have sex but she stays with Grant, who is unaware of their betrayal. Sharon and Grant's reconciliation is brief, and amidst more rowing and physical violence, Grant is arrested and imprisoned."
+        }
+      ]
+    },
+    "ref-grant-abuse-2": {
+      "event_id": "grant-domestic-abuse",
+      "event_label": "Grant and Sharon domestic abuse",
+      "event_type": "imprisonment",
+      "basis": "legal_outcome",
+      "participants": [
+        {
+          "character_id": "grant-mitchell",
+          "role": "prisoner"
+        }
+      ],
+      "account_status": "as_reported",
+      "polarity": "affirmed",
+      "certainty": "certain",
+      "story_time": "unknown",
+      "time_precision": "unknown",
+      "claim_id": "ref-grant-abuse-2",
+      "evidence": [
+        {
+          "evidence_id": "coverage-grant-abuse",
+          "start": 0,
+          "end": 208,
+          "quote": "Sharon and Phil have sex but she stays with Grant, who is unaware of their betrayal. Sharon and Grant's reconciliation is brief, and amidst more rowing and physical violence, Grant is arrested and imprisoned."
+        }
+      ]
+    }
+  }
+}

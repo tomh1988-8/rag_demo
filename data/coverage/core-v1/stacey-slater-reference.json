@@ -1,0 +1,75 @@
+{
+  "expected_claims": [
+    {
+      "subject_id": "martin-fowler",
+      "object_id": "stacey-slater",
+      "relation": "marriage",
+      "episode_id": "martin-stacey-first",
+      "status": "unknown",
+      "polarity": "affirmed",
+      "certainty": "certain",
+      "story_time": "then",
+      "time_precision": "relative",
+      "after_claim_id": null,
+      "claim_id": "ref-stacey-slater-1",
+      "evidence": [
+        {
+          "evidence_id": "coverage-stacey-slater",
+          "start": 0,
+          "end": 82,
+          "quote": "Stacey receives forgiveness from Peggy before she dies. She and Martin then marry."
+        }
+      ]
+    }
+  ],
+  "snapshot_sha256": "e4884ad7cc7a78cdd05b62ccaca3d6dd8c7286a337eafc3fa6212f519f428b9a",
+  "catalogue": {
+    "characters": [
+      {
+        "character_id": "stacey-slater",
+        "name": "Stacey Slater",
+        "aliases": [
+          "Stacey Branning",
+          "Stacey Fowler",
+          "Jenny Smith"
+        ],
+        "performers": [
+          "Lacey Turner"
+        ],
+        "coverage": "core",
+        "wikidata_id": "Q7595869",
+        "review_note": "Codex source inspection, 17 October 2026: captured character article, infobox aliases/performers and revision metadata checked. Prominence-based curated selection, not a ranked or exhaustive canon. Identity linkage is not independent story corroboration.",
+        "evidence_sources": [
+          "stacey-slater-wiki"
+        ]
+      },
+      {
+        "character_id": "martin-fowler",
+        "name": "Martin Fowler",
+        "aliases": [],
+        "performers": [
+          "Jon Peyton-Price",
+          "James Alexandrou",
+          "James Bye"
+        ],
+        "coverage": "core",
+        "wikidata_id": "Q16992426",
+        "review_note": "Codex source inspection, 17 October 2026: captured character article, infobox aliases/performers and revision metadata checked. Prominence-based curated selection, not a ranked or exhaustive canon. Identity linkage is not independent story corroboration.",
+        "evidence_sources": [
+          "martin-fowler-wiki"
+        ]
+      }
+    ]
+  },
+  "origin_snapshot_sha256": "2ea666180ca9600a6d8e35ae7049d21f682d9090cddc92f63630d9250d7a6c76",
+  "annotation_sha256": "56275247f9cf2976827f1fd6d9df6ae7682c73da343bc615b819e3f22a7571bb",
+  "reviewer": "Codex source-based annotation, before extraction; not human canon adjudication",
+  "review_note": "Stacey is the continuing subject of “She and Martin”. Then relates the wedding to Peggy’s death but supplies no date. Marriage shares its episode with Martin’s account.",
+  "synthetic": false,
+  "cross_source_checked": false,
+  "split": "exposed_development",
+  "story_groups": [
+    "martin-stacey-marriage"
+  ],
+  "completeness": "All explicit in-catalogue assertions of the selected family within these excerpts; events are restricted to the declared incidents."
+}

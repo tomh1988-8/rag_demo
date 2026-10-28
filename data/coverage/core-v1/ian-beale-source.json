@@ -1,0 +1,59 @@
+{
+  "snapshot_id": "ian-beale-coverage-v1",
+  "fixture_version": 1,
+  "source": {
+    "title": "Phil Mitchell",
+    "url": "https://en.wikipedia.org/wiki/Phil_Mitchell",
+    "revision_id": "1379872347",
+    "revision_url": "https://en.wikipedia.org/w/index.php?oldid=1379872347",
+    "section": "Storylines / 1990–2003",
+    "captured_at": "2026-10-17T13:07:31.014189Z",
+    "capture_sha256": "a338d3065203be54e383f2c9c141bca22ae9aedbb950e2e1eada601bcccfe313",
+    "scope": "main_series",
+    "license_url": "https://creativecommons.org/licenses/by-sa/4.0/",
+    "attribution": "Wikipedia contributors; markup removed and whitespace normalized.",
+    "coverage": "Reviewed narrative sections in this captured revision only.",
+    "gaps": [
+      "Partial canon coverage; other paragraphs remain excluded or awaiting review.",
+      "Identity and episode metadata do not independently corroborate story claims."
+    ],
+    "support_status": "source_supported"
+  },
+  "passages": [
+    {
+      "evidence_id": "coverage-ian-beale",
+      "text": "He and Cindy later reconcile and Ian is overjoyed to become a father to twins, Peter (Francis Brittin-Snell) and Lucy Beale (Eva Brittin-Snell) in December 1993.",
+      "sha256": "4cd9342457b8e76536f7d434e4e6f5739d456d3409df83f74af34e45c4519f25",
+      "start": 17473,
+      "end": 17634,
+      "source": {
+        "title": "Ian Beale",
+        "url": "https://en.wikipedia.org/wiki/Ian_Beale",
+        "revision_id": "1378295578",
+        "revision_url": "https://en.wikipedia.org/w/index.php?oldid=1378295578",
+        "section": "Storylines",
+        "captured_at": "2026-10-17T13:07:31.584616Z",
+        "capture_sha256": "1a2acfeb93556aa93a0cece8f32be2aba0165b09b383b11d55d823b5b9c4f2fd",
+        "scope": "main_series",
+        "license_url": "https://creativecommons.org/licenses/by-sa/4.0/",
+        "attribution": "Wikipedia contributors; markup removed and whitespace normalized.",
+        "coverage": "Reviewed narrative sections in this captured revision only.",
+        "gaps": [
+          "Partial canon coverage; other paragraphs remain excluded or awaiting review.",
+          "Identity and episode metadata do not independently corroborate story claims."
+        ],
+        "support_status": "source_supported"
+      },
+      "location": {
+        "source_id": "ian-beale-wiki",
+        "paragraph_ordinal": 23,
+        "section_id": "Storylines",
+        "character_ids": [
+          "cindy-beale",
+          "ian-beale",
+          "lucy-beale"
+        ]
+      }
+    }
+  ]
+}

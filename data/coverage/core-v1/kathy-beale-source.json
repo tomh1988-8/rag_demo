@@ -1,0 +1,60 @@
+{
+  "snapshot_id": "kathy-beale-coverage-v1",
+  "fixture_version": 1,
+  "source": {
+    "title": "Phil Mitchell",
+    "url": "https://en.wikipedia.org/wiki/Phil_Mitchell",
+    "revision_id": "1379872347",
+    "revision_url": "https://en.wikipedia.org/w/index.php?oldid=1379872347",
+    "section": "Storylines / 1990–2003",
+    "captured_at": "2026-10-17T13:07:31.014189Z",
+    "capture_sha256": "a338d3065203be54e383f2c9c141bca22ae9aedbb950e2e1eada601bcccfe313",
+    "scope": "main_series",
+    "license_url": "https://creativecommons.org/licenses/by-sa/4.0/",
+    "attribution": "Wikipedia contributors; markup removed and whitespace normalized.",
+    "coverage": "Reviewed narrative sections in this captured revision only.",
+    "gaps": [
+      "Partial canon coverage; other paragraphs remain excluded or awaiting review.",
+      "Identity and episode metadata do not independently corroborate story claims."
+    ],
+    "support_status": "source_supported"
+  },
+  "passages": [
+    {
+      "evidence_id": "coverage-kathy-beale",
+      "text": "Phil and Kathy sort out their differences and get married in secret in early 1995. Kathy keeps fainting and refuses to see Dr Legg, she relents and is told she is pregnant. Phil is overjoyed about becoming a father, as is Phil's mother, Peggy Mitchell (Barbara Windsor). Kathy goes into labour with Pat helping her and Phil meets their son shortly after he is born. Kathy is opposed to Peggy's name suggestion of Eric, named after Phil and Grant's father and Peggy's husband, Eric Mitchell (George Russo), and names him Ben Mitchell (Matthew Silver).",
+      "sha256": "0bed2b1a6fb89a62f382e612b06c0b5b37f921d1e010bdcdbc4591e4cbe7b93a",
+      "start": 37250,
+      "end": 37800,
+      "source": {
+        "title": "Kathy Beale",
+        "url": "https://en.wikipedia.org/wiki/Kathy_Beale",
+        "revision_id": "1372746094",
+        "revision_url": "https://en.wikipedia.org/w/index.php?oldid=1372746094",
+        "section": "Storylines / 1985–2000",
+        "captured_at": "2026-10-17T13:07:31.789877Z",
+        "capture_sha256": "f62a3a5df813c271597fbb984c405ecbd43c08ccd6d863cd7bb4f7c3a184b2c5",
+        "scope": "main_series",
+        "license_url": "https://creativecommons.org/licenses/by-sa/4.0/",
+        "attribution": "Wikipedia contributors; markup removed and whitespace normalized.",
+        "coverage": "Reviewed narrative sections in this captured revision only.",
+        "gaps": [
+          "Partial canon coverage; other paragraphs remain excluded or awaiting review.",
+          "Identity and episode metadata do not independently corroborate story claims."
+        ],
+        "support_status": "source_supported"
+      },
+      "location": {
+        "source_id": "kathy-beale-wiki",
+        "paragraph_ordinal": 39,
+        "section_id": "1985–2000",
+        "character_ids": [
+          "ben-mitchell",
+          "cindy-beale",
+          "kathy-beale",
+          "peggy-mitchell"
+        ]
+      }
+    }
+  ]
+}

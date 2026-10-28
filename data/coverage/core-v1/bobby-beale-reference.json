@@ -1,0 +1,118 @@
+{
+  "expected_claims": [
+    {
+      "event_id": "lucy-murder",
+      "event_label": "Lucy's killing by Bobby",
+      "event_type": "commission",
+      "basis": "narrative",
+      "participants": [
+        {
+          "character_id": "bobby-beale",
+          "role": "perpetrator"
+        },
+        {
+          "character_id": "lucy-beale",
+          "role": "victim"
+        }
+      ],
+      "account_status": "as_reported",
+      "polarity": "affirmed",
+      "certainty": "certain",
+      "story_time": "ten months before",
+      "time_precision": "relative",
+      "claim_id": "ref-bobby-beale-1",
+      "evidence": [
+        {
+          "evidence_id": "coverage-bobby-beale",
+          "start": 0,
+          "end": 214,
+          "quote": "On the night of Ian and Jane's remarriage, it is revealed in a flashback episode that Bobby had accidentally killed Lucy ten months before, after attacking her with a jewellery box out of frustration at her actions"
+        }
+      ]
+    },
+    {
+      "event_id": "lucy-murder",
+      "event_label": "Lucy's killing by Bobby",
+      "event_type": "death",
+      "basis": "narrative",
+      "participants": [
+        {
+          "character_id": "lucy-beale",
+          "role": "deceased"
+        }
+      ],
+      "account_status": "as_reported",
+      "polarity": "affirmed",
+      "certainty": "certain",
+      "story_time": "ten months before",
+      "time_precision": "relative",
+      "claim_id": "ref-bobby-beale-2",
+      "evidence": [
+        {
+          "evidence_id": "coverage-bobby-beale",
+          "start": 0,
+          "end": 214,
+          "quote": "On the night of Ian and Jane's remarriage, it is revealed in a flashback episode that Bobby had accidentally killed Lucy ten months before, after attacking her with a jewellery box out of frustration at her actions"
+        }
+      ]
+    }
+  ],
+  "expected_context_claims": [],
+  "incidents": {
+    "coverage-bobby-beale": {
+      "event_id": "lucy-murder",
+      "event_label": "Lucy's killing by Bobby"
+    }
+  },
+  "snapshot_sha256": "58e2f9b279314b83247fdd32ff14191ca587d1f2ba9f7f60c393f1457dc1844b",
+  "catalogue": {
+    "characters": [
+      {
+        "character_id": "bobby-beale",
+        "name": "Bobby Beale",
+        "aliases": [],
+        "performers": [
+          "Kevin Curran",
+          "Alex Francis",
+          "Rory Stroud",
+          "Eliot Carrington",
+          "Clay Milner Russell"
+        ],
+        "coverage": "core",
+        "wikidata_id": "Q19650328",
+        "review_note": "Codex source inspection, 17 October 2026: captured character article, infobox aliases/performers and revision metadata checked. Prominence-based curated selection, not a ranked or exhaustive canon. Identity linkage is not independent story corroboration.",
+        "evidence_sources": [
+          "bobby-beale-wiki"
+        ]
+      },
+      {
+        "character_id": "lucy-beale",
+        "name": "Lucy Beale",
+        "aliases": [],
+        "performers": [
+          "Eva Brittin-Snell",
+          "Casey Anne Rothery",
+          "Melissa Suffield",
+          "Hetti Bywater"
+        ],
+        "coverage": "core",
+        "wikidata_id": "Q3304512",
+        "review_note": "Codex source inspection, 17 October 2026: captured character article, infobox aliases/performers and revision metadata checked. Prominence-based curated selection, not a ranked or exhaustive canon. Identity linkage is not independent story corroboration.",
+        "evidence_sources": [
+          "lucy-beale-wiki"
+        ]
+      }
+    ]
+  },
+  "origin_snapshot_sha256": "2ea666180ca9600a6d8e35ae7049d21f682d9090cddc92f63630d9250d7a6c76",
+  "annotation_sha256": "56275247f9cf2976827f1fd6d9df6ae7682c73da343bc615b819e3f22a7571bb",
+  "reviewer": "Codex source-based annotation, before extraction; not human canon adjudication",
+  "review_note": "Narrative establishes commission by Bobby and death of Lucy. Relative timing is anchored to Ian/Jane’s remarriage, not a fabricated calendar date. No allegation or conviction is substituted for commission.",
+  "synthetic": false,
+  "cross_source_checked": false,
+  "split": "exposed_development",
+  "story_groups": [
+    "lucy-murder"
+  ],
+  "completeness": "All explicit in-catalogue assertions of the selected family within these excerpts; events are restricted to the declared incidents."
+}

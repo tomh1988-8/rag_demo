@@ -1,0 +1,58 @@
+{
+  "snapshot_id": "martin-fowler-coverage-v1",
+  "fixture_version": 1,
+  "source": {
+    "title": "Phil Mitchell",
+    "url": "https://en.wikipedia.org/wiki/Phil_Mitchell",
+    "revision_id": "1379872347",
+    "revision_url": "https://en.wikipedia.org/w/index.php?oldid=1379872347",
+    "section": "Storylines / 1990–2003",
+    "captured_at": "2026-10-17T13:07:31.014189Z",
+    "capture_sha256": "a338d3065203be54e383f2c9c141bca22ae9aedbb950e2e1eada601bcccfe313",
+    "scope": "main_series",
+    "license_url": "https://creativecommons.org/licenses/by-sa/4.0/",
+    "attribution": "Wikipedia contributors; markup removed and whitespace normalized.",
+    "coverage": "Reviewed narrative sections in this captured revision only.",
+    "gaps": [
+      "Partial canon coverage; other paragraphs remain excluded or awaiting review.",
+      "Identity and episode metadata do not independently corroborate story claims."
+    ],
+    "support_status": "source_supported"
+  },
+  "passages": [
+    {
+      "evidence_id": "coverage-martin-fowler",
+      "text": "Martin and Stacey marry at the registry office.",
+      "sha256": "758672a1a38ebac71f3c6c7509851befe21501fe098ac38f45d8ed0124eda04d",
+      "start": 21362,
+      "end": 21409,
+      "source": {
+        "title": "Martin Fowler",
+        "url": "https://en.wikipedia.org/wiki/Martin_Fowler_(EastEnders)",
+        "revision_id": "1375375419",
+        "revision_url": "https://en.wikipedia.org/w/index.php?oldid=1375375419",
+        "section": "Storylines / 2014–2025",
+        "captured_at": "2026-10-17T13:07:33.007379Z",
+        "capture_sha256": "b4ad40a6df4c4033d8f33d08e9d06d260b20bb285b9121fbbf4d9cc2634a331d",
+        "scope": "main_series",
+        "license_url": "https://creativecommons.org/licenses/by-sa/4.0/",
+        "attribution": "Wikipedia contributors; markup removed and whitespace normalized.",
+        "coverage": "Reviewed narrative sections in this captured revision only.",
+        "gaps": [
+          "Partial canon coverage; other paragraphs remain excluded or awaiting review.",
+          "Identity and episode metadata do not independently corroborate story claims."
+        ],
+        "support_status": "source_supported"
+      },
+      "location": {
+        "source_id": "martin-fowler-wiki",
+        "paragraph_ordinal": 21,
+        "section_id": "2014–2025",
+        "character_ids": [
+          "martin-fowler",
+          "peggy-mitchell"
+        ]
+      }
+    }
+  ]
+}

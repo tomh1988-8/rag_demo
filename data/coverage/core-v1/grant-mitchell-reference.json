@@ -1,0 +1,74 @@
+{
+  "expected_claims": [
+    {
+      "subject_id": "grant-mitchell",
+      "object_id": "sharon-watts",
+      "relation": "marriage",
+      "episode_id": "grant-sharon-first",
+      "status": "unknown",
+      "polarity": "affirmed",
+      "certainty": "certain",
+      "story_time": "December 1991",
+      "time_precision": "exact",
+      "after_claim_id": null,
+      "claim_id": "ref-grant-mitchell-1",
+      "evidence": [
+        {
+          "evidence_id": "coverage-grant-mitchell",
+          "start": 0,
+          "end": 74,
+          "quote": "Grant marries Sharon in December 1991 and together they run The Queen Vic."
+        }
+      ]
+    }
+  ],
+  "snapshot_sha256": "077aa2b88ba62409c2c1b559f3c75643617308ec35c95ef4680e0ffb00f043c5",
+  "catalogue": {
+    "characters": [
+      {
+        "character_id": "grant-mitchell",
+        "name": "Grant Mitchell",
+        "aliases": [],
+        "performers": [
+          "Ross Kemp",
+          "Teddy Jay"
+        ],
+        "coverage": "core",
+        "wikidata_id": "Q2685036",
+        "review_note": "Codex source inspection, 17 October 2026: captured character article, infobox aliases/performers and revision metadata checked. Prominence-based curated selection, not a ranked or exhaustive canon. Identity linkage is not independent story corroboration.",
+        "evidence_sources": [
+          "grant-mitchell-wiki"
+        ]
+      },
+      {
+        "character_id": "sharon-watts",
+        "name": "Sharon Watts",
+        "aliases": [
+          "Sharon Mitchell",
+          "Sharon Rickman",
+          "Sharon Beale"
+        ],
+        "performers": [
+          "Letitia Dean"
+        ],
+        "coverage": "core",
+        "wikidata_id": "Q7490258",
+        "review_note": "Codex source inspection, 17 October 2026: captured character article, infobox aliases/performers and revision metadata checked. Prominence-based curated selection, not a ranked or exhaustive canon. Identity linkage is not independent story corroboration.",
+        "evidence_sources": [
+          "sharon-watts-wiki"
+        ]
+      }
+    ]
+  },
+  "origin_snapshot_sha256": "2ea666180ca9600a6d8e35ae7049d21f682d9090cddc92f63630d9250d7a6c76",
+  "annotation_sha256": "56275247f9cf2976827f1fd6d9df6ae7682c73da343bc615b819e3f22a7571bb",
+  "reviewer": "Codex source-based annotation, before extraction; not human canon adjudication",
+  "review_note": "Actual marriage, month precision; running a pub supplies no additional relationship type. Present narrative does not prove current status.",
+  "synthetic": false,
+  "cross_source_checked": false,
+  "split": "exposed_development",
+  "story_groups": [
+    "grant-sharon-marriage"
+  ],
+  "completeness": "All explicit in-catalogue assertions of the selected family within these excerpts; events are restricted to the declared incidents."
+}

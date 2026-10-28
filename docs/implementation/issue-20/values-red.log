@@ -1,0 +1,62 @@
+FF                                                                       [100%]
+=================================== FAILURES ===================================
+__ test_coverage_checks_legal_roles_independently_of_ids_and_locators[False] ___
+
+wrong_guilt = False
+
+    @pytest.mark.parametrize("wrong_guilt", [False, True])
+    def test_coverage_checks_legal_roles_independently_of_ids_and_locators(wrong_guilt: bool) -> None:
+        assess = runpy.run_path("scripts/record_coverage.py")["assess"]
+        snapshot = SourceSnapshot.model_validate_json(
+            Path("data/coverage/core-v1/janine-butcher-source.json").read_bytes()
+        )
+        claims = json.loads(Path("data/coverage/core-v1/janine-butcher-reference.json").read_bytes())[
+            "expected_claims"
+        ]
+        reference = json.loads(Path("data/references/core-graph-questions-v1.json").read_bytes())
+        reference["expected_claims"] = {c["claim_id"]: c for c in claims}
+        actual = deepcopy(claims)
+        if wrong_guilt:
+            actual[1].update(event_type="commission", basis="narrative")
+            actual[1]["participants"][0]["role"] = "perpetrator"
+        answer = {"graph": {"status": "found", "claims": actual}, "answer": "Janine killed Laura."}
+        score = assess(answer, snapshot, json.dumps(reference).encode(), case_id="janine-butcher")
+        assert score["component_scores"]["result_correct"] is True
+        assert score["component_scores"]["locators_resolve"] is True
+>       assert score["component_scores"]["values_correct"] is (not wrong_guilt)
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+E       KeyError: 'values_correct'
+
+tests/test_coverage_evaluation.py:32: KeyError
+___ test_coverage_checks_legal_roles_independently_of_ids_and_locators[True] ___
+
+wrong_guilt = True
+
+    @pytest.mark.parametrize("wrong_guilt", [False, True])
+    def test_coverage_checks_legal_roles_independently_of_ids_and_locators(wrong_guilt: bool) -> None:
+        assess = runpy.run_path("scripts/record_coverage.py")["assess"]
+        snapshot = SourceSnapshot.model_validate_json(
+            Path("data/coverage/core-v1/janine-butcher-source.json").read_bytes()
+        )
+        claims = json.loads(Path("data/coverage/core-v1/janine-butcher-reference.json").read_bytes())[
+            "expected_claims"
+        ]
+        reference = json.loads(Path("data/references/core-graph-questions-v1.json").read_bytes())
+        reference["expected_claims"] = {c["claim_id"]: c for c in claims}
+        actual = deepcopy(claims)
+        if wrong_guilt:
+            actual[1].update(event_type="commission", basis="narrative")
+            actual[1]["participants"][0]["role"] = "perpetrator"
+        answer = {"graph": {"status": "found", "claims": actual}, "answer": "Janine killed Laura."}
+        score = assess(answer, snapshot, json.dumps(reference).encode(), case_id="janine-butcher")
+        assert score["component_scores"]["result_correct"] is True
+        assert score["component_scores"]["locators_resolve"] is True
+>       assert score["component_scores"]["values_correct"] is (not wrong_guilt)
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+E       KeyError: 'values_correct'
+
+tests/test_coverage_evaluation.py:32: KeyError
+=========================== short test summary info ============================
+FAILED tests/test_coverage_evaluation.py::test_coverage_checks_legal_roles_independently_of_ids_and_locators[False]
+FAILED tests/test_coverage_evaluation.py::test_coverage_checks_legal_roles_independently_of_ids_and_locators[True]
+2 failed in 0.25s

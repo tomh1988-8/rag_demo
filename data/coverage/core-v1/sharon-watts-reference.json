@@ -1,0 +1,76 @@
+{
+  "expected_claims": [
+    {
+      "subject_id": "den-watts",
+      "object_id": "sharon-watts",
+      "relation": "adoptive_parent",
+      "episode_id": "den-sharon-adoption",
+      "status": "unknown",
+      "polarity": "affirmed",
+      "certainty": "certain",
+      "story_time": "at the age of three",
+      "time_precision": "relative",
+      "after_claim_id": null,
+      "claim_id": "ref-sharon-watts-1",
+      "evidence": [
+        {
+          "evidence_id": "coverage-sharon-watts",
+          "start": 0,
+          "end": 205,
+          "quote": "Adopted at the age of three by Den (Leslie Grantham) and Angie Watts (Anita Dobson), Sharon is raised at The Queen Victoria public house in Albert Square, Walford, where her adoptive parents are landlords."
+        }
+      ]
+    }
+  ],
+  "snapshot_sha256": "4051d8710b68849ed96ba0a71f92800ac20a6a489abca6ac683b2f5cc64248af",
+  "catalogue": {
+    "characters": [
+      {
+        "character_id": "den-watts",
+        "name": "Den Watts",
+        "aliases": [
+          "Dirty Den",
+          "Dennis Alan Watts"
+        ],
+        "performers": [
+          "Leslie Grantham"
+        ],
+        "coverage": "supporting",
+        "wikidata_id": "Q5256484",
+        "review_note": "Den is evidenced supporting context in Sharon’s captured biography. Identity was also reviewed against retained Den revision 1371930128 in real-sources-v1.json.gz. No separate Den history is admitted here; supporting character mentions do not expand the core roster.",
+        "evidence_sources": [
+          "sharon-watts-wiki"
+        ]
+      },
+      {
+        "character_id": "sharon-watts",
+        "name": "Sharon Watts",
+        "aliases": [
+          "Sharon Mitchell",
+          "Sharon Rickman",
+          "Sharon Beale"
+        ],
+        "performers": [
+          "Letitia Dean"
+        ],
+        "coverage": "core",
+        "wikidata_id": "Q7490258",
+        "review_note": "Codex source inspection, 17 October 2026: captured character article, infobox aliases/performers and revision metadata checked. Prominence-based curated selection, not a ranked or exhaustive canon. Identity linkage is not independent story corroboration.",
+        "evidence_sources": [
+          "sharon-watts-wiki"
+        ]
+      }
+    ]
+  },
+  "origin_snapshot_sha256": "2ea666180ca9600a6d8e35ae7049d21f682d9090cddc92f63630d9250d7a6c76",
+  "annotation_sha256": "56275247f9cf2976827f1fd6d9df6ae7682c73da343bc615b819e3f22a7571bb",
+  "reviewer": "Codex source-based annotation, before extraction; not human canon adjudication",
+  "review_note": "Explicit adoption at age three; retain supporting character Den, and exclude this tie from biological ancestry. Angie is outside this selected identity scope.",
+  "synthetic": false,
+  "cross_source_checked": false,
+  "split": "exposed_development",
+  "story_groups": [
+    "sharon-adoption"
+  ],
+  "completeness": "All explicit in-catalogue assertions of the selected family within these excerpts; events are restricted to the declared incidents."
+}

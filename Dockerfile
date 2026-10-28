@@ -21,6 +21,7 @@ RUN uv sync --frozen --no-editable --cache-dir /tmp/uv-cache
 COPY tests ./tests
 COPY docs/implementation/issue-3/docker-serving.json ./docs/implementation/issue-3/docker-serving.json
 COPY scripts/record_family_acceptance.py scripts/record_relationship_acceptance.py scripts/record_event_acceptance.py ./scripts/
+COPY scripts/prepare_coverage.py scripts/run_coverage.py scripts/assemble_coverage.py scripts/report_coverage.py scripts/record_coverage.py ./scripts/
 COPY docs/implementation/issue-11/claims.json docs/implementation/issue-11/claim-reviews.json ./docs/implementation/issue-11/
 COPY docs/implementation/issue-12/raw-claims.json docs/implementation/issue-12/raw-claim-reviews.json docs/implementation/issue-12/reviewed-claims-v2.json docs/implementation/issue-12/reviewed-claim-reviews-v2.json ./docs/implementation/issue-12/
 COPY docs/implementation/issue-13/raw-claims.json docs/implementation/issue-13/raw-reviews.json docs/implementation/issue-13/reviewed-claims-v2.json docs/implementation/issue-13/reviewed-reviews-v2.json ./docs/implementation/issue-13/

@@ -1,0 +1,14 @@
+F                                                                        [100%]
+=================================== FAILURES ===================================
+__________ test_completed_batches_resume_without_repeating_paid_work ___________
+
+tmp_path = PosixPath('/tmp/pytest-of-tom/pytest-200/test_completed_batches_resume_0')
+
+    def test_completed_batches_resume_without_repeating_paid_work(tmp_path: Path) -> None:
+>       from ask_phil.coverage import CoverageRun
+E       ModuleNotFoundError: No module named 'ask_phil.coverage'
+
+tests/test_coverage_batches.py:14: ModuleNotFoundError
+=========================== short test summary info ============================
+FAILED tests/test_coverage_batches.py::test_completed_batches_resume_without_repeating_paid_work
+1 failed in 0.21s

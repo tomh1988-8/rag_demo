@@ -1,0 +1,111 @@
+F                                                                        [100%]
+=================================== FAILURES ===================================
+__ test_a_roster_locator_correction_is_bound_to_the_retained_candidate[True] ___
+
+database_url = 'user=ask_phil password=local-demo-only dbname=ask_phil_test_1ba061ebc4a14189ade0272c46b96a59 host=172.19.0.2 port=5432'
+tmp_path = PosixPath('/tmp/pytest-of-tom/pytest-205/test_a_roster_locator_correcti0')
+changed_after_review = True
+
+    
+    @pytest.mark.parametrize("changed_after_review", [False, True])
+    def test_a_roster_locator_correction_is_bound_to_the_retained_candidate(
+        database_url: str, tmp_path: Path, changed_after_review: bool
+    ) -> None:
+        inputs = tmp_path / "inputs"
+        snapshot = tmp_path / "snapshot.json"
+        subprocess.run(
+            [
+                sys.executable,
+                "scripts/prepare_coverage.py",
+                "--annotations",
+                "data/references/core-graph-v1.json",
+                "--output",
+                str(inputs),
+                "--snapshot",
+                str(snapshot),
+            ],
+            check=True,
+            capture_output=True,
+            timeout=60,
+        )
+        all_batches = CoveragePlan.model_validate_json((inputs / "plan.json").read_bytes())
+        selected = next(b for b in all_batches.batches if b.batch_id == "peggy-mitchell")
+        plan = CoveragePlan(version=1, roster=("peggy-mitchell",), batches=(selected,))
+        plan_path = inputs / "selected.json"
+        plan_path.write_text(plan.model_dump_json())
+        reference = json.loads((inputs / selected.reference).read_bytes())
+        bad = reference["expected_claims"][0]
+        bad["claim_id"] = "peggy-locator-error"
+        bad["evidence"][0]["end"] -= 1
+        candidate = ClaimBatch.model_validate(
+            {
+                "snapshot_id": "peggy-mitchell-coverage-v1",
+                "snapshot_sha256": reference["snapshot_sha256"],
+                "catalogue": reference["catalogue"],
+                "extractor": "synthetic locator regression",
+                "claims": [bad],
+            }
+        )
+        captures = tmp_path / "captures"
+        captures.mkdir()
+        raw_path = captures / "peggy-mitchell.json"
+        raw_path.write_text(
+            json.dumps(
+                {
+                    "snapshot_file_sha256": selected.snapshot_file_sha256,
+                    "reference_sha256": selected.reference_sha256,
+                    "state": "complete",
+                    "failure": None,
+                    "score": None,
+                    "batch": candidate.model_dump(mode="json"),
+                }
+            )
+        )
+        original = raw_path.read_bytes()
+        decisions = tmp_path / "decisions.json"
+        decisions.write_text(
+            json.dumps(
+                {
+                    "peggy-mitchell/peggy-locator-error": {
+                        "raw_claim_sha256": candidate.claims[0].fingerprint,
+                        "verdict": "superseded",
+                        "superseded_by": ["ref-peggy-mitchell-1"],
+                        "reviewer": "Synthetic regression fixture",
+                        "note": "Original end offset omits the final character. "
+                        "Reference keeps the exact quote.",
+                    }
+                }
+            )
+        )
+        graph = tmp_path / "graph"
+        if changed_after_review:
+            changed = json.loads(raw_path.read_bytes())
+            changed["batch"]["claims"][0]["parent_id"] = "ben-mitchell"
+            raw_path.write_text(json.dumps(changed))
+        compilation = subprocess.run(
+            [
+                sys.executable,
+                "scripts/assemble_coverage.py",
+                "--snapshot",
+                str(snapshot),
+                "--plan",
+                str(plan_path),
+                "--captures",
+                str(captures),
+                "--decisions",
+                str(decisions),
+                "--output",
+                str(graph),
+            ],
+            capture_output=True,
+            timeout=60,
+        )
+        if changed_after_review:
+>           assert compilation.returncode != 0
+E           assert b'reviewed candidate changed' in b'Traceback (most recent call last):\n  File "/home/tom/Documents/code/python/rag_demo/scripts/assemble_coverage.py", ...9242cf89e60\', input_type=str]\n    For further information visit https://errors.pydantic.dev/2.13/v/extra_forbidden\n'
+E            +  where b'Traceback (most recent call last):\n  File "/home/tom/Documents/code/python/rag_demo/scripts/assemble_coverage.py", ...9242cf89e60\', input_type=str]\n    For further information visit https://errors.pydantic.dev/2.13/v/extra_forbidden\n' = CompletedProcess(args=['/home/tom/Documents/code/python/rag_demo/.venv/bin/python', 'scripts/assemble_coverage.py', '-...242cf89e60\', input_type=str]\n    For further information visit https://errors.pydantic.dev/2.13/v/extra_forbidden\n').stderr
+
+tests/test_coverage_publication.py:112: AssertionError
+=========================== short test summary info ============================
+FAILED tests/test_coverage_publication.py::test_a_roster_locator_correction_is_bound_to_the_retained_candidate[True]
+1 failed, 1 deselected in 14.89s

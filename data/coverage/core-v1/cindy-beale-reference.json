@@ -1,0 +1,70 @@
+{
+  "expected_claims": [
+    {
+      "event_id": "cindy-twins-pregnancy",
+      "event_label": "Cindy's pregnancy in 1993",
+      "event_type": "pregnancy",
+      "basis": "narrative",
+      "participants": [
+        {
+          "character_id": "cindy-beale",
+          "role": "pregnant_person"
+        }
+      ],
+      "account_status": "as_reported",
+      "polarity": "affirmed",
+      "certainty": "certain",
+      "story_time": "1993",
+      "time_precision": "exact",
+      "claim_id": "ref-cindy-beale-1",
+      "evidence": [
+        {
+          "evidence_id": "coverage-cindy-beale",
+          "start": 0,
+          "end": 45,
+          "quote": "They reunite and Cindy gets pregnant in 1993."
+        }
+      ]
+    }
+  ],
+  "expected_context_claims": [],
+  "incidents": {
+    "coverage-cindy-beale": {
+      "event_id": "cindy-twins-pregnancy",
+      "event_label": "Cindy's pregnancy in 1993"
+    }
+  },
+  "snapshot_sha256": "6027105c170ef343e178512628b30764668248e87394293539a392449d426bba",
+  "catalogue": {
+    "characters": [
+      {
+        "character_id": "cindy-beale",
+        "name": "Cindy Beale",
+        "aliases": [
+          "Rose Sawyer",
+          "Rose Knight"
+        ],
+        "performers": [
+          "Michelle Collins"
+        ],
+        "coverage": "core",
+        "wikidata_id": "Q5120478",
+        "review_note": "Codex source inspection, 17 October 2026: captured character article, infobox aliases/performers and revision metadata checked. Prominence-based curated selection, not a ranked or exhaustive canon. Identity linkage is not independent story corroboration. The genuine maternal maiden alias Cindy Williams is deliberately withheld because the captured narratives also evidence her daughter of that name; ambiguous names/daughter links remain unresolved until separately catalogued.",
+        "evidence_sources": [
+          "cindy-beale-wiki"
+        ]
+      }
+    ]
+  },
+  "origin_snapshot_sha256": "2ea666180ca9600a6d8e35ae7049d21f682d9090cddc92f63630d9250d7a6c76",
+  "annotation_sha256": "56275247f9cf2976827f1fd6d9df6ae7682c73da343bc615b819e3f22a7571bb",
+  "reviewer": "Codex source-based annotation, before extraction; not human canon adjudication",
+  "review_note": "Only explicit pregnancy and its year. No parentage is inferred from pregnancy; paternity rumours elsewhere are not imported.",
+  "synthetic": false,
+  "cross_source_checked": false,
+  "split": "exposed_development",
+  "story_groups": [
+    "cindy-twins-pregnancy"
+  ],
+  "completeness": "All explicit in-catalogue assertions of the selected family within these excerpts; events are restricted to the declared incidents."
+}
