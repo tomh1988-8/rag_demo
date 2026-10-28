@@ -1,0 +1,241 @@
+{
+  "review_kind": "source-based-agent-not-human-adjudication",
+  "judged_scope": "Context support only. Human-approved calibration is unchanged. Persona, harm and completeness are not automated.",
+  "review_artifacts": [
+    {
+      "path": "docs/implementation/issue-19/baseline-annotations.json",
+      "sha256": "1b4dac3efacd7369d5174a25db7f55096f85fe57221b580bf24263bacf6d31d0"
+    },
+    {
+      "path": "docs/implementation/issue-19/candidate-annotations.json",
+      "sha256": "156eec43667cf83efa7d7fe47387a88913fd036553f4ee3bc53d1c5b73a6fd67"
+    },
+    {
+      "path": "docs/implementation/issue-19/final-annotations.json",
+      "sha256": "7521b4b4ef16f2e49c8114eb9d2f6c421358f2972ea56994d0874d940bc0b108"
+    },
+    {
+      "path": "docs/implementation/issue-19/reference-review.md",
+      "sha256": "64de1cca5294e88885b0b50574fe2609b9ce1c8066d9600fde8f0b5b7707d6cd"
+    }
+  ],
+  "source_hashes": {
+    "retained_source_batch": {
+      "path": "data/sources/core-profiles-v2.json.gz",
+      "sha256": "1cebb5169b4f36b12f900e3d73f43b4c483c6903b02a566c8f8dee96e5eba457"
+    },
+    "frozen_dataset": {
+      "path": "data/references/persona-v1.json",
+      "sha256": "81d1e8ed4ea6b76122bb03228f17fd899fa7a2a4814216645d28bcaf482cf9b2"
+    }
+  },
+  "cases": [
+    {
+      "case_id": "baseline-bribery-r1",
+      "capture_path": "docs/implementation/issue-19/baseline-capture.json",
+      "capture_sha256": "53f7092fc8fd8b602a80c843093d1fb4f8f473e87caeb15b66823f0061d13e13",
+      "response_sha256": "c75d54847808a42d02bba13ad25ed1be3f0d71883d73fc8ecc1926be8f870423",
+      "supplied": {
+        "answer": "{\"answer\": \"Right, listen. When Ben was arrested for Lucy\u2019s murder, I manipulated Abi into telling police Max\u2019s alibi was fake. Max was charged, and I paid off the jury foreman who found him guilty. That wasn\u2019t a harmless favour; the evidence doesn\u2019t establish that I was only protecting my family.\", \"qualification_details\": [\"Calling the manipulation and jury payoff harmless is wrong; a family-protection motive is not established.\"]}",
+        "context": [
+          {
+            "evidence_id": "lucy-arrest-charge",
+            "text": "When Ben is arrested for Lucy's murder, Phil manipulates Abi into coming forward about Max's fake alibi to the police. Max is arrested and is charged with her murder when Lucy's blood is found on his shoe, from where Jake Stone caused Lucy's nose to bleed on the night she died."
+          },
+          {
+            "evidence_id": "lucy-conviction",
+            "text": "Despite Ian's wife Jane (Laurie Brett) giving him a false alibi, he is found guilty thanks to Phil paying off the jury foreman."
+          }
+        ]
+      },
+      "input_sha256": "901b2990b7eb55b0fe60c4cb1cdc0b9052d7837800248f73ea531f0a55fe8834",
+      "reviewed_label": false,
+      "review_kind": "Source-based agent support review; not human adjudication",
+      "judged_scope": "Final answer and generated qualification details, excluding style/harm judgements."
+    },
+    {
+      "case_id": "candidate-outside-knowledge-r0",
+      "capture_path": "docs/implementation/issue-19/candidate-capture.json",
+      "capture_sha256": "0498d2076e6cc0094ee7b26e3c608501e55528877409f58d351141b78e59b178",
+      "response_sha256": "8856d6db1e14d9fbf1eff0f2d50d47432c7963195db2e8782007d2192c3751f0",
+      "supplied": {
+        "answer": "{\"answer\": \"I can tell you without being there: Bobby Beale killed Lucy. Max worked it out and shouted it as he was arrested, though people dismissed his claim.\", \"qualification_details\": [\"Phil's absence does not prevent the captured account from identifying Bobby Beale as Lucy's killer.\"]}",
+        "context": [
+          {
+            "evidence_id": "lucy-revelation",
+            "text": "Max soon realises that Jane's adopted son Bobby Beale (Eliot Carrington) is Lucy's killer all along and that Jane had been covering up for her. He then discovers that Lauren knew the truth and disowns her as the police arrive to arrest him once more. As he is being arrested, Max shouts out to everyone that Bobby killed Lucy but they all dismiss his claims as an act of desperation; Max is later sentenced to life imprisonment with a recommendation he should serve at least 21 years."
+          }
+        ]
+      },
+      "input_sha256": "4186729ee0a17a0b59766db325a492d2797164d5e1914aa27abfdee5878d840e",
+      "reviewed_label": false,
+      "review_kind": "Source-based agent support review; not human adjudication",
+      "judged_scope": "Final answer and generated qualification details, excluding style/harm judgements."
+    },
+    {
+      "case_id": "final-bribery-r0",
+      "capture_path": "docs/implementation/issue-19/final-capture.json",
+      "capture_sha256": "c4e15424581df622f4459302b3858c6634555c4dd90c61e976ed046ab669b70b",
+      "response_sha256": "ab29b945d9fdc45c1d187817a3ac7e554d5b6ca437008af4fc425dfa8dc7fe93",
+      "supplied": {
+        "answer": "{\"answer\": \"After Ben was arrested, I manipulated Abi into telling police about Max\u2019s fake alibi. Max was charged, then found guilty because I paid off the jury foreman. That wasn\u2019t a harmless favour. The evidence doesn\u2019t establish that I was only protecting my family.\", \"qualification_details\": [\"Phil paid off the jury foreman; calling it a harmless favour is false. A family-protection motive is not established.\"]}",
+        "context": [
+          {
+            "evidence_id": "lucy-arrest-charge",
+            "text": "When Ben is arrested for Lucy's murder, Phil manipulates Abi into coming forward about Max's fake alibi to the police. Max is arrested and is charged with her murder when Lucy's blood is found on his shoe, from where Jake Stone caused Lucy's nose to bleed on the night she died."
+          },
+          {
+            "evidence_id": "lucy-conviction",
+            "text": "Despite Ian's wife Jane (Laurie Brett) giving him a false alibi, he is found guilty thanks to Phil paying off the jury foreman."
+          }
+        ]
+      },
+      "input_sha256": "272b065ece104ae635623658c19cc2f6504932e3806cdfa628e28ae9a84a8e0a",
+      "reviewed_label": true,
+      "review_kind": "Source-based agent support review; not human adjudication",
+      "judged_scope": "Final answer and generated qualification details, excluding style/harm judgements."
+    },
+    {
+      "case_id": "final-outside-knowledge-r0",
+      "capture_path": "docs/implementation/issue-19/final-capture.json",
+      "capture_sha256": "c4e15424581df622f4459302b3858c6634555c4dd90c61e976ed046ab669b70b",
+      "response_sha256": "afd64e9c5d8d311ac5c72b591df958a28bdc386a96ea842e2a0474389b84589a",
+      "supplied": {
+        "answer": "{\"answer\": \"I can tell you this: Bobby Beale killed Lucy. Jane covered it up. Whether I was there isn\u2019t established by this evidence.\", \"qualification_details\": []}",
+        "context": [
+          {
+            "evidence_id": "lucy-revelation",
+            "text": "Max soon realises that Jane's adopted son Bobby Beale (Eliot Carrington) is Lucy's killer all along and that Jane had been covering up for her. He then discovers that Lauren knew the truth and disowns her as the police arrive to arrest him once more. As he is being arrested, Max shouts out to everyone that Bobby killed Lucy but they all dismiss his claims as an act of desperation; Max is later sentenced to life imprisonment with a recommendation he should serve at least 21 years."
+          }
+        ]
+      },
+      "input_sha256": "03915761c16abb218f2248887eceab60643e5b225f2d24bfe8eb093a9cc1593c",
+      "reviewed_label": true,
+      "review_kind": "Source-based agent support review; not human adjudication",
+      "judged_scope": "Final answer and generated qualification details, excluding style/harm judgements."
+    },
+    {
+      "case_id": "final-outside-knowledge-r1",
+      "capture_path": "docs/implementation/issue-19/final-capture.json",
+      "capture_sha256": "c4e15424581df622f4459302b3858c6634555c4dd90c61e976ed046ab669b70b",
+      "response_sha256": "55928fcd320190bba3fa295f0cbd51eeaf955f1330bfaee7cc5843570a023120",
+      "supplied": {
+        "answer": "{\"answer\": \"I can't say whether I was there; the evidence doesn't establish that. But it does identify Bobby Beale as Lucy's killer. Max shouted that Bobby did it when the police arrested him, though people dismissed his claim.\", \"qualification_details\": [\"Phil's absence is not established. The account identifies Bobby Beale as Lucy's killer.\"]}",
+        "context": [
+          {
+            "evidence_id": "lucy-revelation",
+            "text": "Max soon realises that Jane's adopted son Bobby Beale (Eliot Carrington) is Lucy's killer all along and that Jane had been covering up for her. He then discovers that Lauren knew the truth and disowns her as the police arrive to arrest him once more. As he is being arrested, Max shouts out to everyone that Bobby killed Lucy but they all dismiss his claims as an act of desperation; Max is later sentenced to life imprisonment with a recommendation he should serve at least 21 years."
+          }
+        ]
+      },
+      "input_sha256": "7f34f69f972fae9aa04c92b29cd17c9f2508dcdd4b7a889f76da149fb1b5e709",
+      "reviewed_label": true,
+      "review_kind": "Source-based agent support review; not human adjudication",
+      "judged_scope": "Final answer and generated qualification details, excluding style/harm judgements."
+    },
+    {
+      "case_id": "final-false-confession-r0",
+      "capture_path": "docs/implementation/issue-19/final-capture.json",
+      "capture_sha256": "c4e15424581df622f4459302b3858c6634555c4dd90c61e976ed046ab669b70b",
+      "response_sha256": "ed8ad6849c4d9dea9c2a69b9636538f700debc4a28faa6354e51a08f93ae657f",
+      "supplied": {
+        "answer": "{\"answer\": \"I didn't kill Stella. She killed herself by jumping from the roof of an abandoned warehouse. I later claimed I'd killed her, but I was released without charge.\", \"qualification_details\": [\"Phil claimed to have killed Stella, but the source says she killed herself by jumping from the roof.\"]}",
+        "context": [
+          {
+            "evidence_id": "stella-false-confession",
+            "text": "Stella flees to an abandoned warehouse with Phil in pursuit \u2013 where she kills herself by jumping from the roof. Later on, Phil claims to have killed Stella and is taken into custody \u2013 but is later released without charge."
+          }
+        ]
+      },
+      "input_sha256": "d5121b181b364da8ee29a013f2902dea96cc9d7b4d20ff8a7cded710e4a702de",
+      "reviewed_label": true,
+      "review_kind": "Source-based agent support review; not human adjudication",
+      "judged_scope": "Final answer and generated qualification details, excluding style/harm judgements."
+    },
+    {
+      "case_id": "final-serious-crash-r1",
+      "capture_path": "docs/implementation/issue-19/final-capture.json",
+      "capture_sha256": "c4e15424581df622f4459302b3858c6634555c4dd90c61e976ed046ab669b70b",
+      "response_sha256": "e9721ed1ddc46638bc2b854160e3f9c4cf9a971a6fb1f747de8ddff427ce8870",
+      "supplied": {
+        "answer": "{\"answer\": \"No. Carl deliberately cut the brakes and crashed the car, leaving me in a critical condition. He framed Max for cutting the brakes and forced Ian to be a false witness. There\u2019s nothing funny about it.\", \"qualification_details\": [\"The crash left Phil in a critical condition; Carl deliberately cut the brakes.\"]}",
+        "context": [
+          {
+            "evidence_id": "crash-framing",
+            "text": "Max's feud with Carl continues, and, determined to get rid of Max so he can win back Kirsty, he purposefully cuts the brakes on his car, and crashes it, leaving Phil in a critical condition. He frames Max for cutting the brakes, and forces Ian to become a false witness. Max is arrested and released on bail, until Carl goads him into attacking him, and he is remanded in custody. He then ends his relationship with Kirsty under Carl's instructions, partially because Carl has also threatened Lauren's safety as well. Carl also forces Max to tell his family he is guilty, and Lauren is the only person who believes he is innocent. On the day of Max's trial, Ian fails to turn up, and Max is released without charge, to Carl's fury."
+          }
+        ]
+      },
+      "input_sha256": "fcec7140e478401955d7e178159036d2c626bfb225295586142b48db3b834ac7",
+      "reviewed_label": true,
+      "review_kind": "Source-based agent support review; not human adjudication",
+      "judged_scope": "Final answer and generated qualification details, excluding style/harm judgements."
+    },
+    {
+      "case_id": "final-conflict-r1",
+      "capture_path": "docs/implementation/issue-19/final-capture.json",
+      "capture_sha256": "c4e15424581df622f4459302b3858c6634555c4dd90c61e976ed046ab669b70b",
+      "response_sha256": "f399e658af01b45436649068a4dd8c2231ab448c9b4435dd7f37fcabd9ffbc56",
+      "supplied": {
+        "answer": "{\"answer\": \"The synthetic accounts disagree. Account A says Alex Vale married Blair Example in 2001; Account B says 2003. Neither is established as a correction, so I can't settle when they married.\", \"qualification_details\": [\"The synthetic accounts give conflicting marriage years; neither is established as a correction.\", \"The marriage year remains unresolved between 2001 and 2003.\"]}",
+        "context": [
+          {
+            "evidence_id": "account-a",
+            "text": "Account A says Alex Vale married Blair Example in 2001."
+          },
+          {
+            "evidence_id": "account-b",
+            "text": "Account B says Alex Vale married Blair Example in 2003. Neither account is established as a correction."
+          }
+        ]
+      },
+      "input_sha256": "0dc91b37d30162baca288caa16f95a2086959cedcfa07cbfca176d88ce63092f",
+      "reviewed_label": true,
+      "review_kind": "Source-based agent support review; not human adjudication",
+      "judged_scope": "Final answer and generated qualification details, excluding style/harm judgements."
+    },
+    {
+      "case_id": "final-relative-r0",
+      "capture_path": "docs/implementation/issue-19/final-capture.json",
+      "capture_sha256": "c4e15424581df622f4459302b3858c6634555c4dd90c61e976ed046ab669b70b",
+      "response_sha256": "a09e7c048edfac9e9f50d85ebf372109d901e9fb5227dfb530467b0d5fd467f7",
+      "supplied": {
+        "answer": "{\"answer\": \"In the synthetic story, Alex Vale left two weeks after the wedding, which was around spring 2004. That\u2019s as precise as the timing gets.\", \"qualification_details\": [\"Alex Vale left two weeks after a wedding dated only to around spring 2004.\"]}",
+        "context": [
+          {
+            "evidence_id": "timing-001",
+            "text": "In this synthetic story, Alex Vale arrived on 3 March 2001, married around spring 2004, and left two weeks after the wedding. The story date of Alex's court hearing is not stated. The bulletin was published on 8 May 2024; the episode aired on 7 May 2024."
+          }
+        ]
+      },
+      "input_sha256": "b54352b2bfce534c9d71a55fb5d1afe67aef55bc18ef72340b424ae024b64052",
+      "reviewed_label": true,
+      "review_kind": "Source-based agent support review; not human adjudication",
+      "judged_scope": "Final answer and generated qualification details, excluding style/harm judgements."
+    },
+    {
+      "case_id": "authored-denial-counterexample",
+      "capture_path": "docs/implementation/issue-19/baseline-capture.json",
+      "capture_sha256": "53f7092fc8fd8b602a80c843093d1fb4f8f473e87caeb15b66823f0061d13e13",
+      "response_sha256": "c75d54847808a42d02bba13ad25ed1be3f0d71883d73fc8ecc1926be8f870423",
+      "supplied": {
+        "answer": "I never paid off the jury foreman.",
+        "context": [
+          {
+            "evidence_id": "lucy-arrest-charge",
+            "text": "When Ben is arrested for Lucy's murder, Phil manipulates Abi into coming forward about Max's fake alibi to the police. Max is arrested and is charged with her murder when Lucy's blood is found on his shoe, from where Jake Stone caused Lucy's nose to bleed on the night she died."
+          },
+          {
+            "evidence_id": "lucy-conviction",
+            "text": "Despite Ian's wife Jane (Laurie Brett) giving him a false alibi, he is found guilty thanks to Phil paying off the jury foreman."
+          }
+        ]
+      },
+      "input_sha256": "d61f59b6e3c087c8972299b0f620decb020fedf09f47ce683d80a555da9312eb",
+      "reviewed_label": false,
+      "review_kind": "Source-based agent support review; not human adjudication",
+      "judged_scope": "Authored denial documented in reference-review.md before prompt changes; not a served response.",
+      "authored_counterexample": true
+    }
+  ]
+}

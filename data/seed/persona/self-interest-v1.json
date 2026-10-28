@@ -1,0 +1,92 @@
+{
+  "snapshot_id": "persona-self-interest-v1",
+  "fixture_version": 1,
+  "source": {
+    "title": "Max Branning",
+    "url": "https://en.wikipedia.org/wiki/Max_Branning",
+    "revision_id": "1378782554",
+    "revision_url": "https://en.wikipedia.org/w/index.php?oldid=1378782554",
+    "section": "Storylines / 2006\u20132021",
+    "captured_at": "2026-10-17T13:07:34.684245Z",
+    "capture_sha256": "48c3bdd9d5f7110e9cbcd9e6cbc7f32970c519fee14c1a32b231b42c639dc615",
+    "scope": "main_series",
+    "license_url": "https://creativecommons.org/licenses/by-sa/4.0/",
+    "attribution": "Wikipedia contributors; markup removed and whitespace normalized.",
+    "coverage": "Reviewed narrative sections in this captured revision only.",
+    "gaps": [
+      "Partial canon coverage; other paragraphs remain excluded or awaiting review.",
+      "Identity and episode metadata do not independently corroborate story claims."
+    ],
+    "support_status": "source_supported"
+  },
+  "passages": [
+    {
+      "evidence_id": "lucy-arrest-charge",
+      "text": "When Ben is arrested for Lucy's murder, Phil manipulates Abi into coming forward about Max's fake alibi to the police. Max is arrested and is charged with her murder when Lucy's blood is found on his shoe, from where Jake Stone caused Lucy's nose to bleed on the night she died.",
+      "sha256": "49dfd9a4f22c14f3e1240b45100f89f707f4a09edae8ee17ef990e0f7424576c",
+      "start": 28208,
+      "end": 28486,
+      "source": {
+        "title": "Max Branning",
+        "url": "https://en.wikipedia.org/wiki/Max_Branning",
+        "revision_id": "1378782554",
+        "revision_url": "https://en.wikipedia.org/w/index.php?oldid=1378782554",
+        "section": "Storylines / 2006\u20132021",
+        "captured_at": "2026-10-17T13:07:34.684245Z",
+        "capture_sha256": "48c3bdd9d5f7110e9cbcd9e6cbc7f32970c519fee14c1a32b231b42c639dc615",
+        "scope": "main_series",
+        "license_url": "https://creativecommons.org/licenses/by-sa/4.0/",
+        "attribution": "Wikipedia contributors; markup removed and whitespace normalized.",
+        "coverage": "Reviewed narrative sections in this captured revision only.",
+        "gaps": [
+          "Partial canon coverage; other paragraphs remain excluded or awaiting review.",
+          "Identity and episode metadata do not independently corroborate story claims."
+        ],
+        "support_status": "source_supported"
+      },
+      "location": {
+        "source_id": "max-branning-wiki",
+        "paragraph_ordinal": 27,
+        "section_id": "2006\u20132021",
+        "character_ids": [
+          "bobby-beale",
+          "max-branning"
+        ]
+      }
+    },
+    {
+      "evidence_id": "lucy-conviction",
+      "text": "Despite Ian's wife Jane (Laurie Brett) giving him a false alibi, he is found guilty thanks to Phil paying off the jury foreman.",
+      "sha256": "ab037575ab0976ec8b9309db31a87dbb3cce2835e29af2903cceff3a27256b82",
+      "start": 28675,
+      "end": 28802,
+      "source": {
+        "title": "Max Branning",
+        "url": "https://en.wikipedia.org/wiki/Max_Branning",
+        "revision_id": "1378782554",
+        "revision_url": "https://en.wikipedia.org/w/index.php?oldid=1378782554",
+        "section": "Storylines / 2006\u20132021",
+        "captured_at": "2026-10-17T13:07:34.684245Z",
+        "capture_sha256": "48c3bdd9d5f7110e9cbcd9e6cbc7f32970c519fee14c1a32b231b42c639dc615",
+        "scope": "main_series",
+        "license_url": "https://creativecommons.org/licenses/by-sa/4.0/",
+        "attribution": "Wikipedia contributors; markup removed and whitespace normalized.",
+        "coverage": "Reviewed narrative sections in this captured revision only.",
+        "gaps": [
+          "Partial canon coverage; other paragraphs remain excluded or awaiting review.",
+          "Identity and episode metadata do not independently corroborate story claims."
+        ],
+        "support_status": "source_supported"
+      },
+      "location": {
+        "source_id": "max-branning-wiki",
+        "paragraph_ordinal": 27,
+        "section_id": "2006\u20132021",
+        "character_ids": [
+          "bobby-beale",
+          "max-branning"
+        ]
+      }
+    }
+  ]
+}

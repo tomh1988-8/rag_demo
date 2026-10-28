@@ -1,0 +1,11 @@
+{
+  "provider_type": "openrouter",
+  "answer_model": "openai/gpt-6-sol",
+  "canonical_slug": "openai/gpt-6-sol-20260922",
+  "provider": "openai",
+  "input_price_per_million": "2",
+  "output_price_per_million": "10",
+  "output_tokens": 8192,
+  "reasoning_effort": "low",
+  "request_timeout_seconds": 180
+}

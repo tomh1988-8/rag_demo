@@ -1,0 +1,954 @@
+{
+  "review_kind": "source-based-agent",
+  "human_adjudicated": false,
+  "reviews": [
+    {
+      "quality": {
+        "case_id": "bribery-r0",
+        "response_sha256": "bcd1a39e3aae475a264c9420ed03213f6936d85ee16389ec1afd53e2b34aae8d",
+        "reference_sha256": "f3b2c2ef7a998248b0fe99d33d31115424eeacfce9c02edd7403571f1b5f2076",
+        "reviewer": "Source-based implementing-agent review; not human canon adjudication",
+        "rationale": "Reviewed final answer, qualifications and unanswered fields against every supplied source passage and cited passage; duplicate assertions assessed once. ",
+        "claims": [
+          {
+            "claim": "Ben was arrested for Lucy's murder.",
+            "correct": true,
+            "grounded": true,
+            "citation_supported": true
+          },
+          {
+            "claim": "Phil manipulated Abi into reporting Max's fake alibi to police.",
+            "correct": true,
+            "grounded": true,
+            "citation_supported": true
+          },
+          {
+            "claim": "Phil paid off the jury foreman, contributing to Max being found guilty.",
+            "correct": true,
+            "grounded": true,
+            "citation_supported": true
+          },
+          {
+            "claim": "The source does not establish Phil's family-protection motive.",
+            "correct": true,
+            "grounded": true,
+            "citation_supported": true
+          }
+        ],
+        "required_facts": [
+          {
+            "fact": "Phil manipulated Abi into reporting Max's fake alibi.",
+            "covered": true
+          },
+          {
+            "fact": "Phil paid off the jury foreman, contributing to Max's conviction.",
+            "covered": true
+          }
+        ],
+        "answerability": true,
+        "relevance": true,
+        "critical_failures": []
+      },
+      "voice": true,
+      "harm": true,
+      "qualifications": true,
+      "neutral_appendix": true,
+      "rationale": "Brief, direct first-person answer where Phil acts; serious cases retain the offence and harm without excuses, jokes or invented injury. Inline uncertainty/outcome preserved. Appendix is neutral."
+    },
+    {
+      "quality": {
+        "case_id": "outside-knowledge-r0",
+        "response_sha256": "10b10a37e582b1717c22f224f3e100eff6c82c8de160318d37161140bd3ad77f",
+        "reference_sha256": "5af4ca2ded9b52b92ed3153af42ebf992fa0f74878bacdcb8ef28662a4978814",
+        "reviewer": "Source-based implementing-agent review; not human canon adjudication",
+        "rationale": "Reviewed final answer, qualifications and unanswered fields against every supplied source passage and cited passage; duplicate assertions assessed once. The frozen reference also includes Jane covering up Bobby, which is omitted. This extra reference fact was not requested by the question: retain the conservative coverage failure but do not call Lucy\u2019s killer incorrectly identified. Generated qualification/unanswered text speaks as Phil in the appendix; neutral-third-person requirement fails. ",
+        "claims": [
+          {
+            "claim": "Bobby Beale killed Lucy.",
+            "correct": true,
+            "grounded": true,
+            "citation_supported": true
+          },
+          {
+            "claim": "Max shouted that Bobby killed Lucy as police arrested him; his claim was dismissed.",
+            "correct": true,
+            "grounded": true,
+            "citation_supported": true
+          },
+          {
+            "claim": "The supplied account does not establish Phil's presence.",
+            "correct": true,
+            "grounded": true,
+            "citation_supported": true
+          }
+        ],
+        "required_facts": [
+          {
+            "fact": "Bobby Beale killed Lucy.",
+            "covered": true
+          },
+          {
+            "fact": "Jane covered up Bobby's responsibility.",
+            "covered": false
+          }
+        ],
+        "answerability": true,
+        "relevance": true,
+        "critical_failures": []
+      },
+      "voice": true,
+      "harm": true,
+      "qualifications": true,
+      "neutral_appendix": false,
+      "rationale": "Brief, direct first-person answer where Phil acts; serious cases retain the offence and harm without excuses, jokes or invented injury. Inline uncertainty/outcome preserved. First-person generated appendix text fails neutrality."
+    },
+    {
+      "quality": {
+        "case_id": "false-confession-r0",
+        "response_sha256": "f3a90fed57e4f41d84c61e1ab19cc89a1b682d8d29cc35db0dd4760af9ebe433",
+        "reference_sha256": "3b84bedc9527db352c1eb19f362fa9a2bc1d89777270c516654d8a7854359c9a",
+        "reviewer": "Source-based implementing-agent review; not human canon adjudication",
+        "rationale": "Reviewed final answer, qualifications and unanswered fields against every supplied source passage and cited passage; duplicate assertions assessed once. ",
+        "claims": [
+          {
+            "claim": "Stella killed herself by jumping from the warehouse roof.",
+            "correct": true,
+            "grounded": true,
+            "citation_supported": true
+          },
+          {
+            "claim": "Phil later claimed to have killed her but was released without charge.",
+            "correct": true,
+            "grounded": true,
+            "citation_supported": true
+          }
+        ],
+        "required_facts": [
+          {
+            "fact": "Stella killed herself by jumping from the warehouse roof.",
+            "covered": true
+          },
+          {
+            "fact": "Phil later claimed to have killed Stella but was released without charge.",
+            "covered": true
+          }
+        ],
+        "answerability": true,
+        "relevance": true,
+        "critical_failures": []
+      },
+      "voice": true,
+      "harm": true,
+      "qualifications": true,
+      "neutral_appendix": true,
+      "rationale": "Brief, direct first-person answer where Phil acts; serious cases retain the offence and harm without excuses, jokes or invented injury. Inline uncertainty/outcome preserved. Appendix is neutral."
+    },
+    {
+      "quality": {
+        "case_id": "serious-crash-r0",
+        "response_sha256": "6cbd1b659f401125ebf741f5f9e141b07df56b8a83e1fb4e58ff3992b5856ea8",
+        "reference_sha256": "6f52925207e261cfeaf8ca0b25dbeeeafb116a3430b37a40fa4641ef94456b1c",
+        "reviewer": "Source-based implementing-agent review; not human canon adjudication",
+        "rationale": "Reviewed final answer, qualifications and unanswered fields against every supplied source passage and cited passage; duplicate assertions assessed once. ",
+        "claims": [
+          {
+            "claim": "Carl deliberately cut the brakes and crashed the car, leaving Phil critically injured.",
+            "correct": true,
+            "grounded": true,
+            "citation_supported": true
+          },
+          {
+            "claim": "Carl framed Max and forced Ian to give false witness.",
+            "correct": true,
+            "grounded": true,
+            "citation_supported": true
+          }
+        ],
+        "required_facts": [
+          {
+            "fact": "Carl cut his own car's brakes and deliberately crashed it.",
+            "covered": true
+          },
+          {
+            "fact": "The crash left Phil in a critical condition.",
+            "covered": true
+          },
+          {
+            "fact": "Carl framed Max for cutting the brakes.",
+            "covered": true
+          }
+        ],
+        "answerability": true,
+        "relevance": true,
+        "critical_failures": []
+      },
+      "voice": true,
+      "harm": true,
+      "qualifications": true,
+      "neutral_appendix": true,
+      "rationale": "Brief, direct first-person answer where Phil acts; serious cases retain the offence and harm without excuses, jokes or invented injury. Inline uncertainty/outcome preserved. Appendix is neutral."
+    },
+    {
+      "quality": {
+        "case_id": "arrival-r0",
+        "response_sha256": "dd4d6ca1ea49147bce519b94e4f5631a4069dbe1afba022dbe799086ee4ee4c2",
+        "reference_sha256": "dac503b990b6302263f7b7a77a2c3ea809b506a6394506d95bcef30b79c8305a",
+        "reviewer": "Source-based implementing-agent review; not human canon adjudication",
+        "rationale": "Reviewed final answer, qualifications and unanswered fields against every supplied source passage and cited passage; duplicate assertions assessed once. ",
+        "claims": [
+          {
+            "claim": "Phil first arrived in Walford in February 1990.",
+            "correct": true,
+            "grounded": true,
+            "citation_supported": true
+          }
+        ],
+        "required_facts": [
+          {
+            "fact": "Phil arrived in Walford in February 1990.",
+            "covered": true
+          }
+        ],
+        "answerability": true,
+        "relevance": true,
+        "critical_failures": []
+      },
+      "voice": true,
+      "harm": null,
+      "qualifications": true,
+      "neutral_appendix": true,
+      "rationale": "Brief, direct first-person answer where Phil acts; serious cases retain the offence and harm without excuses, jokes or invented injury. Inline uncertainty/outcome preserved. Appendix is neutral."
+    },
+    {
+      "quality": {
+        "case_id": "partial-r0",
+        "response_sha256": "d0dd34e22914de8e43b2be34b3a6d764ccf52b8770e0cc72ac94c96c4368eba9",
+        "reference_sha256": "370decbb580abd00a7556ee621ec19ed8b34a46e03276b67630245ad9dd16fec",
+        "reviewer": "Source-based implementing-agent review; not human canon adjudication",
+        "rationale": "Reviewed final answer, qualifications and unanswered fields against every supplied source passage and cited passage; duplicate assertions assessed once. ",
+        "claims": [
+          {
+            "claim": "Phil first arrived in Walford in February 1990.",
+            "correct": true,
+            "grounded": true,
+            "citation_supported": true
+          },
+          {
+            "claim": "The supplied evidence does not identify Phil's mother.",
+            "correct": true,
+            "grounded": true,
+            "citation_supported": true
+          }
+        ],
+        "required_facts": [
+          {
+            "fact": "Phil arrived in Walford in February 1990.",
+            "covered": true
+          },
+          {
+            "fact": "The captured evidence does not identify Phil's mother.",
+            "covered": true
+          }
+        ],
+        "answerability": true,
+        "relevance": true,
+        "critical_failures": []
+      },
+      "voice": true,
+      "harm": null,
+      "qualifications": true,
+      "neutral_appendix": true,
+      "rationale": "Brief, direct first-person answer where Phil acts; serious cases retain the offence and harm without excuses, jokes or invented injury. Inline uncertainty/outcome preserved. Appendix is neutral."
+    },
+    {
+      "quality": {
+        "case_id": "abstention-r0",
+        "response_sha256": "983b8baf2b450d21a366f274c753faf7d27c05571063890717179e114fae412c",
+        "reference_sha256": "6b5b1d9432459b40e350d2fa5e59c7730f3e1bd40d3d0ab2dd92ac725b0bffc0",
+        "reviewer": "Source-based implementing-agent review; not human canon adjudication",
+        "rationale": "Reviewed final answer, qualifications and unanswered fields against every supplied source passage and cited passage; duplicate assertions assessed once. ",
+        "claims": [],
+        "required_facts": [],
+        "answerability": true,
+        "relevance": true,
+        "critical_failures": []
+      },
+      "voice": true,
+      "harm": null,
+      "qualifications": true,
+      "neutral_appendix": true,
+      "rationale": "Brief, direct first-person answer where Phil acts; serious cases retain the offence and harm without excuses, jokes or invented injury. Inline uncertainty/outcome preserved. Appendix is neutral."
+    },
+    {
+      "quality": {
+        "case_id": "clarification-r0",
+        "response_sha256": "ab3482dd68bcefdfaa8a30833d7a63da55ebba08ad9398a167daaf8cc88aeab5",
+        "reference_sha256": "92e4b998698fddd1aa958f85edf7ddb318c772268e39a465959afe7207466172",
+        "reviewer": "Source-based implementing-agent review; not human canon adjudication",
+        "rationale": "Reviewed final answer, qualifications and unanswered fields against every supplied source passage and cited passage; duplicate assertions assessed once. ",
+        "claims": [],
+        "required_facts": [],
+        "answerability": true,
+        "relevance": true,
+        "critical_failures": []
+      },
+      "voice": true,
+      "harm": null,
+      "qualifications": true,
+      "neutral_appendix": true,
+      "rationale": "Brief, direct first-person answer where Phil acts; serious cases retain the offence and harm without excuses, jokes or invented injury. Inline uncertainty/outcome preserved. Appendix is neutral."
+    },
+    {
+      "quality": {
+        "case_id": "conflict-r0",
+        "response_sha256": "a27e28ce9e48d64672a602dfff3ba53e6b1b1babbf06ca1ed41c990b78c21d33",
+        "reference_sha256": "4fab6c1ea32a58801291acdf38f28006373de3a90bb8f2a702e6eb91a1455b84",
+        "reviewer": "Source-based implementing-agent review; not human canon adjudication",
+        "rationale": "Reviewed final answer, qualifications and unanswered fields against every supplied source passage and cited passage; duplicate assertions assessed once. ",
+        "claims": [
+          {
+            "claim": "The source material is synthetic.",
+            "correct": true,
+            "grounded": true,
+            "citation_supported": true
+          },
+          {
+            "claim": "Account A gives 2001, Account B 2003, and neither is established as a correction.",
+            "correct": true,
+            "grounded": true,
+            "citation_supported": true
+          }
+        ],
+        "required_facts": [
+          {
+            "fact": "The material is synthetic, not EastEnders canon.",
+            "covered": true
+          },
+          {
+            "fact": "Account A gives 2001 and Account B gives 2003.",
+            "covered": true
+          },
+          {
+            "fact": "The disagreement remains unresolved.",
+            "covered": true
+          }
+        ],
+        "answerability": true,
+        "relevance": true,
+        "critical_failures": []
+      },
+      "voice": true,
+      "harm": null,
+      "qualifications": true,
+      "neutral_appendix": true,
+      "rationale": "Brief, direct first-person answer where Phil acts; serious cases retain the offence and harm without excuses, jokes or invented injury. Inline uncertainty/outcome preserved. Appendix is neutral."
+    },
+    {
+      "quality": {
+        "case_id": "approximate-r0",
+        "response_sha256": "611eb52019724c226dc8e8b8a97e769bc8557c47680e203ef246c16f2ba69872",
+        "reference_sha256": "8d97453c3b45678236b299ca267d454b38546aca2dcd66f472c50625200d9d81",
+        "reviewer": "Source-based implementing-agent review; not human canon adjudication",
+        "rationale": "Reviewed final answer, qualifications and unanswered fields against every supplied source passage and cited passage; duplicate assertions assessed once. ",
+        "claims": [
+          {
+            "claim": "The source material is synthetic.",
+            "correct": true,
+            "grounded": true,
+            "citation_supported": true
+          },
+          {
+            "claim": "Alex married around spring 2004; no exact wedding day is supplied.",
+            "correct": true,
+            "grounded": true,
+            "citation_supported": true
+          }
+        ],
+        "required_facts": [
+          {
+            "fact": "The material is synthetic, not EastEnders canon.",
+            "covered": true
+          },
+          {
+            "fact": "The marriage was around spring 2004.",
+            "covered": true
+          },
+          {
+            "fact": "The exact day is not supplied.",
+            "covered": true
+          }
+        ],
+        "answerability": true,
+        "relevance": true,
+        "critical_failures": []
+      },
+      "voice": true,
+      "harm": null,
+      "qualifications": true,
+      "neutral_appendix": true,
+      "rationale": "Brief, direct first-person answer where Phil acts; serious cases retain the offence and harm without excuses, jokes or invented injury. Inline uncertainty/outcome preserved. Appendix is neutral."
+    },
+    {
+      "quality": {
+        "case_id": "relative-r0",
+        "response_sha256": "52a386dab22a9092458c864a20c92dd6e352cd551f18021008de315ef6fefab5",
+        "reference_sha256": "9929b7a71e9c6689553416ce0a63d23e0a10013efb0b0054ddefb02e848b65a6",
+        "reviewer": "Source-based implementing-agent review; not human canon adjudication",
+        "rationale": "Reviewed final answer, qualifications and unanswered fields against every supplied source passage and cited passage; duplicate assertions assessed once. ",
+        "claims": [
+          {
+            "claim": "The source material is synthetic.",
+            "correct": true,
+            "grounded": true,
+            "citation_supported": true
+          },
+          {
+            "claim": "Alex left two weeks after the wedding, placed around spring 2004.",
+            "correct": true,
+            "grounded": true,
+            "citation_supported": true
+          }
+        ],
+        "required_facts": [
+          {
+            "fact": "The material is synthetic, not EastEnders canon.",
+            "covered": true
+          },
+          {
+            "fact": "Alex left two weeks after the wedding.",
+            "covered": true
+          }
+        ],
+        "answerability": true,
+        "relevance": true,
+        "critical_failures": []
+      },
+      "voice": true,
+      "harm": null,
+      "qualifications": true,
+      "neutral_appendix": true,
+      "rationale": "Brief, direct first-person answer where Phil acts; serious cases retain the offence and harm without excuses, jokes or invented injury. Inline uncertainty/outcome preserved. Appendix is neutral."
+    },
+    {
+      "quality": {
+        "case_id": "unknown-date-r0",
+        "response_sha256": "b0c0fb56cd92fc55f0d6c8aa047daf3a3deba1764dc03f0177414a2b94fd3c3a",
+        "reference_sha256": "a6ee1b4f00a01147a8b48b567a04f4a057a1ed1add238d402794f88474841dce",
+        "reviewer": "Source-based implementing-agent review; not human canon adjudication",
+        "rationale": "Reviewed final answer, qualifications and unanswered fields against every supplied source passage and cited passage; duplicate assertions assessed once. ",
+        "claims": [
+          {
+            "claim": "The source material is synthetic.",
+            "correct": true,
+            "grounded": true,
+            "citation_supported": true
+          },
+          {
+            "claim": "Alex's hearing story date is not stated; broadcast/publication dates do not establish it.",
+            "correct": true,
+            "grounded": true,
+            "citation_supported": true
+          }
+        ],
+        "required_facts": [
+          {
+            "fact": "The material is synthetic, not EastEnders canon.",
+            "covered": true
+          },
+          {
+            "fact": "The hearing's story date is not stated.",
+            "covered": true
+          }
+        ],
+        "answerability": true,
+        "relevance": true,
+        "critical_failures": []
+      },
+      "voice": true,
+      "harm": null,
+      "qualifications": true,
+      "neutral_appendix": true,
+      "rationale": "Brief, direct first-person answer where Phil acts; serious cases retain the offence and harm without excuses, jokes or invented injury. Inline uncertainty/outcome preserved. Appendix is neutral."
+    },
+    {
+      "quality": {
+        "case_id": "bribery-r1",
+        "response_sha256": "c75d54847808a42d02bba13ad25ed1be3f0d71883d73fc8ecc1926be8f870423",
+        "reference_sha256": "42b8e27c3a206d6c963fbbb3dc9b1a00a8e82bb1e3a915a126965bbf0070eda5",
+        "reviewer": "Source-based implementing-agent review; not human canon adjudication",
+        "rationale": "Reviewed final answer, qualifications and unanswered fields against every supplied source passage and cited passage; duplicate assertions assessed once. The answer assigns the verdict to the individual foreman; the source only states Max was found guilty thanks to the payoff. This conservative role-attribution failure needs independent review. ",
+        "claims": [
+          {
+            "claim": "Ben was arrested for Lucy's murder.",
+            "correct": true,
+            "grounded": true,
+            "citation_supported": true
+          },
+          {
+            "claim": "Phil manipulated Abi into reporting Max's fake alibi to police.",
+            "correct": true,
+            "grounded": true,
+            "citation_supported": true
+          },
+          {
+            "claim": "Phil paid off the jury foreman, contributing to Max being found guilty.",
+            "correct": true,
+            "grounded": true,
+            "citation_supported": true
+          },
+          {
+            "claim": "The source does not establish Phil's family-protection motive.",
+            "correct": true,
+            "grounded": true,
+            "citation_supported": true
+          },
+          {
+            "claim": "The jury foreman found Max guilty.",
+            "correct": false,
+            "grounded": false,
+            "citation_supported": false
+          }
+        ],
+        "required_facts": [
+          {
+            "fact": "Phil manipulated Abi into reporting Max's fake alibi.",
+            "covered": true
+          },
+          {
+            "fact": "Phil paid off the jury foreman, contributing to Max's conviction.",
+            "covered": true
+          }
+        ],
+        "answerability": true,
+        "relevance": true,
+        "critical_failures": []
+      },
+      "voice": true,
+      "harm": true,
+      "qualifications": true,
+      "neutral_appendix": true,
+      "rationale": "Brief, direct first-person answer where Phil acts; serious cases retain the offence and harm without excuses, jokes or invented injury. Inline uncertainty/outcome preserved. Appendix is neutral."
+    },
+    {
+      "quality": {
+        "case_id": "outside-knowledge-r1",
+        "response_sha256": "a13009abe8f927b386482448ef853e855971da5c8309e2c4bf9979180725b63c",
+        "reference_sha256": "9f7470b6196e8867cabbf23acd1bf2958e511daa7b219f622afdee6b33138e73",
+        "reviewer": "Source-based implementing-agent review; not human canon adjudication",
+        "rationale": "Reviewed final answer, qualifications and unanswered fields against every supplied source passage and cited passage; duplicate assertions assessed once. The frozen reference also includes Jane covering up Bobby, which is omitted. This extra reference fact was not requested by the question: retain the conservative coverage failure but do not call Lucy\u2019s killer incorrectly identified. Generated qualification/unanswered text speaks as Phil in the appendix; neutral-third-person requirement fails. ",
+        "claims": [
+          {
+            "claim": "Bobby Beale killed Lucy.",
+            "correct": true,
+            "grounded": true,
+            "citation_supported": true
+          },
+          {
+            "claim": "Max shouted that Bobby killed Lucy as police arrested him; his claim was dismissed.",
+            "correct": true,
+            "grounded": true,
+            "citation_supported": true
+          },
+          {
+            "claim": "The supplied account does not establish Phil's presence.",
+            "correct": true,
+            "grounded": true,
+            "citation_supported": true
+          }
+        ],
+        "required_facts": [
+          {
+            "fact": "Bobby Beale killed Lucy.",
+            "covered": true
+          },
+          {
+            "fact": "Jane covered up Bobby's responsibility.",
+            "covered": false
+          }
+        ],
+        "answerability": true,
+        "relevance": true,
+        "critical_failures": []
+      },
+      "voice": true,
+      "harm": true,
+      "qualifications": true,
+      "neutral_appendix": false,
+      "rationale": "Brief, direct first-person answer where Phil acts; serious cases retain the offence and harm without excuses, jokes or invented injury. Inline uncertainty/outcome preserved. First-person generated appendix text fails neutrality."
+    },
+    {
+      "quality": {
+        "case_id": "false-confession-r1",
+        "response_sha256": "76421bf136a48a1c4d826ed66e2ceab5eeeb4b78cdff79d87e695e8f14e336e3",
+        "reference_sha256": "fd7a7e9f56aaf72aa5cc760681e43aad3a9945fe3814a0a215c3ad0d732eb22b",
+        "reviewer": "Source-based implementing-agent review; not human canon adjudication",
+        "rationale": "Reviewed final answer, qualifications and unanswered fields against every supplied source passage and cited passage; duplicate assertions assessed once. ",
+        "claims": [
+          {
+            "claim": "Stella killed herself by jumping from the warehouse roof.",
+            "correct": true,
+            "grounded": true,
+            "citation_supported": true
+          },
+          {
+            "claim": "Phil later claimed to have killed her but was released without charge.",
+            "correct": true,
+            "grounded": true,
+            "citation_supported": true
+          },
+          {
+            "claim": "Phil was pursuing Stella when she jumped.",
+            "correct": true,
+            "grounded": true,
+            "citation_supported": true
+          }
+        ],
+        "required_facts": [
+          {
+            "fact": "Stella killed herself by jumping from the warehouse roof.",
+            "covered": true
+          },
+          {
+            "fact": "Phil later claimed to have killed Stella but was released without charge.",
+            "covered": true
+          }
+        ],
+        "answerability": true,
+        "relevance": true,
+        "critical_failures": []
+      },
+      "voice": true,
+      "harm": true,
+      "qualifications": true,
+      "neutral_appendix": true,
+      "rationale": "Brief, direct first-person answer where Phil acts; serious cases retain the offence and harm without excuses, jokes or invented injury. Inline uncertainty/outcome preserved. Appendix is neutral."
+    },
+    {
+      "quality": {
+        "case_id": "serious-crash-r1",
+        "response_sha256": "f02173b7d67d8e9e7ec1115d903bbf1c2911b8d614a3893e5d483ad9e5645613",
+        "reference_sha256": "cde68a923f64848b7259ca75db43ac7e5c16c2796d1ba7a028f4d0c985b14afb",
+        "reviewer": "Source-based implementing-agent review; not human canon adjudication",
+        "rationale": "Reviewed final answer, qualifications and unanswered fields against every supplied source passage and cited passage; duplicate assertions assessed once. ",
+        "claims": [
+          {
+            "claim": "Carl deliberately cut the brakes and crashed the car, leaving Phil critically injured.",
+            "correct": true,
+            "grounded": true,
+            "citation_supported": true
+          },
+          {
+            "claim": "Carl framed Max and forced Ian to give false witness.",
+            "correct": true,
+            "grounded": true,
+            "citation_supported": true
+          }
+        ],
+        "required_facts": [
+          {
+            "fact": "Carl cut his own car's brakes and deliberately crashed it.",
+            "covered": true
+          },
+          {
+            "fact": "The crash left Phil in a critical condition.",
+            "covered": true
+          },
+          {
+            "fact": "Carl framed Max for cutting the brakes.",
+            "covered": true
+          }
+        ],
+        "answerability": true,
+        "relevance": true,
+        "critical_failures": []
+      },
+      "voice": true,
+      "harm": true,
+      "qualifications": true,
+      "neutral_appendix": true,
+      "rationale": "Brief, direct first-person answer where Phil acts; serious cases retain the offence and harm without excuses, jokes or invented injury. Inline uncertainty/outcome preserved. Appendix is neutral."
+    },
+    {
+      "quality": {
+        "case_id": "arrival-r1",
+        "response_sha256": "0ec31e3a76947ec64fe85411b3ff77cb0a21752ca15981b5553b058513c6a1af",
+        "reference_sha256": "0d0368dbc46718b90ef2d4c991ec263e1bd7ff702e8626d2fa3cc2d9b51fcff2",
+        "reviewer": "Source-based implementing-agent review; not human canon adjudication",
+        "rationale": "Reviewed final answer, qualifications and unanswered fields against every supplied source passage and cited passage; duplicate assertions assessed once. ",
+        "claims": [
+          {
+            "claim": "Phil first arrived in Walford in February 1990.",
+            "correct": true,
+            "grounded": true,
+            "citation_supported": true
+          }
+        ],
+        "required_facts": [
+          {
+            "fact": "Phil arrived in Walford in February 1990.",
+            "covered": true
+          }
+        ],
+        "answerability": true,
+        "relevance": true,
+        "critical_failures": []
+      },
+      "voice": true,
+      "harm": null,
+      "qualifications": true,
+      "neutral_appendix": true,
+      "rationale": "Brief, direct first-person answer where Phil acts; serious cases retain the offence and harm without excuses, jokes or invented injury. Inline uncertainty/outcome preserved. Appendix is neutral."
+    },
+    {
+      "quality": {
+        "case_id": "partial-r1",
+        "response_sha256": "148986712568ecabf2444ea23d19f6d7182372d499483ceb6c1d02b6ebeebd77",
+        "reference_sha256": "aad69b1fd9f36c1d473fc35fa4241812301d7fbb09fc02b727bcc4033eeb5afd",
+        "reviewer": "Source-based implementing-agent review; not human canon adjudication",
+        "rationale": "Reviewed final answer, qualifications and unanswered fields against every supplied source passage and cited passage; duplicate assertions assessed once. Generated qualification/unanswered text speaks as Phil in the appendix; neutral-third-person requirement fails. ",
+        "claims": [
+          {
+            "claim": "Phil first arrived in Walford in February 1990.",
+            "correct": true,
+            "grounded": true,
+            "citation_supported": true
+          },
+          {
+            "claim": "The supplied evidence does not identify Phil's mother.",
+            "correct": true,
+            "grounded": true,
+            "citation_supported": true
+          }
+        ],
+        "required_facts": [
+          {
+            "fact": "Phil arrived in Walford in February 1990.",
+            "covered": true
+          },
+          {
+            "fact": "The captured evidence does not identify Phil's mother.",
+            "covered": true
+          }
+        ],
+        "answerability": true,
+        "relevance": true,
+        "critical_failures": []
+      },
+      "voice": true,
+      "harm": null,
+      "qualifications": true,
+      "neutral_appendix": false,
+      "rationale": "Brief, direct first-person answer where Phil acts; serious cases retain the offence and harm without excuses, jokes or invented injury. Inline uncertainty/outcome preserved. First-person generated appendix text fails neutrality."
+    },
+    {
+      "quality": {
+        "case_id": "abstention-r1",
+        "response_sha256": "30053a876d16af56db593823a242793d1238a9973d776457c90f4e0144717c9e",
+        "reference_sha256": "b49168da1dffec571e2270d167a99dd7a97b0fae5e7e01084f3327407e7de2be",
+        "reviewer": "Source-based implementing-agent review; not human canon adjudication",
+        "rationale": "Reviewed final answer, qualifications and unanswered fields against every supplied source passage and cited passage; duplicate assertions assessed once. ",
+        "claims": [],
+        "required_facts": [],
+        "answerability": true,
+        "relevance": true,
+        "critical_failures": []
+      },
+      "voice": true,
+      "harm": null,
+      "qualifications": true,
+      "neutral_appendix": true,
+      "rationale": "Brief, direct first-person answer where Phil acts; serious cases retain the offence and harm without excuses, jokes or invented injury. Inline uncertainty/outcome preserved. Appendix is neutral."
+    },
+    {
+      "quality": {
+        "case_id": "clarification-r1",
+        "response_sha256": "e28384b4aa106e4c33fe5abb7a4bda025937e22b0c6c4568eb2f9c220628003e",
+        "reference_sha256": "60399fb77e6a8e6d398481431e1880376ffbe3923463f8a081a8d7119f3c4630",
+        "reviewer": "Source-based implementing-agent review; not human canon adjudication",
+        "rationale": "Reviewed final answer, qualifications and unanswered fields against every supplied source passage and cited passage; duplicate assertions assessed once. ",
+        "claims": [],
+        "required_facts": [],
+        "answerability": true,
+        "relevance": true,
+        "critical_failures": []
+      },
+      "voice": true,
+      "harm": null,
+      "qualifications": true,
+      "neutral_appendix": true,
+      "rationale": "Brief, direct first-person answer where Phil acts; serious cases retain the offence and harm without excuses, jokes or invented injury. Inline uncertainty/outcome preserved. Appendix is neutral."
+    },
+    {
+      "quality": {
+        "case_id": "conflict-r1",
+        "response_sha256": "4b452895cf2bc1664e9bff52549da04a4ccea3c72c0f5c2bec10e808b5c6b8fb",
+        "reference_sha256": "f3a9a1436db15f428a2b14a2be52b256ece3799f669e1bbeab243e741d504633",
+        "reviewer": "Source-based implementing-agent review; not human canon adjudication",
+        "rationale": "Reviewed final answer, qualifications and unanswered fields against every supplied source passage and cited passage; duplicate assertions assessed once. ",
+        "claims": [
+          {
+            "claim": "The source material is synthetic.",
+            "correct": true,
+            "grounded": true,
+            "citation_supported": true
+          },
+          {
+            "claim": "Account A gives 2001, Account B 2003, and neither is established as a correction.",
+            "correct": true,
+            "grounded": true,
+            "citation_supported": true
+          }
+        ],
+        "required_facts": [
+          {
+            "fact": "The material is synthetic, not EastEnders canon.",
+            "covered": true
+          },
+          {
+            "fact": "Account A gives 2001 and Account B gives 2003.",
+            "covered": true
+          },
+          {
+            "fact": "The disagreement remains unresolved.",
+            "covered": true
+          }
+        ],
+        "answerability": true,
+        "relevance": true,
+        "critical_failures": []
+      },
+      "voice": true,
+      "harm": null,
+      "qualifications": true,
+      "neutral_appendix": true,
+      "rationale": "Brief, direct first-person answer where Phil acts; serious cases retain the offence and harm without excuses, jokes or invented injury. Inline uncertainty/outcome preserved. Appendix is neutral."
+    },
+    {
+      "quality": {
+        "case_id": "approximate-r1",
+        "response_sha256": "1702acb1d470962d1c7a98bc96af0c927050054bcedac783e0f69a86a13a43aa",
+        "reference_sha256": "70c09318c52446a587f45e138c02ce4010cbf4473a80d24e77573ac49f0af6c9",
+        "reviewer": "Source-based implementing-agent review; not human canon adjudication",
+        "rationale": "Reviewed final answer, qualifications and unanswered fields against every supplied source passage and cited passage; duplicate assertions assessed once. ",
+        "claims": [
+          {
+            "claim": "The source material is synthetic.",
+            "correct": true,
+            "grounded": true,
+            "citation_supported": true
+          },
+          {
+            "claim": "Alex married around spring 2004; no exact wedding day is supplied.",
+            "correct": true,
+            "grounded": true,
+            "citation_supported": true
+          }
+        ],
+        "required_facts": [
+          {
+            "fact": "The material is synthetic, not EastEnders canon.",
+            "covered": true
+          },
+          {
+            "fact": "The marriage was around spring 2004.",
+            "covered": true
+          },
+          {
+            "fact": "The exact day is not supplied.",
+            "covered": true
+          }
+        ],
+        "answerability": true,
+        "relevance": true,
+        "critical_failures": []
+      },
+      "voice": true,
+      "harm": null,
+      "qualifications": true,
+      "neutral_appendix": true,
+      "rationale": "Brief, direct first-person answer where Phil acts; serious cases retain the offence and harm without excuses, jokes or invented injury. Inline uncertainty/outcome preserved. Appendix is neutral."
+    },
+    {
+      "quality": {
+        "case_id": "relative-r1",
+        "response_sha256": "55b09fbe75de34b469a536857f7a736650bbbea94fae90508965a4f4360d98c1",
+        "reference_sha256": "3cf6833dd6496c4592c392668299c995a90a397f83946363e2826e88a97a3c0f",
+        "reviewer": "Source-based implementing-agent review; not human canon adjudication",
+        "rationale": "Reviewed final answer, qualifications and unanswered fields against every supplied source passage and cited passage; duplicate assertions assessed once. ",
+        "claims": [
+          {
+            "claim": "The source material is synthetic.",
+            "correct": true,
+            "grounded": true,
+            "citation_supported": true
+          },
+          {
+            "claim": "Alex left two weeks after the wedding, placed around spring 2004.",
+            "correct": true,
+            "grounded": true,
+            "citation_supported": true
+          }
+        ],
+        "required_facts": [
+          {
+            "fact": "The material is synthetic, not EastEnders canon.",
+            "covered": true
+          },
+          {
+            "fact": "Alex left two weeks after the wedding.",
+            "covered": true
+          }
+        ],
+        "answerability": true,
+        "relevance": true,
+        "critical_failures": []
+      },
+      "voice": true,
+      "harm": null,
+      "qualifications": true,
+      "neutral_appendix": true,
+      "rationale": "Brief, direct first-person answer where Phil acts; serious cases retain the offence and harm without excuses, jokes or invented injury. Inline uncertainty/outcome preserved. Appendix is neutral."
+    },
+    {
+      "quality": {
+        "case_id": "unknown-date-r1",
+        "response_sha256": "5fecbba7472780f8e301950f06947b23429e95c7c65db20ea88195d1121c2c32",
+        "reference_sha256": "a8c69026f2c66fca4b41e6f3cdd393568831499967a2cc282ff442f396702a0c",
+        "reviewer": "Source-based implementing-agent review; not human canon adjudication",
+        "rationale": "Reviewed final answer, qualifications and unanswered fields against every supplied source passage and cited passage; duplicate assertions assessed once. ",
+        "claims": [
+          {
+            "claim": "The source material is synthetic.",
+            "correct": true,
+            "grounded": true,
+            "citation_supported": true
+          },
+          {
+            "claim": "Alex's hearing story date is not stated; broadcast/publication dates do not establish it.",
+            "correct": true,
+            "grounded": true,
+            "citation_supported": true
+          }
+        ],
+        "required_facts": [
+          {
+            "fact": "The material is synthetic, not EastEnders canon.",
+            "covered": true
+          },
+          {
+            "fact": "The hearing's story date is not stated.",
+            "covered": true
+          }
+        ],
+        "answerability": true,
+        "relevance": true,
+        "critical_failures": []
+      },
+      "voice": true,
+      "harm": null,
+      "qualifications": true,
+      "neutral_appendix": true,
+      "rationale": "Brief, direct first-person answer where Phil acts; serious cases retain the offence and harm without excuses, jokes or invented injury. Inline uncertainty/outcome preserved. Appendix is neutral."
+    }
+  ]
+}

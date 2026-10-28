@@ -1,0 +1,23 @@
+{
+  "kind": "observed-before-prompt-change",
+  "capture_sha256": "53f7092fc8fd8b602a80c843093d1fb4f8f473e87caeb15b66823f0061d13e13",
+  "cases": [
+    {
+      "case_id": "outside-knowledge-r0",
+      "response_sha256": "10b10a37e582b1717c22f224f3e100eff6c82c8de160318d37161140bd3ad77f",
+      "dimension": "neutral_appendix",
+      "observed": "The claim that I cannot identify Lucy\u2019s killer is wrong; the source identifies Bobby Beale.",
+      "expected": "Qualification details describe Phil in neutral third person; first person belongs only in the answer.",
+      "disposition": "Retain original; compare against persona prompt revision."
+    },
+    {
+      "case_id": "outside-knowledge-r1",
+      "response_sha256": "a13009abe8f927b386482448ef853e855971da5c8309e2c4bf9979180725b63c",
+      "dimension": "neutral_appendix",
+      "observed": "The claim that I cannot identify Lucy's killer is wrong; Max's account identifies Bobby Beale.",
+      "expected": "Qualification details describe Phil in neutral third person; first person belongs only in the answer.",
+      "disposition": "Retain original; compare against persona prompt revision."
+    }
+  ],
+  "reference_limitation": "The outside-knowledge reference additionally asks coverage of Jane\u2019s cover-up although the user question only requests Lucy\u2019s killer. Keep the frozen label and report that conservative reference-coverage failure separately; do not misrepresent it as a wrong identification or silently relabel it."
+}

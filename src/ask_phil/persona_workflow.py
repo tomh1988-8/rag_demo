@@ -1,0 +1,178 @@
+"""Retain and review persona responses through the real API, CLI and MLflow records."""
+
+import hashlib
+import json
+import subprocess
+import sys
+import tempfile
+from decimal import Decimal
+from pathlib import Path
+from typing import Any
+
+import httpx
+from mlflow import MlflowClient
+
+from ask_phil.answering import application_fingerprint
+from ask_phil.answers import SYSTEM_PROMPT, AnswerReceipt
+from ask_phil.evaluation import EvaluationRun, EvaluationTracking
+from ask_phil.evidence import SourceSnapshot
+from ask_phil.models import ModelSettings, OpenRouterSettings
+from ask_phil.openrouter import maximum_call_cost
+
+
+def capture_persona(
+    references: Path,
+    output: Path,
+    *,
+    client: httpx.Client,
+    tracking: MlflowClient,
+    profile: ModelSettings | OpenRouterSettings,
+    repeats: int = 2,
+    max_cost_usd: Decimal = Decimal("1"),
+) -> dict[str, Any]:
+    dataset = json.loads(references.read_bytes())
+    if not 1 <= repeats <= 2 or not 0 <= max_cost_usd <= 1:
+        raise ValueError("Choose 1–2 repeats and a slice budget of $0–$1.")
+    if not dataset["cases"] or len(dataset["cases"]) * repeats > 24:
+        raise ValueError("Choose 1–24 total persona observations.")
+    if output.exists():
+        raise FileExistsError("Choose a new output path; retain existing persona evidence.")
+    snapshots = {Path(c["snapshot_path"]) for c in dataset["cases"]}
+    for case in dataset["cases"]:
+        if (
+            hashlib.sha256(Path(case["snapshot_path"]).read_bytes()).hexdigest()
+            != case["snapshot_file_sha256"]
+        ):
+            raise ValueError("Persona references differ from the frozen source snapshot.")
+    expanded = [
+        {**case, "case_id": f"{case['case_id']}-r{repeat}", "repeat": repeat}
+        for repeat in range(repeats)
+        for case in dataset["cases"]
+    ]
+    output.parent.mkdir(parents=True, exist_ok=True)
+    expanded_path = output.with_suffix(".references.json")
+    with expanded_path.open("x") as destination:
+        json.dump({**dataset, "cases": expanded}, destination, indent=2)
+        destination.write("\n")
+    application = application_fingerprint()
+    prompt_sha256 = hashlib.sha256(SYSTEM_PROMPT.encode()).hexdigest()
+    cost = Decimal(0)
+    calls = 0
+    paid_calls = 0
+    last_receipt: AnswerReceipt | None = None
+    maximum = maximum_call_cost(profile) if isinstance(profile, OpenRouterSettings) else Decimal(0)
+    with (
+        tempfile.TemporaryDirectory(prefix="ask-phil-persona-") as private,
+        EvaluationRun(
+            output,
+            expanded_path,
+            [c["case_id"] for c in expanded],
+            artifacts=(references, Path("uv.lock"), *sorted(snapshots)),
+            tracking=EvaluationTracking(
+                tracking, "ask-phil-persona-evaluation", {"kind": "persona-development-capture"}
+            ),
+            metadata={
+                "kind": "persona-development-capture-v1",
+                "code_revision": subprocess.check_output(
+                    ["git", "rev-parse", "HEAD"], text=True
+                ).strip(),
+                "application_sha256": application,
+                "prompt": SYSTEM_PROMPT,
+                "prompt_sha256": prompt_sha256,
+                "model_settings": profile.model_dump(mode="json"),
+                "cache_mode": "off",
+                "history": "none",
+                "cost_usd": "0",
+                "model_calls": 0,
+                "paid_model_calls": 0,
+                "maximum_answer_calls": len(expanded),
+                "maximum_cost_usd": str(max_cost_usd),
+                "expenditure_category": "serving",
+            },
+        ) as run,
+    ):
+        private_receipt = Path(private) / "receipt.json"
+        for case in expanded:
+
+            def execute(selected: dict[str, Any] = case) -> dict[str, Any]:
+                nonlocal cost, calls, paid_calls, last_receipt
+                if cost + maximum > max_cost_usd:
+                    raise ValueError("Persona slice cannot reserve another bounded call.")
+                result = client.post(
+                    "/v1/answers",
+                    json={"question": selected["question"], "snapshot_id": selected["snapshot_id"]},
+                )
+                result.raise_for_status()
+                receipt = AnswerReceipt.model_validate(result.json())
+                last_receipt = receipt
+                response = receipt.response
+                calls += response.execution.model_calls if response.execution else 0
+                paid_calls += int(response.provider_usage is not None)
+                known_cost = response.estimated_api_cost_usd
+                if known_cost is not None:
+                    cost += Decimal(str(known_cost))
+                run.annotate(
+                    cost_usd=str(cost) if known_cost is not None else None,
+                    model_calls=calls,
+                    paid_model_calls=paid_calls,
+                )
+                return {"response": response.model_dump(mode="json")}
+
+            def verify(row: dict[str, Any], selected: dict[str, Any] = case) -> dict[str, Any]:
+                response = row["response"]
+                if last_receipt is None or last_receipt.response.execution is None:
+                    raise ValueError("Persona capture requires the actual execution record.")
+                private_receipt.write_text(last_receipt.model_dump_json())
+                private_receipt.chmod(0o600)
+                if (
+                    response["application_sha256"] != application
+                    or response["prompt_sha256"] != prompt_sha256
+                    or response["model_settings"] != profile.model_dump(mode="json")
+                    or response["snapshot_id"] != selected["snapshot_id"]
+                    or response["question"] != selected["question"]
+                    or response["route"] != "text_rag"
+                    or response["estimated_api_cost_usd"] is None
+                ):
+                    raise ValueError("Persona response differs from the frozen serving controls.")
+                snapshot = SourceSnapshot.model_validate_json(
+                    Path(selected["snapshot_path"]).read_bytes()
+                )
+                if response["snapshot_sha256"] != snapshot.fingerprint:
+                    raise ValueError("Persona response differs from the frozen source.")
+                cli = subprocess.run(
+                    [
+                        sys.executable,
+                        "-m",
+                        "ask_phil.cli",
+                        "--api-url",
+                        str(client.base_url),
+                        "response",
+                        str(private_receipt),
+                    ],
+                    check=True,
+                    capture_output=True,
+                    text=True,
+                    timeout=30,
+                )
+                rendered = json.loads(cli.stdout)
+                trace = tracking.get_trace(response["trace_id"], flush=True)
+                roots = [s for s in trace.data.spans if s.name == "text_rag"] if trace else []
+                if len(roots) != 1 or roots[0].outputs != response or rendered != response:
+                    raise ValueError("Final CLI or actual trace differs from the served answer.")
+                for citation in response["citations"]:
+                    resolved = client.get(citation["resolve_path"])
+                    resolved.raise_for_status()
+                    passage = resolved.json()["matches"][0]
+                    if any(citation[k] != passage[k] for k in passage):
+                        raise ValueError("Persona citation differs from the captured evidence.")
+                return {
+                    "cli_response": rendered,
+                    "trace_response": roots[0].outputs,
+                    "trace_span_names": [s.name for s in trace.data.spans] if trace else [],
+                    "citations_resolve": True,
+                }
+
+            run.capture(case["case_id"], execute, verify=verify)
+            print(f"{case['case_id']}: captured and verified", flush=True)
+    document: dict[str, Any] = json.loads(output.read_bytes())
+    return document

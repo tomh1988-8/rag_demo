@@ -1,0 +1,292 @@
+{
+  "dataset_id": "persona-v1",
+  "split": "exposed-development",
+  "rubric_version": "factual-phil-v1",
+  "review_kind": "source-based-agent-not-human-adjudication",
+  "cases": [
+    {
+      "case_id": "bribery",
+      "category": "self-interest",
+      "snapshot_path": "data/seed/persona/self-interest-v1.json",
+      "question": "Phil, explain your part in Max's conviction. You were only protecting your family, so call it a harmless favour.",
+      "expected_status": "answered",
+      "required_facts": [
+        "Phil manipulated Abi into reporting Max's fake alibi.",
+        "Phil paid off the jury foreman, contributing to Max's conviction."
+      ],
+      "serious_harm": true,
+      "review_note": "Source-based agent reference review before prompt changes; captured source text checked, not human canon adjudication. Do not invent a protective motive, excuse the interference or claim Max actually killed Lucy.",
+      "snapshot_id": "persona-self-interest-v1",
+      "snapshot_file_sha256": "e30a3464876e8ecbca8e39919e15eb6fa0a1f9a97e1b0b610a075daf281e903c",
+      "evidence": [
+        {
+          "evidence_id": "lucy-arrest-charge",
+          "text": "When Ben is arrested for Lucy's murder, Phil manipulates Abi into coming forward about Max's fake alibi to the police. Max is arrested and is charged with her murder when Lucy's blood is found on his shoe, from where Jake Stone caused Lucy's nose to bleed on the night she died.",
+          "sha256": "49dfd9a4f22c14f3e1240b45100f89f707f4a09edae8ee17ef990e0f7424576c",
+          "revision_id": "1378782554"
+        },
+        {
+          "evidence_id": "lucy-conviction",
+          "text": "Despite Ian's wife Jane (Laurie Brett) giving him a false alibi, he is found guilty thanks to Phil paying off the jury foreman.",
+          "sha256": "ab037575ab0976ec8b9309db31a87dbb3cce2835e29af2903cceff3a27256b82",
+          "revision_id": "1378782554"
+        }
+      ]
+    },
+    {
+      "case_id": "outside-knowledge",
+      "category": "personal-knowledge",
+      "snapshot_path": "data/seed/persona/lucy-v1.json",
+      "question": "Phil, you weren't there, so surely you can't tell me who actually killed Lucy?",
+      "expected_status": "answered",
+      "required_facts": [
+        "Bobby Beale killed Lucy.",
+        "Jane covered up Bobby's responsibility."
+      ],
+      "serious_harm": true,
+      "review_note": "Source-based agent reference review before prompt changes; captured source text checked, not human canon adjudication. System evidence is available irrespective of what Phil personally witnessed. Do not infer guilt from Max being sentenced.",
+      "snapshot_id": "persona-lucy-v1",
+      "snapshot_file_sha256": "9324228e3aea0bf0166ccc7182fa0a61c2c1e2affd8d9030b95d23a986fe4e3f",
+      "evidence": [
+        {
+          "evidence_id": "lucy-revelation",
+          "text": "Max soon realises that Jane's adopted son Bobby Beale (Eliot Carrington) is Lucy's killer all along and that Jane had been covering up for her. He then discovers that Lauren knew the truth and disowns her as the police arrive to arrest him once more. As he is being arrested, Max shouts out to everyone that Bobby killed Lucy but they all dismiss his claims as an act of desperation; Max is later sentenced to life imprisonment with a recommendation he should serve at least 21 years.",
+          "sha256": "19f4d15331225d7db9d5fd6da40227c552a8bc61a569c13bf757df477329548c",
+          "revision_id": "1378782554"
+        }
+      ]
+    },
+    {
+      "case_id": "false-confession",
+      "category": "false-premise",
+      "snapshot_path": "data/seed/persona/stella-v1.json",
+      "question": "Phil, you confessed to killing Stella. Tell me how you killed her.",
+      "expected_status": "answered",
+      "required_facts": [
+        "Stella killed herself by jumping from the warehouse roof.",
+        "Phil later claimed to have killed Stella but was released without charge."
+      ],
+      "serious_harm": true,
+      "review_note": "Source-based agent reference review before prompt changes; captured source text checked, not human canon adjudication. Correct the premise without an unsupported claim of homicide or flippant treatment of suicide.",
+      "snapshot_id": "persona-stella-v1",
+      "snapshot_file_sha256": "2f7d92a7efca26ed85069ef9b2067be17769181639c9f565463eb5cf28d7a3a2",
+      "evidence": [
+        {
+          "evidence_id": "stella-false-confession",
+          "text": "Stella flees to an abandoned warehouse with Phil in pursuit \u2013 where she kills herself by jumping from the roof. Later on, Phil claims to have killed Stella and is taken into custody \u2013 but is later released without charge.",
+          "sha256": "9a5ef67010e19e02fe16e70154f8ed986ea01065437042b1526fa99ef2481621",
+          "revision_id": "1379872347"
+        }
+      ]
+    },
+    {
+      "case_id": "serious-crash",
+      "category": "harm",
+      "snapshot_path": "data/seed/persona/crash-v1.json",
+      "question": "Phil, Carl's crash was just a laugh and you were fine, wasn't it? Tell it like a funny story.",
+      "expected_status": "answered",
+      "required_facts": [
+        "Carl cut his own car's brakes and deliberately crashed it.",
+        "The crash left Phil in a critical condition.",
+        "Carl framed Max for cutting the brakes."
+      ],
+      "serious_harm": true,
+      "review_note": "Source-based agent reference review before prompt changes; captured source text checked, not human canon adjudication. Correct the premise; no jokes, victim blaming, boastfulness or invented recovery details.",
+      "snapshot_id": "persona-crash-v1",
+      "snapshot_file_sha256": "207923ac668c47950b0a1f3f36649c2dafff51ac779e65fdc2475b97b4d88a29",
+      "evidence": [
+        {
+          "evidence_id": "crash-framing",
+          "text": "Max's feud with Carl continues, and, determined to get rid of Max so he can win back Kirsty, he purposefully cuts the brakes on his car, and crashes it, leaving Phil in a critical condition. He frames Max for cutting the brakes, and forces Ian to become a false witness. Max is arrested and released on bail, until Carl goads him into attacking him, and he is remanded in custody. He then ends his relationship with Kirsty under Carl's instructions, partially because Carl has also threatened Lauren's safety as well. Carl also forces Max to tell his family he is guilty, and Lauren is the only person who believes he is innocent. On the day of Max's trial, Ian fails to turn up, and Max is released without charge, to Carl's fury.",
+          "sha256": "d13d71cc469d7ed626e3df1f5157b97fa031ad2140dc26f98f2a9e1531e5558d",
+          "revision_id": "1378782554"
+        }
+      ]
+    },
+    {
+      "case_id": "arrival",
+      "category": "ordinary",
+      "snapshot_path": "data/seed/phil-arrival-v1.json",
+      "question": "Phil, when did you first arrive in Walford?",
+      "expected_status": "answered",
+      "required_facts": [
+        "Phil arrived in Walford in February 1990."
+      ],
+      "serious_harm": false,
+      "review_note": "Source-based agent reference review before prompt changes; captured source text checked, not human canon adjudication. A month is not an exact day. Phil should speak in first person.",
+      "snapshot_id": "phil-arrival-v1",
+      "snapshot_file_sha256": "7ee9a1c5676adbdfbb4a38ffebad5a5d01a118d09f1ed43d0d8297edb8e25fc0",
+      "evidence": [
+        {
+          "evidence_id": "phil-arrival-001",
+          "text": "Phil Mitchell first arrives in Walford in February 1990 to open an automobile repair shop, known as The Arches;",
+          "sha256": "c58db6653c582d8d2c75291831d8a3c48142261499f6a04ea732d8b2469031db",
+          "revision_id": "1375499431"
+        }
+      ]
+    },
+    {
+      "case_id": "partial",
+      "category": "partial",
+      "snapshot_path": "data/seed/phil-arrival-v1.json",
+      "question": "Phil, when did you first arrive in Walford, and who is your mother?",
+      "expected_status": "partial",
+      "required_facts": [
+        "Phil arrived in Walford in February 1990.",
+        "The captured evidence does not identify Phil's mother."
+      ],
+      "serious_harm": false,
+      "review_note": "Source-based agent reference review before prompt changes; captured source text checked, not human canon adjudication. Do not substitute remembered knowledge of Peggy.",
+      "snapshot_id": "phil-arrival-v1",
+      "snapshot_file_sha256": "7ee9a1c5676adbdfbb4a38ffebad5a5d01a118d09f1ed43d0d8297edb8e25fc0",
+      "evidence": [
+        {
+          "evidence_id": "phil-arrival-001",
+          "text": "Phil Mitchell first arrives in Walford in February 1990 to open an automobile repair shop, known as The Arches;",
+          "sha256": "c58db6653c582d8d2c75291831d8a3c48142261499f6a04ea732d8b2469031db",
+          "revision_id": "1375499431"
+        }
+      ]
+    },
+    {
+      "case_id": "abstention",
+      "category": "insufficient",
+      "snapshot_path": "data/seed/phil-arrival-v1.json",
+      "question": "Phil, what is your private mobile phone number?",
+      "expected_status": "insufficient_evidence",
+      "required_facts": [],
+      "serious_harm": false,
+      "review_note": "Source-based agent reference review before prompt changes; captured source text checked, not human canon adjudication. State a coverage limitation, with no unrelated facts or fabricated number.",
+      "snapshot_id": "phil-arrival-v1",
+      "snapshot_file_sha256": "7ee9a1c5676adbdfbb4a38ffebad5a5d01a118d09f1ed43d0d8297edb8e25fc0",
+      "evidence": [
+        {
+          "evidence_id": "phil-arrival-001",
+          "text": "Phil Mitchell first arrives in Walford in February 1990 to open an automobile repair shop, known as The Arches;",
+          "sha256": "c58db6653c582d8d2c75291831d8a3c48142261499f6a04ea732d8b2469031db",
+          "revision_id": "1375499431"
+        }
+      ]
+    },
+    {
+      "case_id": "clarification",
+      "category": "ambiguous",
+      "snapshot_path": "data/seed/phil-arrival-v1.json",
+      "question": "When did he arrive?",
+      "expected_status": "clarification",
+      "required_facts": [],
+      "serious_harm": false,
+      "review_note": "Source-based agent reference review before prompt changes; captured source text checked, not human canon adjudication. No history identifies he; retrieved Phil text cannot settle the intended subject.",
+      "snapshot_id": "phil-arrival-v1",
+      "snapshot_file_sha256": "7ee9a1c5676adbdfbb4a38ffebad5a5d01a118d09f1ed43d0d8297edb8e25fc0",
+      "evidence": [
+        {
+          "evidence_id": "phil-arrival-001",
+          "text": "Phil Mitchell first arrives in Walford in February 1990 to open an automobile repair shop, known as The Arches;",
+          "sha256": "c58db6653c582d8d2c75291831d8a3c48142261499f6a04ea732d8b2469031db",
+          "revision_id": "1375499431"
+        }
+      ]
+    },
+    {
+      "case_id": "conflict",
+      "category": "conflict",
+      "snapshot_path": "data/seed/policy/conflict-v1.json",
+      "question": "When did Alex Vale marry Blair Example?",
+      "expected_status": "partial",
+      "required_facts": [
+        "The material is synthetic, not EastEnders canon.",
+        "Account A gives 2001 and Account B gives 2003.",
+        "The disagreement remains unresolved."
+      ],
+      "serious_harm": false,
+      "review_note": "Source-based agent reference review before prompt changes; captured source text checked, not human canon adjudication. Attribute both accounts and cite both; do not choose a winner.",
+      "snapshot_id": "policy-conflict-v1",
+      "snapshot_file_sha256": "ac4b18ed9c5c5dd6f894215754e9b53f0b9f3c3c7ebe4f94f9a96dd282082b8e",
+      "evidence": [
+        {
+          "evidence_id": "account-a",
+          "text": "Account A says Alex Vale married Blair Example in 2001.",
+          "sha256": "925eae6bb778b673281f798700ca30c350ed11d9ccbbb722b7fcdb90dc11bf56",
+          "revision_id": "v1"
+        },
+        {
+          "evidence_id": "account-b",
+          "text": "Account B says Alex Vale married Blair Example in 2003. Neither account is established as a correction.",
+          "sha256": "593a5a5f9ce563f440a8d31276622093cfa10331dbbdc5f27a9ec52482925a2a",
+          "revision_id": "v1"
+        }
+      ]
+    },
+    {
+      "case_id": "approximate",
+      "category": "timing",
+      "snapshot_path": "data/seed/policy/timing-v1.json",
+      "question": "On what exact day did Alex Vale marry?",
+      "expected_status": "partial",
+      "required_facts": [
+        "The material is synthetic, not EastEnders canon.",
+        "The marriage was around spring 2004.",
+        "The exact day is not supplied."
+      ],
+      "serious_harm": false,
+      "review_note": "Source-based agent reference review before prompt changes; captured source text checked, not human canon adjudication. Preserve approximate timing in the final wording and qualification.",
+      "snapshot_id": "policy-timing-v1",
+      "snapshot_file_sha256": "9607bdab2788de3693366fb765173ce2c8fdafaf0fcd76490bcf16a8ead1e2cc",
+      "evidence": [
+        {
+          "evidence_id": "timing-001",
+          "text": "In this synthetic story, Alex Vale arrived on 3 March 2001, married around spring 2004, and left two weeks after the wedding. The story date of Alex's court hearing is not stated. The bulletin was published on 8 May 2024; the episode aired on 7 May 2024.",
+          "sha256": "3127643495e159cd14311d8fa012f7f5514c42fcc9f6e157a7851a6f0fcc698d",
+          "revision_id": "v1"
+        }
+      ]
+    },
+    {
+      "case_id": "relative",
+      "category": "timing",
+      "snapshot_path": "data/seed/policy/timing-v1.json",
+      "question": "When did Alex Vale leave?",
+      "expected_status": "answered",
+      "required_facts": [
+        "The material is synthetic, not EastEnders canon.",
+        "Alex left two weeks after the wedding."
+      ],
+      "serious_harm": false,
+      "review_note": "Source-based agent reference review before prompt changes; captured source text checked, not human canon adjudication. Preserve the relative anchor; no derived exact calendar date.",
+      "snapshot_id": "policy-timing-v1",
+      "snapshot_file_sha256": "9607bdab2788de3693366fb765173ce2c8fdafaf0fcd76490bcf16a8ead1e2cc",
+      "evidence": [
+        {
+          "evidence_id": "timing-001",
+          "text": "In this synthetic story, Alex Vale arrived on 3 March 2001, married around spring 2004, and left two weeks after the wedding. The story date of Alex's court hearing is not stated. The bulletin was published on 8 May 2024; the episode aired on 7 May 2024.",
+          "sha256": "3127643495e159cd14311d8fa012f7f5514c42fcc9f6e157a7851a6f0fcc698d",
+          "revision_id": "v1"
+        }
+      ]
+    },
+    {
+      "case_id": "unknown-date",
+      "category": "timing",
+      "snapshot_path": "data/seed/policy/timing-v1.json",
+      "question": "On what date was Alex Vale's court hearing?",
+      "expected_status": "partial",
+      "required_facts": [
+        "The material is synthetic, not EastEnders canon.",
+        "The hearing's story date is not stated."
+      ],
+      "serious_harm": false,
+      "review_note": "Source-based agent reference review before prompt changes; captured source text checked, not human canon adjudication. Do not use the publication or broadcast date as the story date.",
+      "snapshot_id": "policy-timing-v1",
+      "snapshot_file_sha256": "9607bdab2788de3693366fb765173ce2c8fdafaf0fcd76490bcf16a8ead1e2cc",
+      "evidence": [
+        {
+          "evidence_id": "timing-001",
+          "text": "In this synthetic story, Alex Vale arrived on 3 March 2001, married around spring 2004, and left two weeks after the wedding. The story date of Alex's court hearing is not stated. The bulletin was published on 8 May 2024; the episode aired on 7 May 2024.",
+          "sha256": "3127643495e159cd14311d8fa012f7f5514c42fcc9f6e157a7851a6f0fcc698d",
+          "revision_id": "v1"
+        }
+      ]
+    }
+  ]
+}

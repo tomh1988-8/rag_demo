@@ -1,0 +1,11 @@
+{
+  "capture_sha256": "0498d2076e6cc0094ee7b26e3c608501e55528877409f58d351141b78e59b178",
+  "case_id": "outside-knowledge-r0",
+  "response_sha256": "8856d6db1e14d9fbf1eff0f2d50d47432c7963195db2e8782007d2192c3751f0",
+  "dimension": "unsupported_presence_or_absence",
+  "observed_answer": "I can tell you without being there: Bobby Beale killed Lucy. Max worked it out and shouted it as he was arrested, though people dismissed his claim.",
+  "observed_qualification": "Phil's absence does not prevent the captured account from identifying Bobby Beale as Lucy's killer.",
+  "source_limitation": "The source identifies Bobby as the killer but establishes neither Phil\u2019s presence nor absence.",
+  "disposition": "Preserve this factual/qualification failure; strengthen unsupported-premise wording before the final candidate.",
+  "neutral_wording": "Third-person wording alone does not establish factual support."
+}

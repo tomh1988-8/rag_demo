@@ -1,0 +1,57 @@
+{
+  "snapshot_id": "persona-stella-v1",
+  "fixture_version": 1,
+  "source": {
+    "title": "Max Branning",
+    "url": "https://en.wikipedia.org/wiki/Max_Branning",
+    "revision_id": "1378782554",
+    "revision_url": "https://en.wikipedia.org/w/index.php?oldid=1378782554",
+    "section": "Storylines / 2006\u20132021",
+    "captured_at": "2026-10-17T13:07:34.684245Z",
+    "capture_sha256": "48c3bdd9d5f7110e9cbcd9e6cbc7f32970c519fee14c1a32b231b42c639dc615",
+    "scope": "main_series",
+    "license_url": "https://creativecommons.org/licenses/by-sa/4.0/",
+    "attribution": "Wikipedia contributors; markup removed and whitespace normalized.",
+    "coverage": "Reviewed narrative sections in this captured revision only.",
+    "gaps": [
+      "Partial canon coverage; other paragraphs remain excluded or awaiting review.",
+      "Identity and episode metadata do not independently corroborate story claims."
+    ],
+    "support_status": "source_supported"
+  },
+  "passages": [
+    {
+      "evidence_id": "stella-false-confession",
+      "text": "Stella flees to an abandoned warehouse with Phil in pursuit \u2013 where she kills herself by jumping from the roof. Later on, Phil claims to have killed Stella and is taken into custody \u2013 but is later released without charge.",
+      "sha256": "9a5ef67010e19e02fe16e70154f8ed986ea01065437042b1526fa99ef2481621",
+      "start": 36817,
+      "end": 37038,
+      "source": {
+        "title": "Phil Mitchell",
+        "url": "https://en.wikipedia.org/wiki/Phil_Mitchell",
+        "revision_id": "1379872347",
+        "revision_url": "https://en.wikipedia.org/w/index.php?oldid=1379872347",
+        "section": "Storylines / 2005\u2013present",
+        "captured_at": "2026-10-17T13:07:31.014189Z",
+        "capture_sha256": "a338d3065203be54e383f2c9c141bca22ae9aedbb950e2e1eada601bcccfe313",
+        "scope": "main_series",
+        "license_url": "https://creativecommons.org/licenses/by-sa/4.0/",
+        "attribution": "Wikipedia contributors; markup removed and whitespace normalized.",
+        "coverage": "Reviewed narrative sections in this captured revision only.",
+        "gaps": [
+          "Partial canon coverage; other paragraphs remain excluded or awaiting review.",
+          "Identity and episode metadata do not independently corroborate story claims."
+        ],
+        "support_status": "source_supported"
+      },
+      "location": {
+        "source_id": "phil-mitchell-wiki",
+        "paragraph_ordinal": 35,
+        "section_id": "2005\u2013present",
+        "character_ids": [
+          "phil-mitchell"
+        ]
+      }
+    }
+  ]
+}

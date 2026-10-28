@@ -1,0 +1,79 @@
+{
+  "kind": "persona-regression-dispositions-v1",
+  "original_cases_retained": true,
+  "human_adjudicated": false,
+  "cases": [
+    {
+      "id": "neutral-generated-appendix",
+      "observations": [
+        "baseline/outside-knowledge-r0",
+        "baseline/outside-knowledge-r1",
+        "baseline/partial-r1"
+      ],
+      "failure": "Generated qualification or unanswered fields speak as Phil.",
+      "final_result": "All 24 final generated appendix records reviewed as neutral, with exact CLI/trace readback.",
+      "disposition": "Scoped development regression repaired; recheck for new prompts/routes/evidence shapes."
+    },
+    {
+      "id": "unsupported-absence",
+      "observations": [
+        "candidate/outside-knowledge-r0"
+      ],
+      "failure": "First candidate presupposes Phil was absent, unsupported by the source.",
+      "final_result": "Both final personal-knowledge answers explicitly leave presence/absence unknown; unchanged support judge agrees.",
+      "disposition": "Repaired in final prompt; preserve the original failure."
+    },
+    {
+      "id": "foreman-verdict-attribution",
+      "observations": [
+        "baseline/bribery-r1"
+      ],
+      "failure": "Strict source reviewer flags assigning the verdict to the individual foreman.",
+      "judge_result": "Support judge passes after paraphrasing the sentence as a payoff preceding a verdict; it does not address the individual-role concern.",
+      "disposition": "Unresolved interpretive disagreement requiring human adjudication; retain the original agent label and count, do not treat it as a human-confirmed factual error or broaden judge acceptance."
+    },
+    {
+      "id": "over-specified-jane-reference",
+      "observations": [
+        "baseline/outside-knowledge-r0",
+        "baseline/outside-knowledge-r1",
+        "candidate/outside-knowledge-r0",
+        "candidate/outside-knowledge-r1",
+        "final/outside-knowledge-r1"
+      ],
+      "failure": "Frozen required-fact set includes Jane\u2019s cover-up even though the question asks only who killed Lucy.",
+      "final_result": "Final r0 includes it and r1 omits it; both identify the killer correctly.",
+      "disposition": "Retain the conservative reference-coverage failure and original labels. Correct or version the reference before using it as a release completeness threshold; no wrong-killer claim."
+    },
+    {
+      "id": "review-publishing-schema",
+      "failure": "Initial baseline review retained all scores then failed MLflow publication because extended persona fields used factual review keys.",
+      "retained_artifact": "baseline-scores.json",
+      "final_result": "Five focused persona tests pass, including real MLflow review publication and per-dimension metrics.",
+      "disposition": "Repaired in review_persona.py; completed replacement is baseline-scores-v2.json."
+    },
+    {
+      "id": "capture-counter-scope",
+      "failure": "Original capture header model_calls counted paid answers; application execution records also count query embeddings.",
+      "final_result": "Live raw headers remain unchanged; comparison uses actual execution records (48 calls per 24-answer run). New capture code records model_calls and paid_model_calls separately.",
+      "disposition": "Reporting repair with passing public capture regression; no answer regeneration."
+    }
+  ],
+  "costs": {
+    "serving_usd": {
+      "baseline": "0.0521519",
+      "candidate": "0.0530556",
+      "final": "0.0555957"
+    },
+    "judge_usd": "0.017182",
+    "shared_ledger_usd": 0.673627,
+    "unsettled_reservations": 0
+  },
+  "recheck_when": [
+    "Persona prompt/model changes",
+    "Serious-harm examples or source/corpus changes",
+    "Response/appendix formatting changes",
+    "A new route or evidence shape",
+    "Judge/rubric/profile or reference-label changes"
+  ]
+}

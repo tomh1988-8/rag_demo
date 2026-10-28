@@ -1,0 +1,57 @@
+{
+  "snapshot_id": "persona-crash-v1",
+  "fixture_version": 1,
+  "source": {
+    "title": "Max Branning",
+    "url": "https://en.wikipedia.org/wiki/Max_Branning",
+    "revision_id": "1378782554",
+    "revision_url": "https://en.wikipedia.org/w/index.php?oldid=1378782554",
+    "section": "Storylines / 2006\u20132021",
+    "captured_at": "2026-10-17T13:07:34.684245Z",
+    "capture_sha256": "48c3bdd9d5f7110e9cbcd9e6cbc7f32970c519fee14c1a32b231b42c639dc615",
+    "scope": "main_series",
+    "license_url": "https://creativecommons.org/licenses/by-sa/4.0/",
+    "attribution": "Wikipedia contributors; markup removed and whitespace normalized.",
+    "coverage": "Reviewed narrative sections in this captured revision only.",
+    "gaps": [
+      "Partial canon coverage; other paragraphs remain excluded or awaiting review.",
+      "Identity and episode metadata do not independently corroborate story claims."
+    ],
+    "support_status": "source_supported"
+  },
+  "passages": [
+    {
+      "evidence_id": "crash-framing",
+      "text": "Max's feud with Carl continues, and, determined to get rid of Max so he can win back Kirsty, he purposefully cuts the brakes on his car, and crashes it, leaving Phil in a critical condition. He frames Max for cutting the brakes, and forces Ian to become a false witness. Max is arrested and released on bail, until Carl goads him into attacking him, and he is remanded in custody. He then ends his relationship with Kirsty under Carl's instructions, partially because Carl has also threatened Lauren's safety as well. Carl also forces Max to tell his family he is guilty, and Lauren is the only person who believes he is innocent. On the day of Max's trial, Ian fails to turn up, and Max is released without charge, to Carl's fury.",
+      "sha256": "d13d71cc469d7ed626e3df1f5157b97fa031ad2140dc26f98f2a9e1531e5558d",
+      "start": 22468,
+      "end": 23199,
+      "source": {
+        "title": "Max Branning",
+        "url": "https://en.wikipedia.org/wiki/Max_Branning",
+        "revision_id": "1378782554",
+        "revision_url": "https://en.wikipedia.org/w/index.php?oldid=1378782554",
+        "section": "Storylines / 2006\u20132021",
+        "captured_at": "2026-10-17T13:07:34.684245Z",
+        "capture_sha256": "48c3bdd9d5f7110e9cbcd9e6cbc7f32970c519fee14c1a32b231b42c639dc615",
+        "scope": "main_series",
+        "license_url": "https://creativecommons.org/licenses/by-sa/4.0/",
+        "attribution": "Wikipedia contributors; markup removed and whitespace normalized.",
+        "coverage": "Reviewed narrative sections in this captured revision only.",
+        "gaps": [
+          "Partial canon coverage; other paragraphs remain excluded or awaiting review.",
+          "Identity and episode metadata do not independently corroborate story claims."
+        ],
+        "support_status": "source_supported"
+      },
+      "location": {
+        "source_id": "max-branning-wiki",
+        "paragraph_ordinal": 24,
+        "section_id": "2006\u20132021",
+        "character_ids": [
+          "max-branning"
+        ]
+      }
+    }
+  ]
+}

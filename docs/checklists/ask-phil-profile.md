@@ -141,6 +141,20 @@ with unchanged prompt/model/tool contracts. Frozen inputs and full-suite evidenc
 remain revision-linked. This extends scoped evidence without changing the checklist
 counts: routing, wider quality/release and online obligations remain Pending.
 
+[Issue #19](../implementation/issue-19/README.md) extends AD-06.3, AD-08.2,
+RAG-03 and the persona portion of AD-10.4 with 72 actual API responses and exact
+CLI/trace/citation readback. The controlled final comparison improves neutral
+appendices from 21/24 to 24/24 and removes the mandatory opener, while separate
+voice, harm and outcome/qualification results remain 24/24, 8/8 and 24/24.
+The first candidate's unsupported-absence regression is retained and repaired.
+The unchanged human-calibrated support judge agrees with 9/10 new agent labels;
+one foreman-role interpretation requires human adjudication. The over-specified
+Jane reference keeps one conservative final coverage failure visible. These
+are exposed source-based results, not human canon or held-out acceptance.
+Full software/review validation is recorded with the issue before closure.
+Checklist counts remain 35 Pass and 16 Pending; AD-10.4's feedback/release
+obligations and broader judge acceptance are unchanged.
+
 Design Pass records below concern the approved design, including the user's feedback/online-evaluation and fusion/cache amendments, captured by specification SHA-256 `a82e93bd170be20c253415606fcb9a6ab082f7a9a7c991d56ca5e757ca728c53`. Runtime Pass records link to the exact scoped slice artifacts below; other runtime evidence remains prospective. On implementation, add artifact/run links and source/code/configuration identities before changing a check to Pass. Update affected checks to Pending, In progress or Fail when their evidence is invalidated. A current-release failure cannot be turned into a deployment deferral merely to complete a ticket.
 
 Primary ownership is an index into a continuing evidence obligation, not a licence to postpone all work to that ticket. For example, caps and basic traces start in 02, stronger failure enforcement is proved in 09, and every tool extension rechecks the affected constraints. Source claims are reviewed before their extraction pilot. Per-slice tests and evaluations start in 01/02; final acceptance in 20 reuses their results.
