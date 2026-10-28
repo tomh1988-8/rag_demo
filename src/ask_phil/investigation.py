@@ -5,6 +5,7 @@ import json
 from typing import Annotated, Literal
 
 import mlflow
+import psycopg
 from llama_index.core.llms import ChatMessage
 from mlflow.entities import LiveSpan
 from pydantic import Field
@@ -226,20 +227,33 @@ class Investigation:
                     continue
                 action = choice.action
                 tools.execute(action.tool, action.arguments)
-        except (ExecutionStopped, ValueError) as exc:
-            stop_reason = str(exc) if isinstance(exc, ExecutionStopped) else "malformed_output"
+        except (
+            ExecutionStopped,
+            ValueError,
+            psycopg.errors.QueryCanceled,
+            psycopg.errors.LockNotAvailable,
+        ) as exc:
+            stop_reason = (
+                str(exc)
+                if isinstance(exc, ExecutionStopped)
+                else "timeout"
+                if isinstance(exc, psycopg.errors.QueryCanceled | psycopg.errors.LockNotAvailable)
+                else "malformed_output"
+            )
             budget.record_stop(stop_reason)
             root.set_status("ERROR")
             resolved = {eid for c in coverage if c.resolved for eid in c.evidence_ids}
             excerpts = tuple(p for p in tools.context if p.evidence_id in resolved)[:3]
+            quoted = " ".join(p.text for p in excerpts)
+            supported = (
+                "Supported captured excerpts: " + quoted
+                if len(quoted) <= 1000
+                else "Previously assessed supporting passages are attached as full citations."
+            )
             draft = Draft(
                 answer=(
                     f"Investigation stopped: {stop_reason}. "
-                    + (
-                        "Supported captured excerpts: " + " ".join(p.text for p in excerpts)
-                        if excerpts
-                        else "The requested answer remains unresolved."
-                    )
+                    + (supported if excerpts else "The requested answer remains unresolved.")
                     + " The remaining requested information is unresolved; absence is not proof."
                 ),
                 status="partial" if excerpts else "insufficient_evidence",

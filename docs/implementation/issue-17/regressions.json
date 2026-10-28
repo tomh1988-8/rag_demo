@@ -1,0 +1,46 @@
+{
+  "version": 1,
+  "scope": "Exposed development and public software regressions; no held-out acceptance claim.",
+  "software": [
+    {
+      "id": "investigation-sql-deadline",
+      "found_by": "Independent Standards observation and Spec review; reproduced with a real family_edges lock.",
+      "initial_outcome": "HTTP 503 bypassed the retained investigation response.",
+      "repair": "Normalize PostgreSQL query/lock deadlines at the investigation answer lifecycle and retain the timeout receipt.",
+      "test": "test_graph_database_deadline_returns_an_immutable_investigation_stop_receipt",
+      "status": "Fixed; failing and passing XML retained."
+    },
+    {
+      "id": "investigation-large-stop-reply",
+      "found_by": "Independent Spec review; reproduced with 1671 characters of accepted synthetic evidence.",
+      "initial_outcome": "Stop fallback exceeded Draft.answer's 1600-character bound and raised ValidationError.",
+      "repair": "Bound displayed stop wording and retain complete supporting passages as citations.",
+      "test": "test_stop_with_large_retained_passage_preserves_support_without_overflowing_the_reply",
+      "status": "Fixed; failing and passing XML retained."
+    },
+    {
+      "id": "investigation-dispute-bypass",
+      "found_by": "TDD public API regression before live work.",
+      "initial_outcome": "A model could restate a disputed assertion retrieved from its original source text.",
+      "repair": "Preserve complete content-bound review explanations in the final response; unresolved review groups remain partial.",
+      "test": "test_investigation_cannot_restore_a_disputed_claim_from_its_source_text",
+      "status": "Fixed."
+    }
+  ],
+  "measured_development_limitations": [
+    {
+      "case_id": "multi-family",
+      "route": "text_rag",
+      "observation": "The baseline acquires Ben's parents but misses Peggy/Phil evidence and returns a partial answer.",
+      "follow_up": "Preserved retrieval/context completeness failure for fusion/context expansion #24."
+    },
+    {
+      "case_id": "single-pregnancy and unsupported-theme",
+      "route": "investigation",
+      "observation": "The first generated text queries append Ben Mitchell, who is not requested. Final answers retain the requested scope, but extra investigation adds cost and latency.",
+      "follow_up": "Query relevance/efficiency and route necessity remain development diagnostics for #18; valid arguments alone do not establish a useful query."
+    }
+  ],
+  "initial_software_artifact": "review-regressions-initial.xml",
+  "repaired_software_artifact": "review-regressions-final.xml"
+}

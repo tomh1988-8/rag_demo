@@ -1,0 +1,318 @@
+<?xml version="1.0" encoding="utf-8"?><testsuites name="pytest tests"><testsuite name="pytest" errors="0" failures="2" skipped="0" tests="2" time="5.658" timestamp="2026-10-28T13:12:40.866736+00:00" hostname="tom-Latitude-3510"><testcase classname="tests.test_investigation_api" name="test_graph_database_deadline_returns_an_immutable_investigation_stop_receipt" time="3.105"><failure message="AssertionError: {&quot;detail&quot;:&quot;Evidence storage is unavailable.&quot;}&#10;assert 503 == 200&#10; +  where 503 = &lt;Response [503 Service Unavailable]&gt;.status_code">database_url = 'user=ask_phil password=local-demo-only dbname=ask_phil_test_1de5453da98d45f4ae1fd95114765455 host=172.19.0.2 port=5432'
+family_batch = ClaimBatch(claims=(ParentageClaim(claim_id='phil-ben', parent_id='phil-mitchell', child_id='ben-mitchell', parent_role...ns do not expand the core roster.', evidence_sources=('sharon-watts-wiki',)))), extractor='reviewed-reference-fixture')
+investigator_models = &lt;function investigator_models.&lt;locals&gt;.build at 0x717c30d36ac0&gt;
+tmp_path = PosixPath('/tmp/pytest-of-tom/pytest-147/test_graph_database_deadline_r0')
+
+    def test_graph_database_deadline_returns_an_immutable_investigation_stop_receipt(
+        database_url: str,
+        family_batch: ClaimBatch,
+        investigator_models: Callable[[list[dict[str, Any]]], Models],
+        tmp_path: Path,
+    ) -&gt; None:
+        from test_family_graph import install_family
+    
+        install_family(database_url, family_batch)
+        snapshot = EvidenceStore(database_url).snapshot(family_batch.snapshot_id)
+        part = "Who are Ben's biological parents?"
+        models = investigator_models(
+            [
+                decision(
+                    "family",
+                    {"character_id": "ben-mitchell", "direction": "ancestors", "max_depth": 1},
+                    part,
+                )
+            ]
+        )
+        publish(database_url, snapshot, models)
+        uri = f"sqlite:///{tmp_path}/sql-timeout.db"
+        app = create_app(
+            database_url,
+            models=models,
+            tracking_uri=uri,
+            execution_limits=ExecutionLimits(model_calls=4, tool_calls=2, seconds=0.8),
+        )
+        MlflowClient(tracking_uri=uri).create_experiment("ask-phil-serving")
+        with TestClient(app) as client, psycopg.connect(database_url) as lock:
+            lock.execute("LOCK TABLE family_edges IN ACCESS EXCLUSIVE MODE")
+            with ThreadPoolExecutor(max_workers=1) as workers:
+                future = workers.submit(
+                    client.post, "/v1/answers", json={"question": part, "route": "investigation"}
+                )
+                try:
+                    result = future.result(timeout=3)
+                finally:
+                    lock.rollback()
+&gt;           assert result.status_code == 200, result.text
+E           AssertionError: {"detail":"Evidence storage is unavailable."}
+E           assert 503 == 200
+E            +  where 503 = &lt;Response [503 Service Unavailable]&gt;.status_code
+
+tests/test_investigation_api.py:798: AssertionError</failure></testcase><testcase classname="tests.test_investigation_api" name="test_stop_with_large_retained_passage_preserves_support_without_overflowing_the_reply" time="1.641"><failure message="pydantic_core._pydantic_core.ValidationError: 1 validation error for Draft&#10;answer&#10;  String should have at most 1600 characters [type=string_too_long, input_value='Investigation stopped: r...; absence is not proof.', input_type=str]&#10;    For further information visit https://errors.pydantic.dev/2.13/v/string_too_long">database_url = 'user=ask_phil password=local-demo-only dbname=ask_phil_test_7045ec1080c344ffbda1df1da8b65126 host=172.19.0.2 port=5432'
+seed = SourceSnapshot(snapshot_id='phil-arrival-v1', fixture_version=1, source=Source(title='Phil Mitchell', url=HttpUrl('htt...82d8d2c75291831d8a3c48142261499f6a04ea732d8b2469031db', start=0, end=111, source=None, location=None),), imported=None)
+investigator_models = &lt;function investigator_models.&lt;locals&gt;.build at 0x717c2c164900&gt;
+tmp_path = PosixPath('/tmp/pytest-of-tom/pytest-147/test_stop_with_large_retained_0')
+
+    def test_stop_with_large_retained_passage_preserves_support_without_overflowing_the_reply(
+        database_url: str,
+        seed: SourceSnapshot,
+        investigator_models: Callable[[list[dict[str, Any]]], Models],
+        tmp_path: Path,
+    ) -&gt; None:
+        text = seed.passages[0].text + " Synthetic supporting sentence." * 52
+        assert 1600 &lt; len(text) &lt; 1800
+        passage = seed.passages[0].model_copy(
+            update={"text": text, "end": len(text), "sha256": hashlib.sha256(text.encode()).hexdigest()}
+        )
+        snapshot = seed.model_copy(
+            update={
+                "snapshot_id": "large-context-stop",
+                "passages": (passage,),
+                "source": seed.source.model_copy(update={"support_status": "synthetic_fixture"}),
+            }
+        )
+        part = "When did Phil arrive?"
+        first = decision("text_search", {"query": part, "k": 1}, part)
+        repeated = decision("text_search", {"query": part, "k": 1}, part)
+        repeated["coverage"] = finish(part)["coverage"]
+        models = investigator_models([first, repeated])
+        publish(database_url, snapshot, models)
+        with TestClient(
+            create_app(database_url, models=models, tracking_uri=f"sqlite:///{tmp_path}/large.db")
+        ) as client:
+&gt;           result = client.post("/v1/answers", json={"question": part, "route": "investigation"})
+                     ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+tests/test_investigation_api.py:838: 
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ 
+.venv/lib/python3.12/site-packages/httpx/_client.py:1144: in post
+    return self.request(
+.venv/lib/python3.12/site-packages/starlette/testclient.py:463: in request
+    return super().request(
+.venv/lib/python3.12/site-packages/httpx/_client.py:825: in request
+    return self.send(request, auth=auth, follow_redirects=follow_redirects)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+.venv/lib/python3.12/site-packages/httpx/_client.py:914: in send
+    response = self._send_handling_auth(
+.venv/lib/python3.12/site-packages/httpx/_client.py:942: in _send_handling_auth
+    response = self._send_handling_redirects(
+.venv/lib/python3.12/site-packages/httpx/_client.py:979: in _send_handling_redirects
+    response = self._send_single_request(request)
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+.venv/lib/python3.12/site-packages/httpx/_client.py:1014: in _send_single_request
+    response = transport.handle_request(request)
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+.venv/lib/python3.12/site-packages/starlette/testclient.py:360: in handle_request
+    raise exc
+.venv/lib/python3.12/site-packages/starlette/testclient.py:357: in handle_request
+    portal.call(self.app, scope, receive, send)
+.venv/lib/python3.12/site-packages/anyio/from_thread.py:340: in call
+    return cast(T_Retval, self.start_task_soon(func, *args).result())
+                          ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+/usr/lib/python3.12/concurrent/futures/_base.py:456: in result
+    return self.__get_result()
+           ^^^^^^^^^^^^^^^^^^^
+/usr/lib/python3.12/concurrent/futures/_base.py:401: in __get_result
+    raise self._exception
+.venv/lib/python3.12/site-packages/anyio/from_thread.py:265: in _call_func
+    retval = await retval_or_awaitable
+             ^^^^^^^^^^^^^^^^^^^^^^^^^
+.venv/lib/python3.12/site-packages/fastapi/applications.py:1163: in __call__
+    await super().__call__(scope, receive, send)
+.venv/lib/python3.12/site-packages/starlette/applications.py:96: in __call__
+    await self.middleware_stack(scope, receive, send)
+.venv/lib/python3.12/site-packages/starlette/middleware/errors.py:186: in __call__
+    raise exc
+.venv/lib/python3.12/site-packages/starlette/middleware/errors.py:164: in __call__
+    await self.app(scope, receive, _send)
+.venv/lib/python3.12/site-packages/starlette/middleware/exceptions.py:63: in __call__
+    await wrap_app_handling_exceptions(self.app, conn)(scope, receive, send)
+.venv/lib/python3.12/site-packages/starlette/_exception_handler.py:53: in wrapped_app
+    raise exc
+.venv/lib/python3.12/site-packages/starlette/_exception_handler.py:42: in wrapped_app
+    await app(scope, receive, sender)
+.venv/lib/python3.12/site-packages/fastapi/middleware/asyncexitstack.py:18: in __call__
+    await self.app(scope, receive, send)
+.venv/lib/python3.12/site-packages/starlette/routing.py:676: in __call__
+    await self.middleware_stack(scope, receive, send)
+.venv/lib/python3.12/site-packages/fastapi/routing.py:2734: in app
+    await route.handle(scope, receive, send)
+.venv/lib/python3.12/site-packages/fastapi/routing.py:1281: in handle
+    await super().handle(scope, receive, send)
+.venv/lib/python3.12/site-packages/starlette/routing.py:282: in handle
+    await self.app(scope, receive, send)
+.venv/lib/python3.12/site-packages/fastapi/routing.py:158: in app
+    await wrap_app_handling_exceptions(app, request)(scope, receive, send)
+.venv/lib/python3.12/site-packages/starlette/_exception_handler.py:53: in wrapped_app
+    raise exc
+.venv/lib/python3.12/site-packages/starlette/_exception_handler.py:42: in wrapped_app
+    await app(scope, receive, sender)
+.venv/lib/python3.12/site-packages/fastapi/routing.py:144: in app
+    response = await f(request)
+               ^^^^^^^^^^^^^^^^
+.venv/lib/python3.12/site-packages/fastapi/routing.py:706: in app
+    raw_response = await run_endpoint_function(
+.venv/lib/python3.12/site-packages/fastapi/routing.py:352: in run_endpoint_function
+    return await dependant.call(**values)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+src/ask_phil/api.py:252: in standalone_answer
+    return await connected_answer(
+src/ask_phil/api.py:269: in connected_answer
+    return await worker
+           ^^^^^^^^^^^^
+/usr/lib/python3.12/asyncio/threads.py:25: in to_thread
+    return await loop.run_in_executor(None, func_call)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+/usr/lib/python3.12/concurrent/futures/thread.py:58: in run
+    result = self.fn(*self.args, **self.kwargs)
+             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+src/ask_phil/api.py:261: in run
+    return operation()
+           ^^^^^^^^^^^
+src/ask_phil/api.py:294: in answer
+    return service.ask(
+src/ask_phil/answering.py:125: in ask
+    return self._ask(request, category, turn, history, budget)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+src/ask_phil/answering.py:170: in _ask
+    content = route.answer(request, turn, history, budget, root)
+              ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ 
+
+self = &lt;ask_phil.investigation.Investigation object at 0x717c2e16ab10&gt;
+request = AskRequest(snapshot_id=None, question='When did Phil arrive?', route='investigation', graph=None)
+turn = None, history = ()
+budget = &lt;ask_phil.execution.ExecutionBudget object at 0x717c2e16bce0&gt;
+root = LiveSpan(name='investigation', trace_id='tr-19a24c1483dffa6908c2e1ff762254ea', span_id='8ebe15cef9b4e065', parent_id=None)
+
+    def answer(
+        self,
+        request: AskRequest,
+        turn: TurnIdentity | None,
+        history: tuple[ReferenceTurn, ...],
+        budget: ExecutionBudget,
+        root: LiveSpan,
+    ) -&gt; AnswerContent:
+        question = request.question
+        conversation = None
+        if turn:
+            reference = resolve_reference(
+                question,
+                self.snapshot.imported.catalogue
+                if self.snapshot.imported
+                else IdentityCatalogue(characters=()),
+                history,
+            )
+            conversation = ConversationReference(**turn.model_dump(), reference=reference)
+            question = reference.question
+        root.set_attributes({"prompt": INVESTIGATOR_PROMPT, "tool_contract": TOOL_CONTRACT})
+        tools = InvestigationTools(self.database_url, self.models, self.pinned, budget)
+        coverage: tuple[CoveragePart, ...] = ()
+        calls: list[ModelExecution] = []
+        draft: Draft | None = None
+        stop_reason = "completed"
+        try:
+            budget.check()
+            self.pinned.verify()
+            self.models.verify()
+            budget.check()
+            if conversation and conversation.reference.clarification:
+                draft = Draft(
+                    answer=conversation.reference.clarification,
+                    status="clarification",
+                    evidence_ids=(),
+                    unanswered=("Which character is intended?",),
+                    qualifications=(),
+                )
+            while draft is None:
+                budget.check()
+                budget.context(tools.context_bytes)
+                with mlflow.start_span("investigator_decision", span_type="LLM") as span:
+                    messages = [
+                        ChatMessage(role="system", content=INVESTIGATOR_PROMPT + TOOL_CONTRACT),
+                        ChatMessage(
+                            role="user",
+                            content=json.dumps(
+                                {
+                                    "question": question,
+                                    "source": self.snapshot.source.title,
+                                    "support_status": self.snapshot.source.support_status,
+                                    "coverage": [p.model_dump() for p in coverage],
+                                    "context": tools.model_context(),
+                                    "remaining": {
+                                        "model_calls": budget.limits.model_calls
+                                        - budget.record().model_calls,
+                                        "tool_calls": budget.limits.tool_calls
+                                        - budget.record().tool_calls,
+                                    },
+                                },
+                                ensure_ascii=False,
+                            ),
+                        ),
+                    ]
+                    span.set_inputs([m.model_dump(mode="json") for m in messages])
+                    execution = self.models.generate_answer(
+                        messages, schema=InvestigationDecision.model_json_schema()
+                    )
+                    execution = execution.model_copy(
+                        update={"usage": execution.usage.model_copy(update={"embedding_tokens": 0})}
+                    )
+                    calls.append(execution)
+                    span.set_outputs({"content": execution.content})
+                    span.set_attributes(execution.trace_attributes)
+                    if execution.failure_type:
+                        budget.stop(
+                            execution.failure_type
+                            if execution.failure_type
+                            in {
+                                "malformed_output",
+                                "timeout",
+                                "cancelled",
+                                "endpoint_denied",
+                                "input_limit",
+                                "http_call_limit",
+                                "spend_limit",
+                                "model_call_limit",
+                            }
+                            else "provider_failure"
+                        )
+                    budget.check()
+                    try:
+                        choice = InvestigationDecision.model_validate_json(execution.content or "")
+                    except ValueError:
+                        budget.stop("malformed_output")
+                _validate_coverage(choice.coverage, coverage, tools.context)
+                coverage = choice.coverage
+                if isinstance(choice.action, FinishAction):
+                    draft = _qualified_draft(choice.action.draft, coverage)
+                    cite_answer(draft, tools.context, self.snapshot.snapshot_id)
+                    continue
+                action = choice.action
+                tools.execute(action.tool, action.arguments)
+        except (ExecutionStopped, ValueError) as exc:
+            stop_reason = str(exc) if isinstance(exc, ExecutionStopped) else "malformed_output"
+            budget.record_stop(stop_reason)
+            root.set_status("ERROR")
+            resolved = {eid for c in coverage if c.resolved for eid in c.evidence_ids}
+            excerpts = tuple(p for p in tools.context if p.evidence_id in resolved)[:3]
+&gt;           draft = Draft(
+                answer=(
+                    f"Investigation stopped: {stop_reason}. "
+                    + (
+                        "Supported captured excerpts: " + " ".join(p.text for p in excerpts)
+                        if excerpts
+                        else "The requested answer remains unresolved."
+                    )
+                    + " The remaining requested information is unresolved; absence is not proof."
+                ),
+                status="partial" if excerpts else "insufficient_evidence",
+                evidence_ids=tuple(p.evidence_id for p in excerpts),
+                unanswered=tuple(c.part for c in coverage if not c.resolved)
+                or ("The requested answer is incomplete because execution stopped.",),
+                qualifications=(),
+            )
+E           pydantic_core._pydantic_core.ValidationError: 1 validation error for Draft
+E           answer
+E             String should have at most 1600 characters [type=string_too_long, input_value='Investigation stopped: r...; absence is not proof.', input_type=str]
+E               For further information visit https://errors.pydantic.dev/2.13/v/string_too_long
+
+src/ask_phil/investigation.py:235: ValidationError</failure></testcase></testsuite></testsuites>

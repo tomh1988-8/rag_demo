@@ -1,10 +1,12 @@
 """Bounded investigation through the public API, real storage and external providers."""
 
+import hashlib
 import json
 import subprocess
 import sys
 import time
 from collections.abc import Callable
+from concurrent.futures import ThreadPoolExecutor
 from contextlib import AbstractContextManager
 from datetime import UTC, datetime
 from pathlib import Path
@@ -13,6 +15,7 @@ from typing import Any
 from uuid import uuid4
 
 import httpx
+import psycopg
 import pytest
 from fastapi.testclient import TestClient
 from llama_index.llms.ollama import Ollama
@@ -751,3 +754,91 @@ def test_investigation_cannot_restore_a_disputed_claim_from_its_source_text(
         assert "no established connection" in answer["answer"]
         assert "I am Ben's established" not in answer["answer"]
         assert answer["review_notices"][0]["claim_id"] == "phil-ben"
+
+
+def test_graph_database_deadline_returns_an_immutable_investigation_stop_receipt(
+    database_url: str,
+    family_batch: ClaimBatch,
+    investigator_models: Callable[[list[dict[str, Any]]], Models],
+    tmp_path: Path,
+) -> None:
+    from test_family_graph import install_family
+
+    install_family(database_url, family_batch)
+    snapshot = EvidenceStore(database_url).snapshot(family_batch.snapshot_id)
+    part = "Who are Ben's biological parents?"
+    models = investigator_models(
+        [
+            decision(
+                "family",
+                {"character_id": "ben-mitchell", "direction": "ancestors", "max_depth": 1},
+                part,
+            )
+        ]
+    )
+    publish(database_url, snapshot, models)
+    uri = f"sqlite:///{tmp_path}/sql-timeout.db"
+    app = create_app(
+        database_url,
+        models=models,
+        tracking_uri=uri,
+        execution_limits=ExecutionLimits(model_calls=4, tool_calls=2, seconds=0.8),
+    )
+    MlflowClient(tracking_uri=uri).create_experiment("ask-phil-serving")
+    with TestClient(app) as client, psycopg.connect(database_url) as lock:
+        lock.execute("LOCK TABLE family_edges IN ACCESS EXCLUSIVE MODE")
+        with ThreadPoolExecutor(max_workers=1) as workers:
+            future = workers.submit(
+                client.post, "/v1/answers", json={"question": part, "route": "investigation"}
+            )
+            try:
+                result = future.result(timeout=3)
+            finally:
+                lock.rollback()
+        assert result.status_code == 200, result.text
+        receipt = result.json()
+        answer = receipt["response"]
+        assert answer["execution"]["stop_reason"] == "timeout"
+        assert answer["execution"]["tool_calls"] == 1
+        assert answer["investigation"]["steps"][0]["status"] == "stopped"
+        original = client.get(
+            f"/v1/responses/{answer['response_id']}",
+            headers={"Authorization": f"Bearer {receipt['read_token']}"},
+        )
+        assert original.json() == answer
+
+
+def test_stop_with_large_retained_passage_preserves_support_without_overflowing_the_reply(
+    database_url: str,
+    seed: SourceSnapshot,
+    investigator_models: Callable[[list[dict[str, Any]]], Models],
+    tmp_path: Path,
+) -> None:
+    text = seed.passages[0].text + " Synthetic supporting sentence." * 52
+    assert 1600 < len(text) < 1800
+    passage = seed.passages[0].model_copy(
+        update={"text": text, "end": len(text), "sha256": hashlib.sha256(text.encode()).hexdigest()}
+    )
+    snapshot = seed.model_copy(
+        update={
+            "snapshot_id": "large-context-stop",
+            "passages": (passage,),
+            "source": seed.source.model_copy(update={"support_status": "synthetic_fixture"}),
+        }
+    )
+    part = "When did Phil arrive?"
+    first = decision("text_search", {"query": part, "k": 1}, part)
+    repeated = decision("text_search", {"query": part, "k": 1}, part)
+    repeated["coverage"] = finish(part)["coverage"]
+    models = investigator_models([first, repeated])
+    publish(database_url, snapshot, models)
+    with TestClient(
+        create_app(database_url, models=models, tracking_uri=f"sqlite:///{tmp_path}/large.db")
+    ) as client:
+        result = client.post("/v1/answers", json={"question": part, "route": "investigation"})
+        assert result.status_code == 200, result.text
+        answer = result.json()["response"]
+        assert answer["execution"]["stop_reason"] == "repeated_call"
+        assert answer["status"] == "partial"
+        assert answer["citations"][0]["text"] == text
+        assert len(answer["answer"]) < 1600

@@ -1,0 +1,2078 @@
+{
+  "application_sha256": "a40dc97f1efb9dcd6df786d3e316e5c7c7ac3de73e2e377245e68bb5c05c5660",
+  "model_settings": {
+    "embedding_model": "embeddinggemma:300m",
+    "embedding_digest": "85462619ee721b466c5927d109d4cb765861907d5417b9109caebc4e614679f1",
+    "embedding_dimensions": 768,
+    "provider_type": "openrouter",
+    "answer_model": "openai/gpt-6-sol",
+    "canonical_slug": "openai/gpt-6-sol-20260922",
+    "provider": "openai",
+    "input_price_per_million": "2",
+    "output_price_per_million": "10",
+    "output_tokens": 8192,
+    "reasoning_effort": "medium",
+    "request_timeout_seconds": 180
+  },
+  "limits": {
+    "model_calls": 8,
+    "tool_calls": 4,
+    "http_calls": 24,
+    "seconds": 180.0,
+    "context_bytes": 4000,
+    "spend_usd": "0.20",
+    "retries": 0,
+    "capabilities": [
+      "text_retrieval",
+      "family_graph",
+      "event_graph",
+      "connection_graph"
+    ],
+    "concurrency": 1
+  },
+  "tool_contract_sha256": "b644aae0494a7e99b07efdc0408683b121903d82871b495bba207c238707b8b7",
+  "shared_ledger_before_usd": 0.464981,
+  "trial_start_usd": "0.464981",
+  "additional_tranche_cap_usd": "1.20",
+  "expenditure_category": "serving measurements in exposed development comparison",
+  "offline_review_model_cost_usd": 0,
+  "recorded_at": "2026-10-28T13:07:00.599369+00:00",
+  "reference_file_sha256": "86b81cc9595a8a40c7e78e95fdf1f9c956bb0de35f0b7424d3e832470f9addae",
+  "recorder_version": "frozen-evaluation-run-v1",
+  "input_artifacts": [
+    {
+      "artifact_path": "inputs/0/investigation-v1.json",
+      "sha256": "86b81cc9595a8a40c7e78e95fdf1f9c956bb0de35f0b7424d3e832470f9addae"
+    },
+    {
+      "artifact_path": "inputs/1/connections-pilot-v1.json",
+      "sha256": "52059b75376a5e0c82116285eb3fee592c9f3139dbadd336d0f35713ea82402b"
+    },
+    {
+      "artifact_path": "inputs/2/connections-v1.json",
+      "sha256": "51ed3a8d417aea0773a02eec5a554fd41ba2cbef62e118008a48227451806123"
+    },
+    {
+      "artifact_path": "inputs/3/claim-reviews.json",
+      "sha256": "9be8a69008982f54df4531f54038360e4bea2c1537e326cf389e41da7ce57be8"
+    },
+    {
+      "artifact_path": "inputs/4/openrouter-sol.json",
+      "sha256": "cf00b685a27cda04d01efa5d41a8ff7ec4a39239b0214956321f3b8edd1b335b"
+    },
+    {
+      "artifact_path": "inputs/5/evaluate_investigation.py",
+      "sha256": "80f70a621a18c7380aa22d5996f3c5a531a0b275009ecbe77ca31c4bebb524b7"
+    },
+    {
+      "artifact_path": "inputs/6/__init__.py",
+      "sha256": "c4be197720058e2c86d4a79594bf60163b9bef1578b8e0e99650ec5e8b114a3d"
+    },
+    {
+      "artifact_path": "inputs/7/answering.py",
+      "sha256": "5818693f976a949d6751c1e373382551376492b1b09585949caa4f3342af597b"
+    },
+    {
+      "artifact_path": "inputs/8/answers.py",
+      "sha256": "412351d3c1c798bafcb03f38e11da2c65b51a1f56d5108342c34477c3bd28fc1"
+    },
+    {
+      "artifact_path": "inputs/9/api.py",
+      "sha256": "6163efb44974f0845722ce6490b62f79f91abbc5d653d700b30cd9c46ebc1b07"
+    },
+    {
+      "artifact_path": "inputs/10/claim_extraction.py",
+      "sha256": "2741ec201f4791b7963616d42a574188da9b82d83cbabe5695eee4febd63d51c"
+    },
+    {
+      "artifact_path": "inputs/11/claim_projections.py",
+      "sha256": "e373f0814e1b903e2068f20670813ac1be25fda18594528fd55a5f64895b162c"
+    },
+    {
+      "artifact_path": "inputs/12/claims.py",
+      "sha256": "4b921961859133515eb4578f78ae5d7e97a96faf84f961dcf3bf2d28d35070d2"
+    },
+    {
+      "artifact_path": "inputs/13/classified_facts.py",
+      "sha256": "f2f3d5ac25d04475d219a2a52bfc879b2833056a96909a594145104d4f01158f"
+    },
+    {
+      "artifact_path": "inputs/14/cli.py",
+      "sha256": "c92639f77e9f764dd8e2f19733601f7d2a2df0fb03501ed2dbcca01ef9ade0f1"
+    },
+    {
+      "artifact_path": "inputs/15/connection_evaluation.py",
+      "sha256": "faa8d0e38ff051896a3f19fdaa99c4c70fc010eebec8de0e1dab3e0dfe66914b"
+    },
+    {
+      "artifact_path": "inputs/16/connection_graph.py",
+      "sha256": "f320d00b1348db9658f85eeeb41f5e00706b37439d82e2c6c5b3e9338f65fb37"
+    },
+    {
+      "artifact_path": "inputs/17/connection_wording.py",
+      "sha256": "8c81e82db27cdeaf67aeb67fdf32a09f3f69aec338ee360552c052eb3a4fcb49"
+    },
+    {
+      "artifact_path": "inputs/18/conversation.py",
+      "sha256": "bfecce8cee47867d2bf22ecbb9b9c2110ef5f16b3f748b9f56c9de84b35db736"
+    },
+    {
+      "artifact_path": "inputs/19/evaluation.py",
+      "sha256": "1d99741e48c92cec70023a43606879f799ea4cadcd1720f3a35e7bec6753b4bb"
+    },
+    {
+      "artifact_path": "inputs/20/event_evaluation.py",
+      "sha256": "93f6875eacffea8e038a171a31e748662526e18eaea8f067b3908b258da4d62b"
+    },
+    {
+      "artifact_path": "inputs/21/event_extraction.py",
+      "sha256": "7dceeb722c6219dfd3084e8027c5de658b09667925d03656c6604ae7ce553264"
+    },
+    {
+      "artifact_path": "inputs/22/event_graph.py",
+      "sha256": "7614ad64c555442066477307cf48480a7e5238d48f8db789c3617bd0b671561d"
+    },
+    {
+      "artifact_path": "inputs/23/event_wording.py",
+      "sha256": "8fcf32f46128c26a963fcaee769e5fb2235f3b6ca8ef63c0b6f701aee16aa8a7"
+    },
+    {
+      "artifact_path": "inputs/24/evidence.py",
+      "sha256": "321f6a3ba913ca8be26a4ab171e263ab1da9fc208b12432f5dbcf54c2f83ea9f"
+    },
+    {
+      "artifact_path": "inputs/25/execution.py",
+      "sha256": "f2ee0cdb975667a11f41e7db82608f7ec742cc670d181438b64227d042ddb86f"
+    },
+    {
+      "artifact_path": "inputs/26/family_answering.py",
+      "sha256": "9c10733cf27d9779e6d43c7258ff4a8fd9ca46ac221f40467f9dd546f567d572"
+    },
+    {
+      "artifact_path": "inputs/27/family_graph.py",
+      "sha256": "6b8a6a92d730dad327752406bc1ffb17bcf0cf4482a67792b4a515df20ee00c5"
+    },
+    {
+      "artifact_path": "inputs/28/graph_acceptance.py",
+      "sha256": "c65c7fea5d054a9cfa1c76bb7efc4cb4d2cbbc4b007e83a3f7468bddf059f407"
+    },
+    {
+      "artifact_path": "inputs/29/graph_execution.py",
+      "sha256": "8ee9a4fa3580814a560187fd656d68af6d80b46d1db899ac3dddc95b04eb419a"
+    },
+    {
+      "artifact_path": "inputs/30/identity.py",
+      "sha256": "f7277f6206c35dcb5e5cb91806f98c5142c09175d86f0fd7fa5b962f20f0d2c9"
+    },
+    {
+      "artifact_path": "inputs/31/ingestion.py",
+      "sha256": "efee54598cb5048152375d679091dfaae5e77d56741ac0347dd6e49e1e088a85"
+    },
+    {
+      "artifact_path": "inputs/32/investigation.py",
+      "sha256": "48d21f9ef0e044f5eedd9b10e94b8f74800cc34b44b22c3a89573f09a7d6a4ae"
+    },
+    {
+      "artifact_path": "inputs/33/investigation_evaluation.py",
+      "sha256": "bdbbc6950332b788955821bfc0543385a706934dd8cc1c4124a47ec17a0f05b3"
+    },
+    {
+      "artifact_path": "inputs/34/investigation_records.py",
+      "sha256": "fd479dfbea8509c1a7f4c3e3fdb28f361df8fa9ebacef5631ec5efe9c5b98ce9"
+    },
+    {
+      "artifact_path": "inputs/35/investigation_tools.py",
+      "sha256": "86ec2665936ddb7b6035ec25e9f17953c1f4cf1e716bb2b5a2d77e47a0ea4138"
+    },
+    {
+      "artifact_path": "inputs/36/knowledge_review.py",
+      "sha256": "532e8bbeec10c5a8b4fdf1fb36c4bd647d5bf06530bef9c6d9a6d5a135dc8009"
+    },
+    {
+      "artifact_path": "inputs/37/model_transport.py",
+      "sha256": "1d0f27a61aa99b5cd9873885f0fe980b9de9048a7cc72451de90ce13d57cec12"
+    },
+    {
+      "artifact_path": "inputs/38/models.py",
+      "sha256": "f652f0569be84017ef9be9b2311042b4090efc3172d599ff1c847f73c2eefa94"
+    },
+    {
+      "artifact_path": "inputs/39/openrouter.py",
+      "sha256": "eb9c665aea4af1d1c805e0c1a3e1401e11bded1a7ea3cc4760997a2be5ff0990"
+    },
+    {
+      "artifact_path": "inputs/40/parentage.py",
+      "sha256": "548efa47f5603b6fe3681cefe5556e6cc6cc697f6d189f35baa942b89939fff6"
+    },
+    {
+      "artifact_path": "inputs/41/parentage_evaluation.py",
+      "sha256": "2c5fb83353c49eca366294fac5f187b91c0bd2f506787e54cbf3a22882dcc58e"
+    },
+    {
+      "artifact_path": "inputs/42/parentage_extraction.py",
+      "sha256": "16a689209b576f2156cdecc67f03e19342a3d1ee07b55f00eb28e81cc6ea4757"
+    },
+    {
+      "artifact_path": "inputs/43/passage_context.py",
+      "sha256": "7a7ee1ef383b3bb1a75d2e6097de5bc481af979598ba13a0c3fda51b5bdf1201"
+    },
+    {
+      "artifact_path": "inputs/44/publications.py",
+      "sha256": "ec3abe250eadb5834daa5e038887f52d2694e757fe79127e286d69062dc7965c"
+    },
+    {
+      "artifact_path": "inputs/45/quality_comparison.py",
+      "sha256": "d1f388f842a4ddb6147800c966cf46f7bd0cb3653a7b5d2ab8a82b58b5063522"
+    },
+    {
+      "artifact_path": "inputs/46/quality_workflow.py",
+      "sha256": "f1d9ddb7a392c02ae71a809adf3a9a0b76410d5407bdca5b31ca482e94bf6bb7"
+    },
+    {
+      "artifact_path": "inputs/47/refresh.py",
+      "sha256": "69b35741584bedc2c6a73291eda8ba1dc79a112b4cf12c5269a77d96c38290bc"
+    },
+    {
+      "artifact_path": "inputs/48/refresh_journal.py",
+      "sha256": "29b7c6257126d22af45bc68863bcaf0c1281cd27664b02568fa2bcb5fe647ad7"
+    },
+    {
+      "artifact_path": "inputs/49/relationship_evaluation.py",
+      "sha256": "1e7728d6f78e34e24c0c650e7e40fc2adba3c935e7b06e11ade9891f9698a06f"
+    },
+    {
+      "artifact_path": "inputs/50/relationship_extraction.py",
+      "sha256": "f7bac063f61790753cff97c18c0f4d201d3fada3f67abff55ce5fda51a86f983"
+    },
+    {
+      "artifact_path": "inputs/51/relationship_graph.py",
+      "sha256": "69bfc3f2fca8dc77311e9e45bb49845051a18ecb7dd579806439eee2a2b81734"
+    },
+    {
+      "artifact_path": "inputs/52/relationships.py",
+      "sha256": "2787bc4582e4886d26d5a751eb9927858e3d7c00cd4519ca0ae2bc690fb88ad1"
+    },
+    {
+      "artifact_path": "inputs/53/responses.py",
+      "sha256": "38fd80a0cc90853a6e7ae15bcb1ce53300756b723698996ae8b3c10e0b8ec1fc"
+    },
+    {
+      "artifact_path": "inputs/54/retrieval.py",
+      "sha256": "f2b6dbc3e492b128d3719d5ee9f8a1b690f7af4cc63d466af842a97c7595bffb"
+    },
+    {
+      "artifact_path": "inputs/55/review_notes.py",
+      "sha256": "2d7416aca4c8409aa15bc93b729d6ab66cbb2920cad4e7fc08a6706f88df2c47"
+    },
+    {
+      "artifact_path": "inputs/56/security.py",
+      "sha256": "a8b40f5118780cc03e0a6cc2c4710c9a9d007d590b97d297acee2f2ffe472bce"
+    },
+    {
+      "artifact_path": "inputs/57/semantic_judge.py",
+      "sha256": "d6c629fa76934529dec376a76d2f95f3ac7d17f62c83ba41275eeb64cbf473f8"
+    },
+    {
+      "artifact_path": "inputs/58/sessions.py",
+      "sha256": "11206ce82dba490383eaf083bcc5d568072a5da9c55e92ab65c6d398d21863a8"
+    },
+    {
+      "artifact_path": "inputs/59/source_records.py",
+      "sha256": "b0e3b27bed3dc045a50c488a4ebd7a0709902651e0a44cf2ad496ca95d30a2a1"
+    },
+    {
+      "artifact_path": "inputs/60/storage.py",
+      "sha256": "250193911723a6593785c6f31596cd1124526bd1d2ec75e817f50750d6aff3f1"
+    },
+    {
+      "artifact_path": "inputs/61/story_events.py",
+      "sha256": "152eb19dcc384f8579bd30dc5dfaf918d1c06658ede10b88c867f6e0a5420af3"
+    },
+    {
+      "artifact_path": "inputs/62/structured_extraction.py",
+      "sha256": "418835d8c0b46395e378fe6ebfd966cad039e1a3c1120ffa86ec920e3f9b89d3"
+    },
+    {
+      "artifact_path": "inputs/63/text_answering.py",
+      "sha256": "8776cd435ec3e0561f852309c153f2909db1a043a26f27ebc99ecd25d840c814"
+    },
+    {
+      "artifact_path": "inputs/64/tracing.py",
+      "sha256": "fd351810cf7ab4b2506583f510e601b7372f6c28cd43654b2a82ab25509737e7"
+    }
+  ],
+  "result_artifact": "result/live-smoke.json",
+  "case_ids": [
+    "single-pregnancy"
+  ],
+  "cases": [
+    {
+      "case_id": "single-pregnancy",
+      "reference": {
+        "case_id": "single-pregnancy",
+        "group_id": "sharon-christmas-pregnancy",
+        "category": "single-passage-sufficient",
+        "question": "What does the captured evidence say about Sharon Watts discovering she was pregnant on Christmas Day 2005?",
+        "answerable": true,
+        "expected_status": "answered",
+        "expected_stops": [
+          "completed"
+        ],
+        "relevant_ids": [
+          "sharon-christmas-pregnancy"
+        ],
+        "required_facts": [
+          {
+            "fact": "Sharon discovers she is pregnant on Christmas Day 2005.",
+            "sufficient_sets": [
+              [
+                "sharon-christmas-pregnancy"
+              ]
+            ]
+          }
+        ],
+        "forbidden_assertions": [
+          "Pregnancy proves the identity of the biological father."
+        ],
+        "acceptable_strategies": "Captured text or typed life-event query. No exact call order is required."
+      },
+      "reference_sha256": "90bf936f602014e91972e81937b3be6c5532e67441b00649c569aaacfe00d046",
+      "state": "complete",
+      "response": {
+        "response_id": "1ab1b641-6cbe-4e0a-ab73-179c50d6dd4c",
+        "question": "What does the captured evidence say about Sharon Watts discovering she was pregnant on Christmas Day 2005?",
+        "status": "answered",
+        "answer": "Right, listen. On Christmas Day 2005, Sharon was stunned to discover she was pregnant. She and Dennis celebrated the possibility of having a child.",
+        "qualifications": [
+          {
+            "detail": "The source dates the discovery to Christmas Day 2005.",
+            "evidence_ids": [
+              "sharon-christmas-pregnancy"
+            ],
+            "kind": "timing",
+            "precision": "exact"
+          }
+        ],
+        "citations": [
+          {
+            "evidence_id": "sharon-christmas-pregnancy",
+            "text": "On Christmas Day 2005, Sharon is stunned to discover she is pregnant, and she and Dennis celebrate the potential of having a child.",
+            "sha256": "dfa4fd7ae0dbe533dcdec506808a9bbdd4f16b27cbccefc8e8df6d69363ad06d",
+            "start": 61360,
+            "end": 61491,
+            "source": {
+              "title": "Sharon Watts",
+              "url": "https://en.wikipedia.org/wiki/Sharon_Watts",
+              "revision_id": "1372798905",
+              "revision_url": "https://en.wikipedia.org/w/index.php?oldid=1372798905",
+              "section": "Storylines / 2001\u20132006",
+              "captured_at": "2026-10-17T13:07:31.327518Z",
+              "capture_sha256": "9ccef3de99353ff737101d9d00561c217608dd4fa6fba0c8200f80ac0114ea85",
+              "scope": "main_series",
+              "license_url": "https://creativecommons.org/licenses/by-sa/4.0/",
+              "attribution": "Wikipedia contributors; markup removed and whitespace normalized.",
+              "coverage": "Reviewed narrative sections in this captured revision only.",
+              "gaps": [
+                "Partial canon coverage; other paragraphs remain excluded or awaiting review.",
+                "Identity and episode metadata do not independently corroborate story claims."
+              ],
+              "support_status": "source_supported"
+            },
+            "location": {
+              "source_id": "sharon-watts-wiki",
+              "paragraph_ordinal": 64,
+              "section_id": "2001\u20132006",
+              "character_ids": [
+                "sharon-watts"
+              ]
+            },
+            "resolve_path": "/v1/snapshots/connections-pilot-v1/evidence/sharon-christmas-pregnancy"
+          }
+        ],
+        "snapshot_id": "connections-pilot-v1",
+        "snapshot_sha256": "d30762f13668359b18b2b04bd190130f99cbac21ed99749a22e2ddddf5d8533b",
+        "publication": {
+          "compatibility_id": "c19a056ca5362f43ebfc43dcf25e053c344e1d9a01dc430ae312a92f8b8553bf",
+          "index_sha256": "bd91863966c812b4a44e498eafd930269a814cc1328ccb90a49aa329178c21f4",
+          "generation": 1
+        },
+        "source": {
+          "title": "Ben Mitchell",
+          "url": "https://en.wikipedia.org/wiki/Ben_Mitchell_(EastEnders)",
+          "revision_id": "1376729134",
+          "revision_url": "https://en.wikipedia.org/w/index.php?oldid=1376729134",
+          "section": "Storylines / 1996\u20132000",
+          "captured_at": "2026-10-17T13:07:31.530421Z",
+          "capture_sha256": "8ae0fbabb19cf12b2bdf46d7a85e15eea4462b8559584c770224a54a9e47d128",
+          "scope": "main_series",
+          "license_url": "https://creativecommons.org/licenses/by-sa/4.0/",
+          "attribution": "Wikipedia contributors; markup removed and whitespace normalized.",
+          "coverage": "Reviewed narrative sections in this captured revision only.",
+          "gaps": [
+            "Partial canon coverage; other paragraphs remain excluded or awaiting review.",
+            "Identity and episode metadata do not independently corroborate story claims."
+          ],
+          "support_status": "source_supported"
+        },
+        "retrieved": [
+          {
+            "passage": {
+              "evidence_id": "sharon-christmas-pregnancy",
+              "text": "On Christmas Day 2005, Sharon is stunned to discover she is pregnant, and she and Dennis celebrate the potential of having a child.",
+              "sha256": "dfa4fd7ae0dbe533dcdec506808a9bbdd4f16b27cbccefc8e8df6d69363ad06d",
+              "start": 61360,
+              "end": 61491,
+              "source": {
+                "title": "Sharon Watts",
+                "url": "https://en.wikipedia.org/wiki/Sharon_Watts",
+                "revision_id": "1372798905",
+                "revision_url": "https://en.wikipedia.org/w/index.php?oldid=1372798905",
+                "section": "Storylines / 2001\u20132006",
+                "captured_at": "2026-10-17T13:07:31.327518Z",
+                "capture_sha256": "9ccef3de99353ff737101d9d00561c217608dd4fa6fba0c8200f80ac0114ea85",
+                "scope": "main_series",
+                "license_url": "https://creativecommons.org/licenses/by-sa/4.0/",
+                "attribution": "Wikipedia contributors; markup removed and whitespace normalized.",
+                "coverage": "Reviewed narrative sections in this captured revision only.",
+                "gaps": [
+                  "Partial canon coverage; other paragraphs remain excluded or awaiting review.",
+                  "Identity and episode metadata do not independently corroborate story claims."
+                ],
+                "support_status": "source_supported"
+              },
+              "location": {
+                "source_id": "sharon-watts-wiki",
+                "paragraph_ordinal": 64,
+                "section_id": "2001\u20132006",
+                "character_ids": [
+                  "sharon-watts"
+                ]
+              }
+            },
+            "similarity": 0.6918042920653261
+          },
+          {
+            "passage": {
+              "evidence_id": "sharon-uncertain-paternity",
+              "text": "However, Sharon also discovers she is pregnant but does not know if Phil or Keanu is the father. She settles on having an abortion, but Phil discovers she's pregnant, and Sharon lies letting Phil believe he is the father.",
+              "sha256": "58a54d25d3179499cff866bbaef27ced938997fcd7ac9139d4ac6a29cc68a15e",
+              "start": 77363,
+              "end": 77584,
+              "source": {
+                "title": "Sharon Watts",
+                "url": "https://en.wikipedia.org/wiki/Sharon_Watts",
+                "revision_id": "1372798905",
+                "revision_url": "https://en.wikipedia.org/w/index.php?oldid=1372798905",
+                "section": "Storylines / 2012\u2013present",
+                "captured_at": "2026-10-17T13:07:31.327518Z",
+                "capture_sha256": "9ccef3de99353ff737101d9d00561c217608dd4fa6fba0c8200f80ac0114ea85",
+                "scope": "main_series",
+                "license_url": "https://creativecommons.org/licenses/by-sa/4.0/",
+                "attribution": "Wikipedia contributors; markup removed and whitespace normalized.",
+                "coverage": "Reviewed narrative sections in this captured revision only.",
+                "gaps": [
+                  "Partial canon coverage; other paragraphs remain excluded or awaiting review.",
+                  "Identity and episode metadata do not independently corroborate story claims."
+                ],
+                "support_status": "source_supported"
+              },
+              "location": {
+                "source_id": "sharon-watts-wiki",
+                "paragraph_ordinal": 75,
+                "section_id": "2012\u2013present",
+                "character_ids": [
+                  "martin-fowler",
+                  "sharon-watts"
+                ]
+              }
+            },
+            "similarity": 0.4580014384392832
+          },
+          {
+            "passage": {
+              "evidence_id": "history-ben-birth",
+              "text": "Ben is born to Phil Mitchell (Steve McFadden) and his then wife Kathy Beale (Gillian Taylforth) in March 1996.",
+              "sha256": "8179f5f0724cc08e5a5d51567fb7de0f8e55a4d5fc9881f5e050ae9d153eca08",
+              "start": 17983,
+              "end": 18093,
+              "source": {
+                "title": "Ben Mitchell",
+                "url": "https://en.wikipedia.org/wiki/Ben_Mitchell_(EastEnders)",
+                "revision_id": "1376729134",
+                "revision_url": "https://en.wikipedia.org/w/index.php?oldid=1376729134",
+                "section": "Storylines / 1996\u20132000",
+                "captured_at": "2026-10-17T13:07:31.530421Z",
+                "capture_sha256": "8ae0fbabb19cf12b2bdf46d7a85e15eea4462b8559584c770224a54a9e47d128",
+                "scope": "main_series",
+                "license_url": "https://creativecommons.org/licenses/by-sa/4.0/",
+                "attribution": "Wikipedia contributors; markup removed and whitespace normalized.",
+                "coverage": "Reviewed narrative sections in this captured revision only.",
+                "gaps": [
+                  "Partial canon coverage; other paragraphs remain excluded or awaiting review.",
+                  "Identity and episode metadata do not independently corroborate story claims."
+                ],
+                "support_status": "source_supported"
+              },
+              "location": {
+                "source_id": "ben-mitchell-wiki",
+                "paragraph_ordinal": 22,
+                "section_id": "1996\u20132000",
+                "character_ids": [
+                  "ben-mitchell",
+                  "kathy-beale",
+                  "phil-mitchell"
+                ]
+              }
+            },
+            "similarity": 0.4025462277371399
+          }
+        ],
+        "context": [
+          {
+            "evidence_id": "sharon-christmas-pregnancy",
+            "text": "On Christmas Day 2005, Sharon is stunned to discover she is pregnant, and she and Dennis celebrate the potential of having a child.",
+            "sha256": "dfa4fd7ae0dbe533dcdec506808a9bbdd4f16b27cbccefc8e8df6d69363ad06d",
+            "start": 61360,
+            "end": 61491,
+            "source": {
+              "title": "Sharon Watts",
+              "url": "https://en.wikipedia.org/wiki/Sharon_Watts",
+              "revision_id": "1372798905",
+              "revision_url": "https://en.wikipedia.org/w/index.php?oldid=1372798905",
+              "section": "Storylines / 2001\u20132006",
+              "captured_at": "2026-10-17T13:07:31.327518Z",
+              "capture_sha256": "9ccef3de99353ff737101d9d00561c217608dd4fa6fba0c8200f80ac0114ea85",
+              "scope": "main_series",
+              "license_url": "https://creativecommons.org/licenses/by-sa/4.0/",
+              "attribution": "Wikipedia contributors; markup removed and whitespace normalized.",
+              "coverage": "Reviewed narrative sections in this captured revision only.",
+              "gaps": [
+                "Partial canon coverage; other paragraphs remain excluded or awaiting review.",
+                "Identity and episode metadata do not independently corroborate story claims."
+              ],
+              "support_status": "source_supported"
+            },
+            "location": {
+              "source_id": "sharon-watts-wiki",
+              "paragraph_ordinal": 64,
+              "section_id": "2001\u20132006",
+              "character_ids": [
+                "sharon-watts"
+              ]
+            }
+          },
+          {
+            "evidence_id": "sharon-uncertain-paternity",
+            "text": "However, Sharon also discovers she is pregnant but does not know if Phil or Keanu is the father. She settles on having an abortion, but Phil discovers she's pregnant, and Sharon lies letting Phil believe he is the father.",
+            "sha256": "58a54d25d3179499cff866bbaef27ced938997fcd7ac9139d4ac6a29cc68a15e",
+            "start": 77363,
+            "end": 77584,
+            "source": {
+              "title": "Sharon Watts",
+              "url": "https://en.wikipedia.org/wiki/Sharon_Watts",
+              "revision_id": "1372798905",
+              "revision_url": "https://en.wikipedia.org/w/index.php?oldid=1372798905",
+              "section": "Storylines / 2012\u2013present",
+              "captured_at": "2026-10-17T13:07:31.327518Z",
+              "capture_sha256": "9ccef3de99353ff737101d9d00561c217608dd4fa6fba0c8200f80ac0114ea85",
+              "scope": "main_series",
+              "license_url": "https://creativecommons.org/licenses/by-sa/4.0/",
+              "attribution": "Wikipedia contributors; markup removed and whitespace normalized.",
+              "coverage": "Reviewed narrative sections in this captured revision only.",
+              "gaps": [
+                "Partial canon coverage; other paragraphs remain excluded or awaiting review.",
+                "Identity and episode metadata do not independently corroborate story claims."
+              ],
+              "support_status": "source_supported"
+            },
+            "location": {
+              "source_id": "sharon-watts-wiki",
+              "paragraph_ordinal": 75,
+              "section_id": "2012\u2013present",
+              "character_ids": [
+                "martin-fowler",
+                "sharon-watts"
+              ]
+            }
+          },
+          {
+            "evidence_id": "history-ben-birth",
+            "text": "Ben is born to Phil Mitchell (Steve McFadden) and his then wife Kathy Beale (Gillian Taylforth) in March 1996.",
+            "sha256": "8179f5f0724cc08e5a5d51567fb7de0f8e55a4d5fc9881f5e050ae9d153eca08",
+            "start": 17983,
+            "end": 18093,
+            "source": {
+              "title": "Ben Mitchell",
+              "url": "https://en.wikipedia.org/wiki/Ben_Mitchell_(EastEnders)",
+              "revision_id": "1376729134",
+              "revision_url": "https://en.wikipedia.org/w/index.php?oldid=1376729134",
+              "section": "Storylines / 1996\u20132000",
+              "captured_at": "2026-10-17T13:07:31.530421Z",
+              "capture_sha256": "8ae0fbabb19cf12b2bdf46d7a85e15eea4462b8559584c770224a54a9e47d128",
+              "scope": "main_series",
+              "license_url": "https://creativecommons.org/licenses/by-sa/4.0/",
+              "attribution": "Wikipedia contributors; markup removed and whitespace normalized.",
+              "coverage": "Reviewed narrative sections in this captured revision only.",
+              "gaps": [
+                "Partial canon coverage; other paragraphs remain excluded or awaiting review.",
+                "Identity and episode metadata do not independently corroborate story claims."
+              ],
+              "support_status": "source_supported"
+            },
+            "location": {
+              "source_id": "ben-mitchell-wiki",
+              "paragraph_ordinal": 22,
+              "section_id": "1996\u20132000",
+              "character_ids": [
+                "ben-mitchell",
+                "kathy-beale",
+                "phil-mitchell"
+              ]
+            }
+          }
+        ],
+        "retrieval_k": 3,
+        "route": "investigation",
+        "route_override": true,
+        "investigation": {
+          "version": "bounded-investigator-v1",
+          "tool_contract_version": "captured-read-tools-v1",
+          "tool_contract_sha256": "b644aae0494a7e99b07efdc0408683b121903d82871b495bba207c238707b8b7",
+          "coverage": [
+            {
+              "part": "What the captured evidence says about Sharon Watts discovering she was pregnant on Christmas Day 2005",
+              "evidence_ids": [
+                "sharon-christmas-pregnancy"
+              ],
+              "resolved": true
+            }
+          ],
+          "steps": [
+            {
+              "tool": "text_search",
+              "arguments": "{\"query\":\"Sharon Watts discovered pregnant Christmas Day 2005 Ben Mitchell\",\"k\":3}",
+              "status": "executed",
+              "result": {
+                "hits": [
+                  {
+                    "passage": {
+                      "evidence_id": "sharon-christmas-pregnancy",
+                      "text": "On Christmas Day 2005, Sharon is stunned to discover she is pregnant, and she and Dennis celebrate the potential of having a child.",
+                      "sha256": "dfa4fd7ae0dbe533dcdec506808a9bbdd4f16b27cbccefc8e8df6d69363ad06d",
+                      "start": 61360,
+                      "end": 61491,
+                      "source": {
+                        "title": "Sharon Watts",
+                        "url": "https://en.wikipedia.org/wiki/Sharon_Watts",
+                        "revision_id": "1372798905",
+                        "revision_url": "https://en.wikipedia.org/w/index.php?oldid=1372798905",
+                        "section": "Storylines / 2001\u20132006",
+                        "captured_at": "2026-10-17T13:07:31.327518Z",
+                        "capture_sha256": "9ccef3de99353ff737101d9d00561c217608dd4fa6fba0c8200f80ac0114ea85",
+                        "scope": "main_series",
+                        "license_url": "https://creativecommons.org/licenses/by-sa/4.0/",
+                        "attribution": "Wikipedia contributors; markup removed and whitespace normalized.",
+                        "coverage": "Reviewed narrative sections in this captured revision only.",
+                        "gaps": [
+                          "Partial canon coverage; other paragraphs remain excluded or awaiting review.",
+                          "Identity and episode metadata do not independently corroborate story claims."
+                        ],
+                        "support_status": "source_supported"
+                      },
+                      "location": {
+                        "source_id": "sharon-watts-wiki",
+                        "paragraph_ordinal": 64,
+                        "section_id": "2001\u20132006",
+                        "character_ids": [
+                          "sharon-watts"
+                        ]
+                      }
+                    },
+                    "similarity": 0.6918042920653261
+                  },
+                  {
+                    "passage": {
+                      "evidence_id": "sharon-uncertain-paternity",
+                      "text": "However, Sharon also discovers she is pregnant but does not know if Phil or Keanu is the father. She settles on having an abortion, but Phil discovers she's pregnant, and Sharon lies letting Phil believe he is the father.",
+                      "sha256": "58a54d25d3179499cff866bbaef27ced938997fcd7ac9139d4ac6a29cc68a15e",
+                      "start": 77363,
+                      "end": 77584,
+                      "source": {
+                        "title": "Sharon Watts",
+                        "url": "https://en.wikipedia.org/wiki/Sharon_Watts",
+                        "revision_id": "1372798905",
+                        "revision_url": "https://en.wikipedia.org/w/index.php?oldid=1372798905",
+                        "section": "Storylines / 2012\u2013present",
+                        "captured_at": "2026-10-17T13:07:31.327518Z",
+                        "capture_sha256": "9ccef3de99353ff737101d9d00561c217608dd4fa6fba0c8200f80ac0114ea85",
+                        "scope": "main_series",
+                        "license_url": "https://creativecommons.org/licenses/by-sa/4.0/",
+                        "attribution": "Wikipedia contributors; markup removed and whitespace normalized.",
+                        "coverage": "Reviewed narrative sections in this captured revision only.",
+                        "gaps": [
+                          "Partial canon coverage; other paragraphs remain excluded or awaiting review.",
+                          "Identity and episode metadata do not independently corroborate story claims."
+                        ],
+                        "support_status": "source_supported"
+                      },
+                      "location": {
+                        "source_id": "sharon-watts-wiki",
+                        "paragraph_ordinal": 75,
+                        "section_id": "2012\u2013present",
+                        "character_ids": [
+                          "martin-fowler",
+                          "sharon-watts"
+                        ]
+                      }
+                    },
+                    "similarity": 0.4580014384392832
+                  },
+                  {
+                    "passage": {
+                      "evidence_id": "history-ben-birth",
+                      "text": "Ben is born to Phil Mitchell (Steve McFadden) and his then wife Kathy Beale (Gillian Taylforth) in March 1996.",
+                      "sha256": "8179f5f0724cc08e5a5d51567fb7de0f8e55a4d5fc9881f5e050ae9d153eca08",
+                      "start": 17983,
+                      "end": 18093,
+                      "source": {
+                        "title": "Ben Mitchell",
+                        "url": "https://en.wikipedia.org/wiki/Ben_Mitchell_(EastEnders)",
+                        "revision_id": "1376729134",
+                        "revision_url": "https://en.wikipedia.org/w/index.php?oldid=1376729134",
+                        "section": "Storylines / 1996\u20132000",
+                        "captured_at": "2026-10-17T13:07:31.530421Z",
+                        "capture_sha256": "8ae0fbabb19cf12b2bdf46d7a85e15eea4462b8559584c770224a54a9e47d128",
+                        "scope": "main_series",
+                        "license_url": "https://creativecommons.org/licenses/by-sa/4.0/",
+                        "attribution": "Wikipedia contributors; markup removed and whitespace normalized.",
+                        "coverage": "Reviewed narrative sections in this captured revision only.",
+                        "gaps": [
+                          "Partial canon coverage; other paragraphs remain excluded or awaiting review.",
+                          "Identity and episode metadata do not independently corroborate story claims."
+                        ],
+                        "support_status": "source_supported"
+                      },
+                      "location": {
+                        "source_id": "ben-mitchell-wiki",
+                        "paragraph_ordinal": 22,
+                        "section_id": "1996\u20132000",
+                        "character_ids": [
+                          "ben-mitchell",
+                          "kathy-beale",
+                          "phil-mitchell"
+                        ]
+                      }
+                    },
+                    "similarity": 0.4025462277371399
+                  }
+                ],
+                "context_claims": [],
+                "review_notices": []
+              },
+              "context_ids": [
+                "sharon-christmas-pregnancy",
+                "sharon-uncertain-paternity",
+                "history-ben-birth"
+              ],
+              "elapsed_ms": 171.88062799687032
+            }
+          ],
+          "model_executions": [
+            {
+              "content": "{\"coverage\":[{\"part\":\"What the captured evidence says about Sharon Watts discovering she was pregnant on Christmas Day 2005\",\"evidence_ids\":[],\"resolved\":false}],\"action\":{\"kind\":\"tool\",\"tool\":\"text_search\",\"arguments\":\"{\\\"query\\\":\\\"Sharon Watts discovered pregnant Christmas Day 2005 Ben Mitchell\\\",\\\"k\\\":3}\"}}",
+              "usage": {
+                "input_tokens": 1900,
+                "output_tokens": 99,
+                "embedding_tokens": 0
+              },
+              "provider_usage": {
+                "reservation_id": "9be4764fcf8047709267aaa9a3eec24d",
+                "reserved_usd": 0.111272,
+                "cost_usd": 0.0057385,
+                "request_id": "gen-1793192836-VCMMLYtoJCkWc8KjPsPp",
+                "returned_model": "openai/gpt-6-sol",
+                "provider": "OpenAI",
+                "input_tokens": 1900,
+                "output_tokens": 99,
+                "reasoning_tokens": 21
+              },
+              "failure_type": null,
+              "estimated_api_cost_usd": 0.0057385,
+              "cost_scope": "OpenRouter reported inference credits only. Null means unknown cost; the local budget retains a reservation. Credit purchase fees, tax, local embeddings and hosting are excluded.",
+              "limitation": "Source-supported is not independently cross-checked. Coverage is limited to the captured snapshot; this provider baseline is not deployment approval."
+            },
+            {
+              "content": "{\"coverage\":[{\"part\":\"What the captured evidence says about Sharon Watts discovering she was pregnant on Christmas Day 2005\",\"evidence_ids\":[\"sharon-christmas-pregnancy\"],\"resolved\":true}],\"action\":{\"kind\":\"finish\",\"draft\":{\"answer\":\"Right, listen. On Christmas Day 2005, Sharon was stunned to discover she was pregnant. She and Dennis celebrated the possibility of having a child.\",\"evidence_ids\":[\"sharon-christmas-pregnancy\"],\"status\":\"answered\",\"unanswered\":[],\"qualifications\":[{\"detail\":\"The source dates the discovery to Christmas Day 2005.\",\"evidence_ids\":[\"sharon-christmas-pregnancy\"],\"kind\":\"timing\",\"precision\":\"exact\"}]}}}",
+              "usage": {
+                "input_tokens": 2152,
+                "output_tokens": 201,
+                "embedding_tokens": 0
+              },
+              "provider_usage": {
+                "reservation_id": "7f95637a4ab941d3ba3849b5e00d14c5",
+                "reserved_usd": 0.11346,
+                "cost_usd": 0.0032324,
+                "request_id": "gen-1793192838-LTmVFFH3qrvAEno5SKZn",
+                "returned_model": "openai/gpt-6-sol",
+                "provider": "OpenAI",
+                "input_tokens": 2152,
+                "output_tokens": 201,
+                "reasoning_tokens": 41
+              },
+              "failure_type": null,
+              "estimated_api_cost_usd": 0.0032324,
+              "cost_scope": "OpenRouter reported inference credits only. Null means unknown cost; the local budget retains a reservation. Credit purchase fees, tax, local embeddings and hosting are excluded.",
+              "limitation": "Source-supported is not independently cross-checked. Coverage is limited to the captured snapshot; this provider baseline is not deployment approval."
+            }
+          ],
+          "embedding_tokens": [
+            22
+          ],
+          "stop_reason": "completed",
+          "context_bytes": 921,
+          "context": [
+            {
+              "evidence_id": "sharon-christmas-pregnancy",
+              "text": "On Christmas Day 2005, Sharon is stunned to discover she is pregnant, and she and Dennis celebrate the potential of having a child.",
+              "sha256": "dfa4fd7ae0dbe533dcdec506808a9bbdd4f16b27cbccefc8e8df6d69363ad06d",
+              "start": 61360,
+              "end": 61491,
+              "source": {
+                "title": "Sharon Watts",
+                "url": "https://en.wikipedia.org/wiki/Sharon_Watts",
+                "revision_id": "1372798905",
+                "revision_url": "https://en.wikipedia.org/w/index.php?oldid=1372798905",
+                "section": "Storylines / 2001\u20132006",
+                "captured_at": "2026-10-17T13:07:31.327518Z",
+                "capture_sha256": "9ccef3de99353ff737101d9d00561c217608dd4fa6fba0c8200f80ac0114ea85",
+                "scope": "main_series",
+                "license_url": "https://creativecommons.org/licenses/by-sa/4.0/",
+                "attribution": "Wikipedia contributors; markup removed and whitespace normalized.",
+                "coverage": "Reviewed narrative sections in this captured revision only.",
+                "gaps": [
+                  "Partial canon coverage; other paragraphs remain excluded or awaiting review.",
+                  "Identity and episode metadata do not independently corroborate story claims."
+                ],
+                "support_status": "source_supported"
+              },
+              "location": {
+                "source_id": "sharon-watts-wiki",
+                "paragraph_ordinal": 64,
+                "section_id": "2001\u20132006",
+                "character_ids": [
+                  "sharon-watts"
+                ]
+              }
+            },
+            {
+              "evidence_id": "sharon-uncertain-paternity",
+              "text": "However, Sharon also discovers she is pregnant but does not know if Phil or Keanu is the father. She settles on having an abortion, but Phil discovers she's pregnant, and Sharon lies letting Phil believe he is the father.",
+              "sha256": "58a54d25d3179499cff866bbaef27ced938997fcd7ac9139d4ac6a29cc68a15e",
+              "start": 77363,
+              "end": 77584,
+              "source": {
+                "title": "Sharon Watts",
+                "url": "https://en.wikipedia.org/wiki/Sharon_Watts",
+                "revision_id": "1372798905",
+                "revision_url": "https://en.wikipedia.org/w/index.php?oldid=1372798905",
+                "section": "Storylines / 2012\u2013present",
+                "captured_at": "2026-10-17T13:07:31.327518Z",
+                "capture_sha256": "9ccef3de99353ff737101d9d00561c217608dd4fa6fba0c8200f80ac0114ea85",
+                "scope": "main_series",
+                "license_url": "https://creativecommons.org/licenses/by-sa/4.0/",
+                "attribution": "Wikipedia contributors; markup removed and whitespace normalized.",
+                "coverage": "Reviewed narrative sections in this captured revision only.",
+                "gaps": [
+                  "Partial canon coverage; other paragraphs remain excluded or awaiting review.",
+                  "Identity and episode metadata do not independently corroborate story claims."
+                ],
+                "support_status": "source_supported"
+              },
+              "location": {
+                "source_id": "sharon-watts-wiki",
+                "paragraph_ordinal": 75,
+                "section_id": "2012\u2013present",
+                "character_ids": [
+                  "martin-fowler",
+                  "sharon-watts"
+                ]
+              }
+            },
+            {
+              "evidence_id": "history-ben-birth",
+              "text": "Ben is born to Phil Mitchell (Steve McFadden) and his then wife Kathy Beale (Gillian Taylforth) in March 1996.",
+              "sha256": "8179f5f0724cc08e5a5d51567fb7de0f8e55a4d5fc9881f5e050ae9d153eca08",
+              "start": 17983,
+              "end": 18093,
+              "source": {
+                "title": "Ben Mitchell",
+                "url": "https://en.wikipedia.org/wiki/Ben_Mitchell_(EastEnders)",
+                "revision_id": "1376729134",
+                "revision_url": "https://en.wikipedia.org/w/index.php?oldid=1376729134",
+                "section": "Storylines / 1996\u20132000",
+                "captured_at": "2026-10-17T13:07:31.530421Z",
+                "capture_sha256": "8ae0fbabb19cf12b2bdf46d7a85e15eea4462b8559584c770224a54a9e47d128",
+                "scope": "main_series",
+                "license_url": "https://creativecommons.org/licenses/by-sa/4.0/",
+                "attribution": "Wikipedia contributors; markup removed and whitespace normalized.",
+                "coverage": "Reviewed narrative sections in this captured revision only.",
+                "gaps": [
+                  "Partial canon coverage; other paragraphs remain excluded or awaiting review.",
+                  "Identity and episode metadata do not independently corroborate story claims."
+                ],
+                "support_status": "source_supported"
+              },
+              "location": {
+                "source_id": "ben-mitchell-wiki",
+                "paragraph_ordinal": 22,
+                "section_id": "1996\u20132000",
+                "character_ids": [
+                  "ben-mitchell",
+                  "kathy-beale",
+                  "phil-mitchell"
+                ]
+              }
+            }
+          ]
+        },
+        "baseline_version": "bounded-investigator-v1",
+        "model_settings": {
+          "embedding_model": "embeddinggemma:300m",
+          "embedding_digest": "85462619ee721b466c5927d109d4cb765861907d5417b9109caebc4e614679f1",
+          "embedding_dimensions": 768,
+          "provider_type": "openrouter",
+          "answer_model": "openai/gpt-6-sol",
+          "canonical_slug": "openai/gpt-6-sol-20260922",
+          "provider": "openai",
+          "input_price_per_million": "2",
+          "output_price_per_million": "10",
+          "output_tokens": 8192,
+          "reasoning_effort": "medium",
+          "request_timeout_seconds": 180
+        },
+        "prompt_sha256": "ae620a160b2457dcf2a514dfb9fd793290d72735e3132b59e04e41da96dd1631",
+        "application_sha256": "a40dc97f1efb9dcd6df786d3e316e5c7c7ac3de73e2e377245e68bb5c05c5660",
+        "trace_id": "tr-af89881184ee15da54a01ca8fd698254",
+        "execution": {
+          "limits": {
+            "model_calls": 8,
+            "tool_calls": 4,
+            "http_calls": 24,
+            "seconds": 180.0,
+            "context_bytes": 4000,
+            "spend_usd": "0.20",
+            "retries": 0,
+            "capabilities": [
+              "text_retrieval",
+              "family_graph",
+              "event_graph",
+              "connection_graph"
+            ],
+            "concurrency": 1
+          },
+          "model_calls": 3,
+          "tool_calls": 1,
+          "http_calls": 8,
+          "reserved_usd": "0.0089709",
+          "stop_reason": null,
+          "context_bytes": 921
+        },
+        "elapsed_ms": 7394.119434989989,
+        "usage": {
+          "input_tokens": 4052,
+          "output_tokens": 300,
+          "embedding_tokens": 22
+        },
+        "expenditure_category": "serving",
+        "estimated_api_cost_usd": 0.0089709,
+        "cost_scope": "All investigator decisions and query embeddings; OpenRouter reported inference credits only. Null means unknown cost; the local budget retains a reservation. Credit purchase fees, tax, local embeddings and hosting are excluded.",
+        "limitation": "Source-supported is not independently cross-checked. Coverage is limited to the captured snapshot; this provider baseline is not deployment approval."
+      },
+      "paired": {
+        "text_rag": {
+          "response": {
+            "response_id": "0ee0e239-89d6-42fb-8b0e-9028d7a0b169",
+            "question": "What does the captured evidence say about Sharon Watts discovering she was pregnant on Christmas Day 2005?",
+            "status": "answered",
+            "answer": "Right, listen. On Christmas Day 2005, Sharon was stunned to discover she was pregnant. She and Dennis celebrated the potential of having a child.",
+            "qualifications": [
+              {
+                "detail": "The account dates Sharon\u2019s discovery to Christmas Day 2005.",
+                "evidence_ids": [
+                  "sharon-christmas-pregnancy"
+                ],
+                "kind": "timing",
+                "precision": "exact"
+              }
+            ],
+            "citations": [
+              {
+                "evidence_id": "sharon-christmas-pregnancy",
+                "text": "On Christmas Day 2005, Sharon is stunned to discover she is pregnant, and she and Dennis celebrate the potential of having a child.",
+                "sha256": "dfa4fd7ae0dbe533dcdec506808a9bbdd4f16b27cbccefc8e8df6d69363ad06d",
+                "start": 61360,
+                "end": 61491,
+                "source": {
+                  "title": "Sharon Watts",
+                  "url": "https://en.wikipedia.org/wiki/Sharon_Watts",
+                  "revision_id": "1372798905",
+                  "revision_url": "https://en.wikipedia.org/w/index.php?oldid=1372798905",
+                  "section": "Storylines / 2001\u20132006",
+                  "captured_at": "2026-10-17T13:07:31.327518Z",
+                  "capture_sha256": "9ccef3de99353ff737101d9d00561c217608dd4fa6fba0c8200f80ac0114ea85",
+                  "scope": "main_series",
+                  "license_url": "https://creativecommons.org/licenses/by-sa/4.0/",
+                  "attribution": "Wikipedia contributors; markup removed and whitespace normalized.",
+                  "coverage": "Reviewed narrative sections in this captured revision only.",
+                  "gaps": [
+                    "Partial canon coverage; other paragraphs remain excluded or awaiting review.",
+                    "Identity and episode metadata do not independently corroborate story claims."
+                  ],
+                  "support_status": "source_supported"
+                },
+                "location": {
+                  "source_id": "sharon-watts-wiki",
+                  "paragraph_ordinal": 64,
+                  "section_id": "2001\u20132006",
+                  "character_ids": [
+                    "sharon-watts"
+                  ]
+                },
+                "resolve_path": "/v1/snapshots/connections-pilot-v1/evidence/sharon-christmas-pregnancy"
+              }
+            ],
+            "snapshot_id": "connections-pilot-v1",
+            "snapshot_sha256": "d30762f13668359b18b2b04bd190130f99cbac21ed99749a22e2ddddf5d8533b",
+            "publication": {
+              "compatibility_id": "c19a056ca5362f43ebfc43dcf25e053c344e1d9a01dc430ae312a92f8b8553bf",
+              "index_sha256": "bd91863966c812b4a44e498eafd930269a814cc1328ccb90a49aa329178c21f4",
+              "generation": 1
+            },
+            "source": {
+              "title": "Ben Mitchell",
+              "url": "https://en.wikipedia.org/wiki/Ben_Mitchell_(EastEnders)",
+              "revision_id": "1376729134",
+              "revision_url": "https://en.wikipedia.org/w/index.php?oldid=1376729134",
+              "section": "Storylines / 1996\u20132000",
+              "captured_at": "2026-10-17T13:07:31.530421Z",
+              "capture_sha256": "8ae0fbabb19cf12b2bdf46d7a85e15eea4462b8559584c770224a54a9e47d128",
+              "scope": "main_series",
+              "license_url": "https://creativecommons.org/licenses/by-sa/4.0/",
+              "attribution": "Wikipedia contributors; markup removed and whitespace normalized.",
+              "coverage": "Reviewed narrative sections in this captured revision only.",
+              "gaps": [
+                "Partial canon coverage; other paragraphs remain excluded or awaiting review.",
+                "Identity and episode metadata do not independently corroborate story claims."
+              ],
+              "support_status": "source_supported"
+            },
+            "retrieved": [
+              {
+                "passage": {
+                  "evidence_id": "sharon-christmas-pregnancy",
+                  "text": "On Christmas Day 2005, Sharon is stunned to discover she is pregnant, and she and Dennis celebrate the potential of having a child.",
+                  "sha256": "dfa4fd7ae0dbe533dcdec506808a9bbdd4f16b27cbccefc8e8df6d69363ad06d",
+                  "start": 61360,
+                  "end": 61491,
+                  "source": {
+                    "title": "Sharon Watts",
+                    "url": "https://en.wikipedia.org/wiki/Sharon_Watts",
+                    "revision_id": "1372798905",
+                    "revision_url": "https://en.wikipedia.org/w/index.php?oldid=1372798905",
+                    "section": "Storylines / 2001\u20132006",
+                    "captured_at": "2026-10-17T13:07:31.327518Z",
+                    "capture_sha256": "9ccef3de99353ff737101d9d00561c217608dd4fa6fba0c8200f80ac0114ea85",
+                    "scope": "main_series",
+                    "license_url": "https://creativecommons.org/licenses/by-sa/4.0/",
+                    "attribution": "Wikipedia contributors; markup removed and whitespace normalized.",
+                    "coverage": "Reviewed narrative sections in this captured revision only.",
+                    "gaps": [
+                      "Partial canon coverage; other paragraphs remain excluded or awaiting review.",
+                      "Identity and episode metadata do not independently corroborate story claims."
+                    ],
+                    "support_status": "source_supported"
+                  },
+                  "location": {
+                    "source_id": "sharon-watts-wiki",
+                    "paragraph_ordinal": 64,
+                    "section_id": "2001\u20132006",
+                    "character_ids": [
+                      "sharon-watts"
+                    ]
+                  }
+                },
+                "similarity": 0.694888768057047
+              },
+              {
+                "passage": {
+                  "evidence_id": "sharon-uncertain-paternity",
+                  "text": "However, Sharon also discovers she is pregnant but does not know if Phil or Keanu is the father. She settles on having an abortion, but Phil discovers she's pregnant, and Sharon lies letting Phil believe he is the father.",
+                  "sha256": "58a54d25d3179499cff866bbaef27ced938997fcd7ac9139d4ac6a29cc68a15e",
+                  "start": 77363,
+                  "end": 77584,
+                  "source": {
+                    "title": "Sharon Watts",
+                    "url": "https://en.wikipedia.org/wiki/Sharon_Watts",
+                    "revision_id": "1372798905",
+                    "revision_url": "https://en.wikipedia.org/w/index.php?oldid=1372798905",
+                    "section": "Storylines / 2012\u2013present",
+                    "captured_at": "2026-10-17T13:07:31.327518Z",
+                    "capture_sha256": "9ccef3de99353ff737101d9d00561c217608dd4fa6fba0c8200f80ac0114ea85",
+                    "scope": "main_series",
+                    "license_url": "https://creativecommons.org/licenses/by-sa/4.0/",
+                    "attribution": "Wikipedia contributors; markup removed and whitespace normalized.",
+                    "coverage": "Reviewed narrative sections in this captured revision only.",
+                    "gaps": [
+                      "Partial canon coverage; other paragraphs remain excluded or awaiting review.",
+                      "Identity and episode metadata do not independently corroborate story claims."
+                    ],
+                    "support_status": "source_supported"
+                  },
+                  "location": {
+                    "source_id": "sharon-watts-wiki",
+                    "paragraph_ordinal": 75,
+                    "section_id": "2012\u2013present",
+                    "character_ids": [
+                      "martin-fowler",
+                      "sharon-watts"
+                    ]
+                  }
+                },
+                "similarity": 0.4767801889878682
+              },
+              {
+                "passage": {
+                  "evidence_id": "tape-revelation",
+                  "text": "Sharon and Grant patch up their relationship; however, in the autumn of 1994, Grant discovers a tape on which Sharon talks about her affair with Phil, and plays it to a packed pub at Phil's engagement party to his fianc\u00e9e, Kathy Beale (Gillian Taylforth).",
+                  "sha256": "e63beb685636d1dda9e77057095a4437788895b5bfe489c5e0e0ba3f2a2b21d4",
+                  "start": 22406,
+                  "end": 22661,
+                  "source": {
+                    "title": "Grant Mitchell",
+                    "url": "https://en.wikipedia.org/wiki/Grant_Mitchell_(EastEnders)",
+                    "revision_id": "1370914760",
+                    "revision_url": "https://en.wikipedia.org/w/index.php?oldid=1370914760",
+                    "section": "Storylines / 1990\u20131999",
+                    "captured_at": "2026-10-17T13:08:22.582778Z",
+                    "capture_sha256": "2548b2c8780b1bda430939378a28ab3b7f98eca424480b7cccfaf2eb76f42ebf",
+                    "scope": "main_series",
+                    "license_url": "https://creativecommons.org/licenses/by-sa/4.0/",
+                    "attribution": "Wikipedia contributors; markup removed and whitespace normalized.",
+                    "coverage": "Reviewed narrative sections in this captured revision only.",
+                    "gaps": [
+                      "Partial canon coverage; other paragraphs remain excluded or awaiting review.",
+                      "Identity and episode metadata do not independently corroborate story claims."
+                    ],
+                    "support_status": "source_supported"
+                  },
+                  "location": {
+                    "source_id": "grant-mitchell-wiki",
+                    "paragraph_ordinal": 24,
+                    "section_id": "1990\u20131999",
+                    "character_ids": [
+                      "grant-mitchell",
+                      "kathy-beale"
+                    ]
+                  }
+                },
+                "similarity": 0.35316707110910506
+              }
+            ],
+            "context": [
+              {
+                "evidence_id": "sharon-christmas-pregnancy",
+                "text": "On Christmas Day 2005, Sharon is stunned to discover she is pregnant, and she and Dennis celebrate the potential of having a child.",
+                "sha256": "dfa4fd7ae0dbe533dcdec506808a9bbdd4f16b27cbccefc8e8df6d69363ad06d",
+                "start": 61360,
+                "end": 61491,
+                "source": {
+                  "title": "Sharon Watts",
+                  "url": "https://en.wikipedia.org/wiki/Sharon_Watts",
+                  "revision_id": "1372798905",
+                  "revision_url": "https://en.wikipedia.org/w/index.php?oldid=1372798905",
+                  "section": "Storylines / 2001\u20132006",
+                  "captured_at": "2026-10-17T13:07:31.327518Z",
+                  "capture_sha256": "9ccef3de99353ff737101d9d00561c217608dd4fa6fba0c8200f80ac0114ea85",
+                  "scope": "main_series",
+                  "license_url": "https://creativecommons.org/licenses/by-sa/4.0/",
+                  "attribution": "Wikipedia contributors; markup removed and whitespace normalized.",
+                  "coverage": "Reviewed narrative sections in this captured revision only.",
+                  "gaps": [
+                    "Partial canon coverage; other paragraphs remain excluded or awaiting review.",
+                    "Identity and episode metadata do not independently corroborate story claims."
+                  ],
+                  "support_status": "source_supported"
+                },
+                "location": {
+                  "source_id": "sharon-watts-wiki",
+                  "paragraph_ordinal": 64,
+                  "section_id": "2001\u20132006",
+                  "character_ids": [
+                    "sharon-watts"
+                  ]
+                }
+              },
+              {
+                "evidence_id": "sharon-uncertain-paternity",
+                "text": "However, Sharon also discovers she is pregnant but does not know if Phil or Keanu is the father. She settles on having an abortion, but Phil discovers she's pregnant, and Sharon lies letting Phil believe he is the father.",
+                "sha256": "58a54d25d3179499cff866bbaef27ced938997fcd7ac9139d4ac6a29cc68a15e",
+                "start": 77363,
+                "end": 77584,
+                "source": {
+                  "title": "Sharon Watts",
+                  "url": "https://en.wikipedia.org/wiki/Sharon_Watts",
+                  "revision_id": "1372798905",
+                  "revision_url": "https://en.wikipedia.org/w/index.php?oldid=1372798905",
+                  "section": "Storylines / 2012\u2013present",
+                  "captured_at": "2026-10-17T13:07:31.327518Z",
+                  "capture_sha256": "9ccef3de99353ff737101d9d00561c217608dd4fa6fba0c8200f80ac0114ea85",
+                  "scope": "main_series",
+                  "license_url": "https://creativecommons.org/licenses/by-sa/4.0/",
+                  "attribution": "Wikipedia contributors; markup removed and whitespace normalized.",
+                  "coverage": "Reviewed narrative sections in this captured revision only.",
+                  "gaps": [
+                    "Partial canon coverage; other paragraphs remain excluded or awaiting review.",
+                    "Identity and episode metadata do not independently corroborate story claims."
+                  ],
+                  "support_status": "source_supported"
+                },
+                "location": {
+                  "source_id": "sharon-watts-wiki",
+                  "paragraph_ordinal": 75,
+                  "section_id": "2012\u2013present",
+                  "character_ids": [
+                    "martin-fowler",
+                    "sharon-watts"
+                  ]
+                }
+              },
+              {
+                "evidence_id": "tape-revelation",
+                "text": "Sharon and Grant patch up their relationship; however, in the autumn of 1994, Grant discovers a tape on which Sharon talks about her affair with Phil, and plays it to a packed pub at Phil's engagement party to his fianc\u00e9e, Kathy Beale (Gillian Taylforth).",
+                "sha256": "e63beb685636d1dda9e77057095a4437788895b5bfe489c5e0e0ba3f2a2b21d4",
+                "start": 22406,
+                "end": 22661,
+                "source": {
+                  "title": "Grant Mitchell",
+                  "url": "https://en.wikipedia.org/wiki/Grant_Mitchell_(EastEnders)",
+                  "revision_id": "1370914760",
+                  "revision_url": "https://en.wikipedia.org/w/index.php?oldid=1370914760",
+                  "section": "Storylines / 1990\u20131999",
+                  "captured_at": "2026-10-17T13:08:22.582778Z",
+                  "capture_sha256": "2548b2c8780b1bda430939378a28ab3b7f98eca424480b7cccfaf2eb76f42ebf",
+                  "scope": "main_series",
+                  "license_url": "https://creativecommons.org/licenses/by-sa/4.0/",
+                  "attribution": "Wikipedia contributors; markup removed and whitespace normalized.",
+                  "coverage": "Reviewed narrative sections in this captured revision only.",
+                  "gaps": [
+                    "Partial canon coverage; other paragraphs remain excluded or awaiting review.",
+                    "Identity and episode metadata do not independently corroborate story claims."
+                  ],
+                  "support_status": "source_supported"
+                },
+                "location": {
+                  "source_id": "grant-mitchell-wiki",
+                  "paragraph_ordinal": 24,
+                  "section_id": "1990\u20131999",
+                  "character_ids": [
+                    "grant-mitchell",
+                    "kathy-beale"
+                  ]
+                }
+              }
+            ],
+            "retrieval_k": 3,
+            "route": "text_rag",
+            "baseline_version": "single-query-uncached-v2",
+            "model_settings": {
+              "embedding_model": "embeddinggemma:300m",
+              "embedding_digest": "85462619ee721b466c5927d109d4cb765861907d5417b9109caebc4e614679f1",
+              "embedding_dimensions": 768,
+              "provider_type": "openrouter",
+              "answer_model": "openai/gpt-6-sol",
+              "canonical_slug": "openai/gpt-6-sol-20260922",
+              "provider": "openai",
+              "input_price_per_million": "2",
+              "output_price_per_million": "10",
+              "output_tokens": 8192,
+              "reasoning_effort": "medium",
+              "request_timeout_seconds": 180
+            },
+            "prompt_sha256": "55eaebf2442099435efad95f9aab668aa410e0ede1ad5b8ad3129665eee3f936",
+            "application_sha256": "a40dc97f1efb9dcd6df786d3e316e5c7c7ac3de73e2e377245e68bb5c05c5660",
+            "trace_id": "tr-72d0bcfdc1bbfd0a09a46a7e21f3d357",
+            "execution": {
+              "limits": {
+                "model_calls": 8,
+                "tool_calls": 4,
+                "http_calls": 24,
+                "seconds": 180.0,
+                "context_bytes": 4000,
+                "spend_usd": "0.20",
+                "retries": 0,
+                "capabilities": [
+                  "text_retrieval",
+                  "family_graph",
+                  "event_graph",
+                  "connection_graph"
+                ],
+                "concurrency": 1
+              },
+              "model_calls": 2,
+              "tool_calls": 1,
+              "http_calls": 5,
+              "reserved_usd": "0.0057735",
+              "stop_reason": null
+            },
+            "elapsed_ms": 5629.930777999107,
+            "usage": {
+              "input_tokens": 1374,
+              "output_tokens": 234,
+              "embedding_tokens": 31
+            },
+            "expenditure_category": "serving",
+            "estimated_api_cost_usd": 0.0057735,
+            "provider_usage": {
+              "reservation_id": "deabec1fdc8f4b18b24f2318d4788aa5",
+              "reserved_usd": 0.10574,
+              "cost_usd": 0.0057735,
+              "request_id": "gen-1793192827-Bsi3l1IqIOkW4n6Xg3Dr",
+              "returned_model": "openai/gpt-6-sol",
+              "provider": "OpenAI",
+              "input_tokens": 1374,
+              "output_tokens": 234,
+              "reasoning_tokens": 126
+            },
+            "cost_scope": "OpenRouter reported inference credits only. Null means unknown cost; the local budget retains a reservation. Credit purchase fees, tax, local embeddings and hosting are excluded.",
+            "limitation": "Source-supported is not independently cross-checked. Coverage is limited to the captured snapshot; this provider baseline is not deployment approval."
+          },
+          "response_sha256": "eb62ef176d7f247f78f6a4de4d05a0ae41d65ade3c1fdb62ea9df47952ed92b0",
+          "end_to_end_elapsed_ms": 6826.430365996202,
+          "context_scores": {
+            "k": 3,
+            "relevant_passage_count": 1,
+            "recall_at_k": 1.0,
+            "hit_at_k": 1.0,
+            "mrr_at_k": 1.0,
+            "required_fact_count": 1,
+            "context_fact_coverage": 1.0,
+            "context_sufficient": true
+          },
+          "readback": {
+            "trace_output_matches": true,
+            "citations_resolve": true,
+            "tool_results_checked": 0,
+            "span_names": [
+              "text_rag",
+              "text_retrieval",
+              "query_embedding",
+              "assembled_context",
+              "answer_model"
+            ]
+          },
+          "orchestration_scores": null,
+          "final_support": "Pending independent source review."
+        },
+        "investigation": {
+          "response": {
+            "response_id": "1ab1b641-6cbe-4e0a-ab73-179c50d6dd4c",
+            "question": "What does the captured evidence say about Sharon Watts discovering she was pregnant on Christmas Day 2005?",
+            "status": "answered",
+            "answer": "Right, listen. On Christmas Day 2005, Sharon was stunned to discover she was pregnant. She and Dennis celebrated the possibility of having a child.",
+            "qualifications": [
+              {
+                "detail": "The source dates the discovery to Christmas Day 2005.",
+                "evidence_ids": [
+                  "sharon-christmas-pregnancy"
+                ],
+                "kind": "timing",
+                "precision": "exact"
+              }
+            ],
+            "citations": [
+              {
+                "evidence_id": "sharon-christmas-pregnancy",
+                "text": "On Christmas Day 2005, Sharon is stunned to discover she is pregnant, and she and Dennis celebrate the potential of having a child.",
+                "sha256": "dfa4fd7ae0dbe533dcdec506808a9bbdd4f16b27cbccefc8e8df6d69363ad06d",
+                "start": 61360,
+                "end": 61491,
+                "source": {
+                  "title": "Sharon Watts",
+                  "url": "https://en.wikipedia.org/wiki/Sharon_Watts",
+                  "revision_id": "1372798905",
+                  "revision_url": "https://en.wikipedia.org/w/index.php?oldid=1372798905",
+                  "section": "Storylines / 2001\u20132006",
+                  "captured_at": "2026-10-17T13:07:31.327518Z",
+                  "capture_sha256": "9ccef3de99353ff737101d9d00561c217608dd4fa6fba0c8200f80ac0114ea85",
+                  "scope": "main_series",
+                  "license_url": "https://creativecommons.org/licenses/by-sa/4.0/",
+                  "attribution": "Wikipedia contributors; markup removed and whitespace normalized.",
+                  "coverage": "Reviewed narrative sections in this captured revision only.",
+                  "gaps": [
+                    "Partial canon coverage; other paragraphs remain excluded or awaiting review.",
+                    "Identity and episode metadata do not independently corroborate story claims."
+                  ],
+                  "support_status": "source_supported"
+                },
+                "location": {
+                  "source_id": "sharon-watts-wiki",
+                  "paragraph_ordinal": 64,
+                  "section_id": "2001\u20132006",
+                  "character_ids": [
+                    "sharon-watts"
+                  ]
+                },
+                "resolve_path": "/v1/snapshots/connections-pilot-v1/evidence/sharon-christmas-pregnancy"
+              }
+            ],
+            "snapshot_id": "connections-pilot-v1",
+            "snapshot_sha256": "d30762f13668359b18b2b04bd190130f99cbac21ed99749a22e2ddddf5d8533b",
+            "publication": {
+              "compatibility_id": "c19a056ca5362f43ebfc43dcf25e053c344e1d9a01dc430ae312a92f8b8553bf",
+              "index_sha256": "bd91863966c812b4a44e498eafd930269a814cc1328ccb90a49aa329178c21f4",
+              "generation": 1
+            },
+            "source": {
+              "title": "Ben Mitchell",
+              "url": "https://en.wikipedia.org/wiki/Ben_Mitchell_(EastEnders)",
+              "revision_id": "1376729134",
+              "revision_url": "https://en.wikipedia.org/w/index.php?oldid=1376729134",
+              "section": "Storylines / 1996\u20132000",
+              "captured_at": "2026-10-17T13:07:31.530421Z",
+              "capture_sha256": "8ae0fbabb19cf12b2bdf46d7a85e15eea4462b8559584c770224a54a9e47d128",
+              "scope": "main_series",
+              "license_url": "https://creativecommons.org/licenses/by-sa/4.0/",
+              "attribution": "Wikipedia contributors; markup removed and whitespace normalized.",
+              "coverage": "Reviewed narrative sections in this captured revision only.",
+              "gaps": [
+                "Partial canon coverage; other paragraphs remain excluded or awaiting review.",
+                "Identity and episode metadata do not independently corroborate story claims."
+              ],
+              "support_status": "source_supported"
+            },
+            "retrieved": [
+              {
+                "passage": {
+                  "evidence_id": "sharon-christmas-pregnancy",
+                  "text": "On Christmas Day 2005, Sharon is stunned to discover she is pregnant, and she and Dennis celebrate the potential of having a child.",
+                  "sha256": "dfa4fd7ae0dbe533dcdec506808a9bbdd4f16b27cbccefc8e8df6d69363ad06d",
+                  "start": 61360,
+                  "end": 61491,
+                  "source": {
+                    "title": "Sharon Watts",
+                    "url": "https://en.wikipedia.org/wiki/Sharon_Watts",
+                    "revision_id": "1372798905",
+                    "revision_url": "https://en.wikipedia.org/w/index.php?oldid=1372798905",
+                    "section": "Storylines / 2001\u20132006",
+                    "captured_at": "2026-10-17T13:07:31.327518Z",
+                    "capture_sha256": "9ccef3de99353ff737101d9d00561c217608dd4fa6fba0c8200f80ac0114ea85",
+                    "scope": "main_series",
+                    "license_url": "https://creativecommons.org/licenses/by-sa/4.0/",
+                    "attribution": "Wikipedia contributors; markup removed and whitespace normalized.",
+                    "coverage": "Reviewed narrative sections in this captured revision only.",
+                    "gaps": [
+                      "Partial canon coverage; other paragraphs remain excluded or awaiting review.",
+                      "Identity and episode metadata do not independently corroborate story claims."
+                    ],
+                    "support_status": "source_supported"
+                  },
+                  "location": {
+                    "source_id": "sharon-watts-wiki",
+                    "paragraph_ordinal": 64,
+                    "section_id": "2001\u20132006",
+                    "character_ids": [
+                      "sharon-watts"
+                    ]
+                  }
+                },
+                "similarity": 0.6918042920653261
+              },
+              {
+                "passage": {
+                  "evidence_id": "sharon-uncertain-paternity",
+                  "text": "However, Sharon also discovers she is pregnant but does not know if Phil or Keanu is the father. She settles on having an abortion, but Phil discovers she's pregnant, and Sharon lies letting Phil believe he is the father.",
+                  "sha256": "58a54d25d3179499cff866bbaef27ced938997fcd7ac9139d4ac6a29cc68a15e",
+                  "start": 77363,
+                  "end": 77584,
+                  "source": {
+                    "title": "Sharon Watts",
+                    "url": "https://en.wikipedia.org/wiki/Sharon_Watts",
+                    "revision_id": "1372798905",
+                    "revision_url": "https://en.wikipedia.org/w/index.php?oldid=1372798905",
+                    "section": "Storylines / 2012\u2013present",
+                    "captured_at": "2026-10-17T13:07:31.327518Z",
+                    "capture_sha256": "9ccef3de99353ff737101d9d00561c217608dd4fa6fba0c8200f80ac0114ea85",
+                    "scope": "main_series",
+                    "license_url": "https://creativecommons.org/licenses/by-sa/4.0/",
+                    "attribution": "Wikipedia contributors; markup removed and whitespace normalized.",
+                    "coverage": "Reviewed narrative sections in this captured revision only.",
+                    "gaps": [
+                      "Partial canon coverage; other paragraphs remain excluded or awaiting review.",
+                      "Identity and episode metadata do not independently corroborate story claims."
+                    ],
+                    "support_status": "source_supported"
+                  },
+                  "location": {
+                    "source_id": "sharon-watts-wiki",
+                    "paragraph_ordinal": 75,
+                    "section_id": "2012\u2013present",
+                    "character_ids": [
+                      "martin-fowler",
+                      "sharon-watts"
+                    ]
+                  }
+                },
+                "similarity": 0.4580014384392832
+              },
+              {
+                "passage": {
+                  "evidence_id": "history-ben-birth",
+                  "text": "Ben is born to Phil Mitchell (Steve McFadden) and his then wife Kathy Beale (Gillian Taylforth) in March 1996.",
+                  "sha256": "8179f5f0724cc08e5a5d51567fb7de0f8e55a4d5fc9881f5e050ae9d153eca08",
+                  "start": 17983,
+                  "end": 18093,
+                  "source": {
+                    "title": "Ben Mitchell",
+                    "url": "https://en.wikipedia.org/wiki/Ben_Mitchell_(EastEnders)",
+                    "revision_id": "1376729134",
+                    "revision_url": "https://en.wikipedia.org/w/index.php?oldid=1376729134",
+                    "section": "Storylines / 1996\u20132000",
+                    "captured_at": "2026-10-17T13:07:31.530421Z",
+                    "capture_sha256": "8ae0fbabb19cf12b2bdf46d7a85e15eea4462b8559584c770224a54a9e47d128",
+                    "scope": "main_series",
+                    "license_url": "https://creativecommons.org/licenses/by-sa/4.0/",
+                    "attribution": "Wikipedia contributors; markup removed and whitespace normalized.",
+                    "coverage": "Reviewed narrative sections in this captured revision only.",
+                    "gaps": [
+                      "Partial canon coverage; other paragraphs remain excluded or awaiting review.",
+                      "Identity and episode metadata do not independently corroborate story claims."
+                    ],
+                    "support_status": "source_supported"
+                  },
+                  "location": {
+                    "source_id": "ben-mitchell-wiki",
+                    "paragraph_ordinal": 22,
+                    "section_id": "1996\u20132000",
+                    "character_ids": [
+                      "ben-mitchell",
+                      "kathy-beale",
+                      "phil-mitchell"
+                    ]
+                  }
+                },
+                "similarity": 0.4025462277371399
+              }
+            ],
+            "context": [
+              {
+                "evidence_id": "sharon-christmas-pregnancy",
+                "text": "On Christmas Day 2005, Sharon is stunned to discover she is pregnant, and she and Dennis celebrate the potential of having a child.",
+                "sha256": "dfa4fd7ae0dbe533dcdec506808a9bbdd4f16b27cbccefc8e8df6d69363ad06d",
+                "start": 61360,
+                "end": 61491,
+                "source": {
+                  "title": "Sharon Watts",
+                  "url": "https://en.wikipedia.org/wiki/Sharon_Watts",
+                  "revision_id": "1372798905",
+                  "revision_url": "https://en.wikipedia.org/w/index.php?oldid=1372798905",
+                  "section": "Storylines / 2001\u20132006",
+                  "captured_at": "2026-10-17T13:07:31.327518Z",
+                  "capture_sha256": "9ccef3de99353ff737101d9d00561c217608dd4fa6fba0c8200f80ac0114ea85",
+                  "scope": "main_series",
+                  "license_url": "https://creativecommons.org/licenses/by-sa/4.0/",
+                  "attribution": "Wikipedia contributors; markup removed and whitespace normalized.",
+                  "coverage": "Reviewed narrative sections in this captured revision only.",
+                  "gaps": [
+                    "Partial canon coverage; other paragraphs remain excluded or awaiting review.",
+                    "Identity and episode metadata do not independently corroborate story claims."
+                  ],
+                  "support_status": "source_supported"
+                },
+                "location": {
+                  "source_id": "sharon-watts-wiki",
+                  "paragraph_ordinal": 64,
+                  "section_id": "2001\u20132006",
+                  "character_ids": [
+                    "sharon-watts"
+                  ]
+                }
+              },
+              {
+                "evidence_id": "sharon-uncertain-paternity",
+                "text": "However, Sharon also discovers she is pregnant but does not know if Phil or Keanu is the father. She settles on having an abortion, but Phil discovers she's pregnant, and Sharon lies letting Phil believe he is the father.",
+                "sha256": "58a54d25d3179499cff866bbaef27ced938997fcd7ac9139d4ac6a29cc68a15e",
+                "start": 77363,
+                "end": 77584,
+                "source": {
+                  "title": "Sharon Watts",
+                  "url": "https://en.wikipedia.org/wiki/Sharon_Watts",
+                  "revision_id": "1372798905",
+                  "revision_url": "https://en.wikipedia.org/w/index.php?oldid=1372798905",
+                  "section": "Storylines / 2012\u2013present",
+                  "captured_at": "2026-10-17T13:07:31.327518Z",
+                  "capture_sha256": "9ccef3de99353ff737101d9d00561c217608dd4fa6fba0c8200f80ac0114ea85",
+                  "scope": "main_series",
+                  "license_url": "https://creativecommons.org/licenses/by-sa/4.0/",
+                  "attribution": "Wikipedia contributors; markup removed and whitespace normalized.",
+                  "coverage": "Reviewed narrative sections in this captured revision only.",
+                  "gaps": [
+                    "Partial canon coverage; other paragraphs remain excluded or awaiting review.",
+                    "Identity and episode metadata do not independently corroborate story claims."
+                  ],
+                  "support_status": "source_supported"
+                },
+                "location": {
+                  "source_id": "sharon-watts-wiki",
+                  "paragraph_ordinal": 75,
+                  "section_id": "2012\u2013present",
+                  "character_ids": [
+                    "martin-fowler",
+                    "sharon-watts"
+                  ]
+                }
+              },
+              {
+                "evidence_id": "history-ben-birth",
+                "text": "Ben is born to Phil Mitchell (Steve McFadden) and his then wife Kathy Beale (Gillian Taylforth) in March 1996.",
+                "sha256": "8179f5f0724cc08e5a5d51567fb7de0f8e55a4d5fc9881f5e050ae9d153eca08",
+                "start": 17983,
+                "end": 18093,
+                "source": {
+                  "title": "Ben Mitchell",
+                  "url": "https://en.wikipedia.org/wiki/Ben_Mitchell_(EastEnders)",
+                  "revision_id": "1376729134",
+                  "revision_url": "https://en.wikipedia.org/w/index.php?oldid=1376729134",
+                  "section": "Storylines / 1996\u20132000",
+                  "captured_at": "2026-10-17T13:07:31.530421Z",
+                  "capture_sha256": "8ae0fbabb19cf12b2bdf46d7a85e15eea4462b8559584c770224a54a9e47d128",
+                  "scope": "main_series",
+                  "license_url": "https://creativecommons.org/licenses/by-sa/4.0/",
+                  "attribution": "Wikipedia contributors; markup removed and whitespace normalized.",
+                  "coverage": "Reviewed narrative sections in this captured revision only.",
+                  "gaps": [
+                    "Partial canon coverage; other paragraphs remain excluded or awaiting review.",
+                    "Identity and episode metadata do not independently corroborate story claims."
+                  ],
+                  "support_status": "source_supported"
+                },
+                "location": {
+                  "source_id": "ben-mitchell-wiki",
+                  "paragraph_ordinal": 22,
+                  "section_id": "1996\u20132000",
+                  "character_ids": [
+                    "ben-mitchell",
+                    "kathy-beale",
+                    "phil-mitchell"
+                  ]
+                }
+              }
+            ],
+            "retrieval_k": 3,
+            "route": "investigation",
+            "route_override": true,
+            "investigation": {
+              "version": "bounded-investigator-v1",
+              "tool_contract_version": "captured-read-tools-v1",
+              "tool_contract_sha256": "b644aae0494a7e99b07efdc0408683b121903d82871b495bba207c238707b8b7",
+              "coverage": [
+                {
+                  "part": "What the captured evidence says about Sharon Watts discovering she was pregnant on Christmas Day 2005",
+                  "evidence_ids": [
+                    "sharon-christmas-pregnancy"
+                  ],
+                  "resolved": true
+                }
+              ],
+              "steps": [
+                {
+                  "tool": "text_search",
+                  "arguments": "{\"query\":\"Sharon Watts discovered pregnant Christmas Day 2005 Ben Mitchell\",\"k\":3}",
+                  "status": "executed",
+                  "result": {
+                    "hits": [
+                      {
+                        "passage": {
+                          "evidence_id": "sharon-christmas-pregnancy",
+                          "text": "On Christmas Day 2005, Sharon is stunned to discover she is pregnant, and she and Dennis celebrate the potential of having a child.",
+                          "sha256": "dfa4fd7ae0dbe533dcdec506808a9bbdd4f16b27cbccefc8e8df6d69363ad06d",
+                          "start": 61360,
+                          "end": 61491,
+                          "source": {
+                            "title": "Sharon Watts",
+                            "url": "https://en.wikipedia.org/wiki/Sharon_Watts",
+                            "revision_id": "1372798905",
+                            "revision_url": "https://en.wikipedia.org/w/index.php?oldid=1372798905",
+                            "section": "Storylines / 2001\u20132006",
+                            "captured_at": "2026-10-17T13:07:31.327518Z",
+                            "capture_sha256": "9ccef3de99353ff737101d9d00561c217608dd4fa6fba0c8200f80ac0114ea85",
+                            "scope": "main_series",
+                            "license_url": "https://creativecommons.org/licenses/by-sa/4.0/",
+                            "attribution": "Wikipedia contributors; markup removed and whitespace normalized.",
+                            "coverage": "Reviewed narrative sections in this captured revision only.",
+                            "gaps": [
+                              "Partial canon coverage; other paragraphs remain excluded or awaiting review.",
+                              "Identity and episode metadata do not independently corroborate story claims."
+                            ],
+                            "support_status": "source_supported"
+                          },
+                          "location": {
+                            "source_id": "sharon-watts-wiki",
+                            "paragraph_ordinal": 64,
+                            "section_id": "2001\u20132006",
+                            "character_ids": [
+                              "sharon-watts"
+                            ]
+                          }
+                        },
+                        "similarity": 0.6918042920653261
+                      },
+                      {
+                        "passage": {
+                          "evidence_id": "sharon-uncertain-paternity",
+                          "text": "However, Sharon also discovers she is pregnant but does not know if Phil or Keanu is the father. She settles on having an abortion, but Phil discovers she's pregnant, and Sharon lies letting Phil believe he is the father.",
+                          "sha256": "58a54d25d3179499cff866bbaef27ced938997fcd7ac9139d4ac6a29cc68a15e",
+                          "start": 77363,
+                          "end": 77584,
+                          "source": {
+                            "title": "Sharon Watts",
+                            "url": "https://en.wikipedia.org/wiki/Sharon_Watts",
+                            "revision_id": "1372798905",
+                            "revision_url": "https://en.wikipedia.org/w/index.php?oldid=1372798905",
+                            "section": "Storylines / 2012\u2013present",
+                            "captured_at": "2026-10-17T13:07:31.327518Z",
+                            "capture_sha256": "9ccef3de99353ff737101d9d00561c217608dd4fa6fba0c8200f80ac0114ea85",
+                            "scope": "main_series",
+                            "license_url": "https://creativecommons.org/licenses/by-sa/4.0/",
+                            "attribution": "Wikipedia contributors; markup removed and whitespace normalized.",
+                            "coverage": "Reviewed narrative sections in this captured revision only.",
+                            "gaps": [
+                              "Partial canon coverage; other paragraphs remain excluded or awaiting review.",
+                              "Identity and episode metadata do not independently corroborate story claims."
+                            ],
+                            "support_status": "source_supported"
+                          },
+                          "location": {
+                            "source_id": "sharon-watts-wiki",
+                            "paragraph_ordinal": 75,
+                            "section_id": "2012\u2013present",
+                            "character_ids": [
+                              "martin-fowler",
+                              "sharon-watts"
+                            ]
+                          }
+                        },
+                        "similarity": 0.4580014384392832
+                      },
+                      {
+                        "passage": {
+                          "evidence_id": "history-ben-birth",
+                          "text": "Ben is born to Phil Mitchell (Steve McFadden) and his then wife Kathy Beale (Gillian Taylforth) in March 1996.",
+                          "sha256": "8179f5f0724cc08e5a5d51567fb7de0f8e55a4d5fc9881f5e050ae9d153eca08",
+                          "start": 17983,
+                          "end": 18093,
+                          "source": {
+                            "title": "Ben Mitchell",
+                            "url": "https://en.wikipedia.org/wiki/Ben_Mitchell_(EastEnders)",
+                            "revision_id": "1376729134",
+                            "revision_url": "https://en.wikipedia.org/w/index.php?oldid=1376729134",
+                            "section": "Storylines / 1996\u20132000",
+                            "captured_at": "2026-10-17T13:07:31.530421Z",
+                            "capture_sha256": "8ae0fbabb19cf12b2bdf46d7a85e15eea4462b8559584c770224a54a9e47d128",
+                            "scope": "main_series",
+                            "license_url": "https://creativecommons.org/licenses/by-sa/4.0/",
+                            "attribution": "Wikipedia contributors; markup removed and whitespace normalized.",
+                            "coverage": "Reviewed narrative sections in this captured revision only.",
+                            "gaps": [
+                              "Partial canon coverage; other paragraphs remain excluded or awaiting review.",
+                              "Identity and episode metadata do not independently corroborate story claims."
+                            ],
+                            "support_status": "source_supported"
+                          },
+                          "location": {
+                            "source_id": "ben-mitchell-wiki",
+                            "paragraph_ordinal": 22,
+                            "section_id": "1996\u20132000",
+                            "character_ids": [
+                              "ben-mitchell",
+                              "kathy-beale",
+                              "phil-mitchell"
+                            ]
+                          }
+                        },
+                        "similarity": 0.4025462277371399
+                      }
+                    ],
+                    "context_claims": [],
+                    "review_notices": []
+                  },
+                  "context_ids": [
+                    "sharon-christmas-pregnancy",
+                    "sharon-uncertain-paternity",
+                    "history-ben-birth"
+                  ],
+                  "elapsed_ms": 171.88062799687032
+                }
+              ],
+              "model_executions": [
+                {
+                  "content": "{\"coverage\":[{\"part\":\"What the captured evidence says about Sharon Watts discovering she was pregnant on Christmas Day 2005\",\"evidence_ids\":[],\"resolved\":false}],\"action\":{\"kind\":\"tool\",\"tool\":\"text_search\",\"arguments\":\"{\\\"query\\\":\\\"Sharon Watts discovered pregnant Christmas Day 2005 Ben Mitchell\\\",\\\"k\\\":3}\"}}",
+                  "usage": {
+                    "input_tokens": 1900,
+                    "output_tokens": 99,
+                    "embedding_tokens": 0
+                  },
+                  "provider_usage": {
+                    "reservation_id": "9be4764fcf8047709267aaa9a3eec24d",
+                    "reserved_usd": 0.111272,
+                    "cost_usd": 0.0057385,
+                    "request_id": "gen-1793192836-VCMMLYtoJCkWc8KjPsPp",
+                    "returned_model": "openai/gpt-6-sol",
+                    "provider": "OpenAI",
+                    "input_tokens": 1900,
+                    "output_tokens": 99,
+                    "reasoning_tokens": 21
+                  },
+                  "failure_type": null,
+                  "estimated_api_cost_usd": 0.0057385,
+                  "cost_scope": "OpenRouter reported inference credits only. Null means unknown cost; the local budget retains a reservation. Credit purchase fees, tax, local embeddings and hosting are excluded.",
+                  "limitation": "Source-supported is not independently cross-checked. Coverage is limited to the captured snapshot; this provider baseline is not deployment approval."
+                },
+                {
+                  "content": "{\"coverage\":[{\"part\":\"What the captured evidence says about Sharon Watts discovering she was pregnant on Christmas Day 2005\",\"evidence_ids\":[\"sharon-christmas-pregnancy\"],\"resolved\":true}],\"action\":{\"kind\":\"finish\",\"draft\":{\"answer\":\"Right, listen. On Christmas Day 2005, Sharon was stunned to discover she was pregnant. She and Dennis celebrated the possibility of having a child.\",\"evidence_ids\":[\"sharon-christmas-pregnancy\"],\"status\":\"answered\",\"unanswered\":[],\"qualifications\":[{\"detail\":\"The source dates the discovery to Christmas Day 2005.\",\"evidence_ids\":[\"sharon-christmas-pregnancy\"],\"kind\":\"timing\",\"precision\":\"exact\"}]}}}",
+                  "usage": {
+                    "input_tokens": 2152,
+                    "output_tokens": 201,
+                    "embedding_tokens": 0
+                  },
+                  "provider_usage": {
+                    "reservation_id": "7f95637a4ab941d3ba3849b5e00d14c5",
+                    "reserved_usd": 0.11346,
+                    "cost_usd": 0.0032324,
+                    "request_id": "gen-1793192838-LTmVFFH3qrvAEno5SKZn",
+                    "returned_model": "openai/gpt-6-sol",
+                    "provider": "OpenAI",
+                    "input_tokens": 2152,
+                    "output_tokens": 201,
+                    "reasoning_tokens": 41
+                  },
+                  "failure_type": null,
+                  "estimated_api_cost_usd": 0.0032324,
+                  "cost_scope": "OpenRouter reported inference credits only. Null means unknown cost; the local budget retains a reservation. Credit purchase fees, tax, local embeddings and hosting are excluded.",
+                  "limitation": "Source-supported is not independently cross-checked. Coverage is limited to the captured snapshot; this provider baseline is not deployment approval."
+                }
+              ],
+              "embedding_tokens": [
+                22
+              ],
+              "stop_reason": "completed",
+              "context_bytes": 921,
+              "context": [
+                {
+                  "evidence_id": "sharon-christmas-pregnancy",
+                  "text": "On Christmas Day 2005, Sharon is stunned to discover she is pregnant, and she and Dennis celebrate the potential of having a child.",
+                  "sha256": "dfa4fd7ae0dbe533dcdec506808a9bbdd4f16b27cbccefc8e8df6d69363ad06d",
+                  "start": 61360,
+                  "end": 61491,
+                  "source": {
+                    "title": "Sharon Watts",
+                    "url": "https://en.wikipedia.org/wiki/Sharon_Watts",
+                    "revision_id": "1372798905",
+                    "revision_url": "https://en.wikipedia.org/w/index.php?oldid=1372798905",
+                    "section": "Storylines / 2001\u20132006",
+                    "captured_at": "2026-10-17T13:07:31.327518Z",
+                    "capture_sha256": "9ccef3de99353ff737101d9d00561c217608dd4fa6fba0c8200f80ac0114ea85",
+                    "scope": "main_series",
+                    "license_url": "https://creativecommons.org/licenses/by-sa/4.0/",
+                    "attribution": "Wikipedia contributors; markup removed and whitespace normalized.",
+                    "coverage": "Reviewed narrative sections in this captured revision only.",
+                    "gaps": [
+                      "Partial canon coverage; other paragraphs remain excluded or awaiting review.",
+                      "Identity and episode metadata do not independently corroborate story claims."
+                    ],
+                    "support_status": "source_supported"
+                  },
+                  "location": {
+                    "source_id": "sharon-watts-wiki",
+                    "paragraph_ordinal": 64,
+                    "section_id": "2001\u20132006",
+                    "character_ids": [
+                      "sharon-watts"
+                    ]
+                  }
+                },
+                {
+                  "evidence_id": "sharon-uncertain-paternity",
+                  "text": "However, Sharon also discovers she is pregnant but does not know if Phil or Keanu is the father. She settles on having an abortion, but Phil discovers she's pregnant, and Sharon lies letting Phil believe he is the father.",
+                  "sha256": "58a54d25d3179499cff866bbaef27ced938997fcd7ac9139d4ac6a29cc68a15e",
+                  "start": 77363,
+                  "end": 77584,
+                  "source": {
+                    "title": "Sharon Watts",
+                    "url": "https://en.wikipedia.org/wiki/Sharon_Watts",
+                    "revision_id": "1372798905",
+                    "revision_url": "https://en.wikipedia.org/w/index.php?oldid=1372798905",
+                    "section": "Storylines / 2012\u2013present",
+                    "captured_at": "2026-10-17T13:07:31.327518Z",
+                    "capture_sha256": "9ccef3de99353ff737101d9d00561c217608dd4fa6fba0c8200f80ac0114ea85",
+                    "scope": "main_series",
+                    "license_url": "https://creativecommons.org/licenses/by-sa/4.0/",
+                    "attribution": "Wikipedia contributors; markup removed and whitespace normalized.",
+                    "coverage": "Reviewed narrative sections in this captured revision only.",
+                    "gaps": [
+                      "Partial canon coverage; other paragraphs remain excluded or awaiting review.",
+                      "Identity and episode metadata do not independently corroborate story claims."
+                    ],
+                    "support_status": "source_supported"
+                  },
+                  "location": {
+                    "source_id": "sharon-watts-wiki",
+                    "paragraph_ordinal": 75,
+                    "section_id": "2012\u2013present",
+                    "character_ids": [
+                      "martin-fowler",
+                      "sharon-watts"
+                    ]
+                  }
+                },
+                {
+                  "evidence_id": "history-ben-birth",
+                  "text": "Ben is born to Phil Mitchell (Steve McFadden) and his then wife Kathy Beale (Gillian Taylforth) in March 1996.",
+                  "sha256": "8179f5f0724cc08e5a5d51567fb7de0f8e55a4d5fc9881f5e050ae9d153eca08",
+                  "start": 17983,
+                  "end": 18093,
+                  "source": {
+                    "title": "Ben Mitchell",
+                    "url": "https://en.wikipedia.org/wiki/Ben_Mitchell_(EastEnders)",
+                    "revision_id": "1376729134",
+                    "revision_url": "https://en.wikipedia.org/w/index.php?oldid=1376729134",
+                    "section": "Storylines / 1996\u20132000",
+                    "captured_at": "2026-10-17T13:07:31.530421Z",
+                    "capture_sha256": "8ae0fbabb19cf12b2bdf46d7a85e15eea4462b8559584c770224a54a9e47d128",
+                    "scope": "main_series",
+                    "license_url": "https://creativecommons.org/licenses/by-sa/4.0/",
+                    "attribution": "Wikipedia contributors; markup removed and whitespace normalized.",
+                    "coverage": "Reviewed narrative sections in this captured revision only.",
+                    "gaps": [
+                      "Partial canon coverage; other paragraphs remain excluded or awaiting review.",
+                      "Identity and episode metadata do not independently corroborate story claims."
+                    ],
+                    "support_status": "source_supported"
+                  },
+                  "location": {
+                    "source_id": "ben-mitchell-wiki",
+                    "paragraph_ordinal": 22,
+                    "section_id": "1996\u20132000",
+                    "character_ids": [
+                      "ben-mitchell",
+                      "kathy-beale",
+                      "phil-mitchell"
+                    ]
+                  }
+                }
+              ]
+            },
+            "baseline_version": "bounded-investigator-v1",
+            "model_settings": {
+              "embedding_model": "embeddinggemma:300m",
+              "embedding_digest": "85462619ee721b466c5927d109d4cb765861907d5417b9109caebc4e614679f1",
+              "embedding_dimensions": 768,
+              "provider_type": "openrouter",
+              "answer_model": "openai/gpt-6-sol",
+              "canonical_slug": "openai/gpt-6-sol-20260922",
+              "provider": "openai",
+              "input_price_per_million": "2",
+              "output_price_per_million": "10",
+              "output_tokens": 8192,
+              "reasoning_effort": "medium",
+              "request_timeout_seconds": 180
+            },
+            "prompt_sha256": "ae620a160b2457dcf2a514dfb9fd793290d72735e3132b59e04e41da96dd1631",
+            "application_sha256": "a40dc97f1efb9dcd6df786d3e316e5c7c7ac3de73e2e377245e68bb5c05c5660",
+            "trace_id": "tr-af89881184ee15da54a01ca8fd698254",
+            "execution": {
+              "limits": {
+                "model_calls": 8,
+                "tool_calls": 4,
+                "http_calls": 24,
+                "seconds": 180.0,
+                "context_bytes": 4000,
+                "spend_usd": "0.20",
+                "retries": 0,
+                "capabilities": [
+                  "text_retrieval",
+                  "family_graph",
+                  "event_graph",
+                  "connection_graph"
+                ],
+                "concurrency": 1
+              },
+              "model_calls": 3,
+              "tool_calls": 1,
+              "http_calls": 8,
+              "reserved_usd": "0.0089709",
+              "stop_reason": null,
+              "context_bytes": 921
+            },
+            "elapsed_ms": 7394.119434989989,
+            "usage": {
+              "input_tokens": 4052,
+              "output_tokens": 300,
+              "embedding_tokens": 22
+            },
+            "expenditure_category": "serving",
+            "estimated_api_cost_usd": 0.0089709,
+            "cost_scope": "All investigator decisions and query embeddings; OpenRouter reported inference credits only. Null means unknown cost; the local budget retains a reservation. Credit purchase fees, tax, local embeddings and hosting are excluded.",
+            "limitation": "Source-supported is not independently cross-checked. Coverage is limited to the captured snapshot; this provider baseline is not deployment approval."
+          },
+          "response_sha256": "c8bc4d1172625ebf145a585fae5a4fb26fa54af3fb156d3d5bf3a1208a0fd858",
+          "end_to_end_elapsed_ms": 8559.530323997024,
+          "context_scores": {
+            "k": 3,
+            "relevant_passage_count": 1,
+            "recall_at_k": 1.0,
+            "hit_at_k": 1.0,
+            "mrr_at_k": 1.0,
+            "required_fact_count": 1,
+            "context_fact_coverage": 1.0,
+            "context_sufficient": true
+          },
+          "readback": {
+            "trace_output_matches": true,
+            "citations_resolve": true,
+            "tool_results_checked": 1,
+            "span_names": [
+              "investigation",
+              "investigator_decision",
+              "text_search",
+              "query_embedding",
+              "investigator_decision"
+            ]
+          },
+          "orchestration_scores": {
+            "tool_attempts": 1,
+            "eligible_attempts": 1,
+            "declared_attempts": 1,
+            "tool_eligibility": 1.0,
+            "valid_argument_attempts": 1,
+            "argument_validity": 1.0,
+            "returned_results": 1,
+            "ineligible_results": 0,
+            "recovered_after_invalid_arguments": null,
+            "authority_preserved": true,
+            "stop_expected": true,
+            "within_limits": true,
+            "limitation": "Tool diagnostics do not grade an exact call sequence or establish final factual support. Task completion, multi-fact context sufficiency and final semantic support require the separately frozen references and source review. Limits here cover recorded calls, HTTP, context and spending; network deadline and cancellation behavior have separate integration evidence."
+          },
+          "final_support": "Pending independent source review."
+        }
+      },
+      "response_sha256": "c8bc4d1172625ebf145a585fae5a4fb26fa54af3fb156d3d5bf3a1208a0fd858"
+    }
+  ],
+  "state": "complete",
+  "stage": "complete",
+  "current_case": "single-pregnancy",
+  "shared_ledger_after_usd": 0.479727,
+  "unsettled_reservations": 0,
+  "responses_survive_application_recreation": true
+}
