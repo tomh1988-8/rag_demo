@@ -11,6 +11,7 @@ from collections.abc import Iterator
 from contextlib import contextmanager
 from datetime import UTC, datetime
 from decimal import Decimal
+from functools import partial
 from pathlib import Path
 from typing import Any, Literal
 from uuid import uuid4
@@ -31,7 +32,6 @@ from ask_phil.connection_evaluation import ConnectionReference
 from ask_phil.evaluation import (
     EvaluationRun,
     RetrievalReference,
-    document_fingerprint,
     score_retrieval,
 )
 from ask_phil.event_graph import EventGraph
@@ -259,79 +259,88 @@ def main() -> int:
                 case = by_id[case_id]
                 run.annotate(stage="capturing", current_case=case_id)
 
-                def capture(selected_case: dict[str, Any] = case) -> dict[str, Any]:
-                    outputs: dict[str, Any] = {}
-                    routes: tuple[Literal["text_rag", "investigation"], ...] = (
-                        "text_rag",
-                        "investigation",
+                def capture(
+                    route: Literal["text_rag", "investigation"],
+                    selected_case: dict[str, Any] = case,
+                ) -> dict[str, Any]:
+                    spent, unsettled = shared.summary()
+                    if (
+                        unsettled
+                        or Decimal(str(spent)) + LIMITS.spend_usd > TRIAL_START + TRANCHE_CAP
+                    ):
+                        raise ValueError(
+                            "The additional live tranche cannot cover another request."
+                        )
+                    print(f"Capturing {selected_case['case_id']} {route}", flush=True)
+                    started = time.perf_counter()
+                    result = client.post(
+                        "/v1/answers",
+                        json={
+                            "snapshot_id": snapshot.snapshot_id,
+                            "question": selected_case["question"],
+                            "route": route,
+                        },
                     )
-                    for route in routes:
-                        spent, unsettled = shared.summary()
-                        if (
-                            unsettled
-                            or Decimal(str(spent)) + LIMITS.spend_usd > TRIAL_START + TRANCHE_CAP
-                        ):
-                            raise ValueError(
-                                "The additional live tranche cannot cover another request."
-                            )
-                        print(f"Capturing {selected_case['case_id']} {route}", flush=True)
-                        started = time.perf_counter()
-                        result = client.post(
-                            "/v1/answers",
-                            json={
-                                "snapshot_id": snapshot.snapshot_id,
-                                "question": selected_case["question"],
-                                "route": route,
-                            },
-                        )
-                        elapsed = (time.perf_counter() - started) * 1000
-                        result.raise_for_status()
-                        receipt = AnswerReceipt.model_validate(result.json())
-                        answer = receipt.response
-                        receipts.append(receipt)
-                        if (
-                            answer.application_sha256 != identity
-                            or answer.snapshot_sha256 != snapshot.fingerprint
-                        ):
-                            raise ValueError(
-                                "The captured application/source differs from the frozen run."
-                            )
-                        retrieval_reference = RetrievalReference.model_validate(
-                            {
-                                k: selected_case[k]
-                                for k in (
-                                    "case_id",
-                                    "question",
-                                    "answerable",
-                                    "relevant_ids",
-                                    "required_facts",
-                                )
-                            }
-                        )
-                        context_score = score_retrieval(
-                            retrieval_reference,
-                            tuple(h.passage.evidence_id for h in answer.retrieved),
-                            tuple(p.evidence_id for p in answer.context),
-                            k=max(1, answer.retrieval_k),
-                        )
-                        outputs[route] = {
-                            "response": answer.model_dump(mode="json"),
-                            "response_sha256": document_fingerprint(answer.model_dump(mode="json")),
-                            "end_to_end_elapsed_ms": elapsed,
-                            "context_scores": context_score.model_dump(mode="json"),
-                            "readback": verify(client, answer, tracking),
-                            "orchestration_scores": score_investigation(
-                                answer.investigation,
-                                answer.execution,
-                                expected_stops=tuple(selected_case["expected_stops"]),
-                            ).model_dump(mode="json")
-                            if answer.investigation and answer.execution
-                            else None,
-                            "final_support": "Pending independent source review.",
-                        }
-                    return {"response": outputs["investigation"]["response"], "paired": outputs}
+                    elapsed = (time.perf_counter() - started) * 1000
+                    result.raise_for_status()
+                    receipt = AnswerReceipt.model_validate(result.json())
+                    receipts.append(receipt)
+                    return {
+                        "response": receipt.response.model_dump(mode="json"),
+                        "end_to_end_elapsed_ms": elapsed,
+                        "final_support": "Pending independent source review.",
+                    }
 
-                run.capture(case_id, capture)
+                def check_capture(
+                    captured: dict[str, Any], selected_case: dict[str, Any] = case
+                ) -> dict[str, Any]:
+                    answer = AnswerRecord.model_validate(captured["response"])
+                    if (
+                        answer.application_sha256 != identity
+                        or answer.snapshot_sha256 != snapshot.fingerprint
+                    ):
+                        raise ValueError(
+                            "The captured application/source differs from the frozen run."
+                        )
+                    retrieval_reference = RetrievalReference.model_validate(
+                        {
+                            k: selected_case[k]
+                            for k in (
+                                "case_id",
+                                "question",
+                                "answerable",
+                                "relevant_ids",
+                                "required_facts",
+                            )
+                        }
+                    )
+                    context_score = score_retrieval(
+                        retrieval_reference,
+                        tuple(h.passage.evidence_id for h in answer.retrieved),
+                        tuple(p.evidence_id for p in answer.context),
+                        k=max(1, answer.retrieval_k),
+                    )
+                    return {
+                        "context_scores": context_score.model_dump(mode="json"),
+                        "readback": verify(client, answer, tracking),
+                        "orchestration_scores": score_investigation(
+                            answer.investigation,
+                            answer.execution,
+                            expected_stops=tuple(selected_case["expected_stops"]),
+                        ).model_dump(mode="json")
+                        if answer.investigation and answer.execution
+                        else None,
+                    }
+
+                run.capture_pair(
+                    case_id,
+                    {
+                        "text_rag": partial(capture, "text_rag"),
+                        "investigation": partial(capture, "investigation"),
+                    },
+                    primary="investigation",
+                    verify=check_capture,
+                )
                 run.annotate(shared_ledger_after_usd=shared.summary()[0])
         run.annotate(stage="application_recreation")
         with (

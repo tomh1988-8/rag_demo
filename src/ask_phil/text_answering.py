@@ -15,6 +15,7 @@ from ask_phil.answers import (
     assemble_context,
     cite_answer,
     context_text,
+    stopped_answer,
 )
 from ask_phil.classified_facts import context_for
 from ask_phil.conversation import (
@@ -197,21 +198,7 @@ class TextAnswer:
                 )
             root.set_status("ERROR")
             failure = reason in {"provider_failure", "malformed_output"}
-            draft = Draft(
-                answer=(
-                    f"Execution stopped: {reason}. "
-                    + (
-                        "Captured excerpts: " + " ".join(p.text for p in context)
-                        if context and not failure
-                        else ("I couldn't produce a usable, cited answer. Please try again later.")
-                    )
-                    + " This limit does not establish that an event did not happen."
-                ),
-                status="partial" if context and not failure else "insufficient_evidence",
-                evidence_ids=tuple(p.evidence_id for p in context) if not failure else (),
-                unanswered=("The requested answer is incomplete because execution stopped.",),
-                qualifications=(),
-            )
+            draft = stopped_answer(reason, () if failure else context)
             citations = cite_answer(draft, context, snapshot_id)
         classifications = context_for(retrieved.context_claims, (c.evidence_id for c in citations))
         answer = draft.answer

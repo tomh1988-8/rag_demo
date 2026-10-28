@@ -96,6 +96,52 @@ def test_model_limit_returns_retained_evidence_and_a_saved_stop_reason(
         assert root.outputs["execution"]["stop_reason"] == "model_call_limit"
 
 
+@pytest.mark.parametrize("models", [{"forbid_chat": True}], indirect=True)
+def test_large_text_stop_keeps_full_citations_and_an_immutable_bounded_reply(
+    database_url: str, seed: SourceSnapshot, models: Models, tracking_uri: str
+) -> None:
+    text = seed.passages[0].text + " Synthetic supporting sentence." * 52
+    assert 1600 < len(text) < 1800
+    passage = seed.passages[0].model_copy(
+        update={"text": text, "end": len(text), "sha256": hashlib.sha256(text.encode()).hexdigest()}
+    )
+    snapshot = seed.model_copy(update={"passages": (passage,)})
+    EvidenceStore(database_url).load(snapshot)
+    TextRetriever(database_url, models.embedding, models.settings.embedding_id, 3).prepare(
+        snapshot.snapshot_id
+    )
+    with TestClient(
+        create_app(
+            database_url,
+            models=models,
+            tracking_uri=tracking_uri,
+            execution_limits=ExecutionLimits(model_calls=1, context_bytes=4000),
+        )
+    ) as client:
+        result = client.post(
+            "/v1/answers",
+            json={"snapshot_id": snapshot.snapshot_id, "question": "When did Phil arrive?"},
+        )
+        assert result.status_code == 200, result.text
+        receipt = result.json()
+        answer = receipt["response"]
+        assert answer["status"] == "partial"
+        assert answer["execution"]["stop_reason"] == "model_call_limit"
+        assert len(answer["answer"]) <= 1600
+        assert "full citations" in answer["answer"]
+        assert answer["unanswered"]
+        assert answer["citations"][0]["text"] == text
+        assert answer["context"][0]["text"] == text
+        saved = client.get(
+            f"/v1/responses/{answer['response_id']}",
+            headers={"Authorization": f"Bearer {receipt['read_token']}"},
+        )
+        assert saved.json() == answer
+        trace = MlflowClient(tracking_uri=tracking_uri).get_trace(answer["trace_id"], flush=True)
+        root = next(span for span in trace.data.spans if span.name == "text_rag")
+        assert root.outputs == answer
+
+
 @pytest.fixture
 def slow_models(
     http_server: Callable[[ASGIApp], AbstractContextManager[str]],

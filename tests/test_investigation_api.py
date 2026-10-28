@@ -808,14 +808,16 @@ def test_graph_database_deadline_returns_an_immutable_investigation_stop_receipt
         assert original.json() == answer
 
 
+@pytest.mark.parametrize("repetitions", [42, 52])
 def test_stop_with_large_retained_passage_preserves_support_without_overflowing_the_reply(
     database_url: str,
     seed: SourceSnapshot,
     investigator_models: Callable[[list[dict[str, Any]]], Models],
     tmp_path: Path,
+    repetitions: int,
 ) -> None:
-    text = seed.passages[0].text + " Synthetic supporting sentence." * 52
-    assert 1600 < len(text) < 1800
+    text = seed.passages[0].text + " Synthetic supporting sentence." * repetitions
+    assert 1400 < len(text) < 1800
     passage = seed.passages[0].model_copy(
         update={"text": text, "end": len(text), "sha256": hashlib.sha256(text.encode()).hexdigest()}
     )

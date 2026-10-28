@@ -193,6 +193,130 @@ def test_completed_capture_preserves_frozen_evidence_and_can_be_reviewed(tmp_pat
     assert output.read_bytes() == original
 
 
+def test_verified_pair_keeps_both_answers_and_reviews_only_the_selected_primary(
+    tmp_path: Path,
+) -> None:
+    from ask_phil.evaluation import EvaluationRun, review_capture
+
+    _, reviews, references = capture_files(tmp_path)
+    output = tmp_path / "paired-capture.json"
+    baseline = {"answer": "Earlier baseline."}
+    candidate = {"answer": "Right, listen. I arrived in February 1990."}
+    with EvaluationRun(output, references, ("arrival",)) as run:
+        captured = run.capture_pair(
+            "arrival",
+            {
+                "text_rag": lambda: {"response": baseline},
+                "investigation": lambda: {"response": candidate},
+            },
+            primary="investigation",
+            verify=lambda row: {"readback": {"trace_output_matches": True}},
+        )
+        # Inputs, returned values and presentation copies cannot rewrite the journal.
+        candidate["answer"] = "Changed input."
+        captured["response"]["answer"] = "Changed return."
+        run.cases[0]["paired"].clear()
+    retained = json.loads(output.read_text())
+    case = retained["cases"][0]
+    assert retained["state"] == case["state"] == "complete"
+    assert case["paired"]["text_rag"]["response"] == baseline
+    assert (
+        case["response"]
+        == case["paired"]["investigation"]["response"]
+        == {"answer": "Right, listen. I arrived in February 1990."}
+    )
+    assert all(row["verification_state"] == "complete" for row in case["paired"].values())
+    reviewed = review_capture(output, reviews, references, tmp_path / "scores.json")
+    assert reviewed["state"] == "complete"
+
+
+def test_verification_failure_retains_the_received_answer_before_readback(tmp_path: Path) -> None:
+    from ask_phil.evaluation import EvaluationRun
+
+    _, _, references = capture_files(tmp_path)
+    output = tmp_path / "verified-capture.json"
+    response = {"answer": "Right, listen. I arrived in February 1990."}
+
+    def unavailable_readback(captured: dict[str, Any]) -> dict[str, Any]:
+        retained = json.loads(output.read_text())["cases"][0]
+        assert retained["response"] == response
+        assert retained["verification_state"] == "running"
+        assert captured["response"] == response
+        raise TimeoutError("private tracking details")
+
+    with pytest.raises(TimeoutError):
+        with EvaluationRun(output, references, ("arrival",)) as run:
+            run.capture("arrival", lambda: {"response": response}, verify=unavailable_readback)
+    retained = json.loads(output.read_text())
+    assert retained["state"] == "failed"
+    case = retained["cases"][0]
+    assert case["state"] == "failed"
+    assert case["response"] == response
+    assert case["response_sha256"] == (
+        "e4234e07acf262353e9851e8ae5fc825b2e7cae065cc33c87e90e39a64243dad"
+    )
+    assert case["verification_state"] == "failed"
+    assert case["verification_failure_type"] == "TimeoutError"
+    assert "private tracking details" not in output.read_text()
+
+
+@pytest.mark.parametrize("failure_at", ["first_readback", "second_capture", "second_readback"])
+def test_failed_pair_retains_each_received_answer_and_its_verification(
+    tmp_path: Path, failure_at: str
+) -> None:
+    from ask_phil.evaluation import EvaluationRun, review_capture
+
+    _, reviews, references = capture_files(tmp_path)
+    output = tmp_path / "paired-capture.json"
+    baseline = {"answer": "Right, listen. I arrived in February 1990."}
+    candidate = {"answer": "Candidate answer."}
+
+    def second_capture() -> dict[str, Any]:
+        if failure_at == "second_capture":
+            raise TimeoutError("private upstream details")
+        return {"response": candidate}
+
+    def verify(captured: dict[str, Any]) -> dict[str, Any]:
+        if (failure_at == "first_readback" and captured["response"] == baseline) or (
+            failure_at == "second_readback" and captured["response"] == candidate
+        ):
+            raise TimeoutError("private upstream details")
+        return {"readback": {"trace_output_matches": True}}
+
+    with pytest.raises(TimeoutError):
+        with EvaluationRun(output, references, ("arrival",)) as run:
+            run.capture_pair(
+                "arrival",
+                {"text_rag": lambda: {"response": baseline}, "investigation": second_capture},
+                primary="investigation",
+                verify=verify,
+            )
+    retained = json.loads(output.read_text())
+    case = retained["cases"][0]
+    assert retained["state"] == case["state"] == "failed"
+    first = case["paired"]["text_rag"]
+    assert first["response"] == baseline
+    assert first["response_sha256"] == (
+        "e4234e07acf262353e9851e8ae5fc825b2e7cae065cc33c87e90e39a64243dad"
+    )
+    assert first["verification_state"] == (
+        "failed" if failure_at == "first_readback" else "complete"
+    )
+    if failure_at == "second_readback":
+        second = case["paired"]["investigation"]
+        assert second["response"] == candidate
+        assert second["verification_state"] == "failed"
+    assert "response" not in case
+    assert "private upstream details" not in output.read_text()
+    with pytest.raises(ValueError, match="complete"):
+        review_capture(output, reviews, references, tmp_path / "scores.json")
+    original = output.read_bytes()
+    with pytest.raises(FileExistsError):
+        with EvaluationRun(output, references, ("arrival",)):
+            pass
+    assert output.read_bytes() == original
+
+
 @pytest.mark.parametrize("problem", ["missing", "duplicate", "caught_failure"])
 def test_run_cannot_complete_with_missing_duplicate_or_failed_cases(
     tmp_path: Path, problem: str

@@ -16,6 +16,7 @@ from ask_phil.answers import (
     AskRequest,
     Draft,
     cite_answer,
+    stopped_answer,
 )
 from ask_phil.classified_facts import context_for
 from ask_phil.conversation import (
@@ -244,23 +245,11 @@ class Investigation:
             root.set_status("ERROR")
             resolved = {eid for c in coverage if c.resolved for eid in c.evidence_ids}
             excerpts = tuple(p for p in tools.context if p.evidence_id in resolved)[:3]
-            quoted = " ".join(p.text for p in excerpts)
-            supported = (
-                "Supported captured excerpts: " + quoted
-                if len(quoted) <= 1000
-                else "Previously assessed supporting passages are attached as full citations."
-            )
-            draft = Draft(
-                answer=(
-                    f"Investigation stopped: {stop_reason}. "
-                    + (supported if excerpts else "The requested answer remains unresolved.")
-                    + " The remaining requested information is unresolved; absence is not proof."
-                ),
-                status="partial" if excerpts else "insufficient_evidence",
-                evidence_ids=tuple(p.evidence_id for p in excerpts),
+            draft = stopped_answer(
+                stop_reason,
+                excerpts,
                 unanswered=tuple(c.part for c in coverage if not c.resolved)
                 or ("The requested answer is incomplete because execution stopped.",),
-                qualifications=(),
             )
         assert draft is not None
         notices: tuple[ReviewNotice, ...] = ()

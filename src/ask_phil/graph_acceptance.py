@@ -249,7 +249,7 @@ class GraphAcceptanceRun:
             run.annotate(admissions=admissions)
             if phase.kind == "family":
                 run.annotate(admission=audit["admission"], graph_sha256=audit["graph_sha256"])
-            receipts: list[AnswerReceipt] = []
+            captures: list[_Captured] = []
             with (
                 _serve(database_url, self._tracking.tracking_uri) as url,
                 httpx.Client(base_url=url, trust_env=False, timeout=30) as client,
@@ -257,58 +257,53 @@ class GraphAcceptanceRun:
                 for case in phase.cases:
                     identifier = f"{phase.name}-{case.case_id}"
                     run.annotate(stage="capturing", current_case=identifier)
-                    captured: _Captured | None = None
 
                     def execute(selected: GraphCase = case) -> dict[str, Any]:
-                        nonlocal captured
                         captured = self._capture(client, url, snapshot.snapshot_id, selected)
+                        captures.append(captured)
                         return {
+                            "phase": phase.name,
+                            "transport": (
+                                "api" if selected.transport == "session" else selected.transport
+                            ),
                             "response": captured.receipt.response.model_dump(mode="json"),
                             "capture_elapsed_ms": captured.elapsed_ms,
+                            **(
+                                {"http_elapsed_ms": captured.elapsed_ms}
+                                if selected.transport == "api"
+                                else {}
+                            ),
                         }
 
-                    capture = run.capture(identifier, execute)
-                    assert captured is not None
-                    receipts.append(captured.receipt)
-                    record = {
-                        "phase": phase.name,
-                        "case_id": case.case_id,
-                        "transport": "api" if case.transport == "session" else case.transport,
-                        "response": capture["response"],
-                        "capture_elapsed_ms": capture["capture_elapsed_ms"],
-                        "verification_state": "running",
-                    }
-                    if case.transport == "api":
-                        record["http_elapsed_ms"] = capture["capture_elapsed_ms"]
-                    responses.append(record)
-                    run.annotate(stage="verifying", responses=responses)
-                    try:
-                        record.update(
-                            self._verify(
-                                client,
-                                capture["response"],
-                                snapshot,
-                                identity,
-                                case.query.kind
-                                if isinstance(case.query, EventQuery)
-                                else "relationship_history"
-                                if isinstance(case.query, RelationshipQuery)
-                                else "family_graph"
-                                if isinstance(case.query, FamilyQuery)
-                                else tool_name,
-                            )
+                    def verify(
+                        record: dict[str, Any], selected: GraphCase = case
+                    ) -> dict[str, Any]:
+                        captured = captures[-1]
+                        run.annotate(stage="verifying")
+                        checked = self._verify(
+                            client,
+                            record["response"],
+                            snapshot,
+                            identity,
+                            selected.query.kind
+                            if isinstance(selected.query, EventQuery)
+                            else "relationship_history"
+                            if isinstance(selected.query, RelationshipQuery)
+                            else "family_graph"
+                            if isinstance(selected.query, FamilyQuery)
+                            else tool_name,
                         )
-                        if case.assess:
-                            assessment = case.assess(
-                                deepcopy(capture["response"]),
+                        if selected.assess:
+                            assessment = selected.assess(
+                                deepcopy(record["response"]),
                                 snapshot,
                                 frozen[phase.reference] if phase.reference else None,
                             )
-                            if record.keys() & assessment.keys():
+                            if (record.keys() | checked.keys()) & assessment.keys():
                                 raise ValueError(
                                     "Domain assessment cannot replace acceptance evidence."
                                 )
-                            record.update(assessment)
+                            checked.update(assessment)
                         if captured.session_path:
                             reset = client.post(
                                 captured.session_path + "/reset", headers=captured.session_headers
@@ -316,16 +311,35 @@ class GraphAcceptanceRun:
                             reset.raise_for_status()
                             if reset.json()["generation"] != 1 or reset.json()["history"]:
                                 raise ValueError("Session reset did not clear graph references.")
-                            record["session_reset"] = True
-                        record["verification_state"] = "complete"
-                    except BaseException as exc:
-                        record.update(
-                            verification_state="failed",
-                            verification_failure_type=type(exc).__name__,
-                        )
+                            checked["session_reset"] = True
+                        return checked
+
+                    try:
+                        run.capture(identifier, execute, verify=verify)
+                    finally:
+                        # Preserve the established presentation from the retained journal,
+                        # including a response whose verification just failed.
+                        responses[:] = [
+                            {
+                                **{
+                                    key: value
+                                    for key, value in row.items()
+                                    if key
+                                    not in {
+                                        "case_id",
+                                        "reference",
+                                        "reference_sha256",
+                                        "response_sha256",
+                                        "state",
+                                        "failure_type",
+                                    }
+                                },
+                                "case_id": row["reference"]["domain_case_id"],
+                            }
+                            for row in run.cases
+                            if "response" in row
+                        ]
                         run.annotate(responses=responses)
-                        raise
-                    run.annotate(responses=responses)
                 run.annotate(stage="checking_graph")
                 query = phase.typed_query or phase.cases[0].query
                 typed = client.post(
@@ -373,7 +387,8 @@ class GraphAcceptanceRun:
                 _serve(database_url, self._tracking.tracking_uri) as url,
                 httpx.Client(base_url=url, trust_env=False, timeout=30) as client,
             ):
-                for receipt in receipts:
+                for captured in captures:
+                    receipt = captured.receipt
                     saved = client.get(
                         f"/v1/responses/{receipt.response.response_id}",
                         headers={"Authorization": f"Bearer {receipt.read_token}"},

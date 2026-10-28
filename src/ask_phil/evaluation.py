@@ -4,7 +4,7 @@ import hashlib
 import json
 import os
 import tempfile
-from collections.abc import Callable, Sequence
+from collections.abc import Callable, Mapping, Sequence
 from copy import deepcopy
 from dataclasses import dataclass
 from datetime import UTC, datetime
@@ -43,6 +43,9 @@ _CASE_FIELDS = {
     "response_sha256",
     "state",
     "failure_type",
+    "verification_state",
+    "verification_failure_type",
+    "paired",
 }
 
 
@@ -183,7 +186,49 @@ class EvaluationRun:
         self._document.update(deepcopy(metadata))
         self._save()
 
-    def capture(self, case_id: str, execute: Callable[[], dict[str, Any]]) -> dict[str, Any]:
+    def capture(
+        self,
+        case_id: str,
+        execute: Callable[[], dict[str, Any]],
+        *,
+        verify: Callable[[dict[str, Any]], dict[str, Any]] | None = None,
+    ) -> dict[str, Any]:
+        """Retain execution before optional readback; verification cannot change evidence."""
+        return self._capture(self._start(case_id), execute, verify)
+
+    def capture_pair(
+        self,
+        case_id: str,
+        captures: Mapping[str, Callable[[], dict[str, Any]]],
+        *,
+        primary: str,
+        verify: Callable[[dict[str, Any]], dict[str, Any]],
+    ) -> dict[str, Any]:
+        """Journal each comparison answer independently before selecting the primary."""
+        if len(captures) != 2 or primary not in captures:
+            raise ValueError("Select two named captures and their primary response.")
+        row = self._start(case_id)
+        paired = {name: {"state": "pending"} for name in captures}
+        row["paired"] = paired
+        try:
+            for name, execute in captures.items():
+                self._capture(paired[name], execute, verify)
+            row["response"] = deepcopy(paired[primary]["response"])
+            row["response_sha256"] = paired[primary]["response_sha256"]
+            row["state"] = "complete"
+            self._save()
+            return deepcopy(row)
+        except BaseException as exc:
+            row.update(state="failed", failure_type=type(exc).__name__)
+            self._save()
+            raise
+
+    @property
+    def cases(self) -> tuple[dict[str, Any], ...]:
+        """Detached retained outcomes for presentation and domain summaries."""
+        return tuple(deepcopy(self._document["cases"]))
+
+    def _start(self, case_id: str) -> dict[str, Any]:
         if not self._active or case_id not in self._document["case_ids"]:
             raise ValueError("Case is not selected for this evaluation run.")
         if any(row["case_id"] == case_id for row in self._document["cases"]):
@@ -196,6 +241,15 @@ class EvaluationRun:
             "state": "attempting",
         }
         self._document["cases"].append(row)
+        return row
+
+    def _capture(
+        self,
+        row: dict[str, Any],
+        execute: Callable[[], dict[str, Any]],
+        verify: Callable[[dict[str, Any]], dict[str, Any]] | None,
+    ) -> dict[str, Any]:
+        row["state"] = "attempting"
         self._save()
         try:
             result = execute()
@@ -204,12 +258,29 @@ class EvaluationRun:
             row.update(deepcopy(result))
             if "response" in row:
                 row["response_sha256"] = document_fingerprint(row["response"])
+            if verify is not None:
+                self._verify(row, verify)
             row["state"] = "complete"
             self._save()
             return deepcopy(row)
         except BaseException as exc:
             row.update(state="failed", failure_type=type(exc).__name__)
             self._save()
+            raise
+
+    def _verify(
+        self, row: dict[str, Any], verify: Callable[[dict[str, Any]], dict[str, Any]]
+    ) -> None:
+        row["verification_state"] = "running"
+        self._save()
+        try:
+            result = verify(deepcopy(row))
+            if (_CASE_FIELDS | row.keys()).intersection(result):
+                raise ValueError("Verification cannot replace captured evidence or its state.")
+            row.update(deepcopy(result))
+            row["verification_state"] = "complete"
+        except BaseException as exc:
+            row.update(verification_state="failed", verification_failure_type=type(exc).__name__)
             raise
 
     def __exit__(

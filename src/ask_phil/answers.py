@@ -173,8 +173,11 @@ class AnswerReceipt(Record):
     read_token: str
 
 
+_DRAFT_ANSWER_LIMIT = 1600
+
+
 class Draft(Record):
-    answer: str = Field(min_length=1, max_length=1600)
+    answer: str = Field(min_length=1, max_length=_DRAFT_ANSWER_LIMIT)
     evidence_ids: tuple[Identifier, ...] = Field(max_length=3)
     status: Outcome
     unanswered: tuple[QuestionPart, ...] = Field(max_length=5)
@@ -183,6 +186,35 @@ class Draft(Record):
 
 class Citation(Passage):
     resolve_path: str
+
+
+def stopped_answer(
+    reason: str,
+    support: tuple[Passage, ...],
+    *,
+    unanswered: tuple[str, ...] = (),
+) -> Draft:
+    """Bound stop wording without truncating or dropping the selected citation passages."""
+    prefix = f"Execution stopped: {reason}. "
+    caveat = (
+        " The remaining requested information is unresolved; "
+        "this limit does not establish that an event did not happen."
+    )
+    quoted = " ".join(p.text for p in support)
+    detail = (
+        "Captured excerpts: " + quoted if support else "The requested answer remains unresolved."
+    )
+    # Retain the investigation's conservative excerpt allowance for source labels
+    # and qualifications added by the route after constructing its draft.
+    if len(quoted) > 1000 or len(prefix + detail + caveat) > _DRAFT_ANSWER_LIMIT:
+        detail = "Supporting passages are attached as full citations."
+    return Draft(
+        answer=prefix + detail + caveat,
+        status="partial" if support else "insufficient_evidence",
+        evidence_ids=tuple(p.evidence_id for p in support),
+        unanswered=unanswered or ("The requested answer is incomplete because execution stopped.",),
+        qualifications=(),
+    )
 
 
 def cite_answer(
