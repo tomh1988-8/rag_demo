@@ -168,3 +168,13 @@ Preserve the non-resetting $5 ledger at $0.464981, its zero unsettled reservatio
 the private key and the user's pre-existing workspace changes. Software results,
 source-review findings, retained failures and revision linkage are recorded with
 this issue's validation and review artifacts.
+
+## Publication status
+
+Implementation and validation are committed locally. Automatic approval review
+blocked pushing multiple commits directly to `main` because it requires explicit
+current-conversation approval for that shared-branch mutation. No publication or
+tracker closure was performed. [The receipt](publication.json) records the blocker
+and exact resumption steps; [the prepared tracker body](tracker-update.md) is
+ready for inspection. After approval, publish and verify the remote tree before
+applying that body and closing #16, then publish the completion receipt/handoff.

@@ -11,6 +11,33 @@ commands so they work even without a configured Git remote.
 
 ## Current Ask Phil handoff
 
+Issue #16 is implemented and validated locally at `3716f9c`, with the reviewed
+application at `e2eb7f5` and test-image fixture packaging at `4b883ed`.
+[Evidence](../implementation/issue-16/README.md) records **514 passing tests**,
+strict mypy across 116 files, Ruff/formatting, 33 passing focused checks, a passing
+Docker four-family contract and 17 actual API/CLI/session responses with exact
+MLflow/citation/restart/reset readback. Independent review passes eleven factual
+responses and six assertion-free outcomes. Both code-review axes have zero
+remaining findings after repairing the biological-history admission bypass.
+The register remains 35 Pass and 16 Pending; wider graph coverage and release
+acceptance remain Pending. No paid model calls were made; preserve the shared
+ledger at **$0.464981**, zero unsettled reservations, all 37 original data files,
+51 pre-existing workspace files and both private inputs.
+
+**Publication is blocked by automatic approval review.** It rejected direct push
+of multiple commits to `main` without explicit approval in this conversation.
+No push or tracker write was performed, and GitHub #16 remains open.
+[The receipt](../implementation/issue-16/publication.json) contains the exact
+prepared update and resumption steps. Obtain approval for publishing these commits,
+the prepared body/closure and completion receipt/handoff; then push without force,
+verify the remote tree and 168 final input hashes, update/close #16 and publish
+the completed receipt/handoff. Do not repeat unchanged tests or paid work.
+
+**#17 is next after #16 publication and closure**; #19, #20, #22 and #24 also
+remain unblocked. Wait for a new implementation instruction before another issue.
+
+### Prior issue #15 handoff
+
 Issue #15 is complete and closed after native publication and exact-tree verification
 of [`d4d5564`](https://github.com/tomh1988-8/rag_demo/commit/d4d5564929964766b3f1547ef1f6137968d0022e).
 [The receipt](../implementation/issue-15/publication.json) records seven checked
