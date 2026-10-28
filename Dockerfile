@@ -24,6 +24,7 @@ COPY scripts/record_family_acceptance.py scripts/record_relationship_acceptance.
 COPY docs/implementation/issue-11/claims.json docs/implementation/issue-11/claim-reviews.json ./docs/implementation/issue-11/
 COPY docs/implementation/issue-12/raw-claims.json docs/implementation/issue-12/raw-claim-reviews.json docs/implementation/issue-12/reviewed-claims-v2.json docs/implementation/issue-12/reviewed-claim-reviews-v2.json ./docs/implementation/issue-12/
 COPY docs/implementation/issue-13/raw-claims.json docs/implementation/issue-13/raw-reviews.json docs/implementation/issue-13/reviewed-claims-v2.json docs/implementation/issue-13/reviewed-reviews-v2.json ./docs/implementation/issue-13/
+COPY docs/implementation/issue-16/claim-reviews.json ./docs/implementation/issue-16/
 USER 10001:10001
 CMD ["pytest", "-q", "-p", "no:cacheprovider"]
 
