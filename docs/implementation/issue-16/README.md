@@ -69,8 +69,9 @@ with their complete retained review groups.
 - Biological edges can be followed parent-to-child or child-to-parent. Parent,
   child, grandparent, grandchild and sibling meanings require the corresponding
   all-biological one- or two-step path. No gender, cousin or social ancestry is
-  inferred. Duplicate biological assertions in the history projection use the
-  existing family edge where present.
+  inferred. Biological connections use admitted family edges exclusively;
+  biological assertions remain inspectable in relationship history without
+  providing an alternative admission path.
 - Social parentage and ward ties preserve subject-to-object or reverse direction.
   Romantic assertions are traversable symmetrically; their relation, episode,
   captured current/former/unknown status and story timing remain intact. An

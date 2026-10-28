@@ -24,6 +24,15 @@
       "observed_failure": null,
       "resolution": "Held relationships, shared themes, unclassified co-appearance, unsupported pregnancy parentage, mention in a death passage and hallucinations do not create paths.",
       "test": "tests/test_connection_graph.py::test_unreviewed_relationships_and_text_subjects_cannot_create_connections"
+    },
+    {
+      "case_id": "biological-history-admission-bypass",
+      "priority": "P2",
+      "found_by": "Independent Spec review",
+      "requirement": "Compose established capabilities and exclude unchecked/held connections; ADR 0005 requires the agreed admission checks.",
+      "observed_failure": "Biological relationship-history fallback restored Phil/Ben cycle assertions held by the family admission, deriving biological parent/child meaning despite the held family projection.",
+      "resolution": "Biological connection steps and all ancestry derivations use admitted FamilyEdges exclusively. Relationship history retains its biological assertions for inspection; the connection query excludes them and its typed relationship step rejects them.",
+      "test": "tests/test_connection_graph.py::test_biological_history_cannot_restore_parentage_held_by_family_admission"
     }
   ],
   "prior_failures": "Original extraction, held Claim and ordinary text-quality failures remain unchanged in issues #11\u2013#15. Curated connection results do not improve those scores."

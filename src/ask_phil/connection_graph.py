@@ -73,6 +73,8 @@ class RelationshipStep(Record):
 
     @model_validator(mode="after")
     def directed_endpoints(self) -> Self:
+        if self.claim.relation == "biological_parent":
+            raise ValueError("Biological connections require admitted family edges.")
         endpoints = (self.claim.subject_id, self.claim.object_id)
         expected = (
             "subject_to_object" if (self.from_id, self.to_id) == endpoints else "object_to_subject"
@@ -134,10 +136,6 @@ def _meaning(steps: tuple[ConnectionStep, ...]) -> ConnectionMeaning:
     for step in steps:
         if isinstance(step, BiologicalStep):
             directions.append(step.direction)
-        elif isinstance(step, RelationshipStep) and step.claim.relation == "biological_parent":
-            directions.append(
-                "parent_to_child" if step.direction == "subject_to_object" else "child_to_parent"
-            )
         else:
             return "connection"
     meanings: dict[tuple[str, ...], ConnectionMeaning] = {
@@ -254,15 +252,6 @@ class ConnectionGraph:
                 """).format(version=sql.Literal(versions.family))
                 )
             if versions.relationship:
-                biological_filter = (
-                    sql.SQL("""NOT EXISTS (SELECT 1 FROM family_edges f
-                        WHERE f.graph_sha256={version}
-                        AND f.parent_id=a.subject_id AND f.child_id=a.object_id)""").format(
-                        version=sql.Literal(versions.family)
-                    )
-                    if versions.family
-                    else sql.SQL("true")
-                )
                 links.append(
                     sql.SQL("""
                     SELECT endpoints.origin, endpoints.target,
@@ -276,11 +265,10 @@ class ConnectionGraph:
                         (a.object_id,a.subject_id,'object_to_subject')
                     ) AS endpoints(origin,target,direction)
                     WHERE a.graph_sha256={version}
-                        AND (a.document->>'relation'<>'biological_parent' OR {biological_filter})
+                        AND a.document->>'relation'<>'biological_parent'
                 """).format(
                         directed=sql.Literal(sorted(DIRECTED_RELATIONS)),
                         version=sql.Literal(versions.relationship),
-                        biological_filter=biological_filter,
                     )
                 )
             if versions.event:

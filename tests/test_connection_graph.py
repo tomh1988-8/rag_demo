@@ -518,3 +518,76 @@ def test_connection_uses_published_review_and_explains_held_dispute(
         publication=legacy,
     )
     assert result.status == "empty"
+
+
+def test_biological_history_cannot_restore_parentage_held_by_family_admission(
+    database_url: str,
+) -> None:
+    from test_parentage import reference_batch
+
+    snapshot, original, _ = reference_batch()
+    # Deliberately unsupported reviewed assertions expose the domain cycle guard;
+    # they are admission counterexamples, not new source/canon reference facts.
+    first = original.claims[0]
+    reverse = first.model_copy(
+        update={
+            "claim_id": "synthetic-reverse-parent",
+            "parent_id": "ben-mitchell",
+            "child_id": "phil-mitchell",
+        }
+    )
+    family_batch = original.model_copy(update={"claims": (first, reverse)})
+    EvidenceStore(database_url).load(snapshot)
+    reviews = tuple(
+        ClaimReview(
+            claim_id=c.claim_id,
+            claim_sha256=c.fingerprint,
+            verdict="supported",
+            reviewer="synthetic-cycle-counterexample",
+            note="Deliberately unsupported cycle regression, not a canon assertion.",
+        )
+        for c in family_batch.claims
+    )
+    family = FamilyGraph(database_url).install(family_batch, reviews)
+    assert all(d.status == "held" and "cycle" in d.reasons for d in family.admission.decisions)
+    history_claims = tuple(
+        RelationshipClaim(
+            claim_id=c.claim_id,
+            subject_id=c.parent_id,
+            object_id=c.child_id,
+            relation="biological_parent",
+            episode_id=c.claim_id,
+            status="unknown",
+            polarity="affirmed",
+            certainty="certain",
+            story_time="unknown",
+            time_precision="unknown",
+            after_claim_id=None,
+            evidence=c.evidence,
+        )
+        for c in family_batch.claims
+    )
+    history = RelationshipGraph(database_url).install(
+        RelationshipBatch(
+            snapshot_id=snapshot.snapshot_id,
+            snapshot_sha256=snapshot.fingerprint,
+            catalogue=original.catalogue,
+            extractor="synthetic-cycle-counterexample",
+            claims=history_claims,
+        ),
+        tuple(
+            r.model_copy(update={"claim_sha256": c.fingerprint})
+            for r, c in zip(reviews, history_claims, strict=True)
+        ),
+    )
+    assert all(d.status == "admitted" for d in history.admission.decisions)
+    result = ConnectionGraph(database_url).query(
+        snapshot.snapshot_id,
+        ConnectionQuery(
+            kind="connection",
+            character_id="phil-mitchell",
+            target_id="ben-mitchell",
+            max_depth=1,
+        ),
+    )
+    assert result.status == "empty" and result.paths == ()
