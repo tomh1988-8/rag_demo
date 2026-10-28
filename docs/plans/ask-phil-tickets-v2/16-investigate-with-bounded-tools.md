@@ -1,6 +1,6 @@
 # 16: Investigate with bounded text and graph tools
 
-Status: implemented for [GitHub #17](https://github.com/tomh1988-8/rag_demo/issues/17). [Evidence](../../implementation/issue-17/README.md) records 550 passing tests, strict mypy/Ruff, six Docker contracts, independent review and a three-case paired live comparison. Publication/closure readback is pending. Plan version: 2; original acceptance criteria are retained below.
+Status: implemented for [GitHub #17](https://github.com/tomh1988-8/rag_demo/issues/17). [Evidence](../../implementation/issue-17/README.md) records 550 passing tests, strict mypy/Ruff, six Docker contracts, independent review and a three-case paired live comparison. [Automatic approval review rejected publication to `origin/main`](../../implementation/issue-17/publication.json); explicit approval and publication/closure readback remain required. Plan version: 2; original acceptance criteria are retained below.
 
 Spec stories: S15, S28, S35, S36, S37, S38, S39, S40, S41, S43, S44, S45, S46, S47, S49, S53, S55, S68, S70, S72, S73, S74, S79, S80, S81, S82, S83, S94, S96. Checklist evidence owner for: the extensions and rechecks below; primary ownership is recorded in the project register.
 

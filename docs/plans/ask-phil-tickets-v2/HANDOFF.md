@@ -1,6 +1,6 @@
 # Ask Phil: publication and next-skill handoff
 
-## Issue #17: bounded investigation implemented; publication pending
+## Issue #17: bounded investigation implemented; publication approval blocked
 
 The explicit investigator is implemented at final software `13d38e0`, with
 [frozen inputs](../../implementation/issue-17/software-inputs.json), passing
@@ -8,6 +8,13 @@ focused API/CLI/graph/accounting/deadline checks and zero remaining findings on
 both independent review axes. The full suite passes **550 tests**; strict mypy
 across 125 files, Ruff/formatting and six Docker contracts pass. Publication,
 exact-tree verification and issue closure readback remain to be completed.
+Automatic approval review rejected the direct `origin/main` push for lack of
+explicit default-branch publication authorization. No remote write or tracker
+closure occurred. The [receipt](../../implementation/issue-17/publication.json)
+and [prepared exact tracker body](../../implementation/issue-17/tracker-update.md)
+make the remaining push/verification/closure concrete. Obtain explicit approval;
+the reviewer forbids an indirect workaround. Preserve the tested code and reuse
+the unchanged evidence rather than repeating tests or paid calls.
 
 [Six actual paired responses](../../implementation/issue-17/comparison-summary.json)
 on three exposed story groups share the exact source/index/answer-model identities.

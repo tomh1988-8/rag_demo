@@ -135,3 +135,13 @@ readback is recorded in the completion validation and receipt. Routing (#18),
 fusion (#24), broader graph coverage, feedback/online evaluation and release
 acceptance retain their existing obligations. Checklist counts remain 35 Pass
 and 16 Pending.
+
+## Publication
+
+Implementation and validation are committed as `000a866`. Automatic approval
+review rejected `git push origin main`, stating that publishing to the default
+branch requires explicit user authorization. No remote mutation or issue closure
+occurred. [The receipt](publication.json) records the blocker and
+[the exact tracker update](tracker-update.md) is prepared. Approval is needed for
+the push, exact-tree readback and subsequent #17 closure; completed tests and paid
+captures can be reused unchanged.

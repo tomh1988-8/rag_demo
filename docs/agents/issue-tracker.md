@@ -13,8 +13,14 @@ commands so they work even without a configured Git remote.
 
 Issue #17 is implemented and independently reviewed on `main`. Final software
 revision is `13d38e0`; **550 tests**, strict mypy across 125 files, Ruff/formatting
-and six Docker investigation contracts pass. Publication/closure readback is
-pending. [Evidence](../implementation/issue-17/README.md) and the
+and six Docker investigation contracts pass. Implementation/evidence commit is
+`000a866`. Automatic approval review rejected `git push origin main` because
+explicit authorization to publish to the default branch is required. No push,
+tracker mutation or closure occurred. The [publication receipt](../implementation/issue-17/publication.json)
+records the rejection and [exact prepared tracker body](../implementation/issue-17/tracker-update.md).
+Obtain approval for pushing to `origin/main` and closing #17 after exact-tree
+verification; the reviewer forbids bypass through another publication mechanism.
+[Evidence](../implementation/issue-17/README.md) and the
 [frozen inputs](../implementation/issue-17/software-inputs.json) are the current
 sources. Both review axes have zero remaining findings after reproducing and
 repairing SQL-timeout receipt loss and oversized stop replies. Preserve the

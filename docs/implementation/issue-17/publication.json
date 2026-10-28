@@ -1,0 +1,39 @@
+{
+  "recorded_at": "2026-10-28T13:54:40.401695+00:00",
+  "state": "blocked_pending_explicit_publication_approval",
+  "issue": "https://github.com/tomh1988-8/rag_demo/issues/17",
+  "issue_state": "open",
+  "implementation_commit": "000a86681cf115dd1627c9eb87da015c5ca14e07",
+  "implementation_tree": "4de8acdc9cda13cd6cfd0062e4ae7b12ed1b1c67",
+  "final_software_revision": "13d38e0022c709bb9525a760dbc9bdd6ce1f2b71",
+  "target": "origin/main",
+  "push_executed": false,
+  "remote_tree_verified": false,
+  "tracker_updated": false,
+  "issue_closed": false,
+  "prepared_tracker_body": "tracker-update.md",
+  "prepared_tracker_body_sha256": "b801ac31c4480185802abbda9b158dd49a134b564e444bf371a890241dfc36de",
+  "checked_criteria_prepared": 7,
+  "approval_review": {
+    "action": "git push origin main",
+    "result": "rejected",
+    "reason": "Pushing directly to the default main branch is a shared-repository mutation with meaningful blast radius; the user authorized implementation and commits but did not explicitly authorize publishing to this branch.",
+    "workaround_used": false
+  },
+  "remaining_steps": [
+    "Obtain explicit approval for publication to origin/main and verified issue closure.",
+    "Push the current branch with no force.",
+    "Read back the remote revision/tree and verify all 188 frozen inputs.",
+    "Apply the exact prepared issue body, close as completed and read back all seven checked criteria.",
+    "Publish the completion receipt/handoff and verify its remote tree."
+  ],
+  "validation": "validation.json",
+  "tests_passed": 550,
+  "docker_checks_passed": 6,
+  "remaining_review_findings": {
+    "standards": 0,
+    "spec": 0
+  },
+  "shared_budget_usd": "0.495612",
+  "unsettled_reservations": 0
+}
