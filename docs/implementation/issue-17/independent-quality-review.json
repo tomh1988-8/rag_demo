@@ -1,0 +1,184 @@
+[
+  {
+    "case_id": "single-pregnancy",
+    "route": "text_rag",
+    "review": {
+      "case_id": "single-pregnancy",
+      "response_sha256": "eb62ef176d7f247f78f6a4de4d05a0ae41d65ade3c1fdb62ea9df47952ed92b0",
+      "reference_sha256": "90bf936f602014e91972e81937b3be6c5532e67441b00649c569aaacfe00d046",
+      "reviewer": "Independent Codex Spec/source-review sub-agent /root/spec_review; separate from the implementing agent",
+      "rationale": "This is independent review of captured source support, not independent corroboration of EastEnders canon or held-out release acceptance. Both asserted facts and the exact-timing qualification are directly supported by the acquired and cited sharon-christmas-pregnancy passage. The wording stays within this discovery episode and makes no unsupported paternity inference. The sole required fact is complete, and answered is appropriate. Other retrieved passages are not used to conflate separate pregnancies. These are the frozen b599783 outputs, predating the stop-only repairs.",
+      "claims": [
+        {
+          "claim": "Sharon Watts was stunned to discover she was pregnant on Christmas Day 2005.",
+          "correct": true,
+          "grounded": true,
+          "citation_supported": true
+        },
+        {
+          "claim": "Sharon and Dennis celebrated the possibility of having a child.",
+          "correct": true,
+          "grounded": true,
+          "citation_supported": true
+        }
+      ],
+      "required_facts": [
+        {
+          "fact": "Sharon discovers she is pregnant on Christmas Day 2005.",
+          "covered": true
+        }
+      ],
+      "answerability": true,
+      "relevance": true,
+      "critical_failures": []
+    }
+  },
+  {
+    "case_id": "single-pregnancy",
+    "route": "investigation",
+    "review": {
+      "case_id": "single-pregnancy",
+      "response_sha256": "c8bc4d1172625ebf145a585fae5a4fb26fa54af3fb156d3d5bf3a1208a0fd858",
+      "reference_sha256": "90bf936f602014e91972e81937b3be6c5532e67441b00649c569aaacfe00d046",
+      "reviewer": "Independent Codex Spec/source-review sub-agent /root/spec_review; separate from the implementing agent",
+      "rationale": "This is independent review of captured source support, not independent corroboration of EastEnders canon or held-out release acceptance. Both asserted facts and the exact-timing qualification are directly supported by the acquired and cited sharon-christmas-pregnancy passage. The wording stays within this discovery episode and makes no unsupported paternity inference. The sole required fact is complete, and answered is appropriate. Other retrieved passages are not used to conflate separate pregnancies. These are the frozen b599783 outputs, predating the stop-only repairs.",
+      "claims": [
+        {
+          "claim": "Sharon Watts was stunned to discover she was pregnant on Christmas Day 2005.",
+          "correct": true,
+          "grounded": true,
+          "citation_supported": true
+        },
+        {
+          "claim": "Sharon and Dennis celebrated the possibility of having a child.",
+          "correct": true,
+          "grounded": true,
+          "citation_supported": true
+        }
+      ],
+      "required_facts": [
+        {
+          "fact": "Sharon discovers she is pregnant on Christmas Day 2005.",
+          "covered": true
+        }
+      ],
+      "answerability": true,
+      "relevance": true,
+      "critical_failures": []
+    }
+  },
+  {
+    "case_id": "multi-family",
+    "route": "text_rag",
+    "review": {
+      "case_id": "multi-family",
+      "response_sha256": "d002b5be7938a6482a5bc90005557a4054aed9fd73a1041206a8e2a6b8a0c294",
+      "reference_sha256": "43765d3ea57006e317edfa92acf40704cb98436c92eb8d9baace9dcb8fbb48af",
+      "reviewer": "Independent Codex Spec/source-review sub-agent /root/spec_review; separate from the implementing agent",
+      "rationale": "This is independent review of captured source support, not independent corroboration of EastEnders canon or held-out release acceptance. The acquired and cited family-ben-birth passage supports Phil and Kathy as Ben's biological parents. The duplicate history-ben-birth is the same source account, not another fact or corroboration. Neither acquired passage nor history-kathy-reconciliation identifies Phil's mother. The reply openly marks that requested part unresolved, so partial is an honest outcome for its actual context, with no invented parentage or unsupported negative about story events. Completeness nevertheless fails the second required fact: the wider frozen corpus contains Peggy's identity in family-peggy-phil and peggy-pregnancy. The phrase captured evidence is assessed here as the supplied context; it should not be interpreted as absence from the whole corpus. These are the frozen b599783 outputs, predating the stop-only repairs.",
+      "claims": [
+        {
+          "claim": "Phil Mitchell is a biological parent of Ben Mitchell.",
+          "correct": true,
+          "grounded": true,
+          "citation_supported": true
+        },
+        {
+          "claim": "Kathy Beale is a biological parent of Ben Mitchell.",
+          "correct": true,
+          "grounded": true,
+          "citation_supported": true
+        }
+      ],
+      "required_facts": [
+        {
+          "fact": "Phil Mitchell and Kathy Beale are Ben Mitchell's biological parents.",
+          "covered": true
+        },
+        {
+          "fact": "Peggy Mitchell is Phil Mitchell's biological mother.",
+          "covered": false
+        }
+      ],
+      "answerability": true,
+      "relevance": true,
+      "critical_failures": []
+    }
+  },
+  {
+    "case_id": "multi-family",
+    "route": "investigation",
+    "review": {
+      "case_id": "multi-family",
+      "response_sha256": "cf0cdc95b1614d397f2be2c6082d93a1df0e5751e354222650b4447ea60eaa59",
+      "reference_sha256": "43765d3ea57006e317edfa92acf40704cb98436c92eb8d9baace9dcb8fbb48af",
+      "reviewer": "Independent Codex Spec/source-review sub-agent /root/spec_review; separate from the implementing agent",
+      "rationale": "This is independent review of captured source support, not independent corroboration of EastEnders canon or held-out release acceptance. The actual context and citations contain family-ben-birth for both of Ben's biological parents and family-peggy-phil for Peggy's pregnancy with her son Phil. The source-reviewed phil-ben, kathy-ben and peggy-phil claim reference agrees with these passages; it is derived from them, not independent corroboration. Phil's first-person wording preserves the named identities. Both required facts are complete and answered is appropriate. This assessment comes from the passages, not the investigator's coverage self-report. These are the frozen b599783 outputs, predating the stop-only repairs.",
+      "claims": [
+        {
+          "claim": "Phil Mitchell is a biological parent of Ben Mitchell.",
+          "correct": true,
+          "grounded": true,
+          "citation_supported": true
+        },
+        {
+          "claim": "Kathy Beale is a biological parent of Ben Mitchell.",
+          "correct": true,
+          "grounded": true,
+          "citation_supported": true
+        },
+        {
+          "claim": "Peggy Mitchell is Phil Mitchell's biological mother.",
+          "correct": true,
+          "grounded": true,
+          "citation_supported": true
+        }
+      ],
+      "required_facts": [
+        {
+          "fact": "Phil Mitchell and Kathy Beale are Ben Mitchell's biological parents.",
+          "covered": true
+        },
+        {
+          "fact": "Peggy Mitchell is Phil Mitchell's biological mother.",
+          "covered": true
+        }
+      ],
+      "answerability": true,
+      "relevance": true,
+      "critical_failures": []
+    }
+  },
+  {
+    "case_id": "unsupported-theme",
+    "route": "text_rag",
+    "review": {
+      "case_id": "unsupported-theme",
+      "response_sha256": "45c2de8e404e19e741dd2790e1e285bcab763fea2b1fbe49060140bd702855ab",
+      "reference_sha256": "00f5debb9958174947e9bbae7b1e2850758f13088f8e9f7132011f8bd7b6fdff",
+      "reviewer": "Independent Codex Spec/source-review sub-agent /root/spec_review; separate from the implementing agent",
+      "rationale": "This is independent review of captured source support, not independent corroboration of EastEnders canon or held-out release acceptance. The actual acquired passages do not describe Phil responding to the manosphere, and the frozen reference labels this question unsupported by this corpus. The reply identifies the precise unresolved question, gives no unrelated story facts and does not infer that a response never occurred. Insufficient_evidence and relevance pass. It makes no story-factual claims, so correctness, groundedness and citation-support denominators are unavailable, rather than manufactured passes; there are no required factual assertions to count. These are the frozen b599783 outputs, predating the stop-only repairs.",
+      "claims": [],
+      "required_facts": [],
+      "answerability": true,
+      "relevance": true,
+      "critical_failures": []
+    }
+  },
+  {
+    "case_id": "unsupported-theme",
+    "route": "investigation",
+    "review": {
+      "case_id": "unsupported-theme",
+      "response_sha256": "c466bcb45ba5937c497c09e79cd5f9c53b4e0728cf5eb57cfd6b94a2f914bd9a",
+      "reference_sha256": "00f5debb9958174947e9bbae7b1e2850758f13088f8e9f7132011f8bd7b6fdff",
+      "reviewer": "Independent Codex Spec/source-review sub-agent /root/spec_review; separate from the implementing agent",
+      "rationale": "This is independent review of captured source support, not independent corroboration of EastEnders canon or held-out release acceptance. The actual acquired passages do not describe Phil responding to the manosphere, and the frozen reference labels this question unsupported by this corpus. The reply identifies the precise unresolved question, gives no unrelated story facts and does not infer that a response never occurred. Insufficient_evidence and relevance pass. It makes no story-factual claims, so correctness, groundedness and citation-support denominators are unavailable, rather than manufactured passes; there are no required factual assertions to count. These are the frozen b599783 outputs, predating the stop-only repairs.",
+      "claims": [],
+      "required_facts": [],
+      "answerability": true,
+      "relevance": true,
+      "critical_failures": []
+    }
+  }
+]

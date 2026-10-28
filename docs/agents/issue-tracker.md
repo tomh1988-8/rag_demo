@@ -11,6 +11,37 @@ commands so they work even without a configured Git remote.
 
 ## Current Ask Phil handoff
 
+Issue #17 is implemented and independently reviewed on `main`. Final software
+revision is `13d38e0`; **550 tests**, strict mypy across 125 files, Ruff/formatting
+and six Docker investigation contracts pass. Publication/closure readback is
+pending. [Evidence](../implementation/issue-17/README.md) and the
+[frozen inputs](../implementation/issue-17/software-inputs.json) are the current
+sources. Both review axes have zero remaining findings after reproducing and
+repairing SQL-timeout receipt loss and oversized stop replies. Preserve the
+original failures and the passing regression evidence.
+
+The three exposed same-corpus/model development pairs have six actual API
+responses, exact root/tool/citation/recreation readback and nine claims that pass
+independent source review. Investigation covers 3/3 required facts; text covers
+2/3 and honestly returns partial on the missing mother's identity. Query drift
+and simple-task overhead remain recorded. These are curated capability results,
+not extraction, held-out or canon acceptance. Routing/release obligations remain
+Pending; register counts stay 35 Pass and 16 Pending.
+
+Preserve the shared non-resetting $5 ledger at **$0.495612**, zero unsettled
+reservations, all 39 original data files, 51 pre-existing workspace files and
+the private inputs. Ten paid calls reported $0.0306264; offline review/scoring
+made no model calls. This supersedes historical balances below. Do not repeat
+unchanged paid work. Live captures bind `b599783`; final software changes only
+the reviewed stop handlers and adds their regressions, retaining prompt/model
+and tool-contract identities.
+
+After #17 is verified published and closed, **#19 is next**. #20, #22 and #24
+also remain unblocked; #18 still waits for #24. Wait for the user's next
+implementation instruction before starting another issue.
+
+### Prior issue #16 handoff
+
 Issue #16 is complete and closed after native publication and exact-tree
 verification of [`97853f7`](https://github.com/tomh1988-8/rag_demo/commit/97853f74ca20aef5fd05d5b875cf3c869146de3d).
 [The receipt](../implementation/issue-16/publication.json) records the user's

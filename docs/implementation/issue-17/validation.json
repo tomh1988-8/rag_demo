@@ -1,0 +1,103 @@
+{
+  "captured_at": "2026-10-28T13:51:08.930276+00:00",
+  "base_revision": "6294744a0a394e7e7b11ebf3fd4ce996ffdb0e64",
+  "final_software_revision": "13d38e0022c709bb9525a760dbc9bdd6ce1f2b71",
+  "application_sha256": "de7ad33a93de3b91c3ccf35457a202b28153652c025a9e99154ab6e3fff9b3e9",
+  "software": {
+    "tests": 550,
+    "failures": 0,
+    "errors": 0,
+    "skipped": 0,
+    "passed": 550,
+    "seconds": 1410.039,
+    "full_suite_runs": 1,
+    "command": "ASK_PHIL_TEST_DATABASE_URL=LOCAL_DISPOSABLE_POSTGRES PREFECT_HOME=ISOLATED_TEMP PREFECT_SERVER_ANALYTICS_ENABLED=false MLFLOW_DISABLE_AGENT_HINT=1 .venv/bin/pytest -v -p no:cacheprovider --durations=15 --junitxml=docs/implementation/issue-17/software-tests.xml -o junit_family=legacy",
+    "focused_checks": 55,
+    "review_regressions_fixed": 2,
+    "scorer_arithmetic_checks": 3,
+    "strict_mypy": {
+      "passed": true,
+      "files": 125
+    },
+    "ruff_lint": true,
+    "ruff_format": true
+  },
+  "docker": {
+    "build_passed": true,
+    "focused_api_cli_graph_checks_passed": 6,
+    "application_fingerprint_matches_native_freeze": true,
+    "paid_calls": 0
+  },
+  "reviews": {
+    "standards_remaining": 0,
+    "spec_initial_p2": 2,
+    "spec_remaining": 0,
+    "independent_source_review_responses": 6,
+    "factual_claims": 9,
+    "supported_correct_cited": 9,
+    "assertion_free_outcomes": 2
+  },
+  "live": {
+    "revision": "b599783b6b85b1e7ca77f399dd495e744dc21205",
+    "application_sha256": "a40dc97f1efb9dcd6df786d3e316e5c7c7ac3de73e2e377245e68bb5c05c5660",
+    "paired_questions": 3,
+    "story_groups": 3,
+    "responses": 6,
+    "same_source_index_model": true,
+    "actual_root_tool_and_citation_readback": true,
+    "responses_survive_application_recreation": true,
+    "investigator_task_successes": 3,
+    "text_task_successes": 2,
+    "investigator_required_facts_covered": 3,
+    "text_required_facts_covered": 2,
+    "required_facts_per_route": 3,
+    "paid_model_calls": 10,
+    "reported_inference_usd": "0.0306264",
+    "offline_openrouter_review_usd": 0,
+    "mlflow_comparison_run_id": "0716a584990d4e70a92a4068e860447f",
+    "mlflow_comparison_metrics": 168
+  },
+  "revision_scope": "Actual live responses are frozen at b599783. The reviewed final software changes stop handling only and retains the prompt/model/tool contracts. No post-repair live model run is claimed.",
+  "preservation": {
+    "original_data_files": 39,
+    "pre_existing_workspace_files": 51,
+    "protected_files": 91,
+    "all_original_hashes_match": true,
+    "private_key_unchanged": true,
+    "private_pdf_unchanged": true,
+    "frozen_software_inputs": 188,
+    "all_frozen_inputs_match": true,
+    "unexpected_changes": []
+  },
+  "shared_budget": {
+    "cap_usd": "5",
+    "before_usd": "0.464981",
+    "after_usd": "0.495612",
+    "additional_conservative_usd": "0.030631",
+    "unsettled_reservations": 0,
+    "additional_tranche_cap_usd": "1.20",
+    "copied_or_reset": false
+  },
+  "checklist": {
+    "pass": 35,
+    "pending": 16,
+    "scope": "Explicit investigation only; automatic routing, broader quality/release and online obligations retain their existing status."
+  },
+  "artifacts_sha256": {
+    "software-inputs.json": "fab1148c42ea08f7e75adc076b20c101eb0a84db2dfff80c87eb4203396781cc",
+    "software-tests.xml": "bbc8011407f2ff05644245d2050b1de2167eb8f106ec87012519cb9cefb0b610",
+    "software-tests.log": "1c96e820c6f329d6c9fab3cca4b33bab7d767cca68f41740c2e81d8a7601b1f5",
+    "focused-tests.xml": "70038d4ff6e9016a7969dd174f88c6d325a8f052eb3b5363496b8f522b1e84d1",
+    "review-regressions-initial.xml": "6fbf16aeeeee1ea72a52febb483c6c9e4eeddaacd2794a83ad55bb2d88581b6d",
+    "review-regressions-final.xml": "b27742a47891f91892d19dbcd9b91eb3af3ff613cc27b4bdac35fce1149c22b4",
+    "live-smoke.json": "488a464d5d7862a161a78eb614ea6717afe394b8f662f2456044a7e6fc383568",
+    "live-comparison.json": "74fd49a7aebb5c73f25a0891fcf97cf428653d89549dd9bb45bdc26dbd7e9bb5",
+    "independent-quality-review.json": "4f3d4b960a0b5ed659daac127228231ea519959171e6b8d85f7dd38d209cc989",
+    "comparison-summary.json": "e769f186479b0e13d16482d5e5670ae95c7661abb85d2194c9cd02ee9d50629d",
+    "acceptance-map.json": "b76d7fd2ef817c821a0156bdc1d3ec759eb3c845e8b71fb62cc340a0ddd2d3d2",
+    "docker-build.log": "653d5e62231c3107ab30dbed03fdd24238486df6d0d94be2ba3f0741ec87df33",
+    "docker-tests.log": "6f8392b6788bc5e511d8ddb28bf3b1b6a572e519a72b4380847d27f5d3733eaf",
+    "docker-application.txt": "17940f23e870b5830c305e6e989347f0d7f80aee3660a8f128679bf1c4576a86"
+  },
+  "publication": "Prepared for native push, remote exact-tree readback and tracker closure; publication receipt records completion."
+}

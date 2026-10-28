@@ -1,5 +1,30 @@
 # Ask Phil: publication and next-skill handoff
 
+## Issue #17: bounded investigation implemented; publication pending
+
+The explicit investigator is implemented at final software `13d38e0`, with
+[frozen inputs](../../implementation/issue-17/software-inputs.json), passing
+focused API/CLI/graph/accounting/deadline checks and zero remaining findings on
+both independent review axes. The full suite passes **550 tests**; strict mypy
+across 125 files, Ruff/formatting and six Docker contracts pass. Publication,
+exact-tree verification and issue closure readback remain to be completed.
+
+[Six actual paired responses](../../implementation/issue-17/comparison-summary.json)
+on three exposed story groups share the exact source/index/answer-model identities.
+Independent source review passes all nine claims. Investigation covers 3/3 required
+facts; text covers 2/3, with honest partial and unsupported outcomes. Source support
+does not establish canon corroboration or held-out release acceptance. Query drift,
+baseline context incompleteness, the disputed-source bypass and the repaired SQL
+deadline/large-stop failures remain in the evidence. The live revision is `b599783`;
+later repairs change stop handling only and retain prompt/model/tool contracts.
+
+The shared non-resetting $5 ledger is **$0.495612**, with zero unsettled
+reservations. Ten paid calls report $0.0306264; offline source review costs zero.
+Preserve all 39 original data files, 51 pre-existing workspace files and private
+inputs. Checklist counts remain 35 Pass and 16 Pending. After verified publication
+and closure of #17, #19 is next; #20/#22/#24 remain ready, while #18 waits for #24.
+Do not start another issue until the user's next implementation instruction.
+
 ## Issue #15: correction and dispute review accepted and closed
 
 Issue #15 is complete and closed after native publication and exact-tree verification

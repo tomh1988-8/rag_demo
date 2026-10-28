@@ -1,0 +1,443 @@
+{
+  "version": 1,
+  "reviewer_artifact": "independent-quality-review.json",
+  "scorer": "ask_phil.evaluation.score_captured_answer + bounded-investigator orchestration diagnostics",
+  "cases": [
+    {
+      "case_id": "single-pregnancy",
+      "route": "text_rag",
+      "response_sha256": "eb62ef176d7f247f78f6a4de4d05a0ae41d65ade3c1fdb62ea9df47952ed92b0",
+      "scores": {
+        "correctness": {
+          "passed": 2,
+          "assessed": 2,
+          "unassessed": 0,
+          "value": 1.0
+        },
+        "groundedness": {
+          "passed": 2,
+          "assessed": 2,
+          "unassessed": 0,
+          "value": 1.0
+        },
+        "completeness": {
+          "passed": 1,
+          "assessed": 1,
+          "unassessed": 0,
+          "value": 1.0
+        },
+        "citation_support": {
+          "passed": 2,
+          "assessed": 2,
+          "unassessed": 0,
+          "value": 1.0
+        },
+        "answerability": {
+          "passed": 1,
+          "assessed": 1,
+          "unassessed": 0,
+          "value": 1.0
+        },
+        "relevance": {
+          "passed": 1,
+          "assessed": 1,
+          "unassessed": 0,
+          "value": 1.0
+        },
+        "critical_failures": []
+      },
+      "context_fact_coverage": 1.0,
+      "context_sufficient": true,
+      "task_success": true,
+      "serving_cost_usd": 0.0057735,
+      "end_to_end_elapsed_ms": 6826.430365996202,
+      "model_calls_including_embeddings": 2,
+      "usage": {
+        "input_tokens": 1374,
+        "output_tokens": 234,
+        "embedding_tokens": 31
+      },
+      "orchestration_scores": null
+    },
+    {
+      "case_id": "single-pregnancy",
+      "route": "investigation",
+      "response_sha256": "c8bc4d1172625ebf145a585fae5a4fb26fa54af3fb156d3d5bf3a1208a0fd858",
+      "scores": {
+        "correctness": {
+          "passed": 2,
+          "assessed": 2,
+          "unassessed": 0,
+          "value": 1.0
+        },
+        "groundedness": {
+          "passed": 2,
+          "assessed": 2,
+          "unassessed": 0,
+          "value": 1.0
+        },
+        "completeness": {
+          "passed": 1,
+          "assessed": 1,
+          "unassessed": 0,
+          "value": 1.0
+        },
+        "citation_support": {
+          "passed": 2,
+          "assessed": 2,
+          "unassessed": 0,
+          "value": 1.0
+        },
+        "answerability": {
+          "passed": 1,
+          "assessed": 1,
+          "unassessed": 0,
+          "value": 1.0
+        },
+        "relevance": {
+          "passed": 1,
+          "assessed": 1,
+          "unassessed": 0,
+          "value": 1.0
+        },
+        "critical_failures": []
+      },
+      "context_fact_coverage": 1.0,
+      "context_sufficient": true,
+      "task_success": true,
+      "serving_cost_usd": 0.0089709,
+      "end_to_end_elapsed_ms": 8559.530323997024,
+      "model_calls_including_embeddings": 3,
+      "usage": {
+        "input_tokens": 4052,
+        "output_tokens": 300,
+        "embedding_tokens": 22
+      },
+      "orchestration_scores": {
+        "tool_attempts": 1,
+        "eligible_attempts": 1,
+        "declared_attempts": 1,
+        "tool_eligibility": 1.0,
+        "valid_argument_attempts": 1,
+        "argument_validity": 1.0,
+        "returned_results": 1,
+        "ineligible_results": 0,
+        "recovered_after_invalid_arguments": null,
+        "authority_preserved": true,
+        "stop_expected": true,
+        "within_limits": true,
+        "limitation": "Tool diagnostics do not grade an exact call sequence or establish final factual support. Task completion, multi-fact context sufficiency and final semantic support require the separately frozen references and source review. Limits here cover recorded calls, HTTP, context and spending; network deadline and cancellation behavior have separate integration evidence."
+      }
+    },
+    {
+      "case_id": "multi-family",
+      "route": "text_rag",
+      "response_sha256": "d002b5be7938a6482a5bc90005557a4054aed9fd73a1041206a8e2a6b8a0c294",
+      "scores": {
+        "correctness": {
+          "passed": 2,
+          "assessed": 2,
+          "unassessed": 0,
+          "value": 1.0
+        },
+        "groundedness": {
+          "passed": 2,
+          "assessed": 2,
+          "unassessed": 0,
+          "value": 1.0
+        },
+        "completeness": {
+          "passed": 1,
+          "assessed": 2,
+          "unassessed": 0,
+          "value": 0.5
+        },
+        "citation_support": {
+          "passed": 2,
+          "assessed": 2,
+          "unassessed": 0,
+          "value": 1.0
+        },
+        "answerability": {
+          "passed": 1,
+          "assessed": 1,
+          "unassessed": 0,
+          "value": 1.0
+        },
+        "relevance": {
+          "passed": 1,
+          "assessed": 1,
+          "unassessed": 0,
+          "value": 1.0
+        },
+        "critical_failures": []
+      },
+      "context_fact_coverage": 0.5,
+      "context_sufficient": false,
+      "task_success": false,
+      "serving_cost_usd": 0.0017075,
+      "end_to_end_elapsed_ms": 4834.918769003707,
+      "model_calls_including_embeddings": 2,
+      "usage": {
+        "input_tokens": 1304,
+        "output_tokens": 91,
+        "embedding_tokens": 28
+      },
+      "orchestration_scores": null
+    },
+    {
+      "case_id": "multi-family",
+      "route": "investigation",
+      "response_sha256": "cf0cdc95b1614d397f2be2c6082d93a1df0e5751e354222650b4447ea60eaa59",
+      "scores": {
+        "correctness": {
+          "passed": 3,
+          "assessed": 3,
+          "unassessed": 0,
+          "value": 1.0
+        },
+        "groundedness": {
+          "passed": 3,
+          "assessed": 3,
+          "unassessed": 0,
+          "value": 1.0
+        },
+        "completeness": {
+          "passed": 2,
+          "assessed": 2,
+          "unassessed": 0,
+          "value": 1.0
+        },
+        "citation_support": {
+          "passed": 3,
+          "assessed": 3,
+          "unassessed": 0,
+          "value": 1.0
+        },
+        "answerability": {
+          "passed": 1,
+          "assessed": 1,
+          "unassessed": 0,
+          "value": 1.0
+        },
+        "relevance": {
+          "passed": 1,
+          "assessed": 1,
+          "unassessed": 0,
+          "value": 1.0
+        },
+        "critical_failures": []
+      },
+      "context_fact_coverage": 1.0,
+      "context_sufficient": true,
+      "task_success": true,
+      "serving_cost_usd": 0.0047273,
+      "end_to_end_elapsed_ms": 7194.429398005013,
+      "model_calls_including_embeddings": 2,
+      "usage": {
+        "input_tokens": 4037,
+        "output_tokens": 295,
+        "embedding_tokens": 0
+      },
+      "orchestration_scores": {
+        "tool_attempts": 1,
+        "eligible_attempts": 1,
+        "declared_attempts": 1,
+        "tool_eligibility": 1.0,
+        "valid_argument_attempts": 1,
+        "argument_validity": 1.0,
+        "returned_results": 1,
+        "ineligible_results": 0,
+        "recovered_after_invalid_arguments": null,
+        "authority_preserved": true,
+        "stop_expected": true,
+        "within_limits": true,
+        "limitation": "Tool diagnostics do not grade an exact call sequence or establish final factual support. Task completion, multi-fact context sufficiency and final semantic support require the separately frozen references and source review. Limits here cover recorded calls, HTTP, context and spending; network deadline and cancellation behavior have separate integration evidence."
+      }
+    },
+    {
+      "case_id": "unsupported-theme",
+      "route": "text_rag",
+      "response_sha256": "45c2de8e404e19e741dd2790e1e285bcab763fea2b1fbe49060140bd702855ab",
+      "scores": {
+        "correctness": {
+          "passed": 0,
+          "assessed": 0,
+          "unassessed": 0,
+          "value": null
+        },
+        "groundedness": {
+          "passed": 0,
+          "assessed": 0,
+          "unassessed": 0,
+          "value": null
+        },
+        "completeness": {
+          "passed": 0,
+          "assessed": 0,
+          "unassessed": 0,
+          "value": null
+        },
+        "citation_support": {
+          "passed": 0,
+          "assessed": 0,
+          "unassessed": 0,
+          "value": null
+        },
+        "answerability": {
+          "passed": 1,
+          "assessed": 1,
+          "unassessed": 0,
+          "value": 1.0
+        },
+        "relevance": {
+          "passed": 1,
+          "assessed": 1,
+          "unassessed": 0,
+          "value": 1.0
+        },
+        "critical_failures": []
+      },
+      "context_fact_coverage": null,
+      "context_sufficient": false,
+      "task_success": true,
+      "serving_cost_usd": 0.00147,
+      "end_to_end_elapsed_ms": 4529.361818000325,
+      "model_calls_including_embeddings": 2,
+      "usage": {
+        "input_tokens": 1281,
+        "output_tokens": 73,
+        "embedding_tokens": 19
+      },
+      "orchestration_scores": null
+    },
+    {
+      "case_id": "unsupported-theme",
+      "route": "investigation",
+      "response_sha256": "c466bcb45ba5937c497c09e79cd5f9c53b4e0728cf5eb57cfd6b94a2f914bd9a",
+      "scores": {
+        "correctness": {
+          "passed": 0,
+          "assessed": 0,
+          "unassessed": 0,
+          "value": null
+        },
+        "groundedness": {
+          "passed": 0,
+          "assessed": 0,
+          "unassessed": 0,
+          "value": null
+        },
+        "completeness": {
+          "passed": 0,
+          "assessed": 0,
+          "unassessed": 0,
+          "value": null
+        },
+        "citation_support": {
+          "passed": 0,
+          "assessed": 0,
+          "unassessed": 0,
+          "value": null
+        },
+        "answerability": {
+          "passed": 1,
+          "assessed": 1,
+          "unassessed": 0,
+          "value": 1.0
+        },
+        "relevance": {
+          "passed": 1,
+          "assessed": 1,
+          "unassessed": 0,
+          "value": 1.0
+        },
+        "critical_failures": []
+      },
+      "context_fact_coverage": null,
+      "context_sufficient": false,
+      "task_success": true,
+      "serving_cost_usd": 0.0079772,
+      "end_to_end_elapsed_ms": 11721.692969993455,
+      "model_calls_including_embeddings": 5,
+      "usage": {
+        "input_tokens": 6572,
+        "output_tokens": 402,
+        "embedding_tokens": 26
+      },
+      "orchestration_scores": {
+        "tool_attempts": 2,
+        "eligible_attempts": 2,
+        "declared_attempts": 2,
+        "tool_eligibility": 1.0,
+        "valid_argument_attempts": 2,
+        "argument_validity": 1.0,
+        "returned_results": 2,
+        "ineligible_results": 0,
+        "recovered_after_invalid_arguments": null,
+        "authority_preserved": true,
+        "stop_expected": true,
+        "within_limits": true,
+        "limitation": "Tool diagnostics do not grade an exact call sequence or establish final factual support. Task completion, multi-fact context sufficiency and final semantic support require the separately frozen references and source review. Limits here cover recorded calls, HTTP, context and spending; network deadline and cancellation behavior have separate integration evidence."
+      }
+    }
+  ],
+  "aggregates": {
+    "text_rag": {
+      "requests": 3,
+      "task_successes": 2,
+      "required_facts_covered": 2,
+      "required_facts": 3,
+      "factual_claims": 4,
+      "supported_correct_cited_claims": 4,
+      "reported_inference_cost_usd": "0.0089510",
+      "mean_end_to_end_ms": 5396.903651000078,
+      "model_calls_including_embeddings": 6,
+      "paid_model_calls": 3
+    },
+    "investigation": {
+      "requests": 3,
+      "task_successes": 3,
+      "required_facts_covered": 3,
+      "required_facts": 3,
+      "factual_claims": 5,
+      "supported_correct_cited_claims": 5,
+      "reported_inference_cost_usd": "0.0216754",
+      "mean_end_to_end_ms": 9158.55089733183,
+      "model_calls_including_embeddings": 10,
+      "paid_model_calls": 7
+    }
+  },
+  "total_reported_inference_usd": "0.0306264",
+  "shared_ledger_before_usd": "0.464981",
+  "shared_ledger_after_usd": "0.495612",
+  "shared_ledger_delta_usd": "0.030631",
+  "unsettled_reservations": 0,
+  "offline_review_model_cost_usd": 0,
+  "paired_questions": 3,
+  "story_groups": 3,
+  "frozen_live_commit": "b599783b6b85b1e7ca77f399dd495e744dc21205",
+  "live_application_fingerprints": [
+    "a40dc97f1efb9dcd6df786d3e316e5c7c7ac3de73e2e377245e68bb5c05c5660"
+  ],
+  "snapshot_fingerprints": [
+    "d30762f13668359b18b2b04bd190130f99cbac21ed99749a22e2ddddf5d8533b"
+  ],
+  "index_fingerprints": [
+    "bd91863966c812b4a44e498eafd930269a814cc1328ccb90a49aa329178c21f4"
+  ],
+  "model_configuration_fingerprints": [
+    "facb529ae12ab6e3127f1ad47ca97571f4f4c32dc6c2ac9c92c7788a098801cf"
+  ],
+  "investigator_prompt_unchanged_after_stop_repairs": true,
+  "tool_contract_unchanged_after_stop_repairs": true,
+  "limitations": [
+    "Exposed curated development cases, not held-out acceptance or independent canon corroboration.",
+    "The final source differs from the live revision only in the reviewed stop handlers and regression tests; no new live execution after those repairs is claimed.",
+    "Graph-only text ranking scores in raw context diagnostics are not used as graph-quality scores; multi-fact context sufficiency is evaluated separately.",
+    "Two generated investigator queries add unrelated Ben Mitchell; final answers preserve scope but simple/unsupported requests cost more.",
+    "Task success requires expected status, all required facts, reviewed correctness/grounding/citation support, appropriate answerability/relevance, and no critical failure. Assertion-free outcomes retain null factual denominators."
+  ],
+  "mlflow_comparison_run_id": "0716a584990d4e70a92a4068e860447f",
+  "mlflow_experiment_id": "2"
+}

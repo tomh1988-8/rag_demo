@@ -1,0 +1,55 @@
+{
+  "issue": 17,
+  "live_revision": "b599783b6b85b1e7ca77f399dd495e744dc21205",
+  "final_software_revision": "13d38e0022c709bb9525a760dbc9bdd6ce1f2b71",
+  "criteria": [
+    {
+      "number": 1,
+      "requirement": "Versioned prompt/model/tool contracts with validated read-only authority.",
+      "evidence": ["../../../src/ask_phil/investigation.py", "../../../src/ask_phil/investigation_tools.py", "../../../src/ask_phil/investigation_records.py", "focused-tests.xml", "live-smoke.json", "live-comparison.json"],
+      "result": "Five declared tools use the existing typed schemas and recorded contract/prompt/model identities. Unknown SQL/shell/web/ingestion tools and extra snapshot fields cannot expand authority."
+    },
+    {
+      "number": 2,
+      "requirement": "One finite budget across decisions, tools, checking, recovery, context, time and spending.",
+      "evidence": ["../../../src/ask_phil/execution.py", "../../../tests/test_investigation_api.py", "../../../tests/test_investigation_cloud.py", "review-regressions-initial.xml", "review-regressions-final.xml"],
+      "result": "Decision/query-embedding/tool/HTTP/context counters, elapsed deadline/cancellation, category quotas, conservative missing-cost reservations and repeat stops are enforced. Graph SQL deadlines retain immutable stop receipts. Large stops retain full citations without overflowing the reply."
+    },
+    {
+      "number": 3,
+      "requirement": "Pin text/claims/graphs to one compatible snapshot and assess multi-fact sufficiency.",
+      "evidence": ["../../../src/ask_phil/graph_execution.py", "../../../src/ask_phil/investigation_tools.py", "../../../tests/test_investigation_api.py", "comparison-summary.json"],
+      "result": "Investigation requires a sealed publication and shares its existing pin with text and every graph tool. Active refresh cannot switch an in-flight source. Retrieved results and accepted context remain inspectable; reviewed fact sets measure combined sufficiency separately from the model's own coverage."
+    },
+    {
+      "number": 4,
+      "requirement": "Supported findings, explicit unresolved parts/stops and an actual neutral investigation appendix.",
+      "evidence": ["live-smoke.json", "live-comparison.json", "independent-quality-review.json", "review-regressions-final.xml"],
+      "result": "All six real response roots, all four investigator tool results and all citations agree with readback and survive application recreation. Nine factual assertions pass independent source review. Unresolved parts, rejected attempts and stops are explicit; disputed source text cannot restore a held claim."
+    },
+    {
+      "number": 5,
+      "requirement": "Reviewed sufficient/multi-source, malformed/repeated, insufficient and timeout/cancellation/budget cases through real storage and controlled providers before live calls.",
+      "evidence": ["../../../data/references/investigation-v1.json", "run-plan.md", "focused-tests.xml", "../../../tests/test_investigation_api.py", "../../../tests/test_investigation_cloud.py", "regressions.json"],
+      "result": "The pre-call cases and 55 focused PostgreSQL/pgvector/API/CLI/MLflow checks precede paid runs. Two later independent stop-path findings are preserved as failures and passing repairs. Real network closure, snapshot pinning and conservative unknown billing are exercised at public seams."
+    },
+    {
+      "number": 6,
+      "requirement": "Separate orchestration, context, task success and final support; paired same-corpus/model baseline with complete expense; preserve holdout.",
+      "evidence": ["../../../src/ask_phil/investigation_evaluation.py", "../../../tests/test_investigation_evaluation.py", "comparison-summary.json", "independent-quality-review.json"],
+      "result": "Three paired exposed story groups share source/index/model identities and equal context/request caps. Argument/eligibility/recovery/stop diagnostics do not grade exact strategy order. Independent semantic labels give investigation 3/3 completed tasks and text 2/3. All ten paid decisions cost $0.0306264 reported inference, with full API latency and zero-credit offline review. Null factual denominators are retained for assertion-free outcomes. Holdout is untouched."
+    },
+    {
+      "number": 7,
+      "requirement": "Revision-linked applicable register evidence with failures and limitations.",
+      "evidence": ["../../checklists/ask-phil-profile.md", "software-inputs.json", "regressions.json", "review.md", "comparison-summary.json"],
+      "result": "The register links scoped tool/budget/trace/context/comparison evidence while keeping routing, broad graph/quality/release and online checks Pending. Counts remain 35 Pass and 16 Pending. Live and final software revisions are explicitly distinguished. Full-suite and publication completion are recorded separately in validation/receipt artifacts."
+    }
+  ],
+  "limitations": [
+    "Curated exposed capability and captured-source review; no new automatic extraction, independently corroborated canon or held-out release result.",
+    "Both routes are honest on insufficient evidence; text misses one available corpus fact, and investigation costs more on the simpler/unsupported cases.",
+    "Generated queries can drift toward an unrelated character; valid arguments alone do not prove useful retrieval.",
+    "The final software's stop-only repairs do not change prompt/model/tool contracts, and no post-repair live model execution is claimed."
+  ]
+}
