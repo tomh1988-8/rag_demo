@@ -1,0 +1,18 @@
+{
+  "base_revision": "2412c23172b7c343a37ce23463fd0ecece98920e",
+  "test_seams": "Existing six confirmed public boundaries in docs/design/testing-and-evaluation.md; no new boundary required.",
+  "inputs": {
+    "data/seed/connections-pilot-v1.json": {
+      "sha256": "52059b75376a5e0c82116285eb3fee592c9f3139dbadd336d0f35713ea82402b",
+      "written_at": "2026-10-28T09:25:59.052404+00:00"
+    },
+    "data/references/connections-v1.json": {
+      "sha256": "51ed3a8d417aea0773a02eec5a554fd41ba2cbef62e118008a48227451806123",
+      "written_at": "2026-10-28T09:25:59.054554+00:00"
+    }
+  },
+  "cases": 10,
+  "reference_policy": "Prepared before traversal implementation from unchanged source-reviewed exposed references. Alternative paths are accepted by meaning rather than one internal traversal sequence.",
+  "new_model_extraction": false,
+  "paid_model_calls": 0
+}

@@ -1,0 +1,30 @@
+{
+  "version": 1,
+  "records": [
+    {
+      "case_id": "event-only-projection",
+      "observed_failure": "The event adjacency branch lacked column aliases when no family projection preceded it, causing a PostgreSQL UndefinedColumn error.",
+      "resolution": "Name every event adjacency column independently; event-only queries now return the reviewed incident.",
+      "test": "tests/test_connection_graph.py::test_connection_without_family_projection_uses_only_available_reviewed_incidents"
+    },
+    {
+      "case_id": "legacy-manifest",
+      "observed_failure": "A legacy manifest with absent graph-membership metadata was rejected even though the existing publication contract supports it.",
+      "resolution": "Compare graph membership when the pinned manifest records it; preserve source and review verification for legacy manifests.",
+      "test": "tests/test_connection_graph.py::test_connection_uses_published_review_and_explains_held_dispute"
+    },
+    {
+      "case_id": "role-score-counterexample",
+      "observed_failure": "A deliberately wrong Max-as-perpetrator evaluation input still has resolvable quotations. Resolution alone cannot establish meaning.",
+      "resolution": "Score results, exact reviewed step meanings and source spans independently. The wrong role fails meaning while source resolution remains true.",
+      "test": "tests/test_connection_graph.py::test_connection_scorer_separates_result_set_role_meaning_and_source_resolution"
+    },
+    {
+      "case_id": "excluded-text-and-held-bridges",
+      "observed_failure": null,
+      "resolution": "Held relationships, shared themes, unclassified co-appearance, unsupported pregnancy parentage, mention in a death passage and hallucinations do not create paths.",
+      "test": "tests/test_connection_graph.py::test_unreviewed_relationships_and_text_subjects_cannot_create_connections"
+    }
+  ],
+  "prior_failures": "Original extraction, held Claim and ordinary text-quality failures remain unchanged in issues #11\u2013#15. Curated connection results do not improve those scores."
+}

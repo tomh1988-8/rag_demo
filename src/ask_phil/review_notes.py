@@ -6,6 +6,7 @@ from typing import Literal
 from ask_phil.claim_projections import EventAudit
 from ask_phil.claims import evidence_resolves, replacement_claim_ids
 from ask_phil.classified_facts import ContextClaim
+from ask_phil.connection_graph import ConnectionResult
 from ask_phil.event_graph import EventResult
 from ask_phil.evidence import Identifier, Passage, Record, SourceSnapshot
 from ask_phil.execution import ExecutionStopped
@@ -189,7 +190,7 @@ def prepare_text_review(
 def prepare_graph_review(
     database_url: str,
     snapshot: SourceSnapshot,
-    result: FamilyResult | RelationshipResult | EventResult,
+    result: FamilyResult | RelationshipResult | EventResult | ConnectionResult,
     byte_budget: int,
 ) -> ReviewExplanation:
     """Complete the graph's evidence and relevant review groups, or stop without an excerpt."""
@@ -201,6 +202,10 @@ def prepare_graph_review(
         else "family"
     )
     notices: tuple[ReviewNotice, ...] = ()
+    characters = {result.query.character_id}
+    if isinstance(result, ConnectionResult):
+        characters.add(result.query.target_id)
+        characters.update(c for p in result.paths for c in p.characters)
     if result.status not in {"unknown_character", "ineligible", "unavailable"}:
         all_notices = review_notices(database_url, snapshot.snapshot_id)
         notices = _complete_review_groups(
@@ -208,11 +213,14 @@ def prepare_graph_review(
             tuple(
                 n
                 for n in all_notices
-                if n.family == family and result.query.character_id in n.character_ids
+                if (isinstance(result, ConnectionResult) or n.family == family)
+                and characters.intersection(n.character_ids)
             ),
         )
     evidence_ids = (
-        {e.evidence_id for c in result.claims for e in c.evidence}
+        {e.evidence_id for p in result.paths for step in p.steps for e in step.evidence}
+        if isinstance(result, ConnectionResult)
+        else {e.evidence_id for c in result.claims for e in c.evidence}
         if isinstance(result, RelationshipResult | EventResult)
         else {e.evidence_id for p in result.paths for edge in p.edges for e in edge.evidence}
     )

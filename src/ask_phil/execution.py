@@ -23,10 +23,13 @@ class ExecutionLimits(Record):
     context_bytes: int = Field(default=1200, ge=2, le=1200)
     spend_usd: Decimal = Field(default=Decimal("0.15"), ge=0, le=1, allow_inf_nan=False)
     retries: Literal[0] = 0
-    capabilities: tuple[Literal["text_retrieval", "family_graph", "event_graph"], ...] = (
+    capabilities: tuple[
+        Literal["text_retrieval", "family_graph", "event_graph", "connection_graph"], ...
+    ] = (
         "text_retrieval",
         "family_graph",
         "event_graph",
+        "connection_graph",
     )
     concurrency: int = Field(default=4, ge=1, le=4)
 

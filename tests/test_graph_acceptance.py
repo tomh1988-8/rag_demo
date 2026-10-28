@@ -16,6 +16,69 @@ from mlflow.entities import Trace
 from ask_phil.family_graph import FamilyQuery
 
 
+def test_composed_acceptance_records_all_four_public_graph_families(
+    database_url: str, tmp_path: Path
+) -> None:
+    from ask_phil.connection_graph import ConnectionQuery
+    from ask_phil.event_graph import EventQuery
+    from ask_phil.graph_acceptance import GraphAcceptanceRun, GraphCase, GraphPhase
+    from ask_phil.relationship_graph import RelationshipQuery
+
+    cases = (
+        GraphCase(
+            "connection",
+            "How are Peggy and Ben connected?",
+            ConnectionQuery(
+                kind="connection",
+                character_id="peggy-mitchell",
+                target_id="ben-mitchell",
+                max_depth=2,
+            ),
+            transport="cli",
+        ),
+        GraphCase(
+            "family",
+            "Who are Ben's biological ancestors?",
+            FamilyQuery(character_id="ben-mitchell", direction="ancestors"),
+        ),
+        GraphCase(
+            "history",
+            "How are Sharon and Den related?",
+            RelationshipQuery(
+                kind="relationship_history", character_id="sharon-watts", partner_id="den-watts"
+            ),
+        ),
+        GraphCase(
+            "event",
+            "What were Max and Bobby's roles?",
+            EventQuery(
+                kind="crime_history", character_id="max-branning", participant_id="bobby-beale"
+            ),
+            transport="session",
+        ),
+    )
+    phase = GraphPhase(
+        name="composition",
+        kind="connections",
+        snapshot=Path("data/seed/connections-pilot-v1.json"),
+        batch=Path("data/references/connections-v1.json"),
+        reviews=Path("docs/implementation/issue-16/claim-reviews.json"),
+        cases=cases,
+    )
+    tracking = MlflowClient(tracking_uri=f"sqlite:///{tmp_path}/four-families.db")
+    document = GraphAcceptanceRun(database_url, tracking=tracking).run(
+        tmp_path / "four-families.json", (phase,)
+    )
+    assert document["state"] == "complete"
+    assert len(document["responses"]) == 4
+    assert all(
+        r["trace_output_matches"] and r["all_citations_resolve"] for r in document["responses"]
+    )
+    assert document["checks"][0]["audit_readback_matches"] is True
+    assert document["checks"][0]["original_response_survives_restart"] is True
+    assert document["responses"][-1]["session_reset"] is True
+
+
 def test_life_event_acceptance_verifies_typed_kinds_and_cli_classification_outcomes(
     database_url: str, tmp_path: Path
 ) -> None:

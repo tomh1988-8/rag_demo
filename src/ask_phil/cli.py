@@ -72,6 +72,9 @@ def main() -> int:
     graph_kind = ask.add_mutually_exclusive_group()
     graph_kind.add_argument("--direction", choices=("ancestors", "descendants"))
     graph_kind.add_argument(
+        "--connect-to", help="Find bounded evidenced paths to this character ID."
+    )
+    graph_kind.add_argument(
         "--history", action="store_true", help="Query reviewed relationship history."
     )
     graph_kind.add_argument(
@@ -91,7 +94,10 @@ def main() -> int:
     ask.add_argument("--partner", help="Optional second character for --history.")
     ask.add_argument("--max-events", type=int, default=20)
     ask.add_argument("--depth", type=int, default=3)
-    ask.add_argument("--max-paths", type=int, default=20)
+    ask.add_argument(
+        "--max-paths", type=int, help="Defaults to 5 connections or 20 ancestry paths."
+    )
+    ask.add_argument("--max-expansions", type=int, default=500)
     family_install = commands.add_parser(
         "install-family", help="Maintainer: admit reviewed claims and derive an immutable graph."
     )
@@ -160,10 +166,12 @@ def main() -> int:
     args = parser.parse_args()
     if args.command == "ask":
         if args.route == "graph" and (
-            not args.character or not (args.direction or args.history or args.event_kind)
+            not args.character
+            or not (args.direction or args.history or args.event_kind or args.connect_to)
         ):
             parser.error(
-                "--route graph requires --character and --direction, --history or --event-kind."
+                "--route graph requires --character and --direction, --history, "
+                "--event-kind or --connect-to."
             )
         if args.route != "graph" and (
             args.character
@@ -173,6 +181,7 @@ def main() -> int:
             or args.event_kind
             or args.participant
             or args.event
+            or args.connect_to
         ):
             parser.error("Graph query arguments require --route graph.")
         if args.partner and not args.history:
@@ -370,6 +379,17 @@ def main() -> int:
                             "route": args.route,
                             "graph": (
                                 {
+                                    "kind": "connection",
+                                    "character_id": args.character,
+                                    "target_id": args.connect_to,
+                                    "max_depth": args.depth,
+                                    "max_paths": args.max_paths
+                                    if args.max_paths is not None
+                                    else 5,
+                                    "max_expansions": args.max_expansions,
+                                }
+                                if args.connect_to
+                                else {
                                     "kind": args.event_kind,
                                     "character_id": args.character,
                                     "participant_id": args.participant,
@@ -388,7 +408,9 @@ def main() -> int:
                                     "character_id": args.character,
                                     "direction": args.direction,
                                     "max_depth": args.depth,
-                                    "max_paths": args.max_paths,
+                                    "max_paths": args.max_paths
+                                    if args.max_paths is not None
+                                    else 20,
                                 }
                             )
                             if args.route == "graph"

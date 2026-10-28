@@ -18,6 +18,7 @@ from pydantic import StringConstraints
 
 from ask_phil.answering import AnswerService
 from ask_phil.answers import AnswerReceipt, AnswerRecord, AskRequest
+from ask_phil.connection_graph import ConnectionGraph, ConnectionQuery, ConnectionResult
 from ask_phil.conversation import ReferenceTurn, TurnIdentity
 from ask_phil.event_graph import EventAudit, EventGraph, EventQuery, EventResult
 from ask_phil.evidence import Identifier, Inspection
@@ -160,6 +161,26 @@ def create_app(
             raise HTTPException(status_code=503, detail="Family graph query timed out.") from exc
         except ExecutionStopped as exc:
             raise HTTPException(status_code=503, detail=f"Family graph stopped: {exc}.") from exc
+        except IndexNotReady as exc:
+            raise HTTPException(status_code=503, detail=str(exc)) from exc
+
+    @app.post("/v1/snapshots/{snapshot_id}/connections")
+    def connection_query(snapshot_id: Identifier, query: ConnectionQuery) -> ConnectionResult:
+        budget = ExecutionBudget(policies.serving)
+        try:
+            with budget.activate():
+                publication = publications.pin(snapshot_id)
+                return ConnectionGraph(database_url).query(
+                    snapshot_id, query, publication=publication
+                )
+        except SnapshotNotFound as exc:
+            raise HTTPException(status_code=404, detail="Snapshot not found.") from exc
+        except (psycopg.errors.QueryCanceled, psycopg.errors.LockNotAvailable) as exc:
+            raise HTTPException(status_code=503, detail="Connection query timed out.") from exc
+        except ExecutionStopped as exc:
+            raise HTTPException(
+                status_code=503, detail=f"Connection graph stopped: {exc}."
+            ) from exc
         except IndexNotReady as exc:
             raise HTTPException(status_code=503, detail=str(exc)) from exc
 

@@ -1,0 +1,910 @@
+{
+  "snapshot_id": "connections-pilot-v1",
+  "fixture_version": 1,
+  "source": {
+    "title": "Ben Mitchell",
+    "url": "https://en.wikipedia.org/wiki/Ben_Mitchell_(EastEnders)",
+    "revision_id": "1376729134",
+    "revision_url": "https://en.wikipedia.org/w/index.php?oldid=1376729134",
+    "section": "Storylines / 1996–2000",
+    "captured_at": "2026-10-17T13:07:31.530421Z",
+    "capture_sha256": "8ae0fbabb19cf12b2bdf46d7a85e15eea4462b8559584c770224a54a9e47d128",
+    "scope": "main_series",
+    "license_url": "https://creativecommons.org/licenses/by-sa/4.0/",
+    "attribution": "Wikipedia contributors; markup removed and whitespace normalized.",
+    "coverage": "Reviewed narrative sections in this captured revision only.",
+    "gaps": [
+      "Partial canon coverage; other paragraphs remain excluded or awaiting review.",
+      "Identity and episode metadata do not independently corroborate story claims."
+    ],
+    "support_status": "source_supported"
+  },
+  "passages": [
+    {
+      "evidence_id": "family-ben-birth",
+      "text": "Ben is born to Phil Mitchell (Steve McFadden) and his then wife Kathy Beale (Gillian Taylforth) in March 1996.",
+      "sha256": "8179f5f0724cc08e5a5d51567fb7de0f8e55a4d5fc9881f5e050ae9d153eca08",
+      "start": 17983,
+      "end": 18093,
+      "source": {
+        "title": "Ben Mitchell",
+        "url": "https://en.wikipedia.org/wiki/Ben_Mitchell_(EastEnders)",
+        "revision_id": "1376729134",
+        "revision_url": "https://en.wikipedia.org/w/index.php?oldid=1376729134",
+        "section": "Storylines / 1996–2000",
+        "captured_at": "2026-10-17T13:07:31.530421Z",
+        "capture_sha256": "8ae0fbabb19cf12b2bdf46d7a85e15eea4462b8559584c770224a54a9e47d128",
+        "scope": "main_series",
+        "license_url": "https://creativecommons.org/licenses/by-sa/4.0/",
+        "attribution": "Wikipedia contributors; markup removed and whitespace normalized.",
+        "coverage": "Reviewed narrative sections in this captured revision only.",
+        "gaps": [
+          "Partial canon coverage; other paragraphs remain excluded or awaiting review.",
+          "Identity and episode metadata do not independently corroborate story claims."
+        ],
+        "support_status": "source_supported"
+      },
+      "location": {
+        "source_id": "ben-mitchell-wiki",
+        "paragraph_ordinal": 22,
+        "section_id": "1996–2000",
+        "character_ids": [
+          "ben-mitchell",
+          "kathy-beale",
+          "phil-mitchell"
+        ]
+      }
+    },
+    {
+      "evidence_id": "family-peggy-phil",
+      "text": "Peggy married Eric Mitchell (George Russo) because she was pregnant with their son Phil (Steve McFadden).",
+      "sha256": "601d2f2332aa61ff7cecd296e9d2b4be8b78207a8a739e7354b2105847f531f2",
+      "start": 34316,
+      "end": 34421,
+      "source": {
+        "title": "Peggy Mitchell",
+        "url": "https://en.wikipedia.org/wiki/Peggy_Mitchell",
+        "revision_id": "1372787814",
+        "revision_url": "https://en.wikipedia.org/w/index.php?oldid=1372787814",
+        "section": "Storylines / Backstory",
+        "captured_at": "2026-10-17T13:07:31.253971Z",
+        "capture_sha256": "d777ce7a2fffc8e7cb1da6ccd3a87aca45590147a348b5ef5eb6361fb685cacb",
+        "scope": "main_series",
+        "license_url": "https://creativecommons.org/licenses/by-sa/4.0/",
+        "attribution": "Wikipedia contributors; markup removed and whitespace normalized.",
+        "coverage": "Reviewed narrative sections in this captured revision only.",
+        "gaps": [
+          "Partial canon coverage; other paragraphs remain excluded or awaiting review.",
+          "Identity and episode metadata do not independently corroborate story claims."
+        ],
+        "support_status": "source_supported"
+      },
+      "location": {
+        "source_id": "peggy-mitchell-wiki",
+        "paragraph_ordinal": 37,
+        "section_id": "Backstory",
+        "character_ids": [
+          "grant-mitchell",
+          "peggy-mitchell",
+          "phil-mitchell"
+        ]
+      }
+    },
+    {
+      "evidence_id": "family-sharon-adoption",
+      "text": "Adopted at the age of three by Den (Leslie Grantham) and Angie Watts (Anita Dobson), Sharon is raised at The Queen Victoria public house in Albert Square, Walford, where her adoptive parents are landlords.",
+      "sha256": "1e54773bc770474ace800fa686ba855dce8b3eac079403d0dd1c78e958023f31",
+      "start": 50624,
+      "end": 50829,
+      "source": {
+        "title": "Sharon Watts",
+        "url": "https://en.wikipedia.org/wiki/Sharon_Watts",
+        "revision_id": "1372798905",
+        "revision_url": "https://en.wikipedia.org/w/index.php?oldid=1372798905",
+        "section": "Storylines / 1985–1995",
+        "captured_at": "2026-10-17T13:07:31.327518Z",
+        "capture_sha256": "9ccef3de99353ff737101d9d00561c217608dd4fa6fba0c8200f80ac0114ea85",
+        "scope": "main_series",
+        "license_url": "https://creativecommons.org/licenses/by-sa/4.0/",
+        "attribution": "Wikipedia contributors; markup removed and whitespace normalized.",
+        "coverage": "Reviewed narrative sections in this captured revision only.",
+        "gaps": [
+          "Partial canon coverage; other paragraphs remain excluded or awaiting review.",
+          "Identity and episode metadata do not independently corroborate story claims."
+        ],
+        "support_status": "source_supported"
+      },
+      "location": {
+        "source_id": "sharon-watts-wiki",
+        "paragraph_ordinal": 53,
+        "section_id": "1985–1995",
+        "character_ids": [
+          "den-watts",
+          "ian-beale",
+          "sharon-watts"
+        ]
+      }
+    },
+    {
+      "evidence_id": "history-kathy-marriage",
+      "text": "Kathy and Phil eventually sort out their differences, up to the point where they get married",
+      "sha256": "c48da59b6b1861474cd2ff4ceea04d950692bbd50691e0af61e076ca7a6e680f",
+      "start": 17631,
+      "end": 17723,
+      "source": {
+        "title": "Phil Mitchell",
+        "url": "https://en.wikipedia.org/wiki/Phil_Mitchell",
+        "revision_id": "1379872347",
+        "revision_url": "https://en.wikipedia.org/w/index.php?oldid=1379872347",
+        "section": "Storylines / 1990–2003",
+        "captured_at": "2026-10-17T13:07:31.014189Z",
+        "capture_sha256": "a338d3065203be54e383f2c9c141bca22ae9aedbb950e2e1eada601bcccfe313",
+        "scope": "main_series",
+        "license_url": "https://creativecommons.org/licenses/by-sa/4.0/",
+        "attribution": "Wikipedia contributors; markup removed and whitespace normalized.",
+        "coverage": "Reviewed narrative sections in this captured revision only.",
+        "gaps": [
+          "Partial canon coverage; other paragraphs remain excluded or awaiting review.",
+          "Identity and episode metadata do not independently corroborate story claims."
+        ],
+        "support_status": "source_supported"
+      },
+      "location": {
+        "source_id": "phil-mitchell-wiki",
+        "paragraph_ordinal": 20,
+        "section_id": "1990–2003",
+        "character_ids": [
+          "ben-mitchell",
+          "phil-mitchell"
+        ]
+      }
+    },
+    {
+      "evidence_id": "history-kathy-separation",
+      "text": "As time goes on, however, Phil becomes depressed and turns to alcohol – which causes him to develop an addiction. This makes him bitter and neglectful towards Kathy and Ben, so Kathy takes Ben and moves out.",
+      "sha256": "b658ee3d66cd7bfc204a5b43cac8049df92cd57cb03787417c7e3e307dd6deb1",
+      "start": 17789,
+      "end": 17996,
+      "source": {
+        "title": "Phil Mitchell",
+        "url": "https://en.wikipedia.org/wiki/Phil_Mitchell",
+        "revision_id": "1379872347",
+        "revision_url": "https://en.wikipedia.org/w/index.php?oldid=1379872347",
+        "section": "Storylines / 1990–2003",
+        "captured_at": "2026-10-17T13:07:31.014189Z",
+        "capture_sha256": "a338d3065203be54e383f2c9c141bca22ae9aedbb950e2e1eada601bcccfe313",
+        "scope": "main_series",
+        "license_url": "https://creativecommons.org/licenses/by-sa/4.0/",
+        "attribution": "Wikipedia contributors; markup removed and whitespace normalized.",
+        "coverage": "Reviewed narrative sections in this captured revision only.",
+        "gaps": [
+          "Partial canon coverage; other paragraphs remain excluded or awaiting review.",
+          "Identity and episode metadata do not independently corroborate story claims."
+        ],
+        "support_status": "source_supported"
+      },
+      "location": {
+        "source_id": "phil-mitchell-wiki",
+        "paragraph_ordinal": 20,
+        "section_id": "1990–2003",
+        "character_ids": [
+          "ben-mitchell",
+          "phil-mitchell"
+        ]
+      }
+    },
+    {
+      "evidence_id": "history-kathy-reconciliation",
+      "text": "Realizing what he has lost, Phil gives up alcohol and attends Alcoholics Anonymous. This progressively helps Phil, up to the point where it manages to reveal the basis of his problem – the physical abuse he received from his late father, Eric Mitchell (George Russo) when he was a boy, and his fear that he may abuse Ben. He and Kathy reconcile when he attends counselling,",
+      "sha256": "6915de424b991865af5293e7d6ffcbb755817d0e94f8eec4ad6b4cdc9d344be1",
+      "start": 17998,
+      "end": 18371,
+      "source": {
+        "title": "Phil Mitchell",
+        "url": "https://en.wikipedia.org/wiki/Phil_Mitchell",
+        "revision_id": "1379872347",
+        "revision_url": "https://en.wikipedia.org/w/index.php?oldid=1379872347",
+        "section": "Storylines / 1990–2003",
+        "captured_at": "2026-10-17T13:07:31.014189Z",
+        "capture_sha256": "a338d3065203be54e383f2c9c141bca22ae9aedbb950e2e1eada601bcccfe313",
+        "scope": "main_series",
+        "license_url": "https://creativecommons.org/licenses/by-sa/4.0/",
+        "attribution": "Wikipedia contributors; markup removed and whitespace normalized.",
+        "coverage": "Reviewed narrative sections in this captured revision only.",
+        "gaps": [
+          "Partial canon coverage; other paragraphs remain excluded or awaiting review.",
+          "Identity and episode metadata do not independently corroborate story claims."
+        ],
+        "support_status": "source_supported"
+      },
+      "location": {
+        "source_id": "phil-mitchell-wiki",
+        "paragraph_ordinal": 21,
+        "section_id": "1990–2003",
+        "character_ids": [
+          "ian-beale",
+          "phil-mitchell"
+        ]
+      }
+    },
+    {
+      "evidence_id": "history-affair-reconciliation",
+      "text": "In his absence, Phil and Sharon continue their affair but when Grant is released, Sharon reconciles with him, leaving Phil heartbroken.",
+      "sha256": "cd4c7d77211201aef0949428a5be0ad7bec67184803c4f15e42daf474c089583",
+      "start": 16172,
+      "end": 16307,
+      "source": {
+        "title": "Phil Mitchell",
+        "url": "https://en.wikipedia.org/wiki/Phil_Mitchell",
+        "revision_id": "1379872347",
+        "revision_url": "https://en.wikipedia.org/w/index.php?oldid=1379872347",
+        "section": "Storylines / 1990–2003",
+        "captured_at": "2026-10-17T13:07:31.014189Z",
+        "capture_sha256": "a338d3065203be54e383f2c9c141bca22ae9aedbb950e2e1eada601bcccfe313",
+        "scope": "main_series",
+        "license_url": "https://creativecommons.org/licenses/by-sa/4.0/",
+        "attribution": "Wikipedia contributors; markup removed and whitespace normalized.",
+        "coverage": "Reviewed narrative sections in this captured revision only.",
+        "gaps": [
+          "Partial canon coverage; other paragraphs remain excluded or awaiting review.",
+          "Identity and episode metadata do not independently corroborate story claims."
+        ],
+        "support_status": "source_supported"
+      },
+      "location": {
+        "source_id": "phil-mitchell-wiki",
+        "paragraph_ordinal": 18,
+        "section_id": "1990–2003",
+        "character_ids": [
+          "grant-mitchell",
+          "phil-mitchell",
+          "sharon-watts"
+        ]
+      }
+    },
+    {
+      "evidence_id": "history-grant-sharon-divorce",
+      "text": "Sharon is ready to turn him down in front of a packed pub and his family; however, in the end, she cannot go through with it, and stops him from publicly proposing before he humiliates himself. She then tells him that she loves him too but their relationship can no longer work, before returning to the US, leaving Grant heartbroken. They are then divorced and do not see each other for more than 10 years after this.",
+      "sha256": "95f2e087ceb1f76a03c96c92db2504e4b6eef605649e58d26308fc2d2df537ea",
+      "start": 23006,
+      "end": 23423,
+      "source": {
+        "title": "Grant Mitchell",
+        "url": "https://en.wikipedia.org/wiki/Grant_Mitchell_(EastEnders)",
+        "revision_id": "1370914760",
+        "revision_url": "https://en.wikipedia.org/w/index.php?oldid=1370914760",
+        "section": "Storylines / 1990–1999",
+        "captured_at": "2026-10-17T13:08:22.582778Z",
+        "capture_sha256": "2548b2c8780b1bda430939378a28ab3b7f98eca424480b7cccfaf2eb76f42ebf",
+        "scope": "main_series",
+        "license_url": "https://creativecommons.org/licenses/by-sa/4.0/",
+        "attribution": "Wikipedia contributors; markup removed and whitespace normalized.",
+        "coverage": "Reviewed narrative sections in this captured revision only.",
+        "gaps": [
+          "Partial canon coverage; other paragraphs remain excluded or awaiting review.",
+          "Identity and episode metadata do not independently corroborate story claims."
+        ],
+        "support_status": "source_supported"
+      },
+      "location": {
+        "source_id": "grant-mitchell-wiki",
+        "paragraph_ordinal": 24,
+        "section_id": "1990–1999",
+        "character_ids": [
+          "grant-mitchell",
+          "kathy-beale"
+        ]
+      }
+    },
+    {
+      "evidence_id": "history-kat-marriage",
+      "text": "Kat leaves Andy, and she and Alfie marry on Christmas Day.",
+      "sha256": "1a9d7812763769194371b2564ab8c6708b2eafb204949da315d1fff60b54510a",
+      "start": 33621,
+      "end": 33679,
+      "source": {
+        "title": "Kat Slater",
+        "url": "https://en.wikipedia.org/wiki/Kat_Slater",
+        "revision_id": "1380652225",
+        "revision_url": "https://en.wikipedia.org/w/index.php?oldid=1380652225",
+        "section": "Storylines / 2000–2005",
+        "captured_at": "2026-10-17T13:07:33.048959Z",
+        "capture_sha256": "f3852a9f1c3fa3f0c254f123fa8ed739d6f6a4388eb5f19c7de975858a537bd7",
+        "scope": "main_series",
+        "license_url": "https://creativecommons.org/licenses/by-sa/4.0/",
+        "attribution": "Wikipedia contributors; markup removed and whitespace normalized.",
+        "coverage": "Reviewed narrative sections in this captured revision only.",
+        "gaps": [
+          "Partial canon coverage; other paragraphs remain excluded or awaiting review.",
+          "Identity and episode metadata do not independently corroborate story claims."
+        ],
+        "support_status": "source_supported"
+      },
+      "location": {
+        "source_id": "kat-slater-wiki",
+        "paragraph_ordinal": 42,
+        "section_id": "2000–2005",
+        "character_ids": [
+          "alfie-moon",
+          "kat-slater"
+        ]
+      }
+    },
+    {
+      "evidence_id": "history-kat-remarriage",
+      "text": "He does so, but is unaware Kat is inside at the time. She becomes trapped although Alfie rescues her. She is badly burnt and suffers permanent scarring to her face. On leaving hospital, she and Alfie remarry, with two nurses as the only witnesses, before returning to the square and moving into a flat Alfie had organised for them to squat in.",
+      "sha256": "5173ddd46d2a973bf1a6f5c82cb49592a63b54f664ede1d73f7020ffc9f87327",
+      "start": 46181,
+      "end": 46524,
+      "source": {
+        "title": "Kat Slater",
+        "url": "https://en.wikipedia.org/wiki/Kat_Slater",
+        "revision_id": "1380652225",
+        "revision_url": "https://en.wikipedia.org/w/index.php?oldid=1380652225",
+        "section": "Storylines / 2010–2016",
+        "captured_at": "2026-10-17T13:07:33.048959Z",
+        "capture_sha256": "f3852a9f1c3fa3f0c254f123fa8ed739d6f6a4388eb5f19c7de975858a537bd7",
+        "scope": "main_series",
+        "license_url": "https://creativecommons.org/licenses/by-sa/4.0/",
+        "attribution": "Wikipedia contributors; markup removed and whitespace normalized.",
+        "coverage": "Reviewed narrative sections in this captured revision only.",
+        "gaps": [
+          "Partial canon coverage; other paragraphs remain excluded or awaiting review.",
+          "Identity and episode metadata do not independently corroborate story claims."
+        ],
+        "support_status": "source_supported"
+      },
+      "location": {
+        "source_id": "kat-slater-wiki",
+        "paragraph_ordinal": 53,
+        "section_id": "2010–2016",
+        "character_ids": [
+          "kat-slater"
+        ]
+      }
+    },
+    {
+      "evidence_id": "history-den-adoption",
+      "text": "Adopted at the age of three by Den (Leslie Grantham) and Angie Watts (Anita Dobson), Sharon is raised at The Queen Victoria public house in Albert Square, Walford, where her adoptive parents are landlords.",
+      "sha256": "1e54773bc770474ace800fa686ba855dce8b3eac079403d0dd1c78e958023f31",
+      "start": 50624,
+      "end": 50829,
+      "source": {
+        "title": "Sharon Watts",
+        "url": "https://en.wikipedia.org/wiki/Sharon_Watts",
+        "revision_id": "1372798905",
+        "revision_url": "https://en.wikipedia.org/w/index.php?oldid=1372798905",
+        "section": "Storylines / 1985–1995",
+        "captured_at": "2026-10-17T13:07:31.327518Z",
+        "capture_sha256": "9ccef3de99353ff737101d9d00561c217608dd4fa6fba0c8200f80ac0114ea85",
+        "scope": "main_series",
+        "license_url": "https://creativecommons.org/licenses/by-sa/4.0/",
+        "attribution": "Wikipedia contributors; markup removed and whitespace normalized.",
+        "coverage": "Reviewed narrative sections in this captured revision only.",
+        "gaps": [
+          "Partial canon coverage; other paragraphs remain excluded or awaiting review.",
+          "Identity and episode metadata do not independently corroborate story claims."
+        ],
+        "support_status": "source_supported"
+      },
+      "location": {
+        "source_id": "sharon-watts-wiki",
+        "paragraph_ordinal": 53,
+        "section_id": "1985–1995",
+        "character_ids": [
+          "den-watts",
+          "ian-beale",
+          "sharon-watts"
+        ]
+      }
+    },
+    {
+      "evidence_id": "history-denise-step",
+      "text": "In early 2023, Denise faces her stepdaughter Amy Mitchell's (Ellie Dadd) self-harming and Ricky impregnating Lily Slater (Lillia Turner).",
+      "sha256": "41bdfd305520f46995e00ddd0f0bc0047840a13015f70adb4eeb4d206b5f0f3b",
+      "start": 28931,
+      "end": 29068,
+      "source": {
+        "title": "Denise Fox",
+        "url": "https://en.wikipedia.org/wiki/Denise_Fox",
+        "revision_id": "1378939229",
+        "revision_url": "https://en.wikipedia.org/w/index.php?oldid=1378939229",
+        "section": "Storylines",
+        "captured_at": "2026-10-17T13:07:34.640123Z",
+        "capture_sha256": "2545a525bd8f3338a51ed788e0c88658b60503df4a025557ff78ef046168476c",
+        "scope": "main_series",
+        "license_url": "https://creativecommons.org/licenses/by-sa/4.0/",
+        "attribution": "Wikipedia contributors; markup removed and whitespace normalized.",
+        "coverage": "Reviewed narrative sections in this captured revision only.",
+        "gaps": [
+          "Partial canon coverage; other paragraphs remain excluded or awaiting review.",
+          "Identity and episode metadata do not independently corroborate story claims."
+        ],
+        "support_status": "source_supported"
+      },
+      "location": {
+        "source_id": "denise-fox-wiki",
+        "paragraph_ordinal": 20,
+        "section_id": "Storylines",
+        "character_ids": [
+          "denise-fox"
+        ]
+      }
+    },
+    {
+      "evidence_id": "history-ben-birth",
+      "text": "Ben is born to Phil Mitchell (Steve McFadden) and his then wife Kathy Beale (Gillian Taylforth) in March 1996.",
+      "sha256": "8179f5f0724cc08e5a5d51567fb7de0f8e55a4d5fc9881f5e050ae9d153eca08",
+      "start": 17983,
+      "end": 18093,
+      "source": {
+        "title": "Ben Mitchell",
+        "url": "https://en.wikipedia.org/wiki/Ben_Mitchell_(EastEnders)",
+        "revision_id": "1376729134",
+        "revision_url": "https://en.wikipedia.org/w/index.php?oldid=1376729134",
+        "section": "Storylines / 1996–2000",
+        "captured_at": "2026-10-17T13:07:31.530421Z",
+        "capture_sha256": "8ae0fbabb19cf12b2bdf46d7a85e15eea4462b8559584c770224a54a9e47d128",
+        "scope": "main_series",
+        "license_url": "https://creativecommons.org/licenses/by-sa/4.0/",
+        "attribution": "Wikipedia contributors; markup removed and whitespace normalized.",
+        "coverage": "Reviewed narrative sections in this captured revision only.",
+        "gaps": [
+          "Partial canon coverage; other paragraphs remain excluded or awaiting review.",
+          "Identity and episode metadata do not independently corroborate story claims."
+        ],
+        "support_status": "source_supported"
+      },
+      "location": {
+        "source_id": "ben-mitchell-wiki",
+        "paragraph_ordinal": 22,
+        "section_id": "1996–2000",
+        "character_ids": [
+          "ben-mitchell",
+          "kathy-beale",
+          "phil-mitchell"
+        ]
+      }
+    },
+    {
+      "evidence_id": "lucy-arrest-charge",
+      "text": "When Ben is arrested for Lucy's murder, Phil manipulates Abi into coming forward about Max's fake alibi to the police. Max is arrested and is charged with her murder when Lucy's blood is found on his shoe, from where Jake Stone caused Lucy's nose to bleed on the night she died.",
+      "sha256": "49dfd9a4f22c14f3e1240b45100f89f707f4a09edae8ee17ef990e0f7424576c",
+      "start": 28208,
+      "end": 28486,
+      "source": {
+        "title": "Max Branning",
+        "url": "https://en.wikipedia.org/wiki/Max_Branning",
+        "revision_id": "1378782554",
+        "revision_url": "https://en.wikipedia.org/w/index.php?oldid=1378782554",
+        "section": "Storylines / 2006–2021",
+        "captured_at": "2026-10-17T13:07:34.684245Z",
+        "capture_sha256": "48c3bdd9d5f7110e9cbcd9e6cbc7f32970c519fee14c1a32b231b42c639dc615",
+        "scope": "main_series",
+        "license_url": "https://creativecommons.org/licenses/by-sa/4.0/",
+        "attribution": "Wikipedia contributors; markup removed and whitespace normalized.",
+        "coverage": "Reviewed narrative sections in this captured revision only.",
+        "gaps": [
+          "Partial canon coverage; other paragraphs remain excluded or awaiting review.",
+          "Identity and episode metadata do not independently corroborate story claims."
+        ],
+        "support_status": "source_supported"
+      },
+      "location": {
+        "source_id": "max-branning-wiki",
+        "paragraph_ordinal": 27,
+        "section_id": "2006–2021",
+        "character_ids": [
+          "bobby-beale",
+          "max-branning"
+        ]
+      }
+    },
+    {
+      "evidence_id": "lucy-conviction",
+      "text": "Despite Ian's wife Jane (Laurie Brett) giving him a false alibi, he is found guilty thanks to Phil paying off the jury foreman.",
+      "sha256": "ab037575ab0976ec8b9309db31a87dbb3cce2835e29af2903cceff3a27256b82",
+      "start": 28675,
+      "end": 28802,
+      "source": {
+        "title": "Max Branning",
+        "url": "https://en.wikipedia.org/wiki/Max_Branning",
+        "revision_id": "1378782554",
+        "revision_url": "https://en.wikipedia.org/w/index.php?oldid=1378782554",
+        "section": "Storylines / 2006–2021",
+        "captured_at": "2026-10-17T13:07:34.684245Z",
+        "capture_sha256": "48c3bdd9d5f7110e9cbcd9e6cbc7f32970c519fee14c1a32b231b42c639dc615",
+        "scope": "main_series",
+        "license_url": "https://creativecommons.org/licenses/by-sa/4.0/",
+        "attribution": "Wikipedia contributors; markup removed and whitespace normalized.",
+        "coverage": "Reviewed narrative sections in this captured revision only.",
+        "gaps": [
+          "Partial canon coverage; other paragraphs remain excluded or awaiting review.",
+          "Identity and episode metadata do not independently corroborate story claims."
+        ],
+        "support_status": "source_supported"
+      },
+      "location": {
+        "source_id": "max-branning-wiki",
+        "paragraph_ordinal": 27,
+        "section_id": "2006–2021",
+        "character_ids": [
+          "bobby-beale",
+          "max-branning"
+        ]
+      }
+    },
+    {
+      "evidence_id": "lucy-revelation",
+      "text": "Max soon realises that Jane's adopted son Bobby Beale (Eliot Carrington) is Lucy's killer all along and that Jane had been covering up for her. He then discovers that Lauren knew the truth and disowns her as the police arrive to arrest him once more. As he is being arrested, Max shouts out to everyone that Bobby killed Lucy but they all dismiss his claims as an act of desperation; Max is later sentenced to life imprisonment with a recommendation he should serve at least 21 years.",
+      "sha256": "19f4d15331225d7db9d5fd6da40227c552a8bc61a569c13bf757df477329548c",
+      "start": 29247,
+      "end": 29731,
+      "source": {
+        "title": "Max Branning",
+        "url": "https://en.wikipedia.org/wiki/Max_Branning",
+        "revision_id": "1378782554",
+        "revision_url": "https://en.wikipedia.org/w/index.php?oldid=1378782554",
+        "section": "Storylines / 2006–2021",
+        "captured_at": "2026-10-17T13:07:34.684245Z",
+        "capture_sha256": "48c3bdd9d5f7110e9cbcd9e6cbc7f32970c519fee14c1a32b231b42c639dc615",
+        "scope": "main_series",
+        "license_url": "https://creativecommons.org/licenses/by-sa/4.0/",
+        "attribution": "Wikipedia contributors; markup removed and whitespace normalized.",
+        "coverage": "Reviewed narrative sections in this captured revision only.",
+        "gaps": [
+          "Partial canon coverage; other paragraphs remain excluded or awaiting review.",
+          "Identity and episode metadata do not independently corroborate story claims."
+        ],
+        "support_status": "source_supported"
+      },
+      "location": {
+        "source_id": "max-branning-wiki",
+        "paragraph_ordinal": 27,
+        "section_id": "2006–2021",
+        "character_ids": [
+          "bobby-beale",
+          "max-branning"
+        ]
+      }
+    },
+    {
+      "evidence_id": "stella-false-confession",
+      "text": "Stella flees to an abandoned warehouse with Phil in pursuit – where she kills herself by jumping from the roof. Later on, Phil claims to have killed Stella and is taken into custody – but is later released without charge.",
+      "sha256": "9a5ef67010e19e02fe16e70154f8ed986ea01065437042b1526fa99ef2481621",
+      "start": 36817,
+      "end": 37038,
+      "source": {
+        "title": "Phil Mitchell",
+        "url": "https://en.wikipedia.org/wiki/Phil_Mitchell",
+        "revision_id": "1379872347",
+        "revision_url": "https://en.wikipedia.org/w/index.php?oldid=1379872347",
+        "section": "Storylines / 2005–present",
+        "captured_at": "2026-10-17T13:07:31.014189Z",
+        "capture_sha256": "a338d3065203be54e383f2c9c141bca22ae9aedbb950e2e1eada601bcccfe313",
+        "scope": "main_series",
+        "license_url": "https://creativecommons.org/licenses/by-sa/4.0/",
+        "attribution": "Wikipedia contributors; markup removed and whitespace normalized.",
+        "coverage": "Reviewed narrative sections in this captured revision only.",
+        "gaps": [
+          "Partial canon coverage; other paragraphs remain excluded or awaiting review.",
+          "Identity and episode metadata do not independently corroborate story claims."
+        ],
+        "support_status": "source_supported"
+      },
+      "location": {
+        "source_id": "phil-mitchell-wiki",
+        "paragraph_ordinal": 35,
+        "section_id": "2005–present",
+        "character_ids": [
+          "phil-mitchell"
+        ]
+      }
+    },
+    {
+      "evidence_id": "crash-framing",
+      "text": "Max's feud with Carl continues, and, determined to get rid of Max so he can win back Kirsty, he purposefully cuts the brakes on his car, and crashes it, leaving Phil in a critical condition. He frames Max for cutting the brakes, and forces Ian to become a false witness. Max is arrested and released on bail, until Carl goads him into attacking him, and he is remanded in custody. He then ends his relationship with Kirsty under Carl's instructions, partially because Carl has also threatened Lauren's safety as well. Carl also forces Max to tell his family he is guilty, and Lauren is the only person who believes he is innocent. On the day of Max's trial, Ian fails to turn up, and Max is released without charge, to Carl's fury.",
+      "sha256": "d13d71cc469d7ed626e3df1f5157b97fa031ad2140dc26f98f2a9e1531e5558d",
+      "start": 22468,
+      "end": 23199,
+      "source": {
+        "title": "Max Branning",
+        "url": "https://en.wikipedia.org/wiki/Max_Branning",
+        "revision_id": "1378782554",
+        "revision_url": "https://en.wikipedia.org/w/index.php?oldid=1378782554",
+        "section": "Storylines / 2006–2021",
+        "captured_at": "2026-10-17T13:07:34.684245Z",
+        "capture_sha256": "48c3bdd9d5f7110e9cbcd9e6cbc7f32970c519fee14c1a32b231b42c639dc615",
+        "scope": "main_series",
+        "license_url": "https://creativecommons.org/licenses/by-sa/4.0/",
+        "attribution": "Wikipedia contributors; markup removed and whitespace normalized.",
+        "coverage": "Reviewed narrative sections in this captured revision only.",
+        "gaps": [
+          "Partial canon coverage; other paragraphs remain excluded or awaiting review.",
+          "Identity and episode metadata do not independently corroborate story claims."
+        ],
+        "support_status": "source_supported"
+      },
+      "location": {
+        "source_id": "max-branning-wiki",
+        "paragraph_ordinal": 24,
+        "section_id": "2006–2021",
+        "character_ids": [
+          "max-branning"
+        ]
+      }
+    },
+    {
+      "evidence_id": "crash-acquittal",
+      "text": "Phil kidnaps Ian on the day of Max's trial so he cannot testify, and then kidnaps Carl once Max is acquitted.",
+      "sha256": "d2824f238d75baa22ca39fe76ea28b485a80f6010bffed29e582e5a1204be65d",
+      "start": 48707,
+      "end": 48816,
+      "source": {
+        "title": "Phil Mitchell",
+        "url": "https://en.wikipedia.org/wiki/Phil_Mitchell",
+        "revision_id": "1379872347",
+        "revision_url": "https://en.wikipedia.org/w/index.php?oldid=1379872347",
+        "section": "Storylines / 2005–present",
+        "captured_at": "2026-10-17T13:07:31.014189Z",
+        "capture_sha256": "a338d3065203be54e383f2c9c141bca22ae9aedbb950e2e1eada601bcccfe313",
+        "scope": "main_series",
+        "license_url": "https://creativecommons.org/licenses/by-sa/4.0/",
+        "attribution": "Wikipedia contributors; markup removed and whitespace normalized.",
+        "coverage": "Reviewed narrative sections in this captured revision only.",
+        "gaps": [
+          "Partial canon coverage; other paragraphs remain excluded or awaiting review.",
+          "Identity and episode metadata do not independently corroborate story claims."
+        ],
+        "support_status": "source_supported"
+      },
+      "location": {
+        "source_id": "phil-mitchell-wiki",
+        "paragraph_ordinal": 43,
+        "section_id": "2005–present",
+        "character_ids": [
+          "max-branning",
+          "phil-mitchell"
+        ]
+      }
+    },
+    {
+      "evidence_id": "peggy-pregnancy",
+      "text": "Peggy married Eric Mitchell (George Russo) because she was pregnant with their son Phil (Steve McFadden).",
+      "sha256": "601d2f2332aa61ff7cecd296e9d2b4be8b78207a8a739e7354b2105847f531f2",
+      "start": 34316,
+      "end": 34421,
+      "source": {
+        "title": "Peggy Mitchell",
+        "url": "https://en.wikipedia.org/wiki/Peggy_Mitchell",
+        "revision_id": "1372787814",
+        "revision_url": "https://en.wikipedia.org/w/index.php?oldid=1372787814",
+        "section": "Storylines / Backstory",
+        "captured_at": "2026-10-17T13:07:31.253971Z",
+        "capture_sha256": "d777ce7a2fffc8e7cb1da6ccd3a87aca45590147a348b5ef5eb6361fb685cacb",
+        "scope": "main_series",
+        "license_url": "https://creativecommons.org/licenses/by-sa/4.0/",
+        "attribution": "Wikipedia contributors; markup removed and whitespace normalized.",
+        "coverage": "Reviewed narrative sections in this captured revision only.",
+        "gaps": [
+          "Partial canon coverage; other paragraphs remain excluded or awaiting review.",
+          "Identity and episode metadata do not independently corroborate story claims."
+        ],
+        "support_status": "source_supported"
+      },
+      "location": {
+        "source_id": "peggy-mitchell-wiki",
+        "paragraph_ordinal": 37,
+        "section_id": "Backstory",
+        "character_ids": [
+          "grant-mitchell",
+          "peggy-mitchell",
+          "phil-mitchell"
+        ]
+      }
+    },
+    {
+      "evidence_id": "sharon-christmas-pregnancy",
+      "text": "On Christmas Day 2005, Sharon is stunned to discover she is pregnant, and she and Dennis celebrate the potential of having a child.",
+      "sha256": "dfa4fd7ae0dbe533dcdec506808a9bbdd4f16b27cbccefc8e8df6d69363ad06d",
+      "start": 61360,
+      "end": 61491,
+      "source": {
+        "title": "Sharon Watts",
+        "url": "https://en.wikipedia.org/wiki/Sharon_Watts",
+        "revision_id": "1372798905",
+        "revision_url": "https://en.wikipedia.org/w/index.php?oldid=1372798905",
+        "section": "Storylines / 2001–2006",
+        "captured_at": "2026-10-17T13:07:31.327518Z",
+        "capture_sha256": "9ccef3de99353ff737101d9d00561c217608dd4fa6fba0c8200f80ac0114ea85",
+        "scope": "main_series",
+        "license_url": "https://creativecommons.org/licenses/by-sa/4.0/",
+        "attribution": "Wikipedia contributors; markup removed and whitespace normalized.",
+        "coverage": "Reviewed narrative sections in this captured revision only.",
+        "gaps": [
+          "Partial canon coverage; other paragraphs remain excluded or awaiting review.",
+          "Identity and episode metadata do not independently corroborate story claims."
+        ],
+        "support_status": "source_supported"
+      },
+      "location": {
+        "source_id": "sharon-watts-wiki",
+        "paragraph_ordinal": 64,
+        "section_id": "2001–2006",
+        "character_ids": [
+          "sharon-watts"
+        ]
+      }
+    },
+    {
+      "evidence_id": "sharon-uncertain-paternity",
+      "text": "However, Sharon also discovers she is pregnant but does not know if Phil or Keanu is the father. She settles on having an abortion, but Phil discovers she's pregnant, and Sharon lies letting Phil believe he is the father.",
+      "sha256": "58a54d25d3179499cff866bbaef27ced938997fcd7ac9139d4ac6a29cc68a15e",
+      "start": 77363,
+      "end": 77584,
+      "source": {
+        "title": "Sharon Watts",
+        "url": "https://en.wikipedia.org/wiki/Sharon_Watts",
+        "revision_id": "1372798905",
+        "revision_url": "https://en.wikipedia.org/w/index.php?oldid=1372798905",
+        "section": "Storylines / 2012–present",
+        "captured_at": "2026-10-17T13:07:31.327518Z",
+        "capture_sha256": "9ccef3de99353ff737101d9d00561c217608dd4fa6fba0c8200f80ac0114ea85",
+        "scope": "main_series",
+        "license_url": "https://creativecommons.org/licenses/by-sa/4.0/",
+        "attribution": "Wikipedia contributors; markup removed and whitespace normalized.",
+        "coverage": "Reviewed narrative sections in this captured revision only.",
+        "gaps": [
+          "Partial canon coverage; other paragraphs remain excluded or awaiting review.",
+          "Identity and episode metadata do not independently corroborate story claims."
+        ],
+        "support_status": "source_supported"
+      },
+      "location": {
+        "source_id": "sharon-watts-wiki",
+        "paragraph_ordinal": 75,
+        "section_id": "2012–present",
+        "character_ids": [
+          "martin-fowler",
+          "sharon-watts"
+        ]
+      }
+    },
+    {
+      "evidence_id": "peggy-death",
+      "text": "Peggy begins hallucinating the smell of cigarette smoke; this eventually manifests into a vision of Pat. As the two reminisce about past memories, Peggy states she still wants to die now before the cancer gets worse and to be remembered as a strong woman. Upon being reassured by Pat that she will not leave her side, Peggy then commits suicide by taking an overdose of her pills. Phil is devastated to find her body, and a letter from her urges him to love himself as others love him. Peggy's funeral takes place on 4 July 2016.",
+      "sha256": "f40c1040ebdd05512023c580873390dab95e17cb5ab09b07be5c475787b7378f",
+      "start": 47293,
+      "end": 47822,
+      "source": {
+        "title": "Peggy Mitchell",
+        "url": "https://en.wikipedia.org/wiki/Peggy_Mitchell",
+        "revision_id": "1372787814",
+        "revision_url": "https://en.wikipedia.org/w/index.php?oldid=1372787814",
+        "section": "Storylines / 2013–2016",
+        "captured_at": "2026-10-17T13:07:31.253971Z",
+        "capture_sha256": "d777ce7a2fffc8e7cb1da6ccd3a87aca45590147a348b5ef5eb6361fb685cacb",
+        "scope": "main_series",
+        "license_url": "https://creativecommons.org/licenses/by-sa/4.0/",
+        "attribution": "Wikipedia contributors; markup removed and whitespace normalized.",
+        "coverage": "Reviewed narrative sections in this captured revision only.",
+        "gaps": [
+          "Partial canon coverage; other paragraphs remain excluded or awaiting review.",
+          "Identity and episode metadata do not independently corroborate story claims."
+        ],
+        "support_status": "source_supported"
+      },
+      "location": {
+        "source_id": "peggy-mitchell-wiki",
+        "paragraph_ordinal": 48,
+        "section_id": "2013–2016",
+        "character_ids": [
+          "peggy-mitchell"
+        ]
+      }
+    },
+    {
+      "evidence_id": "lucy-death",
+      "text": "When Ian's daughter Lucy dies, Phil begins supporting his former enemy and helps him get back on his feet.",
+      "sha256": "bcb6b817459facae61d8e234002b05cf2828034fa135e20cef105fc07ab2f182",
+      "start": 51631,
+      "end": 51737,
+      "source": {
+        "title": "Phil Mitchell",
+        "url": "https://en.wikipedia.org/wiki/Phil_Mitchell",
+        "revision_id": "1379872347",
+        "revision_url": "https://en.wikipedia.org/w/index.php?oldid=1379872347",
+        "section": "Storylines / 2005–present",
+        "captured_at": "2026-10-17T13:07:31.014189Z",
+        "capture_sha256": "a338d3065203be54e383f2c9c141bca22ae9aedbb950e2e1eada601bcccfe313",
+        "scope": "main_series",
+        "license_url": "https://creativecommons.org/licenses/by-sa/4.0/",
+        "attribution": "Wikipedia contributors; markup removed and whitespace normalized.",
+        "coverage": "Reviewed narrative sections in this captured revision only.",
+        "gaps": [
+          "Partial canon coverage; other paragraphs remain excluded or awaiting review.",
+          "Identity and episode metadata do not independently corroborate story claims."
+        ],
+        "support_status": "source_supported"
+      },
+      "location": {
+        "source_id": "phil-mitchell-wiki",
+        "paragraph_ordinal": 45,
+        "section_id": "2005–present",
+        "character_ids": [
+          "alfie-moon",
+          "phil-mitchell"
+        ]
+      }
+    },
+    {
+      "evidence_id": "peggy-abuse-theme",
+      "text": "Eric took his anger out on Peggy and was often violent towards her and Phil.",
+      "sha256": "ec4788a5d0d20438fa33ecab23c93de25cd5598d30f3efdf09b8057fa5290b44",
+      "start": 34856,
+      "end": 34932,
+      "source": {
+        "title": "Peggy Mitchell",
+        "url": "https://en.wikipedia.org/wiki/Peggy_Mitchell",
+        "revision_id": "1372787814",
+        "revision_url": "https://en.wikipedia.org/w/index.php?oldid=1372787814",
+        "section": "Storylines / Backstory",
+        "captured_at": "2026-10-17T13:07:31.253971Z",
+        "capture_sha256": "d777ce7a2fffc8e7cb1da6ccd3a87aca45590147a348b5ef5eb6361fb685cacb",
+        "scope": "main_series",
+        "license_url": "https://creativecommons.org/licenses/by-sa/4.0/",
+        "attribution": "Wikipedia contributors; markup removed and whitespace normalized.",
+        "coverage": "Reviewed narrative sections in this captured revision only.",
+        "gaps": [
+          "Partial canon coverage; other paragraphs remain excluded or awaiting review.",
+          "Identity and episode metadata do not independently corroborate story claims."
+        ],
+        "support_status": "source_supported"
+      },
+      "location": {
+        "source_id": "peggy-mitchell-wiki",
+        "paragraph_ordinal": 37,
+        "section_id": "Backstory",
+        "character_ids": [
+          "grant-mitchell",
+          "peggy-mitchell",
+          "phil-mitchell"
+        ]
+      }
+    },
+    {
+      "evidence_id": "tape-revelation",
+      "text": "Sharon and Grant patch up their relationship; however, in the autumn of 1994, Grant discovers a tape on which Sharon talks about her affair with Phil, and plays it to a packed pub at Phil's engagement party to his fiancée, Kathy Beale (Gillian Taylforth).",
+      "sha256": "e63beb685636d1dda9e77057095a4437788895b5bfe489c5e0e0ba3f2a2b21d4",
+      "start": 22406,
+      "end": 22661,
+      "source": {
+        "title": "Grant Mitchell",
+        "url": "https://en.wikipedia.org/wiki/Grant_Mitchell_(EastEnders)",
+        "revision_id": "1370914760",
+        "revision_url": "https://en.wikipedia.org/w/index.php?oldid=1370914760",
+        "section": "Storylines / 1990–1999",
+        "captured_at": "2026-10-17T13:08:22.582778Z",
+        "capture_sha256": "2548b2c8780b1bda430939378a28ab3b7f98eca424480b7cccfaf2eb76f42ebf",
+        "scope": "main_series",
+        "license_url": "https://creativecommons.org/licenses/by-sa/4.0/",
+        "attribution": "Wikipedia contributors; markup removed and whitespace normalized.",
+        "coverage": "Reviewed narrative sections in this captured revision only.",
+        "gaps": [
+          "Partial canon coverage; other paragraphs remain excluded or awaiting review.",
+          "Identity and episode metadata do not independently corroborate story claims."
+        ],
+        "support_status": "source_supported"
+      },
+      "location": {
+        "source_id": "grant-mitchell-wiki",
+        "paragraph_ordinal": 24,
+        "section_id": "1990–1999",
+        "character_ids": [
+          "grant-mitchell",
+          "kathy-beale"
+        ]
+      }
+    }
+  ]
+}

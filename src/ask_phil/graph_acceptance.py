@@ -29,6 +29,9 @@ from pydantic import TypeAdapter
 from ask_phil.answering import application_fingerprint
 from ask_phil.answers import AnswerReceipt, AskRequest
 from ask_phil.api import create_app
+from ask_phil.claim_projections import EventAudit, FamilyAudit, RelationshipAudit
+from ask_phil.connection_evaluation import ConnectionReference
+from ask_phil.connection_graph import ConnectionQuery
 from ask_phil.evaluation import EvaluationRun
 from ask_phil.event_graph import EventGraph, EventQuery
 from ask_phil.evidence import SourceSnapshot
@@ -39,7 +42,7 @@ from ask_phil.relationships import RelationshipBatch
 from ask_phil.storage import EvidenceStore
 from ask_phil.story_events import EventBatch, EventReview
 
-GraphQuery = FamilyQuery | RelationshipQuery | EventQuery
+GraphQuery = FamilyQuery | RelationshipQuery | EventQuery | ConnectionQuery
 Assessment = Callable[[dict[str, Any], SourceSnapshot, bytes | None], dict[str, Any]]
 
 
@@ -55,7 +58,7 @@ class GraphCase:
 @dataclass(frozen=True)
 class GraphPhase:
     name: str
-    kind: Literal["family", "relationships", "events"]
+    kind: Literal["family", "relationships", "events", "connections"]
     snapshot: Path
     batch: Path
     reviews: Path
@@ -288,6 +291,10 @@ class GraphAcceptanceRun:
                                 identity,
                                 case.query.kind
                                 if isinstance(case.query, EventQuery)
+                                else "relationship_history"
+                                if isinstance(case.query, RelationshipQuery)
+                                else "family_graph"
+                                if isinstance(case.query, FamilyQuery)
                                 else tool_name,
                             )
                         )
@@ -347,10 +354,20 @@ class GraphAcceptanceRun:
                     if phase.kind == "relationships"
                     else "event-claims"
                 )
-                lookup = client.get(f"/v1/snapshots/{snapshot.snapshot_id}/{audit_path}")
-                lookup.raise_for_status()
-                if lookup.json() != audit:
-                    raise ValueError("Retained graph audit differs from installed Claims.")
+                audit_paths = (
+                    {
+                        "family": "family-claims",
+                        "relationship": "relationship-claims",
+                        "event": "event-claims",
+                    }
+                    if phase.kind == "connections"
+                    else {"single": audit_path}
+                )
+                for kind, path in audit_paths.items():
+                    lookup = client.get(f"/v1/snapshots/{snapshot.snapshot_id}/{path}")
+                    lookup.raise_for_status()
+                    if lookup.json() != (audit if kind == "single" else audit[kind]):
+                        raise ValueError("Retained graph audit differs from installed Claims.")
             run.annotate(stage="restarting")
             with (
                 _serve(database_url, self._tracking.tracking_uri) as url,
@@ -396,6 +413,44 @@ class GraphAcceptanceRun:
     def _install(
         self, database_url: str, phase: GraphPhase, frozen: dict[Path, bytes]
     ) -> tuple[dict[str, Any], str, str]:
+        if phase.kind == "connections":
+            reference = ConnectionReference.model_validate_json(frozen[phase.batch])
+            reviews = json.loads(frozen[phase.reviews])
+            common: dict[str, Any] = dict(
+                snapshot_id=reference.snapshot_id,
+                snapshot_sha256=reference.snapshot_sha256,
+                catalogue=reference.catalogue,
+                extractor="retained-reviewed-reference-composition",
+            )
+            family = FamilyGraph(database_url).install(
+                ClaimBatch(**common, claims=reference.family_claims),
+                TypeAdapter(tuple[ClaimReview, ...]).validate_python(reviews["family"]),
+            )
+            relationship = RelationshipGraph(database_url).install(
+                RelationshipBatch(**common, claims=reference.relationship_claims),
+                TypeAdapter(tuple[ClaimReview, ...]).validate_python(reviews["relationship"]),
+            )
+            event = EventGraph(database_url).install(
+                EventBatch(
+                    **common, claims=reference.event_claims, context_claims=reference.context_claims
+                ),
+                TypeAdapter(tuple[EventReview, ...]).validate_python(reviews["event"]),
+            )
+            audits: dict[str, FamilyAudit | RelationshipAudit | EventAudit] = {
+                "family": family,
+                "relationship": relationship,
+                "event": event,
+            }
+            return (
+                {
+                    "admission": {
+                        k: a.admission.model_dump(mode="json") for k, a in audits.items()
+                    },
+                    **{k: a.model_dump(mode="json") for k, a in audits.items()},
+                },
+                "connections",
+                "connection_graph",
+            )
         if phase.kind == "family":
             family = FamilyGraph(database_url).install(
                 ClaimBatch.model_validate_json(frozen[phase.batch]),
@@ -439,7 +494,18 @@ class GraphAcceptanceRun:
                 case.query.character_id,
             ]
             query = case.query
-            if isinstance(query, EventQuery):
+            if isinstance(query, ConnectionQuery):
+                command += [
+                    "--connect-to",
+                    query.target_id,
+                    "--depth",
+                    str(query.max_depth),
+                    "--max-paths",
+                    str(query.max_paths),
+                    "--max-expansions",
+                    str(query.max_expansions),
+                ]
+            elif isinstance(query, EventQuery):
                 command += ["--event-kind", query.kind, "--max-events", str(query.max_events)]
                 if query.participant_id:
                     command += ["--participant", query.participant_id]

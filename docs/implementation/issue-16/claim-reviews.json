@@ -1,0 +1,319 @@
+{
+  "family": [
+    {
+      "claim_id": "phil-ben",
+      "claim_sha256": "4b2bca46b89217e93d6b3a7deb610471e4e61b40c283dad4b3060db6208de76d",
+      "verdict": "supported",
+      "reviewer": "retained-source-reference-composition",
+      "note": "Exact assertion and evidence retained from the source-reviewed exposed reference; composition is not independent corroboration."
+    },
+    {
+      "claim_id": "kathy-ben",
+      "claim_sha256": "d3a130d34d4fc24240544a5f56ee07acfd4d18cf452a432dc963e9dbe03cdc04",
+      "verdict": "supported",
+      "reviewer": "retained-source-reference-composition",
+      "note": "Exact assertion and evidence retained from the source-reviewed exposed reference; composition is not independent corroboration."
+    },
+    {
+      "claim_id": "peggy-phil",
+      "claim_sha256": "5c1681080596735ccf03f351041378abb0ccd5cea4ad571f310de6fba30acc9c",
+      "verdict": "supported",
+      "reviewer": "retained-source-reference-composition",
+      "note": "Exact assertion and evidence retained from the source-reviewed exposed reference; composition is not independent corroboration."
+    },
+    {
+      "claim_id": "den-sharon-adoption",
+      "claim_sha256": "821d32f6922cdaa9b7d1b1a02f38d4eb58d1d85af5b545b85cb055a99d99015f",
+      "verdict": "supported",
+      "reviewer": "retained-source-reference-composition",
+      "note": "Exact assertion and evidence retained from the source-reviewed exposed reference; composition is not independent corroboration."
+    }
+  ],
+  "relationship": [
+    {
+      "claim_id": "phil-kathy-marriage",
+      "claim_sha256": "9ec2e3606eea092a796d692d68d90df41a9c56993ac445b92319f97db866a1ed",
+      "verdict": "supported",
+      "reviewer": "retained-source-reference-composition",
+      "note": "Exact assertion and evidence retained from the source-reviewed exposed reference; composition is not independent corroboration."
+    },
+    {
+      "claim_id": "phil-kathy-separation",
+      "claim_sha256": "e50b8ebe77d7bb81356cf6252935e484da6a2f55750c54c8220f2c269f912d71",
+      "verdict": "supported",
+      "reviewer": "retained-source-reference-composition",
+      "note": "Exact assertion and evidence retained from the source-reviewed exposed reference; composition is not independent corroboration."
+    },
+    {
+      "claim_id": "phil-kathy-reconciliation",
+      "claim_sha256": "d5ff18643ddef54d90e899adbcd602de0da72bd86775a3c6de81805b1a100755",
+      "verdict": "supported",
+      "reviewer": "retained-source-reference-composition",
+      "note": "Exact assertion and evidence retained from the source-reviewed exposed reference; composition is not independent corroboration."
+    },
+    {
+      "claim_id": "phil-sharon-affair",
+      "claim_sha256": "5aa935ac1eb1abe76dcffb2677db7890983cdfc4779525d4da77698c47f5f469",
+      "verdict": "supported",
+      "reviewer": "retained-source-reference-composition",
+      "note": "Exact assertion and evidence retained from the source-reviewed exposed reference; composition is not independent corroboration."
+    },
+    {
+      "claim_id": "grant-sharon-reconciliation",
+      "claim_sha256": "d9a43360de627d79970956566c5d9bdc62f5567cbd448afa6fcbd9e15586d4cd",
+      "verdict": "supported",
+      "reviewer": "retained-source-reference-composition",
+      "note": "Exact assertion and evidence retained from the source-reviewed exposed reference; composition is not independent corroboration."
+    },
+    {
+      "claim_id": "grant-sharon-divorce",
+      "claim_sha256": "671f6618080f571024f6cb7055de14b1d554dbdfa4a4f326f8a20eaaceaeb74c",
+      "verdict": "supported",
+      "reviewer": "retained-source-reference-composition",
+      "note": "Exact assertion and evidence retained from the source-reviewed exposed reference; composition is not independent corroboration."
+    },
+    {
+      "claim_id": "kat-alfie-marriage",
+      "claim_sha256": "c0891db0237c517c51f25606ba6ef5dab473d3ba88b3b34af27a45bac33dcf4d",
+      "verdict": "supported",
+      "reviewer": "retained-source-reference-composition",
+      "note": "Exact assertion and evidence retained from the source-reviewed exposed reference; composition is not independent corroboration."
+    },
+    {
+      "claim_id": "kat-alfie-remarriage",
+      "claim_sha256": "66c7737e8284c6937ad6fc8835925c49a2b5acda4fed5e0fb8a2a1d61d1bec87",
+      "verdict": "supported",
+      "reviewer": "retained-source-reference-composition",
+      "note": "Exact assertion and evidence retained from the source-reviewed exposed reference; composition is not independent corroboration."
+    },
+    {
+      "claim_id": "den-sharon-adoption",
+      "claim_sha256": "495c6fa7c6a248212d94f942aa2e63634f0f02ae9dcc56fed91cdc5f19e2b92b",
+      "verdict": "supported",
+      "reviewer": "retained-source-reference-composition",
+      "note": "Exact assertion and evidence retained from the source-reviewed exposed reference; composition is not independent corroboration."
+    },
+    {
+      "claim_id": "denise-amy-step",
+      "claim_sha256": "0c523004ba8c88413c832c83892bf8736c075a3e834a1ba87055dc87ed8511d5",
+      "verdict": "supported",
+      "reviewer": "retained-source-reference-composition",
+      "note": "Exact assertion and evidence retained from the source-reviewed exposed reference; composition is not independent corroboration."
+    },
+    {
+      "claim_id": "phil-ben-birth",
+      "claim_sha256": "48b9248623535ba716cbc2e86cf013261bd898dba0f02d98f2b5984b64830d92",
+      "verdict": "supported",
+      "reviewer": "retained-source-reference-composition",
+      "note": "Exact assertion and evidence retained from the source-reviewed exposed reference; composition is not independent corroboration."
+    },
+    {
+      "claim_id": "kathy-ben-birth",
+      "claim_sha256": "5bcf7bba8b3b63f1960d2d56cfcd87adb112d1399f48804d1ebefcc9aa16ecf9",
+      "verdict": "supported",
+      "reviewer": "retained-source-reference-composition",
+      "note": "Exact assertion and evidence retained from the source-reviewed exposed reference; composition is not independent corroboration."
+    },
+    {
+      "claim_id": "phil-kathy-marriage-additional-evidence",
+      "claim_sha256": "cd0c710ed6cbf4e95cd27f385846eaaad8511184388c1d56dc0fb3c73bf42c64",
+      "verdict": "supported",
+      "reviewer": "retained-source-reference-composition",
+      "note": "Exact assertion and evidence retained from the source-reviewed exposed reference; composition is not independent corroboration."
+    }
+  ],
+  "event": [
+    {
+      "claim_id": "lucy-ben-arrest",
+      "claim_sha256": "fce77ed7ec1b4ab5b0fc01bfa780dc3fa2fb3f5ad991e2185522f3193f645787",
+      "verdict": "supported",
+      "reviewer": "retained-source-reference-composition",
+      "note": "Exact assertion and evidence retained from the source-reviewed exposed reference; composition is not independent corroboration.",
+      "narrative_commission": false
+    },
+    {
+      "claim_id": "lucy-max-arrest",
+      "claim_sha256": "88aefac0219830cd2d7eecdd7205d9d830bb7bc08511e31b45d0f5b6bdc69e3d",
+      "verdict": "supported",
+      "reviewer": "retained-source-reference-composition",
+      "note": "Exact assertion and evidence retained from the source-reviewed exposed reference; composition is not independent corroboration.",
+      "narrative_commission": false
+    },
+    {
+      "claim_id": "lucy-max-charge",
+      "claim_sha256": "961c431675c93cf79a416b4a5a103292e6e0b4ab69bce8981e5346dad521461e",
+      "verdict": "supported",
+      "reviewer": "retained-source-reference-composition",
+      "note": "Exact assertion and evidence retained from the source-reviewed exposed reference; composition is not independent corroboration.",
+      "narrative_commission": false
+    },
+    {
+      "claim_id": "lucy-max-conviction",
+      "claim_sha256": "95722f41de3face5443046afa9bbb42ce20753f4af3c7617fb0d9920422fdadc",
+      "verdict": "supported",
+      "reviewer": "retained-source-reference-composition",
+      "note": "Exact assertion and evidence retained from the source-reviewed exposed reference; composition is not independent corroboration.",
+      "narrative_commission": false
+    },
+    {
+      "claim_id": "lucy-bobby-commission",
+      "claim_sha256": "b6d5586235ea9ef0dcb7d051c8ffb1c627b48b5be70ba413f4612ee51e2af515",
+      "verdict": "supported",
+      "reviewer": "retained-source-reference-composition",
+      "note": "Exact assertion and evidence retained from the source-reviewed exposed reference; composition is not independent corroboration.",
+      "narrative_commission": true
+    },
+    {
+      "claim_id": "lucy-bobby-accusation",
+      "claim_sha256": "cedf7f4d141e13a3cf8f3e2f3b84686320a23f8f5c0ab9ba07f37c7165284ca8",
+      "verdict": "supported",
+      "reviewer": "retained-source-reference-composition",
+      "note": "Exact assertion and evidence retained from the source-reviewed exposed reference; composition is not independent corroboration.",
+      "narrative_commission": false
+    },
+    {
+      "claim_id": "lucy-max-rearrest",
+      "claim_sha256": "a4df5e6497ac5ac75dc42605309ae5260a9dacd396a6f3c524ec3c8b2b0a5695",
+      "verdict": "supported",
+      "reviewer": "retained-source-reference-composition",
+      "note": "Exact assertion and evidence retained from the source-reviewed exposed reference; composition is not independent corroboration.",
+      "narrative_commission": false
+    },
+    {
+      "claim_id": "lucy-max-imprisonment",
+      "claim_sha256": "839d1683908e39d8d6963fa416c3b010205d1a5267e9f5e33e74bcf358d97157",
+      "verdict": "supported",
+      "reviewer": "retained-source-reference-composition",
+      "note": "Exact assertion and evidence retained from the source-reviewed exposed reference; composition is not independent corroboration.",
+      "narrative_commission": false
+    },
+    {
+      "claim_id": "stella-phil-confession",
+      "claim_sha256": "e03409817a811a3270e5493e45065cabbc8f0eb1dc563a676757eddbb08f2b9a",
+      "verdict": "supported",
+      "reviewer": "retained-source-reference-composition",
+      "note": "Exact assertion and evidence retained from the source-reviewed exposed reference; composition is not independent corroboration.",
+      "narrative_commission": false
+    },
+    {
+      "claim_id": "stella-phil-release",
+      "claim_sha256": "4d7527e878ea4b24d861855fbd4e77d679f9114a490a235ad164ebc44fe9abb4",
+      "verdict": "supported",
+      "reviewer": "retained-source-reference-composition",
+      "note": "Exact assertion and evidence retained from the source-reviewed exposed reference; composition is not independent corroboration.",
+      "narrative_commission": false
+    },
+    {
+      "claim_id": "crash-max-accusation",
+      "claim_sha256": "e582dce7161f128dbb5211c9477373c83c03f90abb9a2dcd25da63b224d71748",
+      "verdict": "supported",
+      "reviewer": "retained-source-reference-composition",
+      "note": "Exact assertion and evidence retained from the source-reviewed exposed reference; composition is not independent corroboration.",
+      "narrative_commission": false
+    },
+    {
+      "claim_id": "crash-max-arrest",
+      "claim_sha256": "667d3538c699046c42d79b736d7f2d77d62acea5a908577949a4b1cc63896fe4",
+      "verdict": "supported",
+      "reviewer": "retained-source-reference-composition",
+      "note": "Exact assertion and evidence retained from the source-reviewed exposed reference; composition is not independent corroboration.",
+      "narrative_commission": false
+    },
+    {
+      "claim_id": "crash-max-bail",
+      "claim_sha256": "bdd958dcd50a783097f5035363c217134de9742b1560e3f7efd54df3f8c37dd9",
+      "verdict": "supported",
+      "reviewer": "retained-source-reference-composition",
+      "note": "Exact assertion and evidence retained from the source-reviewed exposed reference; composition is not independent corroboration.",
+      "narrative_commission": false
+    },
+    {
+      "claim_id": "crash-max-confession",
+      "claim_sha256": "c3ccd2d761f4c4bed83bfaa78707e3caf876ca05174f7e4d5c2b84af06886935",
+      "verdict": "supported",
+      "reviewer": "retained-source-reference-composition",
+      "note": "Exact assertion and evidence retained from the source-reviewed exposed reference; composition is not independent corroboration.",
+      "narrative_commission": false
+    },
+    {
+      "claim_id": "crash-max-trial",
+      "claim_sha256": "acf01fc7c41abee2019943a2fa8aa96056a1757d5bd8c88e0d600a72c2821a4a",
+      "verdict": "supported",
+      "reviewer": "retained-source-reference-composition",
+      "note": "Exact assertion and evidence retained from the source-reviewed exposed reference; composition is not independent corroboration.",
+      "narrative_commission": false
+    },
+    {
+      "claim_id": "crash-max-release",
+      "claim_sha256": "486ee4daa99cbbcd4be367a004962acdeb4efec1734cada857bda28992565070",
+      "verdict": "supported",
+      "reviewer": "retained-source-reference-composition",
+      "note": "Exact assertion and evidence retained from the source-reviewed exposed reference; composition is not independent corroboration.",
+      "narrative_commission": false
+    },
+    {
+      "claim_id": "crash-max-acquittal",
+      "claim_sha256": "011e7408ea89fb0d9f78c58911fa38b47590df3dcbb9f407c0cc0b3a7b6837c8",
+      "verdict": "supported",
+      "reviewer": "retained-source-reference-composition",
+      "note": "Exact assertion and evidence retained from the source-reviewed exposed reference; composition is not independent corroboration.",
+      "narrative_commission": false
+    },
+    {
+      "claim_id": "peggy-pregnancy",
+      "claim_sha256": "9a96af1cc4cbbc7e1e31af5f7e23bbf3f836a93adbbc5556a46a1b673c445778",
+      "verdict": "supported",
+      "reviewer": "retained-source-reference-composition",
+      "note": "Exact assertion and evidence retained from the source-reviewed exposed reference; composition is not independent corroboration.",
+      "narrative_commission": false
+    },
+    {
+      "claim_id": "sharon-christmas-pregnancy",
+      "claim_sha256": "c2b5606ae1ede15fdb73772206f519ee40fb1620425ef1f674acd2822b3c5c95",
+      "verdict": "supported",
+      "reviewer": "retained-source-reference-composition",
+      "note": "Exact assertion and evidence retained from the source-reviewed exposed reference; composition is not independent corroboration.",
+      "narrative_commission": false
+    },
+    {
+      "claim_id": "sharon-uncertain-paternity",
+      "claim_sha256": "8b4d1a8e3e533fd2e2b33cb673cdc599d16b648a7a7c453c3f92289dbfc05b6b",
+      "verdict": "supported",
+      "reviewer": "retained-source-reference-composition",
+      "note": "Exact assertion and evidence retained from the source-reviewed exposed reference; composition is not independent corroboration.",
+      "narrative_commission": false
+    },
+    {
+      "claim_id": "peggy-death",
+      "claim_sha256": "f9827c2ee6e3f0b02d238bb9973411e88d56192ffa8a77fed989af20987bac27",
+      "verdict": "supported",
+      "reviewer": "retained-source-reference-composition",
+      "note": "Exact assertion and evidence retained from the source-reviewed exposed reference; composition is not independent corroboration.",
+      "narrative_commission": false
+    },
+    {
+      "claim_id": "lucy-death",
+      "claim_sha256": "ce48aae234a4ecb0fefee10cffb55cb7758b2176f9d9275a7feae6c7dd63fedb",
+      "verdict": "supported",
+      "reviewer": "retained-source-reference-composition",
+      "note": "Exact assertion and evidence retained from the source-reviewed exposed reference; composition is not independent corroboration.",
+      "narrative_commission": false
+    },
+    {
+      "claim_id": "peggy-abuse-theme",
+      "claim_sha256": "621ae6d0f5bb7d11376f8e322bed6d357f50435a1e7053c62f3b89195e25d44c",
+      "verdict": "supported",
+      "reviewer": "retained-source-reference-composition",
+      "note": "Exact assertion and evidence retained from the source-reviewed exposed reference; composition is not independent corroboration.",
+      "narrative_commission": false
+    },
+    {
+      "claim_id": "tape-revelation",
+      "claim_sha256": "381267250ae672443222549298bdae31c63a6edeab210973adf81efa148dcc4b",
+      "verdict": "supported",
+      "reviewer": "retained-source-reference-composition",
+      "note": "Exact assertion and evidence retained from the source-reviewed exposed reference; composition is not independent corroboration.",
+      "narrative_commission": false
+    }
+  ]
+}

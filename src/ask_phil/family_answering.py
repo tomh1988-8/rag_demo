@@ -10,6 +10,13 @@ import psycopg
 from mlflow.entities import LiveSpan
 
 from ask_phil.answers import AnswerContent, AskRequest, Citation
+from ask_phil.connection_graph import (
+    CONNECTION_LIMITATION,
+    ConnectionGraph,
+    ConnectionQuery,
+    ConnectionResult,
+)
+from ask_phil.connection_wording import CONNECTION_WORDING, render_connections
 from ask_phil.conversation import (
     ConversationReference,
     ReferenceResolution,
@@ -120,11 +127,23 @@ class FamilyAnswer:
     ) -> AnswerContent:
         snapshot = self.snapshot
         snapshot_id = snapshot.snapshot_id
-        result: FamilyResult | RelationshipResult | EventResult | None = None
+        result: FamilyResult | RelationshipResult | EventResult | ConnectionResult | None = None
         assert request.graph is not None
-        query_graph: Callable[[], FamilyResult | RelationshipResult | EventResult]
+        query_graph: Callable[
+            [], FamilyResult | RelationshipResult | EventResult | ConnectionResult
+        ]
         span_name: str
-        if isinstance(request.graph, EventQuery):
+        if isinstance(request.graph, ConnectionQuery):
+            span_name, subject = "connection_graph", "character connections"
+            limitation, wording = CONNECTION_LIMITATION, CONNECTION_WORDING
+            unanswered = ("Connection coverage outside the reviewed graph and traversal bounds.",)
+            query_graph = partial(
+                ConnectionGraph(self.database_url).query,
+                snapshot_id,
+                request.graph,
+                publication=self.publication,
+            )
+        elif isinstance(request.graph, EventQuery):
             span_name, subject = request.graph.kind, request.graph.subject
             limitation, wording = request.graph.limitation, EVENT_WORDING
             unanswered = (
@@ -197,7 +216,9 @@ class FamilyAnswer:
         status: Literal["partial", "insufficient_evidence"] = (
             "partial" if supported else "insufficient_evidence"
         )
-        if isinstance(result, EventResult) and result.claims:
+        if isinstance(result, ConnectionResult) and result.paths:
+            answer = render_connections(result, synthetic=review.synthetic)
+        elif isinstance(result, EventResult) and result.claims:
             answer = render_events(
                 result,
                 synthetic=review.synthetic,

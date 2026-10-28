@@ -1,0 +1,1420 @@
+{
+  "version": 1,
+  "split": "exposed_development",
+  "synthetic": false,
+  "snapshot_id": "connections-pilot-v1",
+  "snapshot_sha256": "d30762f13668359b18b2b04bd190130f99cbac21ed99749a22e2ddddf5d8533b",
+  "catalogue": {
+    "characters": [
+      {
+        "character_id": "phil-mitchell",
+        "name": "Phil Mitchell",
+        "aliases": [],
+        "performers": [
+          "Steve McFadden",
+          "Daniel Delaney"
+        ],
+        "coverage": "core",
+        "wikidata_id": "Q2115259",
+        "review_note": "Codex source inspection, 17 October 2026: captured character article, infobox aliases/performers and revision metadata checked. Prominence-based curated selection, not a ranked or exhaustive canon. Identity linkage is not independent story corroboration.",
+        "evidence_sources": [
+          "phil-mitchell-wiki"
+        ]
+      },
+      {
+        "character_id": "grant-mitchell",
+        "name": "Grant Mitchell",
+        "aliases": [],
+        "performers": [
+          "Ross Kemp",
+          "Teddy Jay"
+        ],
+        "coverage": "core",
+        "wikidata_id": "Q2685036",
+        "review_note": "Codex source inspection, 17 October 2026: captured character article, infobox aliases/performers and revision metadata checked. Prominence-based curated selection, not a ranked or exhaustive canon. Identity linkage is not independent story corroboration.",
+        "evidence_sources": [
+          "grant-mitchell-wiki"
+        ]
+      },
+      {
+        "character_id": "peggy-mitchell",
+        "name": "Peggy Mitchell",
+        "aliases": [
+          "Peggy Butcher"
+        ],
+        "performers": [
+          "Jo Warne",
+          "Barbara Windsor",
+          "Jaime Winstone"
+        ],
+        "coverage": "core",
+        "wikidata_id": "Q13130609",
+        "review_note": "Codex source inspection, 17 October 2026: captured character article, infobox aliases/performers and revision metadata checked. Prominence-based curated selection, not a ranked or exhaustive canon. Identity linkage is not independent story corroboration.",
+        "evidence_sources": [
+          "peggy-mitchell-wiki"
+        ]
+      },
+      {
+        "character_id": "sharon-watts",
+        "name": "Sharon Watts",
+        "aliases": [
+          "Sharon Mitchell",
+          "Sharon Rickman",
+          "Sharon Beale"
+        ],
+        "performers": [
+          "Letitia Dean"
+        ],
+        "coverage": "core",
+        "wikidata_id": "Q7490258",
+        "review_note": "Codex source inspection, 17 October 2026: captured character article, infobox aliases/performers and revision metadata checked. Prominence-based curated selection, not a ranked or exhaustive canon. Identity linkage is not independent story corroboration.",
+        "evidence_sources": [
+          "sharon-watts-wiki"
+        ]
+      },
+      {
+        "character_id": "ben-mitchell",
+        "name": "Ben Mitchell",
+        "aliases": [],
+        "performers": [
+          "Matthew Silver",
+          "Morgan Whittle",
+          "Charlie Jones",
+          "Joshua Pascoe",
+          "Harry Reid",
+          "Max Bowden"
+        ],
+        "coverage": "core",
+        "wikidata_id": "Q2766568",
+        "review_note": "Codex source inspection, 17 October 2026: captured character article, infobox aliases/performers and revision metadata checked. Prominence-based curated selection, not a ranked or exhaustive canon. Identity linkage is not independent story corroboration.",
+        "evidence_sources": [
+          "ben-mitchell-wiki"
+        ]
+      },
+      {
+        "character_id": "kathy-beale",
+        "name": "Kathy Beale",
+        "aliases": [
+          "Kathy Mitchell",
+          "Kathy Sullivan",
+          "Kathy Richards",
+          "Kathy Cotton"
+        ],
+        "performers": [
+          "Gillian Taylforth"
+        ],
+        "coverage": "core",
+        "wikidata_id": "Q6377182",
+        "review_note": "Codex source inspection, 17 October 2026: captured character article, infobox aliases/performers and revision metadata checked. Prominence-based curated selection, not a ranked or exhaustive canon. Identity linkage is not independent story corroboration.",
+        "evidence_sources": [
+          "kathy-beale-wiki"
+        ]
+      },
+      {
+        "character_id": "den-watts",
+        "name": "Den Watts",
+        "aliases": [
+          "Dirty Den",
+          "Dennis Alan Watts"
+        ],
+        "performers": [
+          "Leslie Grantham"
+        ],
+        "coverage": "supporting",
+        "wikidata_id": "Q5256484",
+        "review_note": "Den is evidenced supporting context in Sharon’s captured biography. Identity was also reviewed against retained Den revision 1371930128 in real-sources-v1.json.gz. No separate Den history is admitted here; supporting character mentions do not expand the core roster.",
+        "evidence_sources": [
+          "sharon-watts-wiki"
+        ]
+      },
+      {
+        "character_id": "kat-slater",
+        "name": "Kat Slater",
+        "aliases": [
+          "Kat Moon",
+          "Kat Mitchell"
+        ],
+        "performers": [
+          "Jessie Wallace",
+          "Kate Peck",
+          "Sumar-Elise Sandford",
+          "Amelia Crouch"
+        ],
+        "coverage": "core",
+        "wikidata_id": "Q3955054",
+        "review_note": "Codex source inspection, 17 October 2026: captured character article, infobox aliases/performers and revision metadata checked. Prominence-based curated selection, not a ranked or exhaustive canon. Identity linkage is not independent story corroboration.",
+        "evidence_sources": [
+          "kat-slater-wiki"
+        ]
+      },
+      {
+        "character_id": "alfie-moon",
+        "name": "Alfie Moon",
+        "aliases": [
+          "Alfred William Moon",
+          "Chris Wright"
+        ],
+        "performers": [
+          "Shane Richie"
+        ],
+        "coverage": "core",
+        "wikidata_id": "Q4721932",
+        "review_note": "Codex source inspection, 17 October 2026: captured character article, infobox aliases/performers and revision metadata checked. Prominence-based curated selection, not a ranked or exhaustive canon. Identity linkage is not independent story corroboration.",
+        "evidence_sources": [
+          "alfie-moon-wiki"
+        ]
+      },
+      {
+        "character_id": "denise-fox",
+        "name": "Denise Fox",
+        "aliases": [
+          "Denise Johnson",
+          "Denise Wicks"
+        ],
+        "performers": [
+          "Diane Parish"
+        ],
+        "coverage": "core",
+        "wikidata_id": "Q5257665",
+        "review_note": "Codex source inspection, 17 October 2026: captured character article, infobox aliases/performers and revision metadata checked. Prominence-based curated selection, not a ranked or exhaustive canon. Identity linkage is not independent story corroboration.",
+        "evidence_sources": [
+          "denise-fox-wiki"
+        ]
+      },
+      {
+        "character_id": "amy-mitchell",
+        "name": "Amy Mitchell",
+        "aliases": [],
+        "performers": [
+          "Ellie Dadd"
+        ],
+        "coverage": "supporting",
+        "wikidata_id": "Q136428618",
+        "review_note": "Explicit stepdaughter identity in the captured Denise biography; performer is separate.",
+        "evidence_sources": [
+          "denise-fox-wiki"
+        ]
+      },
+      {
+        "character_id": "ian-beale",
+        "name": "Ian Beale",
+        "aliases": [
+          "Ian Albert Beale"
+        ],
+        "performers": [
+          "Adam Woodyatt"
+        ],
+        "coverage": "core",
+        "wikidata_id": "Q899011",
+        "review_note": "Codex source inspection, 17 October 2026: captured character article, infobox aliases/performers and revision metadata checked. Prominence-based curated selection, not a ranked or exhaustive canon. Identity linkage is not independent story corroboration.",
+        "evidence_sources": [
+          "ian-beale-wiki"
+        ]
+      },
+      {
+        "character_id": "lucy-beale",
+        "name": "Lucy Beale",
+        "aliases": [],
+        "performers": [
+          "Eva Brittin-Snell",
+          "Casey Anne Rothery",
+          "Melissa Suffield",
+          "Hetti Bywater"
+        ],
+        "coverage": "core",
+        "wikidata_id": "Q3304512",
+        "review_note": "Codex source inspection, 17 October 2026: captured character article, infobox aliases/performers and revision metadata checked. Prominence-based curated selection, not a ranked or exhaustive canon. Identity linkage is not independent story corroboration.",
+        "evidence_sources": [
+          "lucy-beale-wiki"
+        ]
+      },
+      {
+        "character_id": "bobby-beale",
+        "name": "Bobby Beale",
+        "aliases": [],
+        "performers": [
+          "Kevin Curran",
+          "Alex Francis",
+          "Rory Stroud",
+          "Eliot Carrington",
+          "Clay Milner Russell"
+        ],
+        "coverage": "core",
+        "wikidata_id": "Q19650328",
+        "review_note": "Codex source inspection, 17 October 2026: captured character article, infobox aliases/performers and revision metadata checked. Prominence-based curated selection, not a ranked or exhaustive canon. Identity linkage is not independent story corroboration.",
+        "evidence_sources": [
+          "bobby-beale-wiki"
+        ]
+      },
+      {
+        "character_id": "max-branning",
+        "name": "Max Branning",
+        "aliases": [],
+        "performers": [
+          "Jake Wood"
+        ],
+        "coverage": "core",
+        "wikidata_id": "Q6794615",
+        "review_note": "Codex source inspection, 17 October 2026: captured character article, infobox aliases/performers and revision metadata checked. Prominence-based curated selection, not a ranked or exhaustive canon. Identity linkage is not independent story corroboration.",
+        "evidence_sources": [
+          "max-branning-wiki"
+        ]
+      },
+      {
+        "character_id": "pat-butcher",
+        "name": "Pat Butcher",
+        "aliases": [
+          "Pat Harris",
+          "Pat Beale",
+          "Pat Wicks",
+          "Pat Evans",
+          "Fat Pat"
+        ],
+        "performers": [
+          "Pam St Clement",
+          "Emma Cooke"
+        ],
+        "coverage": "core",
+        "wikidata_id": "Q368649",
+        "review_note": "Codex source inspection, 17 October 2026: captured character article, infobox aliases/performers and revision metadata checked. Prominence-based curated selection, not a ranked or exhaustive canon. Identity linkage is not independent story corroboration.",
+        "evidence_sources": [
+          "pat-butcher-wiki"
+        ]
+      }
+    ]
+  },
+  "origins": {
+    "data/references/parentage-v1.json": "7f200f7d38c09c66fc2039288180db7f98c8cd2a130672abcfef165f8c8b777e",
+    "data/references/relationships-v2.json": "09c258dfb092b7f85672d6c77a749cf5bb6994ffa7f4916078ed688d2807caf8",
+    "data/references/crime-justice-v2.json": "9dca294792ccb1cd83cb950cf9b0a8dd7d03f19b6162d833cbf3bd3ecbf351ae",
+    "data/references/life-events-v1.json": "10eb79db7ea4a6916113506a0d84c6b274dc07cc15e6d528b53f2f621659c3b0"
+  },
+  "family_claims": [
+    {
+      "claim_id": "phil-ben",
+      "parent_id": "phil-mitchell",
+      "child_id": "ben-mitchell",
+      "parent_role": "parent",
+      "relation": "biological_parent",
+      "polarity": "affirmed",
+      "certainty": "certain",
+      "story_time": "March 1996",
+      "time_precision": "exact",
+      "evidence": [
+        {
+          "evidence_id": "family-ben-birth",
+          "start": 0,
+          "end": 110,
+          "quote": "Ben is born to Phil Mitchell (Steve McFadden) and his then wife Kathy Beale (Gillian Taylforth) in March 1996."
+        }
+      ]
+    },
+    {
+      "claim_id": "kathy-ben",
+      "parent_id": "kathy-beale",
+      "child_id": "ben-mitchell",
+      "parent_role": "parent",
+      "relation": "biological_parent",
+      "polarity": "affirmed",
+      "certainty": "certain",
+      "story_time": "March 1996",
+      "time_precision": "exact",
+      "evidence": [
+        {
+          "evidence_id": "family-ben-birth",
+          "start": 0,
+          "end": 110,
+          "quote": "Ben is born to Phil Mitchell (Steve McFadden) and his then wife Kathy Beale (Gillian Taylforth) in March 1996."
+        }
+      ]
+    },
+    {
+      "claim_id": "peggy-phil",
+      "parent_id": "peggy-mitchell",
+      "child_id": "phil-mitchell",
+      "parent_role": "mother",
+      "relation": "biological_parent",
+      "polarity": "affirmed",
+      "certainty": "certain",
+      "story_time": "unknown",
+      "time_precision": "unknown",
+      "evidence": [
+        {
+          "evidence_id": "family-peggy-phil",
+          "start": 0,
+          "end": 105,
+          "quote": "Peggy married Eric Mitchell (George Russo) because she was pregnant with their son Phil (Steve McFadden)."
+        }
+      ]
+    },
+    {
+      "claim_id": "den-sharon-adoption",
+      "parent_id": "den-watts",
+      "child_id": "sharon-watts",
+      "parent_role": "parent",
+      "relation": "adoptive_parent",
+      "polarity": "affirmed",
+      "certainty": "certain",
+      "story_time": "at the age of three",
+      "time_precision": "relative",
+      "evidence": [
+        {
+          "evidence_id": "family-sharon-adoption",
+          "start": 0,
+          "end": 205,
+          "quote": "Adopted at the age of three by Den (Leslie Grantham) and Angie Watts (Anita Dobson), Sharon is raised at The Queen Victoria public house in Albert Square, Walford, where her adoptive parents are landlords."
+        }
+      ]
+    }
+  ],
+  "relationship_claims": [
+    {
+      "claim_id": "phil-kathy-marriage",
+      "subject_id": "phil-mitchell",
+      "object_id": "kathy-beale",
+      "relation": "marriage",
+      "episode_id": "phil-kathy-first",
+      "status": "unknown",
+      "polarity": "affirmed",
+      "certainty": "certain",
+      "story_time": "unknown",
+      "time_precision": "unknown",
+      "after_claim_id": null,
+      "evidence": [
+        {
+          "evidence_id": "history-kathy-marriage",
+          "start": 0,
+          "end": 92,
+          "quote": "Kathy and Phil eventually sort out their differences, up to the point where they get married"
+        }
+      ]
+    },
+    {
+      "claim_id": "phil-kathy-separation",
+      "subject_id": "phil-mitchell",
+      "object_id": "kathy-beale",
+      "relation": "separation",
+      "episode_id": "phil-kathy-first",
+      "status": "unknown",
+      "polarity": "affirmed",
+      "certainty": "certain",
+      "story_time": "unknown",
+      "time_precision": "unknown",
+      "after_claim_id": "phil-kathy-marriage",
+      "evidence": [
+        {
+          "evidence_id": "history-kathy-separation",
+          "start": 0,
+          "end": 207,
+          "quote": "As time goes on, however, Phil becomes depressed and turns to alcohol – which causes him to develop an addiction. This makes him bitter and neglectful towards Kathy and Ben, so Kathy takes Ben and moves out."
+        }
+      ]
+    },
+    {
+      "claim_id": "phil-kathy-reconciliation",
+      "subject_id": "phil-mitchell",
+      "object_id": "kathy-beale",
+      "relation": "reconciliation",
+      "episode_id": "phil-kathy-first",
+      "status": "unknown",
+      "polarity": "affirmed",
+      "certainty": "certain",
+      "story_time": "when he attends counselling",
+      "time_precision": "relative",
+      "after_claim_id": "phil-kathy-separation",
+      "evidence": [
+        {
+          "evidence_id": "history-kathy-reconciliation",
+          "start": 0,
+          "end": 373,
+          "quote": "Realizing what he has lost, Phil gives up alcohol and attends Alcoholics Anonymous. This progressively helps Phil, up to the point where it manages to reveal the basis of his problem – the physical abuse he received from his late father, Eric Mitchell (George Russo) when he was a boy, and his fear that he may abuse Ben. He and Kathy reconcile when he attends counselling,"
+        }
+      ]
+    },
+    {
+      "claim_id": "phil-sharon-affair",
+      "subject_id": "phil-mitchell",
+      "object_id": "sharon-watts",
+      "relation": "affair",
+      "episode_id": "phil-sharon-affair",
+      "status": "unknown",
+      "polarity": "affirmed",
+      "certainty": "certain",
+      "story_time": "unknown",
+      "time_precision": "unknown",
+      "after_claim_id": null,
+      "evidence": [
+        {
+          "evidence_id": "history-affair-reconciliation",
+          "start": 0,
+          "end": 135,
+          "quote": "In his absence, Phil and Sharon continue their affair but when Grant is released, Sharon reconciles with him, leaving Phil heartbroken."
+        }
+      ]
+    },
+    {
+      "claim_id": "grant-sharon-reconciliation",
+      "subject_id": "grant-mitchell",
+      "object_id": "sharon-watts",
+      "relation": "reconciliation",
+      "episode_id": "grant-sharon-first",
+      "status": "unknown",
+      "polarity": "affirmed",
+      "certainty": "certain",
+      "story_time": "when Grant is released",
+      "time_precision": "relative",
+      "after_claim_id": null,
+      "evidence": [
+        {
+          "evidence_id": "history-affair-reconciliation",
+          "start": 0,
+          "end": 135,
+          "quote": "In his absence, Phil and Sharon continue their affair but when Grant is released, Sharon reconciles with him, leaving Phil heartbroken."
+        }
+      ]
+    },
+    {
+      "claim_id": "grant-sharon-divorce",
+      "subject_id": "grant-mitchell",
+      "object_id": "sharon-watts",
+      "relation": "divorce",
+      "episode_id": "grant-sharon-first",
+      "status": "former",
+      "polarity": "affirmed",
+      "certainty": "certain",
+      "story_time": "unknown",
+      "time_precision": "unknown",
+      "after_claim_id": null,
+      "evidence": [
+        {
+          "evidence_id": "history-grant-sharon-divorce",
+          "start": 0,
+          "end": 417,
+          "quote": "Sharon is ready to turn him down in front of a packed pub and his family; however, in the end, she cannot go through with it, and stops him from publicly proposing before he humiliates himself. She then tells him that she loves him too but their relationship can no longer work, before returning to the US, leaving Grant heartbroken. They are then divorced and do not see each other for more than 10 years after this."
+        }
+      ]
+    },
+    {
+      "claim_id": "kat-alfie-marriage",
+      "subject_id": "kat-slater",
+      "object_id": "alfie-moon",
+      "relation": "marriage",
+      "episode_id": "kat-alfie-first",
+      "status": "unknown",
+      "polarity": "affirmed",
+      "certainty": "certain",
+      "story_time": "Christmas Day",
+      "time_precision": "relative",
+      "after_claim_id": null,
+      "evidence": [
+        {
+          "evidence_id": "history-kat-marriage",
+          "start": 0,
+          "end": 58,
+          "quote": "Kat leaves Andy, and she and Alfie marry on Christmas Day."
+        }
+      ]
+    },
+    {
+      "claim_id": "kat-alfie-remarriage",
+      "subject_id": "kat-slater",
+      "object_id": "alfie-moon",
+      "relation": "remarriage",
+      "episode_id": "kat-alfie-second",
+      "status": "unknown",
+      "polarity": "affirmed",
+      "certainty": "certain",
+      "story_time": "On leaving hospital",
+      "time_precision": "relative",
+      "after_claim_id": "kat-alfie-marriage",
+      "evidence": [
+        {
+          "evidence_id": "history-kat-remarriage",
+          "start": 0,
+          "end": 343,
+          "quote": "He does so, but is unaware Kat is inside at the time. She becomes trapped although Alfie rescues her. She is badly burnt and suffers permanent scarring to her face. On leaving hospital, she and Alfie remarry, with two nurses as the only witnesses, before returning to the square and moving into a flat Alfie had organised for them to squat in."
+        }
+      ]
+    },
+    {
+      "claim_id": "den-sharon-adoption",
+      "subject_id": "den-watts",
+      "object_id": "sharon-watts",
+      "relation": "adoptive_parent",
+      "episode_id": "den-sharon-adoption",
+      "status": "unknown",
+      "polarity": "affirmed",
+      "certainty": "certain",
+      "story_time": "at the age of three",
+      "time_precision": "relative",
+      "after_claim_id": null,
+      "evidence": [
+        {
+          "evidence_id": "history-den-adoption",
+          "start": 0,
+          "end": 205,
+          "quote": "Adopted at the age of three by Den (Leslie Grantham) and Angie Watts (Anita Dobson), Sharon is raised at The Queen Victoria public house in Albert Square, Walford, where her adoptive parents are landlords."
+        }
+      ]
+    },
+    {
+      "claim_id": "denise-amy-step",
+      "subject_id": "denise-fox",
+      "object_id": "amy-mitchell",
+      "relation": "step_parent",
+      "episode_id": "denise-amy-step",
+      "status": "unknown",
+      "polarity": "affirmed",
+      "certainty": "certain",
+      "story_time": "early 2023",
+      "time_precision": "approximate",
+      "after_claim_id": null,
+      "evidence": [
+        {
+          "evidence_id": "history-denise-step",
+          "start": 0,
+          "end": 137,
+          "quote": "In early 2023, Denise faces her stepdaughter Amy Mitchell's (Ellie Dadd) self-harming and Ricky impregnating Lily Slater (Lillia Turner)."
+        }
+      ]
+    },
+    {
+      "claim_id": "phil-ben-birth",
+      "subject_id": "phil-mitchell",
+      "object_id": "ben-mitchell",
+      "relation": "biological_parent",
+      "episode_id": "phil-ben-parentage",
+      "status": "unknown",
+      "polarity": "affirmed",
+      "certainty": "certain",
+      "story_time": "March 1996",
+      "time_precision": "exact",
+      "after_claim_id": null,
+      "evidence": [
+        {
+          "evidence_id": "history-ben-birth",
+          "start": 0,
+          "end": 110,
+          "quote": "Ben is born to Phil Mitchell (Steve McFadden) and his then wife Kathy Beale (Gillian Taylforth) in March 1996."
+        }
+      ]
+    },
+    {
+      "claim_id": "kathy-ben-birth",
+      "subject_id": "kathy-beale",
+      "object_id": "ben-mitchell",
+      "relation": "biological_parent",
+      "episode_id": "kathy-ben-parentage",
+      "status": "unknown",
+      "polarity": "affirmed",
+      "certainty": "certain",
+      "story_time": "March 1996",
+      "time_precision": "exact",
+      "after_claim_id": null,
+      "evidence": [
+        {
+          "evidence_id": "history-ben-birth",
+          "start": 0,
+          "end": 110,
+          "quote": "Ben is born to Phil Mitchell (Steve McFadden) and his then wife Kathy Beale (Gillian Taylforth) in March 1996."
+        }
+      ]
+    },
+    {
+      "claim_id": "phil-kathy-marriage-additional-evidence",
+      "subject_id": "phil-mitchell",
+      "object_id": "kathy-beale",
+      "relation": "marriage",
+      "episode_id": "phil-kathy-first",
+      "status": "unknown",
+      "polarity": "affirmed",
+      "certainty": "certain",
+      "story_time": "unknown",
+      "time_precision": "unknown",
+      "after_claim_id": null,
+      "evidence": [
+        {
+          "evidence_id": "history-ben-birth",
+          "start": 0,
+          "end": 110,
+          "quote": "Ben is born to Phil Mitchell (Steve McFadden) and his then wife Kathy Beale (Gillian Taylforth) in March 1996."
+        }
+      ]
+    }
+  ],
+  "event_claims": [
+    {
+      "claim_id": "lucy-ben-arrest",
+      "event_id": "lucy-murder",
+      "event_label": "Lucy Beale's murder",
+      "event_type": "arrest",
+      "basis": "legal_outcome",
+      "participants": [
+        {
+          "character_id": "ben-mitchell",
+          "role": "arrested"
+        }
+      ],
+      "account_status": "as_reported",
+      "polarity": "affirmed",
+      "certainty": "certain",
+      "story_time": "unknown",
+      "time_precision": "unknown",
+      "evidence": [
+        {
+          "evidence_id": "lucy-arrest-charge",
+          "start": 0,
+          "end": 38,
+          "quote": "When Ben is arrested for Lucy's murder"
+        }
+      ]
+    },
+    {
+      "claim_id": "lucy-max-arrest",
+      "event_id": "lucy-murder",
+      "event_label": "Lucy Beale's murder",
+      "event_type": "arrest",
+      "basis": "legal_outcome",
+      "participants": [
+        {
+          "character_id": "max-branning",
+          "role": "arrested"
+        }
+      ],
+      "account_status": "as_reported",
+      "polarity": "affirmed",
+      "certainty": "certain",
+      "story_time": "when Lucy's blood is found on his shoe",
+      "time_precision": "relative",
+      "evidence": [
+        {
+          "evidence_id": "lucy-arrest-charge",
+          "start": 119,
+          "end": 278,
+          "quote": "Max is arrested and is charged with her murder when Lucy's blood is found on his shoe, from where Jake Stone caused Lucy's nose to bleed on the night she died."
+        }
+      ]
+    },
+    {
+      "claim_id": "lucy-max-charge",
+      "event_id": "lucy-murder",
+      "event_label": "Lucy Beale's murder",
+      "event_type": "charge",
+      "basis": "legal_outcome",
+      "participants": [
+        {
+          "character_id": "max-branning",
+          "role": "accused"
+        }
+      ],
+      "account_status": "as_reported",
+      "polarity": "affirmed",
+      "certainty": "certain",
+      "story_time": "when Lucy's blood is found on his shoe",
+      "time_precision": "relative",
+      "evidence": [
+        {
+          "evidence_id": "lucy-arrest-charge",
+          "start": 119,
+          "end": 278,
+          "quote": "Max is arrested and is charged with her murder when Lucy's blood is found on his shoe, from where Jake Stone caused Lucy's nose to bleed on the night she died."
+        }
+      ]
+    },
+    {
+      "claim_id": "lucy-max-conviction",
+      "event_id": "lucy-murder",
+      "event_label": "Lucy Beale's murder",
+      "event_type": "conviction",
+      "basis": "legal_outcome",
+      "participants": [
+        {
+          "character_id": "max-branning",
+          "role": "convicted"
+        }
+      ],
+      "account_status": "as_reported",
+      "polarity": "affirmed",
+      "certainty": "certain",
+      "story_time": "unknown",
+      "time_precision": "unknown",
+      "evidence": [
+        {
+          "evidence_id": "lucy-conviction",
+          "start": 0,
+          "end": 127,
+          "quote": "Despite Ian's wife Jane (Laurie Brett) giving him a false alibi, he is found guilty thanks to Phil paying off the jury foreman."
+        }
+      ]
+    },
+    {
+      "claim_id": "lucy-bobby-commission",
+      "event_id": "lucy-murder",
+      "event_label": "Lucy Beale's murder",
+      "event_type": "commission",
+      "basis": "narrative",
+      "participants": [
+        {
+          "character_id": "bobby-beale",
+          "role": "perpetrator"
+        },
+        {
+          "character_id": "lucy-beale",
+          "role": "victim"
+        }
+      ],
+      "account_status": "as_reported",
+      "polarity": "affirmed",
+      "certainty": "certain",
+      "story_time": "unknown",
+      "time_precision": "unknown",
+      "evidence": [
+        {
+          "evidence_id": "lucy-revelation",
+          "start": 0,
+          "end": 143,
+          "quote": "Max soon realises that Jane's adopted son Bobby Beale (Eliot Carrington) is Lucy's killer all along and that Jane had been covering up for her."
+        }
+      ]
+    },
+    {
+      "claim_id": "lucy-bobby-accusation",
+      "event_id": "lucy-murder",
+      "event_label": "Lucy Beale's murder",
+      "event_type": "accusation",
+      "basis": "allegation",
+      "participants": [
+        {
+          "character_id": "bobby-beale",
+          "role": "accused"
+        },
+        {
+          "character_id": "max-branning",
+          "role": "accuser"
+        }
+      ],
+      "account_status": "as_reported",
+      "polarity": "affirmed",
+      "certainty": "certain",
+      "story_time": "As he is being arrested",
+      "time_precision": "relative",
+      "evidence": [
+        {
+          "evidence_id": "lucy-revelation",
+          "start": 251,
+          "end": 382,
+          "quote": "As he is being arrested, Max shouts out to everyone that Bobby killed Lucy but they all dismiss his claims as an act of desperation"
+        }
+      ]
+    },
+    {
+      "claim_id": "lucy-max-rearrest",
+      "event_id": "lucy-murder",
+      "event_label": "Lucy Beale's murder",
+      "event_type": "arrest",
+      "basis": "legal_outcome",
+      "participants": [
+        {
+          "character_id": "max-branning",
+          "role": "arrested"
+        }
+      ],
+      "account_status": "as_reported",
+      "polarity": "affirmed",
+      "certainty": "certain",
+      "story_time": "unknown",
+      "time_precision": "unknown",
+      "evidence": [
+        {
+          "evidence_id": "lucy-revelation",
+          "start": 251,
+          "end": 382,
+          "quote": "As he is being arrested, Max shouts out to everyone that Bobby killed Lucy but they all dismiss his claims as an act of desperation"
+        }
+      ]
+    },
+    {
+      "claim_id": "lucy-max-imprisonment",
+      "event_id": "lucy-murder",
+      "event_label": "Lucy Beale's murder",
+      "event_type": "imprisonment",
+      "basis": "legal_outcome",
+      "participants": [
+        {
+          "character_id": "max-branning",
+          "role": "prisoner"
+        }
+      ],
+      "account_status": "as_reported",
+      "polarity": "affirmed",
+      "certainty": "certain",
+      "story_time": "later",
+      "time_precision": "relative",
+      "evidence": [
+        {
+          "evidence_id": "lucy-revelation",
+          "start": 384,
+          "end": 484,
+          "quote": "Max is later sentenced to life imprisonment with a recommendation he should serve at least 21 years."
+        }
+      ]
+    },
+    {
+      "claim_id": "stella-phil-confession",
+      "event_id": "stella-death",
+      "event_label": "Stella Crawford's death",
+      "event_type": "confession",
+      "basis": "confession",
+      "participants": [
+        {
+          "character_id": "phil-mitchell",
+          "role": "confessor"
+        }
+      ],
+      "account_status": "explicitly_false",
+      "polarity": "affirmed",
+      "certainty": "certain",
+      "story_time": "Later on",
+      "time_precision": "relative",
+      "evidence": [
+        {
+          "evidence_id": "stella-false-confession",
+          "start": 0,
+          "end": 221,
+          "quote": "Stella flees to an abandoned warehouse with Phil in pursuit – where she kills herself by jumping from the roof. Later on, Phil claims to have killed Stella and is taken into custody – but is later released without charge."
+        }
+      ]
+    },
+    {
+      "claim_id": "stella-phil-release",
+      "event_id": "stella-death",
+      "event_label": "Stella Crawford's death",
+      "event_type": "release",
+      "basis": "legal_outcome",
+      "participants": [
+        {
+          "character_id": "phil-mitchell",
+          "role": "released"
+        }
+      ],
+      "account_status": "as_reported",
+      "polarity": "affirmed",
+      "certainty": "certain",
+      "story_time": "later",
+      "time_precision": "relative",
+      "evidence": [
+        {
+          "evidence_id": "stella-false-confession",
+          "start": 0,
+          "end": 221,
+          "quote": "Stella flees to an abandoned warehouse with Phil in pursuit – where she kills herself by jumping from the roof. Later on, Phil claims to have killed Stella and is taken into custody – but is later released without charge."
+        }
+      ]
+    },
+    {
+      "claim_id": "crash-max-accusation",
+      "event_id": "carl-crash",
+      "event_label": "Carl's car crash",
+      "event_type": "accusation",
+      "basis": "allegation",
+      "participants": [
+        {
+          "character_id": "max-branning",
+          "role": "accused"
+        }
+      ],
+      "account_status": "explicitly_false",
+      "polarity": "affirmed",
+      "certainty": "certain",
+      "story_time": "unknown",
+      "time_precision": "unknown",
+      "evidence": [
+        {
+          "evidence_id": "crash-framing",
+          "start": 191,
+          "end": 270,
+          "quote": "He frames Max for cutting the brakes, and forces Ian to become a false witness."
+        }
+      ]
+    },
+    {
+      "claim_id": "crash-max-arrest",
+      "event_id": "carl-crash",
+      "event_label": "Carl's car crash",
+      "event_type": "arrest",
+      "basis": "legal_outcome",
+      "participants": [
+        {
+          "character_id": "max-branning",
+          "role": "arrested"
+        }
+      ],
+      "account_status": "as_reported",
+      "polarity": "affirmed",
+      "certainty": "certain",
+      "story_time": "unknown",
+      "time_precision": "unknown",
+      "evidence": [
+        {
+          "evidence_id": "crash-framing",
+          "start": 271,
+          "end": 380,
+          "quote": "Max is arrested and released on bail, until Carl goads him into attacking him, and he is remanded in custody."
+        }
+      ]
+    },
+    {
+      "claim_id": "crash-max-bail",
+      "event_id": "carl-crash",
+      "event_label": "Carl's car crash",
+      "event_type": "release",
+      "basis": "legal_outcome",
+      "participants": [
+        {
+          "character_id": "max-branning",
+          "role": "released"
+        }
+      ],
+      "account_status": "as_reported",
+      "polarity": "affirmed",
+      "certainty": "certain",
+      "story_time": "unknown",
+      "time_precision": "unknown",
+      "evidence": [
+        {
+          "evidence_id": "crash-framing",
+          "start": 271,
+          "end": 380,
+          "quote": "Max is arrested and released on bail, until Carl goads him into attacking him, and he is remanded in custody."
+        }
+      ]
+    },
+    {
+      "claim_id": "crash-max-confession",
+      "event_id": "carl-crash",
+      "event_label": "Carl's car crash",
+      "event_type": "confession",
+      "basis": "confession",
+      "participants": [
+        {
+          "character_id": "max-branning",
+          "role": "confessor"
+        }
+      ],
+      "account_status": "explicitly_false",
+      "polarity": "affirmed",
+      "certainty": "certain",
+      "story_time": "unknown",
+      "time_precision": "unknown",
+      "evidence": [
+        {
+          "evidence_id": "crash-framing",
+          "start": 518,
+          "end": 630,
+          "quote": "Carl also forces Max to tell his family he is guilty, and Lauren is the only person who believes he is innocent."
+        }
+      ]
+    },
+    {
+      "claim_id": "crash-max-trial",
+      "event_id": "carl-crash",
+      "event_label": "Carl's car crash",
+      "event_type": "trial",
+      "basis": "legal_outcome",
+      "participants": [
+        {
+          "character_id": "max-branning",
+          "role": "defendant"
+        }
+      ],
+      "account_status": "as_reported",
+      "polarity": "affirmed",
+      "certainty": "certain",
+      "story_time": "unknown",
+      "time_precision": "unknown",
+      "evidence": [
+        {
+          "evidence_id": "crash-framing",
+          "start": 631,
+          "end": 731,
+          "quote": "On the day of Max's trial, Ian fails to turn up, and Max is released without charge, to Carl's fury."
+        }
+      ]
+    },
+    {
+      "claim_id": "crash-max-release",
+      "event_id": "carl-crash",
+      "event_label": "Carl's car crash",
+      "event_type": "release",
+      "basis": "legal_outcome",
+      "participants": [
+        {
+          "character_id": "max-branning",
+          "role": "released"
+        }
+      ],
+      "account_status": "as_reported",
+      "polarity": "affirmed",
+      "certainty": "certain",
+      "story_time": "On the day of Max's trial",
+      "time_precision": "relative",
+      "evidence": [
+        {
+          "evidence_id": "crash-framing",
+          "start": 631,
+          "end": 731,
+          "quote": "On the day of Max's trial, Ian fails to turn up, and Max is released without charge, to Carl's fury."
+        }
+      ]
+    },
+    {
+      "claim_id": "crash-max-acquittal",
+      "event_id": "carl-crash",
+      "event_label": "Carl's car crash",
+      "event_type": "acquittal",
+      "basis": "legal_outcome",
+      "participants": [
+        {
+          "character_id": "max-branning",
+          "role": "acquitted"
+        }
+      ],
+      "account_status": "as_reported",
+      "polarity": "affirmed",
+      "certainty": "certain",
+      "story_time": "unknown",
+      "time_precision": "unknown",
+      "evidence": [
+        {
+          "evidence_id": "crash-acquittal",
+          "start": 87,
+          "end": 109,
+          "quote": "once Max is acquitted."
+        }
+      ]
+    },
+    {
+      "claim_id": "peggy-pregnancy",
+      "event_id": "peggy-pregnancy",
+      "event_label": "Peggy's pregnancy with Phil",
+      "event_type": "pregnancy",
+      "basis": "narrative",
+      "participants": [
+        {
+          "character_id": "peggy-mitchell",
+          "role": "pregnant_person"
+        }
+      ],
+      "account_status": "as_reported",
+      "polarity": "affirmed",
+      "certainty": "certain",
+      "story_time": "unknown",
+      "time_precision": "unknown",
+      "evidence": [
+        {
+          "evidence_id": "peggy-pregnancy",
+          "start": 0,
+          "end": 105,
+          "quote": "Peggy married Eric Mitchell (George Russo) because she was pregnant with their son Phil (Steve McFadden)."
+        }
+      ]
+    },
+    {
+      "claim_id": "sharon-christmas-pregnancy",
+      "event_id": "sharon-christmas-pregnancy",
+      "event_label": "Sharon's Christmas pregnancy",
+      "event_type": "pregnancy",
+      "basis": "narrative",
+      "participants": [
+        {
+          "character_id": "sharon-watts",
+          "role": "pregnant_person"
+        }
+      ],
+      "account_status": "as_reported",
+      "polarity": "affirmed",
+      "certainty": "certain",
+      "story_time": "Christmas Day 2005",
+      "time_precision": "exact",
+      "evidence": [
+        {
+          "evidence_id": "sharon-christmas-pregnancy",
+          "start": 0,
+          "end": 131,
+          "quote": "On Christmas Day 2005, Sharon is stunned to discover she is pregnant, and she and Dennis celebrate the potential of having a child."
+        }
+      ]
+    },
+    {
+      "claim_id": "sharon-uncertain-paternity",
+      "event_id": "sharon-uncertain-paternity",
+      "event_label": "Sharon's pregnancy with uncertain paternity",
+      "event_type": "pregnancy",
+      "basis": "narrative",
+      "participants": [
+        {
+          "character_id": "sharon-watts",
+          "role": "pregnant_person"
+        }
+      ],
+      "account_status": "as_reported",
+      "polarity": "affirmed",
+      "certainty": "certain",
+      "story_time": "unknown",
+      "time_precision": "unknown",
+      "evidence": [
+        {
+          "evidence_id": "sharon-uncertain-paternity",
+          "start": 0,
+          "end": 221,
+          "quote": "However, Sharon also discovers she is pregnant but does not know if Phil or Keanu is the father. She settles on having an abortion, but Phil discovers she's pregnant, and Sharon lies letting Phil believe he is the father."
+        }
+      ]
+    },
+    {
+      "claim_id": "peggy-death",
+      "event_id": "peggy-death",
+      "event_label": "Peggy's death",
+      "event_type": "death",
+      "basis": "narrative",
+      "participants": [
+        {
+          "character_id": "peggy-mitchell",
+          "role": "deceased"
+        }
+      ],
+      "account_status": "as_reported",
+      "polarity": "affirmed",
+      "certainty": "certain",
+      "story_time": "unknown",
+      "time_precision": "unknown",
+      "evidence": [
+        {
+          "evidence_id": "peggy-death",
+          "start": 0,
+          "end": 529,
+          "quote": "Peggy begins hallucinating the smell of cigarette smoke; this eventually manifests into a vision of Pat. As the two reminisce about past memories, Peggy states she still wants to die now before the cancer gets worse and to be remembered as a strong woman. Upon being reassured by Pat that she will not leave her side, Peggy then commits suicide by taking an overdose of her pills. Phil is devastated to find her body, and a letter from her urges him to love himself as others love him. Peggy's funeral takes place on 4 July 2016."
+        }
+      ]
+    },
+    {
+      "claim_id": "lucy-death",
+      "event_id": "lucy-death",
+      "event_label": "Lucy's death",
+      "event_type": "death",
+      "basis": "narrative",
+      "participants": [
+        {
+          "character_id": "lucy-beale",
+          "role": "deceased"
+        }
+      ],
+      "account_status": "as_reported",
+      "polarity": "affirmed",
+      "certainty": "certain",
+      "story_time": "unknown",
+      "time_precision": "unknown",
+      "evidence": [
+        {
+          "evidence_id": "lucy-death",
+          "start": 0,
+          "end": 106,
+          "quote": "When Ian's daughter Lucy dies, Phil begins supporting his former enemy and helps him get back on his feet."
+        }
+      ]
+    }
+  ],
+  "context_claims": [
+    {
+      "claim_id": "peggy-abuse-theme",
+      "kind": "theme",
+      "character_ids": [
+        "peggy-mitchell",
+        "phil-mitchell"
+      ],
+      "theme": "domestic_abuse",
+      "classification_gap": null,
+      "evidence": [
+        {
+          "evidence_id": "peggy-abuse-theme",
+          "start": 0,
+          "end": 76,
+          "quote": "Eric took his anger out on Peggy and was often violent towards her and Phil."
+        }
+      ]
+    },
+    {
+      "claim_id": "tape-revelation",
+      "kind": "unclassified",
+      "character_ids": [
+        "grant-mitchell",
+        "sharon-watts",
+        "phil-mitchell",
+        "kathy-beale"
+      ],
+      "theme": null,
+      "classification_gap": "Public revelation of an affair has no checked event category in this graph.",
+      "evidence": [
+        {
+          "evidence_id": "tape-revelation",
+          "start": 0,
+          "end": 255,
+          "quote": "Sharon and Grant patch up their relationship; however, in the autumn of 1994, Grant discovers a tape on which Sharon talks about her affair with Phil, and plays it to a packed pub at Phil's engagement party to his fiancée, Kathy Beale (Gillian Taylforth)."
+        }
+      ]
+    }
+  ],
+  "cases": [
+    {
+      "case_id": "direct-adoption",
+      "category": "direct",
+      "character_id": "sharon-watts",
+      "target_id": "den-watts",
+      "max_depth": 1,
+      "status": "found",
+      "acceptable_paths": [
+        [
+          "sharon-watts",
+          "den-watts"
+        ]
+      ],
+      "required_claims": [
+        "den-sharon-adoption"
+      ],
+      "forbidden_meanings": [
+        "biological_parent",
+        "biological_child"
+      ]
+    },
+    {
+      "case_id": "biological-grandchild",
+      "category": "multi_step",
+      "character_id": "peggy-mitchell",
+      "target_id": "ben-mitchell",
+      "max_depth": 2,
+      "status": "found",
+      "acceptable_paths": [
+        [
+          "peggy-mitchell",
+          "phil-mitchell",
+          "ben-mitchell"
+        ]
+      ],
+      "required_claims": [
+        "peggy-phil",
+        "phil-ben"
+      ],
+      "derived_meaning": "biological_grandparent"
+    },
+    {
+      "case_id": "alternative-parent",
+      "category": "alternative",
+      "character_id": "ben-mitchell",
+      "target_id": "kathy-beale",
+      "max_depth": 2,
+      "status": "found",
+      "acceptable_paths": [
+        [
+          "ben-mitchell",
+          "kathy-beale"
+        ],
+        [
+          "ben-mitchell",
+          "phil-mitchell",
+          "kathy-beale"
+        ]
+      ],
+      "require_all_alternatives": true
+    },
+    {
+      "case_id": "misleading-conviction",
+      "category": "misleading_role",
+      "character_id": "max-branning",
+      "target_id": "bobby-beale",
+      "max_depth": 1,
+      "status": "found",
+      "acceptable_paths": [
+        [
+          "max-branning",
+          "bobby-beale"
+        ]
+      ],
+      "required_claims": [
+        "lucy-max-conviction",
+        "lucy-bobby-commission"
+      ],
+      "forbidden_text": [
+        "Max Branning committed the act",
+        "Max Branning murdered"
+      ]
+    },
+    {
+      "case_id": "composed-family-event",
+      "category": "multi_family",
+      "character_id": "peggy-mitchell",
+      "target_id": "bobby-beale",
+      "max_depth": 3,
+      "status": "found",
+      "acceptable_paths": [
+        [
+          "peggy-mitchell",
+          "phil-mitchell",
+          "ben-mitchell",
+          "bobby-beale"
+        ]
+      ],
+      "required_claims": [
+        "peggy-phil",
+        "phil-ben",
+        "lucy-ben-arrest",
+        "lucy-bobby-commission"
+      ]
+    },
+    {
+      "case_id": "no-path",
+      "category": "no_path",
+      "character_id": "kat-slater",
+      "target_id": "bobby-beale",
+      "max_depth": 4,
+      "status": "empty",
+      "acceptable_paths": []
+    },
+    {
+      "case_id": "cycle",
+      "category": "cycle",
+      "character_id": "phil-mitchell",
+      "target_id": "denise-fox",
+      "max_depth": 6,
+      "status": "empty",
+      "acceptable_paths": []
+    },
+    {
+      "case_id": "theme-is-not-connection",
+      "category": "theme_only",
+      "character_id": "sharon-watts",
+      "target_id": "denise-fox",
+      "max_depth": 3,
+      "status": "empty",
+      "acceptable_paths": []
+    },
+    {
+      "case_id": "depth-bound",
+      "category": "bounded",
+      "character_id": "peggy-mitchell",
+      "target_id": "bobby-beale",
+      "max_depth": 2,
+      "status": "empty",
+      "acceptable_paths": []
+    },
+    {
+      "case_id": "performer",
+      "category": "performer",
+      "character_id": "steve-mcfadden",
+      "target_id": "phil-mitchell",
+      "max_depth": 1,
+      "status": "unknown_character",
+      "acceptable_paths": []
+    }
+  ],
+  "review_note": "Labels prepared before implementation from retained source-supported exposed references and exact evidence quotations. Family and romantic edges retain their stated direction and history. Shared incident identities preserve stage-specific roles. Alternative paths are node sequences, not a required traversal order. These are curated capability cases, not new model extraction, held-out accuracy or independent canon cross-checks."
+}
