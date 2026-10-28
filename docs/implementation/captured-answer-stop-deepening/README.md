@@ -76,3 +76,33 @@ the captured context, without presenting an unqualified cited fact.
   were appended after the initial size guard. New returned-answer tests reproduced
   the overflow in both routes. The fix sizes those qualifications with the reply;
   an additional case checks bounded abstention when the qualification cannot fit.
+
+## Final verification
+
+The full suite ran once at the end and passed **561 tests**, with zero failures,
+errors or skips, in **23 minutes 15 seconds**. The single warning is the existing
+Starlette/httpx deprecation. Strict mypy passed all **126 files**, and Ruff lint
+and formatting passed. Both independent review axes have **zero remaining
+findings** after the qualification fix.
+
+All **176 frozen software/configuration/data inputs** still match the tested
+revision `34aa0bf`. All **753 protected existing files** remain unchanged,
+including the user's original workspace changes, **40 original data files**,
+private inputs and the shared spending ledger. No paid model calls were made.
+The ten intentional existing-file edits implement the selected scope; the third
+architecture candidate and issue #19 remain subsequent work.
+
+- [Validation record](validation.json)
+- [Independent Standards and Spec reviews](review.md)
+- [Full test report](software-tests.xml) and [test log](software-tests.log)
+- [Frozen software inputs](software-inputs.json)
+
+Reproduce with a local disposable PostgreSQL/pgvector admin connection:
+
+```sh
+export ASK_PHIL_TEST_DATABASE_URL=postgresql://USER:PASSWORD@HOST:PORT/postgres
+MLFLOW_DISABLE_AGENT_HINT=1 PREFECT_HOME=/tmp/ask-phil-verification PREFECT_SERVER_ANALYTICS_ENABLED=false .venv/bin/pytest -v -p no:cacheprovider
+.venv/bin/mypy src tests scripts docs/implementation/issue-9/apply_support.py
+.venv/bin/ruff check src tests scripts docs/implementation/issue-9/apply_support.py
+.venv/bin/ruff format --check src tests scripts docs/implementation/issue-9/apply_support.py
+```

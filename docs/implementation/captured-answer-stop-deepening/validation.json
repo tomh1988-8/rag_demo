@@ -1,0 +1,49 @@
+{
+  "captured_at": "2026-10-28T15:23:34.149586+00:00",
+  "base_revision": "76a7b147a2babea62ac6567b28d9a938cb77757f",
+  "implementation_revision": "34aa0bf5abb3774dbd6f60cc79de06ba29845211",
+  "application_sha256": "1dc3e6000eed839eaa06dd825382c09b7215f913b7111969c0374933360a57f7",
+  "software": {
+    "tests": 561,
+    "failures": 0,
+    "errors": 0,
+    "skipped": 0,
+    "passed": 561,
+    "seconds": 1395.23,
+    "full_suite_runs": 1,
+    "command": "ASK_PHIL_TEST_DATABASE_URL=LOCAL_DISPOSABLE_POSTGRES MLFLOW_DISABLE_AGENT_HINT=1 PREFECT_HOME=ISOLATED_TEMP PREFECT_SERVER_ANALYTICS_ENABLED=false .venv/bin/pytest -v -p no:cacheprovider --tb=short --durations=15 --junitxml=docs/implementation/captured-answer-stop-deepening/software-tests.xml -o junit_family=legacy",
+    "strict_mypy": {
+      "passed": true,
+      "files": 126
+    },
+    "ruff_lint": true,
+    "ruff_format": true,
+    "earlier_capture_checks": 49,
+    "earlier_affected_integration_checks": 53,
+    "post_review_checks": 10
+  },
+  "reviews": {
+    "standards_remaining": 0,
+    "spec_initial_p2": 1,
+    "spec_remaining": 0
+  },
+  "preservation": {
+    "original_files_hashed": 763,
+    "planned_existing_file_changes": 10,
+    "protected_existing_files_unchanged": 753,
+    "original_data_files_unchanged": 40,
+    "frozen_software_inputs": 176,
+    "all_frozen_inputs_match": true,
+    "unexpected_changes": [],
+    "pre_existing_workspace_changes_preserved": true,
+    "private_inputs_unchanged": true,
+    "shared_spending_ledger_unchanged": true,
+    "paid_calls": 0
+  },
+  "artifacts_sha256": {
+    "software-inputs.json": "7a16629ec3c241709254e3dd7207757e195ae7ca64e6a6a9d9f46be6cb1d5dc1",
+    "software-tests.xml": "f9b49e9a8a8058e43c2aa6f7258741b929dfc5fda8003e78793e8d6078b1c3f9",
+    "software-tests.log": "12545a657f5544423d08fdc1e7cd5a4f31dca285bd49637952489f9a140066a3",
+    "review.md": "7dda95f0dde8e6c5ed61befefd64a47d7e0ed18b1e259526ce751ee06629cef6"
+  }
+}
