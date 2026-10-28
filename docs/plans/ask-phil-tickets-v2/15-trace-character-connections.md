@@ -1,6 +1,6 @@
 # 15: Trace evidenced connections between characters
 
-Status: implemented and validated as [GitHub #16](https://github.com/tomh1988-8/rag_demo/issues/16). [Implementation evidence](../../implementation/issue-16/README.md) records all seven criteria, 514 passing software tests, separate four-family runtime/source-review results and the repaired admission-bypass finding. Publication and tracker closure are recorded with the issue evidence. Plan version: 2.
+Status: complete and closed as [GitHub #16](https://github.com/tomh1988-8/rag_demo/issues/16). [Implementation evidence](../../implementation/issue-16/README.md) records all seven criteria, 514 passing software tests, separate four-family runtime/source-review results and the repaired admission-bypass finding. [The publication receipt](../../implementation/issue-16/publication.json) records native exact-tree publication, all 168 input hashes and completed closure with the exact prepared body. Plan version: 2.
 
 Spec stories: S17, S18, S20, S21, S22, S24, S25, S27, S28, S29, S34, S38, S39, S49, S52, S68, S72, S73, S81, S86. Checklist evidence owner for: RAG-04.
 

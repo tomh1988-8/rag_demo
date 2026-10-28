@@ -11,30 +11,37 @@ commands so they work even without a configured Git remote.
 
 ## Current Ask Phil handoff
 
-Issue #16 is implemented and validated locally at `3716f9c`, with the reviewed
-application at `e2eb7f5` and test-image fixture packaging at `4b883ed`.
+Issue #16 is complete and closed after native publication and exact-tree
+verification of [`97853f7`](https://github.com/tomh1988-8/rag_demo/commit/97853f74ca20aef5fd05d5b875cf3c869146de3d).
+[The receipt](../implementation/issue-16/publication.json) records the user's
+explicit `approve`, seven checked criteria, completed closure, exact agreement
+with the prepared issue body and all 168 final published input hashes. The earlier
+automatic rejection is superseded; there is no current publication/tracker blocker.
+The receipt/handoff publication changes documentation only.
+
 [Evidence](../implementation/issue-16/README.md) records **514 passing tests**,
 strict mypy across 116 files, Ruff/formatting, 33 passing focused checks, a passing
 Docker four-family contract and 17 actual API/CLI/session responses with exact
 MLflow/citation/restart/reset readback. Independent review passes eleven factual
 responses and six assertion-free outcomes. Both code-review axes have zero
 remaining findings after repairing the biological-history admission bypass.
-The register remains 35 Pass and 16 Pending; wider graph coverage and release
-acceptance remain Pending. No paid model calls were made; preserve the shared
-ledger at **$0.464981**, zero unsettled reservations, all 37 original data files,
-51 pre-existing workspace files and both private inputs.
+Biological connections use admitted family edges exclusively; relationship history
+cannot restore parentage held by family admission. Alternative, cycle, misleading-role,
+no-path, text-only exclusion and bounded-work cases remain in the reviewed evidence.
 
-**Publication is blocked by automatic approval review.** It rejected direct push
-of multiple commits to `main` without explicit approval in this conversation.
-No push or tracker write was performed, and GitHub #16 remains open.
-[The receipt](../implementation/issue-16/publication.json) contains the exact
-prepared update and resumption steps. Obtain approval for publishing these commits,
-the prepared body/closure and completion receipt/handoff; then push without force,
-verify the remote tree and 168 final input hashes, update/close #16 and publish
-the completed receipt/handoff. Do not repeat unchanged tests or paid work.
+The event-only and legacy-manifest failures and the independent-review finding
+remain recorded. These are curated exposed capability cases; original extraction
+and ordinary text-quality failures are unchanged. No new live false-account,
+held-out or independent canon pass is claimed. Wider graph coverage and release
+acceptance remain Pending; register counts stay 35 Pass and 16 Pending.
 
-**#17 is next after #16 publication and closure**; #19, #20, #22 and #24 also
-remain unblocked. Wait for a new implementation instruction before another issue.
+No paid model calls were made. Preserve the shared non-resetting $5 ledger at
+**$0.464981**, zero unsettled reservations, all 37 original data files, 51
+pre-existing workspace files and both private inputs. This supersedes historical
+balances below. Do not repeat unchanged tests or paid work for publication.
+
+**#17 is next**; #19, #20, #22 and #24 also remain unblocked.
+Wait for the user's next implementation instruction before another issue.
 
 ### Prior issue #15 handoff
 

@@ -1,31 +1,62 @@
 {
-  "recorded_at": "2026-10-28T10:28:08.426483+00:00",
-  "status": "blocked_pending_explicit_publication_approval",
+  "recorded_at": "2026-10-28T10:47:36.700056+00:00",
+  "status": "published_and_issue_closed",
   "repository": "tomh1988-8/rag_demo",
   "branch": "main",
+  "approval": {
+    "user_message": "approve",
+    "approved_prepared_head": "97853f74ca20aef5fd05d5b875cf3c869146de3d",
+    "scope": "Publish the prepared issue #16 commits directly to main, apply the exact prepared tracker update and close #16 after remote verification, then publish the completion receipt/handoff."
+  },
+  "published_implementation_and_evidence": {
+    "verified_at": "2026-10-28T10:45:48.496451+00:00",
+    "commit": "97853f74ca20aef5fd05d5b875cf3c869146de3d",
+    "commit_url": "https://github.com/tomh1988-8/rag_demo/commit/97853f74ca20aef5fd05d5b875cf3c869146de3d",
+    "local_tree": "12b127b0728e8341d47b6ba62c4e59f8f02d0a99",
+    "remote_tree": "12b127b0728e8341d47b6ba62c4e59f8f02d0a99",
+    "exact_tree_match": true,
+    "verified_final_input_hashes": 168,
+    "all_final_input_hashes_match": true,
+    "method": "Native push followed by fresh fetch and Git object readback.",
+    "git_tree_object_algorithm": "Git tree object SHA-1"
+  },
   "validated_implementation_and_evidence_commit": "3716f9c351b6b513bf2e25997ac7a0e0ab9107f8",
   "tested_application_revision": "e2eb7f5e8c3f87ee2b1900445927d1debd697ad5",
   "packaging_revision": "4b883ede085d83750344220ccc60c46c6ae2a233",
   "automatic_approval_review": {
-    "rejected_action": "git fetch origin main && git merge-base --is-ancestor FETCH_HEAD HEAD && git push origin HEAD:refs/heads/main",
-    "reason": "This pushes multiple commits directly to the remote default branch, a consequential shared-history mutation not explicitly authorized by the user; the repository documentation cannot expand that authorization.",
-    "no_workaround_attempted": true
+    "initial_rejection": {
+      "rejected_action": "git fetch origin main && git merge-base --is-ancestor FETCH_HEAD HEAD && git push origin HEAD:refs/heads/main",
+      "reason": "This pushes multiple commits directly to the remote default branch, a consequential shared-history mutation not explicitly authorized by the user; the repository documentation cannot expand that authorization.",
+      "no_workaround_attempted": true
+    },
+    "superseded_by": "Explicit user approval in this conversation, followed by successful native publication.",
+    "current_blocker": false
   },
-  "remote_publication_performed": false,
+  "remote_publication_performed": true,
   "tracker": {
     "issue": 16,
-    "state_read_back": "OPEN",
+    "url": "https://github.com/tomh1988-8/rag_demo/issues/16",
+    "state_read_back": "CLOSED",
+    "state_reason_read_back": "COMPLETED",
+    "closed_at": "2026-10-28T10:46:04Z",
     "prepared_body": "tracker-update.md",
     "prepared_body_sha256": "88e94777b3aa2fc2e8687450bf1bf156197ec5c1e439233f8efc9bd21c3391e1",
+    "remote_body_sha256": "88e94777b3aa2fc2e8687450bf1bf156197ec5c1e439233f8efc9bd21c3391e1",
+    "remote_body_matches_exactly": true,
     "checked_acceptance_criteria": 7,
-    "remote_update_performed": false
+    "remote_update_performed": true
   },
-  "required_approval": "Publish the prepared issue #16 commits directly to main, apply the exact prepared tracker update and close #16 after remote verification, then publish the completion receipt/handoff.",
-  "after_approval": [
-    "Push main without force and verify the remote tree and all 168 final input hashes against the intended local commit.",
-    "Apply tracker-update.md and close issue #16; read back completed state, seven checked criteria and exact body.",
-    "Replace this blocked receipt with publication verification and update/publish the final handoff.",
-    "Verify the final remote tree again."
-  ],
-  "next_ticket_after_completion": 17
+  "completion_receipt_and_handoff": {
+    "publication": "Documentation-only follow-up to the verified implementation publication.",
+    "all_168_final_application_configuration_data_inputs_unchanged": true,
+    "requires_fresh_remote_tree_readback": true
+  },
+  "preservation": {
+    "protected_original_files": 90,
+    "changed": [],
+    "paid_model_calls": 0,
+    "shared_ledger_usd": 0.464981,
+    "unsettled_reservations": 0
+  },
+  "next_ticket": 17
 }

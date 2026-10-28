@@ -169,12 +169,13 @@ the private key and the user's pre-existing workspace changes. Software results,
 source-review findings, retained failures and revision linkage are recorded with
 this issue's validation and review artifacts.
 
-## Publication status
+## Publication
 
-Implementation and validation are committed locally. Automatic approval review
-blocked pushing multiple commits directly to `main` because it requires explicit
-current-conversation approval for that shared-branch mutation. No publication or
-tracker closure was performed. [The receipt](publication.json) records the blocker
-and exact resumption steps; [the prepared tracker body](tracker-update.md) is
-ready for inspection. After approval, publish and verify the remote tree before
-applying that body and closing #16, then publish the completion receipt/handoff.
+Issue #16 is complete and closed after the user's explicit approval, native
+publication of [`97853f7`](https://github.com/tomh1988-8/rag_demo/commit/97853f74ca20aef5fd05d5b875cf3c869146de3d)
+and fresh remote readback. The published tree exactly matches the intended local
+commit, including all 168 final application/configuration/data input hashes.
+All seven acceptance criteria, the exact prepared tracker body and completed
+closure were read back. [The receipt](publication.json) records those checks and
+the approval superseding the earlier automatic rejection. The completion receipt
+and handoff are a documentation-only publication; tested inputs are unchanged.
