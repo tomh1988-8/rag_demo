@@ -1,0 +1,73 @@
+{
+  "recorded_at": "2026-10-28T17:45:10.650465+00:00",
+  "baseline": "1de70ac36e56a8a618230c36ee0ff57ab306e00a",
+  "branch": "main",
+  "full_suite": {
+    "tests": 575,
+    "failures": 0,
+    "errors": 0,
+    "skipped": 0,
+    "seconds": 1417.715,
+    "runs": 1,
+    "exit_code": 0,
+    "report": "software-tests.xml",
+    "log": "software-tests.log"
+  },
+  "focused_checks": {
+    "offline_evaluation": 87,
+    "integration": 55
+  },
+  "static_checks": {
+    "strict_mypy_files": 131,
+    "ruff_lint": "passed",
+    "ruff_format": "passed",
+    "git_diff_check": "passed",
+    "staged_secret_scan": "passed"
+  },
+  "review": {
+    "standards_open": 0,
+    "spec_open": 0,
+    "spec_resolved": 2,
+    "record": "review.md"
+  },
+  "compatibility": {
+    "public_schemas": 4,
+    "prompt_or_rubric_hashes": 4,
+    "investigation_tool_contract": "unchanged",
+    "record": "compatibility.json"
+  },
+  "preservation": {
+    "frozen_software_inputs": 186,
+    "all_software_inputs_match": true,
+    "original_files": 821,
+    "unchanged_original_files": 809,
+    "intentional_changed_files": [
+      "scripts/review_persona.py",
+      "src/ask_phil/evaluation.py",
+      "src/ask_phil/investigation.py",
+      "src/ask_phil/investigation_tools.py",
+      "src/ask_phil/models.py",
+      "src/ask_phil/persona_evaluation.py",
+      "src/ask_phil/quality_workflow.py",
+      "src/ask_phil/retrieval.py",
+      "src/ask_phil/text_answering.py",
+      "tests/test_investigation_api.py",
+      "tests/test_persona_evaluation.py",
+      "tests/test_quality_comparison.py"
+    ],
+    "original_data_files": 45,
+    "private_inputs_unchanged": true,
+    "pre_existing_user_work_unchanged": true,
+    "ledger_unchanged_since_focused_checks": true,
+    "shared_ledger_usd": 0.673627,
+    "unsettled_reservations": 0
+  },
+  "paid_model_calls": 0,
+  "artifact_sha256": {
+    "software-tests.xml": "bca1fb49dde62c14e2090dfdbca40acef863cc4847fc73042a0b27fa9af3ac1b",
+    "software-tests.log": "0bfa44cec5759df864da0402e82c407df7569471a804cb961420195bd311e069",
+    "software-inputs.json": "ba6cc4e5d365cafeaa3a4a1b21660ca2db7de5a1e77010f77ae12ec86895fa44",
+    "compatibility.json": "e8cc5fabe9aee4ed5d5bd0484ce36a1267ce30d4f5681364f47caa0a23342b44",
+    "review.md": "3b564c3050bdcb5126d4e34f7ea9bf7a0bd15128221070d89ce40d5b72a0dd94"
+  }
+}

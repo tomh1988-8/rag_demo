@@ -1,0 +1,53 @@
+F                                                                        [100%]
+=================================== FAILURES ===================================
+__________ test_comparison_rejects_a_capture_with_failed_verification __________
+
+tmp_path = PosixPath('/tmp/pytest-of-tom/pytest-183/test_comparison_rejects_a_capt0')
+
+    def test_comparison_rejects_a_capture_with_failed_verification(tmp_path: Path) -> None:
+        evidence = Path("docs/implementation/issue-19")
+        scores = json.loads((evidence / "final-scores.json").read_bytes())
+        capture = json.loads(Path(scores["capture_path"]).read_bytes())
+        capture["cases"][0]["verification_state"] = "failed"
+        changed_capture = tmp_path / "capture.json"
+        changed_capture.write_text(json.dumps(capture))
+        changed_capture.with_suffix(".references.json").write_bytes(
+            Path(scores["capture_path"]).with_suffix(".references.json").read_bytes()
+        )
+        scores["capture_path"] = str(changed_capture)
+        scores["capture_sha256"] = hashlib.sha256(changed_capture.read_bytes()).hexdigest()
+        changed_scores = tmp_path / "scores.json"
+        changed_scores.write_text(json.dumps(scores))
+        output = tmp_path / "comparison.json"
+
+        result = subprocess.run(
+            [
+                sys.executable,
+                "scripts/review_persona.py",
+                "compare",
+                "--baseline",
+                str(evidence / "baseline-scores-v2.json"),
+                "--candidate",
+                str(changed_scores),
+                "--output",
+                str(output),
+            ],
+            capture_output=True,
+            text=True,
+            timeout=30,
+        )
+
+>       assert result.returncode != 0
+E       AssertionError: assert 0 != 0
+E        +  where 0 = CompletedProcess(args=['/home/tom/Documents/code/python/rag_demo/.venv/bin/python', 'scripts/review_persona.py', 'comp...t0/comparison.json'], returncode=0, stdout='Saved the controlled persona comparison without model calls.\n', stderr='').returncode
+
+tests/test_persona_evaluation.py:343: AssertionError
+=============================== warnings summary ===============================
+.venv/lib/python3.12/site-packages/fastapi/testclient.py:1
+  /home/tom/Documents/code/python/rag_demo/.venv/lib/python3.12/site-packages/fastapi/testclient.py:1: StarletteDeprecationWarning: Using `httpx` with `starlette.testclient` is deprecated; install `httpx2` instead.
+    from starlette.testclient import TestClient as TestClient  # noqa
+
+-- Docs: https://docs.pytest.org/en/stable/how-to/capture-warnings.html
+=========================== short test summary info ============================
+FAILED tests/test_persona_evaluation.py::test_comparison_rejects_a_capture_with_failed_verification
+1 failed, 1 warning in 3.55s

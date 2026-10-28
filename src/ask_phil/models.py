@@ -3,8 +3,8 @@
 import asyncio
 import hashlib
 import os
-from collections.abc import Sequence
-from contextlib import nullcontext
+from collections.abc import Iterator, Sequence
+from contextlib import contextmanager, nullcontext
 from contextvars import ContextVar
 from dataclasses import dataclass
 from decimal import Decimal
@@ -40,6 +40,9 @@ LOCAL_LIMITATION = (
     "Source-supported is not independently cross-checked. Coverage is limited to the "
     "captured snapshot. Local-model results are development smoke evidence, not a "
     "deployment or representative quality assessment."
+)
+_current_accounting: ContextVar["ModelAccounting | None"] = ContextVar(
+    "model_accounting", default=None
 )
 
 
@@ -216,6 +219,68 @@ class ModelExecution(Record):
         return attributes
 
 
+def _sum_known[T: (int, float)](values: Sequence[T | None]) -> T | None:
+    return (
+        None
+        if any(value is None for value in values)
+        else sum(value for value in values if value is not None)
+    )
+
+
+class ModelAccounting:
+    """Request-local model observations; unknown measurements never become zero."""
+
+    def __init__(self, models: "Models") -> None:
+        self._models = models
+        self._calls: list[ModelExecution] = []
+        self._embeddings: list[int | None] = []
+
+    @property
+    def executions(self) -> tuple[ModelExecution, ...]:
+        return tuple(self._calls)
+
+    @property
+    def embedding_tokens(self) -> tuple[int | None, ...]:
+        return tuple(self._embeddings)
+
+    def summary(self, *, investigation: bool = False) -> ModelExecution:
+        """Keep individual provider receipts separate from multi-decision totals."""
+        result = (
+            self._calls[-1] if self._calls and not investigation else self._models.skipped_answer()
+        )
+        return result.model_copy(
+            update={
+                "usage": TokenUsage(
+                    input_tokens=_sum_known([call.usage.input_tokens for call in self._calls]),
+                    output_tokens=_sum_known([call.usage.output_tokens for call in self._calls]),
+                    embedding_tokens=_sum_known(self._embeddings),
+                ),
+                "estimated_api_cost_usd": _sum_known(
+                    [call.estimated_api_cost_usd for call in self._calls]
+                ),
+                "cost_scope": (
+                    "All investigator decisions and query embeddings; " if investigation else ""
+                )
+                + result.cost_scope,
+            }
+        )
+
+
+def query_embedding(embedding: BaseEmbedding, query: str) -> list[float]:
+    """Admit one query operation and retain its measurement even if retrieval fails."""
+    budget = current_execution.get()
+    if budget:
+        budget.model_call(Decimal(0))
+    try:
+        return embedding.get_query_embedding(query)
+    finally:
+        accounting = _current_accounting.get()
+        if accounting is not None:
+            accounting._embeddings.append(
+                embedding.input_tokens if isinstance(embedding, LocalEmbedding) else None
+            )
+
+
 @dataclass(frozen=True)
 class Models:
     settings: ModelSettings | OpenRouterSettings
@@ -225,15 +290,19 @@ class Models:
     def redact(self, text: str) -> str:
         return self.llm.redact(text) if isinstance(self.llm, OpenRouterChat) else redact_text(text)
 
-    @property
-    def _embedding_tokens(self) -> int | None:
-        return self.embedding.input_tokens if isinstance(self.embedding, LocalEmbedding) else None
+    @contextmanager
+    def accounting(self) -> Iterator[ModelAccounting]:
+        """Isolate one request's operations from indexing, nested work and later requests."""
+        accounting = ModelAccounting(self)
+        token = _current_accounting.set(accounting)
+        try:
+            yield accounting
+        finally:
+            _current_accounting.reset(token)
 
     def skipped_answer(self) -> ModelExecution:
-        """Report zero answer tokens without reading accounting from a previous call."""
-        return self._execution(
-            TokenUsage(input_tokens=0, output_tokens=0, embedding_tokens=self._embedding_tokens)
-        )
+        """No model operation occurred; do not inherit any earlier measurements."""
+        return self._execution(TokenUsage(input_tokens=0, output_tokens=0, embedding_tokens=0))
 
     def generate_answer(
         self, messages: Sequence[ChatMessage], *, schema: dict[str, Any]
@@ -243,7 +312,7 @@ class Models:
         if budget and not isinstance(self.llm, OpenRouterChat):
             budget.model_call(Decimal(0))
         content = None
-        usage = TokenUsage(embedding_tokens=self._embedding_tokens)
+        usage = TokenUsage(embedding_tokens=0)
         failure_type = None
         provider_usage = None
         try:
@@ -254,7 +323,7 @@ class Models:
                 usage = TokenUsage(
                     input_tokens=raw.get("prompt_eval_count"),
                     output_tokens=raw.get("eval_count"),
-                    embedding_tokens=self._embedding_tokens,
+                    embedding_tokens=0,
                 )
                 if (
                     usage.output_tokens is not None
@@ -276,11 +345,15 @@ class Models:
                 usage = TokenUsage(
                     input_tokens=provider_usage.input_tokens,
                     output_tokens=provider_usage.output_tokens,
-                    embedding_tokens=self._embedding_tokens,
+                    embedding_tokens=0,
                 )
-        return self._execution(
+        execution = self._execution(
             usage, content=content, provider_usage=provider_usage, failure_type=failure_type
         )
+        accounting = _current_accounting.get()
+        if accounting is not None:
+            accounting._calls.append(execution)
+        return execution
 
     def _execution(
         self,

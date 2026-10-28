@@ -1,0 +1,17 @@
+{
+  "baseline": "1de70ac36e56a8a618230c36ee0ff57ab306e00a",
+  "schemas": [
+    "AnswerRecord",
+    "AskRequest",
+    "Draft",
+    "InvestigationDecision"
+  ],
+  "prompt_sha256": {
+    "answer": "1837220ea074375ef25b894885b2530a0b28b8c3f7f37f95b7746cd380341afc",
+    "investigation": "4c1bfdee8674a93dd2e730319cf1b77a9058339d4bf1605131cd1be9004a2d74",
+    "persona_rubric": "cb3fb863125a7b2e45e1001b9b8671df5d8c8469897732c56c729fc2f69b6c09",
+    "review": "0f66eb91ee1f8ae77c13b7077c4f280be589a56a987f3ecfd093df8696c02809"
+  },
+  "tool_contract_sha256": "b644aae0494a7e99b07efdc0408683b121903d82871b495bba207c238707b8b7",
+  "equal": true
+}

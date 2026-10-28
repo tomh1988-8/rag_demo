@@ -1,0 +1,89 @@
+F                                                                        [100%]
+=================================== FAILURES ===================================
+_ test_interleaved_search_accounting_retains_measured_failure_and_resets_next_request _
+
+database_url = 'user=ask_phil password=local-demo-only dbname=ask_phil_test_69acdac03a4e4bf4b748685be12299ec host=172.19.0.2 port=5432'
+seed = SourceSnapshot(snapshot_id='phil-arrival-v1', fixture_version=1, source=Source(title='Phil Mitchell', url=HttpUrl('htt...82d8d2c75291831d8a3c48142261499f6a04ea732d8b2469031db', start=0, end=111, source=None, location=None),), imported=None)
+investigator_models = <function investigator_models.<locals>.build at 0x7bada59080e0>
+tmp_path = PosixPath('/tmp/pytest-of-tom/pytest-186/test_interleaved_search_accoun0')
+
+    def test_interleaved_search_accounting_retains_measured_failure_and_resets_next_request(
+        database_url: str,
+        seed: SourceSnapshot,
+        investigator_models: Callable[[list[dict[str, Any]]], Models],
+        tmp_path: Path,
+    ) -> None:
+        from ask_phil.answering import AnswerService
+        from ask_phil.answers import AskRequest
+
+        part = "When did Phil arrive?"
+        base = investigator_models(
+            [
+                decision("text_search", {"query": part, "k": 1}, part),
+                decision("text_search", {"query": "Phil's first arrival date", "k": 1}, part),
+                decision("text_search", {"query": part, "k": 1}, part),
+                finish(part),
+            ]
+        )
+        searches = 0
+
+        def embeddings(request: httpx.Request) -> httpx.Response:
+            nonlocal searches
+            query = json.loads(request.content)["input"].startswith("task: search result | query:")
+            searches += int(query)
+            malformed = query and searches == 2
+            return httpx.Response(
+                200,
+                json={
+                    "embeddings": [[1.0, 0.0] if malformed else [1.0, 0.0, 0.0]],
+                    "prompt_eval_count": 11 if malformed else 7,
+                },
+            )
+
+        models = Models(
+            base.settings,
+            LocalEmbedding(
+                "test-embedding",
+                Client(host="http://model.invalid", transport=httpx.MockTransport(embeddings)),
+            ),
+            base.llm,
+        )
+        publish(database_url, seed, models)
+        service = AnswerService(database_url, models, f"sqlite:///{tmp_path}/accounting.db")
+        request = AskRequest(question=part, route="investigation")
+
+        failed = service.ask(request)
+        assert failed.response.execution is not None
+        assert failed.response.execution.stop_reason == "malformed_output"
+>       assert failed.response.usage.model_dump() == {
+            "input_tokens": 80,
+            "output_tokens": 120,
+            "embedding_tokens": 18,
+        }
+E       AssertionError: assert {'input_token...tokens': None} == {'input_token...g_tokens': 18}
+E
+E         Omitting 2 identical items, use -vv to show
+E         Differing items:
+E         {'embedding_tokens': None} != {'embedding_tokens': 18}
+E         Use -v to get more diff
+
+tests/test_investigation_api.py:233: AssertionError
+----------------------------- Captured stderr call -----------------------------
+2026/10/28 17:03:37 INFO mlflow.store.db.utils: Creating initial MLflow database tables...
+2026/10/28 17:03:37 INFO mlflow.store.db.utils: Updating database tables
+------------------------------ Captured log call -------------------------------
+INFO     mlflow.store.db.utils:utils.py:87 Creating initial MLflow database tables...
+INFO     mlflow.store.db.utils:utils.py:294 Updating database tables
+WARNING  mlflow.types.type_hints:type_hints.py:237 Union type hint with multiple non-None types is inferred as AnyType, and MLflow doesn't validate the data against its element types.
+WARNING  mlflow.types.type_hints:type_hints.py:244 Union type hint is inferred as AnyType, and MLflow doesn't validate the data against its element types.
+WARNING  mlflow.types.type_hints:type_hints.py:237 Union type hint with multiple non-None types is inferred as AnyType, and MLflow doesn't validate the data against its element types.
+=============================== warnings summary ===============================
+.venv/lib/python3.12/site-packages/fastapi/testclient.py:1
+  /home/tom/Documents/code/python/rag_demo/.venv/lib/python3.12/site-packages/fastapi/testclient.py:1: StarletteDeprecationWarning: Using `httpx` with `starlette.testclient` is deprecated; install `httpx2` instead.
+    from starlette.testclient import TestClient as TestClient  # noqa
+
+-- Docs: https://docs.pytest.org/en/stable/how-to/capture-warnings.html
+=========================== short test summary info ============================
+FAILED tests/test_investigation_api.py::test_interleaved_search_accounting_retains_measured_failure_and_resets_next_request
+1 failed, 1 warning in 3.87s
+2026/10/28 17:03:41 INFO mlflow.tracing.export.async_export_queue: Flushing the async trace logging queue before program exit. This may take a while...

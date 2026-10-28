@@ -20,7 +20,6 @@ from ask_phil.family_answering import render_history
 from ask_phil.family_graph import FamilyQuery
 from ask_phil.graph_execution import GraphExecution, GraphResult
 from ask_phil.investigation_records import InvestigationStep, TextFinding
-from ask_phil.models import Models
 from ask_phil.passage_context import context_text
 from ask_phil.relationship_graph import RelationshipQuery, RelationshipResult
 from ask_phil.retrieval import IndexNotReady, PinnedText
@@ -78,16 +77,12 @@ TOOL_CONTRACT_SHA256 = hashlib.sha256(
 
 
 class InvestigationTools:
-    def __init__(
-        self, database_url: str, models: Models, pinned: PinnedText, budget: ExecutionBudget
-    ) -> None:
+    def __init__(self, database_url: str, pinned: PinnedText, budget: ExecutionBudget) -> None:
         self._database_url = database_url
-        self._models = models
         self._pinned = pinned
         self._budget = budget
         self.context: tuple[Passage, ...] = ()
         self.steps: list[InvestigationStep] = []
-        self.embeddings: list[int | None] = []
         self.context_claims: tuple[ContextClaim, ...] = ()
         self.review_notices: tuple[ReviewNotice, ...] = ()
         self._graph_findings: list[dict[str, Any]] = []
@@ -160,14 +155,7 @@ class InvestigationTools:
                 notices: tuple[ReviewNotice, ...] = ()
                 graphs = list(self._graph_findings)
                 if isinstance(query, TextSearch):
-                    before = self._budget.record().model_calls
-                    try:
-                        result = self._pinned.retrieve(query.query, k=query.k)
-                    except ExecutionStopped:
-                        if self._budget.record().model_calls > before:
-                            self.embeddings.append(None)
-                        raise
-                    self.embeddings.append(self._models.skipped_answer().usage.embedding_tokens)
+                    result = self._pinned.retrieve(query.query, k=query.k)
                     finding = TextFinding(
                         hits=result.hits,
                         context_claims=result.context_claims,

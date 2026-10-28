@@ -1,0 +1,68 @@
+FF                                                                       [100%]
+=================================== FAILURES ===================================
+_ test_comparison_requires_declared_observations_and_completed_cases[case_ids] _
+
+tmp_path = PosixPath('/tmp/pytest-of-tom/pytest-193/test_comparison_requires_decla0')
+missing = 'case_ids'
+
+    @pytest.mark.parametrize("missing", ["case_ids", "case_state"])
+    def test_comparison_requires_declared_observations_and_completed_cases(
+        tmp_path: Path, missing: str
+    ) -> None:
+        from ask_phil.quality_workflow import reviewed_comparison_run
+
+        evidence = Path("docs/implementation/issue-9")
+        dataset = ComparisonDataset.model_validate_json(
+            Path("data/references/quality-comparison-v1.json").read_bytes()
+        )
+        capture = json.loads((evidence / "baseline-capture-v2.json").read_bytes())
+        review = json.loads((evidence / "baseline-review.json").read_bytes())
+        if missing == "case_ids":
+            del capture["case_ids"]
+        else:
+            del capture["cases"][0]["state"]
+        capture_path = tmp_path / "capture.json"
+        capture_path.write_text(json.dumps(capture))
+        review["capture_sha256"] = hashlib.sha256(capture_path.read_bytes()).hexdigest()
+        review_path = tmp_path / "review.json"
+        review_path.write_text(json.dumps(review))
+
+>       with pytest.raises(ValueError, match="declared|complete"):
+E       Failed: DID NOT RAISE ValueError
+
+tests/test_quality_comparison.py:124: Failed
+_ test_comparison_requires_declared_observations_and_completed_cases[case_state] _
+
+tmp_path = PosixPath('/tmp/pytest-of-tom/pytest-193/test_comparison_requires_decla1')
+missing = 'case_state'
+
+    @pytest.mark.parametrize("missing", ["case_ids", "case_state"])
+    def test_comparison_requires_declared_observations_and_completed_cases(
+        tmp_path: Path, missing: str
+    ) -> None:
+        from ask_phil.quality_workflow import reviewed_comparison_run
+
+        evidence = Path("docs/implementation/issue-9")
+        dataset = ComparisonDataset.model_validate_json(
+            Path("data/references/quality-comparison-v1.json").read_bytes()
+        )
+        capture = json.loads((evidence / "baseline-capture-v2.json").read_bytes())
+        review = json.loads((evidence / "baseline-review.json").read_bytes())
+        if missing == "case_ids":
+            del capture["case_ids"]
+        else:
+            del capture["cases"][0]["state"]
+        capture_path = tmp_path / "capture.json"
+        capture_path.write_text(json.dumps(capture))
+        review["capture_sha256"] = hashlib.sha256(capture_path.read_bytes()).hexdigest()
+        review_path = tmp_path / "review.json"
+        review_path.write_text(json.dumps(review))
+
+>       with pytest.raises(ValueError, match="declared|complete"):
+E       Failed: DID NOT RAISE ValueError
+
+tests/test_quality_comparison.py:124: Failed
+=========================== short test summary info ============================
+FAILED tests/test_quality_comparison.py::test_comparison_requires_declared_observations_and_completed_cases[case_ids]
+FAILED tests/test_quality_comparison.py::test_comparison_requires_declared_observations_and_completed_cases[case_state]
+2 failed in 0.28s

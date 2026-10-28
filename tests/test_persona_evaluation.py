@@ -305,3 +305,89 @@ def test_comparison_rejects_factual_scores_changed_without_the_review(tmp_path: 
     assert result.returncode != 0
     assert "scores differ from the frozen review" in result.stderr
     assert not output.exists()
+
+
+@pytest.mark.parametrize("failed_stage", ["verification", "review"])
+def test_comparison_rejects_failed_case_evidence(tmp_path: Path, failed_stage: str) -> None:
+    evidence = Path("docs/implementation/issue-19")
+    scores = json.loads((evidence / "final-scores.json").read_bytes())
+    capture = json.loads(Path(scores["capture_path"]).read_bytes())
+    if failed_stage == "verification":
+        capture["cases"][0]["verification_state"] = "failed"
+    else:
+        scores["cases"][0]["state"] = "failed"
+    changed_capture = tmp_path / "capture.json"
+    changed_capture.write_text(json.dumps(capture))
+    changed_capture.with_suffix(".references.json").write_bytes(
+        Path(scores["capture_path"]).with_suffix(".references.json").read_bytes()
+    )
+    scores["capture_path"] = str(changed_capture)
+    scores["capture_sha256"] = hashlib.sha256(changed_capture.read_bytes()).hexdigest()
+    changed_scores = tmp_path / "scores.json"
+    changed_scores.write_text(json.dumps(scores))
+    output = tmp_path / "comparison.json"
+
+    result = subprocess.run(
+        [
+            sys.executable,
+            "scripts/review_persona.py",
+            "compare",
+            "--baseline",
+            str(evidence / "baseline-scores-v2.json"),
+            "--candidate",
+            str(changed_scores),
+            "--output",
+            str(output),
+        ],
+        capture_output=True,
+        text=True,
+        timeout=30,
+    )
+
+    assert result.returncode != 0
+    assert ("verification" if failed_stage == "verification" else "complete") in result.stderr
+    assert not output.exists()
+
+
+def test_persona_comparison_replays_the_retained_dimensions_and_failures(tmp_path: Path) -> None:
+    from ask_phil.persona_evaluation import compare_persona
+
+    evidence = Path("docs/implementation/issue-19")
+    output = tmp_path / "comparison.json"
+    compare_persona(evidence / "baseline-scores-v2.json", evidence / "final-scores.json", output)
+
+    actual = json.loads(output.read_bytes())
+    retained = json.loads((evidence / "comparison-verified.json").read_bytes())
+    for name in (
+        "dimensions",
+        "critical_failures",
+        "observed_variation",
+        "cost_and_latency",
+        "cases",
+    ):
+        assert actual[name] == retained[name]
+    assert actual["state"] == "complete"
+    assert actual["model_calls"] == 0
+
+
+@pytest.mark.parametrize("missing", ["reference", "case_id"])
+def test_persona_review_requires_identity_in_the_captured_record(
+    tmp_path: Path, missing: str
+) -> None:
+    from ask_phil.persona_evaluation import review_persona
+
+    evidence = Path("docs/implementation/issue-19")
+    capture = json.loads((evidence / "final-capture.json").read_bytes())
+    del capture["cases"][0][missing]
+    capture_path = tmp_path / "capture.json"
+    capture_path.write_text(json.dumps(capture))
+    output = tmp_path / "scores.json"
+
+    with pytest.raises(ValueError, match="reference|case"):
+        review_persona(
+            capture_path,
+            evidence / "final-annotations.json",
+            evidence / "final-capture.references.json",
+            output,
+        )
+    assert not output.exists()

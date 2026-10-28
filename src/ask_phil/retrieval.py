@@ -5,7 +5,6 @@ import json
 import math
 from collections.abc import Iterator
 from contextlib import contextmanager
-from decimal import Decimal
 from typing import TYPE_CHECKING, Literal
 
 import psycopg
@@ -24,6 +23,7 @@ from ask_phil.classified_facts import ContextClaim
 from ask_phil.event_graph import EventGraph
 from ask_phil.evidence import Fingerprint, Passage, Record, SourceSnapshot
 from ask_phil.execution import ExecutionStopped, current_execution, read_options
+from ask_phil.models import query_embedding
 from ask_phil.review_notes import ReviewNotice, retrieved_review_notices
 from ask_phil.storage import EvidenceStore
 
@@ -300,10 +300,8 @@ class TextRetriever:
                 (snapshot.fingerprint, self.embedding_id, self.dimensions),
             ).fetchone():
                 raise IndexNotReady("Prepare this snapshot with the configured embedding model.")
-        if budget:
-            budget.model_call(Decimal(0))
         try:
-            vector = self.embedding.get_query_embedding(query)
+            vector = query_embedding(self.embedding, query)
             if (
                 len(vector) != self.dimensions
                 or not all(math.isfinite(value) for value in vector)

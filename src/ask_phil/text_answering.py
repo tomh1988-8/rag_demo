@@ -27,7 +27,7 @@ from ask_phil.conversation import (
 from ask_phil.evidence import Passage
 from ask_phil.execution import ExecutionBudget, ExecutionStopped
 from ask_phil.identity import IdentityCatalogue
-from ask_phil.models import ModelConfigurationError, ModelExecution, Models, TokenUsage
+from ask_phil.models import ModelConfigurationError, ModelExecution, Models
 from ask_phil.retrieval import PinnedText, Retrieval
 from ask_phil.review_notes import (
     REVIEW_WORDING,
@@ -54,185 +54,181 @@ class TextAnswer:
         budget: ExecutionBudget,
         root: LiveSpan,
     ) -> AnswerContent:
-        snapshot = self.snapshot
-        snapshot_id = snapshot.snapshot_id
-        conversation = None
-        question = request.question
-        if turn:
-            reference = resolve_reference(
-                question,
-                snapshot.imported.catalogue
-                if snapshot.imported
-                else IdentityCatalogue(characters=()),
-                history,
-            )
-            conversation = ConversationReference(**turn.model_dump(), reference=reference)
-            question = reference.question
-        root.set_attributes(
-            {
-                "model_settings": self.models.settings.model_dump(mode="json"),
-                "prompt": SYSTEM_PROMPT,
-                "baseline_version": "single-query-uncached-v2",
-                "usage_complete": False,
-                "usage_aggregate_scope": (
-                    "Reported token counts only; incomplete usage is not a full-request total."
-                ),
-            }
-        )
-        retrieved = Retrieval(
-            snapshot=snapshot,
-            hits=(),
-            k=0,
-            embedding_id=self.models.settings.embedding_id,
-        )
-        context: tuple[Passage, ...] = ()
-        citations: tuple[Citation, ...] = ()
-        execution = self.models.skipped_answer().model_copy(
-            update={"usage": TokenUsage(input_tokens=0, output_tokens=0, embedding_tokens=0)}
-        )
-        failure = False
-        stopped = False
-        notices: tuple[ReviewNotice, ...] = ()
-        review = ReviewExplanation()
-        clarification = conversation.reference.clarification if conversation else None
-        try:
-            budget.check()
-            self.pinned.verify()
-            self.models.verify()
-            budget.check()
-            if clarification:
-                draft = Draft(
-                    answer=clarification,
-                    status="clarification",
-                    evidence_ids=(),
-                    unanswered=("Which character is intended?",),
-                    qualifications=(),
+        with self.models.accounting() as accounting:
+            snapshot = self.snapshot
+            snapshot_id = snapshot.snapshot_id
+            conversation = None
+            question = request.question
+            if turn:
+                reference = resolve_reference(
+                    question,
+                    snapshot.imported.catalogue
+                    if snapshot.imported
+                    else IdentityCatalogue(characters=()),
+                    history,
                 )
-                root.set_attribute("retrieval_skipped", "unresolved_reference")
-                root.set_attribute("answer_model_skipped", "unresolved_reference")
-            else:
-                with mlflow.start_span("text_retrieval", span_type="RETRIEVER") as span:
-                    span.set_inputs({"question": question, "k": 3})
-                    retrieved = self.pinned.retrieve(question, k=3)
-                    span.set_outputs(retrieved.model_dump(mode="json"))
-                execution = self.models.skipped_answer()
-                with mlflow.start_span("assembled_context") as span:
-                    context = assemble_context(
-                        retrieved.hits,
-                        budget.limits.context_bytes,
-                        context_claims=retrieved.context_claims,
-                    )
-                    if retrieved.review_notices:
-                        review = prepare_text_review(
-                            snapshot, retrieved.review_notices, budget.limits.context_bytes
-                        )
-                        context = review.context
-                    span.set_outputs(
-                        {
-                            "passages": [p.model_dump() for p in context],
-                            "byte_budget": budget.limits.context_bytes,
-                            "context_claims": [
-                                c.model_dump()
-                                for c in context_for(
-                                    retrieved.context_claims, (p.evidence_id for p in context)
-                                )
-                            ],
-                        }
-                    )
-                if not context:
+                conversation = ConversationReference(**turn.model_dump(), reference=reference)
+                question = reference.question
+            root.set_attributes(
+                {
+                    "model_settings": self.models.settings.model_dump(mode="json"),
+                    "prompt": SYSTEM_PROMPT,
+                    "baseline_version": "single-query-uncached-v2",
+                    "usage_complete": False,
+                    "usage_aggregate_scope": (
+                        "Reported token counts only; incomplete usage is not a full-request total."
+                    ),
+                }
+            )
+            retrieved = Retrieval(
+                snapshot=snapshot,
+                hits=(),
+                k=0,
+                embedding_id=self.models.settings.embedding_id,
+            )
+            context: tuple[Passage, ...] = ()
+            citations: tuple[Citation, ...] = ()
+            failure = False
+            stopped = False
+            notices: tuple[ReviewNotice, ...] = ()
+            review = ReviewExplanation()
+            clarification = conversation.reference.clarification if conversation else None
+            try:
+                budget.check()
+                self.pinned.verify()
+                self.models.verify()
+                budget.check()
+                if clarification:
                     draft = Draft(
-                        answer=(
-                            "I can't answer from the available captured context. "
-                            "Missing evidence doesn't establish that an event didn't happen."
-                        ),
+                        answer=clarification,
+                        status="clarification",
                         evidence_ids=(),
-                        status="insufficient_evidence",
-                        qualifications=(),
-                        unanswered=("The question cannot be answered from the available context.",),
-                    )
-                    root.set_attribute("answer_model_skipped", "empty_context")
-                elif retrieved.review_notices:
-                    notices = review.notices
-                    draft = Draft(
-                        answer="Right, listen. " + review.text,
-                        status="partial",
-                        evidence_ids=tuple(p.evidence_id for p in context),
-                        unanswered=(
-                            "Coverage beyond these reviewed source accounts remains unresolved.",
-                        ),
+                        unanswered=("Which character is intended?",),
                         qualifications=(),
                     )
-                    citations = cite_answer(draft, context, snapshot_id)
-                    root.set_attributes(
-                        {
-                            "answer_model_skipped": "reviewed_interpretation",
-                            "prompt": REVIEW_WORDING,
-                        }
-                    )
+                    root.set_attribute("retrieval_skipped", "unresolved_reference")
+                    root.set_attribute("answer_model_skipped", "unresolved_reference")
                 else:
-                    execution, draft = self._generate(question, retrieved, context)
-                    if execution.failure_type is not None:
-                        budget.stop(
-                            execution.failure_type
-                            if execution.failure_type
-                            in {
-                                "malformed_output",
-                                "timeout",
-                                "cancelled",
-                                "endpoint_denied",
-                                "http_call_limit",
-                                "spend_limit",
-                                "model_call_limit",
-                            }
-                            else "provider_failure"
+                    with mlflow.start_span("text_retrieval", span_type="RETRIEVER") as span:
+                        span.set_inputs({"question": question, "k": 3})
+                        retrieved = self.pinned.retrieve(question, k=3)
+                        span.set_outputs(retrieved.model_dump(mode="json"))
+                    with mlflow.start_span("assembled_context") as span:
+                        context = assemble_context(
+                            retrieved.hits,
+                            budget.limits.context_bytes,
+                            context_claims=retrieved.context_claims,
                         )
-                    budget.check()
-                    citations = cite_answer(draft, context, snapshot_id)
-        except ExecutionStopped as exc:
-            reason = str(exc)
-            budget.record_stop(reason)
-            if retrieved.k == 0 and budget.record().model_calls:
-                execution = execution.model_copy(
-                    update={
-                        "usage": TokenUsage(input_tokens=0, output_tokens=0, embedding_tokens=None)
-                    }
+                        if retrieved.review_notices:
+                            review = prepare_text_review(
+                                snapshot, retrieved.review_notices, budget.limits.context_bytes
+                            )
+                            context = review.context
+                        span.set_outputs(
+                            {
+                                "passages": [p.model_dump() for p in context],
+                                "byte_budget": budget.limits.context_bytes,
+                                "context_claims": [
+                                    c.model_dump()
+                                    for c in context_for(
+                                        retrieved.context_claims, (p.evidence_id for p in context)
+                                    )
+                                ],
+                            }
+                        )
+                    if not context:
+                        draft = Draft(
+                            answer=(
+                                "I can't answer from the available captured context. "
+                                "Missing evidence doesn't establish that an event didn't happen."
+                            ),
+                            evidence_ids=(),
+                            status="insufficient_evidence",
+                            qualifications=(),
+                            unanswered=(
+                                "The question cannot be answered from the available context.",
+                            ),
+                        )
+                        root.set_attribute("answer_model_skipped", "empty_context")
+                    elif retrieved.review_notices:
+                        notices = review.notices
+                        draft = Draft(
+                            answer="Right, listen. " + review.text,
+                            status="partial",
+                            evidence_ids=tuple(p.evidence_id for p in context),
+                            unanswered=(
+                                "Coverage beyond these reviewed source accounts "
+                                "remains unresolved.",
+                            ),
+                            qualifications=(),
+                        )
+                        citations = cite_answer(draft, context, snapshot_id)
+                        root.set_attributes(
+                            {
+                                "answer_model_skipped": "reviewed_interpretation",
+                                "prompt": REVIEW_WORDING,
+                            }
+                        )
+                    else:
+                        execution, draft = self._generate(question, retrieved, context)
+                        if execution.failure_type is not None:
+                            budget.stop(
+                                execution.failure_type
+                                if execution.failure_type
+                                in {
+                                    "malformed_output",
+                                    "timeout",
+                                    "cancelled",
+                                    "endpoint_denied",
+                                    "http_call_limit",
+                                    "spend_limit",
+                                    "model_call_limit",
+                                }
+                                else "provider_failure"
+                            )
+                        budget.check()
+                        citations = cite_answer(draft, context, snapshot_id)
+            except ExecutionStopped as exc:
+                reason = str(exc)
+                budget.record_stop(reason)
+                root.set_status("ERROR")
+                failure = reason in {"provider_failure", "malformed_output"}
+                stopped = True
+                draft = stopped_answer(
+                    reason,
+                    () if failure else context,
+                    context_claims=retrieved.context_claims,
+                    synthetic=any(
+                        (p.source or snapshot.source).support_status == "synthetic_fixture"
+                        for p in context
+                    ),
                 )
-            root.set_status("ERROR")
-            failure = reason in {"provider_failure", "malformed_output"}
-            stopped = True
-            draft = stopped_answer(
-                reason,
-                () if failure else context,
-                context_claims=retrieved.context_claims,
-                synthetic=any(
-                    (p.source or snapshot.source).support_status == "synthetic_fixture"
-                    for p in context
-                ),
+                citations = cite_answer(draft, context, snapshot_id)
+            classifications = context_for(
+                retrieved.context_claims, (c.evidence_id for c in citations)
             )
-            citations = cite_answer(draft, context, snapshot_id)
-        classifications = context_for(retrieved.context_claims, (c.evidence_id for c in citations))
-        answer = draft.answer
-        if classifications and not stopped:
-            answer += "\n" + "\n".join(dict.fromkeys(c.qualification for c in classifications))
-        return AnswerContent(
-            conversation=conversation,
-            status="failed" if failure else draft.status,
-            answer=answer,
-            context_claims=classifications,
-            review_notices=notices,
-            unanswered=draft.unanswered,
-            qualifications=draft.qualifications,
-            citations=citations,
-            context=context,
-            retrieved=retrieved.hits,
-            retrieval_k=retrieved.k,
-            baseline_version="single-query-uncached-v2",
-            model_settings=self.models.settings,
-            prompt_sha256=hashlib.sha256(
-                (REVIEW_WORDING if notices else SYSTEM_PROMPT).encode()
-            ).hexdigest(),
-            accounting=execution,
-        )
+            answer = draft.answer
+            if classifications and not stopped:
+                answer += "\n" + "\n".join(dict.fromkeys(c.qualification for c in classifications))
+            return AnswerContent(
+                conversation=conversation,
+                status="failed" if failure else draft.status,
+                answer=answer,
+                context_claims=classifications,
+                review_notices=notices,
+                unanswered=draft.unanswered,
+                qualifications=draft.qualifications,
+                citations=citations,
+                context=context,
+                retrieved=retrieved.hits,
+                retrieval_k=retrieved.k,
+                baseline_version="single-query-uncached-v2",
+                model_settings=self.models.settings,
+                prompt_sha256=hashlib.sha256(
+                    (REVIEW_WORDING if notices else SYSTEM_PROMPT).encode()
+                ).hexdigest(),
+                accounting=accounting.summary(),
+            )
 
     def _generate(
         self, question: str, retrieved: Retrieval, context: tuple[Passage, ...]

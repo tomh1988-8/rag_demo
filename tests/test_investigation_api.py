@@ -182,6 +182,79 @@ def test_single_passage_sufficient_investigation_retains_actual_tools_and_usage(
         assert original.json() == answer
 
 
+def test_interleaved_search_accounting_retains_measured_failure_and_resets_next_request(
+    database_url: str,
+    seed: SourceSnapshot,
+    investigator_models: Callable[[list[dict[str, Any]]], Models],
+    tmp_path: Path,
+) -> None:
+    from ask_phil.answering import AnswerService
+    from ask_phil.answers import AskRequest
+
+    part = "When did Phil arrive?"
+    base = investigator_models(
+        [
+            decision("text_search", {"query": part, "k": 1}, part),
+            decision("text_search", {"query": "Phil's first arrival date", "k": 1}, part),
+            decision("text_search", {"query": part, "k": 1}, part),
+            finish(part),
+        ]
+    )
+    searches = 0
+
+    def embeddings(request: httpx.Request) -> httpx.Response:
+        nonlocal searches
+        query = json.loads(request.content)["input"].startswith("task: search result | query:")
+        searches += int(query)
+        malformed = query and searches == 2
+        return httpx.Response(
+            200,
+            json={
+                "embeddings": [[1.0, 0.0] if malformed else [1.0, 0.0, 0.0]],
+                "prompt_eval_count": 11 if malformed else 7,
+            },
+        )
+
+    models = Models(
+        base.settings,
+        LocalEmbedding(
+            "test-embedding",
+            Client(host="http://model.invalid", transport=httpx.MockTransport(embeddings)),
+        ),
+        base.llm,
+    )
+    publish(database_url, seed, models)
+    service = AnswerService(database_url, models, f"sqlite:///{tmp_path}/accounting.db")
+    request = AskRequest(question=part, route="investigation")
+
+    failed = service.ask(request)
+    assert failed.response.execution is not None
+    assert failed.response.execution.stop_reason == "malformed_output"
+    assert failed.response.usage.model_dump() == {
+        "input_tokens": 80,
+        "output_tokens": 120,
+        "embedding_tokens": 18,
+    }
+    assert failed.response.investigation is not None
+    assert failed.response.investigation.embedding_tokens == (7, 11)
+
+    following = service.ask(request)
+    assert following.response.status == "answered"
+    assert following.response.usage.model_dump() == {
+        "input_tokens": 80,
+        "output_tokens": 120,
+        "embedding_tokens": 7,
+    }
+    assert following.response.investigation is not None
+    assert following.response.investigation.embedding_tokens == (7,)
+    for receipt in (failed, following):
+        answer = receipt.response
+        assert service.ledger.get(answer.response_id, receipt.read_token) == answer
+        trace = service.tracking.get_trace(answer.trace_id, flush=True)
+        root = next(span for span in trace.data.spans if span.name == "investigation")
+        assert root.outputs == answer.model_dump(mode="json")
+
+
 def test_investigator_uses_reviewed_typed_graph_paths_in_the_same_publication(
     database_url: str,
     family_batch: ClaimBatch,

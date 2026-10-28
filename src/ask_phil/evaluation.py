@@ -98,6 +98,137 @@ class ScoredReview(Record):
     scores: AnswerQuality
 
 
+class CapturedAnswers:
+    """Freeze usable captured answers and own their review-binding rules."""
+
+    def __init__(
+        self,
+        path: Path,
+        references: Path | None = None,
+        *,
+        verified: bool = False,
+        allow_legacy: bool = False,
+    ) -> None:
+        self.document, self.fingerprint = _read_document(path)
+        legacy = allow_legacy and "recorder_version" not in self.document
+        self.inputs = {path: self.fingerprint}
+        if self.document.get("state") != "complete":
+            raise ValueError("Capture must be complete before review.")
+        expected = None
+        if references is not None:
+            expected, fingerprint = _references(references)
+            self.inputs[references] = fingerprint
+            if self.document.get("reference_file_sha256") != fingerprint:
+                raise ValueError("Capture must match these frozen references.")
+        rows = self.document["cases"]
+        identifiers = [_case_id(row) for row in rows]
+        if len(set(identifiers)) != len(identifiers):
+            raise ValueError("Duplicate captured case identifiers.")
+        if (not legacy or "case_ids" in self.document) and self.document.get(
+            "case_ids"
+        ) != identifiers:
+            raise ValueError("Capture must contain all declared cases exactly once in order.")
+        if expected is not None and any(identifier not in expected for identifier in identifiers):
+            raise ValueError("Unknown captured case identifier.")
+        if verified and expected is not None and set(identifiers) != expected.keys():
+            raise ValueError("Review every declared captured case exactly once.")
+        self.cases: dict[str, dict[str, Any]] = {}
+        for identifier, row in zip(identifiers, rows, strict=True):
+            if not legacy and ("case_id" not in row or "reference" not in row):
+                raise ValueError("Recorded cases must retain explicit case and reference identity.")
+            reference = expected[identifier] if expected is not None else row["reference"]
+            if row.get("state", "complete" if legacy else None) != "complete":
+                raise ValueError("Every captured case must be complete before review.")
+            if "reference" in row and row["reference"] != reference:
+                raise ValueError("Captured reference differs from these frozen references.")
+            if "reference_sha256" in row and row["reference_sha256"] != document_fingerprint(
+                reference
+            ):
+                raise ValueError("Captured reference fingerprint differs.")
+            if reference.get("operation") == "reset":
+                if "reset" not in row or "response" in row:
+                    raise ValueError("A reset case must record its reset outcome.")
+                continue
+            response = row.get("response")
+            if (
+                not isinstance(response, dict)
+                or not isinstance(response.get("answer"), str)
+                or not response["answer"].strip()
+            ):
+                raise ValueError("A captured case is missing a usable served response.")
+            if "response_sha256" in row and row["response_sha256"] != document_fingerprint(
+                response
+            ):
+                raise ValueError("Captured response fingerprint differs.")
+            if row.get("verification_state", "complete") != "complete":
+                raise ValueError("Captured answer verification is incomplete.")
+            if verified and (
+                row.get("verification_state") != "complete"
+                or row.get("state") != "complete"
+                or row.get("reference_sha256") != document_fingerprint(reference)
+                or row.get("response_sha256") != document_fingerprint(response)
+                or row.get("cli_response") != response
+                or row.get("trace_response") != response
+            ):
+                raise ValueError("Capture verification lacks matching final CLI/trace records.")
+            self.cases[identifier] = {**row, "reference": reference}
+        if not self.cases:
+            raise ValueError("Capture has no served responses to review.")
+
+    def score(self, reviews: Sequence[QualityReview]) -> dict[str, ScoredReview]:
+        """Bind exactly one annotation to each usable answer; derive its factual score."""
+        if len(reviews) != len(self.cases) or {r.case_id for r in reviews} != self.cases.keys():
+            raise ValueError("Review every captured response exactly once.")
+        return {
+            review.case_id: score_captured_answer(
+                review,
+                self.cases[review.case_id]["response"],
+                self.cases[review.case_id]["reference"],
+                _required_facts(self.cases[review.case_id]["reference"]),
+            )
+            for review in reviews
+        }
+
+
+class ReviewedAnswers:
+    """Read a frozen review and reject stored scores that disagree with its evidence."""
+
+    def __init__(
+        self, path: Path, capture_path: Path | None = None, *, verified: bool = False
+    ) -> None:
+        self.document, fingerprint = _read_document(path)
+        self.capture_path = capture_path or Path(self.document["capture_path"])
+        self.capture = CapturedAnswers(self.capture_path, verified=verified)
+        self.inputs = {**self.capture.inputs, path: fingerprint}
+        if self.document.get("state") != "complete":
+            raise ValueError("Frozen review must be complete.")
+        if self.document.get("capture_sha256") != self.capture.fingerprint:
+            raise ValueError("The review belongs to a different capture.")
+        if "reference_file_sha256" in self.document and self.document[
+            "reference_file_sha256"
+        ] != self.capture.document.get("reference_file_sha256"):
+            raise ValueError("Review and capture must use the same frozen references.")
+        rows = self.document["cases"]
+        identifiers = [_case_id(row) for row in rows]
+        if "case_ids" in self.document and self.document["case_ids"] != identifiers:
+            raise ValueError("Review must contain all declared cases exactly once in order.")
+        reviews = [QualityReview.model_validate(row["review"]) for row in rows]
+        if identifiers != [review.case_id for review in reviews]:
+            raise ValueError("Review and captured case identifiers differ.")
+        self.scores = self.capture.score(reviews)
+        for row in rows:
+            if row.get("state", "complete") != "complete":
+                raise ValueError("Every reviewed case must be complete.")
+            reference = self.capture.cases[row["case_id"]]["reference"]
+            if ("reference" in row and row["reference"] != reference) or (
+                "reference_sha256" in row
+                and row["reference_sha256"] != document_fingerprint(reference)
+            ):
+                raise ValueError("Reviewed reference differs from the captured reference.")
+            if self.scores[row["case_id"]].scores.model_dump(mode="json") != row["scores"]:
+                raise ValueError("Recorded scores differ from the frozen review.")
+
+
 @dataclass(frozen=True)
 class EvaluationTracking:
     client: "MlflowClient"
@@ -117,6 +248,7 @@ class EvaluationRun:
         metadata: dict[str, Any] | None = None,
         tracking: EvaluationTracking | None = None,
         artifacts: Sequence[Path] = (),
+        expected_inputs: Mapping[Path, str] | None = None,
     ) -> None:
         self.output = output
         self._references, reference_sha256 = _references(references)
@@ -134,6 +266,11 @@ class EvaluationRun:
         self._input_fingerprints = {path: _file_fingerprint(path) for path in self._artifacts}
         if self._input_fingerprints[references] != reference_sha256:
             raise ValueError("The frozen references changed while preparing the evaluation.")
+        if any(
+            self._input_fingerprints.get(path) != fingerprint
+            for path, fingerprint in (expected_inputs or {}).items()
+        ):
+            raise ValueError("Frozen evaluation inputs changed while preparing the review.")
         self._active = False
         self._document: dict[str, Any] = {
             **deepcopy(metadata or {}),
@@ -386,69 +523,19 @@ def review_capture(
     tracking: EvaluationTracking | None = None,
 ) -> dict[str, Any]:
     """Review a frozen capture once, preserving the identity of every recorded case."""
-    capture, capture_sha256 = _read_document(capture_path)
-    references, reference_sha256 = _references(references_path)
-    if capture.get("state") != "complete":
-        raise ValueError("Capture must be complete before review.")
-    if capture.get("reference_file_sha256") != reference_sha256:
-        raise ValueError("Capture must match these frozen references.")
-    identifiers = [_case_id(row) for row in capture["cases"]]
-    if len(set(identifiers)) != len(identifiers):
-        raise ValueError("Duplicate captured case identifiers.")
-    if any(identifier not in references for identifier in identifiers):
-        raise ValueError("Unknown captured case identifier.")
-    if "case_ids" in capture and capture["case_ids"] != identifiers:
-        raise ValueError("Capture must contain all declared cases exactly once in order.")
-    rows = {}
-    for row in capture["cases"]:
-        identifier = _case_id(row)
-        reference = references[identifier]
-        if row.get("state", "complete") != "complete":
-            raise ValueError("Every captured case must be complete before review.")
-        if "reference" in row and row["reference"] != reference:
-            raise ValueError("Captured reference differs from these frozen references.")
-        if "reference_sha256" in row and row["reference_sha256"] != document_fingerprint(reference):
-            raise ValueError("Captured reference fingerprint differs.")
-        if references[identifier].get("operation") == "reset":
-            if "reset" not in row or "response" in row:
-                raise ValueError("A reset case must record its reset outcome.")
-            continue
-        response = row.get("response")
-        if (
-            not isinstance(response, dict)
-            or not isinstance(response.get("answer"), str)
-            or not response["answer"].strip()
-        ):
-            raise ValueError("A captured case is missing a usable served response.")
-        if "response_sha256" in row and row["response_sha256"] != document_fingerprint(
-            row["response"]
-        ):
-            raise ValueError("Captured response fingerprint differs.")
-        rows[identifier] = row
-    if not rows:
-        raise ValueError("Capture has no served responses to review.")
+    capture = CapturedAnswers(capture_path, references_path, allow_legacy=True)
     annotations, reviews_sha256 = _read_document(reviews_path)
     reviews = [QualityReview.model_validate(row) for row in annotations["reviews"]]
-    if len(reviews) != len(rows) or {review.case_id for review in reviews} != rows.keys():
-        raise ValueError("Review every captured response exactly once.")
-    scored = tuple(
-        score_captured_answer(
-            review,
-            rows[review.case_id]["response"],
-            references[review.case_id],
-            _required_facts(references[review.case_id]),
-        )
-        for review in reviews
-    )
+    scored = capture.score(reviews)
     metadata = {
         "kind": "captured-answer-review",
         "expenditure_category": "offline_evaluation",
-        "source_run_id": capture.get("run_id"),
+        "source_run_id": capture.document.get("run_id"),
         "answer_model_calls_in_review": 0,
         "review_model_cost_usd": 0,
         "model_calls": 0,
         "cost_usd": "0",
-        "capture_sha256": capture_sha256,
+        "capture_sha256": capture.fingerprint,
         "reviews_sha256": reviews_sha256,
         "scorer": "reviewed-binary-dimensions-v2",
     }
@@ -459,18 +546,10 @@ def review_capture(
         metadata=metadata,
         tracking=tracking,
         artifacts=(capture_path, reviews_path),
+        expected_inputs={**capture.inputs, reviews_path: reviews_sha256},
     )
-    if any(
-        evaluation._input_fingerprints[path] != fingerprint
-        for path, fingerprint in (
-            (references_path, reference_sha256),
-            (capture_path, capture_sha256),
-            (reviews_path, reviews_sha256),
-        )
-    ):
-        raise ValueError("Frozen evaluation inputs changed while preparing the review.")
     with evaluation as run:
-        for result in scored:
+        for result in scored.values():
             run.capture(result.review.case_id, partial(result.model_dump, mode="json"))
     result_document: dict[str, Any] = json.loads(output.read_bytes())
     return result_document

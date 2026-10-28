@@ -71,7 +71,7 @@ def test_comparison_rejects_relabelled_frozen_reference_even_with_fresh_hashes(
     review_path = tmp_path / "review.json"
     review_path.write_text(json.dumps(review))
 
-    with pytest.raises(ValueError, match="frozen dataset case"):
+    with pytest.raises(ValueError, match="reference"):
         reviewed_comparison_run(dataset, capture_path, review_path)
 
 
@@ -97,6 +97,32 @@ def test_retained_comparison_replays_without_rewriting_historical_answers() -> N
         report["dimensions"]
         == json.loads((evidence / "comparison.json").read_bytes())["dimensions"]
     )
+
+
+@pytest.mark.parametrize("missing", ["case_ids", "case_state"])
+def test_comparison_requires_declared_observations_and_completed_cases(
+    tmp_path: Path, missing: str
+) -> None:
+    from ask_phil.quality_workflow import reviewed_comparison_run
+
+    evidence = Path("docs/implementation/issue-9")
+    dataset = ComparisonDataset.model_validate_json(
+        Path("data/references/quality-comparison-v1.json").read_bytes()
+    )
+    capture = json.loads((evidence / "baseline-capture-v2.json").read_bytes())
+    review = json.loads((evidence / "baseline-review.json").read_bytes())
+    if missing == "case_ids":
+        del capture["case_ids"]
+    else:
+        del capture["cases"][0]["state"]
+    capture_path = tmp_path / "capture.json"
+    capture_path.write_text(json.dumps(capture))
+    review["capture_sha256"] = hashlib.sha256(capture_path.read_bytes()).hexdigest()
+    review_path = tmp_path / "review.json"
+    review_path.write_text(json.dumps(review))
+
+    with pytest.raises(ValueError, match="declared|complete"):
+        reviewed_comparison_run(dataset, capture_path, review_path)
 
 
 def test_comparison_rejects_retrieval_scores_that_differ_from_saved_evidence(

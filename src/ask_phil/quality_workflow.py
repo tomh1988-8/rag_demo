@@ -17,10 +17,9 @@ from ask_phil.answers import SYSTEM_PROMPT, AnswerReceipt, AnswerRecord
 from ask_phil.evaluation import (
     EvaluationRun,
     EvaluationTracking,
-    QualityReview,
     RetrievalReference,
+    ReviewedAnswers,
     document_fingerprint,
-    score_captured_answer,
     score_retrieval,
 )
 from ask_phil.evidence import Identifier
@@ -225,26 +224,13 @@ def _retrieval_reference(case: ComparisonCase) -> RetrievalReference:
 def reviewed_comparison_run(
     dataset: ComparisonDataset, capture_path: Path, review_path: Path
 ) -> ComparisonRun:
-    capture_bytes = capture_path.read_bytes()
-    capture = json.loads(capture_bytes)
-    review = json.loads(review_path.read_bytes())
-    if capture["state"] != "complete" or review["state"] != "complete":
-        raise ValueError("Both capture and frozen review must be complete.")
-    if review["capture_sha256"] != hashlib.sha256(capture_bytes).hexdigest():
-        raise ValueError("The review belongs to a different capture.")
+    reviewed = ReviewedAnswers(review_path, capture_path)
+    capture = reviewed.capture.document
     if capture["dataset_sha256"] != dataset.fingerprint:
         raise ValueError("The capture belongs to a different frozen dataset.")
-    scored = {row["case_id"]: row for row in review["cases"]}
-    if len(scored) != len(review["cases"]) or set(scored) != set(capture["case_ids"]):
-        raise ValueError("Review every captured observation exactly once.")
-    if [row["case_id"] for row in capture["cases"]] != capture["case_ids"]:
-        raise ValueError("Capture must contain its declared observations once in order.")
     configuration = ComparisonConfiguration.model_validate(capture["configuration"])
     cases = {case.case_id: case for case in dataset.cases}
     for row in capture["cases"]:
-        if row.get("state") != "complete":
-            raise ValueError("Every captured observation must be complete.")
-        annotation = QualityReview.model_validate(scored[row["case_id"]]["review"])
         original = row["reference"]
         case = cases.get(original.get("comparison_case_id"))
         repeat = original.get("repeat")
@@ -254,7 +240,6 @@ def reviewed_comparison_run(
             or type(repeat) is not int
             or not 0 <= repeat < 3
             or row["case_id"] != f"{case.case_id}-r{repeat}"
-            or annotation.case_id != row["case_id"]
             or original
             != {
                 **case.model_dump(mode="json"),
@@ -265,16 +250,6 @@ def reviewed_comparison_run(
             or row.get("reference_sha256") != document_fingerprint(original)
         ):
             raise ValueError("Captured reference differs from its frozen dataset case.")
-        checked = score_captured_answer(
-            annotation,
-            row["response"],
-            original,
-            tuple(fact["fact"] for fact in original["required_facts"]),
-        )
-        if checked.scores.model_dump(mode="json") != scored[row["case_id"]]["scores"]:
-            raise ValueError("Recorded scores differ from their frozen review.")
-        if document_fingerprint(row["response"]) != row["response_sha256"]:
-            raise ValueError("The captured response fingerprint differs.")
         response = AnswerRecord.model_validate(row["response"])
         if response.snapshot_id != case.snapshot_id or response.question != case.question:
             raise ValueError("The saved answer differs from its frozen dataset case.")
@@ -304,7 +279,7 @@ def reviewed_comparison_run(
                 case_id=row["reference"]["comparison_case_id"],
                 repeat=row["reference"]["repeat"],
                 response_sha256=row["response_sha256"],
-                quality=scored[row["case_id"]]["scores"],
+                quality=reviewed.scores[row["case_id"]].scores,
                 retrieval=row["retrieval_score"],
                 serving_cost_usd=row["response"]["estimated_api_cost_usd"],
                 elapsed_ms=row["response"]["elapsed_ms"],
