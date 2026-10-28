@@ -1,8 +1,6 @@
 """Family tree evidence and deterministic wording; inference is never required."""
 
 import hashlib
-from collections.abc import Callable
-from functools import partial
 from typing import Literal
 
 import mlflow
@@ -12,7 +10,6 @@ from mlflow.entities import LiveSpan
 from ask_phil.answers import AnswerContent, AskRequest, Citation
 from ask_phil.connection_graph import (
     CONNECTION_LIMITATION,
-    ConnectionGraph,
     ConnectionQuery,
     ConnectionResult,
 )
@@ -23,14 +20,14 @@ from ask_phil.conversation import (
     ReferenceTurn,
     TurnIdentity,
 )
-from ask_phil.event_graph import EventGraph, EventQuery, EventResult
+from ask_phil.event_graph import EventQuery, EventResult
 from ask_phil.event_wording import EVENT_WORDING, render_events
 from ask_phil.evidence import Passage
 from ask_phil.execution import ExecutionBudget, ExecutionStopped
-from ask_phil.family_graph import GRAPH_LIMITATION, FamilyGraph, FamilyResult
+from ask_phil.family_graph import GRAPH_LIMITATION, FamilyResult
+from ask_phil.graph_execution import GraphExecution, GraphResult
 from ask_phil.models import ModelExecution, TokenUsage
-from ask_phil.publications import PublicationStore
-from ask_phil.relationship_graph import RelationshipGraph, RelationshipQuery, RelationshipResult
+from ask_phil.relationship_graph import RelationshipQuery, RelationshipResult
 from ask_phil.relationships import HISTORY_LIMITATION, RelationshipClaim
 from ask_phil.review_notes import (
     REVIEW_WORDING,
@@ -39,7 +36,6 @@ from ask_phil.review_notes import (
     prepare_graph_review,
 )
 from ask_phil.security import require_credential_free
-from ask_phil.storage import EvidenceStore
 
 GRAPH_WORDING = "biological-paths-v1: explicit typed query; bounded captured relationships only"
 HISTORY_WORDING = (
@@ -108,13 +104,11 @@ def render_history(result: RelationshipResult, *, synthetic: bool = False) -> st
 
 
 class FamilyAnswer:
-    def __init__(self, database_url: str, snapshot_id: str | None) -> None:
+    def __init__(self, database_url: str, snapshot_id: str | None, budget: ExecutionBudget) -> None:
         self.database_url = database_url
-        self.publication = PublicationStore(database_url).pin(snapshot_id)
-        selected = snapshot_id or (
-            self.publication.manifest.snapshot_id if self.publication else ""
-        )
-        self.snapshot = EvidenceStore(database_url).snapshot(selected)
+        self._graph = GraphExecution(database_url, snapshot_id, execution=budget)
+        self.publication = self._graph.publication
+        self.snapshot = self._graph.snapshot
         require_credential_free(self.snapshot.model_dump_json())
 
     def answer(
@@ -127,54 +121,27 @@ class FamilyAnswer:
     ) -> AnswerContent:
         snapshot = self.snapshot
         snapshot_id = snapshot.snapshot_id
-        result: FamilyResult | RelationshipResult | EventResult | ConnectionResult | None = None
+        result: GraphResult | None = None
         assert request.graph is not None
-        query_graph: Callable[
-            [], FamilyResult | RelationshipResult | EventResult | ConnectionResult
-        ]
         span_name: str
         if isinstance(request.graph, ConnectionQuery):
             span_name, subject = "connection_graph", "character connections"
             limitation, wording = CONNECTION_LIMITATION, CONNECTION_WORDING
             unanswered = ("Connection coverage outside the reviewed graph and traversal bounds.",)
-            query_graph = partial(
-                ConnectionGraph(self.database_url).query,
-                snapshot_id,
-                request.graph,
-                publication=self.publication,
-            )
         elif isinstance(request.graph, EventQuery):
             span_name, subject = request.graph.kind, request.graph.subject
             limitation, wording = request.graph.limitation, EVENT_WORDING
             unanswered = (
                 f"{subject.capitalize()} outside the reviewed assertions and query bounds.",
             )
-            query_graph = partial(
-                EventGraph(self.database_url).query,
-                snapshot_id,
-                request.graph,
-                publication=self.publication,
-            )
         elif isinstance(request.graph, RelationshipQuery):
             span_name, subject = "relationship_history", "relationship history"
             limitation, wording = HISTORY_LIMITATION, HISTORY_WORDING
             unanswered = ("Relationship coverage outside the reviewed spans and query bounds.",)
-            query_graph = partial(
-                RelationshipGraph(self.database_url).query,
-                snapshot_id,
-                request.graph,
-                publication=self.publication,
-            )
         else:
             span_name, subject = "family_graph", "biological paths"
             limitation, wording = GRAPH_LIMITATION, GRAPH_WORDING
             unanswered = ("Family coverage outside the reviewed spans and traversal bounds.",)
-            query_graph = partial(
-                FamilyGraph(self.database_url).query,
-                snapshot_id,
-                request.graph,
-                publication=self.publication,
-            )
         context: tuple[Passage, ...] = ()
         citations: tuple[Citation, ...] = ()
         notices: tuple[ReviewNotice, ...] = ()
@@ -183,7 +150,7 @@ class FamilyAnswer:
             budget.check()
             with mlflow.start_span(span_name, span_type="RETRIEVER") as span:
                 span.set_inputs(request.graph.model_dump())
-                result = query_graph()
+                result = self._graph.query(request.graph)
                 span.set_outputs(result.model_dump(mode="json"))
             review = prepare_graph_review(
                 self.database_url, snapshot, result, budget.limits.context_bytes

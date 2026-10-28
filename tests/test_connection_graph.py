@@ -15,6 +15,7 @@ from ask_phil.classified_facts import ContextClaim
 from ask_phil.connection_graph import ConnectionGraph, ConnectionQuery
 from ask_phil.event_graph import EventGraph
 from ask_phil.evidence import SourceSnapshot
+from ask_phil.execution import ExecutionLimits
 from ask_phil.family_graph import FamilyGraph
 from ask_phil.parentage import ClaimBatch, ParentageClaim
 from ask_phil.relationship_graph import RelationshipGraph
@@ -398,20 +399,66 @@ def test_unreviewed_relationships_and_text_subjects_cannot_create_connections(
         assert result.status == "empty" and result.paths == ()
 
 
-def test_connection_limits_abstain_without_truncating_evidence_or_bypassing_authority(
-    database_url: str, connection_snapshot: SourceSnapshot, tmp_path: Path
+@pytest.mark.parametrize(
+    "endpoint,query,detail,authority",
+    [
+        (
+            "family",
+            {"character_id": "ben-mitchell", "direction": "ancestors"},
+            "Family graph stopped: capability_denied.",
+            ExecutionLimits(capabilities=("event_graph", "connection_graph")),
+        ),
+        (
+            "relationships",
+            {
+                "kind": "relationship_history",
+                "character_id": "sharon-watts",
+                "partner_id": "den-watts",
+            },
+            "Relationship graph stopped: capability_denied.",
+            ExecutionLimits(capabilities=("event_graph", "connection_graph")),
+        ),
+        (
+            "events",
+            {
+                "kind": "crime_history",
+                "character_id": "max-branning",
+                "participant_id": "bobby-beale",
+            },
+            "Event graph stopped: capability_denied.",
+            ExecutionLimits(capabilities=("family_graph", "connection_graph")),
+        ),
+        (
+            "connections",
+            {
+                "kind": "connection",
+                "character_id": "peggy-mitchell",
+                "target_id": "bobby-beale",
+            },
+            "Connection graph stopped: capability_denied.",
+            ExecutionLimits(capabilities=("family_graph", "event_graph")),
+        ),
+    ],
+    ids=("family", "relationships", "events", "connections"),
+)
+def test_graph_limits_abstain_without_truncating_evidence_or_bypassing_authority(
+    database_url: str,
+    connection_snapshot: SourceSnapshot,
+    tmp_path: Path,
+    endpoint: str,
+    query: dict[str, str],
+    detail: str,
+    authority: ExecutionLimits,
 ) -> None:
     from fastapi.testclient import TestClient
 
     from ask_phil.api import create_app
-    from ask_phil.execution import ExecutionLimits
 
-    query = dict(kind="connection", character_id="peggy-mitchell", target_id="bobby-beale")
     for name, limits, reason in (
         ("context", ExecutionLimits(context_bytes=2), "context_limit"),
         (
             "authority",
-            ExecutionLimits(capabilities=("family_graph", "event_graph")),
+            authority,
             "capability_denied",
         ),
     ):
@@ -426,7 +473,7 @@ def test_connection_limits_abstain_without_truncating_evidence_or_bypassing_auth
                 "/v1/answers",
                 json={
                     "snapshot_id": connection_snapshot.snapshot_id,
-                    "question": "Trace this connection",
+                    "question": "Explain the reviewed graph evidence",
                     "route": "graph",
                     "graph": query,
                 },
@@ -437,12 +484,11 @@ def test_connection_limits_abstain_without_truncating_evidence_or_bypassing_auth
             assert answer["execution"]["stop_reason"] == reason
             assert answer["citations"] == [] and "graph" not in answer
             if name == "authority":
-                assert (
-                    client.post(
-                        f"/v1/snapshots/{connection_snapshot.snapshot_id}/connections", json=query
-                    ).status_code
-                    == 503
+                denied = client.post(
+                    f"/v1/snapshots/{connection_snapshot.snapshot_id}/{endpoint}", json=query
                 )
+                assert denied.status_code == 503
+                assert denied.json() == {"detail": detail}
 
 
 def test_connection_uses_published_review_and_explains_held_dispute(

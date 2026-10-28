@@ -3,7 +3,8 @@
 import asyncio
 import os
 import threading
-from collections.abc import Callable
+from collections.abc import Callable, Iterator
+from contextlib import contextmanager
 from datetime import UTC, datetime
 from functools import partial
 from pathlib import Path
@@ -18,12 +19,13 @@ from pydantic import StringConstraints
 
 from ask_phil.answering import AnswerService
 from ask_phil.answers import AnswerReceipt, AnswerRecord, AskRequest
-from ask_phil.connection_graph import ConnectionGraph, ConnectionQuery, ConnectionResult
+from ask_phil.connection_graph import ConnectionQuery, ConnectionResult
 from ask_phil.conversation import ReferenceTurn, TurnIdentity
 from ask_phil.event_graph import EventAudit, EventGraph, EventQuery, EventResult
 from ask_phil.evidence import Identifier, Inspection
 from ask_phil.execution import ExecutionBudget, ExecutionLimits, ExecutionPolicies, ExecutionStopped
 from ask_phil.family_graph import FamilyAudit, FamilyGraph, FamilyQuery, FamilyResult
+from ask_phil.graph_execution import GraphExecution
 from ask_phil.identity import IdentityResolution
 from ask_phil.knowledge_review import ReviewInspection, inspect_reviews
 from ask_phil.models import ModelConfigurationError, Models
@@ -47,6 +49,21 @@ from ask_phil.source_records import CapturedSource, ImportedSources, ImportSumma
 from ask_phil.storage import EvidenceStore, SnapshotNotFound
 
 SearchText = Annotated[str, StringConstraints(strip_whitespace=True, min_length=1, max_length=500)]
+
+
+@contextmanager
+def _graph_errors(subject: str, timeout_subject: str) -> Iterator[None]:
+    """Keep direct-query HTTP error wording independent of graph execution."""
+    try:
+        yield
+    except SnapshotNotFound as exc:
+        raise HTTPException(status_code=404, detail="Snapshot not found.") from exc
+    except (psycopg.errors.QueryCanceled, psycopg.errors.LockNotAvailable) as exc:
+        raise HTTPException(status_code=503, detail=f"{timeout_subject} timed out.") from exc
+    except ExecutionStopped as exc:
+        raise HTTPException(status_code=503, detail=f"{subject} stopped: {exc}.") from exc
+    except IndexNotReady as exc:
+        raise HTTPException(status_code=503, detail=str(exc)) from exc
 
 
 def create_app(
@@ -150,39 +167,17 @@ def create_app(
 
     @app.post("/v1/snapshots/{snapshot_id}/family")
     def family_query(snapshot_id: Identifier, query: FamilyQuery) -> FamilyResult:
-        budget = ExecutionBudget(policies.serving)
-        try:
-            with budget.activate():
-                publication = publications.pin(snapshot_id)
-                return FamilyGraph(database_url).query(snapshot_id, query, publication=publication)
-        except SnapshotNotFound as exc:
-            raise HTTPException(status_code=404, detail="Snapshot not found.") from exc
-        except (psycopg.errors.QueryCanceled, psycopg.errors.LockNotAvailable) as exc:
-            raise HTTPException(status_code=503, detail="Family graph query timed out.") from exc
-        except ExecutionStopped as exc:
-            raise HTTPException(status_code=503, detail=f"Family graph stopped: {exc}.") from exc
-        except IndexNotReady as exc:
-            raise HTTPException(status_code=503, detail=str(exc)) from exc
+        with _graph_errors("Family graph", "Family graph query"):
+            return GraphExecution(database_url, snapshot_id, execution=policies.serving).query(
+                query
+            )
 
     @app.post("/v1/snapshots/{snapshot_id}/connections")
     def connection_query(snapshot_id: Identifier, query: ConnectionQuery) -> ConnectionResult:
-        budget = ExecutionBudget(policies.serving)
-        try:
-            with budget.activate():
-                publication = publications.pin(snapshot_id)
-                return ConnectionGraph(database_url).query(
-                    snapshot_id, query, publication=publication
-                )
-        except SnapshotNotFound as exc:
-            raise HTTPException(status_code=404, detail="Snapshot not found.") from exc
-        except (psycopg.errors.QueryCanceled, psycopg.errors.LockNotAvailable) as exc:
-            raise HTTPException(status_code=503, detail="Connection query timed out.") from exc
-        except ExecutionStopped as exc:
-            raise HTTPException(
-                status_code=503, detail=f"Connection graph stopped: {exc}."
-            ) from exc
-        except IndexNotReady as exc:
-            raise HTTPException(status_code=503, detail=str(exc)) from exc
+        with _graph_errors("Connection graph", "Connection query"):
+            return GraphExecution(database_url, snapshot_id, execution=policies.serving).query(
+                query
+            )
 
     @app.get("/v1/snapshots/{snapshot_id}/family-claims")
     def family_claims(snapshot_id: Identifier) -> FamilyAudit:
@@ -195,23 +190,10 @@ def create_app(
 
     @app.post("/v1/snapshots/{snapshot_id}/relationships")
     def relationship_query(snapshot_id: Identifier, query: RelationshipQuery) -> RelationshipResult:
-        budget = ExecutionBudget(policies.serving)
-        try:
-            with budget.activate():
-                publication = publications.pin(snapshot_id)
-                return RelationshipGraph(database_url).query(
-                    snapshot_id, query, publication=publication
-                )
-        except SnapshotNotFound as exc:
-            raise HTTPException(status_code=404, detail="Snapshot not found.") from exc
-        except (psycopg.errors.QueryCanceled, psycopg.errors.LockNotAvailable) as exc:
-            raise HTTPException(status_code=503, detail="Relationship query timed out.") from exc
-        except ExecutionStopped as exc:
-            raise HTTPException(
-                status_code=503, detail=f"Relationship graph stopped: {exc}."
-            ) from exc
-        except IndexNotReady as exc:
-            raise HTTPException(status_code=503, detail=str(exc)) from exc
+        with _graph_errors("Relationship graph", "Relationship query"):
+            return GraphExecution(database_url, snapshot_id, execution=policies.serving).query(
+                query
+            )
 
     @app.get("/v1/snapshots/{snapshot_id}/relationship-claims")
     def relationship_claims(snapshot_id: Identifier) -> RelationshipAudit:
@@ -224,19 +206,10 @@ def create_app(
 
     @app.post("/v1/snapshots/{snapshot_id}/events")
     def event_query(snapshot_id: Identifier, query: EventQuery) -> EventResult:
-        budget = ExecutionBudget(policies.serving)
-        try:
-            with budget.activate():
-                publication = publications.pin(snapshot_id)
-                return EventGraph(database_url).query(snapshot_id, query, publication=publication)
-        except SnapshotNotFound as exc:
-            raise HTTPException(status_code=404, detail="Snapshot not found.") from exc
-        except (psycopg.errors.QueryCanceled, psycopg.errors.LockNotAvailable) as exc:
-            raise HTTPException(status_code=503, detail="Event query timed out.") from exc
-        except ExecutionStopped as exc:
-            raise HTTPException(status_code=503, detail=f"Event graph stopped: {exc}.") from exc
-        except IndexNotReady as exc:
-            raise HTTPException(status_code=503, detail=str(exc)) from exc
+        with _graph_errors("Event graph", "Event query"):
+            return GraphExecution(database_url, snapshot_id, execution=policies.serving).query(
+                query
+            )
 
     @app.get("/v1/snapshots/{snapshot_id}/event-claims")
     def event_claims(snapshot_id: Identifier) -> EventAudit:

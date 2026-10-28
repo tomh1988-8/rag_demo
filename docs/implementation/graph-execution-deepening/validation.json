@@ -1,0 +1,64 @@
+{
+  "captured_at": "2026-10-28T12:17:37.150933+00:00",
+  "base_revision": "71218a24bcd6805b79a28c0c0dacf0a1a78ab4b8",
+  "application_sha256": "40ed45c37a0941fc368120f94fed6f4320cb2e17da48503c9ca5663123d789a2",
+  "software": {
+    "tests": 518,
+    "failures": 0,
+    "errors": 0,
+    "skipped": 0,
+    "passed": 518,
+    "seconds": 1328.554,
+    "exit_code": 0,
+    "full_suite_runs": 1,
+    "command": "ASK_PHIL_TEST_DATABASE_URL=LOCAL_DISPOSABLE_POSTGRES PREFECT_HOME=/tmp/graph-execution-suite-prefect-20261028 PREFECT_SERVER_ANALYTICS_ENABLED=false MLFLOW_DISABLE_AGENT_HINT=1 .venv/bin/pytest -v -p no:cacheprovider --durations=15 --junitxml=docs/implementation/graph-execution-deepening/software-tests.xml",
+    "pre_refactor_characterization_passed": 5,
+    "affected_checks_passed": 63,
+    "final_capability_checks_passed": 4,
+    "strict_mypy": {
+      "passed": true,
+      "files": 118
+    },
+    "ruff_lint": true,
+    "ruff_format": true,
+    "staged_secret_scan": true
+  },
+  "http_contracts": {
+    "paths": 25,
+    "records": 84,
+    "unchanged": true,
+    "sha256": "3654acdf39beb4111bcbece0d6e188792fecee5381e5d7582c8cf3b209399a96"
+  },
+  "reviews": {
+    "report": "review.md",
+    "standards_hard_violations": 0,
+    "standards_actionable_judgments": 0,
+    "spec_findings": 0,
+    "final_test_followups": true
+  },
+  "preservation": {
+    "frozen_inputs": 170,
+    "all_frozen_hashes_match": true,
+    "protected_existing_files": 716,
+    "planned_existing_changes": [
+      "src/ask_phil/answering.py",
+      "src/ask_phil/api.py",
+      "src/ask_phil/family_answering.py",
+      "tests/test_connection_graph.py",
+      "tests/test_execution_api.py"
+    ],
+    "unexpected_changes": [],
+    "private_files_unchanged": 1,
+    "shared_ledger_hash_matches_prior_preservation": true
+  },
+  "artifacts_sha256": {
+    "software-inputs.json": "1075195e6a4f23b996451eec5c1a82a081f9abd265b44698a887836fb26b2855",
+    "software-tests.xml": "e04c7b066a3665cfbf4c050c3f1234bc086edf907a8f526a778c21390aebd0ae",
+    "software-tests.log": "a589f1d49037c1f6646742ebce318a40ea4bceda83410664aec18049da176e15",
+    "focused-tests.log": "44ee5cf72983b7dd40609bc7e29eaf70da9b305875ed54052a586a1d54e77b8b"
+  },
+  "paid_model_calls": 0,
+  "scope": "Behavior-preserving graph execution refactor; deterministic software validation.",
+  "shared_ledger_usd": 0.464981,
+  "unsettled_reservations": 0
+}

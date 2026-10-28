@@ -122,7 +122,7 @@ class AnswerService:
         started = time.perf_counter()
         route: TextAnswer | FamilyAnswer
         if request.route == "graph":
-            route = FamilyAnswer(self.database_url, request.snapshot_id)
+            route = FamilyAnswer(self.database_url, request.snapshot_id, budget)
         else:
             models, retriever = self._text_resources()
             request = request.model_copy(update={"question": models.redact(request.question)})

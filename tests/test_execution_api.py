@@ -29,7 +29,8 @@ from ask_phil.answering import AnswerService
 from ask_phil.answers import AskRequest
 from ask_phil.api import create_app
 from ask_phil.evidence import SourceSnapshot
-from ask_phil.execution import ExecutionLimits, ExecutionPolicies
+from ask_phil.execution import ExecutionBudget, ExecutionLimits, ExecutionPolicies
+from ask_phil.family_graph import FamilyQuery
 from ask_phil.model_transport import local_transport
 from ask_phil.models import LocalEmbedding, Models, ModelSettings
 from ask_phil.parentage import ClaimBatch
@@ -220,6 +221,40 @@ def test_text_and_family_answers_share_admission_and_retain_stopped_outcomes(
         assert resumed.status_code == 200, resumed.text
         assert resumed.json()["response"]["graph"]["status"] == "found"
         assert resumed.json()["response"]["execution"]["stop_reason"] is None
+
+
+def test_graph_answer_retains_the_callers_consumed_tool_budget(
+    database_url: str, family_batch: ClaimBatch, tmp_path: Path
+) -> None:
+    from test_family_graph import install_family
+
+    install_family(database_url, family_batch)
+    execution = ExecutionBudget(ExecutionLimits(tool_calls=1))
+    execution.tool_call("family_graph")
+    tracking_uri = f"sqlite:///{tmp_path}/consumed-budget.db"
+    service = AnswerService(database_url, None, tracking_uri)
+    receipt = service.ask(
+        AskRequest(
+            snapshot_id=family_batch.snapshot_id,
+            question="Who are Ben's ancestors?",
+            route="graph",
+            graph=FamilyQuery(character_id="ben-mitchell", direction="ancestors"),
+        ),
+        execution=execution,
+    )
+    response = receipt.response
+    assert response.status == "insufficient_evidence"
+    assert response.execution is not None
+    assert response.execution.stop_reason == "tool_call_limit"
+    assert response.execution.tool_calls == 1
+    assert response.execution.model_calls == 0
+    assert response.citations == () and response.graph is None
+    assert service.ledger.get(response.response_id, receipt.read_token) == response
+    trace = MlflowClient(tracking_uri=tracking_uri).get_trace(response.trace_id, flush=True)
+    assert trace is not None
+    assert next(s.outputs for s in trace.data.spans if s.name == "graph") == response.model_dump(
+        mode="json"
+    )
 
 
 def test_family_answers_survive_invalid_supplied_text_configuration(
