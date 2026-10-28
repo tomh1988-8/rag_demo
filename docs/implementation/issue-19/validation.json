@@ -129,9 +129,12 @@
     "pre_existing_user_work_files": 51,
     "user_work_unchanged": true,
     "private_inputs_preserved": true,
-    "original_files_unchanged": 766,
+    "original_files_unchanged": 763,
     "intentional_existing_file_changes": [
+      "docs/agents/issue-tracker.md",
       "docs/checklists/ask-phil-profile.md",
+      "docs/plans/ask-phil-tickets-v2/18-validate-phil-voice.md",
+      "docs/plans/ask-phil-tickets-v2/HANDOFF.md",
       "src/ask_phil/answers.py",
       "artifacts/openrouter-budget.sqlite"
     ],
@@ -165,7 +168,8 @@
     "live-source/answers-baseline.py.txt": "eb38590244d667b76e21b72dfaf146916fec78e57ee8f95c88070660d2f58305",
     "live-source/answers-candidate.py.txt": "611a1b4935e1caf1296a3a1af908d64a91c5db5a361632265b80320897fc5c94",
     "live-source/answers-final.py.txt": "6e81a54934a174c787ee4d91327619e76ea25eae0accbbd114a77f0f51186607",
-    "live-source/persona-workflow.py.txt": "4624d609915b7aacc62fea5456b18dbb8d5c63ff9eaa29befa44f5b74d9bc9d6"
+    "live-source/persona-workflow.py.txt": "4624d609915b7aacc62fea5456b18dbb8d5c63ff9eaa29befa44f5b74d9bc9d6",
+    "tracker-update.md": "4e8b10d6114ac99c760e2fab1d671bc0607ffc2907b4167a5cdb998da8855201"
   },
   "validated_at": "2026-10-28T16:29:17.989623+00:00"
 }

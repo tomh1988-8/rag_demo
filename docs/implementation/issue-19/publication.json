@@ -21,5 +21,6 @@
   "tracker_update": "docs/implementation/issue-19/tracker-update.md",
   "next_ticket": 20,
   "shared_ledger_usd": 0.673627,
-  "unsettled_reservations": 0
+  "unsettled_reservations": 0,
+  "prepared_tracker_body_sha256": "4e8b10d6114ac99c760e2fab1d671bc0607ffc2907b4167a5cdb998da8855201"
 }

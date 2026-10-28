@@ -36,7 +36,8 @@ Recheck when: Persona prompt/model, serious-harm examples, response formatting o
 
 ## Implementation evidence
 
-Implemented on the current branch and published at SOFTWARE_COMMIT_LINK.
+Implemented at [3906387](https://github.com/tomh1988-8/rag_demo/commit/390638759a2ce6ece48a12b144c9d47e3462b119).
+Publication and exact-tree verification are recorded in the linked evidence receipt.
 Full software validation: 567 passing tests, strict mypy across 131 files,
 Ruff/formatting and zero remaining findings on both independent review axes.
 
