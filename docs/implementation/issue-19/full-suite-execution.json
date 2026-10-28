@@ -1,0 +1,19 @@
+{
+  "code_revision": "390638759a2ce6ece48a12b144c9d47e3462b119",
+  "command": [
+    ".venv/bin/pytest",
+    "-v",
+    "-p",
+    "no:cacheprovider",
+    "--tb=short",
+    "--durations=15",
+    "--junitxml=docs/implementation/issue-19/software-tests.xml",
+    "-o",
+    "junit_family=legacy"
+  ],
+  "exit_code": 0,
+  "elapsed_seconds": 1435.298407683993,
+  "paid_model_calls": 0,
+  "log": "docs/implementation/issue-19/software-tests.log",
+  "report": "docs/implementation/issue-19/software-tests.xml"
+}

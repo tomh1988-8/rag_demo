@@ -30,7 +30,11 @@ in the package, and only its prompt changes. Exact prompts/hashes are captured;
 [baseline](baseline-software-inputs.json), [candidate](candidate-software-inputs.json)
 and [final live inputs](live-software-inputs.json) retain source identities. A
 later capture-reporting repair changes no generation behavior or prompt and
-requires no answer regeneration.
+requires no answer regeneration. [Historical source and mapping](live-source-map.json)
+retain the exact prior prompt and capture-helper bytes. Every reconstructed file
+matches its original frozen hash, and all three original application fingerprints
+reconstruct exactly. [Runtime readback](runtime-readback.json) independently checks
+all 72 actual root/context/CLI records and eight finished evaluation artifacts.
 
 [Baseline annotations](baseline-annotations.json), [candidate annotations](candidate-annotations.json)
 and [final annotations](final-annotations.json) independently label dimensions
@@ -89,7 +93,7 @@ acceptance. Earlier issue #9 identity/null-policy disagreements stay unresolved.
 
 ## Software and reproduction
 
-Six focused persona tests cover, including independent harm scoring, missing
+Six focused persona tests cover independent harm scoring, missing
 labels, actual API/CLI/trace readback, stale-label rejection, real MLflow
 publication/metrics and hidden model-change rejection. Initial review publication
 failed because extended persona fields used factual-review keys; retain
@@ -100,9 +104,11 @@ actual execution records: 48 model calls per 24-answer run.
 
 Strict mypy across 131 files, Ruff and formatting pass. Both independent review
 axes have zero remaining findings after repairing comparison-score integrity.
-[Review](review.md) records the original finding and its verified repair. Final
-full-suite results will be recorded in `validation.json` before closure. Software
-checks are distinct from model-quality limits.
+[Review](review.md) records the original finding and its verified repair. The full suite passed **567 tests** with zero failures, errors or skips in
+23 minutes 33 seconds. The one warning is the existing Starlette/httpx deprecation.
+[Validation](validation.json) and [full report](software-tests.xml) bind all 183
+frozen inputs to tested revision `3906387`. Software checks remain distinct from
+model-quality limits.
 
 Capture with `ASK_PHIL_TEST_DATABASE_URL` pointing at disposable PostgreSQL/pgvector,
 the existing private key/ledger and a fresh output path:

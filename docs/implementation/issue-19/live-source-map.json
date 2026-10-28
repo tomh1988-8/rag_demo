@@ -1,0 +1,35 @@
+{
+  "purpose": "Exact historical source content restored only after verification against the pre-recorded hashes; repository source files remain unchanged.",
+  "variants": [
+    {
+      "variant": "baseline",
+      "application_sha256": "dd4a8c800a11bc4b8a90379097dc74826db88242207e6d48e6c2567480a7d429",
+      "exact_application_reconstructed": true,
+      "answers_source": "docs/implementation/issue-19/live-source/answers-baseline.py.txt",
+      "answers_source_sha256": "eb38590244d667b76e21b72dfaf146916fec78e57ee8f95c88070660d2f58305",
+      "capture_workflow_source": "docs/implementation/issue-19/live-source/persona-workflow.py.txt",
+      "capture_workflow_source_sha256": "4624d609915b7aacc62fea5456b18dbb8d5c63ff9eaa29befa44f5b74d9bc9d6",
+      "other_package_files": "Identical to the final repository files; each checked against the original live manifest."
+    },
+    {
+      "variant": "candidate",
+      "application_sha256": "2886f5fa3b9f868a8c6e73559adf6f14ae5ad3d70197070073d3cf105e49be94",
+      "exact_application_reconstructed": true,
+      "answers_source": "docs/implementation/issue-19/live-source/answers-candidate.py.txt",
+      "answers_source_sha256": "611a1b4935e1caf1296a3a1af908d64a91c5db5a361632265b80320897fc5c94",
+      "capture_workflow_source": "docs/implementation/issue-19/live-source/persona-workflow.py.txt",
+      "capture_workflow_source_sha256": "4624d609915b7aacc62fea5456b18dbb8d5c63ff9eaa29befa44f5b74d9bc9d6",
+      "other_package_files": "Identical to the final repository files; each checked against the original live manifest."
+    },
+    {
+      "variant": "final",
+      "application_sha256": "d75dcfcd74d97c90cd5503d6c9ec8ea3b7d7650c80f73e9b6ab38b30ebf36f07",
+      "exact_application_reconstructed": true,
+      "answers_source": "docs/implementation/issue-19/live-source/answers-final.py.txt",
+      "answers_source_sha256": "6e81a54934a174c787ee4d91327619e76ea25eae0accbbd114a77f0f51186607",
+      "capture_workflow_source": "docs/implementation/issue-19/live-source/persona-workflow.py.txt",
+      "capture_workflow_source_sha256": "4624d609915b7aacc62fea5456b18dbb8d5c63ff9eaa29befa44f5b74d9bc9d6",
+      "other_package_files": "Identical to the final repository files; each checked against the original live manifest."
+    }
+  ]
+}

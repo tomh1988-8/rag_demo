@@ -1,0 +1,171 @@
+{
+  "state": "complete",
+  "issue": 19,
+  "starting_revision": "a5c55489005f56cbed709829f7dd67ee38783eec",
+  "tested_software_revision": "390638759a2ce6ece48a12b144c9d47e3462b119",
+  "software_inputs": {
+    "path": "docs/implementation/issue-19/software-inputs.json",
+    "count": 183,
+    "all_match": true
+  },
+  "full_suite": {
+    "code_revision": "390638759a2ce6ece48a12b144c9d47e3462b119",
+    "command": [
+      ".venv/bin/pytest",
+      "-v",
+      "-p",
+      "no:cacheprovider",
+      "--tb=short",
+      "--durations=15",
+      "--junitxml=docs/implementation/issue-19/software-tests.xml",
+      "-o",
+      "junit_family=legacy"
+    ],
+    "exit_code": 0,
+    "elapsed_seconds": 1435.298407683993,
+    "paid_model_calls": 0,
+    "log": "docs/implementation/issue-19/software-tests.log",
+    "report": "docs/implementation/issue-19/software-tests.xml",
+    "tests": 567,
+    "failures": 0,
+    "errors": 0,
+    "skipped": 0,
+    "state": "passed",
+    "warnings": 1,
+    "warning_scope": "Existing Starlette/httpx deprecation.",
+    "pytest_elapsed_seconds": 1413.79
+  },
+  "static_checks": [
+    {
+      "command": [
+        ".venv/bin/mypy",
+        "src",
+        "tests",
+        "scripts",
+        "docs/implementation/issue-9/apply_support.py"
+      ],
+      "exit_code": 0,
+      "elapsed_seconds": 1.1063563869975042
+    },
+    {
+      "command": [
+        ".venv/bin/ruff",
+        "check",
+        "src",
+        "tests",
+        "scripts",
+        "docs/implementation/issue-9/apply_support.py"
+      ],
+      "exit_code": 0,
+      "elapsed_seconds": 0.008245812001405284
+    },
+    {
+      "command": [
+        ".venv/bin/ruff",
+        "format",
+        "--check",
+        "src",
+        "tests",
+        "scripts",
+        "docs/implementation/issue-9/apply_support.py"
+      ],
+      "exit_code": 0,
+      "elapsed_seconds": 0.007489853000151925
+    }
+  ],
+  "independent_review": {
+    "standards_remaining": 0,
+    "spec_remaining": 0,
+    "unique_repaired_defects": 1,
+    "path": "docs/implementation/issue-19/review.md"
+  },
+  "runtime": {
+    "actual_api_responses": 72,
+    "exact_cli_and_trace_records": 72,
+    "finished_results_read_back": 8,
+    "historical_application_fingerprints_reconstructed": 3,
+    "path": "docs/implementation/issue-19/runtime-readback.json"
+  },
+  "quality_scope": {
+    "human_adjudicated_new_answers": false,
+    "voice_final": [
+      24,
+      24
+    ],
+    "serious_harm_final": [
+      8,
+      8
+    ],
+    "neutral_appendix_baseline": [
+      21,
+      24
+    ],
+    "neutral_appendix_final": [
+      24,
+      24
+    ],
+    "support_judge_agent_label_agreement": [
+      9,
+      10
+    ],
+    "unresolved_foreman_interpretation": true,
+    "over_specified_jane_reference_coverage_misses_final": 1,
+    "held_out_acceptance": false,
+    "checklist_pass": 35,
+    "checklist_pending": 16
+  },
+  "spend": {
+    "shared_non_resetting_cap_usd": 5,
+    "shared_ledger_usd": 0.673627,
+    "unsettled_reservations": 0,
+    "paid_answer_calls": 72,
+    "paid_judge_calls": 10,
+    "reported_cost_usd": 0.1779852,
+    "paid_software_test_calls": 0
+  },
+  "preservation": {
+    "original_files": 769,
+    "original_data_files": 40,
+    "pre_existing_user_work_files": 51,
+    "user_work_unchanged": true,
+    "private_inputs_preserved": true,
+    "original_files_unchanged": 766,
+    "intentional_existing_file_changes": [
+      "docs/checklists/ask-phil-profile.md",
+      "src/ask_phil/answers.py",
+      "artifacts/openrouter-budget.sqlite"
+    ],
+    "missing_files": 0
+  },
+  "artifact_sha256": {
+    "baseline-capture.json": "53f7092fc8fd8b602a80c843093d1fb4f8f473e87caeb15b66823f0061d13e13",
+    "candidate-capture.json": "0498d2076e6cc0094ee7b26e3c608501e55528877409f58d351141b78e59b178",
+    "final-capture.json": "c4e15424581df622f4459302b3858c6634555c4dd90c61e976ed046ab669b70b",
+    "baseline-annotations.json": "1b4dac3efacd7369d5174a25db7f55096f85fe57221b580bf24263bacf6d31d0",
+    "candidate-annotations.json": "156eec43667cf83efa7d7fe47387a88913fd036553f4ee3bc53d1c5b73a6fd67",
+    "final-annotations.json": "7521b4b4ef16f2e49c8114eb9d2f6c421358f2972ea56994d0874d940bc0b108",
+    "baseline-scores.json": "5a5e29ddf52ecdcdd61fd8f2a21869846c07c198276daf2631788c1e3c5667d1",
+    "baseline-scores-v2.json": "cf40093fa5496936b40cacd60e490e04197d48f741fdaeb0fac5cc37c8be2b93",
+    "candidate-scores.json": "e871a4994ddfbe2362172a8f69e6dff1fa1a41cc6eaa7aa8f4f087d8f250728e",
+    "final-scores.json": "a16bd32dcef498d781ee6009ed0490cae0789538576fa7af3ecb15f88a9d6730",
+    "comparison.json": "43a0d6a361359b8ba597ce4971133ba96fbf28f175720986dcee46ced372a43d",
+    "comparison-verified.json": "4bbae3a4a142510ae2a9663b68d1427e80a2e853c51304599a8fe1697af751d3",
+    "support-application.json": "ebe001bbb2dccebac5fad7407ead0fe17e8b36785ae8fa623582e2edd554da21",
+    "support-application.references.json": "47af7ceff1272cf00e9da554a17952c2f16f6fa1dce6417bf89affe0824b76df",
+    "support-profile.json": "cbb46d45eae0df70d9051990aab7e4304dd065b149579c71fa0da23295d66fa4",
+    "software-inputs.json": "92835c959bbbd22a10e0ff0405edcbdff98418f9a6a838c96253afda88836386",
+    "runtime-readback.json": "4ef7e7c3f5675e8a9f57c858501537168d53bdc5af01863647aa0dab72e93944",
+    "live-source-map.json": "45d811dde65ea21e051a3bc4045ae491e8d5ae1db90381b69c9d95d20221b7d4",
+    "review.md": "ea734b32c2741527a98101a0a34a92c8696b1a9a1e3e1cca7504a440cbfd6fc7",
+    "static-checks.json": "c0c6c1dedec676c769551824289acf201a910088a5ed851e66d68a95966ea1f3",
+    "software-tests.xml": "1ef06d6d0900a1a3582d1c8f667510a85f9c60f31139645174ae55ce54d3b88a",
+    "software-tests.log": "a11d0adf7c8cf2acae26df905620ccfbed2300b886fd00cc9d3610efacb56536",
+    "full-suite-execution.json": "9ef44efba3cdfb54b5689008db63109372894aabda2058c6bd84fbb7ddf30519",
+    "static-checks.log": "12e4ac3c93a0e02cfbe0cb28c2fb46417ab295e088e3f02eab41b1818cc9398e",
+    "live-source/answers-baseline.py.txt": "eb38590244d667b76e21b72dfaf146916fec78e57ee8f95c88070660d2f58305",
+    "live-source/answers-candidate.py.txt": "611a1b4935e1caf1296a3a1af908d64a91c5db5a361632265b80320897fc5c94",
+    "live-source/answers-final.py.txt": "6e81a54934a174c787ee4d91327619e76ea25eae0accbbd114a77f0f51186607",
+    "live-source/persona-workflow.py.txt": "4624d609915b7aacc62fea5456b18dbb8d5c63ff9eaa29befa44f5b74d9bc9d6"
+  },
+  "validated_at": "2026-10-28T16:29:17.989623+00:00"
+}

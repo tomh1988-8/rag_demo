@@ -1,0 +1,38 @@
+[
+  {
+    "command": [
+      ".venv/bin/mypy",
+      "src",
+      "tests",
+      "scripts",
+      "docs/implementation/issue-9/apply_support.py"
+    ],
+    "exit_code": 0,
+    "elapsed_seconds": 1.1063563869975042
+  },
+  {
+    "command": [
+      ".venv/bin/ruff",
+      "check",
+      "src",
+      "tests",
+      "scripts",
+      "docs/implementation/issue-9/apply_support.py"
+    ],
+    "exit_code": 0,
+    "elapsed_seconds": 0.008245812001405284
+  },
+  {
+    "command": [
+      ".venv/bin/ruff",
+      "format",
+      "--check",
+      "src",
+      "tests",
+      "scripts",
+      "docs/implementation/issue-9/apply_support.py"
+    ],
+    "exit_code": 0,
+    "elapsed_seconds": 0.007489853000151925
+  }
+]

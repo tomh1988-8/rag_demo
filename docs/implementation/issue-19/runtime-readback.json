@@ -1,0 +1,83 @@
+{
+  "actual_response_checks": [
+    {
+      "variant": "baseline",
+      "responses": 24,
+      "exact_actual_root_cli_agreement": true,
+      "context_values_and_prompt_match": true
+    },
+    {
+      "variant": "candidate",
+      "responses": 24,
+      "exact_actual_root_cli_agreement": true,
+      "context_values_and_prompt_match": true
+    },
+    {
+      "variant": "final",
+      "responses": 24,
+      "exact_actual_root_cli_agreement": true,
+      "context_values_and_prompt_match": true
+    }
+  ],
+  "context_serialization": "Compare validated Passage JSON to normalize equivalent datetime serialization in span values. Root/CLI records match exact JSON.",
+  "finished_results": [
+    {
+      "path": "docs/implementation/issue-19/baseline-capture.json",
+      "run_id": "0e608eca8fc34d2d843830a5f46b88f2",
+      "status": "FINISHED",
+      "exact_result_readback": true,
+      "frozen_input_artifacts_verified": 10
+    },
+    {
+      "path": "docs/implementation/issue-19/candidate-capture.json",
+      "run_id": "2c41e9f327524cd8b01004eb6014d86f",
+      "status": "FINISHED",
+      "exact_result_readback": true,
+      "frozen_input_artifacts_verified": 10
+    },
+    {
+      "path": "docs/implementation/issue-19/final-capture.json",
+      "run_id": "1094d7f3dba34fce956c389b06185ec4",
+      "status": "FINISHED",
+      "exact_result_readback": true,
+      "frozen_input_artifacts_verified": 10
+    },
+    {
+      "path": "docs/implementation/issue-19/baseline-scores-v2.json",
+      "run_id": "aa9aebe6327d4fabad879da1acd763af",
+      "status": "FINISHED",
+      "exact_result_readback": true,
+      "frozen_input_artifacts_verified": 4
+    },
+    {
+      "path": "docs/implementation/issue-19/candidate-scores.json",
+      "run_id": "ad8a974d5b7b490e9f46e7afcb84046f",
+      "status": "FINISHED",
+      "exact_result_readback": true,
+      "frozen_input_artifacts_verified": 4
+    },
+    {
+      "path": "docs/implementation/issue-19/final-scores.json",
+      "run_id": "8a8ee8fc5faa4915932d2bfe58416b39",
+      "status": "FINISHED",
+      "exact_result_readback": true,
+      "frozen_input_artifacts_verified": 4
+    },
+    {
+      "path": "docs/implementation/issue-19/support-application.json",
+      "run_id": "c6afce75f8604d8f9c6e9edb92dbd48d",
+      "status": "FINISHED",
+      "exact_result_readback": true,
+      "frozen_input_artifacts_verified": 15
+    },
+    {
+      "path": "docs/implementation/issue-19/comparison-verified.json",
+      "run_id": "753383365a1c4f0ba441cec8dad6056c",
+      "status": "FINISHED",
+      "exact_result_readback": true,
+      "frozen_input_artifacts_verified": 6
+    }
+  ],
+  "model_calls": 0,
+  "cost_usd": 0
+}

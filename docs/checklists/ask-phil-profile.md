@@ -151,7 +151,9 @@ The unchanged human-calibrated support judge agrees with 9/10 new agent labels;
 one foreman-role interpretation requires human adjudication. The over-specified
 Jane reference keeps one conservative final coverage failure visible. These
 are exposed source-based results, not human canon or held-out acceptance.
-Full software/review validation is recorded with the issue before closure.
+Full validation passes 567 tests, strict mypy across 131 files, Ruff/formatting
+and both independent review axes; [frozen evidence](../implementation/issue-19/validation.json)
+records all 183 software inputs.
 Checklist counts remain 35 Pass and 16 Pending; AD-10.4's feedback/release
 obligations and broader judge acceptance are unchanged.
 

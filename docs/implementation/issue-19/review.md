@@ -39,3 +39,8 @@ the foreman dispute and over-specified Jane reference have explicit limits.
 
 Standards: one repaired, zero remaining. Spec: one repaired, zero remaining.
 Both axes identified the same original comparison-integrity defect.
+
+Final verification at `3906387`: **567 tests pass**, strict mypy across 131 files,
+Ruff and formatting pass; all 183 software inputs match. No software changed
+during the full suite. Supplemental historical-source snapshots reconstruct all
+three live application fingerprints exactly and change no executable code.

@@ -11,6 +11,21 @@ commands so they work even without a configured Git remote.
 
 ## Current Ask Phil handoff
 
+Issue #19 is implemented and validated at `3906387`: **567 tests** pass, strict
+mypy across 131 files, Ruff/formatting and both independent review axes pass.
+[Evidence](../implementation/issue-19/README.md) and the
+[frozen validation](../implementation/issue-19/validation.json) preserve all 72
+actual API/CLI/trace records, original failures and judge/reference limitations.
+The user explicitly approved pushing when complete. Publication and closure are
+prepared; verify the remote tree before applying the prepared tracker body.
+Do not repeat unchanged paid calls or tests. The shared original non-resetting
+$5 ledger is **$0.673627**, zero unsettled reservations. Preserve all 40 original
+data files, all 51 pre-existing user work files and private inputs.
+After verified closure, **#20 is next**; #22/#24 remain unblocked, #18 waits for #24.
+Wait for the user's next implementation instruction before starting another issue.
+
+## Prior issue #17 handoff
+
 Issue #17 is complete and closed after native fast-forward publication and
 exact-tree readback of [`463126e`](https://github.com/tomh1988-8/rag_demo/commit/463126e5daaa17550950f09d0470f68d4046be82).
 The [receipt](../implementation/issue-17/publication.json) records the user's

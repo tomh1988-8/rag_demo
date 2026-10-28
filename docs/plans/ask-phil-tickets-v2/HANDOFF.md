@@ -1,5 +1,20 @@
 # Ask Phil: publication and next-skill handoff
 
+## Issue #19: validated; publication approved
+
+Issue #19 is implemented and validated at `3906387`: **567 tests** pass, strict
+mypy across 131 files, Ruff/formatting and both independent review axes pass.
+[Evidence](../../implementation/issue-19/README.md) and the
+[frozen validation](../../implementation/issue-19/validation.json) preserve all 72
+actual API/CLI/trace records, original failures and judge/reference limitations.
+The user explicitly approved pushing when complete. Publication and closure are
+prepared; verify the remote tree before applying the prepared tracker body.
+Do not repeat unchanged paid calls or tests. The shared original non-resetting
+$5 ledger is **$0.673627**, zero unsettled reservations. Preserve all 40 original
+data files, all 51 pre-existing user work files and private inputs.
+After verified closure, **#20 is next**; #22/#24 remain unblocked, #18 waits for #24.
+Wait for the user's next implementation instruction before starting another issue.
+
 ## Issue #17: bounded investigation published and closed
 
 The explicit investigator is implemented at final software `13d38e0`, with

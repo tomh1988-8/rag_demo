@@ -1,0 +1,25 @@
+{
+  "state": "ready-for-approved-publication",
+  "approval": {
+    "source": "current user message",
+    "quote": "good, i approve pushing when complete",
+    "recorded_at": "2026-10-28T16:29:17.995492+00:00"
+  },
+  "repository": "tomh1988-8/rag_demo",
+  "branch": "main",
+  "tested_software_revision": "390638759a2ce6ece48a12b144c9d47e3462b119",
+  "remote_before": "76a7b147a2babea62ac6567b28d9a938cb77757f",
+  "publication_method": "native Git HTTPS, non-forced fast-forward",
+  "full_suite": {
+    "tests": 567,
+    "failures": 0,
+    "errors": 0,
+    "skipped": 0
+  },
+  "software_inputs": 183,
+  "tracker_criteria": 7,
+  "tracker_update": "docs/implementation/issue-19/tracker-update.md",
+  "next_ticket": 20,
+  "shared_ledger_usd": 0.673627,
+  "unsettled_reservations": 0
+}

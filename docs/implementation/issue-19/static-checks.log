@@ -1,0 +1,6 @@
+.venv/bin/mypy src tests scripts docs/implementation/issue-9/apply_support.py
+Success: no issues found in 131 source files
+.venv/bin/ruff check src tests scripts docs/implementation/issue-9/apply_support.py
+All checks passed!
+.venv/bin/ruff format --check src tests scripts docs/implementation/issue-9/apply_support.py
+131 files already formatted
