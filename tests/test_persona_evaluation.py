@@ -246,6 +246,7 @@ def test_prompt_comparison_refuses_a_hidden_model_change(tmp_path: Path) -> None
         row["cli_response"] = response
         row["trace_response"] = response
         reviewed["persona_review"]["quality"]["response_sha256"] = row["response_sha256"]
+        reviewed["review"]["response_sha256"] = row["response_sha256"]
     changed_capture = tmp_path / "changed-capture.json"
     changed_capture.write_text(json.dumps(capture))
     scores["capture_path"] = str(changed_capture)
@@ -273,4 +274,34 @@ def test_prompt_comparison_refuses_a_hidden_model_change(tmp_path: Path) -> None
 
     assert result.returncode != 0
     assert "controls differ" in result.stderr
+    assert not output.exists()
+
+
+def test_comparison_rejects_factual_scores_changed_without_the_review(tmp_path: Path) -> None:
+    evidence = Path("docs/implementation/issue-19")
+    scores = json.loads((evidence / "final-scores.json").read_bytes())
+    scores["cases"][0]["scores"]["correctness"]["value"] = 0.0
+    changed = tmp_path / "changed-scores.json"
+    changed.write_text(json.dumps(scores))
+    output = tmp_path / "comparison.json"
+
+    result = subprocess.run(
+        [
+            sys.executable,
+            "scripts/review_persona.py",
+            "compare",
+            "--baseline",
+            str(evidence / "baseline-scores-v2.json"),
+            "--candidate",
+            str(changed),
+            "--output",
+            str(output),
+        ],
+        capture_output=True,
+        text=True,
+        timeout=30,
+    )
+
+    assert result.returncode != 0
+    assert "scores differ from the frozen review" in result.stderr
     assert not output.exists()

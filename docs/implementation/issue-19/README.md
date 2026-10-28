@@ -38,7 +38,7 @@ within each response. These labels are from the implementing agent. The
 [completed scores](final-scores.json) bind labels to exact responses/references.
 Missing factual assertions remain unavailable; harm applies to eight observations.
 
-The [controlled comparison](comparison.json) reports:
+The [controlled comparison](comparison-verified.json) reports:
 
 | Measure | Baseline | Final |
 | --- | --- | --- |
@@ -89,7 +89,7 @@ acceptance. Earlier issue #9 identity/null-policy disagreements stay unresolved.
 
 ## Software and reproduction
 
-Five focused persona tests pass, including independent harm scoring, missing
+Six focused persona tests cover, including independent harm scoring, missing
 labels, actual API/CLI/trace readback, stale-label rejection, real MLflow
 publication/metrics and hidden model-change rejection. Initial review publication
 failed because extended persona fields used factual-review keys; retain
@@ -98,9 +98,11 @@ Capture reporting now separates recorded model calls, including query embeddings
 from paid answer calls. Original live headers are unchanged; the comparison uses
 actual execution records: 48 model calls per 24-answer run.
 
-Strict mypy across 131 files, Ruff and formatting pass. Final full-suite and
-independent-review results will be recorded in `validation.json` and `review.md`
-before issue closure. Software checks are distinct from model-quality limits.
+Strict mypy across 131 files, Ruff and formatting pass. Both independent review
+axes have zero remaining findings after repairing comparison-score integrity.
+[Review](review.md) records the original finding and its verified repair. Final
+full-suite results will be recorded in `validation.json` before closure. Software
+checks are distinct from model-quality limits.
 
 Capture with `ASK_PHIL_TEST_DATABASE_URL` pointing at disposable PostgreSQL/pgvector,
 the existing private key/ledger and a fresh output path:

@@ -128,12 +128,13 @@ def compare(baseline_path: Path, candidate_path: Path, output: Path) -> None:
         ):
             raise ValueError("Compare complete reviews bound to their captured answers.")
         for row, saved in zip(scored["cases"], capture["cases"], strict=True):
-            actual = score_persona(
-                PersonaReview.model_validate(row["persona_review"]),
-                saved["response"],
-                saved["reference"],
-            )
-            if actual.model_dump(mode="json") != row["persona_scores"]:
+            review = PersonaReview.model_validate(row["persona_review"])
+            actual = score_persona(review, saved["response"], saved["reference"])
+            if (
+                actual.model_dump(mode="json") != row["persona_scores"]
+                or actual.factual.model_dump(mode="json") != row["scores"]
+                or review.quality.model_dump(mode="json") != row["review"]
+            ):
                 raise ValueError("Persona scores differ from the frozen review.")
             if (
                 saved["response"]["prompt_sha256"] != capture["prompt_sha256"]
@@ -179,8 +180,8 @@ def compare(baseline_path: Path, candidate_path: Path, output: Path) -> None:
         groups = []
         for run in runs:
             values = [
-                row["scores"][dimension]["value"]
-                if dimension in row["scores"]
+                row["persona_scores"]["factual"][dimension]["value"]
+                if dimension in row["persona_scores"]["factual"]
                 else row["persona_scores"][dimension]
                 for row in run["cases"]
             ]

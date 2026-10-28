@@ -57,6 +57,16 @@
       "failure": "Original capture header model_calls counted paid answers; application execution records also count query embeddings.",
       "final_result": "Live raw headers remain unchanged; comparison uses actual execution records (48 calls per 24-answer run). New capture code records model_calls and paid_model_calls separately.",
       "disposition": "Reporting repair with passing public capture regression; no answer regeneration."
+    },
+    {
+      "id": "comparison-score-integrity",
+      "failure": "Both review axes independently reproduced that a changed duplicate factual score could alter a completed comparison despite a valid persona score.",
+      "regression": "test_comparison_rejects_factual_scores_changed_without_the_review failed before the repair.",
+      "repair": "Validate factual review/scores against recomputed persona results and aggregate only the validated persona factual scores.",
+      "verification": "Both axes independently verify tampered-score rejection before output; unchanged comparisons replay identical dimensions/critical failures.",
+      "retained_original": "comparison.json",
+      "verified_replacement": "comparison-verified.json",
+      "disposition": "Repaired; six focused persona cases cover the complete public contract."
     }
   ],
   "costs": {
