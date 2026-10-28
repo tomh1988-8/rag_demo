@@ -138,10 +138,12 @@ and 16 Pending.
 
 ## Publication
 
-Implementation and validation are committed as `000a866`. Automatic approval
-review rejected `git push origin main`, stating that publishing to the default
-branch requires explicit user authorization. No remote mutation or issue closure
-occurred. [The receipt](publication.json) records the blocker and
-[the exact tracker update](tracker-update.md) is prepared. Approval is needed for
-the push, exact-tree readback and subsequent #17 closure; completed tests and paid
-captures can be reused unchanged.
+Issue #17 is complete and closed after native fast-forward publication of
+[`463126e`](https://github.com/tomh1988-8/rag_demo/commit/463126e5daaa17550950f09d0470f68d4046be82)
+and fetched exact-tree verification. [The receipt](publication.json) records the
+user's explicit `approve`, all 188 frozen software inputs and 14 validation
+artifact hashes, seven checked criteria, completed closure and exact agreement
+with [the prepared tracker update](tracker-update.md). The earlier automatic
+rejection is retained as history and superseded by approval; no blocker remains.
+Completion receipt/handoff publication changes documentation only, with no
+repeated tests or paid calls.

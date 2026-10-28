@@ -99,5 +99,5 @@
     "docker-tests.log": "6f8392b6788bc5e511d8ddb28bf3b1b6a572e519a72b4380847d27f5d3733eaf",
     "docker-application.txt": "17940f23e870b5830c305e6e989347f0d7f80aee3660a8f128679bf1c4576a86"
   },
-  "publication": "Prepared for native push, remote exact-tree readback and tracker closure; publication receipt records completion."
+  "publication": "Complete after user-approved native fast-forward push and fetched exact-tree verification; publication.json records all 188 frozen inputs, 14 artifact hashes, the exact tracker body, seven checked criteria and completed closure. Completion metadata changes documentation only."
 }

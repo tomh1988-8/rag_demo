@@ -11,15 +11,17 @@ commands so they work even without a configured Git remote.
 
 ## Current Ask Phil handoff
 
-Issue #17 is implemented and independently reviewed on `main`. Final software
-revision is `13d38e0`; **550 tests**, strict mypy across 125 files, Ruff/formatting
-and six Docker investigation contracts pass. Implementation/evidence commit is
-`000a866`. Automatic approval review rejected `git push origin main` because
-explicit authorization to publish to the default branch is required. No push,
-tracker mutation or closure occurred. The [publication receipt](../implementation/issue-17/publication.json)
-records the rejection and [exact prepared tracker body](../implementation/issue-17/tracker-update.md).
-Obtain approval for pushing to `origin/main` and closing #17 after exact-tree
-verification; the reviewer forbids bypass through another publication mechanism.
+Issue #17 is complete and closed after native fast-forward publication and
+exact-tree readback of [`463126e`](https://github.com/tomh1988-8/rag_demo/commit/463126e5daaa17550950f09d0470f68d4046be82).
+The [receipt](../implementation/issue-17/publication.json) records the user's
+explicit `approve`, all 188 frozen software inputs and 14 validation artifact
+hashes, seven checked criteria, completed closure and exact agreement with the
+[prepared tracker body](../implementation/issue-17/tracker-update.md). The initial
+automatic rejection is superseded; there is no current publication/tracker blocker.
+Completion receipt/handoff publication changes documentation only.
+
+Final software is `13d38e0`; **550 tests**, strict mypy across 125 files,
+Ruff/formatting and six Docker investigation contracts pass.
 [Evidence](../implementation/issue-17/README.md) and the
 [frozen inputs](../implementation/issue-17/software-inputs.json) are the current
 sources. Both review axes have zero remaining findings after reproducing and
@@ -42,7 +44,7 @@ unchanged paid work. Live captures bind `b599783`; final software changes only
 the reviewed stop handlers and adds their regressions, retaining prompt/model
 and tool-contract identities.
 
-After #17 is verified published and closed, **#19 is next**. #20, #22 and #24
+**#19 is next**. #20, #22 and #24
 also remain unblocked; #18 still waits for #24. Wait for the user's next
 implementation instruction before starting another issue.
 
