@@ -1,0 +1,24 @@
+{
+  "revision": "4b883ede085d83750344220ccc60c46c6ae2a233",
+  "change": "One COPY instruction includes the connection review fixture in the existing Docker test stage. No application code, test, model-setting or data input changed.",
+  "image": "sha256:a1d65d390272c614265ba0a38d9c88b2ee3436018534ca9c57e0f964c400a497",
+  "build_command": "docker build --target test -t ask-phil-issue-16-test .",
+  "build_passed": true,
+  "container_test": "tests/test_graph_acceptance.py::test_composed_acceptance_records_all_four_public_graph_families",
+  "tests_passed": 1,
+  "seconds": 28.64,
+  "report": "docker-graph-test-final.log",
+  "image_input_readback": "docker-final-inputs.json",
+  "image_matches_tested_application_and_fixture": true,
+  "native_freeze_exception": {
+    "path": "Dockerfile",
+    "before_sha256": "01886f2bef549b057249c4f6be37e2845108c6921c1eceebd6aa15111b473c0e",
+    "after_sha256": "75ad05ade25042337c2d7f14655056f8a1a825a7cc0cdf782692211f043a83d3"
+  },
+  "files": {
+    "Dockerfile": "75ad05ade25042337c2d7f14655056f8a1a825a7cc0cdf782692211f043a83d3",
+    ".dockerignore": "a6efb9be684c950cfc581e4cdc46eb770cb335ac6fee9f8df854d763f04fe7eb",
+    "docs/implementation/issue-16/claim-reviews.json": "9be8a69008982f54df4531f54038360e4bea2c1537e326cf389e41da7ce57be8"
+  },
+  "independent_standards_review": "No hard violation or actionable judgment call in commit 4b883ed."
+}

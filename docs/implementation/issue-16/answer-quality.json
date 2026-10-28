@@ -1,0 +1,191 @@
+{
+  "reviewer": "Independent Spec review agent /root/review_spec",
+  "review_basis": "Every captured answer read against its retained source passages and typed graph. Actual MLflow root/tool outputs and populated citation text/hash were independently checked.",
+  "runtime": "runtime-final.json",
+  "application_sha256": "0683df20b3390ce90d5ff8938b8ace51f2305409915c0974e87647d78b70a5f0",
+  "final_runtime_transfer": "All 17 answer/status/path/context/citation and other compared content fields exactly match the independently source-reviewed initial responses. runtime-review-comparison.json records the check; final actual MLflow outputs and citations are read back separately.",
+  "dimensions": {
+    "factual_support": {
+      "passed": 11,
+      "applicable": 11,
+      "not_applicable": 6
+    },
+    "derivation_role_preservation": {
+      "passed": 11,
+      "applicable": 11,
+      "not_applicable": 6
+    },
+    "citation_support": {
+      "passed": 11,
+      "applicable": 11,
+      "not_applicable": 6
+    },
+    "outcome_and_coverage_qualification": {
+      "passed": 17,
+      "applicable": 17
+    }
+  },
+  "cases": [
+    {
+      "case_id": "direct-adoption",
+      "factual_support": true,
+      "derivation_role_preservation": true,
+      "citation_support": true,
+      "outcome_and_coverage_qualification": true,
+      "disposition": "pass_within_exposed_scope",
+      "reason": "Den/Sharon adoption, age three and unknown captured status are preserved."
+    },
+    {
+      "case_id": "biological-grandchild",
+      "factual_support": true,
+      "derivation_role_preservation": true,
+      "citation_support": true,
+      "outcome_and_coverage_qualification": true,
+      "disposition": "pass_within_exposed_scope",
+      "reason": "Peggy to Phil to Ben supports biological grandparent."
+    },
+    {
+      "case_id": "alternative-parent",
+      "factual_support": true,
+      "derivation_role_preservation": true,
+      "citation_support": true,
+      "outcome_and_coverage_qualification": true,
+      "disposition": "pass_within_exposed_scope",
+      "reason": "Direct biological child and separate historical romantic alternatives remain qualified."
+    },
+    {
+      "case_id": "misleading-conviction",
+      "factual_support": true,
+      "derivation_role_preservation": true,
+      "citation_support": true,
+      "outcome_and_coverage_qualification": true,
+      "disposition": "pass_within_exposed_scope",
+      "reason": "Bobby perpetrator and Lucy victim remain distinct from Max conviction and legal roles."
+    },
+    {
+      "case_id": "composed-family-event",
+      "factual_support": true,
+      "derivation_role_preservation": true,
+      "citation_support": true,
+      "outcome_and_coverage_qualification": true,
+      "disposition": "pass_within_exposed_scope",
+      "reason": "Two parentage steps plus explicit Ben/Bobby incident roles; no transferred guilt."
+    },
+    {
+      "case_id": "no-path",
+      "factual_support": null,
+      "derivation_role_preservation": null,
+      "citation_support": null,
+      "outcome_and_coverage_qualification": true,
+      "disposition": "pass_within_exposed_scope",
+      "reason": "Qualified empty graph, no canon-wide negative."
+    },
+    {
+      "case_id": "cycle",
+      "factual_support": null,
+      "derivation_role_preservation": null,
+      "citation_support": null,
+      "outcome_and_coverage_qualification": true,
+      "disposition": "pass_within_exposed_scope",
+      "reason": "Qualified empty bounded search."
+    },
+    {
+      "case_id": "theme-is-not-connection",
+      "factual_support": null,
+      "derivation_role_preservation": null,
+      "citation_support": null,
+      "outcome_and_coverage_qualification": true,
+      "disposition": "pass_within_exposed_scope",
+      "reason": "No unsupported adjacency; coverage limitation explicit."
+    },
+    {
+      "case_id": "depth-bound",
+      "factual_support": null,
+      "derivation_role_preservation": null,
+      "citation_support": null,
+      "outcome_and_coverage_qualification": true,
+      "disposition": "pass_within_exposed_scope",
+      "reason": "Qualified bounded absence."
+    },
+    {
+      "case_id": "performer",
+      "factual_support": null,
+      "derivation_role_preservation": null,
+      "citation_support": null,
+      "outcome_and_coverage_qualification": true,
+      "disposition": "pass_within_exposed_scope",
+      "reason": "Unknown character; no performer edge."
+    },
+    {
+      "case_id": "grandparent-cli",
+      "factual_support": true,
+      "derivation_role_preservation": true,
+      "citation_support": true,
+      "outcome_and_coverage_qualification": true,
+      "disposition": "pass_within_exposed_scope",
+      "reason": "Supported biological grandparent derivation."
+    },
+    {
+      "case_id": "roles-cli",
+      "factual_support": true,
+      "derivation_role_preservation": true,
+      "citation_support": true,
+      "outcome_and_coverage_qualification": true,
+      "disposition": "pass_within_exposed_scope",
+      "reason": "Supported stage-specific roles."
+    },
+    {
+      "case_id": "composed-session",
+      "factual_support": true,
+      "derivation_role_preservation": true,
+      "citation_support": true,
+      "outcome_and_coverage_qualification": true,
+      "disposition": "pass_within_exposed_scope",
+      "reason": "Supported family and incident composition."
+    },
+    {
+      "case_id": "no-path-session",
+      "factual_support": null,
+      "derivation_role_preservation": null,
+      "citation_support": null,
+      "outcome_and_coverage_qualification": true,
+      "disposition": "pass_within_exposed_scope",
+      "reason": "Qualified empty result."
+    },
+    {
+      "case_id": "family-contract",
+      "factual_support": true,
+      "derivation_role_preservation": true,
+      "citation_support": true,
+      "outcome_and_coverage_qualification": true,
+      "disposition": "pass_within_exposed_scope",
+      "reason": "Only supported biological ancestor paths."
+    },
+    {
+      "case_id": "relationship-contract",
+      "factual_support": true,
+      "derivation_role_preservation": true,
+      "citation_support": true,
+      "outcome_and_coverage_qualification": true,
+      "disposition": "pass_within_exposed_scope",
+      "reason": "Supported adoption and timing; no biological ancestry."
+    },
+    {
+      "case_id": "event-contract",
+      "factual_support": true,
+      "derivation_role_preservation": true,
+      "citation_support": true,
+      "outcome_and_coverage_qualification": true,
+      "disposition": "pass_within_exposed_scope",
+      "reason": "Supported commission and distinct accusation, conviction and imprisonment roles."
+    }
+  ],
+  "limitations": [
+    "Agent-reviewed exposed curated capability, not human canon adjudication, independent corroboration, new extraction quality or held-out acceptance.",
+    "Six empty/unknown cases make no programme facts; factual and citation support are not applicable rather than manufactured positive scores.",
+    "Original extraction and ordinary text-quality failures remain unchanged.",
+    "The new runtime serves no explicitly_false event account. False-account wording retains the earlier issue #13/#14 evidence and unchanged render_events implementation; no new live false-account coverage is claimed.",
+    "Transport repetitions are repeated deliveries of exposed cases, not additional independent factual examples."
+  ],
+  "original_independent_review_runtime": "runtime-initial.json"
+}

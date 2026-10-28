@@ -73,6 +73,7 @@ with their complete retained review groups.
   biological assertions remain inspectable in relationship history without
   providing an alternative admission path.
 - Social parentage and ward ties preserve subject-to-object or reverse direction.
+  For a ward assertion, the subject is the guardian and the object is the ward.
   Romantic assertions are traversable symmetrically; their relation, episode,
   captured current/former/unknown status and story timing remain intact. An
   historical marriage, separation, divorce or affair does not imply a current tie.
@@ -116,6 +117,42 @@ requires a separate source-based review; component scores do not manufacture it.
 These exposed curated cases establish scoped composition capability, while broad
 graph coverage, automatic investigation/routing and held-out release quality remain
 separate tickets. No new extraction or paid model call is required.
+
+[The final runtime](runtime-final.json) contains 17 actual API/CLI/session responses
+at application SHA
+`0683df20b3390ce90d5ff8938b8ace51f2305409915c0974e87647d78b70a5f0`.
+Result correctness, step meaning and provenance each pass 17/17 component checks.
+Actual MLflow roots/tools, citations, audit readback, saved-response restart and
+session reset match. [Independent source review](answer-quality.json) passes all
+eleven factual responses; six empty/unknown outcomes have no factual assertions,
+so their factual/citation support is not applicable. Their qualified outcomes pass.
+Transport repeats are repeated deliveries of exposed examples, not additional
+independent factual cases. No explicitly false event account is served in this
+new runtime; its unchanged rendering retains the earlier event-ticket evidence.
+
+[The initial runtime](runtime-initial.json) and
+[legacy-compatibility runtime](runtime-accepted.json) remain intact.
+[Exact content comparison](runtime-review-comparison.json) binds all 17 final
+answers, paths, evidence and other compared content fields to the independently
+reviewed originals. Final actual MLflow root/tool outputs and populated citations
+were independently checked again. [Both code-review axes](review.md) have zero
+remaining findings after repairing the biological-history admission bypass.
+The public regression first reproduces that defect and then passes; its finding
+and the event-only/legacy-manifest failures remain in [regressions](regressions.json).
+
+The single final full suite passes **514 tests**, with zero failures, errors or skips
+(1,273.31 seconds). All 33 final focused checks pass. Strict mypy across 116 files and Ruff/formatting
+pass. [Native frozen inputs](software-inputs.json), the final software report and
+[validation](validation.json) bind the full-suite result to reviewed application revision
+`e2eb7f5e8c3f87ee2b1900445927d1debd697ad5`. Python sources, tests, model settings
+and data remain unchanged. After that freeze, one Dockerfile COPY instruction adds
+the review fixture to the test image. [Packaging validation](packaging-validation.json)
+records a successful build, the passing four-family SQL/API/CLI/session test inside
+the image and exact application/fixture hash readback. The Standards reviewer
+confirmed that packaging change. [Final published inputs](final-inputs.json) retain
+the native hashes with the explicit Dockerfile packaging revision. The project
+register keeps broader RAG-04 coverage and
+release gates Pending, with counts unchanged at 35 Pass and 16 Pending.
 
 Run software verification against disposable PostgreSQL databases:
 

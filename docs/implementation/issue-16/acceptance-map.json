@@ -1,0 +1,49 @@
+{
+  "issue": 16,
+  "criteria": [
+    {
+      "number": 1,
+      "requirement": "Permitted meanings, direction and finite traversal",
+      "status": "satisfied_with_recorded_scope",
+      "evidence": "README.md; src/ask_phil/connection_graph.py; tests/test_connection_semantics.py"
+    },
+    {
+      "number": 2,
+      "requirement": "API/CLI explanation, path, evidence, explicit override and actual trace",
+      "status": "satisfied_with_recorded_scope",
+      "evidence": "runtime-final.json; runtime-review-comparison.json"
+    },
+    {
+      "number": 3,
+      "requirement": "Exclude false connections and prevent repeated nodes/incidents",
+      "status": "satisfied_with_recorded_scope",
+      "evidence": "tests/test_connection_graph.py; tests/test_connection_semantics.py; regressions.json"
+    },
+    {
+      "number": 4,
+      "requirement": "Accept alternatives and qualify bounded no-path outcomes",
+      "status": "satisfied_with_recorded_scope",
+      "evidence": "data/references/connections-v1.json; runtime-final.json; answer-quality.json"
+    },
+    {
+      "number": 5,
+      "requirement": "Reviewed cases plus exposed semantics and real SQL integration",
+      "status": "satisfied_with_recorded_scope",
+      "evidence": "reference-freeze.json; final-focused-tests.xml; software-tests.xml"
+    },
+    {
+      "number": 6,
+      "requirement": "Separate graph correctness, meanings, provenance and final support across four families",
+      "status": "satisfied_with_recorded_scope",
+      "evidence": "runtime-final.json; answer-quality.json; scripts/record_connection_acceptance.py"
+    },
+    {
+      "number": 7,
+      "requirement": "Revision-linked register, failures, limits and follow-up evidence",
+      "status": "satisfied_with_recorded_scope",
+      "evidence": "validation.json; final-inputs.json; review.md; regressions.json; docs/checklists/ask-phil-profile.md"
+    }
+  ],
+  "software_and_quality_are_separate": true,
+  "broad_release_gates_remain_pending": true
+}

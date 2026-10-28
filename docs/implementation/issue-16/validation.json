@@ -1,0 +1,116 @@
+{
+  "captured_at": "2026-10-28T10:25:14.704125+00:00",
+  "base_revision": "2412c23172b7c343a37ce23463fd0ecece98920e",
+  "tested_application_revision": "e2eb7f5e8c3f87ee2b1900445927d1debd697ad5",
+  "packaging_revision": "4b883ede085d83750344220ccc60c46c6ae2a233",
+  "application_sha256": "0683df20b3390ce90d5ff8938b8ace51f2305409915c0974e87647d78b70a5f0",
+  "software": {
+    "tests": 514,
+    "failures": 0,
+    "errors": 0,
+    "skipped": 0,
+    "seconds": 1273.279,
+    "passed": 514,
+    "full_suite_runs": 1,
+    "exit_code": 0,
+    "command": "ASK_PHIL_TEST_DATABASE_URL=LOCAL_DISPOSABLE_POSTGRES PREFECT_HOME=/tmp/issue-16-suite-prefect PREFECT_SERVER_ANALYTICS_ENABLED=false MLFLOW_DISABLE_AGENT_HINT=1 .venv/bin/pytest -q -p no:cacheprovider --durations=15 --junitxml=docs/implementation/issue-16/software-tests.xml",
+    "report": "software-tests.xml",
+    "report_sha256": "e180e26c94d70b6388222003f9ff671c87e4ee4521a1b8600de3bbc18d864950",
+    "log": "software-tests.log",
+    "log_sha256": "c4655b6cded33f9ae27350ca018b7b937cf896625cbe4781a855f946ac925976",
+    "final_focused_passed": 33,
+    "affected_graph_regressions_passed": 30,
+    "strict_mypy": {
+      "passed": true,
+      "files": 116
+    },
+    "ruff_lint": true,
+    "ruff_format": true
+  },
+  "input_linkage": {
+    "native_freeze": "software-inputs.json",
+    "native_frozen_files": 167,
+    "unchanged_native_files": 166,
+    "native_change_exception": "Dockerfile gained one test-fixture COPY after the native suite started; no Python source, test, model setting or data changed. The image build and focused four-family contract separately verify that packaging.",
+    "packaging_validation": "packaging-validation.json",
+    "final_published_inputs": "final-inputs.json",
+    "final_file_hashes_checked": 168,
+    "final_hashes_match": true
+  },
+  "reviews": {
+    "report": "review.md",
+    "standards_hard_violations": 0,
+    "standards_actionable_judgments": 0,
+    "spec_initial_findings": 1,
+    "spec_resolved_findings": 1,
+    "spec_remaining_findings": 0,
+    "finding": "P2 biological-history fallback bypassed family admission; family-only traversal and typed-step rejection repair it."
+  },
+  "runtime": {
+    "artifact": "runtime-final.json",
+    "sha256": "e6d2296e7b58532f2731b72483e18fe1ca35debeb2f41dc7edd412bbeebc2bc5",
+    "public_responses": 17,
+    "reference_cases": 10,
+    "component_scores": {
+      "result_correct": {
+        "passed": 17,
+        "cases": 17
+      },
+      "step_meanings_correct": {
+        "passed": 17,
+        "cases": 17
+      },
+      "provenance_resolves": {
+        "passed": 17,
+        "cases": 17
+      }
+    },
+    "all_actual_trace_outputs_match": true,
+    "all_citations_resolve": true,
+    "original_responses_survive_restart": true,
+    "session_resets": 2,
+    "independent_factual_support": {
+      "passed": 11,
+      "applicable": 11,
+      "not_applicable": 6
+    },
+    "independent_outcome_qualification": {
+      "passed": 17,
+      "applicable": 17
+    },
+    "quality": "answer-quality.json",
+    "exact_review_content_comparison": "runtime-review-comparison.json",
+    "final_traces_and_citations_independently_rechecked": true
+  },
+  "preservation": {
+    "original_workspace_files": 51,
+    "original_data_files": 37,
+    "private_files": 2,
+    "protected_original_files": 90,
+    "changed": [],
+    "private_key_file_mode": "0o600",
+    "private_key_directory_mode": "0o700"
+  },
+  "paid_model_calls": 0,
+  "shared_ledger_usd": 0.464981,
+  "unsettled_reservations": 0,
+  "checklist_status_counts": {
+    "Pass": 35,
+    "Pending": 16,
+    "Deferred": 1,
+    "N/A": 12
+  },
+  "limitations": [
+    "Exposed curated graph capability; no new extraction score, held-out accuracy, human canon adjudication or independent corroboration.",
+    "Eleven factual responses and six assertion-free outcomes are separate applicability denominators; transport repetitions are not independent factual examples.",
+    "No explicitly false event account is served in the new runtime; prior event evidence and unchanged rendering cover it.",
+    "Broad checked graph coverage, investigator/routing, feedback, fusion/cache and release acceptance remain later work."
+  ],
+  "packaging": {
+    "report": "packaging-validation.json",
+    "build_passed": true,
+    "container_test_passed": 1,
+    "seconds": 28.64,
+    "application_and_fixture_hashes_match": true
+  }
+}

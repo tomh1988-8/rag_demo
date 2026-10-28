@@ -1,6 +1,6 @@
 # 15: Trace evidenced connections between characters
 
-Status: approved and published as [GitHub #16](https://github.com/tomh1988-8/rag_demo/issues/16), labelled ready-for-agent; body and label verified on 23 September 2026. Plan version: 2. Implementation has not started.
+Status: implemented and validated as [GitHub #16](https://github.com/tomh1988-8/rag_demo/issues/16). [Implementation evidence](../../implementation/issue-16/README.md) records all seven criteria, 514 passing software tests, separate four-family runtime/source-review results and the repaired admission-bypass finding. Publication and tracker closure are recorded with the issue evidence. Plan version: 2.
 
 Spec stories: S17, S18, S20, S21, S22, S24, S25, S27, S28, S29, S34, S38, S39, S49, S52, S68, S72, S73, S81, S86. Checklist evidence owner for: RAG-04.
 
@@ -16,13 +16,13 @@ Compose the established relationship and event capabilities into a typed, bounde
 
 ## Acceptance criteria
 
-- [ ] Define permitted edge/role combinations, direction and traversal bounds. Preserve biological versus social relationships and event participant roles throughout a composed path.
-- [ ] Return a supported explanation, path and evidence for every asserted step through the API and CLI, with an explicit graph override and actual snapshot/trace. Derived meanings must follow from the path rather than being invented by prose generation.
-- [ ] Exclude connections based only on shared themes, co-appearance, unchecked/held claims or links to performers. Prevent cycles or repeated nodes from causing unbounded work.
-- [ ] Support acceptable alternative evidenced paths where the reference permits them. No path in the bounded captured graph is reported as limited coverage, not proof that no connection exists in the programme.
-- [ ] Begin with reviewed direct, multi-step, alternative-path, misleading-role, no-path and cycle cases. Unit-test exposed path semantics and integrate real SQL-backed traversal, provenance and API/CLI outputs.
-- [ ] Evaluate graph result correctness, path/edge meanings, provenance and final derived-answer support separately. Verify all four agreed graph families through their public contracts without requiring one exact internal traversal sequence.
-- [ ] Record applicable checklist results and revision-linked evidence in the project register, including failures, limitations and follow-up regressions. A documented plan alone does not pass an implementation check.
+- [x] Define permitted edge/role combinations, direction and traversal bounds. Preserve biological versus social relationships and event participant roles throughout a composed path.
+- [x] Return a supported explanation, path and evidence for every asserted step through the API and CLI, with an explicit graph override and actual snapshot/trace. Derived meanings must follow from the path rather than being invented by prose generation.
+- [x] Exclude connections based only on shared themes, co-appearance, unchecked/held claims or links to performers. Prevent cycles or repeated nodes from causing unbounded work.
+- [x] Support acceptable alternative evidenced paths where the reference permits them. No path in the bounded captured graph is reported as limited coverage, not proof that no connection exists in the programme.
+- [x] Begin with reviewed direct, multi-step, alternative-path, misleading-role, no-path and cycle cases. Unit-test exposed path semantics and integrate real SQL-backed traversal, provenance and API/CLI outputs.
+- [x] Evaluate graph result correctness, path/edge meanings, provenance and final derived-answer support separately. Verify all four agreed graph families through their public contracts without requiring one exact internal traversal sequence.
+- [x] Record applicable checklist results and revision-linked evidence in the project register, including failures, limitations and follow-up regressions. A documented plan alone does not pass an implementation check.
 
 ## Checklist evidence
 

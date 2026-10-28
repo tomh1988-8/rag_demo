@@ -1,0 +1,147 @@
+{
+  "captured_at": "2026-10-28T10:04:45.889504+00:00",
+  "initial": "runtime-initial.json",
+  "accepted": "runtime-final.json",
+  "final_application_sha256": "0683df20b3390ce90d5ff8938b8ace51f2305409915c0974e87647d78b70a5f0",
+  "compared_fields": [
+    "question",
+    "status",
+    "answer",
+    "unanswered",
+    "qualifications",
+    "citations",
+    "source",
+    "retrieved",
+    "context",
+    "context_claims",
+    "review_notices",
+    "graph",
+    "route",
+    "route_override",
+    "prompt_sha256",
+    "usage"
+  ],
+  "cases": [
+    {
+      "case_id": "direct-adoption",
+      "reviewed_response_fields_match": true,
+      "trace_output_matches": true,
+      "citations_resolve": true,
+      "final_trace_id": "tr-8f902b2a9e8b227467c108cb02f17636"
+    },
+    {
+      "case_id": "biological-grandchild",
+      "reviewed_response_fields_match": true,
+      "trace_output_matches": true,
+      "citations_resolve": true,
+      "final_trace_id": "tr-ed7d7011b98aa85a7472c4b89cd8684d"
+    },
+    {
+      "case_id": "alternative-parent",
+      "reviewed_response_fields_match": true,
+      "trace_output_matches": true,
+      "citations_resolve": true,
+      "final_trace_id": "tr-f40475f13f0534dfa98d6ca3523be70a"
+    },
+    {
+      "case_id": "misleading-conviction",
+      "reviewed_response_fields_match": true,
+      "trace_output_matches": true,
+      "citations_resolve": true,
+      "final_trace_id": "tr-2fcf972302c62acdb8e661ba98761d5b"
+    },
+    {
+      "case_id": "composed-family-event",
+      "reviewed_response_fields_match": true,
+      "trace_output_matches": true,
+      "citations_resolve": true,
+      "final_trace_id": "tr-35505bfe4d7e9c4eb9f80bdbb4396fa0"
+    },
+    {
+      "case_id": "no-path",
+      "reviewed_response_fields_match": true,
+      "trace_output_matches": true,
+      "citations_resolve": true,
+      "final_trace_id": "tr-96a807295383d8df2a6a165286d5aa19"
+    },
+    {
+      "case_id": "cycle",
+      "reviewed_response_fields_match": true,
+      "trace_output_matches": true,
+      "citations_resolve": true,
+      "final_trace_id": "tr-4253c7a862ae2d9d7a24324d3e332012"
+    },
+    {
+      "case_id": "theme-is-not-connection",
+      "reviewed_response_fields_match": true,
+      "trace_output_matches": true,
+      "citations_resolve": true,
+      "final_trace_id": "tr-7afd25a5a144fa720342b705de58f361"
+    },
+    {
+      "case_id": "depth-bound",
+      "reviewed_response_fields_match": true,
+      "trace_output_matches": true,
+      "citations_resolve": true,
+      "final_trace_id": "tr-a52a7c514c1d14380a4abd015827e692"
+    },
+    {
+      "case_id": "performer",
+      "reviewed_response_fields_match": true,
+      "trace_output_matches": true,
+      "citations_resolve": true,
+      "final_trace_id": "tr-16452335cc105b4d2d44d0fe56434866"
+    },
+    {
+      "case_id": "grandparent-cli",
+      "reviewed_response_fields_match": true,
+      "trace_output_matches": true,
+      "citations_resolve": true,
+      "final_trace_id": "tr-9c4d4c4640c7eb87d10dbe12a9890177"
+    },
+    {
+      "case_id": "roles-cli",
+      "reviewed_response_fields_match": true,
+      "trace_output_matches": true,
+      "citations_resolve": true,
+      "final_trace_id": "tr-f92f27666218615eb6f4ac716ab1b590"
+    },
+    {
+      "case_id": "composed-session",
+      "reviewed_response_fields_match": true,
+      "trace_output_matches": true,
+      "citations_resolve": true,
+      "final_trace_id": "tr-f44544e29b85f06ba01c85494b42fef9"
+    },
+    {
+      "case_id": "no-path-session",
+      "reviewed_response_fields_match": true,
+      "trace_output_matches": true,
+      "citations_resolve": true,
+      "final_trace_id": "tr-2591f71c37537dedb372bb5a64cd8993"
+    },
+    {
+      "case_id": "family-contract",
+      "reviewed_response_fields_match": true,
+      "trace_output_matches": true,
+      "citations_resolve": true,
+      "final_trace_id": "tr-6f44cfc2acf70d2333355fb4de144315"
+    },
+    {
+      "case_id": "relationship-contract",
+      "reviewed_response_fields_match": true,
+      "trace_output_matches": true,
+      "citations_resolve": true,
+      "final_trace_id": "tr-e1222a0f71425c6f3fa61801efafe1e2"
+    },
+    {
+      "case_id": "event-contract",
+      "reviewed_response_fields_match": true,
+      "trace_output_matches": true,
+      "citations_resolve": true,
+      "final_trace_id": "tr-da0917b8ffb9f0ae38a3d41da493849d"
+    }
+  ],
+  "all_match": true,
+  "limitation": "Content equality transfers the independent source review. The final runner separately reads actual final MLflow outputs; transport repetitions are not independent factual examples."
+}
