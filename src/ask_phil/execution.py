@@ -8,7 +8,7 @@ from contextvars import ContextVar
 from decimal import Decimal
 from pathlib import Path
 from threading import Event
-from typing import Literal
+from typing import Literal, NoReturn
 
 from pydantic import Field
 
@@ -20,7 +20,7 @@ class ExecutionLimits(Record):
     tool_calls: int = Field(default=1, ge=0, le=20)
     http_calls: int = Field(default=8, ge=0, le=100)
     seconds: float = Field(default=180, gt=0, le=600, allow_inf_nan=False)
-    context_bytes: int = Field(default=1200, ge=2, le=1200)
+    context_bytes: int = Field(default=1200, ge=2, le=6000)
     spend_usd: Decimal = Field(default=Decimal("0.15"), ge=0, le=1, allow_inf_nan=False)
     retries: Literal[0] = 0
     capabilities: tuple[
@@ -37,6 +37,12 @@ class ExecutionLimits(Record):
 class ExecutionPolicies(Record):
     serving: ExecutionLimits = ExecutionLimits()
     offline_evaluation: ExecutionLimits = ExecutionLimits(concurrency=1)
+    investigation_serving: ExecutionLimits = ExecutionLimits(
+        model_calls=8, tool_calls=4, http_calls=24, context_bytes=4000, concurrency=1
+    )
+    investigation_offline_evaluation: ExecutionLimits = ExecutionLimits(
+        model_calls=8, tool_calls=4, http_calls=24, context_bytes=4000, concurrency=1
+    )
     online_evaluation: ExecutionLimits = ExecutionLimits(
         model_calls=1,
         tool_calls=0,
@@ -45,6 +51,17 @@ class ExecutionPolicies(Record):
         concurrency=1,
     )
     online_enabled: bool = False
+
+    def for_request(
+        self, route: str, category: Literal["serving", "offline_evaluation"] = "serving"
+    ) -> ExecutionLimits:
+        if route == "investigation":
+            return (
+                self.investigation_serving
+                if category == "serving"
+                else self.investigation_offline_evaluation
+            )
+        return self.serving if category == "serving" else self.offline_evaluation
 
     @classmethod
     def from_environment(cls) -> "ExecutionPolicies":
@@ -64,6 +81,7 @@ class ExecutionRecord(Record):
     http_calls: int
     reserved_usd: Decimal
     stop_reason: str | None
+    context_bytes: int | None = Field(default=None, exclude_if=lambda v: v is None)
 
 
 class ExecutionStopped(RuntimeError):
@@ -81,12 +99,13 @@ class ExecutionBudget:
         self._reserved = Decimal(0)
         self._last_reservation = Decimal(0)
         self._stop_reason: str | None = None
+        self._context_bytes: int | None = None
 
     @property
     def remaining_seconds(self) -> float:
         return max(0, self.limits.seconds - (time.monotonic() - self.started))
 
-    def stop(self, reason: str) -> None:
+    def stop(self, reason: str) -> NoReturn:
         self.record_stop(reason)
         raise ExecutionStopped(self._stop_reason)
 
@@ -130,6 +149,15 @@ class ExecutionBudget:
         self._reserved += reservation
         self._last_reservation = reservation
 
+    def context(self, size: int) -> None:
+        """Bound the entire retained investigation context, including tool observations."""
+        self.check()
+        if size < 0:
+            raise ValueError("Context size must be nonnegative.")
+        if size > self.limits.context_bytes:
+            self.stop("context_limit")
+        self._context_bytes = max(size, self._context_bytes or 0)
+
     def settle(self, actual_usd: Decimal | None) -> None:
         if actual_usd is not None:
             if not actual_usd.is_finite() or actual_usd < 0:
@@ -145,6 +173,7 @@ class ExecutionBudget:
             http_calls=self._http_calls,
             reserved_usd=self._reserved,
             stop_reason=self._stop_reason,
+            context_bytes=self._context_bytes,
         )
 
     @contextmanager

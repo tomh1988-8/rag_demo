@@ -13,6 +13,7 @@ from ask_phil.event_graph import EventQuery, EventResult
 from ask_phil.evidence import Fingerprint, Identifier, Passage, PublicationRef, Record, Source
 from ask_phil.execution import ExecutionRecord
 from ask_phil.family_graph import FamilyQuery, FamilyResult
+from ask_phil.investigation_records import InvestigationRecord
 from ask_phil.models import (
     LOCAL_COST_SCOPE,
     LOCAL_LIMITATION,
@@ -105,7 +106,7 @@ Always call synthetic material synthetic; it is not EastEnders canon."""
 class AskRequest(Record):
     snapshot_id: Identifier | None = None
     question: Annotated[str, StringConstraints(strip_whitespace=True, min_length=1, max_length=500)]
-    route: Literal["text_rag", "graph"] = "text_rag"
+    route: Literal["text_rag", "graph", "investigation"] = "text_rag"
     graph: FamilyQuery | RelationshipQuery | EventQuery | ConnectionQuery | None = None
 
     @model_validator(mode="after")
@@ -144,14 +145,15 @@ class AnswerRecord(Record):
     context_claims: tuple[ContextClaim, ...] = Field(default=(), exclude_if=lambda v: not v)
     review_notices: tuple[ReviewNotice, ...] = Field(default=(), exclude_if=lambda v: not v)
     retrieval_k: int
-    route: Literal["text_rag", "graph"] = "text_rag"
+    route: Literal["text_rag", "graph", "investigation"] = "text_rag"
     route_override: bool = Field(default=False, exclude_if=lambda v: not v)
     graph: FamilyResult | RelationshipResult | EventResult | ConnectionResult | None = Field(
         default=None, exclude_if=lambda v: v is None
     )
-    baseline_version: Literal["single-query-uncached-v1", "single-query-uncached-v2"] = (
-        "single-query-uncached-v1"
-    )
+    investigation: InvestigationRecord | None = Field(default=None, exclude_if=lambda v: v is None)
+    baseline_version: Literal[
+        "single-query-uncached-v1", "single-query-uncached-v2", "bounded-investigator-v1"
+    ] = "single-query-uncached-v1"
     model_settings: ModelSettings | OpenRouterSettings | None
     prompt_sha256: Fingerprint
     application_sha256: Fingerprint
@@ -230,8 +232,9 @@ class AnswerContent:
     review_notices: tuple[ReviewNotice, ...] = ()
     retrieved: tuple[RetrievedPassage, ...] = ()
     retrieval_k: int = 0
-    baseline_version: Literal["single-query-uncached-v1", "single-query-uncached-v2"] = (
-        "single-query-uncached-v1"
-    )
+    baseline_version: Literal[
+        "single-query-uncached-v1", "single-query-uncached-v2", "bounded-investigator-v1"
+    ] = "single-query-uncached-v1"
     model_settings: ModelSettings | OpenRouterSettings | None = None
     graph: FamilyResult | RelationshipResult | EventResult | ConnectionResult | None = None
+    investigation: InvestigationRecord | None = None

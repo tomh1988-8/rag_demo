@@ -12,7 +12,7 @@ from ask_phil.event_graph import EventGraph, EventQuery, EventResult
 from ask_phil.evidence import SourceSnapshot
 from ask_phil.execution import ExecutionBudget, ExecutionLimits, ExecutionStopped
 from ask_phil.family_graph import FamilyGraph, FamilyQuery, FamilyResult
-from ask_phil.publications import PublicationStore
+from ask_phil.publications import ActivePublication, PublicationStore
 from ask_phil.relationship_graph import RelationshipGraph, RelationshipQuery, RelationshipResult
 from ask_phil.storage import EvidenceStore
 
@@ -27,13 +27,14 @@ class GraphExecution:
         snapshot_id: str | None,
         *,
         execution: ExecutionBudget | ExecutionLimits,
+        publication: ActivePublication | None = None,
     ) -> None:
         self._database_url = database_url
         self._budget = (
             execution if isinstance(execution, ExecutionBudget) else ExecutionBudget(execution)
         )
         with self._active():
-            self.publication = PublicationStore(database_url).pin(snapshot_id)
+            self.publication = PublicationStore(database_url).pin(snapshot_id, pinned=publication)
         self._snapshot_id = snapshot_id or (
             self.publication.manifest.snapshot_id if self.publication else ""
         )

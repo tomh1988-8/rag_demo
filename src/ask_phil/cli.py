@@ -67,7 +67,7 @@ def main() -> int:
     ask.add_argument("query")
     ask.add_argument("--snapshot", help="Defaults to the active publication.")
     ask.add_argument("--session", type=Path, help="Private receipt from start-session.")
-    ask.add_argument("--route", choices=("text_rag", "graph"), default="text_rag")
+    ask.add_argument("--route", choices=("text_rag", "graph", "investigation"), default="text_rag")
     ask.add_argument("--character", help="Reviewed character ID for an explicit graph query.")
     graph_kind = ask.add_mutually_exclusive_group()
     graph_kind.add_argument("--direction", choices=("ancestors", "descendants"))

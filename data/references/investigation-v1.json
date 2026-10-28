@@ -1,0 +1,102 @@
+{
+  "version": 1,
+  "split": "exposed_development",
+  "synthetic": false,
+  "snapshot_id": "connections-pilot-v1",
+  "snapshot_file_sha256": "52059b75376a5e0c82116285eb3fee592c9f3139dbadd336d0f35713ea82402b",
+  "claim_reference_sha256": "51ed3a8d417aea0773a02eec5a554fd41ba2cbef62e118008a48227451806123",
+  "review_note": "Implementer source check before paid calls, reusing the retained source-reviewed family and event assertions. These curated capability cases are exposed development data. They are not an extraction, held-out, independently corroborated canon or release-quality pass. Independent final-response review is separate.",
+  "cases": [
+    {
+      "case_id": "single-pregnancy",
+      "group_id": "sharon-christmas-pregnancy",
+      "category": "single-passage-sufficient",
+      "question": "What does the captured evidence say about Sharon Watts discovering she was pregnant on Christmas Day 2005?",
+      "answerable": true,
+      "expected_status": "answered",
+      "expected_stops": [
+        "completed"
+      ],
+      "relevant_ids": [
+        "sharon-christmas-pregnancy"
+      ],
+      "required_facts": [
+        {
+          "fact": "Sharon discovers she is pregnant on Christmas Day 2005.",
+          "sufficient_sets": [
+            [
+              "sharon-christmas-pregnancy"
+            ]
+          ]
+        }
+      ],
+      "forbidden_assertions": [
+        "Pregnancy proves the identity of the biological father."
+      ],
+      "acceptable_strategies": "Captured text or typed life-event query. No exact call order is required."
+    },
+    {
+      "case_id": "multi-family",
+      "group_id": "mitchell-biological-parentage",
+      "category": "multi-source-multi-fact",
+      "question": "Who are Ben Mitchell's biological parents, and who is Phil Mitchell's biological mother?",
+      "answerable": true,
+      "expected_status": "answered",
+      "expected_stops": [
+        "completed"
+      ],
+      "relevant_ids": [
+        "family-ben-birth",
+        "history-ben-birth",
+        "family-peggy-phil",
+        "peggy-pregnancy"
+      ],
+      "required_facts": [
+        {
+          "fact": "Phil Mitchell and Kathy Beale are Ben Mitchell's biological parents.",
+          "sufficient_sets": [
+            [
+              "family-ben-birth"
+            ],
+            [
+              "history-ben-birth"
+            ]
+          ]
+        },
+        {
+          "fact": "Peggy Mitchell is Phil Mitchell's biological mother.",
+          "sufficient_sets": [
+            [
+              "family-peggy-phil"
+            ],
+            [
+              "peggy-pregnancy"
+            ]
+          ]
+        }
+      ],
+      "forbidden_assertions": [
+        "An adoptive or step tie establishes biological ancestry."
+      ],
+      "acceptable_strategies": "One sufficient biological traversal, several typed queries, several text searches, or a mixture. Both facts require acquired context."
+    },
+    {
+      "case_id": "unsupported-theme",
+      "group_id": "unsupported-manosphere-coverage",
+      "category": "insufficient-evidence",
+      "question": "How did Phil Mitchell respond to the manosphere?",
+      "answerable": false,
+      "expected_status": "insufficient_evidence",
+      "expected_stops": [
+        "completed"
+      ],
+      "relevant_ids": [],
+      "required_facts": [],
+      "forbidden_assertions": [
+        "Absence of this subject in the captured material proves it never happened.",
+        "A different captured incident answers the requested manosphere question."
+      ],
+      "acceptable_strategies": "Bounded captured search and/or typed ineligible theme result followed by an explicit coverage-qualified abstention."
+    }
+  ]
+}

@@ -83,7 +83,9 @@ def create_app(
     sessions = ConversationSessions(database_url, clock=session_clock)
     policies = ExecutionPolicies.from_environment()
     if execution_limits is not None:
-        policies = policies.model_copy(update={"serving": execution_limits})
+        policies = policies.model_copy(
+            update={"serving": execution_limits, "investigation_serving": execution_limits}
+        )
     app = FastAPI(title="Ask Phil evidence inspection", version="0.1.0")
     service = (
         AnswerService(database_url, models, answer_tracking_uri, policies=policies)
@@ -137,7 +139,7 @@ def create_app(
         http_request: Request,
         authorization: Annotated[str | None, Header()] = None,
     ) -> AnswerReceipt:
-        budget = ExecutionBudget(policies.serving)
+        budget = ExecutionBudget(policies.for_request(request.route))
         return await connected_answer(
             http_request,
             budget,
@@ -246,7 +248,7 @@ def create_app(
 
     @app.post("/v1/answers")
     async def standalone_answer(request: AskRequest, http_request: Request) -> AnswerReceipt:
-        budget = ExecutionBudget(policies.serving)
+        budget = ExecutionBudget(policies.for_request(request.route))
         return await connected_answer(
             http_request, budget, partial(answer, request, execution=budget)
         )

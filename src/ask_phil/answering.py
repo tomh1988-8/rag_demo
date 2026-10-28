@@ -15,6 +15,7 @@ from ask_phil.answers import AnswerReceipt, AnswerRecord, AskRequest
 from ask_phil.conversation import ReferenceTurn, TurnIdentity
 from ask_phil.execution import ExecutionBudget, ExecutionPolicies
 from ask_phil.family_answering import FamilyAnswer
+from ask_phil.investigation import Investigation
 from ask_phil.models import ModelConfigurationError, Models
 from ask_phil.responses import ResponseLedger
 from ask_phil.retrieval import TextRetriever
@@ -41,9 +42,19 @@ class AnswerService:
     ) -> None:
         self.database_url = database_url
         self.policies = policies or ExecutionPolicies.from_environment()
+        categories: tuple[Literal["serving", "offline_evaluation"], ...] = (
+            "serving",
+            "offline_evaluation",
+        )
         self._slots = {
             category: BoundedSemaphore(getattr(self.policies, category).concurrency)
-            for category in ("serving", "offline_evaluation")
+            for category in categories
+        }
+        self._investigation_slots = {
+            category: BoundedSemaphore(
+                self.policies.for_request("investigation", category).concurrency
+            )
+            for category in categories
         }
         self._models = models
         self._retriever: TextRetriever | None = None
@@ -100,16 +111,23 @@ class AnswerService:
         history: tuple[ReferenceTurn, ...] = (),
         execution: ExecutionBudget | None = None,
     ) -> AnswerReceipt:
-        budget = execution or ExecutionBudget(getattr(self.policies, category))
+        budget = execution or ExecutionBudget(self.policies.for_request(request.route, category))
         with budget.activate():
             acquired = self._slots[category].acquire(blocking=False)
             if not acquired:
                 budget.record_stop("concurrency_limit")
+            investigator_acquired = False
+            if request.route == "investigation":
+                investigator_acquired = self._investigation_slots[category].acquire(blocking=False)
+                if not investigator_acquired:
+                    budget.record_stop("concurrency_limit")
             try:
                 return self._ask(request, category, turn, history, budget)
             finally:
                 if acquired:
                     self._slots[category].release()
+                if investigator_acquired:
+                    self._investigation_slots[category].release()
 
     def _ask(
         self,
@@ -120,13 +138,18 @@ class AnswerService:
         budget: ExecutionBudget,
     ) -> AnswerReceipt:
         started = time.perf_counter()
-        route: TextAnswer | FamilyAnswer
+        route: TextAnswer | FamilyAnswer | Investigation
         if request.route == "graph":
             route = FamilyAnswer(self.database_url, request.snapshot_id, budget)
         else:
             models, retriever = self._text_resources()
             request = request.model_copy(update={"question": models.redact(request.question)})
-            route = TextAnswer(models, retriever.pin(request.snapshot_id))
+            pinned = retriever.pin(request.snapshot_id)
+            route = (
+                Investigation(self.database_url, models, pinned)
+                if request.route == "investigation"
+                else TextAnswer(models, pinned)
+            )
         response_id = uuid4()
         experiment_id = experiment_for(self.tracking, category)
         with mlflow.start_span(
@@ -137,7 +160,7 @@ class AnswerService:
                 {
                     "response_id": str(response_id),
                     "expenditure_category": category,
-                    "route_override": request.route == "graph",
+                    "route_override": request.route != "text_rag",
                 }
             )
             if route.publication:
@@ -172,8 +195,9 @@ class AnswerService:
                 review_notices=content.review_notices,
                 retrieval_k=content.retrieval_k,
                 route=request.route,
-                route_override=request.route == "graph",
+                route_override=request.route != "text_rag",
                 graph=content.graph,
+                investigation=content.investigation,
                 baseline_version=content.baseline_version,
                 model_settings=content.model_settings,
                 prompt_sha256=content.prompt_sha256,
