@@ -47,8 +47,11 @@ presentation from detached journal records, including failed verification.
 identifiers and the default unresolved outcome. Text answering supplies its
 retained context except on failed generation; investigation supplies only the
 passages its coverage assessment has resolved. Both retain the complete source
-passages in citations. The shared implementation retains investigation's
-conservative excerpt allowance so required route labels still fit.
+passages in citations. The shared implementation sizes the complete reply,
+including required classification qualifications and synthetic-source labels.
+It uses citation-only support wording when excerpts would overflow. If the
+qualifications alone cannot fit, it returns insufficient evidence and retains
+the captured context, without presenting an unqualified cited fact.
 
 ## Regression evidence
 
@@ -66,3 +69,10 @@ conservative excerpt allowance so required route labels still fit.
   because source files were edited during that check. Its failed artifact showed
   the differing application fingerprint. Integration checks were then rerun with
   stable software inputs.
+- All 53 affected execution, investigation/cloud and graph-acceptance checks then
+  passed on stable inputs. Strict mypy passed all 126 files; Ruff and formatting
+  passed.
+- The independent Spec review found that required classification qualifications
+  were appended after the initial size guard. New returned-answer tests reproduced
+  the overflow in both routes. The fix sizes those qualifications with the reply;
+  an additional case checks bounded abstention when the qualification cannot fit.

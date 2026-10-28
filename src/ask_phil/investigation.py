@@ -150,6 +150,7 @@ class Investigation:
         calls: list[ModelExecution] = []
         draft: Draft | None = None
         stop_reason = "completed"
+        stopped = False
         try:
             budget.check()
             self.pinned.verify()
@@ -243,17 +244,23 @@ class Investigation:
             )
             budget.record_stop(stop_reason)
             root.set_status("ERROR")
+            stopped = True
             resolved = {eid for c in coverage if c.resolved for eid in c.evidence_ids}
             excerpts = tuple(p for p in tools.context if p.evidence_id in resolved)[:3]
             draft = stopped_answer(
                 stop_reason,
                 excerpts,
-                unanswered=tuple(c.part for c in coverage if not c.resolved)
-                or ("The requested answer is incomplete because execution stopped.",),
+                unanswered=tuple(c.part for c in coverage if not c.resolved),
+                context_claims=tools.context_claims,
+                synthetic=any(
+                    (p.source or self.snapshot.source).support_status == "synthetic_fixture"
+                    for p in tools.context
+                ),
             )
         assert draft is not None
         notices: tuple[ReviewNotice, ...] = ()
         if tools.review_notices:
+            stopped = False
             review = prepare_text_review(
                 self.snapshot, tools.review_notices, budget.limits.context_bytes
             )
@@ -287,9 +294,9 @@ class Investigation:
                 )
         classifications = context_for(tools.context_claims, draft.evidence_ids)
         answer = draft.answer
-        if classifications:
+        if classifications and not stopped:
             answer += "\n" + "\n".join(dict.fromkeys(c.qualification for c in classifications))
-        if any(
+        if not stopped and any(
             (p.source or self.snapshot.source).support_status == "synthetic_fixture"
             for p in tools.context
         ):

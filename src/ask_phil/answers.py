@@ -6,7 +6,7 @@ from uuid import UUID
 
 from pydantic import Field, StringConstraints, field_validator, model_validator
 
-from ask_phil.classified_facts import ContextClaim
+from ask_phil.classified_facts import ContextClaim, context_for
 from ask_phil.connection_graph import ConnectionQuery, ConnectionResult
 from ask_phil.conversation import ConversationReference
 from ask_phil.event_graph import EventQuery, EventResult
@@ -193,25 +193,40 @@ def stopped_answer(
     support: tuple[Passage, ...],
     *,
     unanswered: tuple[str, ...] = (),
+    context_claims: tuple[ContextClaim, ...] = (),
+    synthetic: bool = False,
 ) -> Draft:
-    """Bound stop wording without truncating or dropping the selected citation passages."""
-    prefix = f"Execution stopped: {reason}. "
+    """Size the complete stop reply, including mandatory evidence qualifications."""
+    prefix = "Synthetic example, not EastEnders canon. " if synthetic else ""
+    prefix += f"Execution stopped: {reason}. "
     caveat = (
         " The remaining requested information is unresolved; "
         "this limit does not establish that an event did not happen."
     )
     quoted = " ".join(p.text for p in support)
+    evidence_ids = tuple(p.evidence_id for p in support)
+    classifications = context_for(context_claims, evidence_ids)
+    annotations = (
+        "\n" + "\n".join(dict.fromkeys(c.qualification for c in classifications))
+        if classifications
+        else ""
+    )
     detail = (
         "Captured excerpts: " + quoted if support else "The requested answer remains unresolved."
     )
-    # Retain the investigation's conservative excerpt allowance for source labels
-    # and qualifications added by the route after constructing its draft.
-    if len(quoted) > 1000 or len(prefix + detail + caveat) > _DRAFT_ANSWER_LIMIT:
+    if len(quoted) > 1000 or len(prefix + detail + caveat + annotations) > _DRAFT_ANSWER_LIMIT:
         detail = "Supporting passages are attached as full citations."
+    answer = prefix + detail + caveat + annotations
+    if len(answer) > _DRAFT_ANSWER_LIMIT:
+        # An unqualified fact is unsafe; retain the context and abstain from citing it.
+        answer = (
+            prefix + "The required evidence qualifications cannot fit within this reply." + caveat
+        )
+        evidence_ids = ()
     return Draft(
-        answer=prefix + detail + caveat,
-        status="partial" if support else "insufficient_evidence",
-        evidence_ids=tuple(p.evidence_id for p in support),
+        answer=answer,
+        status="partial" if evidence_ids else "insufficient_evidence",
+        evidence_ids=evidence_ids,
         unanswered=unanswered or ("The requested answer is incomplete because execution stopped.",),
         qualifications=(),
     )

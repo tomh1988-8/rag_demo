@@ -91,6 +91,7 @@ class TextAnswer:
             update={"usage": TokenUsage(input_tokens=0, output_tokens=0, embedding_tokens=0)}
         )
         failure = False
+        stopped = False
         notices: tuple[ReviewNotice, ...] = ()
         review = ReviewExplanation()
         clarification = conversation.reference.clarification if conversation else None
@@ -198,11 +199,20 @@ class TextAnswer:
                 )
             root.set_status("ERROR")
             failure = reason in {"provider_failure", "malformed_output"}
-            draft = stopped_answer(reason, () if failure else context)
+            stopped = True
+            draft = stopped_answer(
+                reason,
+                () if failure else context,
+                context_claims=retrieved.context_claims,
+                synthetic=any(
+                    (p.source or snapshot.source).support_status == "synthetic_fixture"
+                    for p in context
+                ),
+            )
             citations = cite_answer(draft, context, snapshot_id)
         classifications = context_for(retrieved.context_claims, (c.evidence_id for c in citations))
         answer = draft.answer
-        if classifications:
+        if classifications and not stopped:
             answer += "\n" + "\n".join(dict.fromkeys(c.qualification for c in classifications))
         return AnswerContent(
             conversation=conversation,
