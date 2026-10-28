@@ -1,5 +1,9 @@
 # Issue #19: factual Phil persona and neutral evidence
 
+Implemented and published at [6611aa0](https://github.com/tomh1988-8/rag_demo/commit/6611aa07a577258a9cc253fc91e3766f2c42e4ad); [issue #19](https://github.com/tomh1988-8/rag_demo/issues/19)
+is closed after exact-tree verification. The [receipt](publication.json) records
+the user's explicit approval and exact seven-criterion tracker readback.
+
 The text prompt keeps Phil's voice in the answer while generated qualifications
 use neutral third-person names. Supported lore is available regardless of Phil's
 interests or personal knowledge. Unsupported premises remain unknown; serious

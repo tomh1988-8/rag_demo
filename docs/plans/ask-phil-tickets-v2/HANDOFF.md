@@ -1,19 +1,38 @@
 # Ask Phil: publication and next-skill handoff
 
-## Issue #19: validated; publication approved
+## Issue #19: persona validation implemented and verified
 
-Issue #19 is implemented and validated at `3906387`: **567 tests** pass, strict
-mypy across 131 files, Ruff/formatting and both independent review axes pass.
-[Evidence](../../implementation/issue-19/README.md) and the
-[frozen validation](../../implementation/issue-19/validation.json) preserve all 72
-actual API/CLI/trace records, original failures and judge/reference limitations.
-The user explicitly approved pushing when complete. Publication and closure are
-prepared; verify the remote tree before applying the prepared tracker body.
-Do not repeat unchanged paid calls or tests. The shared original non-resetting
-$5 ledger is **$0.673627**, zero unsettled reservations. Preserve all 40 original
-data files, all 51 pre-existing user work files and private inputs.
-After verified closure, **#20 is next**; #22/#24 remain unblocked, #18 waits for #24.
-Wait for the user's next implementation instruction before starting another issue.
+Issue #19 is complete after verified publication of [6611aa0](https://github.com/tomh1988-8/rag_demo/commit/6611aa07a577258a9cc253fc91e3766f2c42e4ad).
+[Evidence](../../implementation/issue-19/README.md) records 567 passing
+software tests, strict mypy across 131 files, Ruff/formatting and zero remaining
+findings on both independent review axes. Both axes reproduced and verified the
+repair of an unchecked duplicate factual comparison score; retain its failure,
+passing regression and original/verified comparison artifacts.
+
+All 72 actual API responses across baseline, first candidate and final prompt
+have exact CLI/root-trace/citation readback. All three live application
+fingerprints reconstruct from the frozen source bytes. Neutral appendices improve
+from 21/24 to 24/24; voice, serious-harm and outcome/qualification results remain
+24/24, 8/8 and 24/24. Natural phrasing replaces the mandatory opener. The first
+candidate's unsupported-absence failure is preserved and repaired in both final
+repeats. New labels are source-based agent reviews, not human canon adjudication.
+
+The unchanged human-calibrated support judge agrees with 9/10 new agent labels.
+One strict foreman-role label remains disputed and requires human adjudication
+before broader judge acceptance. The over-specified Jane reference retains one
+conservative coverage miss, not a wrong identification. Original source/extraction
+failures and older judge disagreements remain untouched. No held-out or broad
+release acceptance is claimed; checklist counts stay 35 Pass and 16 Pending.
+
+The original shared non-resetting $5 ledger is **$0.673627**, zero unsettled
+reservations. Seventy-two paid answer calls and ten judge calls report $0.1779852.
+Do not repeat unchanged paid work. Preserve all 40 original data files, the user's
+pre-existing workspace changes and private inputs. The tested source revision is
+`390638759a2ce6ece48a12b144c9d47e3462b119`; subsequent completion publication is
+documentation/evidence only.
+
+**#20 is next.** #22 and #24 also remain unblocked; #18 still waits for #24.
+Wait for the user's next implementation instruction before another issue.
 
 ## Issue #17: bounded investigation published and closed
 

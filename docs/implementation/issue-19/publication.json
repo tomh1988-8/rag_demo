@@ -1,5 +1,5 @@
 {
-  "state": "ready-for-approved-publication",
+  "state": "implemented-published-and-closed",
   "approval": {
     "source": "current user message",
     "quote": "good, i approve pushing when complete",
@@ -22,5 +22,20 @@
   "next_ticket": 20,
   "shared_ledger_usd": 0.673627,
   "unsettled_reservations": 0,
-  "prepared_tracker_body_sha256": "4e8b10d6114ac99c760e2fab1d671bc0607ffc2907b4167a5cdb998da8855201"
+  "prepared_tracker_body_sha256": "4e8b10d6114ac99c760e2fab1d671bc0607ffc2907b4167a5cdb998da8855201",
+  "implementation_publication_commit": "6611aa07a577258a9cc253fc91e3766f2c42e4ad",
+  "implementation_publication_tree": "96fb5725d163aba9fb2cc2318f5e88205525c9e7",
+  "implementation_publication_url": "https://github.com/tomh1988-8/rag_demo/commit/6611aa07a577258a9cc253fc91e3766f2c42e4ad",
+  "remote_head_matches_local": true,
+  "frozen_software_inputs_verified": 183,
+  "validation_artifact_hashes_verified": 29,
+  "verified_at": "2026-10-28T16:31:40.515036+00:00",
+  "issue_state": "CLOSED",
+  "issue_state_reason": "COMPLETED",
+  "issue_closed_at": "2026-10-28T16:31:57Z",
+  "issue_url": "https://github.com/tomh1988-8/rag_demo/issues/19",
+  "tracker_body_exact_match": true,
+  "checked_acceptance_criteria": 7,
+  "tracker_body_sha256": "4e8b10d6114ac99c760e2fab1d671bc0607ffc2907b4167a5cdb998da8855201",
+  "completion_publication_scope": "Documentation-only receipt and handoff; executable software and validation artifacts unchanged."
 }

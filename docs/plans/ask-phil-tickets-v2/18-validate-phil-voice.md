@@ -1,6 +1,6 @@
 # 18: Validate Phil's voice without changing facts
 
-Status: implemented and validated locally for [GitHub #19](https://github.com/tomh1988-8/rag_demo/issues/19). The user approved pushing when complete. [Evidence](../../implementation/issue-19/README.md) records 567 passing tests, zero remaining review findings and the controlled persona comparison. Publication/closure awaits exact remote-tree verification. Plan version: 2; original acceptance criteria retained below.
+Status: complete and closed as [GitHub #19](https://github.com/tomh1988-8/rag_demo/issues/19) after user-approved native publication and exact-tree verification of [6611aa0](https://github.com/tomh1988-8/rag_demo/commit/6611aa07a577258a9cc253fc91e3766f2c42e4ad). [Evidence](../../implementation/issue-19/README.md) records 567 passing tests, zero remaining review findings, actual persona comparisons and retained limitations. [Receipt](../../implementation/issue-19/publication.json) verifies all seven checked criteria and the exact tracker body. Plan version: 2; original acceptance criteria retained below.
 
 Spec stories: S02, S03, S04, S30, S32, S33, S35, S36, S38, S43, S83, S84, S85, S86, S90, S91, S92. Checklist evidence owner for: the extensions and rechecks below; primary ownership is recorded in the project register.
 
