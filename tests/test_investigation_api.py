@@ -1,5 +1,6 @@
 """Bounded investigation through the public API, real storage and external providers."""
 
+import asyncio
 import hashlib
 import json
 import subprocess
@@ -660,8 +661,19 @@ def test_investigation_network_deadline_and_disconnect_cancel_inflight_work(
     with http_server(app) as url:
         body = {"question": "When did Phil arrive?", "route": "investigation"}
         if disconnect:
-            with pytest.raises(httpx.ReadTimeout):
-                httpx.post(url + "/v1/answers", json=body, timeout=0.8)
+
+            async def disconnect_inflight_request() -> None:
+                async with httpx.AsyncClient(trust_env=False, timeout=10) as client:
+                    request = asyncio.create_task(client.post(url + "/v1/answers", json=body))
+                    try:
+                        # Startup/tracing time must not decide whether provider I/O began.
+                        assert await asyncio.to_thread(entered.wait, 5)
+                        assert not request.done(), "The provider must still hold the request."
+                    finally:
+                        request.cancel()
+                        await asyncio.gather(request, return_exceptions=True)
+
+            asyncio.run(disconnect_inflight_request())
         else:
             result = httpx.post(url + "/v1/answers", json=body, timeout=10)
             assert result.status_code == 200, result.text
