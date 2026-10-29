@@ -1,0 +1,158 @@
+{
+  "captured_at": "2026-10-29T08:23:51.278404+00:00",
+  "code_revision": "9f60cea4856740f58a9680b0ff00f384996f77b1",
+  "application_sha256": "fb0feb5e544ebda762ad53e5e230df1df87f572c892932a23215a4f35ea0855b",
+  "prompt_sha256": "1e7473f85c87dfa400293d480c3091eab8950a0cb2fa707a01ba9bf028f78db3",
+  "snapshot_id": "alfie-moon-coverage-v1",
+  "snapshot_sha256": "f90ec4b8e2dbe825aeb65164c8a25576497e038f3daaea0dc765a462cdd0651f",
+  "snapshot_file_sha256": "06dba040a5a8f897a7d42f98f7b0a2f47a58bedd6c46991e0b589465deb3b47c",
+  "reference_sha256": "09af3d296b674e7b67db207f70863a9143ced7fd232f70012bc71720ebac3dc7",
+  "schema_sha256": "8573863eb1966327a8823dd7c00da28eae6a7c87dcc20decc5843e1a66039354",
+  "profile": {
+    "provider_type": "openrouter",
+    "answer_model": "openai/gpt-6-sol",
+    "canonical_slug": "openai/gpt-6-sol-20260922",
+    "provider": "openai",
+    "input_price_per_million": "2",
+    "output_price_per_million": "10",
+    "output_tokens": 8192,
+    "reasoning_effort": "low",
+    "request_timeout_seconds": 180
+  },
+  "expenditure_category": "offline_evaluation",
+  "state": "complete",
+  "raw": "{\"claims\":[{\"claim_id\":\"claim-1\",\"subject_id\":\"alfie-moon\",\"object_id\":\"kat-slater\",\"relation\":\"marriage\",\"episode_id\":\"episode-1\",\"status\":\"unknown\",\"polarity\":\"affirmed\",\"certainty\":\"certain\",\"story_time\":\"Christmas\",\"time_precision\":\"approximate\",\"after_claim_id\":null,\"evidence\":[{\"evidence_id\":\"coverage-alfie-moon\",\"start\":0,\"end\":84,\"quote\":\"Alfie convinces the minister to cancel his Christmas lunch, and Alfie and Kat marry.\"}]}]}",
+  "batch": {
+    "claims": [
+      {
+        "claim_id": "claim-1",
+        "subject_id": "alfie-moon",
+        "object_id": "kat-slater",
+        "relation": "marriage",
+        "episode_id": "episode-1",
+        "status": "unknown",
+        "polarity": "affirmed",
+        "certainty": "certain",
+        "story_time": "Christmas",
+        "time_precision": "approximate",
+        "after_claim_id": null,
+        "evidence": [
+          {
+            "evidence_id": "coverage-alfie-moon",
+            "start": 0,
+            "end": 84,
+            "quote": "Alfie convinces the minister to cancel his Christmas lunch, and Alfie and Kat marry."
+          }
+        ]
+      }
+    ],
+    "snapshot_id": "alfie-moon-coverage-v1",
+    "snapshot_sha256": "f90ec4b8e2dbe825aeb65164c8a25576497e038f3daaea0dc765a462cdd0651f",
+    "catalogue": {
+      "characters": [
+        {
+          "character_id": "alfie-moon",
+          "name": "Alfie Moon",
+          "aliases": [
+            "Alfred William Moon",
+            "Chris Wright"
+          ],
+          "performers": [
+            "Shane Richie"
+          ],
+          "coverage": "core",
+          "wikidata_id": "Q4721932",
+          "review_note": "Codex source inspection, 17 October 2026: captured character article, infobox aliases/performers and revision metadata checked. Prominence-based curated selection, not a ranked or exhaustive canon. Identity linkage is not independent story corroboration.",
+          "evidence_sources": [
+            "alfie-moon-wiki"
+          ]
+        },
+        {
+          "character_id": "kat-slater",
+          "name": "Kat Slater",
+          "aliases": [
+            "Kat Moon",
+            "Kat Mitchell"
+          ],
+          "performers": [
+            "Jessie Wallace",
+            "Kate Peck",
+            "Sumar-Elise Sandford",
+            "Amelia Crouch"
+          ],
+          "coverage": "core",
+          "wikidata_id": "Q3955054",
+          "review_note": "Codex source inspection, 17 October 2026: captured character article, infobox aliases/performers and revision metadata checked. Prominence-based curated selection, not a ranked or exhaustive canon. Identity linkage is not independent story corroboration.",
+          "evidence_sources": [
+            "kat-slater-wiki"
+          ]
+        }
+      ]
+    },
+    "extractor": "openai/gpt-6-sol-20260922"
+  },
+  "score": {
+    "expected": 1,
+    "predicted": 1,
+    "true_positive": 0,
+    "precision": 0.0,
+    "recall": 0.0,
+    "f1": 0.0,
+    "schema_valid": true,
+    "duplicates": 0,
+    "resolvable_spans": 1,
+    "grounded": 0,
+    "episode_pairs_expected": 0,
+    "episode_pairs_correct": 0,
+    "ordering_expected": 0,
+    "ordering_predicted": 0,
+    "ordering_correct": 0,
+    "alignment_limited": false,
+    "by_relation": {
+      "marriage": {
+        "expected": 1,
+        "predicted": 1,
+        "true_positive": 0,
+        "precision": 0.0,
+        "recall": 0.0,
+        "f1": 0.0
+      }
+    },
+    "scope": "Exposed, completely annotated in-catalogue spans only. Match values and unique passage IDs, with frozen timing alternatives; ignore arbitrary claim/episode IDs. Romantic pairs are symmetric; parent/guardian roles are directed. Distinct episode instances retain multiplicity; duplicates within the same episode collapse. One-to-one value matching ignores ID spelling. Ambiguous alignments maximize episode agreement, then ordering; over 4096 alternatives leaves those two scores unavailable. Raw duplicates and full-reference-span grounding are separate. Missing episode pairs fail. This conservative grounding proxy is not independent semantic/canon adjudication."
+  },
+  "usage": {
+    "reservation_id": "2679ec4c2ecc4f7a8cdbb0af31bce06f",
+    "reserved_usd": 0.106614,
+    "cost_usd": 0.0080685,
+    "request_id": "gen-1793262233-ZlcE0c3YmfwApAXcj0nY",
+    "returned_model": "openai/gpt-6-sol",
+    "provider": "OpenAI",
+    "input_tokens": 1764,
+    "output_tokens": 366,
+    "reasoning_tokens": 240
+  },
+  "execution": {
+    "limits": {
+      "model_calls": 1,
+      "tool_calls": 0,
+      "http_calls": 3,
+      "seconds": 180.0,
+      "context_bytes": 1200,
+      "spend_usd": "0.15",
+      "retries": 0,
+      "capabilities": [],
+      "concurrency": 4
+    },
+    "model_calls": 1,
+    "tool_calls": 0,
+    "http_calls": 3,
+    "reserved_usd": "0.0080685",
+    "stop_reason": null
+  },
+  "elapsed_ms": 6843.167505000565,
+  "failure": null,
+  "trace_id": "tr-d9b408b1249a879d0bf1e909d68b7d90",
+  "shared_ledger_usd": 0.81068,
+  "unsettled_reservations": 0,
+  "limitation": "Agent-reviewed exposed labels; no held-out, human or independent canon acceptance."
+}

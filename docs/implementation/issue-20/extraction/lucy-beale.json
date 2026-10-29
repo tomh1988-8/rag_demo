@@ -1,0 +1,172 @@
+{
+  "captured_at": "2026-10-29T08:23:08.978935+00:00",
+  "code_revision": "9f60cea4856740f58a9680b0ff00f384996f77b1",
+  "application_sha256": "fb0feb5e544ebda762ad53e5e230df1df87f572c892932a23215a4f35ea0855b",
+  "prompt_sha256": "4f625c048e5652b6d709eaa5eaf40a170feac91b94df8c2b0ab89c1b05afea1e",
+  "snapshot_id": "lucy-beale-coverage-v1",
+  "snapshot_sha256": "de6f030878bfabcc355f86cc0d018a4934bd15cbc25b06f63764dba7a7185109",
+  "snapshot_file_sha256": "8ca93342b5109a4d3b71c4eb95d447f67e7216a2a26735c78efa91e15c68ae65",
+  "reference_sha256": "6dcd9100ba41d2b9b6b10ff234f20727528e7f747f03161908ba97f37f616b59",
+  "schema_sha256": "753b78b044501f008907d7fead2cef20d64dd0961320420847cb102f265ee53a",
+  "profile": {
+    "provider_type": "openrouter",
+    "answer_model": "openai/gpt-6-sol",
+    "canonical_slug": "openai/gpt-6-sol-20260922",
+    "provider": "openai",
+    "input_price_per_million": "2",
+    "output_price_per_million": "10",
+    "output_tokens": 8192,
+    "reasoning_effort": "low",
+    "request_timeout_seconds": 180
+  },
+  "expenditure_category": "offline_evaluation",
+  "state": "complete",
+  "raw": "{\"claims\":[{\"claim_id\":\"ian-lucy-birth\",\"parent_id\":\"ian-beale\",\"child_id\":\"lucy-beale\",\"parent_role\":\"parent\",\"relation\":\"biological_parent\",\"polarity\":\"affirmed\",\"certainty\":\"certain\",\"story_time\":\"9 December 1993\",\"time_precision\":\"exact\",\"evidence\":[{\"evidence_id\":\"coverage-lucy-beale\",\"start\":0,\"end\":160,\"quote\":\"Lucy and her twin brother Peter Beale (Francis Brittin-Snell) are born off-screen on 9 December 1993, to Ian (Adam Woodyatt) and Cindy Beale (Michelle Collins).\"}]},{\"claim_id\":\"cindy-lucy-birth\",\"parent_id\":\"cindy-beale\",\"child_id\":\"lucy-beale\",\"parent_role\":\"parent\",\"relation\":\"biological_parent\",\"polarity\":\"affirmed\",\"certainty\":\"certain\",\"story_time\":\"9 December 1993\",\"time_precision\":\"exact\",\"evidence\":[{\"evidence_id\":\"coverage-lucy-beale\",\"start\":0,\"end\":160,\"quote\":\"Lucy and her twin brother Peter Beale (Francis Brittin-Snell) are born off-screen on 9 December 1993, to Ian (Adam Woodyatt) and Cindy Beale (Michelle Collins).\"}]}]}",
+  "batch": {
+    "claims": [
+      {
+        "claim_id": "ian-lucy-birth",
+        "parent_id": "ian-beale",
+        "child_id": "lucy-beale",
+        "parent_role": "parent",
+        "relation": "biological_parent",
+        "polarity": "affirmed",
+        "certainty": "certain",
+        "story_time": "9 December 1993",
+        "time_precision": "exact",
+        "evidence": [
+          {
+            "evidence_id": "coverage-lucy-beale",
+            "start": 0,
+            "end": 160,
+            "quote": "Lucy and her twin brother Peter Beale (Francis Brittin-Snell) are born off-screen on 9 December 1993, to Ian (Adam Woodyatt) and Cindy Beale (Michelle Collins)."
+          }
+        ]
+      },
+      {
+        "claim_id": "cindy-lucy-birth",
+        "parent_id": "cindy-beale",
+        "child_id": "lucy-beale",
+        "parent_role": "parent",
+        "relation": "biological_parent",
+        "polarity": "affirmed",
+        "certainty": "certain",
+        "story_time": "9 December 1993",
+        "time_precision": "exact",
+        "evidence": [
+          {
+            "evidence_id": "coverage-lucy-beale",
+            "start": 0,
+            "end": 160,
+            "quote": "Lucy and her twin brother Peter Beale (Francis Brittin-Snell) are born off-screen on 9 December 1993, to Ian (Adam Woodyatt) and Cindy Beale (Michelle Collins)."
+          }
+        ]
+      }
+    ],
+    "snapshot_id": "lucy-beale-coverage-v1",
+    "snapshot_sha256": "de6f030878bfabcc355f86cc0d018a4934bd15cbc25b06f63764dba7a7185109",
+    "catalogue": {
+      "characters": [
+        {
+          "character_id": "ian-beale",
+          "name": "Ian Beale",
+          "aliases": [
+            "Ian Albert Beale"
+          ],
+          "performers": [
+            "Adam Woodyatt"
+          ],
+          "coverage": "core",
+          "wikidata_id": "Q899011",
+          "review_note": "Codex source inspection, 17 October 2026: captured character article, infobox aliases/performers and revision metadata checked. Prominence-based curated selection, not a ranked or exhaustive canon. Identity linkage is not independent story corroboration.",
+          "evidence_sources": [
+            "ian-beale-wiki"
+          ]
+        },
+        {
+          "character_id": "cindy-beale",
+          "name": "Cindy Beale",
+          "aliases": [
+            "Rose Sawyer",
+            "Rose Knight"
+          ],
+          "performers": [
+            "Michelle Collins"
+          ],
+          "coverage": "core",
+          "wikidata_id": "Q5120478",
+          "review_note": "Codex source inspection, 17 October 2026: captured character article, infobox aliases/performers and revision metadata checked. Prominence-based curated selection, not a ranked or exhaustive canon. Identity linkage is not independent story corroboration. The genuine maternal maiden alias Cindy Williams is deliberately withheld because the captured narratives also evidence her daughter of that name; ambiguous names/daughter links remain unresolved until separately catalogued.",
+          "evidence_sources": [
+            "cindy-beale-wiki"
+          ]
+        },
+        {
+          "character_id": "lucy-beale",
+          "name": "Lucy Beale",
+          "aliases": [],
+          "performers": [
+            "Eva Brittin-Snell",
+            "Casey Anne Rothery",
+            "Melissa Suffield",
+            "Hetti Bywater"
+          ],
+          "coverage": "core",
+          "wikidata_id": "Q3304512",
+          "review_note": "Codex source inspection, 17 October 2026: captured character article, infobox aliases/performers and revision metadata checked. Prominence-based curated selection, not a ranked or exhaustive canon. Identity linkage is not independent story corroboration.",
+          "evidence_sources": [
+            "lucy-beale-wiki"
+          ]
+        }
+      ]
+    },
+    "extractor": "openai/gpt-6-sol-20260922"
+  },
+  "score": {
+    "schema_valid": true,
+    "expected": 2,
+    "predicted": 2,
+    "duplicates": 0,
+    "true_positive": 2,
+    "resolvable_spans": 2,
+    "grounded": 2,
+    "precision": 1.0,
+    "recall": 1.0,
+    "f1": 1.0,
+    "scope": "Exact normalized values within each completely annotated selected input passage. Instances match on values and sorted unique passage IDs, independently of quote offsets. Claim IDs are ignored; semantic duplicates within a passage collapse and are counted. Grounding additionally requires the entire independently reviewed supporting span. These exposed development scores are not held-out or broad-corpus quality."
+  },
+  "usage": {
+    "reservation_id": "5c3ed4f4b611418285609c46e4973e48",
+    "reserved_usd": 0.10649,
+    "cost_usd": 0.0109335,
+    "request_id": "gen-1793262189-om3xNxi7mJZ6GwfJXjfY",
+    "returned_model": "openai/gpt-6-sol",
+    "provider": "OpenAI",
+    "input_tokens": 1734,
+    "output_tokens": 660,
+    "reasoning_tokens": 383
+  },
+  "execution": {
+    "limits": {
+      "model_calls": 1,
+      "tool_calls": 0,
+      "http_calls": 3,
+      "seconds": 180.0,
+      "context_bytes": 1200,
+      "spend_usd": "0.15",
+      "retries": 0,
+      "capabilities": [],
+      "concurrency": 4
+    },
+    "model_calls": 1,
+    "tool_calls": 0,
+    "http_calls": 3,
+    "reserved_usd": "0.0109335",
+    "stop_reason": null
+  },
+  "elapsed_ms": 7748.941476999789,
+  "failure": null,
+  "trace_id": "tr-d7ff4b76ed861158e83db5c02d070c4d",
+  "shared_ledger_usd": 0.766258,
+  "unsettled_reservations": 0,
+  "limitation": "Agent-reviewed exposed labels; no held-out, human or independent canon acceptance."
+}

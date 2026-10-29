@@ -1,0 +1,46 @@
+{
+  "source_revision": "416ef2fb73f08531f7eac801dde44dc11ac80fd1",
+  "checks": [
+    {
+      "command": [
+        ".venv/bin/mypy",
+        "src",
+        "tests",
+        "scripts",
+        "docs/implementation/issue-20/record_text.py"
+      ],
+      "exit_code": 0,
+      "elapsed_seconds": 1.5628823160004686,
+      "output": "Success: no issues found in 140 source files\n"
+    },
+    {
+      "command": [
+        ".venv/bin/ruff",
+        "check",
+        "src",
+        "tests",
+        "scripts",
+        "docs/implementation/issue-20/record_text.py"
+      ],
+      "exit_code": 0,
+      "elapsed_seconds": 0.013202417998400051,
+      "output": "All checks passed!\n"
+    },
+    {
+      "command": [
+        ".venv/bin/ruff",
+        "format",
+        "--check",
+        "src",
+        "tests",
+        "scripts",
+        "docs/implementation/issue-20/record_text.py"
+      ],
+      "exit_code": 0,
+      "elapsed_seconds": 0.00787023699922429,
+      "output": "140 files already formatted\n"
+    }
+  ],
+  "frozen_software_inputs_match": true,
+  "frozen_count": 243
+}

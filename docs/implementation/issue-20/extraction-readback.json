@@ -1,0 +1,189 @@
+{
+  "actual_paid_calls": 22,
+  "reported_inference_cost_usd": "0.2329920",
+  "shared_ledger": [
+    0.906625,
+    0
+  ],
+  "source_revision": "9f60cea4856740f58a9680b0ff00f384996f77b1",
+  "application_sha256": "fb0feb5e544ebda762ad53e5e230df1df87f572c892932a23215a4f35ea0855b",
+  "checks": [
+    {
+      "batch_id": "alfie-moon",
+      "record_sha256": "f4fb0bdd42a66b96646d08839921cf240d73ceec3d0fec723e3a56bcb43254c3",
+      "trace_id": "tr-d9b408b1249a879d0bf1e909d68b7d90",
+      "exact_root_output": true,
+      "model_calls": 1,
+      "cost_usd": 0.0080685
+    },
+    {
+      "batch_id": "ben-mitchell",
+      "record_sha256": "fb029f845bcecd49cfc52de95a4b69a088cd9b4d3f3f688afcdb095cab0a2d19",
+      "trace_id": "tr-2fe5e9c3022ea57e1e51a2e86619d8d1",
+      "exact_root_output": true,
+      "model_calls": 1,
+      "cost_usd": 0.0096835
+    },
+    {
+      "batch_id": "bobby-beale",
+      "record_sha256": "044e9803f9751c5019e8f489d018284ef1b63cbe97baee3e9313b7cd0af4198f",
+      "trace_id": "tr-7dd1735641eb289e4c0e67fdb852c5cf",
+      "exact_root_output": true,
+      "model_calls": 1,
+      "cost_usd": 0.0118435
+    },
+    {
+      "batch_id": "cindy-beale",
+      "record_sha256": "7317f4fad5e2da738d28df8e1883c62d8bb950649d056f92262d057dc47738d5",
+      "trace_id": "tr-8d7e8e71b640a587b8fafb1b15a92897",
+      "exact_root_output": true,
+      "model_calls": 1,
+      "cost_usd": 0.006141
+    },
+    {
+      "batch_id": "denise-fox",
+      "record_sha256": "29fe94379a1d1ebb2aead04344e324f97334cc1d22bf25757f1f34586fe0e516",
+      "trace_id": "tr-be8b90c2cf4dd9029548a02fcd71f550",
+      "exact_root_output": true,
+      "model_calls": 1,
+      "cost_usd": 0.008731
+    },
+    {
+      "batch_id": "dot-cotton",
+      "record_sha256": "4c01f57a990b49278880474650aa869cabeb234d05f87190380a6875deb94b81",
+      "trace_id": "tr-7ac0e8f0d11488e129e9291438cd2a7d",
+      "exact_root_output": true,
+      "model_calls": 1,
+      "cost_usd": 0.0074135
+    },
+    {
+      "batch_id": "grant-abuse",
+      "record_sha256": "27d8696f69fee2288df2d8fb923f7f5ae45519da4c480ee0d8416a54ac8cb75e",
+      "trace_id": "tr-0d010597aa538c7a7285f3e3c5db6bf3",
+      "exact_root_output": true,
+      "model_calls": 1,
+      "cost_usd": 0.013941
+    },
+    {
+      "batch_id": "grant-mitchell",
+      "record_sha256": "8fe55932290eab6964dd48d851c63e53a823641147c17ea790255b79d69e3610",
+      "trace_id": "tr-902969b4ba35dc322053cb5bdf4eaac9",
+      "exact_root_output": true,
+      "model_calls": 1,
+      "cost_usd": 0.0072235
+    },
+    {
+      "batch_id": "ian-beale",
+      "record_sha256": "34dce8c3ca4667d94bb7a8579a56095144c759884b2a55b6632804d770d5a842",
+      "trace_id": "tr-e1b5174388cb90f3c80259db53632c1b",
+      "exact_root_output": true,
+      "model_calls": 1,
+      "cost_usd": 0.0109985
+    },
+    {
+      "batch_id": "janine-butcher",
+      "record_sha256": "ddbb1183f1979e79a4cf5329eddedcb7c9fbca257dcd0009f12bd3dd721831fe",
+      "trace_id": "tr-44b5b553a8c66d7ef8a027884562ad49",
+      "exact_root_output": true,
+      "model_calls": 1,
+      "cost_usd": 0.0263285
+    },
+    {
+      "batch_id": "kat-slater",
+      "record_sha256": "0248ab5d228a1a33011d5d9a0e516c525421fa783246bc3589a4b95442b15935",
+      "trace_id": "tr-30465e570ce8a137cf454e71da89888d",
+      "exact_root_output": true,
+      "model_calls": 1,
+      "cost_usd": 0.0097535
+    },
+    {
+      "batch_id": "kathy-beale",
+      "record_sha256": "3d7a79aa19d3817123ad6d6be8c9b7a86aff3b7b97535e429ca1b7ba59e0ee57",
+      "trace_id": "tr-6ef6309f7ed5bbf9ad95087dbe347406",
+      "exact_root_output": true,
+      "model_calls": 1,
+      "cost_usd": 0.020121
+    },
+    {
+      "batch_id": "linda-carter",
+      "record_sha256": "a66e35d6167a694bceac229c0fe2c0f51ffd50ff395b70dba1a88624dab744bf",
+      "trace_id": "tr-98d3e7ec8f244e9bcfbac1a5342ec2e7",
+      "exact_root_output": true,
+      "model_calls": 1,
+      "cost_usd": 0.0111935
+    },
+    {
+      "batch_id": "lucy-beale",
+      "record_sha256": "ae86e16fc2ea625f9894ec3d2ea7bd7f08fa4b88a4171a25789bd9d7f62f80d4",
+      "trace_id": "tr-d7ff4b76ed861158e83db5c02d070c4d",
+      "exact_root_output": true,
+      "model_calls": 1,
+      "cost_usd": 0.0109335
+    },
+    {
+      "batch_id": "martin-fowler",
+      "record_sha256": "35480dd3f86da7718a8ed78b2c2200e09b11bd06b66339499d20580d8d123f0d",
+      "trace_id": "tr-73c8ed9085eac817457b81440939a889",
+      "exact_root_output": true,
+      "model_calls": 1,
+      "cost_usd": 0.006996
+    },
+    {
+      "batch_id": "max-branning",
+      "record_sha256": "4c1fa574cea7d13397e27c17064ff29dbb0d13157a8e09deb0833d5790af8e77",
+      "trace_id": "tr-f925fb995a774f521247e90973703eee",
+      "exact_root_output": true,
+      "model_calls": 1,
+      "cost_usd": 0.012471
+    },
+    {
+      "batch_id": "pat-butcher",
+      "record_sha256": "8c1d1e41ef757dbf5830c790c05ace750ea2186b8cfaa58b32617a1d8983134f",
+      "trace_id": "tr-b5ad50807890903c27d09a80b51f8fab",
+      "exact_root_output": true,
+      "model_calls": 1,
+      "cost_usd": 0.0070635
+    },
+    {
+      "batch_id": "peggy-mitchell",
+      "record_sha256": "6aa755e682f3ce91c62f519d1391cfe145bd743311a199bdc645c7bb44096aff",
+      "trace_id": "tr-11d34079078d2b91ac95632a47201396",
+      "exact_root_output": true,
+      "model_calls": 1,
+      "cost_usd": 0.009551
+    },
+    {
+      "batch_id": "phil-mitchell",
+      "record_sha256": "1b5c7b94195ff880da84543db4d896f38ecd483d8fe354e5c38e4c7f148c70aa",
+      "trace_id": "tr-4bd47dc97a484a679b5b2eb5ff403f87",
+      "exact_root_output": true,
+      "model_calls": 1,
+      "cost_usd": 0.010896
+    },
+    {
+      "batch_id": "phil-tape",
+      "record_sha256": "453a307e5042073ca35a8d779bc2c1459c91b4f5c100f4e735a8970088e60e08",
+      "trace_id": "tr-a31dcabaed2f29d246b7e6bb572df140",
+      "exact_root_output": true,
+      "model_calls": 1,
+      "cost_usd": 0.008801
+    },
+    {
+      "batch_id": "sharon-watts",
+      "record_sha256": "63b60dcf0ea0d2d54e211f41f0c11547abf73a1e47382f6ff28f442531504eab",
+      "trace_id": "tr-0e3ea020a55a18a11195c2e1d2739afc",
+      "exact_root_output": true,
+      "model_calls": 1,
+      "cost_usd": 0.007081
+    },
+    {
+      "batch_id": "stacey-slater",
+      "record_sha256": "702a7794150d1ddcddce7acbe19b2ba1e719487e47bf42989bbb4c9359e694bc",
+      "trace_id": "tr-b246526984a9ef904cb6953a30361ab8",
+      "exact_root_output": true,
+      "model_calls": 1,
+      "cost_usd": 0.0077585
+    }
+  ],
+  "unchanged_repeats": 0
+}

@@ -1,0 +1,40 @@
+{
+  "initial_full_suite": "software-tests-initial.xml",
+  "failed_test": "test_investigation_network_deadline_and_disconnect_cancel_inflight_work[True]",
+  "failure": "The external provider entered Event was unset after the client0.8s read timeout.",
+  "actual_original_trace": [
+    {
+      "trace_id": "tr-506dfd45e1c30dbb37487ada49f4251b",
+      "execution": {
+        "limits": {
+          "model_calls": 4,
+          "tool_calls": 3,
+          "http_calls": 8,
+          "seconds": 8.0,
+          "context_bytes": 1200,
+          "spend_usd": "0.15",
+          "retries": 0,
+          "capabilities": [
+            "text_retrieval",
+            "family_graph",
+            "event_graph",
+            "connection_graph"
+          ],
+          "concurrency": 4
+        },
+        "model_calls": 0,
+        "tool_calls": 0,
+        "http_calls": 0,
+        "reserved_usd": "0",
+        "stop_reason": "cancelled"
+      },
+      "steps": [],
+      "citations": [],
+      "status": "insufficient_evidence"
+    }
+  ],
+  "diagnosis": "The actual trace retained cancellation without tool steps or factual citations. The API request was cancelled before the artificial provider stall began, so the fixed client timer did not establish the intended in-flight precondition. The repaired test waits for actual external provider entry, then cancels the client socket and retains the same cancellation assertions.",
+  "application_code_changed": false,
+  "original_isolated_parameters_pass": 2,
+  "fixed_isolated_parameters_pass": 2
+}

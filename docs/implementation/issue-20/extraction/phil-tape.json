@@ -1,0 +1,250 @@
+{
+  "captured_at": "2026-10-29T08:25:04.059568+00:00",
+  "code_revision": "9f60cea4856740f58a9680b0ff00f384996f77b1",
+  "application_sha256": "fb0feb5e544ebda762ad53e5e230df1df87f572c892932a23215a4f35ea0855b",
+  "prompt_sha256": "4b4c6bfe4b851f1e5e3ef21acf30c14f349e422c66b22d1287de479570b2a9a2",
+  "snapshot_id": "phil-tape-coverage-v1",
+  "snapshot_sha256": "38cbaf6a26e0dd6ad962edb39e6acb1c099ba244d1cf70e8a1d7ebf429daad2e",
+  "snapshot_file_sha256": "24d2e7092c82331986a6b8eb2bd951a47a1d1ce0e6602c8fec53dcab2eba125a",
+  "reference_sha256": "088326b5f35ddb7efedeb6f8f89199d4ca36206303a9860562538e441bf27a21",
+  "schema_sha256": "fc6b0beddd0b706b7d465dba6e8cb6683c3315ee6b64535145485c15f3c66f30",
+  "profile": {
+    "provider_type": "openrouter",
+    "answer_model": "openai/gpt-6-sol",
+    "canonical_slug": "openai/gpt-6-sol-20260922",
+    "provider": "openai",
+    "input_price_per_million": "2",
+    "output_price_per_million": "10",
+    "output_tokens": 8192,
+    "reasoning_effort": "low",
+    "request_timeout_seconds": 180
+  },
+  "expenditure_category": "offline_evaluation",
+  "state": "complete",
+  "raw": "{\"claims\":[],\"context_claims\":[{\"claim_id\":\"context-1\",\"kind\":\"unclassified\",\"character_ids\":[\"grant-mitchell\",\"sharon-watts\"],\"theme\":null,\"classification_gap\":\"The public playing of a tape revealing an affair has no checked event type or topical theme.\",\"evidence\":[{\"evidence_id\":\"coverage-phil-tape\",\"start\":0,\"end\":115,\"quote\":\"During Phil and Kathy's engagement party, Grant plays an audio cassette recording of Sharon admitting to the affair.\"}]}]}",
+  "batch": {
+    "claims": [],
+    "context_claims": [
+      {
+        "claim_id": "context-1",
+        "kind": "unclassified",
+        "character_ids": [
+          "grant-mitchell",
+          "sharon-watts"
+        ],
+        "theme": null,
+        "classification_gap": "The public playing of a tape revealing an affair has no checked event type or topical theme.",
+        "evidence": [
+          {
+            "evidence_id": "coverage-phil-tape",
+            "start": 0,
+            "end": 115,
+            "quote": "During Phil and Kathy's engagement party, Grant plays an audio cassette recording of Sharon admitting to the affair."
+          }
+        ]
+      }
+    ],
+    "snapshot_id": "phil-tape-coverage-v1",
+    "snapshot_sha256": "38cbaf6a26e0dd6ad962edb39e6acb1c099ba244d1cf70e8a1d7ebf429daad2e",
+    "catalogue": {
+      "characters": [
+        {
+          "character_id": "phil-mitchell",
+          "name": "Phil Mitchell",
+          "aliases": [],
+          "performers": [
+            "Steve McFadden",
+            "Daniel Delaney"
+          ],
+          "coverage": "core",
+          "wikidata_id": "Q2115259",
+          "review_note": "Codex source inspection, 17 October 2026: captured character article, infobox aliases/performers and revision metadata checked. Prominence-based curated selection, not a ranked or exhaustive canon. Identity linkage is not independent story corroboration.",
+          "evidence_sources": [
+            "phil-mitchell-wiki"
+          ]
+        },
+        {
+          "character_id": "kathy-beale",
+          "name": "Kathy Beale",
+          "aliases": [
+            "Kathy Mitchell",
+            "Kathy Sullivan",
+            "Kathy Richards",
+            "Kathy Cotton"
+          ],
+          "performers": [
+            "Gillian Taylforth"
+          ],
+          "coverage": "core",
+          "wikidata_id": "Q6377182",
+          "review_note": "Codex source inspection, 17 October 2026: captured character article, infobox aliases/performers and revision metadata checked. Prominence-based curated selection, not a ranked or exhaustive canon. Identity linkage is not independent story corroboration.",
+          "evidence_sources": [
+            "kathy-beale-wiki"
+          ]
+        },
+        {
+          "character_id": "grant-mitchell",
+          "name": "Grant Mitchell",
+          "aliases": [],
+          "performers": [
+            "Ross Kemp",
+            "Teddy Jay"
+          ],
+          "coverage": "core",
+          "wikidata_id": "Q2685036",
+          "review_note": "Codex source inspection, 17 October 2026: captured character article, infobox aliases/performers and revision metadata checked. Prominence-based curated selection, not a ranked or exhaustive canon. Identity linkage is not independent story corroboration.",
+          "evidence_sources": [
+            "grant-mitchell-wiki"
+          ]
+        },
+        {
+          "character_id": "sharon-watts",
+          "name": "Sharon Watts",
+          "aliases": [
+            "Sharon Mitchell",
+            "Sharon Rickman",
+            "Sharon Beale"
+          ],
+          "performers": [
+            "Letitia Dean"
+          ],
+          "coverage": "core",
+          "wikidata_id": "Q7490258",
+          "review_note": "Codex source inspection, 17 October 2026: captured character article, infobox aliases/performers and revision metadata checked. Prominence-based curated selection, not a ranked or exhaustive canon. Identity linkage is not independent story corroboration.",
+          "evidence_sources": [
+            "sharon-watts-wiki"
+          ]
+        }
+      ]
+    },
+    "extractor": "openai/gpt-6-sol-20260922"
+  },
+  "score": {
+    "schema_valid": true,
+    "expected": 0,
+    "predicted": 0,
+    "duplicates": 0,
+    "true_positive": 0,
+    "resolvable_spans": 0,
+    "grounded": 0,
+    "precision": 1.0,
+    "recall": 1.0,
+    "f1": 1.0,
+    "scope": "Exposed selected incidents and in-catalogue assertions only. Exact values include participant-role assignment, event type, basis, account status, polarity, certainty, story time/precision and evidence IDs. Ignore arbitrary claim/event ID spelling and label wording; incident grouping requires separate support review. Full-value duplicates collapse. Each dimension projects unique full assertions onto values plus passage IDs and event type, preserving multiplicity: identity sets, role multisets, assigned identity-role pairs (direction), polarity, timing, or account attribution. These are diagnostics, not independent per-claim accuracies. Grounding separately requires exact resolvable locators covering frozen supporting spans; it is not canon adjudication. Text classifications are scored separately by kind, character subjects, theme and passage IDs; classification-gap wording is source-reviewed rather than exact-matched. A text classification never counts as an event or connection.",
+    "dimensions": {
+      "identity": {
+        "expected": 0,
+        "predicted": 0,
+        "true_positive": 0,
+        "precision": 1.0,
+        "recall": 1.0,
+        "f1": 1.0
+      },
+      "role": {
+        "expected": 0,
+        "predicted": 0,
+        "true_positive": 0,
+        "precision": 1.0,
+        "recall": 1.0,
+        "f1": 1.0
+      },
+      "direction": {
+        "expected": 0,
+        "predicted": 0,
+        "true_positive": 0,
+        "precision": 1.0,
+        "recall": 1.0,
+        "f1": 1.0
+      },
+      "negation": {
+        "expected": 0,
+        "predicted": 0,
+        "true_positive": 0,
+        "precision": 1.0,
+        "recall": 1.0,
+        "f1": 1.0
+      },
+      "timing": {
+        "expected": 0,
+        "predicted": 0,
+        "true_positive": 0,
+        "precision": 1.0,
+        "recall": 1.0,
+        "f1": 1.0
+      },
+      "account": {
+        "expected": 0,
+        "predicted": 0,
+        "true_positive": 0,
+        "precision": 1.0,
+        "recall": 1.0,
+        "f1": 1.0
+      }
+    },
+    "by_event_type": {},
+    "context_score": {
+      "schema_valid": true,
+      "expected": 1,
+      "predicted": 1,
+      "duplicates": 0,
+      "true_positive": 0,
+      "resolvable_spans": 0,
+      "grounded": 0,
+      "precision": 0.0,
+      "recall": 0.0,
+      "f1": 0.0,
+      "scope": "Exact normalized values within each completely annotated selected input passage. Instances match on values and sorted unique passage IDs, independently of quote offsets. Claim IDs are ignored; semantic duplicates within a passage collapse and are counted. Grounding additionally requires the entire independently reviewed supporting span. These exposed development scores are not held-out or broad-corpus quality."
+    },
+    "by_theme": {},
+    "by_classification": {
+      "unclassified": {
+        "schema_valid": true,
+        "expected": 1,
+        "predicted": 1,
+        "duplicates": 0,
+        "true_positive": 0,
+        "resolvable_spans": 0,
+        "grounded": 0,
+        "precision": 0.0,
+        "recall": 0.0,
+        "f1": 0.0,
+        "scope": "Exact normalized values within each completely annotated selected input passage. Instances match on values and sorted unique passage IDs, independently of quote offsets. Claim IDs are ignored; semantic duplicates within a passage collapse and are counted. Grounding additionally requires the entire independently reviewed supporting span. These exposed development scores are not held-out or broad-corpus quality."
+      }
+    }
+  },
+  "usage": {
+    "reservation_id": "ef98f14ef500468ea9eaab67456ce32c",
+    "reserved_usd": 0.107878,
+    "cost_usd": 0.008801,
+    "request_id": "gen-1793262304-d9wmQmzs9OkIM3s6HL9Y",
+    "returned_model": "openai/gpt-6-sol",
+    "provider": "OpenAI",
+    "input_tokens": 1597,
+    "output_tokens": 481,
+    "reasoning_tokens": 364
+  },
+  "execution": {
+    "limits": {
+      "model_calls": 1,
+      "tool_calls": 0,
+      "http_calls": 3,
+      "seconds": 180.0,
+      "context_bytes": 1200,
+      "spend_usd": "0.15",
+      "retries": 0,
+      "capabilities": [],
+      "concurrency": 4
+    },
+    "model_calls": 1,
+    "tool_calls": 0,
+    "http_calls": 3,
+    "reserved_usd": "0.008801",
+    "stop_reason": null
+  },
+  "elapsed_ms": 6922.33251899961,
+  "failure": null,
+  "trace_id": "tr-a31dcabaed2f29d246b7e6bb572df140",
+  "shared_ledger_usd": 0.892684,
+  "unsettled_reservations": 0,
+  "limitation": "Agent-reviewed exposed labels; no held-out, human or independent canon acceptance."
+}

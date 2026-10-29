@@ -1,0 +1,155 @@
+{
+  "captured_at": "2026-10-29T08:23:29.322024+00:00",
+  "code_revision": "9f60cea4856740f58a9680b0ff00f384996f77b1",
+  "application_sha256": "fb0feb5e544ebda762ad53e5e230df1df87f572c892932a23215a4f35ea0855b",
+  "prompt_sha256": "1e7473f85c87dfa400293d480c3091eab8950a0cb2fa707a01ba9bf028f78db3",
+  "snapshot_id": "martin-fowler-coverage-v1",
+  "snapshot_sha256": "66037a047e860acee57e1154003cf25db1d93fbc711c2bfb9063d3fbd2a2b7e2",
+  "snapshot_file_sha256": "55bc0bc98fd4005d0420834aea25f8c77748dfd9c1940abffad28170d38f5a6e",
+  "reference_sha256": "0d73cd1bf4affb3ca8d7616159824695c7badc00be6dfce36e385365a2c2dbfe",
+  "schema_sha256": "8573863eb1966327a8823dd7c00da28eae6a7c87dcc20decc5843e1a66039354",
+  "profile": {
+    "provider_type": "openrouter",
+    "answer_model": "openai/gpt-6-sol",
+    "canonical_slug": "openai/gpt-6-sol-20260922",
+    "provider": "openai",
+    "input_price_per_million": "2",
+    "output_price_per_million": "10",
+    "output_tokens": 8192,
+    "reasoning_effort": "low",
+    "request_timeout_seconds": 180
+  },
+  "expenditure_category": "offline_evaluation",
+  "state": "complete",
+  "raw": "{\"claims\":[{\"claim_id\":\"claim-1\",\"subject_id\":\"martin-fowler\",\"object_id\":\"stacey-slater\",\"relation\":\"marriage\",\"episode_id\":\"episode-1\",\"status\":\"unknown\",\"polarity\":\"affirmed\",\"certainty\":\"certain\",\"story_time\":\"unknown\",\"time_precision\":\"unknown\",\"after_claim_id\":null,\"evidence\":[{\"evidence_id\":\"coverage-martin-fowler\",\"start\":0,\"end\":23,\"quote\":\"Martin and Stacey marry\"}]}]}",
+  "batch": {
+    "claims": [
+      {
+        "claim_id": "claim-1",
+        "subject_id": "martin-fowler",
+        "object_id": "stacey-slater",
+        "relation": "marriage",
+        "episode_id": "episode-1",
+        "status": "unknown",
+        "polarity": "affirmed",
+        "certainty": "certain",
+        "story_time": "unknown",
+        "time_precision": "unknown",
+        "after_claim_id": null,
+        "evidence": [
+          {
+            "evidence_id": "coverage-martin-fowler",
+            "start": 0,
+            "end": 23,
+            "quote": "Martin and Stacey marry"
+          }
+        ]
+      }
+    ],
+    "snapshot_id": "martin-fowler-coverage-v1",
+    "snapshot_sha256": "66037a047e860acee57e1154003cf25db1d93fbc711c2bfb9063d3fbd2a2b7e2",
+    "catalogue": {
+      "characters": [
+        {
+          "character_id": "martin-fowler",
+          "name": "Martin Fowler",
+          "aliases": [],
+          "performers": [
+            "Jon Peyton-Price",
+            "James Alexandrou",
+            "James Bye"
+          ],
+          "coverage": "core",
+          "wikidata_id": "Q16992426",
+          "review_note": "Codex source inspection, 17 October 2026: captured character article, infobox aliases/performers and revision metadata checked. Prominence-based curated selection, not a ranked or exhaustive canon. Identity linkage is not independent story corroboration.",
+          "evidence_sources": [
+            "martin-fowler-wiki"
+          ]
+        },
+        {
+          "character_id": "stacey-slater",
+          "name": "Stacey Slater",
+          "aliases": [
+            "Stacey Branning",
+            "Stacey Fowler",
+            "Jenny Smith"
+          ],
+          "performers": [
+            "Lacey Turner"
+          ],
+          "coverage": "core",
+          "wikidata_id": "Q7595869",
+          "review_note": "Codex source inspection, 17 October 2026: captured character article, infobox aliases/performers and revision metadata checked. Prominence-based curated selection, not a ranked or exhaustive canon. Identity linkage is not independent story corroboration.",
+          "evidence_sources": [
+            "stacey-slater-wiki"
+          ]
+        }
+      ]
+    },
+    "extractor": "openai/gpt-6-sol-20260922"
+  },
+  "score": {
+    "expected": 1,
+    "predicted": 1,
+    "true_positive": 1,
+    "precision": 1.0,
+    "recall": 1.0,
+    "f1": 1.0,
+    "schema_valid": true,
+    "duplicates": 0,
+    "resolvable_spans": 1,
+    "grounded": 0,
+    "episode_pairs_expected": 0,
+    "episode_pairs_correct": 0,
+    "ordering_expected": 0,
+    "ordering_predicted": 0,
+    "ordering_correct": 0,
+    "alignment_limited": false,
+    "by_relation": {
+      "marriage": {
+        "expected": 1,
+        "predicted": 1,
+        "true_positive": 1,
+        "precision": 1.0,
+        "recall": 1.0,
+        "f1": 1.0
+      }
+    },
+    "scope": "Exposed, completely annotated in-catalogue spans only. Match values and unique passage IDs, with frozen timing alternatives; ignore arbitrary claim/episode IDs. Romantic pairs are symmetric; parent/guardian roles are directed. Distinct episode instances retain multiplicity; duplicates within the same episode collapse. One-to-one value matching ignores ID spelling. Ambiguous alignments maximize episode agreement, then ordering; over 4096 alternatives leaves those two scores unavailable. Raw duplicates and full-reference-span grounding are separate. Missing episode pairs fail. This conservative grounding proxy is not independent semantic/canon adjudication."
+  },
+  "usage": {
+    "reservation_id": "b06fbba46bb54566b993351f03aeaa31",
+    "reserved_usd": 0.106504,
+    "cost_usd": 0.006996,
+    "request_id": "gen-1793262209-jtgLQv6Y1712itn4Lxlg",
+    "returned_model": "openai/gpt-6-sol",
+    "provider": "OpenAI",
+    "input_tokens": 1743,
+    "output_tokens": 264,
+    "reasoning_tokens": 154
+  },
+  "execution": {
+    "limits": {
+      "model_calls": 1,
+      "tool_calls": 0,
+      "http_calls": 3,
+      "seconds": 180.0,
+      "context_bytes": 1200,
+      "spend_usd": "0.15",
+      "retries": 0,
+      "capabilities": [],
+      "concurrency": 4
+    },
+    "model_calls": 1,
+    "tool_calls": 0,
+    "http_calls": 3,
+    "reserved_usd": "0.006996",
+    "stop_reason": null
+  },
+  "elapsed_ms": 3976.6708419992938,
+  "failure": null,
+  "trace_id": "tr-73c8ed9085eac817457b81440939a889",
+  "shared_ledger_usd": 0.785098,
+  "unsettled_reservations": 0,
+  "limitation": "Agent-reviewed exposed labels; no held-out, human or independent canon acceptance."
+}

@@ -1,0 +1,78 @@
+{
+  "expected_claims": [
+    {
+      "subject_id": "alfie-moon",
+      "object_id": "kat-slater",
+      "relation": "remarriage",
+      "episode_id": "kat-alfie-second",
+      "status": "unknown",
+      "polarity": "affirmed",
+      "certainty": "certain",
+      "story_time": "On leaving hospital",
+      "time_precision": "relative",
+      "after_claim_id": null,
+      "claim_id": "ref-kat-slater-1",
+      "evidence": [
+        {
+          "evidence_id": "coverage-kat-slater",
+          "start": 0,
+          "end": 727,
+          "quote": "Kat briefly works on the market again, but market inspector Aleks Shirovs (Kristian Kiehling) forces her off her stall when he discovers she is working and claiming maternity benefit. Alfie lies to her that he has managed to convince the council to give them more time to rally together the money they need, but secretly plans to claim house insurance by setting fire to their house. He does so, but is unaware Kat is inside at the time. She becomes trapped although Alfie rescues her. She is badly burnt and suffers permanent scarring to her face. On leaving hospital, she and Alfie remarry, with two nurses as the only witnesses, before returning to the square and moving into a flat Alfie had organised for them to squat in."
+        }
+      ]
+    }
+  ],
+  "snapshot_sha256": "183dafd7ee58c46b0355b85befd0fa388c4a467007cb33ab701026e656661a68",
+  "catalogue": {
+    "characters": [
+      {
+        "character_id": "kat-slater",
+        "name": "Kat Slater",
+        "aliases": [
+          "Kat Moon",
+          "Kat Mitchell"
+        ],
+        "performers": [
+          "Jessie Wallace",
+          "Kate Peck",
+          "Sumar-Elise Sandford",
+          "Amelia Crouch"
+        ],
+        "coverage": "core",
+        "wikidata_id": "Q3955054",
+        "review_note": "Codex source inspection, 17 October 2026: captured character article, infobox aliases/performers and revision metadata checked. Prominence-based curated selection, not a ranked or exhaustive canon. Identity linkage is not independent story corroboration.",
+        "evidence_sources": [
+          "kat-slater-wiki"
+        ]
+      },
+      {
+        "character_id": "alfie-moon",
+        "name": "Alfie Moon",
+        "aliases": [
+          "Alfred William Moon",
+          "Chris Wright"
+        ],
+        "performers": [
+          "Shane Richie"
+        ],
+        "coverage": "core",
+        "wikidata_id": "Q4721932",
+        "review_note": "Codex source inspection, 17 October 2026: captured character article, infobox aliases/performers and revision metadata checked. Prominence-based curated selection, not a ranked or exhaustive canon. Identity linkage is not independent story corroboration.",
+        "evidence_sources": [
+          "alfie-moon-wiki"
+        ]
+      }
+    ]
+  },
+  "origin_snapshot_sha256": "2ea666180ca9600a6d8e35ae7049d21f682d9090cddc92f63630d9250d7a6c76",
+  "annotation_sha256": "56275247f9cf2976827f1fd6d9df6ae7682c73da343bc615b819e3f22a7571bb",
+  "reviewer": "Codex source-based annotation, before extraction; not human canon adjudication",
+  "review_note": "Kat is named before the pronoun; actual remarriage is a distinct episode from Alfie’s earlier wedding. On leaving hospital is relative timing; the fire is not a relationship assertion.",
+  "synthetic": false,
+  "cross_source_checked": false,
+  "split": "exposed_development",
+  "story_groups": [
+    "kat-alfie-marriages"
+  ],
+  "completeness": "All explicit in-catalogue assertions of the selected family within these excerpts; events are restricted to the declared incidents."
+}

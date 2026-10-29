@@ -1,0 +1,38 @@
+{
+  "reviews": [
+    {
+      "case_id": "unclassified-tape-r0",
+      "response_sha256": "bd64a7a7cdfc347e691c26d54544a0662aae1b0c270fa849433f533f982403a8",
+      "reference_sha256": "3b9c62296e30c15f1b9161ea44cca387ea6ad88029aaae321ae399b1bc955a81",
+      "reviewer": "Codex source-based answer review, independently checked by Spec reviewer; no human canon adjudication",
+      "rationale": "The exact coverage-phil-tape citation supports Grant playing the recording and Sharon admitting the affair. First person refers to Phil. No date or typed graph event is asserted. The separate classification qualification correctly preserves the unclassified fact for text. API, CLI and actual text_rag root outputs match; all three published graphs share the same full source snapshot.",
+      "claims": [
+        {
+          "claim": "Grant played an audio cassette recording at Phil and Kathy’s engagement party.",
+          "correct": true,
+          "grounded": true,
+          "citation_supported": true
+        },
+        {
+          "claim": "The recording contained Sharon admitting to the affair.",
+          "correct": true,
+          "grounded": true,
+          "citation_supported": true
+        }
+      ],
+      "required_facts": [
+        {
+          "fact": "Grant played an audio cassette recording.",
+          "covered": true
+        },
+        {
+          "fact": "The recording was Sharon admitting to the affair.",
+          "covered": true
+        }
+      ],
+      "answerability": true,
+      "relevance": true,
+      "critical_failures": []
+    }
+  ]
+}

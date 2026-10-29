@@ -1,0 +1,8 @@
+{
+  "version": 2,
+  "reason": "Both independent reviewers corrected Lucy\u2019s falsely alleged locator defect and the incomplete Bobby locator rationale. Raw scores, reference labels and source assertions remain unchanged.",
+  "original_sha256": "03de8af11e70dcacc4154b4a1476fe97c7e15a68f151eb19b57a0ce80863de7b",
+  "corrected_sha256": "f6f4a61a80a02857a5e1a06f61bebce014c9f6a4e1980408c8e82609d5fd2488",
+  "changed_dispositions": 0,
+  "changed_extraction_scores": 0
+}

@@ -1,0 +1,114 @@
+{
+  "expected_claims": [],
+  "expected_context_claims": [
+    {
+      "kind": "unclassified",
+      "character_ids": [
+        "phil-mitchell",
+        "kathy-beale",
+        "grant-mitchell",
+        "sharon-watts"
+      ],
+      "theme": null,
+      "classification_gap": "Public revelation by playing an affair recording has no checked event category.",
+      "claim_id": "ref-phil-tape-text-1",
+      "evidence": [
+        {
+          "evidence_id": "coverage-phil-tape",
+          "start": 0,
+          "end": 116,
+          "quote": "During Phil and Kathy's engagement party, Grant plays an audio cassette recording of Sharon admitting to the affair."
+        }
+      ]
+    }
+  ],
+  "incidents": {
+    "coverage-phil-tape": {
+      "event_id": "sharongate-tape",
+      "event_label": "The engagement-party tape revelation"
+    }
+  },
+  "snapshot_sha256": "38cbaf6a26e0dd6ad962edb39e6acb1c099ba244d1cf70e8a1d7ebf429daad2e",
+  "catalogue": {
+    "characters": [
+      {
+        "character_id": "phil-mitchell",
+        "name": "Phil Mitchell",
+        "aliases": [],
+        "performers": [
+          "Steve McFadden",
+          "Daniel Delaney"
+        ],
+        "coverage": "core",
+        "wikidata_id": "Q2115259",
+        "review_note": "Codex source inspection, 17 October 2026: captured character article, infobox aliases/performers and revision metadata checked. Prominence-based curated selection, not a ranked or exhaustive canon. Identity linkage is not independent story corroboration.",
+        "evidence_sources": [
+          "phil-mitchell-wiki"
+        ]
+      },
+      {
+        "character_id": "kathy-beale",
+        "name": "Kathy Beale",
+        "aliases": [
+          "Kathy Mitchell",
+          "Kathy Sullivan",
+          "Kathy Richards",
+          "Kathy Cotton"
+        ],
+        "performers": [
+          "Gillian Taylforth"
+        ],
+        "coverage": "core",
+        "wikidata_id": "Q6377182",
+        "review_note": "Codex source inspection, 17 October 2026: captured character article, infobox aliases/performers and revision metadata checked. Prominence-based curated selection, not a ranked or exhaustive canon. Identity linkage is not independent story corroboration.",
+        "evidence_sources": [
+          "kathy-beale-wiki"
+        ]
+      },
+      {
+        "character_id": "grant-mitchell",
+        "name": "Grant Mitchell",
+        "aliases": [],
+        "performers": [
+          "Ross Kemp",
+          "Teddy Jay"
+        ],
+        "coverage": "core",
+        "wikidata_id": "Q2685036",
+        "review_note": "Codex source inspection, 17 October 2026: captured character article, infobox aliases/performers and revision metadata checked. Prominence-based curated selection, not a ranked or exhaustive canon. Identity linkage is not independent story corroboration.",
+        "evidence_sources": [
+          "grant-mitchell-wiki"
+        ]
+      },
+      {
+        "character_id": "sharon-watts",
+        "name": "Sharon Watts",
+        "aliases": [
+          "Sharon Mitchell",
+          "Sharon Rickman",
+          "Sharon Beale"
+        ],
+        "performers": [
+          "Letitia Dean"
+        ],
+        "coverage": "core",
+        "wikidata_id": "Q7490258",
+        "review_note": "Codex source inspection, 17 October 2026: captured character article, infobox aliases/performers and revision metadata checked. Prominence-based curated selection, not a ranked or exhaustive canon. Identity linkage is not independent story corroboration.",
+        "evidence_sources": [
+          "sharon-watts-wiki"
+        ]
+      }
+    ]
+  },
+  "origin_snapshot_sha256": "2ea666180ca9600a6d8e35ae7049d21f682d9090cddc92f63630d9250d7a6c76",
+  "annotation_sha256": "56275247f9cf2976827f1fd6d9df6ae7682c73da343bc615b819e3f22a7571bb",
+  "reviewer": "Codex source-based annotation, before extraction; not human canon adjudication",
+  "review_note": "The public tape revelation has no checked event category. Preserve all four explicit character subjects for text retrieval; co-appearance does not create a shared event.",
+  "synthetic": false,
+  "cross_source_checked": false,
+  "split": "exposed_development",
+  "story_groups": [
+    "sharongate"
+  ],
+  "completeness": "All explicit in-catalogue assertions of the selected family within these excerpts; events are restricted to the declared incidents."
+}

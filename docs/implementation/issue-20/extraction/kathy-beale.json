@@ -1,0 +1,193 @@
+{
+  "captured_at": "2026-10-29T08:22:44.733523+00:00",
+  "code_revision": "9f60cea4856740f58a9680b0ff00f384996f77b1",
+  "application_sha256": "fb0feb5e544ebda762ad53e5e230df1df87f572c892932a23215a4f35ea0855b",
+  "prompt_sha256": "4f625c048e5652b6d709eaa5eaf40a170feac91b94df8c2b0ab89c1b05afea1e",
+  "snapshot_id": "kathy-beale-coverage-v1",
+  "snapshot_sha256": "444d1cce8f32a193c29cf3a0be1c5190523968e16b8357b88e7db6374acb7f5b",
+  "snapshot_file_sha256": "a497545ebbe77c7498b9a5efaf0e1afe4d0584ff3c1cc374457529ac8d9019da",
+  "reference_sha256": "251c8b306911f82a0e8c7b1623e983835d67d55ac22fbc6e1d7f24031fd0fd46",
+  "schema_sha256": "753b78b044501f008907d7fead2cef20d64dd0961320420847cb102f265ee53a",
+  "profile": {
+    "provider_type": "openrouter",
+    "answer_model": "openai/gpt-6-sol",
+    "canonical_slug": "openai/gpt-6-sol-20260922",
+    "provider": "openai",
+    "input_price_per_million": "2",
+    "output_price_per_million": "10",
+    "output_tokens": 8192,
+    "reasoning_effort": "low",
+    "request_timeout_seconds": 180
+  },
+  "expenditure_category": "offline_evaluation",
+  "state": "complete",
+  "raw": "{\n  \"claims\": [\n    {\n      \"claim_id\": \"kathy-ben-parentage\",\n      \"parent_id\": \"kathy-beale\",\n      \"child_id\": \"ben-mitchell\",\n      \"parent_role\": \"mother\",\n      \"relation\": \"biological_parent\",\n      \"polarity\": \"affirmed\",\n      \"certainty\": \"certain\",\n      \"story_time\": \"unknown\",\n      \"time_precision\": \"unknown\",\n      \"evidence\": [\n        {\n          \"evidence_id\": \"coverage-kathy-beale\",\n          \"start\": 82,\n          \"end\": 171,\n          \"quote\": \"Kathy keeps fainting and refuses to see Dr Legg, she relents and is told she is pregnant.\"\n        },\n        {\n          \"evidence_id\": \"coverage-kathy-beale\",\n          \"start\": 269,\n          \"end\": 363,\n          \"quote\": \"Kathy goes into labour with Pat helping her and Phil meets their son shortly after he is born.\"\n        },\n        {\n          \"evidence_id\": \"coverage-kathy-beale\",\n          \"start\": 507,\n          \"end\": 528,\n          \"quote\": \"names him Ben Mitchell\"\n        }\n      ]\n    },\n    {\n      \"claim_id\": \"phil-ben-parentage\",\n      \"parent_id\": \"phil-mitchell\",\n      \"child_id\": \"ben-mitchell\",\n      \"parent_role\": \"father\",\n      \"relation\": \"biological_parent\",\n      \"polarity\": \"affirmed\",\n      \"certainty\": \"uncertain\",\n      \"story_time\": \"unknown\",\n      \"time_precision\": \"unknown\",\n      \"evidence\": [\n        {\n          \"evidence_id\": \"coverage-kathy-beale\",\n          \"start\": 269,\n          \"end\": 363,\n          \"quote\": \"Kathy goes into labour with Pat helping her and Phil meets their son shortly after he is born.\"\n        },\n        {\n          \"evidence_id\": \"coverage-kathy-beale\",\n          \"start\": 507,\n          \"end\": 528,\n          \"quote\": \"names him Ben Mitchell\"\n        }\n      ]\n    }\n  ]\n}",
+  "batch": {
+    "claims": [
+      {
+        "claim_id": "kathy-ben-parentage",
+        "parent_id": "kathy-beale",
+        "child_id": "ben-mitchell",
+        "parent_role": "mother",
+        "relation": "biological_parent",
+        "polarity": "affirmed",
+        "certainty": "certain",
+        "story_time": "unknown",
+        "time_precision": "unknown",
+        "evidence": [
+          {
+            "evidence_id": "coverage-kathy-beale",
+            "start": 82,
+            "end": 171,
+            "quote": "Kathy keeps fainting and refuses to see Dr Legg, she relents and is told she is pregnant."
+          },
+          {
+            "evidence_id": "coverage-kathy-beale",
+            "start": 269,
+            "end": 363,
+            "quote": "Kathy goes into labour with Pat helping her and Phil meets their son shortly after he is born."
+          },
+          {
+            "evidence_id": "coverage-kathy-beale",
+            "start": 507,
+            "end": 528,
+            "quote": "names him Ben Mitchell"
+          }
+        ]
+      },
+      {
+        "claim_id": "phil-ben-parentage",
+        "parent_id": "phil-mitchell",
+        "child_id": "ben-mitchell",
+        "parent_role": "father",
+        "relation": "biological_parent",
+        "polarity": "affirmed",
+        "certainty": "uncertain",
+        "story_time": "unknown",
+        "time_precision": "unknown",
+        "evidence": [
+          {
+            "evidence_id": "coverage-kathy-beale",
+            "start": 269,
+            "end": 363,
+            "quote": "Kathy goes into labour with Pat helping her and Phil meets their son shortly after he is born."
+          },
+          {
+            "evidence_id": "coverage-kathy-beale",
+            "start": 507,
+            "end": 528,
+            "quote": "names him Ben Mitchell"
+          }
+        ]
+      }
+    ],
+    "snapshot_id": "kathy-beale-coverage-v1",
+    "snapshot_sha256": "444d1cce8f32a193c29cf3a0be1c5190523968e16b8357b88e7db6374acb7f5b",
+    "catalogue": {
+      "characters": [
+        {
+          "character_id": "phil-mitchell",
+          "name": "Phil Mitchell",
+          "aliases": [],
+          "performers": [
+            "Steve McFadden",
+            "Daniel Delaney"
+          ],
+          "coverage": "core",
+          "wikidata_id": "Q2115259",
+          "review_note": "Codex source inspection, 17 October 2026: captured character article, infobox aliases/performers and revision metadata checked. Prominence-based curated selection, not a ranked or exhaustive canon. Identity linkage is not independent story corroboration.",
+          "evidence_sources": [
+            "phil-mitchell-wiki"
+          ]
+        },
+        {
+          "character_id": "kathy-beale",
+          "name": "Kathy Beale",
+          "aliases": [
+            "Kathy Mitchell",
+            "Kathy Sullivan",
+            "Kathy Richards",
+            "Kathy Cotton"
+          ],
+          "performers": [
+            "Gillian Taylforth"
+          ],
+          "coverage": "core",
+          "wikidata_id": "Q6377182",
+          "review_note": "Codex source inspection, 17 October 2026: captured character article, infobox aliases/performers and revision metadata checked. Prominence-based curated selection, not a ranked or exhaustive canon. Identity linkage is not independent story corroboration.",
+          "evidence_sources": [
+            "kathy-beale-wiki"
+          ]
+        },
+        {
+          "character_id": "ben-mitchell",
+          "name": "Ben Mitchell",
+          "aliases": [],
+          "performers": [
+            "Matthew Silver",
+            "Morgan Whittle",
+            "Charlie Jones",
+            "Joshua Pascoe",
+            "Harry Reid",
+            "Max Bowden"
+          ],
+          "coverage": "core",
+          "wikidata_id": "Q2766568",
+          "review_note": "Codex source inspection, 17 October 2026: captured character article, infobox aliases/performers and revision metadata checked. Prominence-based curated selection, not a ranked or exhaustive canon. Identity linkage is not independent story corroboration.",
+          "evidence_sources": [
+            "ben-mitchell-wiki"
+          ]
+        }
+      ]
+    },
+    "extractor": "openai/gpt-6-sol-20260922"
+  },
+  "score": {
+    "schema_valid": true,
+    "expected": 2,
+    "predicted": 2,
+    "duplicates": 0,
+    "true_positive": 1,
+    "resolvable_spans": 0,
+    "grounded": 0,
+    "precision": 0.5,
+    "recall": 0.5,
+    "f1": 0.5,
+    "scope": "Exact normalized values within each completely annotated selected input passage. Instances match on values and sorted unique passage IDs, independently of quote offsets. Claim IDs are ignored; semantic duplicates within a passage collapse and are counted. Grounding additionally requires the entire independently reviewed supporting span. These exposed development scores are not held-out or broad-corpus quality."
+  },
+  "usage": {
+    "reservation_id": "771b454bb6ce41429b3381f94712b77e",
+    "reserved_usd": 0.10699,
+    "cost_usd": 0.020121,
+    "request_id": "gen-1793262165-AM6LVcS5S1GjNS16CA23",
+    "returned_model": "openai/gpt-6-sol",
+    "provider": "OpenAI",
+    "input_tokens": 1789,
+    "output_tokens": 1565,
+    "reasoning_tokens": 1104
+  },
+  "execution": {
+    "limits": {
+      "model_calls": 1,
+      "tool_calls": 0,
+      "http_calls": 3,
+      "seconds": 180.0,
+      "context_bytes": 1200,
+      "spend_usd": "0.15",
+      "retries": 0,
+      "capabilities": [],
+      "concurrency": 4
+    },
+    "model_calls": 1,
+    "tool_calls": 0,
+    "http_calls": 3,
+    "reserved_usd": "0.020121",
+    "stop_reason": null
+  },
+  "elapsed_ms": 18140.893887999482,
+  "failure": null,
+  "trace_id": "tr-6ef6309f7ed5bbf9ad95087dbe347406",
+  "shared_ledger_usd": 0.749183,
+  "unsettled_reservations": 0,
+  "limitation": "Agent-reviewed exposed labels; no held-out, human or independent canon acceptance."
+}

@@ -1,0 +1,211 @@
+{
+  "captured_at": "2026-10-29T08:23:59.211484+00:00",
+  "code_revision": "9f60cea4856740f58a9680b0ff00f384996f77b1",
+  "application_sha256": "fb0feb5e544ebda762ad53e5e230df1df87f572c892932a23215a4f35ea0855b",
+  "prompt_sha256": "4b4c6bfe4b851f1e5e3ef21acf30c14f349e422c66b22d1287de479570b2a9a2",
+  "snapshot_id": "pat-butcher-coverage-v1",
+  "snapshot_sha256": "8a001507a5d8bbd79216c3b6d8a31718bd794567817198da58455adcca71db71",
+  "snapshot_file_sha256": "94301df6482ee8a5b5b0e18b6e64b3b5a16bd64416c8e7fe9385cb8a945aaeaa",
+  "reference_sha256": "db84b72e22e783975c630dd6df1a9a7092e4ac096de103f4c5d9b1bc45471853",
+  "schema_sha256": "fc6b0beddd0b706b7d465dba6e8cb6683c3315ee6b64535145485c15f3c66f30",
+  "profile": {
+    "provider_type": "openrouter",
+    "answer_model": "openai/gpt-6-sol",
+    "canonical_slug": "openai/gpt-6-sol-20260922",
+    "provider": "openai",
+    "input_price_per_million": "2",
+    "output_price_per_million": "10",
+    "output_tokens": 8192,
+    "reasoning_effort": "low",
+    "request_timeout_seconds": 180
+  },
+  "expenditure_category": "offline_evaluation",
+  "state": "complete",
+  "raw": "{\"claims\":[{\"claim_id\":\"claim-1\",\"event_id\":\"pat-death\",\"event_label\":\"Pat's death\",\"event_type\":\"death\",\"basis\":\"narrative\",\"participants\":[{\"character_id\":\"pat-butcher\",\"role\":\"deceased\"}],\"account_status\":\"as_reported\",\"polarity\":\"affirmed\",\"certainty\":\"certain\",\"story_time\":\"unknown\",\"time_precision\":\"unknown\",\"evidence\":[{\"evidence_id\":\"coverage-pat-butcher\",\"start\":0,\"end\":125,\"quote\":\"Despite admitting that she is scared, Pat is able to make peace with her son moments before she ultimately succumbs and dies.\"}]}],\"context_claims\":[]}",
+  "batch": {
+    "claims": [
+      {
+        "claim_id": "claim-1",
+        "event_id": "pat-death",
+        "event_label": "Pat's death",
+        "event_type": "death",
+        "basis": "narrative",
+        "participants": [
+          {
+            "character_id": "pat-butcher",
+            "role": "deceased"
+          }
+        ],
+        "account_status": "as_reported",
+        "polarity": "affirmed",
+        "certainty": "certain",
+        "story_time": "unknown",
+        "time_precision": "unknown",
+        "evidence": [
+          {
+            "evidence_id": "coverage-pat-butcher",
+            "start": 0,
+            "end": 125,
+            "quote": "Despite admitting that she is scared, Pat is able to make peace with her son moments before she ultimately succumbs and dies."
+          }
+        ]
+      }
+    ],
+    "snapshot_id": "pat-butcher-coverage-v1",
+    "snapshot_sha256": "8a001507a5d8bbd79216c3b6d8a31718bd794567817198da58455adcca71db71",
+    "catalogue": {
+      "characters": [
+        {
+          "character_id": "pat-butcher",
+          "name": "Pat Butcher",
+          "aliases": [
+            "Pat Harris",
+            "Pat Beale",
+            "Pat Wicks",
+            "Pat Evans",
+            "Fat Pat"
+          ],
+          "performers": [
+            "Pam St Clement",
+            "Emma Cooke"
+          ],
+          "coverage": "core",
+          "wikidata_id": "Q368649",
+          "review_note": "Codex source inspection, 17 October 2026: captured character article, infobox aliases/performers and revision metadata checked. Prominence-based curated selection, not a ranked or exhaustive canon. Identity linkage is not independent story corroboration.",
+          "evidence_sources": [
+            "pat-butcher-wiki"
+          ]
+        }
+      ]
+    },
+    "extractor": "openai/gpt-6-sol-20260922"
+  },
+  "score": {
+    "schema_valid": true,
+    "expected": 1,
+    "predicted": 1,
+    "duplicates": 0,
+    "true_positive": 1,
+    "resolvable_spans": 1,
+    "grounded": 1,
+    "precision": 1.0,
+    "recall": 1.0,
+    "f1": 1.0,
+    "scope": "Exposed selected incidents and in-catalogue assertions only. Exact values include participant-role assignment, event type, basis, account status, polarity, certainty, story time/precision and evidence IDs. Ignore arbitrary claim/event ID spelling and label wording; incident grouping requires separate support review. Full-value duplicates collapse. Each dimension projects unique full assertions onto values plus passage IDs and event type, preserving multiplicity: identity sets, role multisets, assigned identity-role pairs (direction), polarity, timing, or account attribution. These are diagnostics, not independent per-claim accuracies. Grounding separately requires exact resolvable locators covering frozen supporting spans; it is not canon adjudication. Text classifications are scored separately by kind, character subjects, theme and passage IDs; classification-gap wording is source-reviewed rather than exact-matched. A text classification never counts as an event or connection.",
+    "dimensions": {
+      "identity": {
+        "expected": 1,
+        "predicted": 1,
+        "true_positive": 1,
+        "precision": 1.0,
+        "recall": 1.0,
+        "f1": 1.0
+      },
+      "role": {
+        "expected": 1,
+        "predicted": 1,
+        "true_positive": 1,
+        "precision": 1.0,
+        "recall": 1.0,
+        "f1": 1.0
+      },
+      "direction": {
+        "expected": 1,
+        "predicted": 1,
+        "true_positive": 1,
+        "precision": 1.0,
+        "recall": 1.0,
+        "f1": 1.0
+      },
+      "negation": {
+        "expected": 1,
+        "predicted": 1,
+        "true_positive": 1,
+        "precision": 1.0,
+        "recall": 1.0,
+        "f1": 1.0
+      },
+      "timing": {
+        "expected": 1,
+        "predicted": 1,
+        "true_positive": 1,
+        "precision": 1.0,
+        "recall": 1.0,
+        "f1": 1.0
+      },
+      "account": {
+        "expected": 1,
+        "predicted": 1,
+        "true_positive": 1,
+        "precision": 1.0,
+        "recall": 1.0,
+        "f1": 1.0
+      }
+    },
+    "by_event_type": {
+      "death": {
+        "schema_valid": true,
+        "expected": 1,
+        "predicted": 1,
+        "duplicates": 0,
+        "true_positive": 1,
+        "resolvable_spans": 1,
+        "grounded": 1,
+        "precision": 1.0,
+        "recall": 1.0,
+        "f1": 1.0,
+        "scope": "Exact normalized values within each completely annotated selected input passage. Instances match on values and sorted unique passage IDs, independently of quote offsets. Claim IDs are ignored; semantic duplicates within a passage collapse and are counted. Grounding additionally requires the entire independently reviewed supporting span. These exposed development scores are not held-out or broad-corpus quality."
+      }
+    },
+    "context_score": {
+      "schema_valid": true,
+      "expected": 0,
+      "predicted": 0,
+      "duplicates": 0,
+      "true_positive": 0,
+      "resolvable_spans": 0,
+      "grounded": 0,
+      "precision": 1.0,
+      "recall": 1.0,
+      "f1": 1.0,
+      "scope": "Exact normalized values within each completely annotated selected input passage. Instances match on values and sorted unique passage IDs, independently of quote offsets. Claim IDs are ignored; semantic duplicates within a passage collapse and are counted. Grounding additionally requires the entire independently reviewed supporting span. These exposed development scores are not held-out or broad-corpus quality."
+    },
+    "by_theme": {},
+    "by_classification": {}
+  },
+  "usage": {
+    "reservation_id": "6ed3fb5c355441349b9b30f05f104cf6",
+    "reserved_usd": 0.10704,
+    "cost_usd": 0.0070635,
+    "request_id": "gen-1793262239-pgOsaAFFxdQHWS3q6ZFQ",
+    "returned_model": "openai/gpt-6-sol",
+    "provider": "OpenAI",
+    "input_tokens": 1478,
+    "output_tokens": 337,
+    "reasoning_tokens": 192
+  },
+  "execution": {
+    "limits": {
+      "model_calls": 1,
+      "tool_calls": 0,
+      "http_calls": 3,
+      "seconds": 180.0,
+      "context_bytes": 1200,
+      "spend_usd": "0.15",
+      "retries": 0,
+      "capabilities": [],
+      "concurrency": 4
+    },
+    "model_calls": 1,
+    "tool_calls": 0,
+    "http_calls": 3,
+    "reserved_usd": "0.0070635",
+    "stop_reason": null
+  },
+  "elapsed_ms": 4322.846136999942,
+  "failure": null,
+  "trace_id": "tr-b5ad50807890903c27d09a80b51f8fab",
+  "shared_ledger_usd": 0.817744,
+  "unsettled_reservations": 0,
+  "limitation": "Agent-reviewed exposed labels; no held-out, human or independent canon acceptance."
+}

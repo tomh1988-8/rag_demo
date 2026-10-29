@@ -1,0 +1,59 @@
+{
+  "snapshot_id": "grant-abuse-coverage-v1",
+  "fixture_version": 1,
+  "source": {
+    "title": "Phil Mitchell",
+    "url": "https://en.wikipedia.org/wiki/Phil_Mitchell",
+    "revision_id": "1379872347",
+    "revision_url": "https://en.wikipedia.org/w/index.php?oldid=1379872347",
+    "section": "Storylines / 1990–2003",
+    "captured_at": "2026-10-17T13:07:31.014189Z",
+    "capture_sha256": "a338d3065203be54e383f2c9c141bca22ae9aedbb950e2e1eada601bcccfe313",
+    "scope": "main_series",
+    "license_url": "https://creativecommons.org/licenses/by-sa/4.0/",
+    "attribution": "Wikipedia contributors; markup removed and whitespace normalized.",
+    "coverage": "Reviewed narrative sections in this captured revision only.",
+    "gaps": [
+      "Partial canon coverage; other paragraphs remain excluded or awaiting review.",
+      "Identity and episode metadata do not independently corroborate story claims."
+    ],
+    "support_status": "source_supported"
+  },
+  "passages": [
+    {
+      "evidence_id": "coverage-grant-abuse",
+      "text": "Sharon and Phil have sex but she stays with Grant, who is unaware of their betrayal. Sharon and Grant's reconciliation is brief, and amidst more rowing and physical violence, Grant is arrested and imprisoned.",
+      "sha256": "06850aa8476de62e3539e378fdc4b294cc12c8e5b670b16d38670d9db1b947c6",
+      "start": 15963,
+      "end": 16171,
+      "source": {
+        "title": "Phil Mitchell",
+        "url": "https://en.wikipedia.org/wiki/Phil_Mitchell",
+        "revision_id": "1379872347",
+        "revision_url": "https://en.wikipedia.org/w/index.php?oldid=1379872347",
+        "section": "Storylines / 1990–2003",
+        "captured_at": "2026-10-17T13:07:31.014189Z",
+        "capture_sha256": "a338d3065203be54e383f2c9c141bca22ae9aedbb950e2e1eada601bcccfe313",
+        "scope": "main_series",
+        "license_url": "https://creativecommons.org/licenses/by-sa/4.0/",
+        "attribution": "Wikipedia contributors; markup removed and whitespace normalized.",
+        "coverage": "Reviewed narrative sections in this captured revision only.",
+        "gaps": [
+          "Partial canon coverage; other paragraphs remain excluded or awaiting review.",
+          "Identity and episode metadata do not independently corroborate story claims."
+        ],
+        "support_status": "source_supported"
+      },
+      "location": {
+        "source_id": "phil-mitchell-wiki",
+        "paragraph_ordinal": 18,
+        "section_id": "1990–2003",
+        "character_ids": [
+          "grant-mitchell",
+          "phil-mitchell",
+          "sharon-watts"
+        ]
+      }
+    }
+  ]
+}

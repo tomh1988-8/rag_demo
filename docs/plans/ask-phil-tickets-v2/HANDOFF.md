@@ -1,6 +1,29 @@
 # Ask Phil: publication and next-skill handoff
 
-## Issue #19: persona validation implemented and verified
+## Issue #20: checked core-roster coverage validated, publication in progress
+
+Continue the existing implementation at `eec7033` and test-only repair `416ef2f`, with [source-linked evidence](../../implementation/issue-20/README.md).
+All 20 original profiles and 794 passages are preserved; 22 scoped batches have
+32 actual candidates, unchanged pre-extraction labels/scores, full source review
+and exact trace readback. The coherent projection retains earlier records and
+explicitly consolidates the same Martin/Stacey wedding. All 25 graph questions
+and the unclassified text question pass separate result/value/support checks.
+The full source/text publication seals all three graph versions together.
+
+Both review axes clear the graph/source results, and all eight Docker contracts
+pass. All 586 native cases pass exactly once across disjoint selections; strict
+mypy/formatting and all 243 frozen inputs verify. Publication and tracker closure
+remain outstanding; read the validation and publication receipts before claiming
+completion. Reuse the 23 paid outcomes, not new calls. Shared spend is **$0.911656**
+under the original non-resetting $5 cap, with zero unsettled reservations.
+The issue’s raw-model failures, note corrections and initial composition failure
+remain retained. RAG-04 passes for checked contracts; checklist counts are
+36 Pass and 15 Pending, with broader release/variation obligations unchanged.
+
+After #20 completion, #22 is next; #24 is also unblocked and #18 waits for #24.
+Wait for the user’s next implementation instruction before another issue.
+
+## Prior issue #19: persona validation implemented and verified
 
 Issue #19 is complete after verified publication of [6611aa0](https://github.com/tomh1988-8/rag_demo/commit/6611aa07a577258a9cc253fc91e3766f2c42e4ad).
 [Evidence](../../implementation/issue-19/README.md) records 567 passing

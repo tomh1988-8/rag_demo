@@ -1,0 +1,136 @@
+{
+  "captured_at": "2026-10-29T08:22:34.485371+00:00",
+  "code_revision": "9f60cea4856740f58a9680b0ff00f384996f77b1",
+  "application_sha256": "fb0feb5e544ebda762ad53e5e230df1df87f572c892932a23215a4f35ea0855b",
+  "prompt_sha256": "4f625c048e5652b6d709eaa5eaf40a170feac91b94df8c2b0ab89c1b05afea1e",
+  "snapshot_id": "ian-beale-coverage-v1",
+  "snapshot_sha256": "cc7144cb209fa197145a889a07a41dd4b920713607f03c638976bbdff9139734",
+  "snapshot_file_sha256": "529bc1947f0380d3306dc7cde1f476066d06ce56ceaa870e200514bad0f14d09",
+  "reference_sha256": "080f48c3d705df7516da26242b7f7afba35423c6ccaec0ae023e504d00f374b8",
+  "schema_sha256": "753b78b044501f008907d7fead2cef20d64dd0961320420847cb102f265ee53a",
+  "profile": {
+    "provider_type": "openrouter",
+    "answer_model": "openai/gpt-6-sol",
+    "canonical_slug": "openai/gpt-6-sol-20260922",
+    "provider": "openai",
+    "input_price_per_million": "2",
+    "output_price_per_million": "10",
+    "output_tokens": 8192,
+    "reasoning_effort": "low",
+    "request_timeout_seconds": 180
+  },
+  "expenditure_category": "offline_evaluation",
+  "state": "complete",
+  "raw": "{\"claims\":[{\"claim_id\":\"ian-lucy-father-1\",\"parent_id\":\"ian-beale\",\"child_id\":\"lucy-beale\",\"parent_role\":\"father\",\"relation\":\"biological_parent\",\"polarity\":\"affirmed\",\"certainty\":\"uncertain\",\"story_time\":\"December 1993\",\"time_precision\":\"exact\",\"evidence\":[{\"evidence_id\":\"coverage-ian-beale\",\"start\":0,\"end\":161,\"quote\":\"He and Cindy later reconcile and Ian is overjoyed to become a father to twins, Peter (Francis Brittin-Snell) and Lucy Beale (Eva Brittin-Snell) in December 1993.\"}]}]}",
+  "batch": {
+    "claims": [
+      {
+        "claim_id": "ian-lucy-father-1",
+        "parent_id": "ian-beale",
+        "child_id": "lucy-beale",
+        "parent_role": "father",
+        "relation": "biological_parent",
+        "polarity": "affirmed",
+        "certainty": "uncertain",
+        "story_time": "December 1993",
+        "time_precision": "exact",
+        "evidence": [
+          {
+            "evidence_id": "coverage-ian-beale",
+            "start": 0,
+            "end": 161,
+            "quote": "He and Cindy later reconcile and Ian is overjoyed to become a father to twins, Peter (Francis Brittin-Snell) and Lucy Beale (Eva Brittin-Snell) in December 1993."
+          }
+        ]
+      }
+    ],
+    "snapshot_id": "ian-beale-coverage-v1",
+    "snapshot_sha256": "cc7144cb209fa197145a889a07a41dd4b920713607f03c638976bbdff9139734",
+    "catalogue": {
+      "characters": [
+        {
+          "character_id": "ian-beale",
+          "name": "Ian Beale",
+          "aliases": [
+            "Ian Albert Beale"
+          ],
+          "performers": [
+            "Adam Woodyatt"
+          ],
+          "coverage": "core",
+          "wikidata_id": "Q899011",
+          "review_note": "Codex source inspection, 17 October 2026: captured character article, infobox aliases/performers and revision metadata checked. Prominence-based curated selection, not a ranked or exhaustive canon. Identity linkage is not independent story corroboration.",
+          "evidence_sources": [
+            "ian-beale-wiki"
+          ]
+        },
+        {
+          "character_id": "lucy-beale",
+          "name": "Lucy Beale",
+          "aliases": [],
+          "performers": [
+            "Eva Brittin-Snell",
+            "Casey Anne Rothery",
+            "Melissa Suffield",
+            "Hetti Bywater"
+          ],
+          "coverage": "core",
+          "wikidata_id": "Q3304512",
+          "review_note": "Codex source inspection, 17 October 2026: captured character article, infobox aliases/performers and revision metadata checked. Prominence-based curated selection, not a ranked or exhaustive canon. Identity linkage is not independent story corroboration.",
+          "evidence_sources": [
+            "lucy-beale-wiki"
+          ]
+        }
+      ]
+    },
+    "extractor": "openai/gpt-6-sol-20260922"
+  },
+  "score": {
+    "schema_valid": true,
+    "expected": 1,
+    "predicted": 1,
+    "duplicates": 0,
+    "true_positive": 0,
+    "resolvable_spans": 1,
+    "grounded": 0,
+    "precision": 0.0,
+    "recall": 0.0,
+    "f1": 0.0,
+    "scope": "Exact normalized values within each completely annotated selected input passage. Instances match on values and sorted unique passage IDs, independently of quote offsets. Claim IDs are ignored; semantic duplicates within a passage collapse and are counted. Grounding additionally requires the entire independently reviewed supporting span. These exposed development scores are not held-out or broad-corpus quality."
+  },
+  "usage": {
+    "reservation_id": "57c115f4c22c4d4682d4b7d82a9ac99c",
+    "reserved_usd": 0.105012,
+    "cost_usd": 0.0109985,
+    "request_id": "gen-1793262155-VyIlQY3pacsjUi1ryCv5",
+    "returned_model": "openai/gpt-6-sol",
+    "provider": "OpenAI",
+    "input_tokens": 1592,
+    "output_tokens": 702,
+    "reasoning_tokens": 556
+  },
+  "execution": {
+    "limits": {
+      "model_calls": 1,
+      "tool_calls": 0,
+      "http_calls": 3,
+      "seconds": 180.0,
+      "context_bytes": 1200,
+      "spend_usd": "0.15",
+      "retries": 0,
+      "capabilities": [],
+      "concurrency": 4
+    },
+    "model_calls": 1,
+    "tool_calls": 0,
+    "http_calls": 3,
+    "reserved_usd": "0.0109985",
+    "stop_reason": null
+  },
+  "elapsed_ms": 8912.235843000417,
+  "failure": null,
+  "trace_id": "tr-e1b5174388cb90f3c80259db53632c1b",
+  "shared_ledger_usd": 0.729062,
+  "unsettled_reservations": 0,
+  "limitation": "Agent-reviewed exposed labels; no held-out, human or independent canon acceptance."
+}

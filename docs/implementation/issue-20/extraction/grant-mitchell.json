@@ -1,0 +1,154 @@
+{
+  "captured_at": "2026-10-29T08:21:08.939362+00:00",
+  "code_revision": "9f60cea4856740f58a9680b0ff00f384996f77b1",
+  "application_sha256": "fb0feb5e544ebda762ad53e5e230df1df87f572c892932a23215a4f35ea0855b",
+  "prompt_sha256": "1e7473f85c87dfa400293d480c3091eab8950a0cb2fa707a01ba9bf028f78db3",
+  "snapshot_id": "grant-mitchell-coverage-v1",
+  "snapshot_sha256": "077aa2b88ba62409c2c1b559f3c75643617308ec35c95ef4680e0ffb00f043c5",
+  "snapshot_file_sha256": "355e22b21029c81a7508d6a13a9fda58c02f9fd0c74662f8b0f52d990abb0d34",
+  "reference_sha256": "bf7f87e9eb4ec9c5925b6dc191affb6fb5e9e77b71eafcf153b5efc326e5da1c",
+  "schema_sha256": "8573863eb1966327a8823dd7c00da28eae6a7c87dcc20decc5843e1a66039354",
+  "profile": {
+    "provider_type": "openrouter",
+    "answer_model": "openai/gpt-6-sol",
+    "canonical_slug": "openai/gpt-6-sol-20260922",
+    "provider": "openai",
+    "input_price_per_million": "2",
+    "output_price_per_million": "10",
+    "output_tokens": 8192,
+    "reasoning_effort": "low",
+    "request_timeout_seconds": 180
+  },
+  "expenditure_category": "offline_evaluation",
+  "state": "complete",
+  "raw": "{\"claims\":[{\"claim_id\":\"grant-sharon-marriage-1\",\"subject_id\":\"grant-mitchell\",\"object_id\":\"sharon-watts\",\"relation\":\"marriage\",\"episode_id\":\"grant-sharon-marriage-episode-1\",\"status\":\"unknown\",\"polarity\":\"affirmed\",\"certainty\":\"certain\",\"story_time\":\"December 1991\",\"time_precision\":\"exact\",\"after_claim_id\":null,\"evidence\":[{\"evidence_id\":\"coverage-grant-mitchell\",\"start\":0,\"end\":37,\"quote\":\"Grant marries Sharon in December 1991\"}]}]}",
+  "batch": {
+    "claims": [
+      {
+        "claim_id": "grant-sharon-marriage-1",
+        "subject_id": "grant-mitchell",
+        "object_id": "sharon-watts",
+        "relation": "marriage",
+        "episode_id": "grant-sharon-marriage-episode-1",
+        "status": "unknown",
+        "polarity": "affirmed",
+        "certainty": "certain",
+        "story_time": "December 1991",
+        "time_precision": "exact",
+        "after_claim_id": null,
+        "evidence": [
+          {
+            "evidence_id": "coverage-grant-mitchell",
+            "start": 0,
+            "end": 37,
+            "quote": "Grant marries Sharon in December 1991"
+          }
+        ]
+      }
+    ],
+    "snapshot_id": "grant-mitchell-coverage-v1",
+    "snapshot_sha256": "077aa2b88ba62409c2c1b559f3c75643617308ec35c95ef4680e0ffb00f043c5",
+    "catalogue": {
+      "characters": [
+        {
+          "character_id": "grant-mitchell",
+          "name": "Grant Mitchell",
+          "aliases": [],
+          "performers": [
+            "Ross Kemp",
+            "Teddy Jay"
+          ],
+          "coverage": "core",
+          "wikidata_id": "Q2685036",
+          "review_note": "Codex source inspection, 17 October 2026: captured character article, infobox aliases/performers and revision metadata checked. Prominence-based curated selection, not a ranked or exhaustive canon. Identity linkage is not independent story corroboration.",
+          "evidence_sources": [
+            "grant-mitchell-wiki"
+          ]
+        },
+        {
+          "character_id": "sharon-watts",
+          "name": "Sharon Watts",
+          "aliases": [
+            "Sharon Mitchell",
+            "Sharon Rickman",
+            "Sharon Beale"
+          ],
+          "performers": [
+            "Letitia Dean"
+          ],
+          "coverage": "core",
+          "wikidata_id": "Q7490258",
+          "review_note": "Codex source inspection, 17 October 2026: captured character article, infobox aliases/performers and revision metadata checked. Prominence-based curated selection, not a ranked or exhaustive canon. Identity linkage is not independent story corroboration.",
+          "evidence_sources": [
+            "sharon-watts-wiki"
+          ]
+        }
+      ]
+    },
+    "extractor": "openai/gpt-6-sol-20260922"
+  },
+  "score": {
+    "expected": 1,
+    "predicted": 1,
+    "true_positive": 1,
+    "precision": 1.0,
+    "recall": 1.0,
+    "f1": 1.0,
+    "schema_valid": true,
+    "duplicates": 0,
+    "resolvable_spans": 1,
+    "grounded": 0,
+    "episode_pairs_expected": 0,
+    "episode_pairs_correct": 0,
+    "ordering_expected": 0,
+    "ordering_predicted": 0,
+    "ordering_correct": 0,
+    "alignment_limited": false,
+    "by_relation": {
+      "marriage": {
+        "expected": 1,
+        "predicted": 1,
+        "true_positive": 1,
+        "precision": 1.0,
+        "recall": 1.0,
+        "f1": 1.0
+      }
+    },
+    "scope": "Exposed, completely annotated in-catalogue spans only. Match values and unique passage IDs, with frozen timing alternatives; ignore arbitrary claim/episode IDs. Romantic pairs are symmetric; parent/guardian roles are directed. Distinct episode instances retain multiplicity; duplicates within the same episode collapse. One-to-one value matching ignores ID spelling. Ambiguous alignments maximize episode agreement, then ordering; over 4096 alternatives leaves those two scores unavailable. Raw duplicates and full-reference-span grounding are separate. Missing episode pairs fail. This conservative grounding proxy is not independent semantic/canon adjudication."
+  },
+  "usage": {
+    "reservation_id": "71e9dca3fe514666a0b8b305f4954be1",
+    "reserved_usd": 0.10651,
+    "cost_usd": 0.0072235,
+    "request_id": "gen-1793262069-ErhjPdIRCW7iJq9YYU8L",
+    "returned_model": "openai/gpt-6-sol",
+    "provider": "OpenAI",
+    "input_tokens": 1746,
+    "output_tokens": 286,
+    "reasoning_tokens": 158
+  },
+  "execution": {
+    "limits": {
+      "model_calls": 1,
+      "tool_calls": 0,
+      "http_calls": 3,
+      "seconds": 180.0,
+      "context_bytes": 1200,
+      "spend_usd": "0.15",
+      "retries": 0,
+      "capabilities": [],
+      "concurrency": 4
+    },
+    "model_calls": 1,
+    "tool_calls": 0,
+    "http_calls": 3,
+    "reserved_usd": "0.0072235",
+    "stop_reason": null
+  },
+  "elapsed_ms": 4524.203130999922,
+  "failure": null,
+  "trace_id": "tr-902969b4ba35dc322053cb5bdf4eaac9",
+  "shared_ledger_usd": 0.691747,
+  "unsettled_reservations": 0,
+  "limitation": "Agent-reviewed exposed labels; no held-out, human or independent canon acceptance."
+}

@@ -1,0 +1,208 @@
+{
+  "captured_at": "2026-10-29T08:24:28.651852+00:00",
+  "code_revision": "9f60cea4856740f58a9680b0ff00f384996f77b1",
+  "application_sha256": "fb0feb5e544ebda762ad53e5e230df1df87f572c892932a23215a4f35ea0855b",
+  "prompt_sha256": "4b4c6bfe4b851f1e5e3ef21acf30c14f349e422c66b22d1287de479570b2a9a2",
+  "snapshot_id": "dot-cotton-coverage-v1",
+  "snapshot_sha256": "a4a9acc8140976e9c2f7f5d51d5e94abf4d40509d85ddb7aad2559e425634752",
+  "snapshot_file_sha256": "db284096398f4dfb36d0c4832690e654f723c2005ac458d227cc1b76e4390c5e",
+  "reference_sha256": "b527a0f60f346cf33f38616ff94dcabab27e21f42ed0c3b9703daccb7e1d8861",
+  "schema_sha256": "fc6b0beddd0b706b7d465dba6e8cb6683c3315ee6b64535145485c15f3c66f30",
+  "profile": {
+    "provider_type": "openrouter",
+    "answer_model": "openai/gpt-6-sol",
+    "canonical_slug": "openai/gpt-6-sol-20260922",
+    "provider": "openai",
+    "input_price_per_million": "2",
+    "output_price_per_million": "10",
+    "output_tokens": 8192,
+    "reasoning_effort": "low",
+    "request_timeout_seconds": 180
+  },
+  "expenditure_category": "offline_evaluation",
+  "state": "complete",
+  "raw": "{\"claims\":[{\"claim_id\":\"claim-1\",\"event_id\":\"dot-death\",\"event_label\":\"Dot's death\",\"event_type\":\"death\",\"basis\":\"narrative\",\"participants\":[{\"character_id\":\"dot-cotton\",\"role\":\"deceased\"}],\"account_status\":\"as_reported\",\"polarity\":\"affirmed\",\"certainty\":\"certain\",\"story_time\":\"Over a year later\",\"time_precision\":\"relative\",\"evidence\":[{\"evidence_id\":\"coverage-dot-cotton\",\"start\":56,\"end\":93,\"quote\":\"Dot has died peacefully in her sleep.\"}]}],\"context_claims\":[]}",
+  "batch": {
+    "claims": [
+      {
+        "claim_id": "claim-1",
+        "event_id": "dot-death",
+        "event_label": "Dot's death",
+        "event_type": "death",
+        "basis": "narrative",
+        "participants": [
+          {
+            "character_id": "dot-cotton",
+            "role": "deceased"
+          }
+        ],
+        "account_status": "as_reported",
+        "polarity": "affirmed",
+        "certainty": "certain",
+        "story_time": "Over a year later",
+        "time_precision": "relative",
+        "evidence": [
+          {
+            "evidence_id": "coverage-dot-cotton",
+            "start": 56,
+            "end": 93,
+            "quote": "Dot has died peacefully in her sleep."
+          }
+        ]
+      }
+    ],
+    "snapshot_id": "dot-cotton-coverage-v1",
+    "snapshot_sha256": "a4a9acc8140976e9c2f7f5d51d5e94abf4d40509d85ddb7aad2559e425634752",
+    "catalogue": {
+      "characters": [
+        {
+          "character_id": "dot-cotton",
+          "name": "Dot Cotton",
+          "aliases": [
+            "Dorothy Colwell",
+            "Dot Branning"
+          ],
+          "performers": [
+            "June Brown",
+            "Tallulah Pitt-Brown"
+          ],
+          "coverage": "core",
+          "wikidata_id": "Q3306375",
+          "review_note": "Codex source inspection, 17 October 2026: captured character article, infobox aliases/performers and revision metadata checked. Prominence-based curated selection, not a ranked or exhaustive canon. Identity linkage is not independent story corroboration.",
+          "evidence_sources": [
+            "dot-cotton-wiki"
+          ]
+        }
+      ]
+    },
+    "extractor": "openai/gpt-6-sol-20260922"
+  },
+  "score": {
+    "schema_valid": true,
+    "expected": 1,
+    "predicted": 1,
+    "duplicates": 0,
+    "true_positive": 0,
+    "resolvable_spans": 0,
+    "grounded": 0,
+    "precision": 0.0,
+    "recall": 0.0,
+    "f1": 0.0,
+    "scope": "Exposed selected incidents and in-catalogue assertions only. Exact values include participant-role assignment, event type, basis, account status, polarity, certainty, story time/precision and evidence IDs. Ignore arbitrary claim/event ID spelling and label wording; incident grouping requires separate support review. Full-value duplicates collapse. Each dimension projects unique full assertions onto values plus passage IDs and event type, preserving multiplicity: identity sets, role multisets, assigned identity-role pairs (direction), polarity, timing, or account attribution. These are diagnostics, not independent per-claim accuracies. Grounding separately requires exact resolvable locators covering frozen supporting spans; it is not canon adjudication. Text classifications are scored separately by kind, character subjects, theme and passage IDs; classification-gap wording is source-reviewed rather than exact-matched. A text classification never counts as an event or connection.",
+    "dimensions": {
+      "identity": {
+        "expected": 1,
+        "predicted": 1,
+        "true_positive": 1,
+        "precision": 1.0,
+        "recall": 1.0,
+        "f1": 1.0
+      },
+      "role": {
+        "expected": 1,
+        "predicted": 1,
+        "true_positive": 1,
+        "precision": 1.0,
+        "recall": 1.0,
+        "f1": 1.0
+      },
+      "direction": {
+        "expected": 1,
+        "predicted": 1,
+        "true_positive": 1,
+        "precision": 1.0,
+        "recall": 1.0,
+        "f1": 1.0
+      },
+      "negation": {
+        "expected": 1,
+        "predicted": 1,
+        "true_positive": 1,
+        "precision": 1.0,
+        "recall": 1.0,
+        "f1": 1.0
+      },
+      "timing": {
+        "expected": 1,
+        "predicted": 1,
+        "true_positive": 0,
+        "precision": 0.0,
+        "recall": 0.0,
+        "f1": 0.0
+      },
+      "account": {
+        "expected": 1,
+        "predicted": 1,
+        "true_positive": 1,
+        "precision": 1.0,
+        "recall": 1.0,
+        "f1": 1.0
+      }
+    },
+    "by_event_type": {
+      "death": {
+        "schema_valid": true,
+        "expected": 1,
+        "predicted": 1,
+        "duplicates": 0,
+        "true_positive": 0,
+        "resolvable_spans": 0,
+        "grounded": 0,
+        "precision": 0.0,
+        "recall": 0.0,
+        "f1": 0.0,
+        "scope": "Exact normalized values within each completely annotated selected input passage. Instances match on values and sorted unique passage IDs, independently of quote offsets. Claim IDs are ignored; semantic duplicates within a passage collapse and are counted. Grounding additionally requires the entire independently reviewed supporting span. These exposed development scores are not held-out or broad-corpus quality."
+      }
+    },
+    "context_score": {
+      "schema_valid": true,
+      "expected": 0,
+      "predicted": 0,
+      "duplicates": 0,
+      "true_positive": 0,
+      "resolvable_spans": 0,
+      "grounded": 0,
+      "precision": 1.0,
+      "recall": 1.0,
+      "f1": 1.0,
+      "scope": "Exact normalized values within each completely annotated selected input passage. Instances match on values and sorted unique passage IDs, independently of quote offsets. Claim IDs are ignored; semantic duplicates within a passage collapse and are counted. Grounding additionally requires the entire independently reviewed supporting span. These exposed development scores are not held-out or broad-corpus quality."
+    },
+    "by_theme": {},
+    "by_classification": {}
+  },
+  "usage": {
+    "reservation_id": "fbf37c9de704415b94a2dfa1807db689",
+    "reserved_usd": 0.106924,
+    "cost_usd": 0.0074135,
+    "request_id": "gen-1793262269-d9fQnldvLiZPTFQsHM20",
+    "returned_model": "openai/gpt-6-sol",
+    "provider": "OpenAI",
+    "input_tokens": 1462,
+    "output_tokens": 376,
+    "reasoning_tokens": 244
+  },
+  "execution": {
+    "limits": {
+      "model_calls": 1,
+      "tool_calls": 0,
+      "http_calls": 3,
+      "seconds": 180.0,
+      "context_bytes": 1200,
+      "spend_usd": "0.15",
+      "retries": 0,
+      "capabilities": [],
+      "concurrency": 4
+    },
+    "model_calls": 1,
+    "tool_calls": 0,
+    "http_calls": 3,
+    "reserved_usd": "0.0074135",
+    "stop_reason": null
+  },
+  "elapsed_ms": 6178.545750999547,
+  "failure": null,
+  "trace_id": "tr-7ac0e8f0d11488e129e9291438cd2a7d",
+  "shared_ledger_usd": 0.851487,
+  "unsettled_reservations": 0,
+  "limitation": "Agent-reviewed exposed labels; no held-out, human or independent canon acceptance."
+}

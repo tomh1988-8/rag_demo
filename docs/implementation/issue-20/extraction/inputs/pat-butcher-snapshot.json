@@ -1,0 +1,57 @@
+{
+  "snapshot_id": "pat-butcher-coverage-v1",
+  "fixture_version": 1,
+  "source": {
+    "title": "Phil Mitchell",
+    "url": "https://en.wikipedia.org/wiki/Phil_Mitchell",
+    "revision_id": "1379872347",
+    "revision_url": "https://en.wikipedia.org/w/index.php?oldid=1379872347",
+    "section": "Storylines / 1990–2003",
+    "captured_at": "2026-10-17T13:07:31.014189Z",
+    "capture_sha256": "a338d3065203be54e383f2c9c141bca22ae9aedbb950e2e1eada601bcccfe313",
+    "scope": "main_series",
+    "license_url": "https://creativecommons.org/licenses/by-sa/4.0/",
+    "attribution": "Wikipedia contributors; markup removed and whitespace normalized.",
+    "coverage": "Reviewed narrative sections in this captured revision only.",
+    "gaps": [
+      "Partial canon coverage; other paragraphs remain excluded or awaiting review.",
+      "Identity and episode metadata do not independently corroborate story claims."
+    ],
+    "support_status": "source_supported"
+  },
+  "passages": [
+    {
+      "evidence_id": "coverage-pat-butcher",
+      "text": "Despite admitting that she is scared, Pat is able to make peace with her son moments before she ultimately succumbs and dies.",
+      "sha256": "eec5ff473d8dbcbd1578063e785ce56b62d02f17d4a1c35f31fab33c0f33fd68",
+      "start": 30829,
+      "end": 30954,
+      "source": {
+        "title": "Pat Butcher",
+        "url": "https://en.wikipedia.org/wiki/Pat_Butcher",
+        "revision_id": "1375429106",
+        "revision_url": "https://en.wikipedia.org/w/index.php?oldid=1375429106",
+        "section": "Storylines / 1986–2012",
+        "captured_at": "2026-10-17T13:07:33.232513Z",
+        "capture_sha256": "3d3cccb3f94e0904f3aa96316665b70df7bbf096054e15c36a8609f22535caed",
+        "scope": "main_series",
+        "license_url": "https://creativecommons.org/licenses/by-sa/4.0/",
+        "attribution": "Wikipedia contributors; markup removed and whitespace normalized.",
+        "coverage": "Reviewed narrative sections in this captured revision only.",
+        "gaps": [
+          "Partial canon coverage; other paragraphs remain excluded or awaiting review.",
+          "Identity and episode metadata do not independently corroborate story claims."
+        ],
+        "support_status": "source_supported"
+      },
+      "location": {
+        "source_id": "pat-butcher-wiki",
+        "paragraph_ordinal": 51,
+        "section_id": "1986–2012",
+        "character_ids": [
+          "pat-butcher"
+        ]
+      }
+    }
+  ]
+}

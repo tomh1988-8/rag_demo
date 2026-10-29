@@ -1,0 +1,118 @@
+{
+  "graph_responses": 25,
+  "text_responses": 1,
+  "graph_component_dimensions": 3,
+  "all_graph_component_checks_pass": true,
+  "graph_final_source_supported_groups": 29,
+  "graph_outcomes_pass": 25,
+  "text_source_supported_claims": 2,
+  "text_required_facts_covered": 2,
+  "actual_graph_capture_checks": [
+    {
+      "phase": "core-roster",
+      "typed_tool": {
+        "snapshot_id": "core-graph-v1",
+        "snapshot_sha256": "2ea666180ca9600a6d8e35ae7049d21f682d9090cddc92f63630d9250d7a6c76",
+        "graphs": {
+          "family": "d7838688f7cad7f30005c2f490491ab2748bf7c5ce69744a5396fc16296dfdc1",
+          "relationship": "940945b26cd26512262f7f52e8eb40a6692d6942ca42ab2f1af4eea825589266",
+          "event": "297285ce2ef4ca3932610f49438f33cb52de198e9ae0fbe1687be9d0fcaec85b"
+        },
+        "query": {
+          "kind": "connection",
+          "character_id": "peggy-mitchell",
+          "target_id": "phil-mitchell",
+          "max_depth": 3,
+          "max_paths": 5,
+          "max_expansions": 500
+        },
+        "status": "found",
+        "paths": [
+          {
+            "characters": [
+              "peggy-mitchell",
+              "phil-mitchell"
+            ],
+            "steps": [
+              {
+                "kind": "biological",
+                "from_id": "peggy-mitchell",
+                "to_id": "phil-mitchell",
+                "direction": "parent_to_child",
+                "edge": {
+                  "parent_id": "peggy-mitchell",
+                  "child_id": "phil-mitchell",
+                  "claim_ids": [
+                    "ref-peggy-mitchell-1"
+                  ],
+                  "evidence": [
+                    {
+                      "evidence_id": "coverage-peggy-mitchell",
+                      "start": 0,
+                      "end": 105,
+                      "quote": "Peggy married Eric Mitchell (George Russo) because she was pregnant with their son Phil (Steve McFadden)."
+                    }
+                  ]
+                }
+              }
+            ],
+            "meaning": "biological_parent"
+          }
+        ],
+        "names": {
+          "phil-mitchell": "Phil Mitchell",
+          "grant-mitchell": "Grant Mitchell",
+          "peggy-mitchell": "Peggy Mitchell",
+          "sharon-watts": "Sharon Watts",
+          "ben-mitchell": "Ben Mitchell",
+          "ian-beale": "Ian Beale",
+          "kathy-beale": "Kathy Beale",
+          "cindy-beale": "Cindy Beale",
+          "lucy-beale": "Lucy Beale",
+          "bobby-beale": "Bobby Beale",
+          "martin-fowler": "Martin Fowler",
+          "kat-slater": "Kat Slater",
+          "stacey-slater": "Stacey Slater",
+          "alfie-moon": "Alfie Moon",
+          "pat-butcher": "Pat Butcher",
+          "janine-butcher": "Janine Butcher",
+          "dot-cotton": "Dot Cotton",
+          "denise-fox": "Denise Fox",
+          "max-branning": "Max Branning",
+          "linda-carter": "Linda Carter",
+          "den-watts": "Den Watts"
+        },
+        "examined_paths": 1,
+        "expansion_limit_reached": false,
+        "limitation": "Only admitted relationships and shared incident roles in this captured snapshot are traversed, within the stated depth, path and expansion bounds. No path is limited coverage, not proof that no connection exists in the programme. Social ties do not establish biological ancestry. Historical ties do not establish a current relationship. Shared incidents do not transfer guilt, parentage or presence between participants. Themes, co-appearance and performers do not create connections. Source-supported does not mean independently cross-checked."
+      },
+      "invalid_mixed_query_http": 422,
+      "audit_readback_matches": true,
+      "original_response_survives_restart": true,
+      "event_session_and_reset": true,
+      "original_response_survives_api_restart": true
+    }
+  ],
+  "text_cli_and_trace_match": true,
+  "text_citations_resolve": true,
+  "application_sha256": "fb0feb5e544ebda762ad53e5e230df1df87f572c892932a23215a4f35ea0855b",
+  "shared_source_sha256": "2ea666180ca9600a6d8e35ae7049d21f682d9090cddc92f63630d9250d7a6c76",
+  "graph_versions": {
+    "family": "d7838688f7cad7f30005c2f490491ab2748bf7c5ce69744a5396fc16296dfdc1",
+    "relationships": "940945b26cd26512262f7f52e8eb40a6692d6942ca42ab2f1af4eea825589266",
+    "events": "297285ce2ef4ca3932610f49438f33cb52de198e9ae0fbe1687be9d0fcaec85b"
+  },
+  "publication_graphs": {
+    "family": "d7838688f7cad7f30005c2f490491ab2748bf7c5ce69744a5396fc16296dfdc1",
+    "relationship": "940945b26cd26512262f7f52e8eb40a6692d6942ca42ab2f1af4eea825589266",
+    "event": "297285ce2ef4ca3932610f49438f33cb52de198e9ae0fbe1687be9d0fcaec85b"
+  },
+  "shared_ledger_usd": 0.911656,
+  "unsettled_reservations": 0,
+  "incremental_paid_calls": 23,
+  "reported_incremental_cost_usd": "0.238023",
+  "paid_review_calls": 0,
+  "frozen_graph_input_hashes_match": true,
+  "scope": "Source-based agent-reviewed exposed cases, not human canon or representative held-out acceptance.",
+  "all_three_graph_versions_match": true
+}

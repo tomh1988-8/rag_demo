@@ -1,0 +1,131 @@
+{
+  "expected_claims": [
+    {
+      "event_id": "grant-domestic-abuse",
+      "event_label": "Grant and Sharon domestic abuse",
+      "event_type": "arrest",
+      "basis": "legal_outcome",
+      "participants": [
+        {
+          "character_id": "grant-mitchell",
+          "role": "arrested"
+        }
+      ],
+      "account_status": "as_reported",
+      "polarity": "affirmed",
+      "certainty": "certain",
+      "story_time": "unknown",
+      "time_precision": "unknown",
+      "claim_id": "ref-grant-abuse-1",
+      "evidence": [
+        {
+          "evidence_id": "coverage-grant-abuse",
+          "start": 0,
+          "end": 208,
+          "quote": "Sharon and Phil have sex but she stays with Grant, who is unaware of their betrayal. Sharon and Grant's reconciliation is brief, and amidst more rowing and physical violence, Grant is arrested and imprisoned."
+        }
+      ]
+    },
+    {
+      "event_id": "grant-domestic-abuse",
+      "event_label": "Grant and Sharon domestic abuse",
+      "event_type": "imprisonment",
+      "basis": "legal_outcome",
+      "participants": [
+        {
+          "character_id": "grant-mitchell",
+          "role": "prisoner"
+        }
+      ],
+      "account_status": "as_reported",
+      "polarity": "affirmed",
+      "certainty": "certain",
+      "story_time": "unknown",
+      "time_precision": "unknown",
+      "claim_id": "ref-grant-abuse-2",
+      "evidence": [
+        {
+          "evidence_id": "coverage-grant-abuse",
+          "start": 0,
+          "end": 208,
+          "quote": "Sharon and Phil have sex but she stays with Grant, who is unaware of their betrayal. Sharon and Grant's reconciliation is brief, and amidst more rowing and physical violence, Grant is arrested and imprisoned."
+        }
+      ]
+    }
+  ],
+  "expected_context_claims": [
+    {
+      "kind": "theme",
+      "character_ids": [
+        "grant-mitchell",
+        "sharon-watts"
+      ],
+      "theme": "domestic_abuse",
+      "classification_gap": null,
+      "claim_id": "ref-grant-abuse-text-1",
+      "evidence": [
+        {
+          "evidence_id": "coverage-grant-abuse",
+          "start": 0,
+          "end": 208,
+          "quote": "Sharon and Phil have sex but she stays with Grant, who is unaware of their betrayal. Sharon and Grant's reconciliation is brief, and amidst more rowing and physical violence, Grant is arrested and imprisoned."
+        }
+      ]
+    }
+  ],
+  "incidents": {
+    "coverage-grant-abuse": {
+      "event_id": "grant-domestic-abuse",
+      "event_label": "Grant and Sharon domestic abuse"
+    }
+  },
+  "snapshot_sha256": "99bde4c2963345a4e9edc0f98c3db1b5e995525d4bb1c49ab1eba21c51acc041",
+  "catalogue": {
+    "characters": [
+      {
+        "character_id": "grant-mitchell",
+        "name": "Grant Mitchell",
+        "aliases": [],
+        "performers": [
+          "Ross Kemp",
+          "Teddy Jay"
+        ],
+        "coverage": "core",
+        "wikidata_id": "Q2685036",
+        "review_note": "Codex source inspection, 17 October 2026: captured character article, infobox aliases/performers and revision metadata checked. Prominence-based curated selection, not a ranked or exhaustive canon. Identity linkage is not independent story corroboration.",
+        "evidence_sources": [
+          "grant-mitchell-wiki"
+        ]
+      },
+      {
+        "character_id": "sharon-watts",
+        "name": "Sharon Watts",
+        "aliases": [
+          "Sharon Mitchell",
+          "Sharon Rickman",
+          "Sharon Beale"
+        ],
+        "performers": [
+          "Letitia Dean"
+        ],
+        "coverage": "core",
+        "wikidata_id": "Q7490258",
+        "review_note": "Codex source inspection, 17 October 2026: captured character article, infobox aliases/performers and revision metadata checked. Prominence-based curated selection, not a ranked or exhaustive canon. Identity linkage is not independent story corroboration.",
+        "evidence_sources": [
+          "sharon-watts-wiki"
+        ]
+      }
+    ]
+  },
+  "origin_snapshot_sha256": "2ea666180ca9600a6d8e35ae7049d21f682d9090cddc92f63630d9250d7a6c76",
+  "annotation_sha256": "56275247f9cf2976827f1fd6d9df6ae7682c73da343bc615b819e3f22a7571bb",
+  "reviewer": "Codex source-based annotation, before extraction; not human canon adjudication",
+  "review_note": "The captured partner violence establishes the theme and the explicitly reported arrest/imprisonment. It does not give a conviction, exact date or a separately explicit perpetrator assignment for a commission claim.",
+  "synthetic": false,
+  "cross_source_checked": false,
+  "split": "exposed_development",
+  "story_groups": [
+    "sharongate"
+  ],
+  "completeness": "All explicit in-catalogue assertions of the selected family within these excerpts; events are restricted to the declared incidents."
+}

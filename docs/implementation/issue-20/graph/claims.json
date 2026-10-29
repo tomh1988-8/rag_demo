@@ -1,0 +1,1841 @@
+{
+  "version": 1,
+  "split": "exposed_development",
+  "synthetic": false,
+  "snapshot_id": "core-graph-v1",
+  "snapshot_sha256": "2ea666180ca9600a6d8e35ae7049d21f682d9090cddc92f63630d9250d7a6c76",
+  "catalogue": {
+    "characters": [
+      {
+        "character_id": "phil-mitchell",
+        "name": "Phil Mitchell",
+        "aliases": [],
+        "performers": [
+          "Steve McFadden",
+          "Daniel Delaney"
+        ],
+        "coverage": "core",
+        "wikidata_id": "Q2115259",
+        "review_note": "Codex source inspection, 17 October 2026: captured character article, infobox aliases/performers and revision metadata checked. Prominence-based curated selection, not a ranked or exhaustive canon. Identity linkage is not independent story corroboration.",
+        "evidence_sources": [
+          "phil-mitchell-wiki"
+        ]
+      },
+      {
+        "character_id": "grant-mitchell",
+        "name": "Grant Mitchell",
+        "aliases": [],
+        "performers": [
+          "Ross Kemp",
+          "Teddy Jay"
+        ],
+        "coverage": "core",
+        "wikidata_id": "Q2685036",
+        "review_note": "Codex source inspection, 17 October 2026: captured character article, infobox aliases/performers and revision metadata checked. Prominence-based curated selection, not a ranked or exhaustive canon. Identity linkage is not independent story corroboration.",
+        "evidence_sources": [
+          "grant-mitchell-wiki"
+        ]
+      },
+      {
+        "character_id": "peggy-mitchell",
+        "name": "Peggy Mitchell",
+        "aliases": [
+          "Peggy Butcher"
+        ],
+        "performers": [
+          "Jo Warne",
+          "Barbara Windsor",
+          "Jaime Winstone"
+        ],
+        "coverage": "core",
+        "wikidata_id": "Q13130609",
+        "review_note": "Codex source inspection, 17 October 2026: captured character article, infobox aliases/performers and revision metadata checked. Prominence-based curated selection, not a ranked or exhaustive canon. Identity linkage is not independent story corroboration.",
+        "evidence_sources": [
+          "peggy-mitchell-wiki"
+        ]
+      },
+      {
+        "character_id": "sharon-watts",
+        "name": "Sharon Watts",
+        "aliases": [
+          "Sharon Mitchell",
+          "Sharon Rickman",
+          "Sharon Beale"
+        ],
+        "performers": [
+          "Letitia Dean"
+        ],
+        "coverage": "core",
+        "wikidata_id": "Q7490258",
+        "review_note": "Codex source inspection, 17 October 2026: captured character article, infobox aliases/performers and revision metadata checked. Prominence-based curated selection, not a ranked or exhaustive canon. Identity linkage is not independent story corroboration.",
+        "evidence_sources": [
+          "sharon-watts-wiki"
+        ]
+      },
+      {
+        "character_id": "ben-mitchell",
+        "name": "Ben Mitchell",
+        "aliases": [],
+        "performers": [
+          "Matthew Silver",
+          "Morgan Whittle",
+          "Charlie Jones",
+          "Joshua Pascoe",
+          "Harry Reid",
+          "Max Bowden"
+        ],
+        "coverage": "core",
+        "wikidata_id": "Q2766568",
+        "review_note": "Codex source inspection, 17 October 2026: captured character article, infobox aliases/performers and revision metadata checked. Prominence-based curated selection, not a ranked or exhaustive canon. Identity linkage is not independent story corroboration.",
+        "evidence_sources": [
+          "ben-mitchell-wiki"
+        ]
+      },
+      {
+        "character_id": "ian-beale",
+        "name": "Ian Beale",
+        "aliases": [
+          "Ian Albert Beale"
+        ],
+        "performers": [
+          "Adam Woodyatt"
+        ],
+        "coverage": "core",
+        "wikidata_id": "Q899011",
+        "review_note": "Codex source inspection, 17 October 2026: captured character article, infobox aliases/performers and revision metadata checked. Prominence-based curated selection, not a ranked or exhaustive canon. Identity linkage is not independent story corroboration.",
+        "evidence_sources": [
+          "ian-beale-wiki"
+        ]
+      },
+      {
+        "character_id": "kathy-beale",
+        "name": "Kathy Beale",
+        "aliases": [
+          "Kathy Mitchell",
+          "Kathy Sullivan",
+          "Kathy Richards",
+          "Kathy Cotton"
+        ],
+        "performers": [
+          "Gillian Taylforth"
+        ],
+        "coverage": "core",
+        "wikidata_id": "Q6377182",
+        "review_note": "Codex source inspection, 17 October 2026: captured character article, infobox aliases/performers and revision metadata checked. Prominence-based curated selection, not a ranked or exhaustive canon. Identity linkage is not independent story corroboration.",
+        "evidence_sources": [
+          "kathy-beale-wiki"
+        ]
+      },
+      {
+        "character_id": "cindy-beale",
+        "name": "Cindy Beale",
+        "aliases": [
+          "Rose Sawyer",
+          "Rose Knight"
+        ],
+        "performers": [
+          "Michelle Collins"
+        ],
+        "coverage": "core",
+        "wikidata_id": "Q5120478",
+        "review_note": "Codex source inspection, 17 October 2026: captured character article, infobox aliases/performers and revision metadata checked. Prominence-based curated selection, not a ranked or exhaustive canon. Identity linkage is not independent story corroboration. The genuine maternal maiden alias Cindy Williams is deliberately withheld because the captured narratives also evidence her daughter of that name; ambiguous names/daughter links remain unresolved until separately catalogued.",
+        "evidence_sources": [
+          "cindy-beale-wiki"
+        ]
+      },
+      {
+        "character_id": "lucy-beale",
+        "name": "Lucy Beale",
+        "aliases": [],
+        "performers": [
+          "Eva Brittin-Snell",
+          "Casey Anne Rothery",
+          "Melissa Suffield",
+          "Hetti Bywater"
+        ],
+        "coverage": "core",
+        "wikidata_id": "Q3304512",
+        "review_note": "Codex source inspection, 17 October 2026: captured character article, infobox aliases/performers and revision metadata checked. Prominence-based curated selection, not a ranked or exhaustive canon. Identity linkage is not independent story corroboration.",
+        "evidence_sources": [
+          "lucy-beale-wiki"
+        ]
+      },
+      {
+        "character_id": "bobby-beale",
+        "name": "Bobby Beale",
+        "aliases": [],
+        "performers": [
+          "Kevin Curran",
+          "Alex Francis",
+          "Rory Stroud",
+          "Eliot Carrington",
+          "Clay Milner Russell"
+        ],
+        "coverage": "core",
+        "wikidata_id": "Q19650328",
+        "review_note": "Codex source inspection, 17 October 2026: captured character article, infobox aliases/performers and revision metadata checked. Prominence-based curated selection, not a ranked or exhaustive canon. Identity linkage is not independent story corroboration.",
+        "evidence_sources": [
+          "bobby-beale-wiki"
+        ]
+      },
+      {
+        "character_id": "martin-fowler",
+        "name": "Martin Fowler",
+        "aliases": [],
+        "performers": [
+          "Jon Peyton-Price",
+          "James Alexandrou",
+          "James Bye"
+        ],
+        "coverage": "core",
+        "wikidata_id": "Q16992426",
+        "review_note": "Codex source inspection, 17 October 2026: captured character article, infobox aliases/performers and revision metadata checked. Prominence-based curated selection, not a ranked or exhaustive canon. Identity linkage is not independent story corroboration.",
+        "evidence_sources": [
+          "martin-fowler-wiki"
+        ]
+      },
+      {
+        "character_id": "kat-slater",
+        "name": "Kat Slater",
+        "aliases": [
+          "Kat Moon",
+          "Kat Mitchell"
+        ],
+        "performers": [
+          "Jessie Wallace",
+          "Kate Peck",
+          "Sumar-Elise Sandford",
+          "Amelia Crouch"
+        ],
+        "coverage": "core",
+        "wikidata_id": "Q3955054",
+        "review_note": "Codex source inspection, 17 October 2026: captured character article, infobox aliases/performers and revision metadata checked. Prominence-based curated selection, not a ranked or exhaustive canon. Identity linkage is not independent story corroboration.",
+        "evidence_sources": [
+          "kat-slater-wiki"
+        ]
+      },
+      {
+        "character_id": "stacey-slater",
+        "name": "Stacey Slater",
+        "aliases": [
+          "Stacey Branning",
+          "Stacey Fowler",
+          "Jenny Smith"
+        ],
+        "performers": [
+          "Lacey Turner"
+        ],
+        "coverage": "core",
+        "wikidata_id": "Q7595869",
+        "review_note": "Codex source inspection, 17 October 2026: captured character article, infobox aliases/performers and revision metadata checked. Prominence-based curated selection, not a ranked or exhaustive canon. Identity linkage is not independent story corroboration.",
+        "evidence_sources": [
+          "stacey-slater-wiki"
+        ]
+      },
+      {
+        "character_id": "alfie-moon",
+        "name": "Alfie Moon",
+        "aliases": [
+          "Alfred William Moon",
+          "Chris Wright"
+        ],
+        "performers": [
+          "Shane Richie"
+        ],
+        "coverage": "core",
+        "wikidata_id": "Q4721932",
+        "review_note": "Codex source inspection, 17 October 2026: captured character article, infobox aliases/performers and revision metadata checked. Prominence-based curated selection, not a ranked or exhaustive canon. Identity linkage is not independent story corroboration.",
+        "evidence_sources": [
+          "alfie-moon-wiki"
+        ]
+      },
+      {
+        "character_id": "pat-butcher",
+        "name": "Pat Butcher",
+        "aliases": [
+          "Pat Harris",
+          "Pat Beale",
+          "Pat Wicks",
+          "Pat Evans",
+          "Fat Pat"
+        ],
+        "performers": [
+          "Pam St Clement",
+          "Emma Cooke"
+        ],
+        "coverage": "core",
+        "wikidata_id": "Q368649",
+        "review_note": "Codex source inspection, 17 October 2026: captured character article, infobox aliases/performers and revision metadata checked. Prominence-based curated selection, not a ranked or exhaustive canon. Identity linkage is not independent story corroboration.",
+        "evidence_sources": [
+          "pat-butcher-wiki"
+        ]
+      },
+      {
+        "character_id": "janine-butcher",
+        "name": "Janine Butcher",
+        "aliases": [
+          "Janine Evans",
+          "Janine Malloy",
+          "Janine Carter",
+          "Judith Bernstein"
+        ],
+        "performers": [
+          "Rebecca Michael",
+          "Alexia Demetriou",
+          "Charlie Brooks"
+        ],
+        "coverage": "core",
+        "wikidata_id": "Q2321366",
+        "review_note": "Codex source inspection, 17 October 2026: captured character article, infobox aliases/performers and revision metadata checked. Prominence-based curated selection, not a ranked or exhaustive canon. Identity linkage is not independent story corroboration.",
+        "evidence_sources": [
+          "janine-butcher-wiki"
+        ]
+      },
+      {
+        "character_id": "dot-cotton",
+        "name": "Dot Cotton",
+        "aliases": [
+          "Dorothy Colwell",
+          "Dot Branning"
+        ],
+        "performers": [
+          "June Brown",
+          "Tallulah Pitt-Brown"
+        ],
+        "coverage": "core",
+        "wikidata_id": "Q3306375",
+        "review_note": "Codex source inspection, 17 October 2026: captured character article, infobox aliases/performers and revision metadata checked. Prominence-based curated selection, not a ranked or exhaustive canon. Identity linkage is not independent story corroboration.",
+        "evidence_sources": [
+          "dot-cotton-wiki"
+        ]
+      },
+      {
+        "character_id": "denise-fox",
+        "name": "Denise Fox",
+        "aliases": [
+          "Denise Johnson",
+          "Denise Wicks"
+        ],
+        "performers": [
+          "Diane Parish"
+        ],
+        "coverage": "core",
+        "wikidata_id": "Q5257665",
+        "review_note": "Codex source inspection, 17 October 2026: captured character article, infobox aliases/performers and revision metadata checked. Prominence-based curated selection, not a ranked or exhaustive canon. Identity linkage is not independent story corroboration.",
+        "evidence_sources": [
+          "denise-fox-wiki"
+        ]
+      },
+      {
+        "character_id": "max-branning",
+        "name": "Max Branning",
+        "aliases": [],
+        "performers": [
+          "Jake Wood"
+        ],
+        "coverage": "core",
+        "wikidata_id": "Q6794615",
+        "review_note": "Codex source inspection, 17 October 2026: captured character article, infobox aliases/performers and revision metadata checked. Prominence-based curated selection, not a ranked or exhaustive canon. Identity linkage is not independent story corroboration.",
+        "evidence_sources": [
+          "max-branning-wiki"
+        ]
+      },
+      {
+        "character_id": "linda-carter",
+        "name": "Linda Carter",
+        "aliases": [
+          "Linda Peacock"
+        ],
+        "performers": [
+          "Kellie Bright"
+        ],
+        "coverage": "core",
+        "wikidata_id": "Q17620076",
+        "review_note": "Codex source inspection, 17 October 2026: captured character article, infobox aliases/performers and revision metadata checked. Prominence-based curated selection, not a ranked or exhaustive canon. Identity linkage is not independent story corroboration.",
+        "evidence_sources": [
+          "linda-carter-wiki"
+        ]
+      },
+      {
+        "character_id": "den-watts",
+        "name": "Den Watts",
+        "aliases": [
+          "Dirty Den",
+          "Dennis Alan Watts"
+        ],
+        "performers": [
+          "Leslie Grantham"
+        ],
+        "coverage": "supporting",
+        "wikidata_id": "Q5256484",
+        "review_note": "Den is evidenced supporting context in Sharon’s captured biography. Identity was also reviewed against retained Den revision 1371930128 in real-sources-v1.json.gz. No separate Den history is admitted here; supporting character mentions do not expand the core roster.",
+        "evidence_sources": [
+          "sharon-watts-wiki"
+        ]
+      }
+    ]
+  },
+  "origins": {
+    "plan": "16bd084f870d152d269ae65f05a3165e11d9d7561b95e1da169c4231ab8584b5",
+    "reference-review-input": "f321a08051503f60f6f481322d40d08b645861ea5011fa0678a607aaa12834b8",
+    "phil-mitchell": "1b5c7b94195ff880da84543db4d896f38ecd483d8fe354e5c38e4c7f148c70aa",
+    "grant-mitchell": "8fe55932290eab6964dd48d851c63e53a823641147c17ea790255b79d69e3610",
+    "peggy-mitchell": "6aa755e682f3ce91c62f519d1391cfe145bd743311a199bdc645c7bb44096aff",
+    "sharon-watts": "63b60dcf0ea0d2d54e211f41f0c11547abf73a1e47382f6ff28f442531504eab",
+    "ben-mitchell": "fb029f845bcecd49cfc52de95a4b69a088cd9b4d3f3f688afcdb095cab0a2d19",
+    "ian-beale": "34dce8c3ca4667d94bb7a8579a56095144c759884b2a55b6632804d770d5a842",
+    "kathy-beale": "3d7a79aa19d3817123ad6d6be8c9b7a86aff3b7b97535e429ca1b7ba59e0ee57",
+    "cindy-beale": "7317f4fad5e2da738d28df8e1883c62d8bb950649d056f92262d057dc47738d5",
+    "lucy-beale": "ae86e16fc2ea625f9894ec3d2ea7bd7f08fa4b88a4171a25789bd9d7f62f80d4",
+    "bobby-beale": "044e9803f9751c5019e8f489d018284ef1b63cbe97baee3e9313b7cd0af4198f",
+    "martin-fowler": "35480dd3f86da7718a8ed78b2c2200e09b11bd06b66339499d20580d8d123f0d",
+    "kat-slater": "0248ab5d228a1a33011d5d9a0e516c525421fa783246bc3589a4b95442b15935",
+    "stacey-slater": "702a7794150d1ddcddce7acbe19b2ba1e719487e47bf42989bbb4c9359e694bc",
+    "alfie-moon": "f4fb0bdd42a66b96646d08839921cf240d73ceec3d0fec723e3a56bcb43254c3",
+    "pat-butcher": "8c1d1e41ef757dbf5830c790c05ace750ea2186b8cfaa58b32617a1d8983134f",
+    "janine-butcher": "ddbb1183f1979e79a4cf5329eddedcb7c9fbca257dcd0009f12bd3dd721831fe",
+    "dot-cotton": "4c01f57a990b49278880474650aa869cabeb234d05f87190380a6875deb94b81",
+    "denise-fox": "29fe94379a1d1ebb2aead04344e324f97334cc1d22bf25757f1f34586fe0e516",
+    "max-branning": "4c1fa574cea7d13397e27c17064ff29dbb0d13157a8e09deb0833d5790af8e77",
+    "linda-carter": "a66e35d6167a694bceac229c0fe2c0f51ffd50ff395b70dba1a88624dab744bf",
+    "phil-tape": "453a307e5042073ca35a8d779bc2c1459c91b4f5c100f4e735a8970088e60e08",
+    "grant-abuse": "27d8696f69fee2288df2d8fb923f7f5ae45519da4c480ee0d8416a54ac8cb75e",
+    "artifact/reviews": "ced6492d362792bcd620ca82ce6b97441c022b7392c17dbe676715425ccf9bd1",
+    "artifact/admissions": "2526c9e2992dc647819cef9d7a2f41405d86c3e45880baeb38212fb5f831f348",
+    "artifact/origins": "b9fd66030a654a4132c809f703cac7436a684edb9f2aa33002a815818a3e5701"
+  },
+  "family_claims": [
+    {
+      "claim_id": "ref-phil-mitchell-1",
+      "parent_id": "phil-mitchell",
+      "child_id": "ben-mitchell",
+      "parent_role": "parent",
+      "relation": "biological_parent",
+      "polarity": "affirmed",
+      "certainty": "certain",
+      "story_time": "unknown",
+      "time_precision": "unknown",
+      "evidence": [
+        {
+          "evidence_id": "coverage-phil-mitchell",
+          "start": 0,
+          "end": 157,
+          "quote": "Kathy and Phil eventually sort out their differences, up to the point where they get married and Kathy later gives birth to their son – Ben (Matthew Silver)."
+        }
+      ]
+    },
+    {
+      "claim_id": "ref-phil-mitchell-2",
+      "parent_id": "kathy-beale",
+      "child_id": "ben-mitchell",
+      "parent_role": "mother",
+      "relation": "biological_parent",
+      "polarity": "affirmed",
+      "certainty": "certain",
+      "story_time": "unknown",
+      "time_precision": "unknown",
+      "evidence": [
+        {
+          "evidence_id": "coverage-phil-mitchell",
+          "start": 0,
+          "end": 157,
+          "quote": "Kathy and Phil eventually sort out their differences, up to the point where they get married and Kathy later gives birth to their son – Ben (Matthew Silver)."
+        }
+      ]
+    },
+    {
+      "claim_id": "raw-phil-mitchell-1",
+      "parent_id": "kathy-beale",
+      "child_id": "ben-mitchell",
+      "parent_role": "mother",
+      "relation": "biological_parent",
+      "polarity": "affirmed",
+      "certainty": "certain",
+      "story_time": "later",
+      "time_precision": "relative",
+      "evidence": [
+        {
+          "evidence_id": "coverage-phil-mitchell",
+          "start": 97,
+          "end": 139,
+          "quote": "Kathy later gives birth to their son – Ben"
+        }
+      ]
+    },
+    {
+      "claim_id": "raw-phil-mitchell-2",
+      "parent_id": "phil-mitchell",
+      "child_id": "ben-mitchell",
+      "parent_role": "father",
+      "relation": "biological_parent",
+      "polarity": "affirmed",
+      "certainty": "certain",
+      "story_time": "later",
+      "time_precision": "relative",
+      "evidence": [
+        {
+          "evidence_id": "coverage-phil-mitchell",
+          "start": 97,
+          "end": 139,
+          "quote": "Kathy later gives birth to their son – Ben"
+        }
+      ]
+    },
+    {
+      "claim_id": "ref-peggy-mitchell-1",
+      "parent_id": "peggy-mitchell",
+      "child_id": "phil-mitchell",
+      "parent_role": "mother",
+      "relation": "biological_parent",
+      "polarity": "affirmed",
+      "certainty": "certain",
+      "story_time": "unknown",
+      "time_precision": "unknown",
+      "evidence": [
+        {
+          "evidence_id": "coverage-peggy-mitchell",
+          "start": 0,
+          "end": 105,
+          "quote": "Peggy married Eric Mitchell (George Russo) because she was pregnant with their son Phil (Steve McFadden)."
+        }
+      ]
+    },
+    {
+      "claim_id": "raw-peggy-mitchell-1",
+      "parent_id": "peggy-mitchell",
+      "child_id": "phil-mitchell",
+      "parent_role": "mother",
+      "relation": "biological_parent",
+      "polarity": "affirmed",
+      "certainty": "certain",
+      "story_time": "unknown",
+      "time_precision": "unknown",
+      "evidence": [
+        {
+          "evidence_id": "coverage-peggy-mitchell",
+          "start": 0,
+          "end": 105,
+          "quote": "Peggy married Eric Mitchell (George Russo) because she was pregnant with their son Phil (Steve McFadden)."
+        }
+      ]
+    },
+    {
+      "claim_id": "ref-ben-mitchell-1",
+      "parent_id": "phil-mitchell",
+      "child_id": "ben-mitchell",
+      "parent_role": "parent",
+      "relation": "biological_parent",
+      "polarity": "affirmed",
+      "certainty": "certain",
+      "story_time": "March 1996",
+      "time_precision": "exact",
+      "evidence": [
+        {
+          "evidence_id": "coverage-ben-mitchell",
+          "start": 0,
+          "end": 110,
+          "quote": "Ben is born to Phil Mitchell (Steve McFadden) and his then wife Kathy Beale (Gillian Taylforth) in March 1996."
+        }
+      ]
+    },
+    {
+      "claim_id": "ref-ben-mitchell-2",
+      "parent_id": "kathy-beale",
+      "child_id": "ben-mitchell",
+      "parent_role": "parent",
+      "relation": "biological_parent",
+      "polarity": "affirmed",
+      "certainty": "certain",
+      "story_time": "March 1996",
+      "time_precision": "exact",
+      "evidence": [
+        {
+          "evidence_id": "coverage-ben-mitchell",
+          "start": 0,
+          "end": 110,
+          "quote": "Ben is born to Phil Mitchell (Steve McFadden) and his then wife Kathy Beale (Gillian Taylforth) in March 1996."
+        }
+      ]
+    },
+    {
+      "claim_id": "raw-ben-mitchell-1",
+      "parent_id": "phil-mitchell",
+      "child_id": "ben-mitchell",
+      "parent_role": "parent",
+      "relation": "biological_parent",
+      "polarity": "affirmed",
+      "certainty": "certain",
+      "story_time": "March 1996",
+      "time_precision": "exact",
+      "evidence": [
+        {
+          "evidence_id": "coverage-ben-mitchell",
+          "start": 0,
+          "end": 110,
+          "quote": "Ben is born to Phil Mitchell (Steve McFadden) and his then wife Kathy Beale (Gillian Taylforth) in March 1996."
+        }
+      ]
+    },
+    {
+      "claim_id": "raw-ben-mitchell-2",
+      "parent_id": "kathy-beale",
+      "child_id": "ben-mitchell",
+      "parent_role": "parent",
+      "relation": "biological_parent",
+      "polarity": "affirmed",
+      "certainty": "certain",
+      "story_time": "March 1996",
+      "time_precision": "exact",
+      "evidence": [
+        {
+          "evidence_id": "coverage-ben-mitchell",
+          "start": 0,
+          "end": 110,
+          "quote": "Ben is born to Phil Mitchell (Steve McFadden) and his then wife Kathy Beale (Gillian Taylforth) in March 1996."
+        }
+      ]
+    },
+    {
+      "claim_id": "ref-ian-beale-1",
+      "parent_id": "ian-beale",
+      "child_id": "lucy-beale",
+      "parent_role": "father",
+      "relation": "biological_parent",
+      "polarity": "affirmed",
+      "certainty": "certain",
+      "story_time": "December 1993",
+      "time_precision": "exact",
+      "evidence": [
+        {
+          "evidence_id": "coverage-ian-beale",
+          "start": 0,
+          "end": 161,
+          "quote": "He and Cindy later reconcile and Ian is overjoyed to become a father to twins, Peter (Francis Brittin-Snell) and Lucy Beale (Eva Brittin-Snell) in December 1993."
+        }
+      ]
+    },
+    {
+      "claim_id": "raw-ian-beale-1",
+      "parent_id": "ian-beale",
+      "child_id": "lucy-beale",
+      "parent_role": "father",
+      "relation": "biological_parent",
+      "polarity": "affirmed",
+      "certainty": "uncertain",
+      "story_time": "December 1993",
+      "time_precision": "exact",
+      "evidence": [
+        {
+          "evidence_id": "coverage-ian-beale",
+          "start": 0,
+          "end": 161,
+          "quote": "He and Cindy later reconcile and Ian is overjoyed to become a father to twins, Peter (Francis Brittin-Snell) and Lucy Beale (Eva Brittin-Snell) in December 1993."
+        }
+      ]
+    },
+    {
+      "claim_id": "ref-kathy-beale-1",
+      "parent_id": "phil-mitchell",
+      "child_id": "ben-mitchell",
+      "parent_role": "father",
+      "relation": "biological_parent",
+      "polarity": "affirmed",
+      "certainty": "certain",
+      "story_time": "unknown",
+      "time_precision": "unknown",
+      "evidence": [
+        {
+          "evidence_id": "coverage-kathy-beale",
+          "start": 0,
+          "end": 550,
+          "quote": "Phil and Kathy sort out their differences and get married in secret in early 1995. Kathy keeps fainting and refuses to see Dr Legg, she relents and is told she is pregnant. Phil is overjoyed about becoming a father, as is Phil's mother, Peggy Mitchell (Barbara Windsor). Kathy goes into labour with Pat helping her and Phil meets their son shortly after he is born. Kathy is opposed to Peggy's name suggestion of Eric, named after Phil and Grant's father and Peggy's husband, Eric Mitchell (George Russo), and names him Ben Mitchell (Matthew Silver)."
+        }
+      ]
+    },
+    {
+      "claim_id": "ref-kathy-beale-2",
+      "parent_id": "kathy-beale",
+      "child_id": "ben-mitchell",
+      "parent_role": "mother",
+      "relation": "biological_parent",
+      "polarity": "affirmed",
+      "certainty": "certain",
+      "story_time": "unknown",
+      "time_precision": "unknown",
+      "evidence": [
+        {
+          "evidence_id": "coverage-kathy-beale",
+          "start": 0,
+          "end": 550,
+          "quote": "Phil and Kathy sort out their differences and get married in secret in early 1995. Kathy keeps fainting and refuses to see Dr Legg, she relents and is told she is pregnant. Phil is overjoyed about becoming a father, as is Phil's mother, Peggy Mitchell (Barbara Windsor). Kathy goes into labour with Pat helping her and Phil meets their son shortly after he is born. Kathy is opposed to Peggy's name suggestion of Eric, named after Phil and Grant's father and Peggy's husband, Eric Mitchell (George Russo), and names him Ben Mitchell (Matthew Silver)."
+        }
+      ]
+    },
+    {
+      "claim_id": "raw-kathy-beale-1",
+      "parent_id": "kathy-beale",
+      "child_id": "ben-mitchell",
+      "parent_role": "mother",
+      "relation": "biological_parent",
+      "polarity": "affirmed",
+      "certainty": "certain",
+      "story_time": "unknown",
+      "time_precision": "unknown",
+      "evidence": [
+        {
+          "evidence_id": "coverage-kathy-beale",
+          "start": 82,
+          "end": 171,
+          "quote": "Kathy keeps fainting and refuses to see Dr Legg, she relents and is told she is pregnant."
+        },
+        {
+          "evidence_id": "coverage-kathy-beale",
+          "start": 269,
+          "end": 363,
+          "quote": "Kathy goes into labour with Pat helping her and Phil meets their son shortly after he is born."
+        },
+        {
+          "evidence_id": "coverage-kathy-beale",
+          "start": 507,
+          "end": 528,
+          "quote": "names him Ben Mitchell"
+        }
+      ]
+    },
+    {
+      "claim_id": "raw-kathy-beale-2",
+      "parent_id": "phil-mitchell",
+      "child_id": "ben-mitchell",
+      "parent_role": "father",
+      "relation": "biological_parent",
+      "polarity": "affirmed",
+      "certainty": "uncertain",
+      "story_time": "unknown",
+      "time_precision": "unknown",
+      "evidence": [
+        {
+          "evidence_id": "coverage-kathy-beale",
+          "start": 269,
+          "end": 363,
+          "quote": "Kathy goes into labour with Pat helping her and Phil meets their son shortly after he is born."
+        },
+        {
+          "evidence_id": "coverage-kathy-beale",
+          "start": 507,
+          "end": 528,
+          "quote": "names him Ben Mitchell"
+        }
+      ]
+    },
+    {
+      "claim_id": "ref-lucy-beale-1",
+      "parent_id": "ian-beale",
+      "child_id": "lucy-beale",
+      "parent_role": "parent",
+      "relation": "biological_parent",
+      "polarity": "affirmed",
+      "certainty": "certain",
+      "story_time": "9 December 1993",
+      "time_precision": "exact",
+      "evidence": [
+        {
+          "evidence_id": "coverage-lucy-beale",
+          "start": 0,
+          "end": 160,
+          "quote": "Lucy and her twin brother Peter Beale (Francis Brittin-Snell) are born off-screen on 9 December 1993, to Ian (Adam Woodyatt) and Cindy Beale (Michelle Collins)."
+        }
+      ]
+    },
+    {
+      "claim_id": "ref-lucy-beale-2",
+      "parent_id": "cindy-beale",
+      "child_id": "lucy-beale",
+      "parent_role": "parent",
+      "relation": "biological_parent",
+      "polarity": "affirmed",
+      "certainty": "certain",
+      "story_time": "9 December 1993",
+      "time_precision": "exact",
+      "evidence": [
+        {
+          "evidence_id": "coverage-lucy-beale",
+          "start": 0,
+          "end": 160,
+          "quote": "Lucy and her twin brother Peter Beale (Francis Brittin-Snell) are born off-screen on 9 December 1993, to Ian (Adam Woodyatt) and Cindy Beale (Michelle Collins)."
+        }
+      ]
+    },
+    {
+      "claim_id": "raw-lucy-beale-1",
+      "parent_id": "ian-beale",
+      "child_id": "lucy-beale",
+      "parent_role": "parent",
+      "relation": "biological_parent",
+      "polarity": "affirmed",
+      "certainty": "certain",
+      "story_time": "9 December 1993",
+      "time_precision": "exact",
+      "evidence": [
+        {
+          "evidence_id": "coverage-lucy-beale",
+          "start": 0,
+          "end": 160,
+          "quote": "Lucy and her twin brother Peter Beale (Francis Brittin-Snell) are born off-screen on 9 December 1993, to Ian (Adam Woodyatt) and Cindy Beale (Michelle Collins)."
+        }
+      ]
+    },
+    {
+      "claim_id": "raw-lucy-beale-2",
+      "parent_id": "cindy-beale",
+      "child_id": "lucy-beale",
+      "parent_role": "parent",
+      "relation": "biological_parent",
+      "polarity": "affirmed",
+      "certainty": "certain",
+      "story_time": "9 December 1993",
+      "time_precision": "exact",
+      "evidence": [
+        {
+          "evidence_id": "coverage-lucy-beale",
+          "start": 0,
+          "end": 160,
+          "quote": "Lucy and her twin brother Peter Beale (Francis Brittin-Snell) are born off-screen on 9 December 1993, to Ian (Adam Woodyatt) and Cindy Beale (Michelle Collins)."
+        }
+      ]
+    }
+  ],
+  "relationship_claims": [
+    {
+      "claim_id": "ref-grant-mitchell-1",
+      "subject_id": "grant-mitchell",
+      "object_id": "sharon-watts",
+      "relation": "marriage",
+      "episode_id": "grant-sharon-first",
+      "status": "unknown",
+      "polarity": "affirmed",
+      "certainty": "certain",
+      "story_time": "December 1991",
+      "time_precision": "exact",
+      "after_claim_id": null,
+      "evidence": [
+        {
+          "evidence_id": "coverage-grant-mitchell",
+          "start": 0,
+          "end": 74,
+          "quote": "Grant marries Sharon in December 1991 and together they run The Queen Vic."
+        }
+      ]
+    },
+    {
+      "claim_id": "raw-grant-mitchell-1",
+      "subject_id": "grant-mitchell",
+      "object_id": "sharon-watts",
+      "relation": "marriage",
+      "episode_id": "grant-sharon-marriage-episode-1",
+      "status": "unknown",
+      "polarity": "affirmed",
+      "certainty": "certain",
+      "story_time": "December 1991",
+      "time_precision": "exact",
+      "after_claim_id": null,
+      "evidence": [
+        {
+          "evidence_id": "coverage-grant-mitchell",
+          "start": 0,
+          "end": 37,
+          "quote": "Grant marries Sharon in December 1991"
+        }
+      ]
+    },
+    {
+      "claim_id": "ref-sharon-watts-1",
+      "subject_id": "den-watts",
+      "object_id": "sharon-watts",
+      "relation": "adoptive_parent",
+      "episode_id": "den-sharon-adoption",
+      "status": "unknown",
+      "polarity": "affirmed",
+      "certainty": "certain",
+      "story_time": "at the age of three",
+      "time_precision": "relative",
+      "after_claim_id": null,
+      "evidence": [
+        {
+          "evidence_id": "coverage-sharon-watts",
+          "start": 0,
+          "end": 205,
+          "quote": "Adopted at the age of three by Den (Leslie Grantham) and Angie Watts (Anita Dobson), Sharon is raised at The Queen Victoria public house in Albert Square, Walford, where her adoptive parents are landlords."
+        }
+      ]
+    },
+    {
+      "claim_id": "raw-sharon-watts-1",
+      "subject_id": "den-watts",
+      "object_id": "sharon-watts",
+      "relation": "adoptive_parent",
+      "episode_id": "episode-den-sharon-adoption",
+      "status": "unknown",
+      "polarity": "affirmed",
+      "certainty": "certain",
+      "story_time": "at the age of three",
+      "time_precision": "relative",
+      "after_claim_id": null,
+      "evidence": [
+        {
+          "evidence_id": "coverage-sharon-watts",
+          "start": 0,
+          "end": 34,
+          "quote": "Adopted at the age of three by Den"
+        }
+      ]
+    },
+    {
+      "claim_id": "ref-martin-fowler-1",
+      "subject_id": "martin-fowler",
+      "object_id": "stacey-slater",
+      "relation": "marriage",
+      "episode_id": "martin-stacey-first",
+      "status": "unknown",
+      "polarity": "affirmed",
+      "certainty": "certain",
+      "story_time": "unknown",
+      "time_precision": "unknown",
+      "after_claim_id": null,
+      "evidence": [
+        {
+          "evidence_id": "coverage-martin-fowler",
+          "start": 0,
+          "end": 47,
+          "quote": "Martin and Stacey marry at the registry office."
+        }
+      ]
+    },
+    {
+      "claim_id": "raw-martin-fowler-1",
+      "subject_id": "martin-fowler",
+      "object_id": "stacey-slater",
+      "relation": "marriage",
+      "episode_id": "episode-1",
+      "status": "unknown",
+      "polarity": "affirmed",
+      "certainty": "certain",
+      "story_time": "unknown",
+      "time_precision": "unknown",
+      "after_claim_id": null,
+      "evidence": [
+        {
+          "evidence_id": "coverage-martin-fowler",
+          "start": 0,
+          "end": 23,
+          "quote": "Martin and Stacey marry"
+        }
+      ]
+    },
+    {
+      "claim_id": "ref-kat-slater-1",
+      "subject_id": "alfie-moon",
+      "object_id": "kat-slater",
+      "relation": "remarriage",
+      "episode_id": "kat-alfie-second",
+      "status": "unknown",
+      "polarity": "affirmed",
+      "certainty": "certain",
+      "story_time": "On leaving hospital",
+      "time_precision": "relative",
+      "after_claim_id": null,
+      "evidence": [
+        {
+          "evidence_id": "coverage-kat-slater",
+          "start": 0,
+          "end": 727,
+          "quote": "Kat briefly works on the market again, but market inspector Aleks Shirovs (Kristian Kiehling) forces her off her stall when he discovers she is working and claiming maternity benefit. Alfie lies to her that he has managed to convince the council to give them more time to rally together the money they need, but secretly plans to claim house insurance by setting fire to their house. He does so, but is unaware Kat is inside at the time. She becomes trapped although Alfie rescues her. She is badly burnt and suffers permanent scarring to her face. On leaving hospital, she and Alfie remarry, with two nurses as the only witnesses, before returning to the square and moving into a flat Alfie had organised for them to squat in."
+        }
+      ]
+    },
+    {
+      "claim_id": "raw-kat-slater-1",
+      "subject_id": "kat-slater",
+      "object_id": "alfie-moon",
+      "relation": "remarriage",
+      "episode_id": "episode-1",
+      "status": "unknown",
+      "polarity": "affirmed",
+      "certainty": "certain",
+      "story_time": "On leaving hospital",
+      "time_precision": "relative",
+      "after_claim_id": null,
+      "evidence": [
+        {
+          "evidence_id": "coverage-kat-slater",
+          "start": 612,
+          "end": 784,
+          "quote": "On leaving hospital, she and Alfie remarry, with two nurses as the only witnesses, before returning to the square and moving into a flat Alfie had organised for them to squat in."
+        }
+      ]
+    },
+    {
+      "claim_id": "ref-stacey-slater-1",
+      "subject_id": "martin-fowler",
+      "object_id": "stacey-slater",
+      "relation": "marriage",
+      "episode_id": "martin-stacey-first",
+      "status": "unknown",
+      "polarity": "affirmed",
+      "certainty": "certain",
+      "story_time": "then",
+      "time_precision": "relative",
+      "after_claim_id": null,
+      "evidence": [
+        {
+          "evidence_id": "coverage-stacey-slater",
+          "start": 0,
+          "end": 82,
+          "quote": "Stacey receives forgiveness from Peggy before she dies. She and Martin then marry."
+        }
+      ]
+    },
+    {
+      "claim_id": "raw-stacey-slater-1",
+      "subject_id": "stacey-slater",
+      "object_id": "martin-fowler",
+      "relation": "marriage",
+      "episode_id": "episode-1",
+      "status": "unknown",
+      "polarity": "affirmed",
+      "certainty": "certain",
+      "story_time": "then, after Stacey receives forgiveness from Peggy",
+      "time_precision": "relative",
+      "after_claim_id": null,
+      "evidence": [
+        {
+          "evidence_id": "coverage-stacey-slater",
+          "start": 0,
+          "end": 82,
+          "quote": "Stacey receives forgiveness from Peggy before she dies. She and Martin then marry."
+        }
+      ]
+    },
+    {
+      "claim_id": "ref-alfie-moon-1",
+      "subject_id": "alfie-moon",
+      "object_id": "kat-slater",
+      "relation": "marriage",
+      "episode_id": "kat-alfie-first",
+      "status": "unknown",
+      "polarity": "affirmed",
+      "certainty": "certain",
+      "story_time": "unknown",
+      "time_precision": "unknown",
+      "after_claim_id": null,
+      "evidence": [
+        {
+          "evidence_id": "coverage-alfie-moon",
+          "start": 0,
+          "end": 84,
+          "quote": "Alfie convinces the minister to cancel his Christmas lunch, and Alfie and Kat marry."
+        }
+      ]
+    },
+    {
+      "claim_id": "raw-alfie-moon-1",
+      "subject_id": "alfie-moon",
+      "object_id": "kat-slater",
+      "relation": "marriage",
+      "episode_id": "episode-1",
+      "status": "unknown",
+      "polarity": "affirmed",
+      "certainty": "certain",
+      "story_time": "Christmas",
+      "time_precision": "approximate",
+      "after_claim_id": null,
+      "evidence": [
+        {
+          "evidence_id": "coverage-alfie-moon",
+          "start": 0,
+          "end": 84,
+          "quote": "Alfie convinces the minister to cancel his Christmas lunch, and Alfie and Kat marry."
+        }
+      ]
+    },
+    {
+      "claim_id": "ref-max-branning-1",
+      "subject_id": "max-branning",
+      "object_id": "stacey-slater",
+      "relation": "affair",
+      "episode_id": "max-stacey-affair",
+      "status": "unknown",
+      "polarity": "affirmed",
+      "certainty": "certain",
+      "story_time": "soon",
+      "time_precision": "relative",
+      "after_claim_id": null,
+      "evidence": [
+        {
+          "evidence_id": "coverage-max-branning",
+          "start": 0,
+          "end": 235,
+          "quote": "However, the abortion ends the relationship Stacey decides to hurt Bradley by making a move on Max during Christmas 2006; Max and Stacey kiss and the two soon embark on a passionate affair that lasts for several months going into 2007."
+        }
+      ]
+    },
+    {
+      "claim_id": "raw-max-branning-1",
+      "subject_id": "max-branning",
+      "object_id": "stacey-slater",
+      "relation": "affair",
+      "episode_id": "episode-1",
+      "status": "unknown",
+      "polarity": "affirmed",
+      "certainty": "certain",
+      "story_time": "soon after Christmas 2006, lasting for several months going into 2007",
+      "time_precision": "approximate",
+      "after_claim_id": null,
+      "evidence": [
+        {
+          "evidence_id": "coverage-max-branning",
+          "start": 123,
+          "end": 234,
+          "quote": "Max and Stacey kiss and the two soon embark on a passionate affair that lasts for several months going into 2007."
+        }
+      ]
+    }
+  ],
+  "event_claims": [
+    {
+      "claim_id": "ref-cindy-beale-1",
+      "event_id": "cindy-twins-pregnancy",
+      "event_label": "Cindy's pregnancy in 1993",
+      "event_type": "pregnancy",
+      "basis": "narrative",
+      "participants": [
+        {
+          "character_id": "cindy-beale",
+          "role": "pregnant_person"
+        }
+      ],
+      "account_status": "as_reported",
+      "polarity": "affirmed",
+      "certainty": "certain",
+      "story_time": "1993",
+      "time_precision": "exact",
+      "evidence": [
+        {
+          "evidence_id": "coverage-cindy-beale",
+          "start": 0,
+          "end": 45,
+          "quote": "They reunite and Cindy gets pregnant in 1993."
+        }
+      ]
+    },
+    {
+      "claim_id": "raw-cindy-beale-1",
+      "event_id": "cindy-twins-pregnancy",
+      "event_label": "Cindy's pregnancy in 1993",
+      "event_type": "pregnancy",
+      "basis": "narrative",
+      "participants": [
+        {
+          "character_id": "cindy-beale",
+          "role": "pregnant_person"
+        }
+      ],
+      "account_status": "as_reported",
+      "polarity": "affirmed",
+      "certainty": "certain",
+      "story_time": "in 1993",
+      "time_precision": "exact",
+      "evidence": [
+        {
+          "evidence_id": "coverage-cindy-beale",
+          "start": 17,
+          "end": 45,
+          "quote": "Cindy gets pregnant in 1993."
+        }
+      ]
+    },
+    {
+      "claim_id": "ref-bobby-beale-1",
+      "event_id": "lucy-murder",
+      "event_label": "Lucy's killing by Bobby",
+      "event_type": "commission",
+      "basis": "narrative",
+      "participants": [
+        {
+          "character_id": "bobby-beale",
+          "role": "perpetrator"
+        },
+        {
+          "character_id": "lucy-beale",
+          "role": "victim"
+        }
+      ],
+      "account_status": "as_reported",
+      "polarity": "affirmed",
+      "certainty": "certain",
+      "story_time": "ten months before",
+      "time_precision": "relative",
+      "evidence": [
+        {
+          "evidence_id": "coverage-bobby-beale",
+          "start": 0,
+          "end": 214,
+          "quote": "On the night of Ian and Jane's remarriage, it is revealed in a flashback episode that Bobby had accidentally killed Lucy ten months before, after attacking her with a jewellery box out of frustration at her actions"
+        }
+      ]
+    },
+    {
+      "claim_id": "ref-bobby-beale-2",
+      "event_id": "lucy-murder",
+      "event_label": "Lucy's killing by Bobby",
+      "event_type": "death",
+      "basis": "narrative",
+      "participants": [
+        {
+          "character_id": "lucy-beale",
+          "role": "deceased"
+        }
+      ],
+      "account_status": "as_reported",
+      "polarity": "affirmed",
+      "certainty": "certain",
+      "story_time": "ten months before",
+      "time_precision": "relative",
+      "evidence": [
+        {
+          "evidence_id": "coverage-bobby-beale",
+          "start": 0,
+          "end": 214,
+          "quote": "On the night of Ian and Jane's remarriage, it is revealed in a flashback episode that Bobby had accidentally killed Lucy ten months before, after attacking her with a jewellery box out of frustration at her actions"
+        }
+      ]
+    },
+    {
+      "claim_id": "raw-bobby-beale-1",
+      "event_id": "lucy-murder",
+      "event_label": "Lucy's killing by Bobby",
+      "event_type": "commission",
+      "basis": "narrative",
+      "participants": [
+        {
+          "character_id": "bobby-beale",
+          "role": "perpetrator"
+        },
+        {
+          "character_id": "lucy-beale",
+          "role": "victim"
+        }
+      ],
+      "account_status": "as_reported",
+      "polarity": "affirmed",
+      "certainty": "certain",
+      "story_time": "ten months before",
+      "time_precision": "relative",
+      "evidence": [
+        {
+          "evidence_id": "coverage-bobby-beale",
+          "start": 84,
+          "end": 212,
+          "quote": "Bobby had accidentally killed Lucy ten months before, after attacking her with a jewellery box out of frustration at her actions"
+        }
+      ]
+    },
+    {
+      "claim_id": "raw-bobby-beale-2",
+      "event_id": "lucy-murder",
+      "event_label": "Lucy's killing by Bobby",
+      "event_type": "death",
+      "basis": "narrative",
+      "participants": [
+        {
+          "character_id": "lucy-beale",
+          "role": "deceased"
+        }
+      ],
+      "account_status": "as_reported",
+      "polarity": "affirmed",
+      "certainty": "certain",
+      "story_time": "ten months before",
+      "time_precision": "relative",
+      "evidence": [
+        {
+          "evidence_id": "coverage-bobby-beale",
+          "start": 84,
+          "end": 132,
+          "quote": "Bobby had accidentally killed Lucy ten months before"
+        }
+      ]
+    },
+    {
+      "claim_id": "ref-pat-butcher-1",
+      "event_id": "pat-death",
+      "event_label": "Pat's death",
+      "event_type": "death",
+      "basis": "narrative",
+      "participants": [
+        {
+          "character_id": "pat-butcher",
+          "role": "deceased"
+        }
+      ],
+      "account_status": "as_reported",
+      "polarity": "affirmed",
+      "certainty": "certain",
+      "story_time": "unknown",
+      "time_precision": "unknown",
+      "evidence": [
+        {
+          "evidence_id": "coverage-pat-butcher",
+          "start": 0,
+          "end": 125,
+          "quote": "Despite admitting that she is scared, Pat is able to make peace with her son moments before she ultimately succumbs and dies."
+        }
+      ]
+    },
+    {
+      "claim_id": "raw-pat-butcher-1",
+      "event_id": "pat-death",
+      "event_label": "Pat's death",
+      "event_type": "death",
+      "basis": "narrative",
+      "participants": [
+        {
+          "character_id": "pat-butcher",
+          "role": "deceased"
+        }
+      ],
+      "account_status": "as_reported",
+      "polarity": "affirmed",
+      "certainty": "certain",
+      "story_time": "unknown",
+      "time_precision": "unknown",
+      "evidence": [
+        {
+          "evidence_id": "coverage-pat-butcher",
+          "start": 0,
+          "end": 125,
+          "quote": "Despite admitting that she is scared, Pat is able to make peace with her son moments before she ultimately succumbs and dies."
+        }
+      ]
+    },
+    {
+      "claim_id": "ref-janine-butcher-1",
+      "event_id": "laura-death-charge",
+      "event_label": "Janine's charge over Laura's death",
+      "event_type": "arrest",
+      "basis": "legal_outcome",
+      "participants": [
+        {
+          "character_id": "janine-butcher",
+          "role": "arrested"
+        }
+      ],
+      "account_status": "as_reported",
+      "polarity": "affirmed",
+      "certainty": "certain",
+      "story_time": "May 2004",
+      "time_precision": "exact",
+      "evidence": [
+        {
+          "evidence_id": "coverage-janine-butcher",
+          "start": 0,
+          "end": 550,
+          "quote": "In April 2004, Janine and Laura are seen fighting just before Laura dies after falling down the stairs. It is noted in the post mortem that Laura had recently been in a fight due to bruising, and Janine's skin is found under her nails. Although Janine was with Pat when Laura died, Pat refuses to give Janine an alibi, and brands her \"pure evil\". In desperation, Janine goes to Paul and offers to sleep with him in return for an alibi, but Paul refuses. She is arrested by the police, charged with Laura's murder, and remanded in custody in May 2004."
+        }
+      ]
+    },
+    {
+      "claim_id": "ref-janine-butcher-2",
+      "event_id": "laura-death-charge",
+      "event_label": "Janine's charge over Laura's death",
+      "event_type": "charge",
+      "basis": "legal_outcome",
+      "participants": [
+        {
+          "character_id": "janine-butcher",
+          "role": "accused"
+        }
+      ],
+      "account_status": "as_reported",
+      "polarity": "affirmed",
+      "certainty": "certain",
+      "story_time": "May 2004",
+      "time_precision": "exact",
+      "evidence": [
+        {
+          "evidence_id": "coverage-janine-butcher",
+          "start": 0,
+          "end": 550,
+          "quote": "In April 2004, Janine and Laura are seen fighting just before Laura dies after falling down the stairs. It is noted in the post mortem that Laura had recently been in a fight due to bruising, and Janine's skin is found under her nails. Although Janine was with Pat when Laura died, Pat refuses to give Janine an alibi, and brands her \"pure evil\". In desperation, Janine goes to Paul and offers to sleep with him in return for an alibi, but Paul refuses. She is arrested by the police, charged with Laura's murder, and remanded in custody in May 2004."
+        }
+      ]
+    },
+    {
+      "claim_id": "ref-janine-butcher-3",
+      "event_id": "laura-death-charge",
+      "event_label": "Janine's charge over Laura's death",
+      "event_type": "imprisonment",
+      "basis": "legal_outcome",
+      "participants": [
+        {
+          "character_id": "janine-butcher",
+          "role": "prisoner"
+        }
+      ],
+      "account_status": "as_reported",
+      "polarity": "affirmed",
+      "certainty": "certain",
+      "story_time": "May 2004",
+      "time_precision": "exact",
+      "evidence": [
+        {
+          "evidence_id": "coverage-janine-butcher",
+          "start": 0,
+          "end": 550,
+          "quote": "In April 2004, Janine and Laura are seen fighting just before Laura dies after falling down the stairs. It is noted in the post mortem that Laura had recently been in a fight due to bruising, and Janine's skin is found under her nails. Although Janine was with Pat when Laura died, Pat refuses to give Janine an alibi, and brands her \"pure evil\". In desperation, Janine goes to Paul and offers to sleep with him in return for an alibi, but Paul refuses. She is arrested by the police, charged with Laura's murder, and remanded in custody in May 2004."
+        }
+      ]
+    },
+    {
+      "claim_id": "raw-janine-butcher-1",
+      "event_id": "laura-death-charge",
+      "event_label": "Janine's charge over Laura's death",
+      "event_type": "death",
+      "basis": "narrative",
+      "participants": [
+        {
+          "character_id": "laura",
+          "role": "deceased"
+        }
+      ],
+      "account_status": "as_reported",
+      "polarity": "affirmed",
+      "certainty": "certain",
+      "story_time": "April 2004",
+      "time_precision": "exact",
+      "evidence": [
+        {
+          "evidence_id": "coverage-janine-butcher",
+          "start": 0,
+          "end": 103,
+          "quote": "In April 2004, Janine and Laura are seen fighting just before Laura dies after falling down the stairs."
+        }
+      ]
+    },
+    {
+      "claim_id": "raw-janine-butcher-2",
+      "event_id": "laura-death-charge",
+      "event_label": "Janine's charge over Laura's death",
+      "event_type": "arrest",
+      "basis": "legal_outcome",
+      "participants": [
+        {
+          "character_id": "janine-butcher",
+          "role": "arrested"
+        }
+      ],
+      "account_status": "as_reported",
+      "polarity": "affirmed",
+      "certainty": "certain",
+      "story_time": "unknown",
+      "time_precision": "unknown",
+      "evidence": [
+        {
+          "evidence_id": "coverage-janine-butcher",
+          "start": 455,
+          "end": 551,
+          "quote": "She is arrested by the police, charged with Laura's murder, and remanded in custody in May 2004."
+        }
+      ]
+    },
+    {
+      "claim_id": "raw-janine-butcher-3",
+      "event_id": "laura-death-charge",
+      "event_label": "Janine's charge over Laura's death",
+      "event_type": "charge",
+      "basis": "legal_outcome",
+      "participants": [
+        {
+          "character_id": "janine-butcher",
+          "role": "accused"
+        }
+      ],
+      "account_status": "as_reported",
+      "polarity": "affirmed",
+      "certainty": "certain",
+      "story_time": "unknown",
+      "time_precision": "unknown",
+      "evidence": [
+        {
+          "evidence_id": "coverage-janine-butcher",
+          "start": 455,
+          "end": 551,
+          "quote": "She is arrested by the police, charged with Laura's murder, and remanded in custody in May 2004."
+        }
+      ]
+    },
+    {
+      "claim_id": "raw-janine-butcher-4",
+      "event_id": "laura-death-charge",
+      "event_label": "Janine's charge over Laura's death",
+      "event_type": "imprisonment",
+      "basis": "legal_outcome",
+      "participants": [
+        {
+          "character_id": "janine-butcher",
+          "role": "prisoner"
+        }
+      ],
+      "account_status": "as_reported",
+      "polarity": "affirmed",
+      "certainty": "certain",
+      "story_time": "May 2004",
+      "time_precision": "exact",
+      "evidence": [
+        {
+          "evidence_id": "coverage-janine-butcher",
+          "start": 455,
+          "end": 551,
+          "quote": "She is arrested by the police, charged with Laura's murder, and remanded in custody in May 2004."
+        }
+      ]
+    },
+    {
+      "claim_id": "ref-dot-cotton-1",
+      "event_id": "dot-death",
+      "event_label": "Dot's death",
+      "event_type": "death",
+      "basis": "narrative",
+      "participants": [
+        {
+          "character_id": "dot-cotton",
+          "role": "deceased"
+        }
+      ],
+      "account_status": "as_reported",
+      "polarity": "affirmed",
+      "certainty": "certain",
+      "story_time": "unknown",
+      "time_precision": "unknown",
+      "evidence": [
+        {
+          "evidence_id": "coverage-dot-cotton",
+          "start": 0,
+          "end": 94,
+          "quote": "Over a year later, Sonia receives news from Charlie that Dot has died peacefully in her sleep."
+        }
+      ]
+    },
+    {
+      "claim_id": "raw-dot-cotton-1",
+      "event_id": "dot-death",
+      "event_label": "Dot's death",
+      "event_type": "death",
+      "basis": "narrative",
+      "participants": [
+        {
+          "character_id": "dot-cotton",
+          "role": "deceased"
+        }
+      ],
+      "account_status": "as_reported",
+      "polarity": "affirmed",
+      "certainty": "certain",
+      "story_time": "Over a year later",
+      "time_precision": "relative",
+      "evidence": [
+        {
+          "evidence_id": "coverage-dot-cotton",
+          "start": 56,
+          "end": 93,
+          "quote": "Dot has died peacefully in her sleep."
+        }
+      ]
+    },
+    {
+      "claim_id": "ref-denise-fox-1",
+      "event_id": "denise-pregnancy",
+      "event_label": "Denise's pregnancy",
+      "event_type": "pregnancy",
+      "basis": "narrative",
+      "participants": [
+        {
+          "character_id": "denise-fox",
+          "role": "pregnant_person"
+        }
+      ],
+      "account_status": "as_reported",
+      "polarity": "affirmed",
+      "certainty": "certain",
+      "story_time": "unknown",
+      "time_precision": "unknown",
+      "evidence": [
+        {
+          "evidence_id": "coverage-denise-fox",
+          "start": 0,
+          "end": 123,
+          "quote": "When Denise faints, she researches her symptoms and initially fears that she has cancer but discovers that she is pregnant."
+        }
+      ]
+    },
+    {
+      "claim_id": "raw-denise-fox-1",
+      "event_id": "denise-pregnancy",
+      "event_label": "Denise's pregnancy",
+      "event_type": "pregnancy",
+      "basis": "narrative",
+      "participants": [
+        {
+          "character_id": "denise-fox",
+          "role": "pregnant_person"
+        }
+      ],
+      "account_status": "as_reported",
+      "polarity": "affirmed",
+      "certainty": "certain",
+      "story_time": "unknown",
+      "time_precision": "unknown",
+      "evidence": [
+        {
+          "evidence_id": "coverage-denise-fox",
+          "start": 5,
+          "end": 123,
+          "quote": "Denise faints, she researches her symptoms and initially fears that she has cancer but discovers that she is pregnant."
+        }
+      ]
+    },
+    {
+      "claim_id": "ref-linda-carter-1",
+      "event_id": "linda-pregnancy",
+      "event_label": "Linda's confirmed pregnancy",
+      "event_type": "pregnancy",
+      "basis": "narrative",
+      "participants": [
+        {
+          "character_id": "linda-carter",
+          "role": "pregnant_person"
+        }
+      ],
+      "account_status": "as_reported",
+      "polarity": "affirmed",
+      "certainty": "certain",
+      "story_time": "unknown",
+      "time_precision": "unknown",
+      "evidence": [
+        {
+          "evidence_id": "coverage-linda-carter",
+          "start": 0,
+          "end": 161,
+          "quote": "Mick theorises that Linda is pregnant when she vomits at the smell of lavender bath soap, and she, is horrified to discover he is correct, when she takes a test."
+        }
+      ]
+    },
+    {
+      "claim_id": "raw-linda-carter-1",
+      "event_id": "linda-pregnancy",
+      "event_label": "Linda's confirmed pregnancy",
+      "event_type": "pregnancy",
+      "basis": "narrative",
+      "participants": [
+        {
+          "character_id": "linda-carter",
+          "role": "pregnant_person"
+        }
+      ],
+      "account_status": "as_reported",
+      "polarity": "affirmed",
+      "certainty": "certain",
+      "story_time": "unknown",
+      "time_precision": "unknown",
+      "evidence": [
+        {
+          "evidence_id": "coverage-linda-carter",
+          "start": 20,
+          "end": 160,
+          "quote": "Linda is pregnant when she vomits at the smell of lavender bath soap, and she, is horrified to discover he is correct, when she takes a test."
+        }
+      ]
+    },
+    {
+      "claim_id": "ref-grant-abuse-1",
+      "event_id": "grant-domestic-abuse",
+      "event_label": "Grant and Sharon domestic abuse",
+      "event_type": "arrest",
+      "basis": "legal_outcome",
+      "participants": [
+        {
+          "character_id": "grant-mitchell",
+          "role": "arrested"
+        }
+      ],
+      "account_status": "as_reported",
+      "polarity": "affirmed",
+      "certainty": "certain",
+      "story_time": "unknown",
+      "time_precision": "unknown",
+      "evidence": [
+        {
+          "evidence_id": "coverage-grant-abuse",
+          "start": 0,
+          "end": 208,
+          "quote": "Sharon and Phil have sex but she stays with Grant, who is unaware of their betrayal. Sharon and Grant's reconciliation is brief, and amidst more rowing and physical violence, Grant is arrested and imprisoned."
+        }
+      ]
+    },
+    {
+      "claim_id": "ref-grant-abuse-2",
+      "event_id": "grant-domestic-abuse",
+      "event_label": "Grant and Sharon domestic abuse",
+      "event_type": "imprisonment",
+      "basis": "legal_outcome",
+      "participants": [
+        {
+          "character_id": "grant-mitchell",
+          "role": "prisoner"
+        }
+      ],
+      "account_status": "as_reported",
+      "polarity": "affirmed",
+      "certainty": "certain",
+      "story_time": "unknown",
+      "time_precision": "unknown",
+      "evidence": [
+        {
+          "evidence_id": "coverage-grant-abuse",
+          "start": 0,
+          "end": 208,
+          "quote": "Sharon and Phil have sex but she stays with Grant, who is unaware of their betrayal. Sharon and Grant's reconciliation is brief, and amidst more rowing and physical violence, Grant is arrested and imprisoned."
+        }
+      ]
+    },
+    {
+      "claim_id": "raw-grant-abuse-1",
+      "event_id": "grant-domestic-abuse",
+      "event_label": "Grant and Sharon domestic abuse",
+      "event_type": "arrest",
+      "basis": "legal_outcome",
+      "participants": [
+        {
+          "character_id": "grant-mitchell",
+          "role": "arrested"
+        }
+      ],
+      "account_status": "as_reported",
+      "polarity": "affirmed",
+      "certainty": "certain",
+      "story_time": "unknown",
+      "time_precision": "unknown",
+      "evidence": [
+        {
+          "evidence_id": "coverage-grant-abuse",
+          "start": 175,
+          "end": 208,
+          "quote": "Grant is arrested and imprisoned."
+        }
+      ]
+    },
+    {
+      "claim_id": "raw-grant-abuse-2",
+      "event_id": "grant-domestic-abuse",
+      "event_label": "Grant and Sharon domestic abuse",
+      "event_type": "imprisonment",
+      "basis": "legal_outcome",
+      "participants": [
+        {
+          "character_id": "grant-mitchell",
+          "role": "prisoner"
+        }
+      ],
+      "account_status": "as_reported",
+      "polarity": "affirmed",
+      "certainty": "certain",
+      "story_time": "unknown",
+      "time_precision": "unknown",
+      "evidence": [
+        {
+          "evidence_id": "coverage-grant-abuse",
+          "start": 175,
+          "end": 208,
+          "quote": "Grant is arrested and imprisoned."
+        }
+      ]
+    }
+  ],
+  "context_claims": [
+    {
+      "claim_id": "ref-phil-tape-text-1",
+      "kind": "unclassified",
+      "character_ids": [
+        "phil-mitchell",
+        "kathy-beale",
+        "grant-mitchell",
+        "sharon-watts"
+      ],
+      "theme": null,
+      "classification_gap": "Public revelation by playing an affair recording has no checked event category.",
+      "evidence": [
+        {
+          "evidence_id": "coverage-phil-tape",
+          "start": 0,
+          "end": 116,
+          "quote": "During Phil and Kathy's engagement party, Grant plays an audio cassette recording of Sharon admitting to the affair."
+        }
+      ]
+    },
+    {
+      "claim_id": "raw-phil-tape-1",
+      "kind": "unclassified",
+      "character_ids": [
+        "grant-mitchell",
+        "sharon-watts"
+      ],
+      "theme": null,
+      "classification_gap": "The public playing of a tape revealing an affair has no checked event type or topical theme.",
+      "evidence": [
+        {
+          "evidence_id": "coverage-phil-tape",
+          "start": 0,
+          "end": 115,
+          "quote": "During Phil and Kathy's engagement party, Grant plays an audio cassette recording of Sharon admitting to the affair."
+        }
+      ]
+    },
+    {
+      "claim_id": "ref-grant-abuse-text-1",
+      "kind": "theme",
+      "character_ids": [
+        "grant-mitchell",
+        "sharon-watts"
+      ],
+      "theme": "domestic_abuse",
+      "classification_gap": null,
+      "evidence": [
+        {
+          "evidence_id": "coverage-grant-abuse",
+          "start": 0,
+          "end": 208,
+          "quote": "Sharon and Phil have sex but she stays with Grant, who is unaware of their betrayal. Sharon and Grant's reconciliation is brief, and amidst more rowing and physical violence, Grant is arrested and imprisoned."
+        }
+      ]
+    },
+    {
+      "claim_id": "raw-grant-abuse-3",
+      "kind": "theme",
+      "character_ids": [
+        "grant-mitchell",
+        "sharon-watts"
+      ],
+      "theme": "domestic_abuse",
+      "classification_gap": null,
+      "evidence": [
+        {
+          "evidence_id": "coverage-grant-abuse",
+          "start": 85,
+          "end": 208,
+          "quote": "Sharon and Grant's reconciliation is brief, and amidst more rowing and physical violence, Grant is arrested and imprisoned."
+        }
+      ]
+    }
+  ],
+  "cases": [],
+  "review_note": "Source-reviewed selected roster excerpts, preserving raw candidates. Missing history is unassessed, not false. No independent canon acceptance."
+}

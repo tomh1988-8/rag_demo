@@ -11,6 +11,21 @@ commands so they work even without a configured Git remote.
 
 ## Current Ask Phil handoff
 
+**Issue #20 is validated; publication and tracker closure are in progress.**
+Continue this ticket from [its evidence](../implementation/issue-20/README.md),
+not from an earlier paused session. Workflow source is `eec7033`, with test-only repair `416ef2f`; all 22 paid
+extraction attempts and 26 public answer outcomes are retained. Independent
+reviews have zero findings; all 586 native cases, eight Docker contracts and
+strict static checks pass. All 243 frozen software inputs match.
+
+Preserve the non-resetting $5 ledger at **$0.911656**, zero unsettled reservations,
+and reuse the recorded paid results. All 45 original tracked data files and the
+user’s pre-existing workspace/private inputs remain preserved. Check the linked
+validation/publication receipts before reporting completion or closing #20.
+After #20 completion, **#22 is next**; #24 is also unblocked and #18 waits for #24.
+
+### Prior issue #19 handoff
+
 Issue #19 is complete after verified publication of [6611aa0](https://github.com/tomh1988-8/rag_demo/commit/6611aa07a577258a9cc253fc91e3766f2c42e4ad).
 [Evidence](../implementation/issue-19/README.md) records 567 passing
 software tests, strict mypy across 131 files, Ruff/formatting and zero remaining

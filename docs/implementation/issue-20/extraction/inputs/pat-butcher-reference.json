@@ -1,0 +1,74 @@
+{
+  "expected_claims": [
+    {
+      "event_id": "pat-death",
+      "event_label": "Pat's death",
+      "event_type": "death",
+      "basis": "narrative",
+      "participants": [
+        {
+          "character_id": "pat-butcher",
+          "role": "deceased"
+        }
+      ],
+      "account_status": "as_reported",
+      "polarity": "affirmed",
+      "certainty": "certain",
+      "story_time": "unknown",
+      "time_precision": "unknown",
+      "claim_id": "ref-pat-butcher-1",
+      "evidence": [
+        {
+          "evidence_id": "coverage-pat-butcher",
+          "start": 0,
+          "end": 125,
+          "quote": "Despite admitting that she is scared, Pat is able to make peace with her son moments before she ultimately succumbs and dies."
+        }
+      ]
+    }
+  ],
+  "expected_context_claims": [],
+  "incidents": {
+    "coverage-pat-butcher": {
+      "event_id": "pat-death",
+      "event_label": "Pat's death"
+    }
+  },
+  "snapshot_sha256": "8a001507a5d8bbd79216c3b6d8a31718bd794567817198da58455adcca71db71",
+  "catalogue": {
+    "characters": [
+      {
+        "character_id": "pat-butcher",
+        "name": "Pat Butcher",
+        "aliases": [
+          "Pat Harris",
+          "Pat Beale",
+          "Pat Wicks",
+          "Pat Evans",
+          "Fat Pat"
+        ],
+        "performers": [
+          "Pam St Clement",
+          "Emma Cooke"
+        ],
+        "coverage": "core",
+        "wikidata_id": "Q368649",
+        "review_note": "Codex source inspection, 17 October 2026: captured character article, infobox aliases/performers and revision metadata checked. Prominence-based curated selection, not a ranked or exhaustive canon. Identity linkage is not independent story corroboration.",
+        "evidence_sources": [
+          "pat-butcher-wiki"
+        ]
+      }
+    ]
+  },
+  "origin_snapshot_sha256": "2ea666180ca9600a6d8e35ae7049d21f682d9090cddc92f63630d9250d7a6c76",
+  "annotation_sha256": "56275247f9cf2976827f1fd6d9df6ae7682c73da343bc615b819e3f22a7571bb",
+  "reviewer": "Codex source-based annotation, before extraction; not human canon adjudication",
+  "review_note": "Actual death. “Moments before” describes reconciliation, not a death date; the preceding New Year paragraph and later funeral must not silently supply one.",
+  "synthetic": false,
+  "cross_source_checked": false,
+  "split": "exposed_development",
+  "story_groups": [
+    "pat-death"
+  ],
+  "completeness": "All explicit in-catalogue assertions of the selected family within these excerpts; events are restricted to the declared incidents."
+}

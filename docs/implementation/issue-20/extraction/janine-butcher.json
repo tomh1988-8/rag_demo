@@ -1,0 +1,328 @@
+{
+  "captured_at": "2026-10-29T08:24:04.646603+00:00",
+  "code_revision": "9f60cea4856740f58a9680b0ff00f384996f77b1",
+  "application_sha256": "fb0feb5e544ebda762ad53e5e230df1df87f572c892932a23215a4f35ea0855b",
+  "prompt_sha256": "4b4c6bfe4b851f1e5e3ef21acf30c14f349e422c66b22d1287de479570b2a9a2",
+  "snapshot_id": "janine-butcher-coverage-v1",
+  "snapshot_sha256": "cc765996829ae03365da4187c596bc74a182411663ec76cd76fce85a11d15835",
+  "snapshot_file_sha256": "e3ac9db95d3c3ecf489e98744f9c7a9b065e8b63de0ec272d797c0d80442908b",
+  "reference_sha256": "a933913351db9702da2fa22dcf63004f0187e55fc90a2c21a04804ec4cd5c16e",
+  "schema_sha256": "fc6b0beddd0b706b7d465dba6e8cb6683c3315ee6b64535145485c15f3c66f30",
+  "profile": {
+    "provider_type": "openrouter",
+    "answer_model": "openai/gpt-6-sol",
+    "canonical_slug": "openai/gpt-6-sol-20260922",
+    "provider": "openai",
+    "input_price_per_million": "2",
+    "output_price_per_million": "10",
+    "output_tokens": 8192,
+    "reasoning_effort": "low",
+    "request_timeout_seconds": 180
+  },
+  "expenditure_category": "offline_evaluation",
+  "state": "complete",
+  "raw": "{\n  \"claims\": [\n    {\n      \"claim_id\": \"claim-1\",\n      \"event_id\": \"laura-death-charge\",\n      \"event_label\": \"Janine's charge over Laura's death\",\n      \"event_type\": \"death\",\n      \"basis\": \"narrative\",\n      \"participants\": [\n        {\n          \"character_id\": \"laura\",\n          \"role\": \"deceased\"\n        }\n      ],\n      \"account_status\": \"as_reported\",\n      \"polarity\": \"affirmed\",\n      \"certainty\": \"certain\",\n      \"story_time\": \"April 2004\",\n      \"time_precision\": \"exact\",\n      \"evidence\": [\n        {\n          \"evidence_id\": \"coverage-janine-butcher\",\n          \"start\": 0,\n          \"end\": 103,\n          \"quote\": \"In April 2004, Janine and Laura are seen fighting just before Laura dies after falling down the stairs.\"\n        }\n      ]\n    },\n    {\n      \"claim_id\": \"claim-2\",\n      \"event_id\": \"laura-death-charge\",\n      \"event_label\": \"Janine's charge over Laura's death\",\n      \"event_type\": \"arrest\",\n      \"basis\": \"legal_outcome\",\n      \"participants\": [\n        {\n          \"character_id\": \"janine-butcher\",\n          \"role\": \"arrested\"\n        }\n      ],\n      \"account_status\": \"as_reported\",\n      \"polarity\": \"affirmed\",\n      \"certainty\": \"certain\",\n      \"story_time\": \"unknown\",\n      \"time_precision\": \"unknown\",\n      \"evidence\": [\n        {\n          \"evidence_id\": \"coverage-janine-butcher\",\n          \"start\": 455,\n          \"end\": 551,\n          \"quote\": \"She is arrested by the police, charged with Laura's murder, and remanded in custody in May 2004.\"\n        }\n      ]\n    },\n    {\n      \"claim_id\": \"claim-3\",\n      \"event_id\": \"laura-death-charge\",\n      \"event_label\": \"Janine's charge over Laura's death\",\n      \"event_type\": \"charge\",\n      \"basis\": \"legal_outcome\",\n      \"participants\": [\n        {\n          \"character_id\": \"janine-butcher\",\n          \"role\": \"accused\"\n        }\n      ],\n      \"account_status\": \"as_reported\",\n      \"polarity\": \"affirmed\",\n      \"certainty\": \"certain\",\n      \"story_time\": \"unknown\",\n      \"time_precision\": \"unknown\",\n      \"evidence\": [\n        {\n          \"evidence_id\": \"coverage-janine-butcher\",\n          \"start\": 455,\n          \"end\": 551,\n          \"quote\": \"She is arrested by the police, charged with Laura's murder, and remanded in custody in May 2004.\"\n        }\n      ]\n    },\n    {\n      \"claim_id\": \"claim-4\",\n      \"event_id\": \"laura-death-charge\",\n      \"event_label\": \"Janine's charge over Laura's death\",\n      \"event_type\": \"imprisonment\",\n      \"basis\": \"legal_outcome\",\n      \"participants\": [\n        {\n          \"character_id\": \"janine-butcher\",\n          \"role\": \"prisoner\"\n        }\n      ],\n      \"account_status\": \"as_reported\",\n      \"polarity\": \"affirmed\",\n      \"certainty\": \"certain\",\n      \"story_time\": \"May 2004\",\n      \"time_precision\": \"exact\",\n      \"evidence\": [\n        {\n          \"evidence_id\": \"coverage-janine-butcher\",\n          \"start\": 455,\n          \"end\": 551,\n          \"quote\": \"She is arrested by the police, charged with Laura's murder, and remanded in custody in May 2004.\"\n        }\n      ]\n    }\n  ],\n  \"context_claims\": []\n}",
+  "batch": {
+    "claims": [
+      {
+        "claim_id": "claim-1",
+        "event_id": "laura-death-charge",
+        "event_label": "Janine's charge over Laura's death",
+        "event_type": "death",
+        "basis": "narrative",
+        "participants": [
+          {
+            "character_id": "laura",
+            "role": "deceased"
+          }
+        ],
+        "account_status": "as_reported",
+        "polarity": "affirmed",
+        "certainty": "certain",
+        "story_time": "April 2004",
+        "time_precision": "exact",
+        "evidence": [
+          {
+            "evidence_id": "coverage-janine-butcher",
+            "start": 0,
+            "end": 103,
+            "quote": "In April 2004, Janine and Laura are seen fighting just before Laura dies after falling down the stairs."
+          }
+        ]
+      },
+      {
+        "claim_id": "claim-2",
+        "event_id": "laura-death-charge",
+        "event_label": "Janine's charge over Laura's death",
+        "event_type": "arrest",
+        "basis": "legal_outcome",
+        "participants": [
+          {
+            "character_id": "janine-butcher",
+            "role": "arrested"
+          }
+        ],
+        "account_status": "as_reported",
+        "polarity": "affirmed",
+        "certainty": "certain",
+        "story_time": "unknown",
+        "time_precision": "unknown",
+        "evidence": [
+          {
+            "evidence_id": "coverage-janine-butcher",
+            "start": 455,
+            "end": 551,
+            "quote": "She is arrested by the police, charged with Laura's murder, and remanded in custody in May 2004."
+          }
+        ]
+      },
+      {
+        "claim_id": "claim-3",
+        "event_id": "laura-death-charge",
+        "event_label": "Janine's charge over Laura's death",
+        "event_type": "charge",
+        "basis": "legal_outcome",
+        "participants": [
+          {
+            "character_id": "janine-butcher",
+            "role": "accused"
+          }
+        ],
+        "account_status": "as_reported",
+        "polarity": "affirmed",
+        "certainty": "certain",
+        "story_time": "unknown",
+        "time_precision": "unknown",
+        "evidence": [
+          {
+            "evidence_id": "coverage-janine-butcher",
+            "start": 455,
+            "end": 551,
+            "quote": "She is arrested by the police, charged with Laura's murder, and remanded in custody in May 2004."
+          }
+        ]
+      },
+      {
+        "claim_id": "claim-4",
+        "event_id": "laura-death-charge",
+        "event_label": "Janine's charge over Laura's death",
+        "event_type": "imprisonment",
+        "basis": "legal_outcome",
+        "participants": [
+          {
+            "character_id": "janine-butcher",
+            "role": "prisoner"
+          }
+        ],
+        "account_status": "as_reported",
+        "polarity": "affirmed",
+        "certainty": "certain",
+        "story_time": "May 2004",
+        "time_precision": "exact",
+        "evidence": [
+          {
+            "evidence_id": "coverage-janine-butcher",
+            "start": 455,
+            "end": 551,
+            "quote": "She is arrested by the police, charged with Laura's murder, and remanded in custody in May 2004."
+          }
+        ]
+      }
+    ],
+    "snapshot_id": "janine-butcher-coverage-v1",
+    "snapshot_sha256": "cc765996829ae03365da4187c596bc74a182411663ec76cd76fce85a11d15835",
+    "catalogue": {
+      "characters": [
+        {
+          "character_id": "janine-butcher",
+          "name": "Janine Butcher",
+          "aliases": [
+            "Janine Evans",
+            "Janine Malloy",
+            "Janine Carter",
+            "Judith Bernstein"
+          ],
+          "performers": [
+            "Rebecca Michael",
+            "Alexia Demetriou",
+            "Charlie Brooks"
+          ],
+          "coverage": "core",
+          "wikidata_id": "Q2321366",
+          "review_note": "Codex source inspection, 17 October 2026: captured character article, infobox aliases/performers and revision metadata checked. Prominence-based curated selection, not a ranked or exhaustive canon. Identity linkage is not independent story corroboration.",
+          "evidence_sources": [
+            "janine-butcher-wiki"
+          ]
+        }
+      ]
+    },
+    "extractor": "openai/gpt-6-sol-20260922"
+  },
+  "score": {
+    "schema_valid": true,
+    "expected": 3,
+    "predicted": 4,
+    "duplicates": 0,
+    "true_positive": 1,
+    "resolvable_spans": 1,
+    "grounded": 0,
+    "precision": 0.25,
+    "recall": 0.3333333333333333,
+    "f1": 0.28571428571428575,
+    "scope": "Exposed selected incidents and in-catalogue assertions only. Exact values include participant-role assignment, event type, basis, account status, polarity, certainty, story time/precision and evidence IDs. Ignore arbitrary claim/event ID spelling and label wording; incident grouping requires separate support review. Full-value duplicates collapse. Each dimension projects unique full assertions onto values plus passage IDs and event type, preserving multiplicity: identity sets, role multisets, assigned identity-role pairs (direction), polarity, timing, or account attribution. These are diagnostics, not independent per-claim accuracies. Grounding separately requires exact resolvable locators covering frozen supporting spans; it is not canon adjudication. Text classifications are scored separately by kind, character subjects, theme and passage IDs; classification-gap wording is source-reviewed rather than exact-matched. A text classification never counts as an event or connection.",
+    "dimensions": {
+      "identity": {
+        "expected": 3,
+        "predicted": 4,
+        "true_positive": 3,
+        "precision": 0.75,
+        "recall": 1.0,
+        "f1": 0.8571428571428571
+      },
+      "role": {
+        "expected": 3,
+        "predicted": 4,
+        "true_positive": 3,
+        "precision": 0.75,
+        "recall": 1.0,
+        "f1": 0.8571428571428571
+      },
+      "direction": {
+        "expected": 3,
+        "predicted": 4,
+        "true_positive": 3,
+        "precision": 0.75,
+        "recall": 1.0,
+        "f1": 0.8571428571428571
+      },
+      "negation": {
+        "expected": 3,
+        "predicted": 4,
+        "true_positive": 3,
+        "precision": 0.75,
+        "recall": 1.0,
+        "f1": 0.8571428571428571
+      },
+      "timing": {
+        "expected": 3,
+        "predicted": 4,
+        "true_positive": 1,
+        "precision": 0.25,
+        "recall": 0.3333333333333333,
+        "f1": 0.28571428571428575
+      },
+      "account": {
+        "expected": 3,
+        "predicted": 4,
+        "true_positive": 3,
+        "precision": 0.75,
+        "recall": 1.0,
+        "f1": 0.8571428571428571
+      }
+    },
+    "by_event_type": {
+      "arrest": {
+        "schema_valid": true,
+        "expected": 1,
+        "predicted": 1,
+        "duplicates": 0,
+        "true_positive": 0,
+        "resolvable_spans": 0,
+        "grounded": 0,
+        "precision": 0.0,
+        "recall": 0.0,
+        "f1": 0.0,
+        "scope": "Exact normalized values within each completely annotated selected input passage. Instances match on values and sorted unique passage IDs, independently of quote offsets. Claim IDs are ignored; semantic duplicates within a passage collapse and are counted. Grounding additionally requires the entire independently reviewed supporting span. These exposed development scores are not held-out or broad-corpus quality."
+      },
+      "charge": {
+        "schema_valid": true,
+        "expected": 1,
+        "predicted": 1,
+        "duplicates": 0,
+        "true_positive": 0,
+        "resolvable_spans": 0,
+        "grounded": 0,
+        "precision": 0.0,
+        "recall": 0.0,
+        "f1": 0.0,
+        "scope": "Exact normalized values within each completely annotated selected input passage. Instances match on values and sorted unique passage IDs, independently of quote offsets. Claim IDs are ignored; semantic duplicates within a passage collapse and are counted. Grounding additionally requires the entire independently reviewed supporting span. These exposed development scores are not held-out or broad-corpus quality."
+      },
+      "death": {
+        "schema_valid": true,
+        "expected": 0,
+        "predicted": 1,
+        "duplicates": 0,
+        "true_positive": 0,
+        "resolvable_spans": 1,
+        "grounded": 0,
+        "precision": 0.0,
+        "recall": 1.0,
+        "f1": 0.0,
+        "scope": "Exact normalized values within each completely annotated selected input passage. Instances match on values and sorted unique passage IDs, independently of quote offsets. Claim IDs are ignored; semantic duplicates within a passage collapse and are counted. Grounding additionally requires the entire independently reviewed supporting span. These exposed development scores are not held-out or broad-corpus quality."
+      },
+      "imprisonment": {
+        "schema_valid": true,
+        "expected": 1,
+        "predicted": 1,
+        "duplicates": 0,
+        "true_positive": 1,
+        "resolvable_spans": 0,
+        "grounded": 0,
+        "precision": 1.0,
+        "recall": 1.0,
+        "f1": 1.0,
+        "scope": "Exact normalized values within each completely annotated selected input passage. Instances match on values and sorted unique passage IDs, independently of quote offsets. Claim IDs are ignored; semantic duplicates within a passage collapse and are counted. Grounding additionally requires the entire independently reviewed supporting span. These exposed development scores are not held-out or broad-corpus quality."
+      }
+    },
+    "context_score": {
+      "schema_valid": true,
+      "expected": 0,
+      "predicted": 0,
+      "duplicates": 0,
+      "true_positive": 0,
+      "resolvable_spans": 0,
+      "grounded": 0,
+      "precision": 1.0,
+      "recall": 1.0,
+      "f1": 1.0,
+      "scope": "Exact normalized values within each completely annotated selected input passage. Instances match on values and sorted unique passage IDs, independently of quote offsets. Claim IDs are ignored; semantic duplicates within a passage collapse and are counted. Grounding additionally requires the entire independently reviewed supporting span. These exposed development scores are not held-out or broad-corpus quality."
+    },
+    "by_theme": {},
+    "by_classification": {}
+  },
+  "usage": {
+    "reservation_id": "48f394281a244bbc935130cd76c82813",
+    "reserved_usd": 0.108046,
+    "cost_usd": 0.0263285,
+    "request_id": "gen-1793262245-MWvMRJfLDD2qk3iaeeT2",
+    "returned_model": "openai/gpt-6-sol",
+    "provider": "OpenAI",
+    "input_tokens": 1600,
+    "output_tokens": 2233,
+    "reasoning_tokens": 1403
+  },
+  "execution": {
+    "limits": {
+      "model_calls": 1,
+      "tool_calls": 0,
+      "http_calls": 3,
+      "seconds": 180.0,
+      "context_bytes": 1200,
+      "spend_usd": "0.15",
+      "retries": 0,
+      "capabilities": [],
+      "concurrency": 4
+    },
+    "model_calls": 1,
+    "tool_calls": 0,
+    "http_calls": 3,
+    "reserved_usd": "0.0263285",
+    "stop_reason": null
+  },
+  "elapsed_ms": 22912.803823000104,
+  "failure": null,
+  "trace_id": "tr-44b5b553a8c66d7ef8a027884562ad49",
+  "shared_ledger_usd": 0.844073,
+  "unsettled_reservations": 0,
+  "limitation": "Agent-reviewed exposed labels; no held-out, human or independent canon acceptance."
+}

@@ -1,0 +1,1736 @@
+{
+  "plan_sha256": "16bd084f870d152d269ae65f05a3165e11d9d7561b95e1da169c4231ab8584b5",
+  "application_sha256": "fb0feb5e544ebda762ad53e5e230df1df87f572c892932a23215a4f35ea0855b",
+  "profile": {
+    "provider_type": "openrouter",
+    "answer_model": "openai/gpt-6-sol",
+    "canonical_slug": "openai/gpt-6-sol-20260922",
+    "provider": "openai",
+    "input_price_per_million": "2",
+    "output_price_per_million": "10",
+    "output_tokens": 8192,
+    "reasoning_effort": "low",
+    "request_timeout_seconds": 180
+  },
+  "state": "complete",
+  "batches": [
+    {
+      "batch_id": "phil-mitchell",
+      "character_id": "phil-mitchell",
+      "kind": "family",
+      "state": "complete",
+      "gaps": [
+        "Only the selected excerpts and catalogue identities are completely annotated. Other narrative passages, supporting identities, relations and incidents remain unassessed.",
+        "Captured source support is not independent corroboration or exhaustive canon. Unknown dates are retained; capture and broadcast dates are not story dates."
+      ],
+      "failure": null,
+      "score": {
+        "schema_valid": true,
+        "expected": 2,
+        "predicted": 2,
+        "duplicates": 0,
+        "true_positive": 0,
+        "resolvable_spans": 2,
+        "grounded": 0,
+        "precision": 0.0,
+        "recall": 0.0,
+        "f1": 0.0,
+        "scope": "Exact normalized values within each completely annotated selected input passage. Instances match on values and sorted unique passage IDs, independently of quote offsets. Claim IDs are ignored; semantic duplicates within a passage collapse and are counted. Grounding additionally requires the entire independently reviewed supporting span. These exposed development scores are not held-out or broad-corpus quality."
+      },
+      "usage": {
+        "reservation_id": "081c728513fd48a6bfb3c3195d2ae268",
+        "reserved_usd": 0.106208,
+        "cost_usd": 0.010896,
+        "request_id": "gen-1793212339-x8KW3omJXcMqkmgPi2Ey",
+        "returned_model": "openai/gpt-6-sol",
+        "provider": "OpenAI",
+        "input_tokens": 1703,
+        "output_tokens": 664,
+        "reasoning_tokens": 464
+      },
+      "result_sha256": "1b5c7b94195ff880da84543db4d896f38ecd483d8fe354e5c38e4c7f148c70aa"
+    },
+    {
+      "batch_id": "grant-mitchell",
+      "character_id": "grant-mitchell",
+      "kind": "relationships",
+      "state": "complete",
+      "gaps": [
+        "Only the selected excerpts and catalogue identities are completely annotated. Other narrative passages, supporting identities, relations and incidents remain unassessed.",
+        "Captured source support is not independent corroboration or exhaustive canon. Unknown dates are retained; capture and broadcast dates are not story dates."
+      ],
+      "failure": null,
+      "score": {
+        "expected": 1,
+        "predicted": 1,
+        "true_positive": 1,
+        "precision": 1.0,
+        "recall": 1.0,
+        "f1": 1.0,
+        "schema_valid": true,
+        "duplicates": 0,
+        "resolvable_spans": 1,
+        "grounded": 0,
+        "episode_pairs_expected": 0,
+        "episode_pairs_correct": 0,
+        "ordering_expected": 0,
+        "ordering_predicted": 0,
+        "ordering_correct": 0,
+        "alignment_limited": false,
+        "by_relation": {
+          "marriage": {
+            "expected": 1,
+            "predicted": 1,
+            "true_positive": 1,
+            "precision": 1.0,
+            "recall": 1.0,
+            "f1": 1.0
+          }
+        },
+        "scope": "Exposed, completely annotated in-catalogue spans only. Match values and unique passage IDs, with frozen timing alternatives; ignore arbitrary claim/episode IDs. Romantic pairs are symmetric; parent/guardian roles are directed. Distinct episode instances retain multiplicity; duplicates within the same episode collapse. One-to-one value matching ignores ID spelling. Ambiguous alignments maximize episode agreement, then ordering; over 4096 alternatives leaves those two scores unavailable. Raw duplicates and full-reference-span grounding are separate. Missing episode pairs fail. This conservative grounding proxy is not independent semantic/canon adjudication."
+      },
+      "usage": {
+        "reservation_id": "71e9dca3fe514666a0b8b305f4954be1",
+        "reserved_usd": 0.10651,
+        "cost_usd": 0.0072235,
+        "request_id": "gen-1793262069-ErhjPdIRCW7iJq9YYU8L",
+        "returned_model": "openai/gpt-6-sol",
+        "provider": "OpenAI",
+        "input_tokens": 1746,
+        "output_tokens": 286,
+        "reasoning_tokens": 158
+      },
+      "result_sha256": "8fe55932290eab6964dd48d851c63e53a823641147c17ea790255b79d69e3610"
+    },
+    {
+      "batch_id": "peggy-mitchell",
+      "character_id": "peggy-mitchell",
+      "kind": "family",
+      "state": "complete",
+      "gaps": [
+        "Only the selected excerpts and catalogue identities are completely annotated. Other narrative passages, supporting identities, relations and incidents remain unassessed.",
+        "Captured source support is not independent corroboration or exhaustive canon. Unknown dates are retained; capture and broadcast dates are not story dates."
+      ],
+      "failure": null,
+      "score": {
+        "schema_valid": true,
+        "expected": 1,
+        "predicted": 1,
+        "duplicates": 0,
+        "true_positive": 1,
+        "resolvable_spans": 1,
+        "grounded": 1,
+        "precision": 1.0,
+        "recall": 1.0,
+        "f1": 1.0,
+        "scope": "Exact normalized values within each completely annotated selected input passage. Instances match on values and sorted unique passage IDs, independently of quote offsets. Claim IDs are ignored; semantic duplicates within a passage collapse and are counted. Grounding additionally requires the entire independently reviewed supporting span. These exposed development scores are not held-out or broad-corpus quality."
+      },
+      "usage": {
+        "reservation_id": "da747a91611b44488858494c59c9ddc1",
+        "reserved_usd": 0.104932,
+        "cost_usd": 0.009551,
+        "request_id": "gen-1793262075-YZHCLYOD8iCFnc7rZBER",
+        "returned_model": "openai/gpt-6-sol",
+        "provider": "OpenAI",
+        "input_tokens": 1573,
+        "output_tokens": 562,
+        "reasoning_tokens": 439
+      },
+      "result_sha256": "6aa755e682f3ce91c62f519d1391cfe145bd743311a199bdc645c7bb44096aff"
+    },
+    {
+      "batch_id": "sharon-watts",
+      "character_id": "sharon-watts",
+      "kind": "relationships",
+      "state": "complete",
+      "gaps": [
+        "Only the selected excerpts and catalogue identities are completely annotated. Other narrative passages, supporting identities, relations and incidents remain unassessed.",
+        "Captured source support is not independent corroboration or exhaustive canon. Unknown dates are retained; capture and broadcast dates are not story dates."
+      ],
+      "failure": null,
+      "score": {
+        "expected": 1,
+        "predicted": 1,
+        "true_positive": 1,
+        "precision": 1.0,
+        "recall": 1.0,
+        "f1": 1.0,
+        "schema_valid": true,
+        "duplicates": 0,
+        "resolvable_spans": 1,
+        "grounded": 0,
+        "episode_pairs_expected": 0,
+        "episode_pairs_correct": 0,
+        "ordering_expected": 0,
+        "ordering_predicted": 0,
+        "ordering_correct": 0,
+        "alignment_limited": false,
+        "by_relation": {
+          "adoptive_parent": {
+            "expected": 1,
+            "predicted": 1,
+            "true_positive": 1,
+            "precision": 1.0,
+            "recall": 1.0,
+            "f1": 1.0
+          }
+        },
+        "scope": "Exposed, completely annotated in-catalogue spans only. Match values and unique passage IDs, with frozen timing alternatives; ignore arbitrary claim/episode IDs. Romantic pairs are symmetric; parent/guardian roles are directed. Distinct episode instances retain multiplicity; duplicates within the same episode collapse. One-to-one value matching ignores ID spelling. Ambiguous alignments maximize episode agreement, then ordering; over 4096 alternatives leaves those two scores unavailable. Raw duplicates and full-reference-span grounding are separate. Missing episode pairs fail. This conservative grounding proxy is not independent semantic/canon adjudication."
+      },
+      "usage": {
+        "reservation_id": "673df984399340f6982f303b83951133",
+        "reserved_usd": 0.1068,
+        "cost_usd": 0.007081,
+        "request_id": "gen-1793262083-5LMwrn3irLpTtD0Q6yo6",
+        "returned_model": "openai/gpt-6-sol",
+        "provider": "OpenAI",
+        "input_tokens": 1781,
+        "output_tokens": 263,
+        "reasoning_tokens": 137
+      },
+      "result_sha256": "63b60dcf0ea0d2d54e211f41f0c11547abf73a1e47382f6ff28f442531504eab"
+    },
+    {
+      "batch_id": "ben-mitchell",
+      "character_id": "ben-mitchell",
+      "kind": "family",
+      "state": "complete",
+      "gaps": [
+        "Only the selected excerpts and catalogue identities are completely annotated. Other narrative passages, supporting identities, relations and incidents remain unassessed.",
+        "Captured source support is not independent corroboration or exhaustive canon. Unknown dates are retained; capture and broadcast dates are not story dates."
+      ],
+      "failure": null,
+      "score": {
+        "schema_valid": true,
+        "expected": 2,
+        "predicted": 2,
+        "duplicates": 0,
+        "true_positive": 2,
+        "resolvable_spans": 2,
+        "grounded": 2,
+        "precision": 1.0,
+        "recall": 1.0,
+        "f1": 1.0,
+        "scope": "Exact normalized values within each completely annotated selected input passage. Instances match on values and sorted unique passage IDs, independently of quote offsets. Claim IDs are ignored; semantic duplicates within a passage collapse and are counted. Grounding additionally requires the entire independently reviewed supporting span. These exposed development scores are not held-out or broad-corpus quality."
+      },
+      "usage": {
+        "reservation_id": "5b1cea73cd9f40fdbdf8644cabdb5f28",
+        "reserved_usd": 0.106108,
+        "cost_usd": 0.0096835,
+        "request_id": "gen-1793262088-hfCjSdD8rQienWrO7sBH",
+        "returned_model": "openai/gpt-6-sol",
+        "provider": "OpenAI",
+        "input_tokens": 1702,
+        "output_tokens": 543,
+        "reasoning_tokens": 296
+      },
+      "result_sha256": "fb029f845bcecd49cfc52de95a4b69a088cd9b4d3f3f688afcdb095cab0a2d19"
+    },
+    {
+      "batch_id": "ian-beale",
+      "character_id": "ian-beale",
+      "kind": "family",
+      "state": "complete",
+      "gaps": [
+        "Only the selected excerpts and catalogue identities are completely annotated. Other narrative passages, supporting identities, relations and incidents remain unassessed.",
+        "Captured source support is not independent corroboration or exhaustive canon. Unknown dates are retained; capture and broadcast dates are not story dates."
+      ],
+      "failure": null,
+      "score": {
+        "schema_valid": true,
+        "expected": 1,
+        "predicted": 1,
+        "duplicates": 0,
+        "true_positive": 0,
+        "resolvable_spans": 1,
+        "grounded": 0,
+        "precision": 0.0,
+        "recall": 0.0,
+        "f1": 0.0,
+        "scope": "Exact normalized values within each completely annotated selected input passage. Instances match on values and sorted unique passage IDs, independently of quote offsets. Claim IDs are ignored; semantic duplicates within a passage collapse and are counted. Grounding additionally requires the entire independently reviewed supporting span. These exposed development scores are not held-out or broad-corpus quality."
+      },
+      "usage": {
+        "reservation_id": "57c115f4c22c4d4682d4b7d82a9ac99c",
+        "reserved_usd": 0.105012,
+        "cost_usd": 0.0109985,
+        "request_id": "gen-1793262155-VyIlQY3pacsjUi1ryCv5",
+        "returned_model": "openai/gpt-6-sol",
+        "provider": "OpenAI",
+        "input_tokens": 1592,
+        "output_tokens": 702,
+        "reasoning_tokens": 556
+      },
+      "result_sha256": "34dce8c3ca4667d94bb7a8579a56095144c759884b2a55b6632804d770d5a842"
+    },
+    {
+      "batch_id": "kathy-beale",
+      "character_id": "kathy-beale",
+      "kind": "family",
+      "state": "complete",
+      "gaps": [
+        "Only the selected excerpts and catalogue identities are completely annotated. Other narrative passages, supporting identities, relations and incidents remain unassessed.",
+        "Captured source support is not independent corroboration or exhaustive canon. Unknown dates are retained; capture and broadcast dates are not story dates."
+      ],
+      "failure": null,
+      "score": {
+        "schema_valid": true,
+        "expected": 2,
+        "predicted": 2,
+        "duplicates": 0,
+        "true_positive": 1,
+        "resolvable_spans": 0,
+        "grounded": 0,
+        "precision": 0.5,
+        "recall": 0.5,
+        "f1": 0.5,
+        "scope": "Exact normalized values within each completely annotated selected input passage. Instances match on values and sorted unique passage IDs, independently of quote offsets. Claim IDs are ignored; semantic duplicates within a passage collapse and are counted. Grounding additionally requires the entire independently reviewed supporting span. These exposed development scores are not held-out or broad-corpus quality."
+      },
+      "usage": {
+        "reservation_id": "771b454bb6ce41429b3381f94712b77e",
+        "reserved_usd": 0.10699,
+        "cost_usd": 0.020121,
+        "request_id": "gen-1793262165-AM6LVcS5S1GjNS16CA23",
+        "returned_model": "openai/gpt-6-sol",
+        "provider": "OpenAI",
+        "input_tokens": 1789,
+        "output_tokens": 1565,
+        "reasoning_tokens": 1104
+      },
+      "result_sha256": "3d7a79aa19d3817123ad6d6be8c9b7a86aff3b7b97535e429ca1b7ba59e0ee57"
+    },
+    {
+      "batch_id": "cindy-beale",
+      "character_id": "cindy-beale",
+      "kind": "events",
+      "state": "complete",
+      "gaps": [
+        "Only the selected excerpts and catalogue identities are completely annotated. Other narrative passages, supporting identities, relations and incidents remain unassessed.",
+        "Captured source support is not independent corroboration or exhaustive canon. Unknown dates are retained; capture and broadcast dates are not story dates."
+      ],
+      "failure": null,
+      "score": {
+        "schema_valid": true,
+        "expected": 1,
+        "predicted": 1,
+        "duplicates": 0,
+        "true_positive": 0,
+        "resolvable_spans": 1,
+        "grounded": 0,
+        "precision": 0.0,
+        "recall": 0.0,
+        "f1": 0.0,
+        "scope": "Exposed selected incidents and in-catalogue assertions only. Exact values include participant-role assignment, event type, basis, account status, polarity, certainty, story time/precision and evidence IDs. Ignore arbitrary claim/event ID spelling and label wording; incident grouping requires separate support review. Full-value duplicates collapse. Each dimension projects unique full assertions onto values plus passage IDs and event type, preserving multiplicity: identity sets, role multisets, assigned identity-role pairs (direction), polarity, timing, or account attribution. These are diagnostics, not independent per-claim accuracies. Grounding separately requires exact resolvable locators covering frozen supporting spans; it is not canon adjudication. Text classifications are scored separately by kind, character subjects, theme and passage IDs; classification-gap wording is source-reviewed rather than exact-matched. A text classification never counts as an event or connection.",
+        "dimensions": {
+          "identity": {
+            "expected": 1,
+            "predicted": 1,
+            "true_positive": 1,
+            "precision": 1.0,
+            "recall": 1.0,
+            "f1": 1.0
+          },
+          "role": {
+            "expected": 1,
+            "predicted": 1,
+            "true_positive": 1,
+            "precision": 1.0,
+            "recall": 1.0,
+            "f1": 1.0
+          },
+          "direction": {
+            "expected": 1,
+            "predicted": 1,
+            "true_positive": 1,
+            "precision": 1.0,
+            "recall": 1.0,
+            "f1": 1.0
+          },
+          "negation": {
+            "expected": 1,
+            "predicted": 1,
+            "true_positive": 1,
+            "precision": 1.0,
+            "recall": 1.0,
+            "f1": 1.0
+          },
+          "timing": {
+            "expected": 1,
+            "predicted": 1,
+            "true_positive": 0,
+            "precision": 0.0,
+            "recall": 0.0,
+            "f1": 0.0
+          },
+          "account": {
+            "expected": 1,
+            "predicted": 1,
+            "true_positive": 1,
+            "precision": 1.0,
+            "recall": 1.0,
+            "f1": 1.0
+          }
+        },
+        "by_event_type": {
+          "pregnancy": {
+            "schema_valid": true,
+            "expected": 1,
+            "predicted": 1,
+            "duplicates": 0,
+            "true_positive": 0,
+            "resolvable_spans": 1,
+            "grounded": 0,
+            "precision": 0.0,
+            "recall": 0.0,
+            "f1": 0.0,
+            "scope": "Exact normalized values within each completely annotated selected input passage. Instances match on values and sorted unique passage IDs, independently of quote offsets. Claim IDs are ignored; semantic duplicates within a passage collapse and are counted. Grounding additionally requires the entire independently reviewed supporting span. These exposed development scores are not held-out or broad-corpus quality."
+          }
+        },
+        "context_score": {
+          "schema_valid": true,
+          "expected": 0,
+          "predicted": 0,
+          "duplicates": 0,
+          "true_positive": 0,
+          "resolvable_spans": 0,
+          "grounded": 0,
+          "precision": 1.0,
+          "recall": 1.0,
+          "f1": 1.0,
+          "scope": "Exact normalized values within each completely annotated selected input passage. Instances match on values and sorted unique passage IDs, independently of quote offsets. Claim IDs are ignored; semantic duplicates within a passage collapse and are counted. Grounding additionally requires the entire independently reviewed supporting span. These exposed development scores are not held-out or broad-corpus quality."
+        },
+        "by_theme": {},
+        "by_classification": {}
+      },
+      "usage": {
+        "reservation_id": "534e616992db4b209f00fc5a4bf86267",
+        "reserved_usd": 0.106842,
+        "cost_usd": 0.006141,
+        "request_id": "gen-1793262184-Lz1axULNChsbulPbzIXE",
+        "returned_model": "openai/gpt-6-sol",
+        "provider": "OpenAI",
+        "input_tokens": 1457,
+        "output_tokens": 250,
+        "reasoning_tokens": 106
+      },
+      "result_sha256": "7317f4fad5e2da738d28df8e1883c62d8bb950649d056f92262d057dc47738d5"
+    },
+    {
+      "batch_id": "lucy-beale",
+      "character_id": "lucy-beale",
+      "kind": "family",
+      "state": "complete",
+      "gaps": [
+        "Only the selected excerpts and catalogue identities are completely annotated. Other narrative passages, supporting identities, relations and incidents remain unassessed.",
+        "Captured source support is not independent corroboration or exhaustive canon. Unknown dates are retained; capture and broadcast dates are not story dates."
+      ],
+      "failure": null,
+      "score": {
+        "schema_valid": true,
+        "expected": 2,
+        "predicted": 2,
+        "duplicates": 0,
+        "true_positive": 2,
+        "resolvable_spans": 2,
+        "grounded": 2,
+        "precision": 1.0,
+        "recall": 1.0,
+        "f1": 1.0,
+        "scope": "Exact normalized values within each completely annotated selected input passage. Instances match on values and sorted unique passage IDs, independently of quote offsets. Claim IDs are ignored; semantic duplicates within a passage collapse and are counted. Grounding additionally requires the entire independently reviewed supporting span. These exposed development scores are not held-out or broad-corpus quality."
+      },
+      "usage": {
+        "reservation_id": "5c3ed4f4b611418285609c46e4973e48",
+        "reserved_usd": 0.10649,
+        "cost_usd": 0.0109335,
+        "request_id": "gen-1793262189-om3xNxi7mJZ6GwfJXjfY",
+        "returned_model": "openai/gpt-6-sol",
+        "provider": "OpenAI",
+        "input_tokens": 1734,
+        "output_tokens": 660,
+        "reasoning_tokens": 383
+      },
+      "result_sha256": "ae86e16fc2ea625f9894ec3d2ea7bd7f08fa4b88a4171a25789bd9d7f62f80d4"
+    },
+    {
+      "batch_id": "bobby-beale",
+      "character_id": "bobby-beale",
+      "kind": "events",
+      "state": "complete",
+      "gaps": [
+        "Only the selected excerpts and catalogue identities are completely annotated. Other narrative passages, supporting identities, relations and incidents remain unassessed.",
+        "Captured source support is not independent corroboration or exhaustive canon. Unknown dates are retained; capture and broadcast dates are not story dates."
+      ],
+      "failure": null,
+      "score": {
+        "schema_valid": true,
+        "expected": 2,
+        "predicted": 2,
+        "duplicates": 0,
+        "true_positive": 2,
+        "resolvable_spans": 0,
+        "grounded": 0,
+        "precision": 1.0,
+        "recall": 1.0,
+        "f1": 1.0,
+        "scope": "Exposed selected incidents and in-catalogue assertions only. Exact values include participant-role assignment, event type, basis, account status, polarity, certainty, story time/precision and evidence IDs. Ignore arbitrary claim/event ID spelling and label wording; incident grouping requires separate support review. Full-value duplicates collapse. Each dimension projects unique full assertions onto values plus passage IDs and event type, preserving multiplicity: identity sets, role multisets, assigned identity-role pairs (direction), polarity, timing, or account attribution. These are diagnostics, not independent per-claim accuracies. Grounding separately requires exact resolvable locators covering frozen supporting spans; it is not canon adjudication. Text classifications are scored separately by kind, character subjects, theme and passage IDs; classification-gap wording is source-reviewed rather than exact-matched. A text classification never counts as an event or connection.",
+        "dimensions": {
+          "identity": {
+            "expected": 2,
+            "predicted": 2,
+            "true_positive": 2,
+            "precision": 1.0,
+            "recall": 1.0,
+            "f1": 1.0
+          },
+          "role": {
+            "expected": 2,
+            "predicted": 2,
+            "true_positive": 2,
+            "precision": 1.0,
+            "recall": 1.0,
+            "f1": 1.0
+          },
+          "direction": {
+            "expected": 2,
+            "predicted": 2,
+            "true_positive": 2,
+            "precision": 1.0,
+            "recall": 1.0,
+            "f1": 1.0
+          },
+          "negation": {
+            "expected": 2,
+            "predicted": 2,
+            "true_positive": 2,
+            "precision": 1.0,
+            "recall": 1.0,
+            "f1": 1.0
+          },
+          "timing": {
+            "expected": 2,
+            "predicted": 2,
+            "true_positive": 2,
+            "precision": 1.0,
+            "recall": 1.0,
+            "f1": 1.0
+          },
+          "account": {
+            "expected": 2,
+            "predicted": 2,
+            "true_positive": 2,
+            "precision": 1.0,
+            "recall": 1.0,
+            "f1": 1.0
+          }
+        },
+        "by_event_type": {
+          "commission": {
+            "schema_valid": true,
+            "expected": 1,
+            "predicted": 1,
+            "duplicates": 0,
+            "true_positive": 1,
+            "resolvable_spans": 0,
+            "grounded": 0,
+            "precision": 1.0,
+            "recall": 1.0,
+            "f1": 1.0,
+            "scope": "Exact normalized values within each completely annotated selected input passage. Instances match on values and sorted unique passage IDs, independently of quote offsets. Claim IDs are ignored; semantic duplicates within a passage collapse and are counted. Grounding additionally requires the entire independently reviewed supporting span. These exposed development scores are not held-out or broad-corpus quality."
+          },
+          "death": {
+            "schema_valid": true,
+            "expected": 1,
+            "predicted": 1,
+            "duplicates": 0,
+            "true_positive": 1,
+            "resolvable_spans": 0,
+            "grounded": 0,
+            "precision": 1.0,
+            "recall": 1.0,
+            "f1": 1.0,
+            "scope": "Exact normalized values within each completely annotated selected input passage. Instances match on values and sorted unique passage IDs, independently of quote offsets. Claim IDs are ignored; semantic duplicates within a passage collapse and are counted. Grounding additionally requires the entire independently reviewed supporting span. These exposed development scores are not held-out or broad-corpus quality."
+          }
+        },
+        "context_score": {
+          "schema_valid": true,
+          "expected": 0,
+          "predicted": 0,
+          "duplicates": 0,
+          "true_positive": 0,
+          "resolvable_spans": 0,
+          "grounded": 0,
+          "precision": 1.0,
+          "recall": 1.0,
+          "f1": 1.0,
+          "scope": "Exact normalized values within each completely annotated selected input passage. Instances match on values and sorted unique passage IDs, independently of quote offsets. Claim IDs are ignored; semantic duplicates within a passage collapse and are counted. Grounding additionally requires the entire independently reviewed supporting span. These exposed development scores are not held-out or broad-corpus quality."
+        },
+        "by_theme": {},
+        "by_classification": {}
+      },
+      "usage": {
+        "reservation_id": "90df4681a47249b6a0efaa5e4f238754",
+        "reserved_usd": 0.107572,
+        "cost_usd": 0.0118435,
+        "request_id": "gen-1793262199-yNYJiAyQEXGHemuWLkYa",
+        "returned_model": "openai/gpt-6-sol",
+        "provider": "OpenAI",
+        "input_tokens": 1550,
+        "output_tokens": 797,
+        "reasoning_tokens": 516
+      },
+      "result_sha256": "044e9803f9751c5019e8f489d018284ef1b63cbe97baee3e9313b7cd0af4198f"
+    },
+    {
+      "batch_id": "martin-fowler",
+      "character_id": "martin-fowler",
+      "kind": "relationships",
+      "state": "complete",
+      "gaps": [
+        "Only the selected excerpts and catalogue identities are completely annotated. Other narrative passages, supporting identities, relations and incidents remain unassessed.",
+        "Captured source support is not independent corroboration or exhaustive canon. Unknown dates are retained; capture and broadcast dates are not story dates."
+      ],
+      "failure": null,
+      "score": {
+        "expected": 1,
+        "predicted": 1,
+        "true_positive": 1,
+        "precision": 1.0,
+        "recall": 1.0,
+        "f1": 1.0,
+        "schema_valid": true,
+        "duplicates": 0,
+        "resolvable_spans": 1,
+        "grounded": 0,
+        "episode_pairs_expected": 0,
+        "episode_pairs_correct": 0,
+        "ordering_expected": 0,
+        "ordering_predicted": 0,
+        "ordering_correct": 0,
+        "alignment_limited": false,
+        "by_relation": {
+          "marriage": {
+            "expected": 1,
+            "predicted": 1,
+            "true_positive": 1,
+            "precision": 1.0,
+            "recall": 1.0,
+            "f1": 1.0
+          }
+        },
+        "scope": "Exposed, completely annotated in-catalogue spans only. Match values and unique passage IDs, with frozen timing alternatives; ignore arbitrary claim/episode IDs. Romantic pairs are symmetric; parent/guardian roles are directed. Distinct episode instances retain multiplicity; duplicates within the same episode collapse. One-to-one value matching ignores ID spelling. Ambiguous alignments maximize episode agreement, then ordering; over 4096 alternatives leaves those two scores unavailable. Raw duplicates and full-reference-span grounding are separate. Missing episode pairs fail. This conservative grounding proxy is not independent semantic/canon adjudication."
+      },
+      "usage": {
+        "reservation_id": "b06fbba46bb54566b993351f03aeaa31",
+        "reserved_usd": 0.106504,
+        "cost_usd": 0.006996,
+        "request_id": "gen-1793262209-jtgLQv6Y1712itn4Lxlg",
+        "returned_model": "openai/gpt-6-sol",
+        "provider": "OpenAI",
+        "input_tokens": 1743,
+        "output_tokens": 264,
+        "reasoning_tokens": 154
+      },
+      "result_sha256": "35480dd3f86da7718a8ed78b2c2200e09b11bd06b66339499d20580d8d123f0d"
+    },
+    {
+      "batch_id": "kat-slater",
+      "character_id": "kat-slater",
+      "kind": "relationships",
+      "state": "complete",
+      "gaps": [
+        "Only the selected excerpts and catalogue identities are completely annotated. Other narrative passages, supporting identities, relations and incidents remain unassessed.",
+        "Captured source support is not independent corroboration or exhaustive canon. Unknown dates are retained; capture and broadcast dates are not story dates."
+      ],
+      "failure": null,
+      "score": {
+        "expected": 1,
+        "predicted": 1,
+        "true_positive": 1,
+        "precision": 1.0,
+        "recall": 1.0,
+        "f1": 1.0,
+        "schema_valid": true,
+        "duplicates": 0,
+        "resolvable_spans": 0,
+        "grounded": 0,
+        "episode_pairs_expected": 0,
+        "episode_pairs_correct": 0,
+        "ordering_expected": 0,
+        "ordering_predicted": 0,
+        "ordering_correct": 0,
+        "alignment_limited": false,
+        "by_relation": {
+          "remarriage": {
+            "expected": 1,
+            "predicted": 1,
+            "true_positive": 1,
+            "precision": 1.0,
+            "recall": 1.0,
+            "f1": 1.0
+          }
+        },
+        "scope": "Exposed, completely annotated in-catalogue spans only. Match values and unique passage IDs, with frozen timing alternatives; ignore arbitrary claim/episode IDs. Romantic pairs are symmetric; parent/guardian roles are directed. Distinct episode instances retain multiplicity; duplicates within the same episode collapse. One-to-one value matching ignores ID spelling. Ambiguous alignments maximize episode agreement, then ordering; over 4096 alternatives leaves those two scores unavailable. Raw duplicates and full-reference-span grounding are separate. Missing episode pairs fail. This conservative grounding proxy is not independent semantic/canon adjudication."
+      },
+      "usage": {
+        "reservation_id": "ceaa5c73914647029f62513ddc9293a1",
+        "reserved_usd": 0.1079,
+        "cost_usd": 0.0097535,
+        "request_id": "gen-1793262216-BYuROdluCGYGi7qHuHL6",
+        "returned_model": "openai/gpt-6-sol",
+        "provider": "OpenAI",
+        "input_tokens": 1898,
+        "output_tokens": 501,
+        "reasoning_tokens": 355
+      },
+      "result_sha256": "0248ab5d228a1a33011d5d9a0e516c525421fa783246bc3589a4b95442b15935"
+    },
+    {
+      "batch_id": "stacey-slater",
+      "character_id": "stacey-slater",
+      "kind": "relationships",
+      "state": "complete",
+      "gaps": [
+        "Only the selected excerpts and catalogue identities are completely annotated. Other narrative passages, supporting identities, relations and incidents remain unassessed.",
+        "Captured source support is not independent corroboration or exhaustive canon. Unknown dates are retained; capture and broadcast dates are not story dates."
+      ],
+      "failure": null,
+      "score": {
+        "expected": 1,
+        "predicted": 1,
+        "true_positive": 0,
+        "precision": 0.0,
+        "recall": 0.0,
+        "f1": 0.0,
+        "schema_valid": true,
+        "duplicates": 0,
+        "resolvable_spans": 1,
+        "grounded": 0,
+        "episode_pairs_expected": 0,
+        "episode_pairs_correct": 0,
+        "ordering_expected": 0,
+        "ordering_predicted": 0,
+        "ordering_correct": 0,
+        "alignment_limited": false,
+        "by_relation": {
+          "marriage": {
+            "expected": 1,
+            "predicted": 1,
+            "true_positive": 0,
+            "precision": 0.0,
+            "recall": 0.0,
+            "f1": 0.0
+          }
+        },
+        "scope": "Exposed, completely annotated in-catalogue spans only. Match values and unique passage IDs, with frozen timing alternatives; ignore arbitrary claim/episode IDs. Romantic pairs are symmetric; parent/guardian roles are directed. Distinct episode instances retain multiplicity; duplicates within the same episode collapse. One-to-one value matching ignores ID spelling. Ambiguous alignments maximize episode agreement, then ordering; over 4096 alternatives leaves those two scores unavailable. Raw duplicates and full-reference-span grounding are separate. Missing episode pairs fail. This conservative grounding proxy is not independent semantic/canon adjudication."
+      },
+      "usage": {
+        "reservation_id": "2293a25e92774d33b40af506f6028437",
+        "reserved_usd": 0.106574,
+        "cost_usd": 0.0077585,
+        "request_id": "gen-1793262225-lLEr4Gyv4h1qTDiLNJ2H",
+        "returned_model": "openai/gpt-6-sol",
+        "provider": "OpenAI",
+        "input_tokens": 1748,
+        "output_tokens": 339,
+        "reasoning_tokens": 211
+      },
+      "result_sha256": "702a7794150d1ddcddce7acbe19b2ba1e719487e47bf42989bbb4c9359e694bc"
+    },
+    {
+      "batch_id": "alfie-moon",
+      "character_id": "alfie-moon",
+      "kind": "relationships",
+      "state": "complete",
+      "gaps": [
+        "Only the selected excerpts and catalogue identities are completely annotated. Other narrative passages, supporting identities, relations and incidents remain unassessed.",
+        "Captured source support is not independent corroboration or exhaustive canon. Unknown dates are retained; capture and broadcast dates are not story dates."
+      ],
+      "failure": null,
+      "score": {
+        "expected": 1,
+        "predicted": 1,
+        "true_positive": 0,
+        "precision": 0.0,
+        "recall": 0.0,
+        "f1": 0.0,
+        "schema_valid": true,
+        "duplicates": 0,
+        "resolvable_spans": 1,
+        "grounded": 0,
+        "episode_pairs_expected": 0,
+        "episode_pairs_correct": 0,
+        "ordering_expected": 0,
+        "ordering_predicted": 0,
+        "ordering_correct": 0,
+        "alignment_limited": false,
+        "by_relation": {
+          "marriage": {
+            "expected": 1,
+            "predicted": 1,
+            "true_positive": 0,
+            "precision": 0.0,
+            "recall": 0.0,
+            "f1": 0.0
+          }
+        },
+        "scope": "Exposed, completely annotated in-catalogue spans only. Match values and unique passage IDs, with frozen timing alternatives; ignore arbitrary claim/episode IDs. Romantic pairs are symmetric; parent/guardian roles are directed. Distinct episode instances retain multiplicity; duplicates within the same episode collapse. One-to-one value matching ignores ID spelling. Ambiguous alignments maximize episode agreement, then ordering; over 4096 alternatives leaves those two scores unavailable. Raw duplicates and full-reference-span grounding are separate. Missing episode pairs fail. This conservative grounding proxy is not independent semantic/canon adjudication."
+      },
+      "usage": {
+        "reservation_id": "2679ec4c2ecc4f7a8cdbb0af31bce06f",
+        "reserved_usd": 0.106614,
+        "cost_usd": 0.0080685,
+        "request_id": "gen-1793262233-ZlcE0c3YmfwApAXcj0nY",
+        "returned_model": "openai/gpt-6-sol",
+        "provider": "OpenAI",
+        "input_tokens": 1764,
+        "output_tokens": 366,
+        "reasoning_tokens": 240
+      },
+      "result_sha256": "f4fb0bdd42a66b96646d08839921cf240d73ceec3d0fec723e3a56bcb43254c3"
+    },
+    {
+      "batch_id": "pat-butcher",
+      "character_id": "pat-butcher",
+      "kind": "events",
+      "state": "complete",
+      "gaps": [
+        "Only the selected excerpts and catalogue identities are completely annotated. Other narrative passages, supporting identities, relations and incidents remain unassessed.",
+        "Captured source support is not independent corroboration or exhaustive canon. Unknown dates are retained; capture and broadcast dates are not story dates."
+      ],
+      "failure": null,
+      "score": {
+        "schema_valid": true,
+        "expected": 1,
+        "predicted": 1,
+        "duplicates": 0,
+        "true_positive": 1,
+        "resolvable_spans": 1,
+        "grounded": 1,
+        "precision": 1.0,
+        "recall": 1.0,
+        "f1": 1.0,
+        "scope": "Exposed selected incidents and in-catalogue assertions only. Exact values include participant-role assignment, event type, basis, account status, polarity, certainty, story time/precision and evidence IDs. Ignore arbitrary claim/event ID spelling and label wording; incident grouping requires separate support review. Full-value duplicates collapse. Each dimension projects unique full assertions onto values plus passage IDs and event type, preserving multiplicity: identity sets, role multisets, assigned identity-role pairs (direction), polarity, timing, or account attribution. These are diagnostics, not independent per-claim accuracies. Grounding separately requires exact resolvable locators covering frozen supporting spans; it is not canon adjudication. Text classifications are scored separately by kind, character subjects, theme and passage IDs; classification-gap wording is source-reviewed rather than exact-matched. A text classification never counts as an event or connection.",
+        "dimensions": {
+          "identity": {
+            "expected": 1,
+            "predicted": 1,
+            "true_positive": 1,
+            "precision": 1.0,
+            "recall": 1.0,
+            "f1": 1.0
+          },
+          "role": {
+            "expected": 1,
+            "predicted": 1,
+            "true_positive": 1,
+            "precision": 1.0,
+            "recall": 1.0,
+            "f1": 1.0
+          },
+          "direction": {
+            "expected": 1,
+            "predicted": 1,
+            "true_positive": 1,
+            "precision": 1.0,
+            "recall": 1.0,
+            "f1": 1.0
+          },
+          "negation": {
+            "expected": 1,
+            "predicted": 1,
+            "true_positive": 1,
+            "precision": 1.0,
+            "recall": 1.0,
+            "f1": 1.0
+          },
+          "timing": {
+            "expected": 1,
+            "predicted": 1,
+            "true_positive": 1,
+            "precision": 1.0,
+            "recall": 1.0,
+            "f1": 1.0
+          },
+          "account": {
+            "expected": 1,
+            "predicted": 1,
+            "true_positive": 1,
+            "precision": 1.0,
+            "recall": 1.0,
+            "f1": 1.0
+          }
+        },
+        "by_event_type": {
+          "death": {
+            "schema_valid": true,
+            "expected": 1,
+            "predicted": 1,
+            "duplicates": 0,
+            "true_positive": 1,
+            "resolvable_spans": 1,
+            "grounded": 1,
+            "precision": 1.0,
+            "recall": 1.0,
+            "f1": 1.0,
+            "scope": "Exact normalized values within each completely annotated selected input passage. Instances match on values and sorted unique passage IDs, independently of quote offsets. Claim IDs are ignored; semantic duplicates within a passage collapse and are counted. Grounding additionally requires the entire independently reviewed supporting span. These exposed development scores are not held-out or broad-corpus quality."
+          }
+        },
+        "context_score": {
+          "schema_valid": true,
+          "expected": 0,
+          "predicted": 0,
+          "duplicates": 0,
+          "true_positive": 0,
+          "resolvable_spans": 0,
+          "grounded": 0,
+          "precision": 1.0,
+          "recall": 1.0,
+          "f1": 1.0,
+          "scope": "Exact normalized values within each completely annotated selected input passage. Instances match on values and sorted unique passage IDs, independently of quote offsets. Claim IDs are ignored; semantic duplicates within a passage collapse and are counted. Grounding additionally requires the entire independently reviewed supporting span. These exposed development scores are not held-out or broad-corpus quality."
+        },
+        "by_theme": {},
+        "by_classification": {}
+      },
+      "usage": {
+        "reservation_id": "6ed3fb5c355441349b9b30f05f104cf6",
+        "reserved_usd": 0.10704,
+        "cost_usd": 0.0070635,
+        "request_id": "gen-1793262239-pgOsaAFFxdQHWS3q6ZFQ",
+        "returned_model": "openai/gpt-6-sol",
+        "provider": "OpenAI",
+        "input_tokens": 1478,
+        "output_tokens": 337,
+        "reasoning_tokens": 192
+      },
+      "result_sha256": "8c1d1e41ef757dbf5830c790c05ace750ea2186b8cfaa58b32617a1d8983134f"
+    },
+    {
+      "batch_id": "janine-butcher",
+      "character_id": "janine-butcher",
+      "kind": "events",
+      "state": "complete",
+      "gaps": [
+        "Only the selected excerpts and catalogue identities are completely annotated. Other narrative passages, supporting identities, relations and incidents remain unassessed.",
+        "Captured source support is not independent corroboration or exhaustive canon. Unknown dates are retained; capture and broadcast dates are not story dates."
+      ],
+      "failure": null,
+      "score": {
+        "schema_valid": true,
+        "expected": 3,
+        "predicted": 4,
+        "duplicates": 0,
+        "true_positive": 1,
+        "resolvable_spans": 1,
+        "grounded": 0,
+        "precision": 0.25,
+        "recall": 0.3333333333333333,
+        "f1": 0.28571428571428575,
+        "scope": "Exposed selected incidents and in-catalogue assertions only. Exact values include participant-role assignment, event type, basis, account status, polarity, certainty, story time/precision and evidence IDs. Ignore arbitrary claim/event ID spelling and label wording; incident grouping requires separate support review. Full-value duplicates collapse. Each dimension projects unique full assertions onto values plus passage IDs and event type, preserving multiplicity: identity sets, role multisets, assigned identity-role pairs (direction), polarity, timing, or account attribution. These are diagnostics, not independent per-claim accuracies. Grounding separately requires exact resolvable locators covering frozen supporting spans; it is not canon adjudication. Text classifications are scored separately by kind, character subjects, theme and passage IDs; classification-gap wording is source-reviewed rather than exact-matched. A text classification never counts as an event or connection.",
+        "dimensions": {
+          "identity": {
+            "expected": 3,
+            "predicted": 4,
+            "true_positive": 3,
+            "precision": 0.75,
+            "recall": 1.0,
+            "f1": 0.8571428571428571
+          },
+          "role": {
+            "expected": 3,
+            "predicted": 4,
+            "true_positive": 3,
+            "precision": 0.75,
+            "recall": 1.0,
+            "f1": 0.8571428571428571
+          },
+          "direction": {
+            "expected": 3,
+            "predicted": 4,
+            "true_positive": 3,
+            "precision": 0.75,
+            "recall": 1.0,
+            "f1": 0.8571428571428571
+          },
+          "negation": {
+            "expected": 3,
+            "predicted": 4,
+            "true_positive": 3,
+            "precision": 0.75,
+            "recall": 1.0,
+            "f1": 0.8571428571428571
+          },
+          "timing": {
+            "expected": 3,
+            "predicted": 4,
+            "true_positive": 1,
+            "precision": 0.25,
+            "recall": 0.3333333333333333,
+            "f1": 0.28571428571428575
+          },
+          "account": {
+            "expected": 3,
+            "predicted": 4,
+            "true_positive": 3,
+            "precision": 0.75,
+            "recall": 1.0,
+            "f1": 0.8571428571428571
+          }
+        },
+        "by_event_type": {
+          "arrest": {
+            "schema_valid": true,
+            "expected": 1,
+            "predicted": 1,
+            "duplicates": 0,
+            "true_positive": 0,
+            "resolvable_spans": 0,
+            "grounded": 0,
+            "precision": 0.0,
+            "recall": 0.0,
+            "f1": 0.0,
+            "scope": "Exact normalized values within each completely annotated selected input passage. Instances match on values and sorted unique passage IDs, independently of quote offsets. Claim IDs are ignored; semantic duplicates within a passage collapse and are counted. Grounding additionally requires the entire independently reviewed supporting span. These exposed development scores are not held-out or broad-corpus quality."
+          },
+          "charge": {
+            "schema_valid": true,
+            "expected": 1,
+            "predicted": 1,
+            "duplicates": 0,
+            "true_positive": 0,
+            "resolvable_spans": 0,
+            "grounded": 0,
+            "precision": 0.0,
+            "recall": 0.0,
+            "f1": 0.0,
+            "scope": "Exact normalized values within each completely annotated selected input passage. Instances match on values and sorted unique passage IDs, independently of quote offsets. Claim IDs are ignored; semantic duplicates within a passage collapse and are counted. Grounding additionally requires the entire independently reviewed supporting span. These exposed development scores are not held-out or broad-corpus quality."
+          },
+          "death": {
+            "schema_valid": true,
+            "expected": 0,
+            "predicted": 1,
+            "duplicates": 0,
+            "true_positive": 0,
+            "resolvable_spans": 1,
+            "grounded": 0,
+            "precision": 0.0,
+            "recall": 1.0,
+            "f1": 0.0,
+            "scope": "Exact normalized values within each completely annotated selected input passage. Instances match on values and sorted unique passage IDs, independently of quote offsets. Claim IDs are ignored; semantic duplicates within a passage collapse and are counted. Grounding additionally requires the entire independently reviewed supporting span. These exposed development scores are not held-out or broad-corpus quality."
+          },
+          "imprisonment": {
+            "schema_valid": true,
+            "expected": 1,
+            "predicted": 1,
+            "duplicates": 0,
+            "true_positive": 1,
+            "resolvable_spans": 0,
+            "grounded": 0,
+            "precision": 1.0,
+            "recall": 1.0,
+            "f1": 1.0,
+            "scope": "Exact normalized values within each completely annotated selected input passage. Instances match on values and sorted unique passage IDs, independently of quote offsets. Claim IDs are ignored; semantic duplicates within a passage collapse and are counted. Grounding additionally requires the entire independently reviewed supporting span. These exposed development scores are not held-out or broad-corpus quality."
+          }
+        },
+        "context_score": {
+          "schema_valid": true,
+          "expected": 0,
+          "predicted": 0,
+          "duplicates": 0,
+          "true_positive": 0,
+          "resolvable_spans": 0,
+          "grounded": 0,
+          "precision": 1.0,
+          "recall": 1.0,
+          "f1": 1.0,
+          "scope": "Exact normalized values within each completely annotated selected input passage. Instances match on values and sorted unique passage IDs, independently of quote offsets. Claim IDs are ignored; semantic duplicates within a passage collapse and are counted. Grounding additionally requires the entire independently reviewed supporting span. These exposed development scores are not held-out or broad-corpus quality."
+        },
+        "by_theme": {},
+        "by_classification": {}
+      },
+      "usage": {
+        "reservation_id": "48f394281a244bbc935130cd76c82813",
+        "reserved_usd": 0.108046,
+        "cost_usd": 0.0263285,
+        "request_id": "gen-1793262245-MWvMRJfLDD2qk3iaeeT2",
+        "returned_model": "openai/gpt-6-sol",
+        "provider": "OpenAI",
+        "input_tokens": 1600,
+        "output_tokens": 2233,
+        "reasoning_tokens": 1403
+      },
+      "result_sha256": "ddbb1183f1979e79a4cf5329eddedcb7c9fbca257dcd0009f12bd3dd721831fe"
+    },
+    {
+      "batch_id": "dot-cotton",
+      "character_id": "dot-cotton",
+      "kind": "events",
+      "state": "complete",
+      "gaps": [
+        "Only the selected excerpts and catalogue identities are completely annotated. Other narrative passages, supporting identities, relations and incidents remain unassessed.",
+        "Captured source support is not independent corroboration or exhaustive canon. Unknown dates are retained; capture and broadcast dates are not story dates."
+      ],
+      "failure": null,
+      "score": {
+        "schema_valid": true,
+        "expected": 1,
+        "predicted": 1,
+        "duplicates": 0,
+        "true_positive": 0,
+        "resolvable_spans": 0,
+        "grounded": 0,
+        "precision": 0.0,
+        "recall": 0.0,
+        "f1": 0.0,
+        "scope": "Exposed selected incidents and in-catalogue assertions only. Exact values include participant-role assignment, event type, basis, account status, polarity, certainty, story time/precision and evidence IDs. Ignore arbitrary claim/event ID spelling and label wording; incident grouping requires separate support review. Full-value duplicates collapse. Each dimension projects unique full assertions onto values plus passage IDs and event type, preserving multiplicity: identity sets, role multisets, assigned identity-role pairs (direction), polarity, timing, or account attribution. These are diagnostics, not independent per-claim accuracies. Grounding separately requires exact resolvable locators covering frozen supporting spans; it is not canon adjudication. Text classifications are scored separately by kind, character subjects, theme and passage IDs; classification-gap wording is source-reviewed rather than exact-matched. A text classification never counts as an event or connection.",
+        "dimensions": {
+          "identity": {
+            "expected": 1,
+            "predicted": 1,
+            "true_positive": 1,
+            "precision": 1.0,
+            "recall": 1.0,
+            "f1": 1.0
+          },
+          "role": {
+            "expected": 1,
+            "predicted": 1,
+            "true_positive": 1,
+            "precision": 1.0,
+            "recall": 1.0,
+            "f1": 1.0
+          },
+          "direction": {
+            "expected": 1,
+            "predicted": 1,
+            "true_positive": 1,
+            "precision": 1.0,
+            "recall": 1.0,
+            "f1": 1.0
+          },
+          "negation": {
+            "expected": 1,
+            "predicted": 1,
+            "true_positive": 1,
+            "precision": 1.0,
+            "recall": 1.0,
+            "f1": 1.0
+          },
+          "timing": {
+            "expected": 1,
+            "predicted": 1,
+            "true_positive": 0,
+            "precision": 0.0,
+            "recall": 0.0,
+            "f1": 0.0
+          },
+          "account": {
+            "expected": 1,
+            "predicted": 1,
+            "true_positive": 1,
+            "precision": 1.0,
+            "recall": 1.0,
+            "f1": 1.0
+          }
+        },
+        "by_event_type": {
+          "death": {
+            "schema_valid": true,
+            "expected": 1,
+            "predicted": 1,
+            "duplicates": 0,
+            "true_positive": 0,
+            "resolvable_spans": 0,
+            "grounded": 0,
+            "precision": 0.0,
+            "recall": 0.0,
+            "f1": 0.0,
+            "scope": "Exact normalized values within each completely annotated selected input passage. Instances match on values and sorted unique passage IDs, independently of quote offsets. Claim IDs are ignored; semantic duplicates within a passage collapse and are counted. Grounding additionally requires the entire independently reviewed supporting span. These exposed development scores are not held-out or broad-corpus quality."
+          }
+        },
+        "context_score": {
+          "schema_valid": true,
+          "expected": 0,
+          "predicted": 0,
+          "duplicates": 0,
+          "true_positive": 0,
+          "resolvable_spans": 0,
+          "grounded": 0,
+          "precision": 1.0,
+          "recall": 1.0,
+          "f1": 1.0,
+          "scope": "Exact normalized values within each completely annotated selected input passage. Instances match on values and sorted unique passage IDs, independently of quote offsets. Claim IDs are ignored; semantic duplicates within a passage collapse and are counted. Grounding additionally requires the entire independently reviewed supporting span. These exposed development scores are not held-out or broad-corpus quality."
+        },
+        "by_theme": {},
+        "by_classification": {}
+      },
+      "usage": {
+        "reservation_id": "fbf37c9de704415b94a2dfa1807db689",
+        "reserved_usd": 0.106924,
+        "cost_usd": 0.0074135,
+        "request_id": "gen-1793262269-d9fQnldvLiZPTFQsHM20",
+        "returned_model": "openai/gpt-6-sol",
+        "provider": "OpenAI",
+        "input_tokens": 1462,
+        "output_tokens": 376,
+        "reasoning_tokens": 244
+      },
+      "result_sha256": "4c01f57a990b49278880474650aa869cabeb234d05f87190380a6875deb94b81"
+    },
+    {
+      "batch_id": "denise-fox",
+      "character_id": "denise-fox",
+      "kind": "events",
+      "state": "complete",
+      "gaps": [
+        "Only the selected excerpts and catalogue identities are completely annotated. Other narrative passages, supporting identities, relations and incidents remain unassessed.",
+        "Captured source support is not independent corroboration or exhaustive canon. Unknown dates are retained; capture and broadcast dates are not story dates."
+      ],
+      "failure": null,
+      "score": {
+        "schema_valid": true,
+        "expected": 1,
+        "predicted": 1,
+        "duplicates": 0,
+        "true_positive": 1,
+        "resolvable_spans": 1,
+        "grounded": 0,
+        "precision": 1.0,
+        "recall": 1.0,
+        "f1": 1.0,
+        "scope": "Exposed selected incidents and in-catalogue assertions only. Exact values include participant-role assignment, event type, basis, account status, polarity, certainty, story time/precision and evidence IDs. Ignore arbitrary claim/event ID spelling and label wording; incident grouping requires separate support review. Full-value duplicates collapse. Each dimension projects unique full assertions onto values plus passage IDs and event type, preserving multiplicity: identity sets, role multisets, assigned identity-role pairs (direction), polarity, timing, or account attribution. These are diagnostics, not independent per-claim accuracies. Grounding separately requires exact resolvable locators covering frozen supporting spans; it is not canon adjudication. Text classifications are scored separately by kind, character subjects, theme and passage IDs; classification-gap wording is source-reviewed rather than exact-matched. A text classification never counts as an event or connection.",
+        "dimensions": {
+          "identity": {
+            "expected": 1,
+            "predicted": 1,
+            "true_positive": 1,
+            "precision": 1.0,
+            "recall": 1.0,
+            "f1": 1.0
+          },
+          "role": {
+            "expected": 1,
+            "predicted": 1,
+            "true_positive": 1,
+            "precision": 1.0,
+            "recall": 1.0,
+            "f1": 1.0
+          },
+          "direction": {
+            "expected": 1,
+            "predicted": 1,
+            "true_positive": 1,
+            "precision": 1.0,
+            "recall": 1.0,
+            "f1": 1.0
+          },
+          "negation": {
+            "expected": 1,
+            "predicted": 1,
+            "true_positive": 1,
+            "precision": 1.0,
+            "recall": 1.0,
+            "f1": 1.0
+          },
+          "timing": {
+            "expected": 1,
+            "predicted": 1,
+            "true_positive": 1,
+            "precision": 1.0,
+            "recall": 1.0,
+            "f1": 1.0
+          },
+          "account": {
+            "expected": 1,
+            "predicted": 1,
+            "true_positive": 1,
+            "precision": 1.0,
+            "recall": 1.0,
+            "f1": 1.0
+          }
+        },
+        "by_event_type": {
+          "pregnancy": {
+            "schema_valid": true,
+            "expected": 1,
+            "predicted": 1,
+            "duplicates": 0,
+            "true_positive": 1,
+            "resolvable_spans": 1,
+            "grounded": 0,
+            "precision": 1.0,
+            "recall": 1.0,
+            "f1": 1.0,
+            "scope": "Exact normalized values within each completely annotated selected input passage. Instances match on values and sorted unique passage IDs, independently of quote offsets. Claim IDs are ignored; semantic duplicates within a passage collapse and are counted. Grounding additionally requires the entire independently reviewed supporting span. These exposed development scores are not held-out or broad-corpus quality."
+          }
+        },
+        "context_score": {
+          "schema_valid": true,
+          "expected": 0,
+          "predicted": 0,
+          "duplicates": 0,
+          "true_positive": 0,
+          "resolvable_spans": 0,
+          "grounded": 0,
+          "precision": 1.0,
+          "recall": 1.0,
+          "f1": 1.0,
+          "scope": "Exact normalized values within each completely annotated selected input passage. Instances match on values and sorted unique passage IDs, independently of quote offsets. Claim IDs are ignored; semantic duplicates within a passage collapse and are counted. Grounding additionally requires the entire independently reviewed supporting span. These exposed development scores are not held-out or broad-corpus quality."
+        },
+        "by_theme": {},
+        "by_classification": {}
+      },
+      "usage": {
+        "reservation_id": "48b8f1f2940846598ad9afedd16205f1",
+        "reserved_usd": 0.106968,
+        "cost_usd": 0.008731,
+        "request_id": "gen-1793262276-9QORhtZAb0NB7ht4hM2E",
+        "returned_model": "openai/gpt-6-sol",
+        "provider": "OpenAI",
+        "input_tokens": 1465,
+        "output_tokens": 507,
+        "reasoning_tokens": 358
+      },
+      "result_sha256": "29fe94379a1d1ebb2aead04344e324f97334cc1d22bf25757f1f34586fe0e516"
+    },
+    {
+      "batch_id": "max-branning",
+      "character_id": "max-branning",
+      "kind": "relationships",
+      "state": "complete",
+      "gaps": [
+        "Only the selected excerpts and catalogue identities are completely annotated. Other narrative passages, supporting identities, relations and incidents remain unassessed.",
+        "Captured source support is not independent corroboration or exhaustive canon. Unknown dates are retained; capture and broadcast dates are not story dates."
+      ],
+      "failure": null,
+      "score": {
+        "expected": 1,
+        "predicted": 1,
+        "true_positive": 0,
+        "precision": 0.0,
+        "recall": 0.0,
+        "f1": 0.0,
+        "schema_valid": true,
+        "duplicates": 0,
+        "resolvable_spans": 0,
+        "grounded": 0,
+        "episode_pairs_expected": 0,
+        "episode_pairs_correct": 0,
+        "ordering_expected": 0,
+        "ordering_predicted": 0,
+        "ordering_correct": 0,
+        "alignment_limited": false,
+        "by_relation": {
+          "affair": {
+            "expected": 1,
+            "predicted": 1,
+            "true_positive": 0,
+            "precision": 0.0,
+            "recall": 0.0,
+            "f1": 0.0
+          }
+        },
+        "scope": "Exposed, completely annotated in-catalogue spans only. Match values and unique passage IDs, with frozen timing alternatives; ignore arbitrary claim/episode IDs. Romantic pairs are symmetric; parent/guardian roles are directed. Distinct episode instances retain multiplicity; duplicates within the same episode collapse. One-to-one value matching ignores ID spelling. Ambiguous alignments maximize episode agreement, then ordering; over 4096 alternatives leaves those two scores unavailable. Raw duplicates and full-reference-span grounding are separate. Missing episode pairs fail. This conservative grounding proxy is not independent semantic/canon adjudication."
+      },
+      "usage": {
+        "reservation_id": "bfee1ca27dad4185a6120a1639eecd56",
+        "reserved_usd": 0.106796,
+        "cost_usd": 0.012471,
+        "request_id": "gen-1793262283-9OR7rfjFd3hKKFfQ9hYO",
+        "returned_model": "openai/gpt-6-sol",
+        "provider": "OpenAI",
+        "input_tokens": 1769,
+        "output_tokens": 805,
+        "reasoning_tokens": 662
+      },
+      "result_sha256": "4c1fa574cea7d13397e27c17064ff29dbb0d13157a8e09deb0833d5790af8e77"
+    },
+    {
+      "batch_id": "linda-carter",
+      "character_id": "linda-carter",
+      "kind": "events",
+      "state": "complete",
+      "gaps": [
+        "Only the selected excerpts and catalogue identities are completely annotated. Other narrative passages, supporting identities, relations and incidents remain unassessed.",
+        "Captured source support is not independent corroboration or exhaustive canon. Unknown dates are retained; capture and broadcast dates are not story dates."
+      ],
+      "failure": null,
+      "score": {
+        "schema_valid": true,
+        "expected": 1,
+        "predicted": 1,
+        "duplicates": 0,
+        "true_positive": 1,
+        "resolvable_spans": 0,
+        "grounded": 0,
+        "precision": 1.0,
+        "recall": 1.0,
+        "f1": 1.0,
+        "scope": "Exposed selected incidents and in-catalogue assertions only. Exact values include participant-role assignment, event type, basis, account status, polarity, certainty, story time/precision and evidence IDs. Ignore arbitrary claim/event ID spelling and label wording; incident grouping requires separate support review. Full-value duplicates collapse. Each dimension projects unique full assertions onto values plus passage IDs and event type, preserving multiplicity: identity sets, role multisets, assigned identity-role pairs (direction), polarity, timing, or account attribution. These are diagnostics, not independent per-claim accuracies. Grounding separately requires exact resolvable locators covering frozen supporting spans; it is not canon adjudication. Text classifications are scored separately by kind, character subjects, theme and passage IDs; classification-gap wording is source-reviewed rather than exact-matched. A text classification never counts as an event or connection.",
+        "dimensions": {
+          "identity": {
+            "expected": 1,
+            "predicted": 1,
+            "true_positive": 1,
+            "precision": 1.0,
+            "recall": 1.0,
+            "f1": 1.0
+          },
+          "role": {
+            "expected": 1,
+            "predicted": 1,
+            "true_positive": 1,
+            "precision": 1.0,
+            "recall": 1.0,
+            "f1": 1.0
+          },
+          "direction": {
+            "expected": 1,
+            "predicted": 1,
+            "true_positive": 1,
+            "precision": 1.0,
+            "recall": 1.0,
+            "f1": 1.0
+          },
+          "negation": {
+            "expected": 1,
+            "predicted": 1,
+            "true_positive": 1,
+            "precision": 1.0,
+            "recall": 1.0,
+            "f1": 1.0
+          },
+          "timing": {
+            "expected": 1,
+            "predicted": 1,
+            "true_positive": 1,
+            "precision": 1.0,
+            "recall": 1.0,
+            "f1": 1.0
+          },
+          "account": {
+            "expected": 1,
+            "predicted": 1,
+            "true_positive": 1,
+            "precision": 1.0,
+            "recall": 1.0,
+            "f1": 1.0
+          }
+        },
+        "by_event_type": {
+          "pregnancy": {
+            "schema_valid": true,
+            "expected": 1,
+            "predicted": 1,
+            "duplicates": 0,
+            "true_positive": 1,
+            "resolvable_spans": 0,
+            "grounded": 0,
+            "precision": 1.0,
+            "recall": 1.0,
+            "f1": 1.0,
+            "scope": "Exact normalized values within each completely annotated selected input passage. Instances match on values and sorted unique passage IDs, independently of quote offsets. Claim IDs are ignored; semantic duplicates within a passage collapse and are counted. Grounding additionally requires the entire independently reviewed supporting span. These exposed development scores are not held-out or broad-corpus quality."
+          }
+        },
+        "context_score": {
+          "schema_valid": true,
+          "expected": 0,
+          "predicted": 0,
+          "duplicates": 0,
+          "true_positive": 0,
+          "resolvable_spans": 0,
+          "grounded": 0,
+          "precision": 1.0,
+          "recall": 1.0,
+          "f1": 1.0,
+          "scope": "Exact normalized values within each completely annotated selected input passage. Instances match on values and sorted unique passage IDs, independently of quote offsets. Claim IDs are ignored; semantic duplicates within a passage collapse and are counted. Grounding additionally requires the entire independently reviewed supporting span. These exposed development scores are not held-out or broad-corpus quality."
+        },
+        "by_theme": {},
+        "by_classification": {}
+      },
+      "usage": {
+        "reservation_id": "d6ece2fd7d774e18b42913768dc935f4",
+        "reserved_usd": 0.107042,
+        "cost_usd": 0.0111935,
+        "request_id": "gen-1793262294-puxNPaJsWbWgFbNaKgPo",
+        "returned_model": "openai/gpt-6-sol",
+        "provider": "OpenAI",
+        "input_tokens": 1474,
+        "output_tokens": 751,
+        "reasoning_tokens": 592
+      },
+      "result_sha256": "a66e35d6167a694bceac229c0fe2c0f51ffd50ff395b70dba1a88624dab744bf"
+    },
+    {
+      "batch_id": "phil-tape",
+      "character_id": "phil-mitchell",
+      "kind": "events",
+      "state": "complete",
+      "gaps": [
+        "Only the selected excerpts and catalogue identities are completely annotated. Other narrative passages, supporting identities, relations and incidents remain unassessed.",
+        "Captured source support is not independent corroboration or exhaustive canon. Unknown dates are retained; capture and broadcast dates are not story dates."
+      ],
+      "failure": null,
+      "score": {
+        "schema_valid": true,
+        "expected": 0,
+        "predicted": 0,
+        "duplicates": 0,
+        "true_positive": 0,
+        "resolvable_spans": 0,
+        "grounded": 0,
+        "precision": 1.0,
+        "recall": 1.0,
+        "f1": 1.0,
+        "scope": "Exposed selected incidents and in-catalogue assertions only. Exact values include participant-role assignment, event type, basis, account status, polarity, certainty, story time/precision and evidence IDs. Ignore arbitrary claim/event ID spelling and label wording; incident grouping requires separate support review. Full-value duplicates collapse. Each dimension projects unique full assertions onto values plus passage IDs and event type, preserving multiplicity: identity sets, role multisets, assigned identity-role pairs (direction), polarity, timing, or account attribution. These are diagnostics, not independent per-claim accuracies. Grounding separately requires exact resolvable locators covering frozen supporting spans; it is not canon adjudication. Text classifications are scored separately by kind, character subjects, theme and passage IDs; classification-gap wording is source-reviewed rather than exact-matched. A text classification never counts as an event or connection.",
+        "dimensions": {
+          "identity": {
+            "expected": 0,
+            "predicted": 0,
+            "true_positive": 0,
+            "precision": 1.0,
+            "recall": 1.0,
+            "f1": 1.0
+          },
+          "role": {
+            "expected": 0,
+            "predicted": 0,
+            "true_positive": 0,
+            "precision": 1.0,
+            "recall": 1.0,
+            "f1": 1.0
+          },
+          "direction": {
+            "expected": 0,
+            "predicted": 0,
+            "true_positive": 0,
+            "precision": 1.0,
+            "recall": 1.0,
+            "f1": 1.0
+          },
+          "negation": {
+            "expected": 0,
+            "predicted": 0,
+            "true_positive": 0,
+            "precision": 1.0,
+            "recall": 1.0,
+            "f1": 1.0
+          },
+          "timing": {
+            "expected": 0,
+            "predicted": 0,
+            "true_positive": 0,
+            "precision": 1.0,
+            "recall": 1.0,
+            "f1": 1.0
+          },
+          "account": {
+            "expected": 0,
+            "predicted": 0,
+            "true_positive": 0,
+            "precision": 1.0,
+            "recall": 1.0,
+            "f1": 1.0
+          }
+        },
+        "by_event_type": {},
+        "context_score": {
+          "schema_valid": true,
+          "expected": 1,
+          "predicted": 1,
+          "duplicates": 0,
+          "true_positive": 0,
+          "resolvable_spans": 0,
+          "grounded": 0,
+          "precision": 0.0,
+          "recall": 0.0,
+          "f1": 0.0,
+          "scope": "Exact normalized values within each completely annotated selected input passage. Instances match on values and sorted unique passage IDs, independently of quote offsets. Claim IDs are ignored; semantic duplicates within a passage collapse and are counted. Grounding additionally requires the entire independently reviewed supporting span. These exposed development scores are not held-out or broad-corpus quality."
+        },
+        "by_theme": {},
+        "by_classification": {
+          "unclassified": {
+            "schema_valid": true,
+            "expected": 1,
+            "predicted": 1,
+            "duplicates": 0,
+            "true_positive": 0,
+            "resolvable_spans": 0,
+            "grounded": 0,
+            "precision": 0.0,
+            "recall": 0.0,
+            "f1": 0.0,
+            "scope": "Exact normalized values within each completely annotated selected input passage. Instances match on values and sorted unique passage IDs, independently of quote offsets. Claim IDs are ignored; semantic duplicates within a passage collapse and are counted. Grounding additionally requires the entire independently reviewed supporting span. These exposed development scores are not held-out or broad-corpus quality."
+          }
+        }
+      },
+      "usage": {
+        "reservation_id": "ef98f14ef500468ea9eaab67456ce32c",
+        "reserved_usd": 0.107878,
+        "cost_usd": 0.008801,
+        "request_id": "gen-1793262304-d9wmQmzs9OkIM3s6HL9Y",
+        "returned_model": "openai/gpt-6-sol",
+        "provider": "OpenAI",
+        "input_tokens": 1597,
+        "output_tokens": 481,
+        "reasoning_tokens": 364
+      },
+      "result_sha256": "453a307e5042073ca35a8d779bc2c1459c91b4f5c100f4e735a8970088e60e08"
+    },
+    {
+      "batch_id": "grant-abuse",
+      "character_id": "grant-mitchell",
+      "kind": "events",
+      "state": "complete",
+      "gaps": [
+        "Only the selected excerpts and catalogue identities are completely annotated. Other narrative passages, supporting identities, relations and incidents remain unassessed.",
+        "Captured source support is not independent corroboration or exhaustive canon. Unknown dates are retained; capture and broadcast dates are not story dates."
+      ],
+      "failure": null,
+      "score": {
+        "schema_valid": true,
+        "expected": 2,
+        "predicted": 2,
+        "duplicates": 0,
+        "true_positive": 2,
+        "resolvable_spans": 2,
+        "grounded": 0,
+        "precision": 1.0,
+        "recall": 1.0,
+        "f1": 1.0,
+        "scope": "Exposed selected incidents and in-catalogue assertions only. Exact values include participant-role assignment, event type, basis, account status, polarity, certainty, story time/precision and evidence IDs. Ignore arbitrary claim/event ID spelling and label wording; incident grouping requires separate support review. Full-value duplicates collapse. Each dimension projects unique full assertions onto values plus passage IDs and event type, preserving multiplicity: identity sets, role multisets, assigned identity-role pairs (direction), polarity, timing, or account attribution. These are diagnostics, not independent per-claim accuracies. Grounding separately requires exact resolvable locators covering frozen supporting spans; it is not canon adjudication. Text classifications are scored separately by kind, character subjects, theme and passage IDs; classification-gap wording is source-reviewed rather than exact-matched. A text classification never counts as an event or connection.",
+        "dimensions": {
+          "identity": {
+            "expected": 2,
+            "predicted": 2,
+            "true_positive": 2,
+            "precision": 1.0,
+            "recall": 1.0,
+            "f1": 1.0
+          },
+          "role": {
+            "expected": 2,
+            "predicted": 2,
+            "true_positive": 2,
+            "precision": 1.0,
+            "recall": 1.0,
+            "f1": 1.0
+          },
+          "direction": {
+            "expected": 2,
+            "predicted": 2,
+            "true_positive": 2,
+            "precision": 1.0,
+            "recall": 1.0,
+            "f1": 1.0
+          },
+          "negation": {
+            "expected": 2,
+            "predicted": 2,
+            "true_positive": 2,
+            "precision": 1.0,
+            "recall": 1.0,
+            "f1": 1.0
+          },
+          "timing": {
+            "expected": 2,
+            "predicted": 2,
+            "true_positive": 2,
+            "precision": 1.0,
+            "recall": 1.0,
+            "f1": 1.0
+          },
+          "account": {
+            "expected": 2,
+            "predicted": 2,
+            "true_positive": 2,
+            "precision": 1.0,
+            "recall": 1.0,
+            "f1": 1.0
+          }
+        },
+        "by_event_type": {
+          "arrest": {
+            "schema_valid": true,
+            "expected": 1,
+            "predicted": 1,
+            "duplicates": 0,
+            "true_positive": 1,
+            "resolvable_spans": 1,
+            "grounded": 0,
+            "precision": 1.0,
+            "recall": 1.0,
+            "f1": 1.0,
+            "scope": "Exact normalized values within each completely annotated selected input passage. Instances match on values and sorted unique passage IDs, independently of quote offsets. Claim IDs are ignored; semantic duplicates within a passage collapse and are counted. Grounding additionally requires the entire independently reviewed supporting span. These exposed development scores are not held-out or broad-corpus quality."
+          },
+          "imprisonment": {
+            "schema_valid": true,
+            "expected": 1,
+            "predicted": 1,
+            "duplicates": 0,
+            "true_positive": 1,
+            "resolvable_spans": 1,
+            "grounded": 0,
+            "precision": 1.0,
+            "recall": 1.0,
+            "f1": 1.0,
+            "scope": "Exact normalized values within each completely annotated selected input passage. Instances match on values and sorted unique passage IDs, independently of quote offsets. Claim IDs are ignored; semantic duplicates within a passage collapse and are counted. Grounding additionally requires the entire independently reviewed supporting span. These exposed development scores are not held-out or broad-corpus quality."
+          }
+        },
+        "context_score": {
+          "schema_valid": true,
+          "expected": 1,
+          "predicted": 1,
+          "duplicates": 0,
+          "true_positive": 1,
+          "resolvable_spans": 1,
+          "grounded": 0,
+          "precision": 1.0,
+          "recall": 1.0,
+          "f1": 1.0,
+          "scope": "Exact normalized values within each completely annotated selected input passage. Instances match on values and sorted unique passage IDs, independently of quote offsets. Claim IDs are ignored; semantic duplicates within a passage collapse and are counted. Grounding additionally requires the entire independently reviewed supporting span. These exposed development scores are not held-out or broad-corpus quality."
+        },
+        "by_theme": {
+          "domestic_abuse": {
+            "schema_valid": true,
+            "expected": 1,
+            "predicted": 1,
+            "duplicates": 0,
+            "true_positive": 1,
+            "resolvable_spans": 1,
+            "grounded": 0,
+            "precision": 1.0,
+            "recall": 1.0,
+            "f1": 1.0,
+            "scope": "Exact normalized values within each completely annotated selected input passage. Instances match on values and sorted unique passage IDs, independently of quote offsets. Claim IDs are ignored; semantic duplicates within a passage collapse and are counted. Grounding additionally requires the entire independently reviewed supporting span. These exposed development scores are not held-out or broad-corpus quality."
+          }
+        },
+        "by_classification": {
+          "theme": {
+            "schema_valid": true,
+            "expected": 1,
+            "predicted": 1,
+            "duplicates": 0,
+            "true_positive": 1,
+            "resolvable_spans": 1,
+            "grounded": 0,
+            "precision": 1.0,
+            "recall": 1.0,
+            "f1": 1.0,
+            "scope": "Exact normalized values within each completely annotated selected input passage. Instances match on values and sorted unique passage IDs, independently of quote offsets. Claim IDs are ignored; semantic duplicates within a passage collapse and are counted. Grounding additionally requires the entire independently reviewed supporting span. These exposed development scores are not held-out or broad-corpus quality."
+          }
+        }
+      },
+      "usage": {
+        "reservation_id": "351ddb98a6a14fda8992474b3197e493",
+        "reserved_usd": 0.107458,
+        "cost_usd": 0.013941,
+        "request_id": "gen-1793262312-rWNj1UnrDOdMzV5j0zEj",
+        "returned_model": "openai/gpt-6-sol",
+        "provider": "OpenAI",
+        "input_tokens": 1525,
+        "output_tokens": 1013,
+        "reasoning_tokens": 677
+      },
+      "result_sha256": "27d8696f69fee2288df2d8fb923f7f5ae45519da4c480ee0d8416a54ac8cb75e"
+    }
+  ],
+  "limitation": "Scores cover only fully annotated selected spans and identities. Failed or interrupted attempts are retained and never retried automatically. No corpus-wide recall or independent canon acceptance is established."
+}

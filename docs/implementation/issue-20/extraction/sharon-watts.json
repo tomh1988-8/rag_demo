@@ -1,0 +1,156 @@
+{
+  "captured_at": "2026-10-29T08:21:23.023467+00:00",
+  "code_revision": "9f60cea4856740f58a9680b0ff00f384996f77b1",
+  "application_sha256": "fb0feb5e544ebda762ad53e5e230df1df87f572c892932a23215a4f35ea0855b",
+  "prompt_sha256": "1e7473f85c87dfa400293d480c3091eab8950a0cb2fa707a01ba9bf028f78db3",
+  "snapshot_id": "sharon-watts-coverage-v1",
+  "snapshot_sha256": "4051d8710b68849ed96ba0a71f92800ac20a6a489abca6ac683b2f5cc64248af",
+  "snapshot_file_sha256": "098825a826f6930bc9b33ef3cb270290736bf11a8369c784f4dc83009926bf8c",
+  "reference_sha256": "f44a772e7bd7f6dd5152acce3da67307b9a13e1d2c972d2a34b68313a8f497ba",
+  "schema_sha256": "8573863eb1966327a8823dd7c00da28eae6a7c87dcc20decc5843e1a66039354",
+  "profile": {
+    "provider_type": "openrouter",
+    "answer_model": "openai/gpt-6-sol",
+    "canonical_slug": "openai/gpt-6-sol-20260922",
+    "provider": "openai",
+    "input_price_per_million": "2",
+    "output_price_per_million": "10",
+    "output_tokens": 8192,
+    "reasoning_effort": "low",
+    "request_timeout_seconds": 180
+  },
+  "expenditure_category": "offline_evaluation",
+  "state": "complete",
+  "raw": "{\"claims\":[{\"claim_id\":\"claim-den-sharon-adoption\",\"subject_id\":\"den-watts\",\"object_id\":\"sharon-watts\",\"relation\":\"adoptive_parent\",\"episode_id\":\"episode-den-sharon-adoption\",\"status\":\"unknown\",\"polarity\":\"affirmed\",\"certainty\":\"certain\",\"story_time\":\"at the age of three\",\"time_precision\":\"relative\",\"after_claim_id\":null,\"evidence\":[{\"evidence_id\":\"coverage-sharon-watts\",\"start\":0,\"end\":34,\"quote\":\"Adopted at the age of three by Den\"}]}]}",
+  "batch": {
+    "claims": [
+      {
+        "claim_id": "claim-den-sharon-adoption",
+        "subject_id": "den-watts",
+        "object_id": "sharon-watts",
+        "relation": "adoptive_parent",
+        "episode_id": "episode-den-sharon-adoption",
+        "status": "unknown",
+        "polarity": "affirmed",
+        "certainty": "certain",
+        "story_time": "at the age of three",
+        "time_precision": "relative",
+        "after_claim_id": null,
+        "evidence": [
+          {
+            "evidence_id": "coverage-sharon-watts",
+            "start": 0,
+            "end": 34,
+            "quote": "Adopted at the age of three by Den"
+          }
+        ]
+      }
+    ],
+    "snapshot_id": "sharon-watts-coverage-v1",
+    "snapshot_sha256": "4051d8710b68849ed96ba0a71f92800ac20a6a489abca6ac683b2f5cc64248af",
+    "catalogue": {
+      "characters": [
+        {
+          "character_id": "den-watts",
+          "name": "Den Watts",
+          "aliases": [
+            "Dirty Den",
+            "Dennis Alan Watts"
+          ],
+          "performers": [
+            "Leslie Grantham"
+          ],
+          "coverage": "supporting",
+          "wikidata_id": "Q5256484",
+          "review_note": "Den is evidenced supporting context in Sharon’s captured biography. Identity was also reviewed against retained Den revision 1371930128 in real-sources-v1.json.gz. No separate Den history is admitted here; supporting character mentions do not expand the core roster.",
+          "evidence_sources": [
+            "sharon-watts-wiki"
+          ]
+        },
+        {
+          "character_id": "sharon-watts",
+          "name": "Sharon Watts",
+          "aliases": [
+            "Sharon Mitchell",
+            "Sharon Rickman",
+            "Sharon Beale"
+          ],
+          "performers": [
+            "Letitia Dean"
+          ],
+          "coverage": "core",
+          "wikidata_id": "Q7490258",
+          "review_note": "Codex source inspection, 17 October 2026: captured character article, infobox aliases/performers and revision metadata checked. Prominence-based curated selection, not a ranked or exhaustive canon. Identity linkage is not independent story corroboration.",
+          "evidence_sources": [
+            "sharon-watts-wiki"
+          ]
+        }
+      ]
+    },
+    "extractor": "openai/gpt-6-sol-20260922"
+  },
+  "score": {
+    "expected": 1,
+    "predicted": 1,
+    "true_positive": 1,
+    "precision": 1.0,
+    "recall": 1.0,
+    "f1": 1.0,
+    "schema_valid": true,
+    "duplicates": 0,
+    "resolvable_spans": 1,
+    "grounded": 0,
+    "episode_pairs_expected": 0,
+    "episode_pairs_correct": 0,
+    "ordering_expected": 0,
+    "ordering_predicted": 0,
+    "ordering_correct": 0,
+    "alignment_limited": false,
+    "by_relation": {
+      "adoptive_parent": {
+        "expected": 1,
+        "predicted": 1,
+        "true_positive": 1,
+        "precision": 1.0,
+        "recall": 1.0,
+        "f1": 1.0
+      }
+    },
+    "scope": "Exposed, completely annotated in-catalogue spans only. Match values and unique passage IDs, with frozen timing alternatives; ignore arbitrary claim/episode IDs. Romantic pairs are symmetric; parent/guardian roles are directed. Distinct episode instances retain multiplicity; duplicates within the same episode collapse. One-to-one value matching ignores ID spelling. Ambiguous alignments maximize episode agreement, then ordering; over 4096 alternatives leaves those two scores unavailable. Raw duplicates and full-reference-span grounding are separate. Missing episode pairs fail. This conservative grounding proxy is not independent semantic/canon adjudication."
+  },
+  "usage": {
+    "reservation_id": "673df984399340f6982f303b83951133",
+    "reserved_usd": 0.1068,
+    "cost_usd": 0.007081,
+    "request_id": "gen-1793262083-5LMwrn3irLpTtD0Q6yo6",
+    "returned_model": "openai/gpt-6-sol",
+    "provider": "OpenAI",
+    "input_tokens": 1781,
+    "output_tokens": 263,
+    "reasoning_tokens": 137
+  },
+  "execution": {
+    "limits": {
+      "model_calls": 1,
+      "tool_calls": 0,
+      "http_calls": 3,
+      "seconds": 180.0,
+      "context_bytes": 1200,
+      "spend_usd": "0.15",
+      "retries": 0,
+      "capabilities": [],
+      "concurrency": 4
+    },
+    "model_calls": 1,
+    "tool_calls": 0,
+    "http_calls": 3,
+    "reserved_usd": "0.007081",
+    "stop_reason": null
+  },
+  "elapsed_ms": 3709.0331809995405,
+  "failure": null,
+  "trace_id": "tr-0e3ea020a55a18a11195c2e1d2739afc",
+  "shared_ledger_usd": 0.708379,
+  "unsettled_reservations": 0,
+  "limitation": "Agent-reviewed exposed labels; no held-out, human or independent canon acceptance."
+}

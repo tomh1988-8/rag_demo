@@ -1,0 +1,111 @@
+{
+  "expected_claims": [
+    {
+      "parent_id": "phil-mitchell",
+      "child_id": "ben-mitchell",
+      "parent_role": "father",
+      "relation": "biological_parent",
+      "polarity": "affirmed",
+      "certainty": "certain",
+      "story_time": "unknown",
+      "time_precision": "unknown",
+      "claim_id": "ref-kathy-beale-1",
+      "evidence": [
+        {
+          "evidence_id": "coverage-kathy-beale",
+          "start": 0,
+          "end": 550,
+          "quote": "Phil and Kathy sort out their differences and get married in secret in early 1995. Kathy keeps fainting and refuses to see Dr Legg, she relents and is told she is pregnant. Phil is overjoyed about becoming a father, as is Phil's mother, Peggy Mitchell (Barbara Windsor). Kathy goes into labour with Pat helping her and Phil meets their son shortly after he is born. Kathy is opposed to Peggy's name suggestion of Eric, named after Phil and Grant's father and Peggy's husband, Eric Mitchell (George Russo), and names him Ben Mitchell (Matthew Silver)."
+        }
+      ]
+    },
+    {
+      "parent_id": "kathy-beale",
+      "child_id": "ben-mitchell",
+      "parent_role": "mother",
+      "relation": "biological_parent",
+      "polarity": "affirmed",
+      "certainty": "certain",
+      "story_time": "unknown",
+      "time_precision": "unknown",
+      "claim_id": "ref-kathy-beale-2",
+      "evidence": [
+        {
+          "evidence_id": "coverage-kathy-beale",
+          "start": 0,
+          "end": 550,
+          "quote": "Phil and Kathy sort out their differences and get married in secret in early 1995. Kathy keeps fainting and refuses to see Dr Legg, she relents and is told she is pregnant. Phil is overjoyed about becoming a father, as is Phil's mother, Peggy Mitchell (Barbara Windsor). Kathy goes into labour with Pat helping her and Phil meets their son shortly after he is born. Kathy is opposed to Peggy's name suggestion of Eric, named after Phil and Grant's father and Peggy's husband, Eric Mitchell (George Russo), and names him Ben Mitchell (Matthew Silver)."
+        }
+      ]
+    }
+  ],
+  "snapshot_sha256": "444d1cce8f32a193c29cf3a0be1c5190523968e16b8357b88e7db6374acb7f5b",
+  "catalogue": {
+    "characters": [
+      {
+        "character_id": "phil-mitchell",
+        "name": "Phil Mitchell",
+        "aliases": [],
+        "performers": [
+          "Steve McFadden",
+          "Daniel Delaney"
+        ],
+        "coverage": "core",
+        "wikidata_id": "Q2115259",
+        "review_note": "Codex source inspection, 17 October 2026: captured character article, infobox aliases/performers and revision metadata checked. Prominence-based curated selection, not a ranked or exhaustive canon. Identity linkage is not independent story corroboration.",
+        "evidence_sources": [
+          "phil-mitchell-wiki"
+        ]
+      },
+      {
+        "character_id": "kathy-beale",
+        "name": "Kathy Beale",
+        "aliases": [
+          "Kathy Mitchell",
+          "Kathy Sullivan",
+          "Kathy Richards",
+          "Kathy Cotton"
+        ],
+        "performers": [
+          "Gillian Taylforth"
+        ],
+        "coverage": "core",
+        "wikidata_id": "Q6377182",
+        "review_note": "Codex source inspection, 17 October 2026: captured character article, infobox aliases/performers and revision metadata checked. Prominence-based curated selection, not a ranked or exhaustive canon. Identity linkage is not independent story corroboration.",
+        "evidence_sources": [
+          "kathy-beale-wiki"
+        ]
+      },
+      {
+        "character_id": "ben-mitchell",
+        "name": "Ben Mitchell",
+        "aliases": [],
+        "performers": [
+          "Matthew Silver",
+          "Morgan Whittle",
+          "Charlie Jones",
+          "Joshua Pascoe",
+          "Harry Reid",
+          "Max Bowden"
+        ],
+        "coverage": "core",
+        "wikidata_id": "Q2766568",
+        "review_note": "Codex source inspection, 17 October 2026: captured character article, infobox aliases/performers and revision metadata checked. Prominence-based curated selection, not a ranked or exhaustive canon. Identity linkage is not independent story corroboration.",
+        "evidence_sources": [
+          "ben-mitchell-wiki"
+        ]
+      }
+    ]
+  },
+  "origin_snapshot_sha256": "2ea666180ca9600a6d8e35ae7049d21f682d9090cddc92f63630d9250d7a6c76",
+  "annotation_sha256": "56275247f9cf2976827f1fd6d9df6ae7682c73da343bc615b819e3f22a7571bb",
+  "reviewer": "Codex source-based annotation, before extraction; not human canon adjudication",
+  "review_note": "Kathy gives birth to their son, then names him Ben. Early 1995 explicitly dates the marriage, not the birth; preserve unknown birth time and do not infer it from the paragraph. The explicit phrase becoming a father supports Phil’s father role.",
+  "synthetic": false,
+  "cross_source_checked": false,
+  "split": "exposed_development",
+  "story_groups": [
+    "ben-birth"
+  ],
+  "completeness": "All explicit in-catalogue assertions of the selected family within these excerpts; events are restricted to the declared incidents."
+}

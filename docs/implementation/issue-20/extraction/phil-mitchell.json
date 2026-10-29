@@ -1,0 +1,175 @@
+{
+  "captured_at": "2026-10-28T18:32:18.950388+00:00",
+  "code_revision": "9f60cea4856740f58a9680b0ff00f384996f77b1",
+  "application_sha256": "fb0feb5e544ebda762ad53e5e230df1df87f572c892932a23215a4f35ea0855b",
+  "prompt_sha256": "4f625c048e5652b6d709eaa5eaf40a170feac91b94df8c2b0ab89c1b05afea1e",
+  "snapshot_id": "phil-mitchell-coverage-v1",
+  "snapshot_sha256": "5d29d02e0682f9052fc2f73f002840409a179b5a2ed7ada37b836e45e8a084ba",
+  "snapshot_file_sha256": "49a34cf133e6d84f6df436201631586b5320b6e02075371493ce82f7d77f46c5",
+  "reference_sha256": "81db6d6e634ee50d66f1adb6292e943b8e4d011f452dd522a75723de512d7305",
+  "schema_sha256": "753b78b044501f008907d7fead2cef20d64dd0961320420847cb102f265ee53a",
+  "profile": {
+    "provider_type": "openrouter",
+    "answer_model": "openai/gpt-6-sol",
+    "canonical_slug": "openai/gpt-6-sol-20260922",
+    "provider": "openai",
+    "input_price_per_million": "2",
+    "output_price_per_million": "10",
+    "output_tokens": 8192,
+    "reasoning_effort": "low",
+    "request_timeout_seconds": 180
+  },
+  "expenditure_category": "offline_evaluation",
+  "state": "complete",
+  "raw": "{\"claims\":[{\"claim_id\":\"kathy-ben-parentage\",\"parent_id\":\"kathy-beale\",\"child_id\":\"ben-mitchell\",\"parent_role\":\"mother\",\"relation\":\"biological_parent\",\"polarity\":\"affirmed\",\"certainty\":\"certain\",\"story_time\":\"later\",\"time_precision\":\"relative\",\"evidence\":[{\"evidence_id\":\"coverage-phil-mitchell\",\"start\":97,\"end\":139,\"quote\":\"Kathy later gives birth to their son – Ben\"}]},{\"claim_id\":\"phil-ben-parentage\",\"parent_id\":\"phil-mitchell\",\"child_id\":\"ben-mitchell\",\"parent_role\":\"father\",\"relation\":\"biological_parent\",\"polarity\":\"affirmed\",\"certainty\":\"certain\",\"story_time\":\"later\",\"time_precision\":\"relative\",\"evidence\":[{\"evidence_id\":\"coverage-phil-mitchell\",\"start\":97,\"end\":139,\"quote\":\"Kathy later gives birth to their son – Ben\"}]}]}",
+  "batch": {
+    "claims": [
+      {
+        "claim_id": "kathy-ben-parentage",
+        "parent_id": "kathy-beale",
+        "child_id": "ben-mitchell",
+        "parent_role": "mother",
+        "relation": "biological_parent",
+        "polarity": "affirmed",
+        "certainty": "certain",
+        "story_time": "later",
+        "time_precision": "relative",
+        "evidence": [
+          {
+            "evidence_id": "coverage-phil-mitchell",
+            "start": 97,
+            "end": 139,
+            "quote": "Kathy later gives birth to their son – Ben"
+          }
+        ]
+      },
+      {
+        "claim_id": "phil-ben-parentage",
+        "parent_id": "phil-mitchell",
+        "child_id": "ben-mitchell",
+        "parent_role": "father",
+        "relation": "biological_parent",
+        "polarity": "affirmed",
+        "certainty": "certain",
+        "story_time": "later",
+        "time_precision": "relative",
+        "evidence": [
+          {
+            "evidence_id": "coverage-phil-mitchell",
+            "start": 97,
+            "end": 139,
+            "quote": "Kathy later gives birth to their son – Ben"
+          }
+        ]
+      }
+    ],
+    "snapshot_id": "phil-mitchell-coverage-v1",
+    "snapshot_sha256": "5d29d02e0682f9052fc2f73f002840409a179b5a2ed7ada37b836e45e8a084ba",
+    "catalogue": {
+      "characters": [
+        {
+          "character_id": "phil-mitchell",
+          "name": "Phil Mitchell",
+          "aliases": [],
+          "performers": [
+            "Steve McFadden",
+            "Daniel Delaney"
+          ],
+          "coverage": "core",
+          "wikidata_id": "Q2115259",
+          "review_note": "Codex source inspection, 17 October 2026: captured character article, infobox aliases/performers and revision metadata checked. Prominence-based curated selection, not a ranked or exhaustive canon. Identity linkage is not independent story corroboration.",
+          "evidence_sources": [
+            "phil-mitchell-wiki"
+          ]
+        },
+        {
+          "character_id": "kathy-beale",
+          "name": "Kathy Beale",
+          "aliases": [
+            "Kathy Mitchell",
+            "Kathy Sullivan",
+            "Kathy Richards",
+            "Kathy Cotton"
+          ],
+          "performers": [
+            "Gillian Taylforth"
+          ],
+          "coverage": "core",
+          "wikidata_id": "Q6377182",
+          "review_note": "Codex source inspection, 17 October 2026: captured character article, infobox aliases/performers and revision metadata checked. Prominence-based curated selection, not a ranked or exhaustive canon. Identity linkage is not independent story corroboration.",
+          "evidence_sources": [
+            "kathy-beale-wiki"
+          ]
+        },
+        {
+          "character_id": "ben-mitchell",
+          "name": "Ben Mitchell",
+          "aliases": [],
+          "performers": [
+            "Matthew Silver",
+            "Morgan Whittle",
+            "Charlie Jones",
+            "Joshua Pascoe",
+            "Harry Reid",
+            "Max Bowden"
+          ],
+          "coverage": "core",
+          "wikidata_id": "Q2766568",
+          "review_note": "Codex source inspection, 17 October 2026: captured character article, infobox aliases/performers and revision metadata checked. Prominence-based curated selection, not a ranked or exhaustive canon. Identity linkage is not independent story corroboration.",
+          "evidence_sources": [
+            "ben-mitchell-wiki"
+          ]
+        }
+      ]
+    },
+    "extractor": "openai/gpt-6-sol-20260922"
+  },
+  "score": {
+    "schema_valid": true,
+    "expected": 2,
+    "predicted": 2,
+    "duplicates": 0,
+    "true_positive": 0,
+    "resolvable_spans": 2,
+    "grounded": 0,
+    "precision": 0.0,
+    "recall": 0.0,
+    "f1": 0.0,
+    "scope": "Exact normalized values within each completely annotated selected input passage. Instances match on values and sorted unique passage IDs, independently of quote offsets. Claim IDs are ignored; semantic duplicates within a passage collapse and are counted. Grounding additionally requires the entire independently reviewed supporting span. These exposed development scores are not held-out or broad-corpus quality."
+  },
+  "usage": {
+    "reservation_id": "081c728513fd48a6bfb3c3195d2ae268",
+    "reserved_usd": 0.106208,
+    "cost_usd": 0.010896,
+    "request_id": "gen-1793212339-x8KW3omJXcMqkmgPi2Ey",
+    "returned_model": "openai/gpt-6-sol",
+    "provider": "OpenAI",
+    "input_tokens": 1703,
+    "output_tokens": 664,
+    "reasoning_tokens": 464
+  },
+  "execution": {
+    "limits": {
+      "model_calls": 1,
+      "tool_calls": 0,
+      "http_calls": 3,
+      "seconds": 180.0,
+      "context_bytes": 1200,
+      "spend_usd": "0.15",
+      "retries": 0,
+      "capabilities": [],
+      "concurrency": 4
+    },
+    "model_calls": 1,
+    "tool_calls": 0,
+    "http_calls": 3,
+    "reserved_usd": "0.010896",
+    "stop_reason": null
+  },
+  "elapsed_ms": 9868.358303996501,
+  "failure": null,
+  "trace_id": "tr-4bd47dc97a484a679b5b2eb5ff403f87",
+  "shared_ledger_usd": 0.684523,
+  "unsettled_reservations": 0,
+  "limitation": "Agent-reviewed exposed labels; no held-out, human or independent canon acceptance."
+}

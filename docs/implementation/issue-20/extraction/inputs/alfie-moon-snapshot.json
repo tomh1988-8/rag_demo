@@ -1,0 +1,58 @@
+{
+  "snapshot_id": "alfie-moon-coverage-v1",
+  "fixture_version": 1,
+  "source": {
+    "title": "Phil Mitchell",
+    "url": "https://en.wikipedia.org/wiki/Phil_Mitchell",
+    "revision_id": "1379872347",
+    "revision_url": "https://en.wikipedia.org/w/index.php?oldid=1379872347",
+    "section": "Storylines / 1990–2003",
+    "captured_at": "2026-10-17T13:07:31.014189Z",
+    "capture_sha256": "a338d3065203be54e383f2c9c141bca22ae9aedbb950e2e1eada601bcccfe313",
+    "scope": "main_series",
+    "license_url": "https://creativecommons.org/licenses/by-sa/4.0/",
+    "attribution": "Wikipedia contributors; markup removed and whitespace normalized.",
+    "coverage": "Reviewed narrative sections in this captured revision only.",
+    "gaps": [
+      "Partial canon coverage; other paragraphs remain excluded or awaiting review.",
+      "Identity and episode metadata do not independently corroborate story claims."
+    ],
+    "support_status": "source_supported"
+  },
+  "passages": [
+    {
+      "evidence_id": "coverage-alfie-moon",
+      "text": "Alfie convinces the minister to cancel his Christmas lunch, and Alfie and Kat marry.",
+      "sha256": "f29c2406406cf6316a5269cf18c81fc4c60ae1db9d56a5fc8c5c76248e481764",
+      "start": 30668,
+      "end": 30752,
+      "source": {
+        "title": "Alfie Moon",
+        "url": "https://en.wikipedia.org/wiki/Alfie_Moon",
+        "revision_id": "1377842543",
+        "revision_url": "https://en.wikipedia.org/w/index.php?oldid=1377842543",
+        "section": "Storylines / 2002–2005",
+        "captured_at": "2026-10-17T13:07:33.172953Z",
+        "capture_sha256": "4a370be846519594e9a393e031129532257645f67c15b41dc9837a27c4ee4308",
+        "scope": "main_series",
+        "license_url": "https://creativecommons.org/licenses/by-sa/4.0/",
+        "attribution": "Wikipedia contributors; markup removed and whitespace normalized.",
+        "coverage": "Reviewed narrative sections in this captured revision only.",
+        "gaps": [
+          "Partial canon coverage; other paragraphs remain excluded or awaiting review.",
+          "Identity and episode metadata do not independently corroborate story claims."
+        ],
+        "support_status": "source_supported"
+      },
+      "location": {
+        "source_id": "alfie-moon-wiki",
+        "paragraph_ordinal": 30,
+        "section_id": "2002–2005",
+        "character_ids": [
+          "alfie-moon",
+          "kat-slater"
+        ]
+      }
+    }
+  ]
+}

@@ -1,0 +1,28 @@
+{
+  "version": 1,
+  "split": "exposed_development",
+  "synthetic": false,
+  "cross_source_checked": false,
+  "reviewer": "Codex source-based pre-capture review",
+  "cases": [
+    {
+      "case_id": "unclassified-tape-r0",
+      "question": "What did Grant play at Phil and Kathy\u2019s engagement party, and what did the recording reveal?",
+      "snapshot_id": "core-graph-v1",
+      "required_facts": [
+        "Grant played an audio cassette recording.",
+        "The recording was Sharon admitting to the affair."
+      ],
+      "evidence_ids": [
+        "coverage-phil-tape"
+      ],
+      "forbidden_facts": [
+        "A tape revelation is a typed graph shared event."
+      ],
+      "review_note": "Source is the retained Phil profile. Public revelation stays unclassified and available to text answers. Do not infer an unsupported date.",
+      "snapshot_path": "artifacts/issue-20-snapshot.json",
+      "snapshot_file_sha256": "a25047c1642f85c773af0dec280cc1bad7d7223b49ff4d9ec699d1d655789616",
+      "repeat": 0
+    }
+  ]
+}

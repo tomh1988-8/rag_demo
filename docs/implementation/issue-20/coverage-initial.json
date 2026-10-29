@@ -1,0 +1,3977 @@
+{
+  "snapshot_id": "core-graph-v1",
+  "snapshot_sha256": "2ea666180ca9600a6d8e35ae7049d21f682d9090cddc92f63630d9250d7a6c76",
+  "plan_sha256": "16bd084f870d152d269ae65f05a3165e11d9d7561b95e1da169c4231ab8584b5",
+  "profiles": [
+    {
+      "character_id": "phil-mitchell",
+      "source_text": {
+        "character": {
+          "character_id": "phil-mitchell",
+          "name": "Phil Mitchell",
+          "aliases": [],
+          "performers": [
+            "Steve McFadden",
+            "Daniel Delaney"
+          ],
+          "coverage": "core",
+          "wikidata_id": "Q2115259",
+          "review_note": "Codex source inspection, 17 October 2026: captured character article, infobox aliases/performers and revision metadata checked. Prominence-based curated selection, not a ranked or exhaustive canon. Identity linkage is not independent story corroboration.",
+          "evidence_sources": [
+            "phil-mitchell-wiki"
+          ]
+        },
+        "identity_resolution": {
+          "status": "resolved",
+          "character_ids": [
+            "phil-mitchell"
+          ]
+        },
+        "primary_source_ids": [
+          "phil-mitchell-wiki"
+        ],
+        "mentioned_in_source_ids": [
+          "grant-mitchell-wiki",
+          "peggy-mitchell-wiki",
+          "sharon-watts-wiki",
+          "ben-mitchell-wiki",
+          "ian-beale-wiki",
+          "kathy-beale-wiki",
+          "cindy-beale-wiki",
+          "lucy-beale-wiki",
+          "martin-fowler-wiki",
+          "kat-slater-wiki",
+          "stacey-slater-wiki",
+          "alfie-moon-wiki",
+          "pat-butcher-wiki",
+          "janine-butcher-wiki",
+          "denise-fox-wiki",
+          "max-branning-wiki",
+          "linda-carter-wiki"
+        ],
+        "admitted_paragraphs": 51,
+        "excluded_paragraphs": 0,
+        "review_required_paragraphs": 28,
+        "retained_narrative_characters": 69599,
+        "admitted_sections": [
+          [
+            "Storylines",
+            "1990–2003"
+          ],
+          [
+            "Storylines",
+            "2005–present"
+          ]
+        ],
+        "gaps": [
+          "Partial captured history; unreviewed sections are excluded from retrieval.",
+          "Capture time does not establish current storyline completeness.",
+          "Matching identities and repeated accounts do not independently corroborate facts."
+        ]
+      },
+      "source_passages": 93,
+      "source_characters": 69599,
+      "selected_characters": 273,
+      "extraction": [
+        {
+          "batch_id": "phil-mitchell",
+          "kind": "family",
+          "state": "complete",
+          "failure": null,
+          "extraction_score": {
+            "schema_valid": true,
+            "expected": 2,
+            "predicted": 2,
+            "duplicates": 0,
+            "true_positive": 0,
+            "resolvable_spans": 2,
+            "grounded": 0,
+            "precision": 0.0,
+            "recall": 0.0,
+            "f1": 0.0,
+            "scope": "Exact normalized values within each completely annotated selected input passage. Instances match on values and sorted unique passage IDs, independently of quote offsets. Claim IDs are ignored; semantic duplicates within a passage collapse and are counted. Grounding additionally requires the entire independently reviewed supporting span. These exposed development scores are not held-out or broad-corpus quality."
+          },
+          "reviewed_reference_decisions": [
+            {
+              "claim_id": "ref-phil-mitchell-1",
+              "status": "admitted",
+              "reasons": []
+            },
+            {
+              "claim_id": "ref-phil-mitchell-2",
+              "status": "admitted",
+              "reasons": []
+            }
+          ],
+          "raw_candidate_decisions": [
+            {
+              "claim_id": "raw-phil-mitchell-1",
+              "status": "held",
+              "reasons": [
+                "superseded"
+              ]
+            },
+            {
+              "claim_id": "raw-phil-mitchell-2",
+              "status": "held",
+              "reasons": [
+                "superseded"
+              ]
+            }
+          ],
+          "reference_sha256": "81db6d6e634ee50d66f1adb6292e943b8e4d011f452dd522a75723de512d7305",
+          "result_sha256": "1b5c7b94195ff880da84543db4d896f38ecd483d8fe354e5c38e4c7f148c70aa",
+          "review_note": "Birth to their son supports both biological parents. Giving birth establishes Kathy’s mother role; no explicit father role or calendar time is stated for Phil.",
+          "split": "exposed_development",
+          "story_groups": [
+            "ben-birth"
+          ]
+        },
+        {
+          "batch_id": "phil-tape",
+          "kind": "events",
+          "state": "complete",
+          "failure": null,
+          "extraction_score": {
+            "schema_valid": true,
+            "expected": 0,
+            "predicted": 0,
+            "duplicates": 0,
+            "true_positive": 0,
+            "resolvable_spans": 0,
+            "grounded": 0,
+            "precision": 1.0,
+            "recall": 1.0,
+            "f1": 1.0,
+            "scope": "Exposed selected incidents and in-catalogue assertions only. Exact values include participant-role assignment, event type, basis, account status, polarity, certainty, story time/precision and evidence IDs. Ignore arbitrary claim/event ID spelling and label wording; incident grouping requires separate support review. Full-value duplicates collapse. Each dimension projects unique full assertions onto values plus passage IDs and event type, preserving multiplicity: identity sets, role multisets, assigned identity-role pairs (direction), polarity, timing, or account attribution. These are diagnostics, not independent per-claim accuracies. Grounding separately requires exact resolvable locators covering frozen supporting spans; it is not canon adjudication. Text classifications are scored separately by kind, character subjects, theme and passage IDs; classification-gap wording is source-reviewed rather than exact-matched. A text classification never counts as an event or connection.",
+            "dimensions": {
+              "identity": {
+                "expected": 0,
+                "predicted": 0,
+                "true_positive": 0,
+                "precision": 1.0,
+                "recall": 1.0,
+                "f1": 1.0
+              },
+              "role": {
+                "expected": 0,
+                "predicted": 0,
+                "true_positive": 0,
+                "precision": 1.0,
+                "recall": 1.0,
+                "f1": 1.0
+              },
+              "direction": {
+                "expected": 0,
+                "predicted": 0,
+                "true_positive": 0,
+                "precision": 1.0,
+                "recall": 1.0,
+                "f1": 1.0
+              },
+              "negation": {
+                "expected": 0,
+                "predicted": 0,
+                "true_positive": 0,
+                "precision": 1.0,
+                "recall": 1.0,
+                "f1": 1.0
+              },
+              "timing": {
+                "expected": 0,
+                "predicted": 0,
+                "true_positive": 0,
+                "precision": 1.0,
+                "recall": 1.0,
+                "f1": 1.0
+              },
+              "account": {
+                "expected": 0,
+                "predicted": 0,
+                "true_positive": 0,
+                "precision": 1.0,
+                "recall": 1.0,
+                "f1": 1.0
+              }
+            },
+            "by_event_type": {},
+            "context_score": {
+              "schema_valid": true,
+              "expected": 1,
+              "predicted": 1,
+              "duplicates": 0,
+              "true_positive": 0,
+              "resolvable_spans": 0,
+              "grounded": 0,
+              "precision": 0.0,
+              "recall": 0.0,
+              "f1": 0.0,
+              "scope": "Exact normalized values within each completely annotated selected input passage. Instances match on values and sorted unique passage IDs, independently of quote offsets. Claim IDs are ignored; semantic duplicates within a passage collapse and are counted. Grounding additionally requires the entire independently reviewed supporting span. These exposed development scores are not held-out or broad-corpus quality."
+            },
+            "by_theme": {},
+            "by_classification": {
+              "unclassified": {
+                "schema_valid": true,
+                "expected": 1,
+                "predicted": 1,
+                "duplicates": 0,
+                "true_positive": 0,
+                "resolvable_spans": 0,
+                "grounded": 0,
+                "precision": 0.0,
+                "recall": 0.0,
+                "f1": 0.0,
+                "scope": "Exact normalized values within each completely annotated selected input passage. Instances match on values and sorted unique passage IDs, independently of quote offsets. Claim IDs are ignored; semantic duplicates within a passage collapse and are counted. Grounding additionally requires the entire independently reviewed supporting span. These exposed development scores are not held-out or broad-corpus quality."
+              }
+            }
+          },
+          "reviewed_reference_decisions": [
+            {
+              "claim_id": "ref-phil-tape-text-1",
+              "status": "admitted",
+              "reasons": []
+            }
+          ],
+          "raw_candidate_decisions": [
+            {
+              "claim_id": "raw-phil-tape-1",
+              "status": "held",
+              "reasons": [
+                "evidence_span",
+                "superseded"
+              ]
+            }
+          ],
+          "reference_sha256": "088326b5f35ddb7efedeb6f8f89199d4ca36206303a9860562538e441bf27a21",
+          "result_sha256": "453a307e5042073ca35a8d779bc2c1459c91b4f5c100f4e735a8970088e60e08",
+          "review_note": "The public tape revelation has no checked event category. Preserve all four explicit character subjects for text retrieval; co-appearance does not create a shared event.",
+          "split": "exposed_development",
+          "story_groups": [
+            "sharongate"
+          ]
+        }
+      ],
+      "known_gaps": [
+        "Only the selected excerpts and catalogue identities are completely annotated. Other narrative passages, supporting identities, relations and incidents remain unassessed.",
+        "Captured source support is not independent corroboration or exhaustive canon. Unknown dates are retained; capture and broadcast dates are not story dates."
+      ]
+    },
+    {
+      "character_id": "grant-mitchell",
+      "source_text": {
+        "character": {
+          "character_id": "grant-mitchell",
+          "name": "Grant Mitchell",
+          "aliases": [],
+          "performers": [
+            "Ross Kemp",
+            "Teddy Jay"
+          ],
+          "coverage": "core",
+          "wikidata_id": "Q2685036",
+          "review_note": "Codex source inspection, 17 October 2026: captured character article, infobox aliases/performers and revision metadata checked. Prominence-based curated selection, not a ranked or exhaustive canon. Identity linkage is not independent story corroboration.",
+          "evidence_sources": [
+            "grant-mitchell-wiki"
+          ]
+        },
+        "identity_resolution": {
+          "status": "resolved",
+          "character_ids": [
+            "grant-mitchell"
+          ]
+        },
+        "primary_source_ids": [
+          "grant-mitchell-wiki"
+        ],
+        "mentioned_in_source_ids": [
+          "phil-mitchell-wiki",
+          "peggy-mitchell-wiki",
+          "sharon-watts-wiki",
+          "ben-mitchell-wiki",
+          "ian-beale-wiki",
+          "kathy-beale-wiki",
+          "cindy-beale-wiki",
+          "lucy-beale-wiki",
+          "max-branning-wiki",
+          "linda-carter-wiki"
+        ],
+        "admitted_paragraphs": 11,
+        "excluded_paragraphs": 0,
+        "review_required_paragraphs": 32,
+        "retained_narrative_characters": 17848,
+        "admitted_sections": [
+          [
+            "Storylines",
+            "1990–1999"
+          ],
+          [
+            "Storylines",
+            "2005–2006"
+          ],
+          [
+            "Storylines",
+            "2016"
+          ],
+          [
+            "Storylines",
+            "2025–2026"
+          ]
+        ],
+        "gaps": [
+          "Partial captured history; unreviewed sections are excluded from retrieval.",
+          "Capture time does not establish current storyline completeness.",
+          "Matching identities and repeated accounts do not independently corroborate facts."
+        ]
+      },
+      "source_passages": 22,
+      "source_characters": 17848,
+      "selected_characters": 282,
+      "extraction": [
+        {
+          "batch_id": "grant-mitchell",
+          "kind": "relationships",
+          "state": "complete",
+          "failure": null,
+          "extraction_score": {
+            "expected": 1,
+            "predicted": 1,
+            "true_positive": 1,
+            "precision": 1.0,
+            "recall": 1.0,
+            "f1": 1.0,
+            "schema_valid": true,
+            "duplicates": 0,
+            "resolvable_spans": 1,
+            "grounded": 0,
+            "episode_pairs_expected": 0,
+            "episode_pairs_correct": 0,
+            "ordering_expected": 0,
+            "ordering_predicted": 0,
+            "ordering_correct": 0,
+            "alignment_limited": false,
+            "by_relation": {
+              "marriage": {
+                "expected": 1,
+                "predicted": 1,
+                "true_positive": 1,
+                "precision": 1.0,
+                "recall": 1.0,
+                "f1": 1.0
+              }
+            },
+            "scope": "Exposed, completely annotated in-catalogue spans only. Match values and unique passage IDs, with frozen timing alternatives; ignore arbitrary claim/episode IDs. Romantic pairs are symmetric; parent/guardian roles are directed. Distinct episode instances retain multiplicity; duplicates within the same episode collapse. One-to-one value matching ignores ID spelling. Ambiguous alignments maximize episode agreement, then ordering; over 4096 alternatives leaves those two scores unavailable. Raw duplicates and full-reference-span grounding are separate. Missing episode pairs fail. This conservative grounding proxy is not independent semantic/canon adjudication."
+          },
+          "reviewed_reference_decisions": [
+            {
+              "claim_id": "ref-grant-mitchell-1",
+              "status": "admitted",
+              "reasons": []
+            }
+          ],
+          "raw_candidate_decisions": [
+            {
+              "claim_id": "raw-grant-mitchell-1",
+              "status": "held",
+              "reasons": [
+                "superseded"
+              ]
+            }
+          ],
+          "reference_sha256": "bf7f87e9eb4ec9c5925b6dc191affb6fb5e9e77b71eafcf153b5efc326e5da1c",
+          "result_sha256": "8fe55932290eab6964dd48d851c63e53a823641147c17ea790255b79d69e3610",
+          "review_note": "Actual marriage, month precision; running a pub supplies no additional relationship type. Present narrative does not prove current status.",
+          "split": "exposed_development",
+          "story_groups": [
+            "grant-sharon-marriage"
+          ]
+        },
+        {
+          "batch_id": "grant-abuse",
+          "kind": "events",
+          "state": "complete",
+          "failure": null,
+          "extraction_score": {
+            "schema_valid": true,
+            "expected": 2,
+            "predicted": 2,
+            "duplicates": 0,
+            "true_positive": 2,
+            "resolvable_spans": 2,
+            "grounded": 0,
+            "precision": 1.0,
+            "recall": 1.0,
+            "f1": 1.0,
+            "scope": "Exposed selected incidents and in-catalogue assertions only. Exact values include participant-role assignment, event type, basis, account status, polarity, certainty, story time/precision and evidence IDs. Ignore arbitrary claim/event ID spelling and label wording; incident grouping requires separate support review. Full-value duplicates collapse. Each dimension projects unique full assertions onto values plus passage IDs and event type, preserving multiplicity: identity sets, role multisets, assigned identity-role pairs (direction), polarity, timing, or account attribution. These are diagnostics, not independent per-claim accuracies. Grounding separately requires exact resolvable locators covering frozen supporting spans; it is not canon adjudication. Text classifications are scored separately by kind, character subjects, theme and passage IDs; classification-gap wording is source-reviewed rather than exact-matched. A text classification never counts as an event or connection.",
+            "dimensions": {
+              "identity": {
+                "expected": 2,
+                "predicted": 2,
+                "true_positive": 2,
+                "precision": 1.0,
+                "recall": 1.0,
+                "f1": 1.0
+              },
+              "role": {
+                "expected": 2,
+                "predicted": 2,
+                "true_positive": 2,
+                "precision": 1.0,
+                "recall": 1.0,
+                "f1": 1.0
+              },
+              "direction": {
+                "expected": 2,
+                "predicted": 2,
+                "true_positive": 2,
+                "precision": 1.0,
+                "recall": 1.0,
+                "f1": 1.0
+              },
+              "negation": {
+                "expected": 2,
+                "predicted": 2,
+                "true_positive": 2,
+                "precision": 1.0,
+                "recall": 1.0,
+                "f1": 1.0
+              },
+              "timing": {
+                "expected": 2,
+                "predicted": 2,
+                "true_positive": 2,
+                "precision": 1.0,
+                "recall": 1.0,
+                "f1": 1.0
+              },
+              "account": {
+                "expected": 2,
+                "predicted": 2,
+                "true_positive": 2,
+                "precision": 1.0,
+                "recall": 1.0,
+                "f1": 1.0
+              }
+            },
+            "by_event_type": {
+              "arrest": {
+                "schema_valid": true,
+                "expected": 1,
+                "predicted": 1,
+                "duplicates": 0,
+                "true_positive": 1,
+                "resolvable_spans": 1,
+                "grounded": 0,
+                "precision": 1.0,
+                "recall": 1.0,
+                "f1": 1.0,
+                "scope": "Exact normalized values within each completely annotated selected input passage. Instances match on values and sorted unique passage IDs, independently of quote offsets. Claim IDs are ignored; semantic duplicates within a passage collapse and are counted. Grounding additionally requires the entire independently reviewed supporting span. These exposed development scores are not held-out or broad-corpus quality."
+              },
+              "imprisonment": {
+                "schema_valid": true,
+                "expected": 1,
+                "predicted": 1,
+                "duplicates": 0,
+                "true_positive": 1,
+                "resolvable_spans": 1,
+                "grounded": 0,
+                "precision": 1.0,
+                "recall": 1.0,
+                "f1": 1.0,
+                "scope": "Exact normalized values within each completely annotated selected input passage. Instances match on values and sorted unique passage IDs, independently of quote offsets. Claim IDs are ignored; semantic duplicates within a passage collapse and are counted. Grounding additionally requires the entire independently reviewed supporting span. These exposed development scores are not held-out or broad-corpus quality."
+              }
+            },
+            "context_score": {
+              "schema_valid": true,
+              "expected": 1,
+              "predicted": 1,
+              "duplicates": 0,
+              "true_positive": 1,
+              "resolvable_spans": 1,
+              "grounded": 0,
+              "precision": 1.0,
+              "recall": 1.0,
+              "f1": 1.0,
+              "scope": "Exact normalized values within each completely annotated selected input passage. Instances match on values and sorted unique passage IDs, independently of quote offsets. Claim IDs are ignored; semantic duplicates within a passage collapse and are counted. Grounding additionally requires the entire independently reviewed supporting span. These exposed development scores are not held-out or broad-corpus quality."
+            },
+            "by_theme": {
+              "domestic_abuse": {
+                "schema_valid": true,
+                "expected": 1,
+                "predicted": 1,
+                "duplicates": 0,
+                "true_positive": 1,
+                "resolvable_spans": 1,
+                "grounded": 0,
+                "precision": 1.0,
+                "recall": 1.0,
+                "f1": 1.0,
+                "scope": "Exact normalized values within each completely annotated selected input passage. Instances match on values and sorted unique passage IDs, independently of quote offsets. Claim IDs are ignored; semantic duplicates within a passage collapse and are counted. Grounding additionally requires the entire independently reviewed supporting span. These exposed development scores are not held-out or broad-corpus quality."
+              }
+            },
+            "by_classification": {
+              "theme": {
+                "schema_valid": true,
+                "expected": 1,
+                "predicted": 1,
+                "duplicates": 0,
+                "true_positive": 1,
+                "resolvable_spans": 1,
+                "grounded": 0,
+                "precision": 1.0,
+                "recall": 1.0,
+                "f1": 1.0,
+                "scope": "Exact normalized values within each completely annotated selected input passage. Instances match on values and sorted unique passage IDs, independently of quote offsets. Claim IDs are ignored; semantic duplicates within a passage collapse and are counted. Grounding additionally requires the entire independently reviewed supporting span. These exposed development scores are not held-out or broad-corpus quality."
+              }
+            }
+          },
+          "reviewed_reference_decisions": [
+            {
+              "claim_id": "ref-grant-abuse-1",
+              "status": "admitted",
+              "reasons": []
+            },
+            {
+              "claim_id": "ref-grant-abuse-2",
+              "status": "admitted",
+              "reasons": []
+            },
+            {
+              "claim_id": "ref-grant-abuse-text-1",
+              "status": "admitted",
+              "reasons": []
+            }
+          ],
+          "raw_candidate_decisions": [
+            {
+              "claim_id": "raw-grant-abuse-1",
+              "status": "held",
+              "reasons": [
+                "superseded"
+              ]
+            },
+            {
+              "claim_id": "raw-grant-abuse-2",
+              "status": "held",
+              "reasons": [
+                "superseded"
+              ]
+            },
+            {
+              "claim_id": "raw-grant-abuse-3",
+              "status": "held",
+              "reasons": [
+                "superseded"
+              ]
+            }
+          ],
+          "reference_sha256": "36b3149e5d216be11fc9308c6df273385cfd1ceb7f034e47cdb32ae2ea96b043",
+          "result_sha256": "27d8696f69fee2288df2d8fb923f7f5ae45519da4c480ee0d8416a54ac8cb75e",
+          "review_note": "The captured partner violence establishes the theme and the explicitly reported arrest/imprisonment. It does not give a conviction, exact date or a separately explicit perpetrator assignment for a commission claim.",
+          "split": "exposed_development",
+          "story_groups": [
+            "sharongate"
+          ]
+        }
+      ],
+      "known_gaps": [
+        "Only the selected excerpts and catalogue identities are completely annotated. Other narrative passages, supporting identities, relations and incidents remain unassessed.",
+        "Captured source support is not independent corroboration or exhaustive canon. Unknown dates are retained; capture and broadcast dates are not story dates."
+      ]
+    },
+    {
+      "character_id": "peggy-mitchell",
+      "source_text": {
+        "character": {
+          "character_id": "peggy-mitchell",
+          "name": "Peggy Mitchell",
+          "aliases": [
+            "Peggy Butcher"
+          ],
+          "performers": [
+            "Jo Warne",
+            "Barbara Windsor",
+            "Jaime Winstone"
+          ],
+          "coverage": "core",
+          "wikidata_id": "Q13130609",
+          "review_note": "Codex source inspection, 17 October 2026: captured character article, infobox aliases/performers and revision metadata checked. Prominence-based curated selection, not a ranked or exhaustive canon. Identity linkage is not independent story corroboration.",
+          "evidence_sources": [
+            "peggy-mitchell-wiki"
+          ]
+        },
+        "identity_resolution": {
+          "status": "resolved",
+          "character_ids": [
+            "peggy-mitchell"
+          ]
+        },
+        "primary_source_ids": [
+          "peggy-mitchell-wiki"
+        ],
+        "mentioned_in_source_ids": [
+          "phil-mitchell-wiki",
+          "grant-mitchell-wiki",
+          "sharon-watts-wiki",
+          "ben-mitchell-wiki",
+          "kathy-beale-wiki",
+          "martin-fowler-wiki",
+          "kat-slater-wiki",
+          "alfie-moon-wiki",
+          "pat-butcher-wiki",
+          "janine-butcher-wiki"
+        ],
+        "admitted_paragraphs": 12,
+        "excluded_paragraphs": 0,
+        "review_required_paragraphs": 45,
+        "retained_narrative_characters": 13968,
+        "admitted_sections": [
+          [
+            "Storylines",
+            "Backstory"
+          ],
+          [
+            "Storylines",
+            "1991"
+          ],
+          [
+            "Storylines",
+            "1994–2010"
+          ],
+          [
+            "Storylines",
+            "2013–2016"
+          ]
+        ],
+        "gaps": [
+          "Partial captured history; unreviewed sections are excluded from retrieval.",
+          "Capture time does not establish current storyline completeness.",
+          "Matching identities and repeated accounts do not independently corroborate facts."
+        ]
+      },
+      "source_passages": 19,
+      "source_characters": 13968,
+      "selected_characters": 105,
+      "extraction": [
+        {
+          "batch_id": "peggy-mitchell",
+          "kind": "family",
+          "state": "complete",
+          "failure": null,
+          "extraction_score": {
+            "schema_valid": true,
+            "expected": 1,
+            "predicted": 1,
+            "duplicates": 0,
+            "true_positive": 1,
+            "resolvable_spans": 1,
+            "grounded": 1,
+            "precision": 1.0,
+            "recall": 1.0,
+            "f1": 1.0,
+            "scope": "Exact normalized values within each completely annotated selected input passage. Instances match on values and sorted unique passage IDs, independently of quote offsets. Claim IDs are ignored; semantic duplicates within a passage collapse and are counted. Grounding additionally requires the entire independently reviewed supporting span. These exposed development scores are not held-out or broad-corpus quality."
+          },
+          "reviewed_reference_decisions": [
+            {
+              "claim_id": "ref-peggy-mitchell-1",
+              "status": "admitted",
+              "reasons": []
+            }
+          ],
+          "raw_candidate_decisions": [
+            {
+              "claim_id": "raw-peggy-mitchell-1",
+              "status": "held",
+              "reasons": [
+                "superseded"
+              ]
+            }
+          ],
+          "reference_sha256": "f25f58f2c042c55f9db4856f02ea51623860b6d6ea01689ac23d3489e40c500e",
+          "result_sha256": "6aa755e682f3ce91c62f519d1391cfe145bd743311a199bdc645c7bb44096aff",
+          "review_note": "Pregnancy establishes Peggy as biological mother. Eric is outside this selected catalogue; his parentage is not measured. Backstory retained without fabricating a calendar date.",
+          "split": "exposed_development",
+          "story_groups": [
+            "peggy-phil-parentage"
+          ]
+        }
+      ],
+      "known_gaps": [
+        "Only the selected excerpts and catalogue identities are completely annotated. Other narrative passages, supporting identities, relations and incidents remain unassessed.",
+        "Captured source support is not independent corroboration or exhaustive canon. Unknown dates are retained; capture and broadcast dates are not story dates."
+      ]
+    },
+    {
+      "character_id": "sharon-watts",
+      "source_text": {
+        "character": {
+          "character_id": "sharon-watts",
+          "name": "Sharon Watts",
+          "aliases": [
+            "Sharon Mitchell",
+            "Sharon Rickman",
+            "Sharon Beale"
+          ],
+          "performers": [
+            "Letitia Dean"
+          ],
+          "coverage": "core",
+          "wikidata_id": "Q7490258",
+          "review_note": "Codex source inspection, 17 October 2026: captured character article, infobox aliases/performers and revision metadata checked. Prominence-based curated selection, not a ranked or exhaustive canon. Identity linkage is not independent story corroboration.",
+          "evidence_sources": [
+            "sharon-watts-wiki"
+          ]
+        },
+        "identity_resolution": {
+          "status": "resolved",
+          "character_ids": [
+            "sharon-watts"
+          ]
+        },
+        "primary_source_ids": [
+          "sharon-watts-wiki"
+        ],
+        "mentioned_in_source_ids": [
+          "phil-mitchell-wiki",
+          "grant-mitchell-wiki",
+          "peggy-mitchell-wiki",
+          "ben-mitchell-wiki",
+          "ian-beale-wiki",
+          "kathy-beale-wiki",
+          "cindy-beale-wiki",
+          "lucy-beale-wiki",
+          "bobby-beale-wiki",
+          "martin-fowler-wiki",
+          "stacey-slater-wiki",
+          "alfie-moon-wiki",
+          "janine-butcher-wiki",
+          "denise-fox-wiki",
+          "max-branning-wiki",
+          "linda-carter-wiki"
+        ],
+        "admitted_paragraphs": 30,
+        "excluded_paragraphs": 0,
+        "review_required_paragraphs": 65,
+        "retained_narrative_characters": 45037,
+        "admitted_sections": [
+          [
+            "Storylines",
+            "1985–1995"
+          ],
+          [
+            "Storylines",
+            "2001–2006"
+          ],
+          [
+            "Storylines",
+            "2012–present"
+          ]
+        ],
+        "gaps": [
+          "Partial captured history; unreviewed sections are excluded from retrieval.",
+          "Capture time does not establish current storyline completeness.",
+          "Matching identities and repeated accounts do not independently corroborate facts."
+        ]
+      },
+      "source_passages": 58,
+      "source_characters": 45037,
+      "selected_characters": 205,
+      "extraction": [
+        {
+          "batch_id": "sharon-watts",
+          "kind": "relationships",
+          "state": "complete",
+          "failure": null,
+          "extraction_score": {
+            "expected": 1,
+            "predicted": 1,
+            "true_positive": 1,
+            "precision": 1.0,
+            "recall": 1.0,
+            "f1": 1.0,
+            "schema_valid": true,
+            "duplicates": 0,
+            "resolvable_spans": 1,
+            "grounded": 0,
+            "episode_pairs_expected": 0,
+            "episode_pairs_correct": 0,
+            "ordering_expected": 0,
+            "ordering_predicted": 0,
+            "ordering_correct": 0,
+            "alignment_limited": false,
+            "by_relation": {
+              "adoptive_parent": {
+                "expected": 1,
+                "predicted": 1,
+                "true_positive": 1,
+                "precision": 1.0,
+                "recall": 1.0,
+                "f1": 1.0
+              }
+            },
+            "scope": "Exposed, completely annotated in-catalogue spans only. Match values and unique passage IDs, with frozen timing alternatives; ignore arbitrary claim/episode IDs. Romantic pairs are symmetric; parent/guardian roles are directed. Distinct episode instances retain multiplicity; duplicates within the same episode collapse. One-to-one value matching ignores ID spelling. Ambiguous alignments maximize episode agreement, then ordering; over 4096 alternatives leaves those two scores unavailable. Raw duplicates and full-reference-span grounding are separate. Missing episode pairs fail. This conservative grounding proxy is not independent semantic/canon adjudication."
+          },
+          "reviewed_reference_decisions": [
+            {
+              "claim_id": "ref-sharon-watts-1",
+              "status": "admitted",
+              "reasons": []
+            }
+          ],
+          "raw_candidate_decisions": [
+            {
+              "claim_id": "raw-sharon-watts-1",
+              "status": "held",
+              "reasons": [
+                "superseded"
+              ]
+            }
+          ],
+          "reference_sha256": "f44a772e7bd7f6dd5152acce3da67307b9a13e1d2c972d2a34b68313a8f497ba",
+          "result_sha256": "63b60dcf0ea0d2d54e211f41f0c11547abf73a1e47382f6ff28f442531504eab",
+          "review_note": "Explicit adoption at age three; retain supporting character Den, and exclude this tie from biological ancestry. Angie is outside this selected identity scope.",
+          "split": "exposed_development",
+          "story_groups": [
+            "sharon-adoption"
+          ]
+        }
+      ],
+      "known_gaps": [
+        "Only the selected excerpts and catalogue identities are completely annotated. Other narrative passages, supporting identities, relations and incidents remain unassessed.",
+        "Captured source support is not independent corroboration or exhaustive canon. Unknown dates are retained; capture and broadcast dates are not story dates."
+      ]
+    },
+    {
+      "character_id": "ben-mitchell",
+      "source_text": {
+        "character": {
+          "character_id": "ben-mitchell",
+          "name": "Ben Mitchell",
+          "aliases": [],
+          "performers": [
+            "Matthew Silver",
+            "Morgan Whittle",
+            "Charlie Jones",
+            "Joshua Pascoe",
+            "Harry Reid",
+            "Max Bowden"
+          ],
+          "coverage": "core",
+          "wikidata_id": "Q2766568",
+          "review_note": "Codex source inspection, 17 October 2026: captured character article, infobox aliases/performers and revision metadata checked. Prominence-based curated selection, not a ranked or exhaustive canon. Identity linkage is not independent story corroboration.",
+          "evidence_sources": [
+            "ben-mitchell-wiki"
+          ]
+        },
+        "identity_resolution": {
+          "status": "resolved",
+          "character_ids": [
+            "ben-mitchell"
+          ]
+        },
+        "primary_source_ids": [
+          "ben-mitchell-wiki"
+        ],
+        "mentioned_in_source_ids": [
+          "phil-mitchell-wiki",
+          "grant-mitchell-wiki",
+          "sharon-watts-wiki",
+          "ian-beale-wiki",
+          "kathy-beale-wiki",
+          "bobby-beale-wiki",
+          "martin-fowler-wiki",
+          "kat-slater-wiki",
+          "stacey-slater-wiki",
+          "max-branning-wiki",
+          "linda-carter-wiki"
+        ],
+        "admitted_paragraphs": 19,
+        "excluded_paragraphs": 0,
+        "review_required_paragraphs": 29,
+        "retained_narrative_characters": 26801,
+        "admitted_sections": [
+          [
+            "Storylines",
+            "1996–2000"
+          ],
+          [
+            "Storylines",
+            "2006–2012"
+          ],
+          [
+            "Storylines",
+            "2014–2024"
+          ]
+        ],
+        "gaps": [
+          "Partial captured history; unreviewed sections are excluded from retrieval.",
+          "Capture time does not establish current storyline completeness.",
+          "Matching identities and repeated accounts do not independently corroborate facts."
+        ]
+      },
+      "source_passages": 34,
+      "source_characters": 26801,
+      "selected_characters": 110,
+      "extraction": [
+        {
+          "batch_id": "ben-mitchell",
+          "kind": "family",
+          "state": "complete",
+          "failure": null,
+          "extraction_score": {
+            "schema_valid": true,
+            "expected": 2,
+            "predicted": 2,
+            "duplicates": 0,
+            "true_positive": 2,
+            "resolvable_spans": 2,
+            "grounded": 2,
+            "precision": 1.0,
+            "recall": 1.0,
+            "f1": 1.0,
+            "scope": "Exact normalized values within each completely annotated selected input passage. Instances match on values and sorted unique passage IDs, independently of quote offsets. Claim IDs are ignored; semantic duplicates within a passage collapse and are counted. Grounding additionally requires the entire independently reviewed supporting span. These exposed development scores are not held-out or broad-corpus quality."
+          },
+          "reviewed_reference_decisions": [
+            {
+              "claim_id": "ref-ben-mitchell-1",
+              "status": "admitted",
+              "reasons": []
+            },
+            {
+              "claim_id": "ref-ben-mitchell-2",
+              "status": "admitted",
+              "reasons": []
+            }
+          ],
+          "raw_candidate_decisions": [
+            {
+              "claim_id": "raw-ben-mitchell-1",
+              "status": "held",
+              "reasons": [
+                "superseded"
+              ]
+            },
+            {
+              "claim_id": "raw-ben-mitchell-2",
+              "status": "held",
+              "reasons": [
+                "superseded"
+              ]
+            }
+          ],
+          "reference_sha256": "60fe521fe242fd1af8a8adee147fe12553352dad43cd76ceafce688b49264139",
+          "result_sha256": "fb029f845bcecd49cfc52de95a4b69a088cd9b4d3f3f688afcdb095cab0a2d19",
+          "review_note": "Born to establishes biological parentage with generic roles. Month precision exactly matches the prior pilot. Same story as Phil and Kathy profiles, not independent evidence.",
+          "split": "exposed_development",
+          "story_groups": [
+            "ben-birth"
+          ]
+        }
+      ],
+      "known_gaps": [
+        "Only the selected excerpts and catalogue identities are completely annotated. Other narrative passages, supporting identities, relations and incidents remain unassessed.",
+        "Captured source support is not independent corroboration or exhaustive canon. Unknown dates are retained; capture and broadcast dates are not story dates."
+      ]
+    },
+    {
+      "character_id": "ian-beale",
+      "source_text": {
+        "character": {
+          "character_id": "ian-beale",
+          "name": "Ian Beale",
+          "aliases": [
+            "Ian Albert Beale"
+          ],
+          "performers": [
+            "Adam Woodyatt"
+          ],
+          "coverage": "core",
+          "wikidata_id": "Q899011",
+          "review_note": "Codex source inspection, 17 October 2026: captured character article, infobox aliases/performers and revision metadata checked. Prominence-based curated selection, not a ranked or exhaustive canon. Identity linkage is not independent story corroboration.",
+          "evidence_sources": [
+            "ian-beale-wiki"
+          ]
+        },
+        "identity_resolution": {
+          "status": "resolved",
+          "character_ids": [
+            "ian-beale"
+          ]
+        },
+        "primary_source_ids": [
+          "ian-beale-wiki"
+        ],
+        "mentioned_in_source_ids": [
+          "phil-mitchell-wiki",
+          "grant-mitchell-wiki",
+          "peggy-mitchell-wiki",
+          "sharon-watts-wiki",
+          "ben-mitchell-wiki",
+          "kathy-beale-wiki",
+          "cindy-beale-wiki",
+          "lucy-beale-wiki",
+          "bobby-beale-wiki",
+          "martin-fowler-wiki",
+          "alfie-moon-wiki",
+          "pat-butcher-wiki",
+          "janine-butcher-wiki",
+          "denise-fox-wiki",
+          "max-branning-wiki",
+          "linda-carter-wiki"
+        ],
+        "admitted_paragraphs": 22,
+        "excluded_paragraphs": 0,
+        "review_required_paragraphs": 24,
+        "retained_narrative_characters": 30993,
+        "admitted_sections": [
+          [
+            "Storylines"
+          ]
+        ],
+        "gaps": [
+          "Partial captured history; unreviewed sections are excluded from retrieval.",
+          "Capture time does not establish current storyline completeness.",
+          "Matching identities and repeated accounts do not independently corroborate facts."
+        ]
+      },
+      "source_passages": 37,
+      "source_characters": 30993,
+      "selected_characters": 161,
+      "extraction": [
+        {
+          "batch_id": "ian-beale",
+          "kind": "family",
+          "state": "complete",
+          "failure": null,
+          "extraction_score": {
+            "schema_valid": true,
+            "expected": 1,
+            "predicted": 1,
+            "duplicates": 0,
+            "true_positive": 0,
+            "resolvable_spans": 1,
+            "grounded": 0,
+            "precision": 0.0,
+            "recall": 0.0,
+            "f1": 0.0,
+            "scope": "Exact normalized values within each completely annotated selected input passage. Instances match on values and sorted unique passage IDs, independently of quote offsets. Claim IDs are ignored; semantic duplicates within a passage collapse and are counted. Grounding additionally requires the entire independently reviewed supporting span. These exposed development scores are not held-out or broad-corpus quality."
+          },
+          "reviewed_reference_decisions": [
+            {
+              "claim_id": "ref-ian-beale-1",
+              "status": "admitted",
+              "reasons": []
+            }
+          ],
+          "raw_candidate_decisions": [
+            {
+              "claim_id": "raw-ian-beale-1",
+              "status": "held",
+              "reasons": [
+                "superseded",
+                "uncertain"
+              ]
+            }
+          ],
+          "reference_sha256": "080f48c3d705df7516da26242b7f7afba35423c6ccaec0ae023e504d00f374b8",
+          "result_sha256": "34dce8c3ca4667d94bb7a8579a56095144c759884b2a55b6632804d770d5a842",
+          "review_note": "Becoming father to newborn twins supports Ian as biological father of Lucy. Peter and Cindy are outside this narrow catalogue, so neither is a negative reference.",
+          "split": "exposed_development",
+          "story_groups": [
+            "lucy-birth"
+          ]
+        }
+      ],
+      "known_gaps": [
+        "Only the selected excerpts and catalogue identities are completely annotated. Other narrative passages, supporting identities, relations and incidents remain unassessed.",
+        "Captured source support is not independent corroboration or exhaustive canon. Unknown dates are retained; capture and broadcast dates are not story dates."
+      ]
+    },
+    {
+      "character_id": "kathy-beale",
+      "source_text": {
+        "character": {
+          "character_id": "kathy-beale",
+          "name": "Kathy Beale",
+          "aliases": [
+            "Kathy Mitchell",
+            "Kathy Sullivan",
+            "Kathy Richards",
+            "Kathy Cotton"
+          ],
+          "performers": [
+            "Gillian Taylforth"
+          ],
+          "coverage": "core",
+          "wikidata_id": "Q6377182",
+          "review_note": "Codex source inspection, 17 October 2026: captured character article, infobox aliases/performers and revision metadata checked. Prominence-based curated selection, not a ranked or exhaustive canon. Identity linkage is not independent story corroboration.",
+          "evidence_sources": [
+            "kathy-beale-wiki"
+          ]
+        },
+        "identity_resolution": {
+          "status": "resolved",
+          "character_ids": [
+            "kathy-beale"
+          ]
+        },
+        "primary_source_ids": [
+          "kathy-beale-wiki"
+        ],
+        "mentioned_in_source_ids": [
+          "phil-mitchell-wiki",
+          "grant-mitchell-wiki",
+          "peggy-mitchell-wiki",
+          "sharon-watts-wiki",
+          "ben-mitchell-wiki",
+          "ian-beale-wiki",
+          "bobby-beale-wiki",
+          "kat-slater-wiki",
+          "stacey-slater-wiki",
+          "pat-butcher-wiki",
+          "denise-fox-wiki",
+          "linda-carter-wiki"
+        ],
+        "admitted_paragraphs": 23,
+        "excluded_paragraphs": 0,
+        "review_required_paragraphs": 44,
+        "retained_narrative_characters": 34879,
+        "admitted_sections": [
+          [
+            "Storylines",
+            "1985–2000"
+          ],
+          [
+            "Storylines",
+            "2015–present"
+          ]
+        ],
+        "gaps": [
+          "Partial captured history; unreviewed sections are excluded from retrieval.",
+          "Capture time does not establish current storyline completeness.",
+          "Matching identities and repeated accounts do not independently corroborate facts."
+        ]
+      },
+      "source_passages": 40,
+      "source_characters": 34879,
+      "selected_characters": 550,
+      "extraction": [
+        {
+          "batch_id": "kathy-beale",
+          "kind": "family",
+          "state": "complete",
+          "failure": null,
+          "extraction_score": {
+            "schema_valid": true,
+            "expected": 2,
+            "predicted": 2,
+            "duplicates": 0,
+            "true_positive": 1,
+            "resolvable_spans": 0,
+            "grounded": 0,
+            "precision": 0.5,
+            "recall": 0.5,
+            "f1": 0.5,
+            "scope": "Exact normalized values within each completely annotated selected input passage. Instances match on values and sorted unique passage IDs, independently of quote offsets. Claim IDs are ignored; semantic duplicates within a passage collapse and are counted. Grounding additionally requires the entire independently reviewed supporting span. These exposed development scores are not held-out or broad-corpus quality."
+          },
+          "reviewed_reference_decisions": [
+            {
+              "claim_id": "ref-kathy-beale-1",
+              "status": "admitted",
+              "reasons": []
+            },
+            {
+              "claim_id": "ref-kathy-beale-2",
+              "status": "admitted",
+              "reasons": []
+            }
+          ],
+          "raw_candidate_decisions": [
+            {
+              "claim_id": "raw-kathy-beale-1",
+              "status": "held",
+              "reasons": [
+                "evidence_span",
+                "superseded"
+              ]
+            },
+            {
+              "claim_id": "raw-kathy-beale-2",
+              "status": "held",
+              "reasons": [
+                "evidence_span",
+                "superseded",
+                "uncertain"
+              ]
+            }
+          ],
+          "reference_sha256": "251c8b306911f82a0e8c7b1623e983835d67d55ac22fbc6e1d7f24031fd0fd46",
+          "result_sha256": "3d7a79aa19d3817123ad6d6be8c9b7a86aff3b7b97535e429ca1b7ba59e0ee57",
+          "review_note": "Kathy gives birth to their son, then names him Ben. Early 1995 explicitly dates the marriage, not the birth; preserve unknown birth time and do not infer it from the paragraph. The explicit phrase becoming a father supports Phil’s father role.",
+          "split": "exposed_development",
+          "story_groups": [
+            "ben-birth"
+          ]
+        }
+      ],
+      "known_gaps": [
+        "Only the selected excerpts and catalogue identities are completely annotated. Other narrative passages, supporting identities, relations and incidents remain unassessed.",
+        "Captured source support is not independent corroboration or exhaustive canon. Unknown dates are retained; capture and broadcast dates are not story dates."
+      ]
+    },
+    {
+      "character_id": "cindy-beale",
+      "source_text": {
+        "character": {
+          "character_id": "cindy-beale",
+          "name": "Cindy Beale",
+          "aliases": [
+            "Rose Sawyer",
+            "Rose Knight"
+          ],
+          "performers": [
+            "Michelle Collins"
+          ],
+          "coverage": "core",
+          "wikidata_id": "Q5120478",
+          "review_note": "Codex source inspection, 17 October 2026: captured character article, infobox aliases/performers and revision metadata checked. Prominence-based curated selection, not a ranked or exhaustive canon. Identity linkage is not independent story corroboration. The genuine maternal maiden alias Cindy Williams is deliberately withheld because the captured narratives also evidence her daughter of that name; ambiguous names/daughter links remain unresolved until separately catalogued.",
+          "evidence_sources": [
+            "cindy-beale-wiki"
+          ]
+        },
+        "identity_resolution": {
+          "status": "resolved",
+          "character_ids": [
+            "cindy-beale"
+          ]
+        },
+        "primary_source_ids": [
+          "cindy-beale-wiki"
+        ],
+        "mentioned_in_source_ids": [
+          "phil-mitchell-wiki",
+          "grant-mitchell-wiki",
+          "sharon-watts-wiki",
+          "ian-beale-wiki",
+          "kathy-beale-wiki",
+          "lucy-beale-wiki",
+          "bobby-beale-wiki",
+          "alfie-moon-wiki",
+          "max-branning-wiki",
+          "linda-carter-wiki"
+        ],
+        "admitted_paragraphs": 13,
+        "excluded_paragraphs": 0,
+        "review_required_paragraphs": 12,
+        "retained_narrative_characters": 20737,
+        "admitted_sections": [
+          [
+            "Storylines",
+            "1988–1990"
+          ],
+          [
+            "Storylines",
+            "1992–1998"
+          ],
+          [
+            "Storylines",
+            "2023–present"
+          ]
+        ],
+        "gaps": [
+          "Partial captured history; unreviewed sections are excluded from retrieval.",
+          "Capture time does not establish current storyline completeness.",
+          "Matching identities and repeated accounts do not independently corroborate facts."
+        ]
+      },
+      "source_passages": 26,
+      "source_characters": 20737,
+      "selected_characters": 45,
+      "extraction": [
+        {
+          "batch_id": "cindy-beale",
+          "kind": "events",
+          "state": "complete",
+          "failure": null,
+          "extraction_score": {
+            "schema_valid": true,
+            "expected": 1,
+            "predicted": 1,
+            "duplicates": 0,
+            "true_positive": 0,
+            "resolvable_spans": 1,
+            "grounded": 0,
+            "precision": 0.0,
+            "recall": 0.0,
+            "f1": 0.0,
+            "scope": "Exposed selected incidents and in-catalogue assertions only. Exact values include participant-role assignment, event type, basis, account status, polarity, certainty, story time/precision and evidence IDs. Ignore arbitrary claim/event ID spelling and label wording; incident grouping requires separate support review. Full-value duplicates collapse. Each dimension projects unique full assertions onto values plus passage IDs and event type, preserving multiplicity: identity sets, role multisets, assigned identity-role pairs (direction), polarity, timing, or account attribution. These are diagnostics, not independent per-claim accuracies. Grounding separately requires exact resolvable locators covering frozen supporting spans; it is not canon adjudication. Text classifications are scored separately by kind, character subjects, theme and passage IDs; classification-gap wording is source-reviewed rather than exact-matched. A text classification never counts as an event or connection.",
+            "dimensions": {
+              "identity": {
+                "expected": 1,
+                "predicted": 1,
+                "true_positive": 1,
+                "precision": 1.0,
+                "recall": 1.0,
+                "f1": 1.0
+              },
+              "role": {
+                "expected": 1,
+                "predicted": 1,
+                "true_positive": 1,
+                "precision": 1.0,
+                "recall": 1.0,
+                "f1": 1.0
+              },
+              "direction": {
+                "expected": 1,
+                "predicted": 1,
+                "true_positive": 1,
+                "precision": 1.0,
+                "recall": 1.0,
+                "f1": 1.0
+              },
+              "negation": {
+                "expected": 1,
+                "predicted": 1,
+                "true_positive": 1,
+                "precision": 1.0,
+                "recall": 1.0,
+                "f1": 1.0
+              },
+              "timing": {
+                "expected": 1,
+                "predicted": 1,
+                "true_positive": 0,
+                "precision": 0.0,
+                "recall": 0.0,
+                "f1": 0.0
+              },
+              "account": {
+                "expected": 1,
+                "predicted": 1,
+                "true_positive": 1,
+                "precision": 1.0,
+                "recall": 1.0,
+                "f1": 1.0
+              }
+            },
+            "by_event_type": {
+              "pregnancy": {
+                "schema_valid": true,
+                "expected": 1,
+                "predicted": 1,
+                "duplicates": 0,
+                "true_positive": 0,
+                "resolvable_spans": 1,
+                "grounded": 0,
+                "precision": 0.0,
+                "recall": 0.0,
+                "f1": 0.0,
+                "scope": "Exact normalized values within each completely annotated selected input passage. Instances match on values and sorted unique passage IDs, independently of quote offsets. Claim IDs are ignored; semantic duplicates within a passage collapse and are counted. Grounding additionally requires the entire independently reviewed supporting span. These exposed development scores are not held-out or broad-corpus quality."
+              }
+            },
+            "context_score": {
+              "schema_valid": true,
+              "expected": 0,
+              "predicted": 0,
+              "duplicates": 0,
+              "true_positive": 0,
+              "resolvable_spans": 0,
+              "grounded": 0,
+              "precision": 1.0,
+              "recall": 1.0,
+              "f1": 1.0,
+              "scope": "Exact normalized values within each completely annotated selected input passage. Instances match on values and sorted unique passage IDs, independently of quote offsets. Claim IDs are ignored; semantic duplicates within a passage collapse and are counted. Grounding additionally requires the entire independently reviewed supporting span. These exposed development scores are not held-out or broad-corpus quality."
+            },
+            "by_theme": {},
+            "by_classification": {}
+          },
+          "reviewed_reference_decisions": [
+            {
+              "claim_id": "ref-cindy-beale-1",
+              "status": "admitted",
+              "reasons": []
+            }
+          ],
+          "raw_candidate_decisions": [
+            {
+              "claim_id": "raw-cindy-beale-1",
+              "status": "held",
+              "reasons": [
+                "superseded"
+              ]
+            }
+          ],
+          "reference_sha256": "01f3eb63fa7ce488878da7a2942141eaff5df21cfcd7719c8311fae3dfbe3863",
+          "result_sha256": "7317f4fad5e2da738d28df8e1883c62d8bb950649d056f92262d057dc47738d5",
+          "review_note": "Only explicit pregnancy and its year. No parentage is inferred from pregnancy; paternity rumours elsewhere are not imported.",
+          "split": "exposed_development",
+          "story_groups": [
+            "cindy-twins-pregnancy"
+          ]
+        }
+      ],
+      "known_gaps": [
+        "Only the selected excerpts and catalogue identities are completely annotated. Other narrative passages, supporting identities, relations and incidents remain unassessed.",
+        "Captured source support is not independent corroboration or exhaustive canon. Unknown dates are retained; capture and broadcast dates are not story dates."
+      ]
+    },
+    {
+      "character_id": "lucy-beale",
+      "source_text": {
+        "character": {
+          "character_id": "lucy-beale",
+          "name": "Lucy Beale",
+          "aliases": [],
+          "performers": [
+            "Eva Brittin-Snell",
+            "Casey Anne Rothery",
+            "Melissa Suffield",
+            "Hetti Bywater"
+          ],
+          "coverage": "core",
+          "wikidata_id": "Q3304512",
+          "review_note": "Codex source inspection, 17 October 2026: captured character article, infobox aliases/performers and revision metadata checked. Prominence-based curated selection, not a ranked or exhaustive canon. Identity linkage is not independent story corroboration.",
+          "evidence_sources": [
+            "lucy-beale-wiki"
+          ]
+        },
+        "identity_resolution": {
+          "status": "resolved",
+          "character_ids": [
+            "lucy-beale"
+          ]
+        },
+        "primary_source_ids": [
+          "lucy-beale-wiki"
+        ],
+        "mentioned_in_source_ids": [
+          "phil-mitchell-wiki",
+          "sharon-watts-wiki",
+          "ben-mitchell-wiki",
+          "ian-beale-wiki",
+          "kathy-beale-wiki",
+          "cindy-beale-wiki",
+          "bobby-beale-wiki",
+          "martin-fowler-wiki",
+          "pat-butcher-wiki",
+          "denise-fox-wiki",
+          "max-branning-wiki",
+          "linda-carter-wiki"
+        ],
+        "admitted_paragraphs": 14,
+        "excluded_paragraphs": 0,
+        "review_required_paragraphs": 17,
+        "retained_narrative_characters": 12234,
+        "admitted_sections": [
+          [
+            "Storylines",
+            "1993–2010"
+          ],
+          [
+            "Storylines",
+            "2012–2014"
+          ]
+        ],
+        "gaps": [
+          "Partial captured history; unreviewed sections are excluded from retrieval.",
+          "Capture time does not establish current storyline completeness.",
+          "Matching identities and repeated accounts do not independently corroborate facts."
+        ]
+      },
+      "source_passages": 17,
+      "source_characters": 12234,
+      "selected_characters": 160,
+      "extraction": [
+        {
+          "batch_id": "lucy-beale",
+          "kind": "family",
+          "state": "complete",
+          "failure": null,
+          "extraction_score": {
+            "schema_valid": true,
+            "expected": 2,
+            "predicted": 2,
+            "duplicates": 0,
+            "true_positive": 2,
+            "resolvable_spans": 2,
+            "grounded": 2,
+            "precision": 1.0,
+            "recall": 1.0,
+            "f1": 1.0,
+            "scope": "Exact normalized values within each completely annotated selected input passage. Instances match on values and sorted unique passage IDs, independently of quote offsets. Claim IDs are ignored; semantic duplicates within a passage collapse and are counted. Grounding additionally requires the entire independently reviewed supporting span. These exposed development scores are not held-out or broad-corpus quality."
+          },
+          "reviewed_reference_decisions": [
+            {
+              "claim_id": "ref-lucy-beale-1",
+              "status": "admitted",
+              "reasons": []
+            },
+            {
+              "claim_id": "ref-lucy-beale-2",
+              "status": "admitted",
+              "reasons": []
+            }
+          ],
+          "raw_candidate_decisions": [
+            {
+              "claim_id": "raw-lucy-beale-1",
+              "status": "held",
+              "reasons": [
+                "superseded"
+              ]
+            },
+            {
+              "claim_id": "raw-lucy-beale-2",
+              "status": "held",
+              "reasons": [
+                "superseded"
+              ]
+            }
+          ],
+          "reference_sha256": "6dcd9100ba41d2b9b6b10ff234f20727528e7f747f03161908ba97f37f616b59",
+          "result_sha256": "ae86e16fc2ea625f9894ec3d2ea7bd7f08fa4b88a4171a25789bd9d7f62f80d4",
+          "review_note": "Explicit born-to parentage and full date. Peter remains outside the selected catalogue. This is the same birth reported in Ian’s profile, kept in one development group.",
+          "split": "exposed_development",
+          "story_groups": [
+            "lucy-birth"
+          ]
+        }
+      ],
+      "known_gaps": [
+        "Only the selected excerpts and catalogue identities are completely annotated. Other narrative passages, supporting identities, relations and incidents remain unassessed.",
+        "Captured source support is not independent corroboration or exhaustive canon. Unknown dates are retained; capture and broadcast dates are not story dates."
+      ]
+    },
+    {
+      "character_id": "bobby-beale",
+      "source_text": {
+        "character": {
+          "character_id": "bobby-beale",
+          "name": "Bobby Beale",
+          "aliases": [],
+          "performers": [
+            "Kevin Curran",
+            "Alex Francis",
+            "Rory Stroud",
+            "Eliot Carrington",
+            "Clay Milner Russell"
+          ],
+          "coverage": "core",
+          "wikidata_id": "Q19650328",
+          "review_note": "Codex source inspection, 17 October 2026: captured character article, infobox aliases/performers and revision metadata checked. Prominence-based curated selection, not a ranked or exhaustive canon. Identity linkage is not independent story corroboration.",
+          "evidence_sources": [
+            "bobby-beale-wiki"
+          ]
+        },
+        "identity_resolution": {
+          "status": "resolved",
+          "character_ids": [
+            "bobby-beale"
+          ]
+        },
+        "primary_source_ids": [
+          "bobby-beale-wiki"
+        ],
+        "mentioned_in_source_ids": [
+          "phil-mitchell-wiki",
+          "grant-mitchell-wiki",
+          "sharon-watts-wiki",
+          "ian-beale-wiki",
+          "kathy-beale-wiki",
+          "cindy-beale-wiki",
+          "lucy-beale-wiki",
+          "alfie-moon-wiki",
+          "max-branning-wiki"
+        ],
+        "admitted_paragraphs": 16,
+        "excluded_paragraphs": 0,
+        "review_required_paragraphs": 17,
+        "retained_narrative_characters": 18253,
+        "admitted_sections": [
+          [
+            "Storylines",
+            "2003–2017"
+          ],
+          [
+            "Storylines",
+            "2019–2024"
+          ]
+        ],
+        "gaps": [
+          "Partial captured history; unreviewed sections are excluded from retrieval.",
+          "Capture time does not establish current storyline completeness.",
+          "Matching identities and repeated accounts do not independently corroborate facts."
+        ]
+      },
+      "source_passages": 25,
+      "source_characters": 18253,
+      "selected_characters": 214,
+      "extraction": [
+        {
+          "batch_id": "bobby-beale",
+          "kind": "events",
+          "state": "complete",
+          "failure": null,
+          "extraction_score": {
+            "schema_valid": true,
+            "expected": 2,
+            "predicted": 2,
+            "duplicates": 0,
+            "true_positive": 2,
+            "resolvable_spans": 0,
+            "grounded": 0,
+            "precision": 1.0,
+            "recall": 1.0,
+            "f1": 1.0,
+            "scope": "Exposed selected incidents and in-catalogue assertions only. Exact values include participant-role assignment, event type, basis, account status, polarity, certainty, story time/precision and evidence IDs. Ignore arbitrary claim/event ID spelling and label wording; incident grouping requires separate support review. Full-value duplicates collapse. Each dimension projects unique full assertions onto values plus passage IDs and event type, preserving multiplicity: identity sets, role multisets, assigned identity-role pairs (direction), polarity, timing, or account attribution. These are diagnostics, not independent per-claim accuracies. Grounding separately requires exact resolvable locators covering frozen supporting spans; it is not canon adjudication. Text classifications are scored separately by kind, character subjects, theme and passage IDs; classification-gap wording is source-reviewed rather than exact-matched. A text classification never counts as an event or connection.",
+            "dimensions": {
+              "identity": {
+                "expected": 2,
+                "predicted": 2,
+                "true_positive": 2,
+                "precision": 1.0,
+                "recall": 1.0,
+                "f1": 1.0
+              },
+              "role": {
+                "expected": 2,
+                "predicted": 2,
+                "true_positive": 2,
+                "precision": 1.0,
+                "recall": 1.0,
+                "f1": 1.0
+              },
+              "direction": {
+                "expected": 2,
+                "predicted": 2,
+                "true_positive": 2,
+                "precision": 1.0,
+                "recall": 1.0,
+                "f1": 1.0
+              },
+              "negation": {
+                "expected": 2,
+                "predicted": 2,
+                "true_positive": 2,
+                "precision": 1.0,
+                "recall": 1.0,
+                "f1": 1.0
+              },
+              "timing": {
+                "expected": 2,
+                "predicted": 2,
+                "true_positive": 2,
+                "precision": 1.0,
+                "recall": 1.0,
+                "f1": 1.0
+              },
+              "account": {
+                "expected": 2,
+                "predicted": 2,
+                "true_positive": 2,
+                "precision": 1.0,
+                "recall": 1.0,
+                "f1": 1.0
+              }
+            },
+            "by_event_type": {
+              "commission": {
+                "schema_valid": true,
+                "expected": 1,
+                "predicted": 1,
+                "duplicates": 0,
+                "true_positive": 1,
+                "resolvable_spans": 0,
+                "grounded": 0,
+                "precision": 1.0,
+                "recall": 1.0,
+                "f1": 1.0,
+                "scope": "Exact normalized values within each completely annotated selected input passage. Instances match on values and sorted unique passage IDs, independently of quote offsets. Claim IDs are ignored; semantic duplicates within a passage collapse and are counted. Grounding additionally requires the entire independently reviewed supporting span. These exposed development scores are not held-out or broad-corpus quality."
+              },
+              "death": {
+                "schema_valid": true,
+                "expected": 1,
+                "predicted": 1,
+                "duplicates": 0,
+                "true_positive": 1,
+                "resolvable_spans": 0,
+                "grounded": 0,
+                "precision": 1.0,
+                "recall": 1.0,
+                "f1": 1.0,
+                "scope": "Exact normalized values within each completely annotated selected input passage. Instances match on values and sorted unique passage IDs, independently of quote offsets. Claim IDs are ignored; semantic duplicates within a passage collapse and are counted. Grounding additionally requires the entire independently reviewed supporting span. These exposed development scores are not held-out or broad-corpus quality."
+              }
+            },
+            "context_score": {
+              "schema_valid": true,
+              "expected": 0,
+              "predicted": 0,
+              "duplicates": 0,
+              "true_positive": 0,
+              "resolvable_spans": 0,
+              "grounded": 0,
+              "precision": 1.0,
+              "recall": 1.0,
+              "f1": 1.0,
+              "scope": "Exact normalized values within each completely annotated selected input passage. Instances match on values and sorted unique passage IDs, independently of quote offsets. Claim IDs are ignored; semantic duplicates within a passage collapse and are counted. Grounding additionally requires the entire independently reviewed supporting span. These exposed development scores are not held-out or broad-corpus quality."
+            },
+            "by_theme": {},
+            "by_classification": {}
+          },
+          "reviewed_reference_decisions": [
+            {
+              "claim_id": "ref-bobby-beale-1",
+              "status": "admitted",
+              "reasons": []
+            },
+            {
+              "claim_id": "ref-bobby-beale-2",
+              "status": "admitted",
+              "reasons": []
+            }
+          ],
+          "raw_candidate_decisions": [
+            {
+              "claim_id": "raw-bobby-beale-1",
+              "status": "held",
+              "reasons": [
+                "evidence_span",
+                "superseded",
+                "commission_support"
+              ]
+            },
+            {
+              "claim_id": "raw-bobby-beale-2",
+              "status": "held",
+              "reasons": [
+                "evidence_span",
+                "superseded"
+              ]
+            }
+          ],
+          "reference_sha256": "fe012b69cff8e0fc70a05a181a83b62b8e94446f31bd3af8dc6fee2f285a85bd",
+          "result_sha256": "044e9803f9751c5019e8f489d018284ef1b63cbe97baee3e9313b7cd0af4198f",
+          "review_note": "Narrative establishes commission by Bobby and death of Lucy. Relative timing is anchored to Ian/Jane’s remarriage, not a fabricated calendar date. No allegation or conviction is substituted for commission.",
+          "split": "exposed_development",
+          "story_groups": [
+            "lucy-murder"
+          ]
+        }
+      ],
+      "known_gaps": [
+        "Only the selected excerpts and catalogue identities are completely annotated. Other narrative passages, supporting identities, relations and incidents remain unassessed.",
+        "Captured source support is not independent corroboration or exhaustive canon. Unknown dates are retained; capture and broadcast dates are not story dates."
+      ]
+    },
+    {
+      "character_id": "martin-fowler",
+      "source_text": {
+        "character": {
+          "character_id": "martin-fowler",
+          "name": "Martin Fowler",
+          "aliases": [],
+          "performers": [
+            "Jon Peyton-Price",
+            "James Alexandrou",
+            "James Bye"
+          ],
+          "coverage": "core",
+          "wikidata_id": "Q16992426",
+          "review_note": "Codex source inspection, 17 October 2026: captured character article, infobox aliases/performers and revision metadata checked. Prominence-based curated selection, not a ranked or exhaustive canon. Identity linkage is not independent story corroboration.",
+          "evidence_sources": [
+            "martin-fowler-wiki"
+          ]
+        },
+        "identity_resolution": {
+          "status": "resolved",
+          "character_ids": [
+            "martin-fowler"
+          ]
+        },
+        "primary_source_ids": [
+          "martin-fowler-wiki"
+        ],
+        "mentioned_in_source_ids": [
+          "sharon-watts-wiki",
+          "ben-mitchell-wiki",
+          "ian-beale-wiki",
+          "kathy-beale-wiki",
+          "cindy-beale-wiki",
+          "stacey-slater-wiki",
+          "alfie-moon-wiki",
+          "dot-cotton-wiki",
+          "denise-fox-wiki",
+          "max-branning-wiki",
+          "linda-carter-wiki"
+        ],
+        "admitted_paragraphs": 23,
+        "excluded_paragraphs": 0,
+        "review_required_paragraphs": 10,
+        "retained_narrative_characters": 37818,
+        "admitted_sections": [
+          [
+            "Storylines",
+            "1985–2007"
+          ],
+          [
+            "Storylines",
+            "2014–2025"
+          ]
+        ],
+        "gaps": [
+          "Partial captured history; unreviewed sections are excluded from retrieval.",
+          "Capture time does not establish current storyline completeness.",
+          "Matching identities and repeated accounts do not independently corroborate facts."
+        ]
+      },
+      "source_passages": 44,
+      "source_characters": 37818,
+      "selected_characters": 47,
+      "extraction": [
+        {
+          "batch_id": "martin-fowler",
+          "kind": "relationships",
+          "state": "complete",
+          "failure": null,
+          "extraction_score": {
+            "expected": 1,
+            "predicted": 1,
+            "true_positive": 1,
+            "precision": 1.0,
+            "recall": 1.0,
+            "f1": 1.0,
+            "schema_valid": true,
+            "duplicates": 0,
+            "resolvable_spans": 1,
+            "grounded": 0,
+            "episode_pairs_expected": 0,
+            "episode_pairs_correct": 0,
+            "ordering_expected": 0,
+            "ordering_predicted": 0,
+            "ordering_correct": 0,
+            "alignment_limited": false,
+            "by_relation": {
+              "marriage": {
+                "expected": 1,
+                "predicted": 1,
+                "true_positive": 1,
+                "precision": 1.0,
+                "recall": 1.0,
+                "f1": 1.0
+              }
+            },
+            "scope": "Exposed, completely annotated in-catalogue spans only. Match values and unique passage IDs, with frozen timing alternatives; ignore arbitrary claim/episode IDs. Romantic pairs are symmetric; parent/guardian roles are directed. Distinct episode instances retain multiplicity; duplicates within the same episode collapse. One-to-one value matching ignores ID spelling. Ambiguous alignments maximize episode agreement, then ordering; over 4096 alternatives leaves those two scores unavailable. Raw duplicates and full-reference-span grounding are separate. Missing episode pairs fail. This conservative grounding proxy is not independent semantic/canon adjudication."
+          },
+          "reviewed_reference_decisions": [
+            {
+              "claim_id": "ref-martin-fowler-1",
+              "status": "admitted",
+              "reasons": []
+            }
+          ],
+          "raw_candidate_decisions": [
+            {
+              "claim_id": "raw-martin-fowler-1",
+              "status": "held",
+              "reasons": [
+                "superseded"
+              ]
+            }
+          ],
+          "reference_sha256": "0d73cd1bf4affb3ca8d7616159824695c7badc00be6dfce36e385365a2c2dbfe",
+          "result_sha256": "35480dd3f86da7718a8ed78b2c2200e09b11bd06b66339499d20580d8d123f0d",
+          "review_note": "Actual marriage crossing a text chunk boundary. No date is supplied by this sentence; capture time and nearby event order do not create one.",
+          "split": "exposed_development",
+          "story_groups": [
+            "martin-stacey-marriage"
+          ]
+        }
+      ],
+      "known_gaps": [
+        "Only the selected excerpts and catalogue identities are completely annotated. Other narrative passages, supporting identities, relations and incidents remain unassessed.",
+        "Captured source support is not independent corroboration or exhaustive canon. Unknown dates are retained; capture and broadcast dates are not story dates."
+      ]
+    },
+    {
+      "character_id": "kat-slater",
+      "source_text": {
+        "character": {
+          "character_id": "kat-slater",
+          "name": "Kat Slater",
+          "aliases": [
+            "Kat Moon",
+            "Kat Mitchell"
+          ],
+          "performers": [
+            "Jessie Wallace",
+            "Kate Peck",
+            "Sumar-Elise Sandford",
+            "Amelia Crouch"
+          ],
+          "coverage": "core",
+          "wikidata_id": "Q3955054",
+          "review_note": "Codex source inspection, 17 October 2026: captured character article, infobox aliases/performers and revision metadata checked. Prominence-based curated selection, not a ranked or exhaustive canon. Identity linkage is not independent story corroboration.",
+          "evidence_sources": [
+            "kat-slater-wiki"
+          ]
+        },
+        "identity_resolution": {
+          "status": "resolved",
+          "character_ids": [
+            "kat-slater"
+          ]
+        },
+        "primary_source_ids": [
+          "kat-slater-wiki"
+        ],
+        "mentioned_in_source_ids": [
+          "phil-mitchell-wiki",
+          "peggy-mitchell-wiki",
+          "sharon-watts-wiki",
+          "ben-mitchell-wiki",
+          "martin-fowler-wiki",
+          "stacey-slater-wiki",
+          "alfie-moon-wiki",
+          "janine-butcher-wiki",
+          "max-branning-wiki",
+          "linda-carter-wiki"
+        ],
+        "admitted_paragraphs": 30,
+        "excluded_paragraphs": 5,
+        "review_required_paragraphs": 45,
+        "retained_narrative_characters": 43392,
+        "admitted_sections": [
+          [
+            "Storylines",
+            "2000–2005"
+          ],
+          [
+            "Storylines",
+            "2010–2016"
+          ],
+          [
+            "Storylines",
+            "2018–present"
+          ]
+        ],
+        "gaps": [
+          "Partial captured history; unreviewed sections are excluded from retrieval.",
+          "Capture time does not establish current storyline completeness.",
+          "Matching identities and repeated accounts do not independently corroborate facts."
+        ]
+      },
+      "source_passages": 56,
+      "source_characters": 43392,
+      "selected_characters": 727,
+      "extraction": [
+        {
+          "batch_id": "kat-slater",
+          "kind": "relationships",
+          "state": "complete",
+          "failure": null,
+          "extraction_score": {
+            "expected": 1,
+            "predicted": 1,
+            "true_positive": 1,
+            "precision": 1.0,
+            "recall": 1.0,
+            "f1": 1.0,
+            "schema_valid": true,
+            "duplicates": 0,
+            "resolvable_spans": 0,
+            "grounded": 0,
+            "episode_pairs_expected": 0,
+            "episode_pairs_correct": 0,
+            "ordering_expected": 0,
+            "ordering_predicted": 0,
+            "ordering_correct": 0,
+            "alignment_limited": false,
+            "by_relation": {
+              "remarriage": {
+                "expected": 1,
+                "predicted": 1,
+                "true_positive": 1,
+                "precision": 1.0,
+                "recall": 1.0,
+                "f1": 1.0
+              }
+            },
+            "scope": "Exposed, completely annotated in-catalogue spans only. Match values and unique passage IDs, with frozen timing alternatives; ignore arbitrary claim/episode IDs. Romantic pairs are symmetric; parent/guardian roles are directed. Distinct episode instances retain multiplicity; duplicates within the same episode collapse. One-to-one value matching ignores ID spelling. Ambiguous alignments maximize episode agreement, then ordering; over 4096 alternatives leaves those two scores unavailable. Raw duplicates and full-reference-span grounding are separate. Missing episode pairs fail. This conservative grounding proxy is not independent semantic/canon adjudication."
+          },
+          "reviewed_reference_decisions": [
+            {
+              "claim_id": "ref-kat-slater-1",
+              "status": "admitted",
+              "reasons": []
+            }
+          ],
+          "raw_candidate_decisions": [
+            {
+              "claim_id": "raw-kat-slater-1",
+              "status": "held",
+              "reasons": [
+                "evidence_span",
+                "superseded"
+              ]
+            }
+          ],
+          "reference_sha256": "549432ca10d18a8183d24f8ef70853499232e63ac67aa4578a4d7e5a5eb7f8cd",
+          "result_sha256": "0248ab5d228a1a33011d5d9a0e516c525421fa783246bc3589a4b95442b15935",
+          "review_note": "Kat is named before the pronoun; actual remarriage is a distinct episode from Alfie’s earlier wedding. On leaving hospital is relative timing; the fire is not a relationship assertion.",
+          "split": "exposed_development",
+          "story_groups": [
+            "kat-alfie-marriages"
+          ]
+        }
+      ],
+      "known_gaps": [
+        "Only the selected excerpts and catalogue identities are completely annotated. Other narrative passages, supporting identities, relations and incidents remain unassessed.",
+        "Captured source support is not independent corroboration or exhaustive canon. Unknown dates are retained; capture and broadcast dates are not story dates."
+      ]
+    },
+    {
+      "character_id": "stacey-slater",
+      "source_text": {
+        "character": {
+          "character_id": "stacey-slater",
+          "name": "Stacey Slater",
+          "aliases": [
+            "Stacey Branning",
+            "Stacey Fowler",
+            "Jenny Smith"
+          ],
+          "performers": [
+            "Lacey Turner"
+          ],
+          "coverage": "core",
+          "wikidata_id": "Q7595869",
+          "review_note": "Codex source inspection, 17 October 2026: captured character article, infobox aliases/performers and revision metadata checked. Prominence-based curated selection, not a ranked or exhaustive canon. Identity linkage is not independent story corroboration.",
+          "evidence_sources": [
+            "stacey-slater-wiki"
+          ]
+        },
+        "identity_resolution": {
+          "status": "resolved",
+          "character_ids": [
+            "stacey-slater"
+          ]
+        },
+        "primary_source_ids": [
+          "stacey-slater-wiki"
+        ],
+        "mentioned_in_source_ids": [
+          "phil-mitchell-wiki",
+          "peggy-mitchell-wiki",
+          "sharon-watts-wiki",
+          "ben-mitchell-wiki",
+          "ian-beale-wiki",
+          "kathy-beale-wiki",
+          "martin-fowler-wiki",
+          "kat-slater-wiki",
+          "alfie-moon-wiki",
+          "pat-butcher-wiki",
+          "janine-butcher-wiki",
+          "denise-fox-wiki",
+          "max-branning-wiki",
+          "linda-carter-wiki"
+        ],
+        "admitted_paragraphs": 25,
+        "excluded_paragraphs": 0,
+        "review_required_paragraphs": 37,
+        "retained_narrative_characters": 32186,
+        "admitted_sections": [
+          [
+            "Storylines",
+            "2004–2010"
+          ],
+          [
+            "Storylines",
+            "2014–2025"
+          ]
+        ],
+        "gaps": [
+          "Partial captured history; unreviewed sections are excluded from retrieval.",
+          "Capture time does not establish current storyline completeness.",
+          "Matching identities and repeated accounts do not independently corroborate facts."
+        ]
+      },
+      "source_passages": 42,
+      "source_characters": 32186,
+      "selected_characters": 82,
+      "extraction": [
+        {
+          "batch_id": "stacey-slater",
+          "kind": "relationships",
+          "state": "complete",
+          "failure": null,
+          "extraction_score": {
+            "expected": 1,
+            "predicted": 1,
+            "true_positive": 0,
+            "precision": 0.0,
+            "recall": 0.0,
+            "f1": 0.0,
+            "schema_valid": true,
+            "duplicates": 0,
+            "resolvable_spans": 1,
+            "grounded": 0,
+            "episode_pairs_expected": 0,
+            "episode_pairs_correct": 0,
+            "ordering_expected": 0,
+            "ordering_predicted": 0,
+            "ordering_correct": 0,
+            "alignment_limited": false,
+            "by_relation": {
+              "marriage": {
+                "expected": 1,
+                "predicted": 1,
+                "true_positive": 0,
+                "precision": 0.0,
+                "recall": 0.0,
+                "f1": 0.0
+              }
+            },
+            "scope": "Exposed, completely annotated in-catalogue spans only. Match values and unique passage IDs, with frozen timing alternatives; ignore arbitrary claim/episode IDs. Romantic pairs are symmetric; parent/guardian roles are directed. Distinct episode instances retain multiplicity; duplicates within the same episode collapse. One-to-one value matching ignores ID spelling. Ambiguous alignments maximize episode agreement, then ordering; over 4096 alternatives leaves those two scores unavailable. Raw duplicates and full-reference-span grounding are separate. Missing episode pairs fail. This conservative grounding proxy is not independent semantic/canon adjudication."
+          },
+          "reviewed_reference_decisions": [
+            {
+              "claim_id": "ref-stacey-slater-1",
+              "status": "held",
+              "reasons": [
+                "superseded"
+              ]
+            }
+          ],
+          "raw_candidate_decisions": [
+            {
+              "claim_id": "raw-stacey-slater-1",
+              "status": "held",
+              "reasons": [
+                "superseded"
+              ]
+            }
+          ],
+          "reference_sha256": "5acc0b8db59ec8dba968026e3c7a46f9fc03e11b9c69eaa5219a41ceb6252099",
+          "result_sha256": "702a7794150d1ddcddce7acbe19b2ba1e719487e47bf42989bbb4c9359e694bc",
+          "review_note": "Stacey is the continuing subject of “She and Martin”. Then relates the wedding to Peggy’s death but supplies no date. Marriage shares its episode with Martin’s account.",
+          "split": "exposed_development",
+          "story_groups": [
+            "martin-stacey-marriage"
+          ]
+        }
+      ],
+      "known_gaps": [
+        "Only the selected excerpts and catalogue identities are completely annotated. Other narrative passages, supporting identities, relations and incidents remain unassessed.",
+        "Captured source support is not independent corroboration or exhaustive canon. Unknown dates are retained; capture and broadcast dates are not story dates."
+      ]
+    },
+    {
+      "character_id": "alfie-moon",
+      "source_text": {
+        "character": {
+          "character_id": "alfie-moon",
+          "name": "Alfie Moon",
+          "aliases": [
+            "Alfred William Moon",
+            "Chris Wright"
+          ],
+          "performers": [
+            "Shane Richie"
+          ],
+          "coverage": "core",
+          "wikidata_id": "Q4721932",
+          "review_note": "Codex source inspection, 17 October 2026: captured character article, infobox aliases/performers and revision metadata checked. Prominence-based curated selection, not a ranked or exhaustive canon. Identity linkage is not independent story corroboration.",
+          "evidence_sources": [
+            "alfie-moon-wiki"
+          ]
+        },
+        "identity_resolution": {
+          "status": "resolved",
+          "character_ids": [
+            "alfie-moon"
+          ]
+        },
+        "primary_source_ids": [
+          "alfie-moon-wiki"
+        ],
+        "mentioned_in_source_ids": [
+          "phil-mitchell-wiki",
+          "sharon-watts-wiki",
+          "ian-beale-wiki",
+          "martin-fowler-wiki",
+          "kat-slater-wiki",
+          "alfie-moon-wiki",
+          "max-branning-wiki"
+        ],
+        "admitted_paragraphs": 22,
+        "excluded_paragraphs": 1,
+        "review_required_paragraphs": 30,
+        "retained_narrative_characters": 32439,
+        "admitted_sections": [
+          [
+            "Storylines",
+            "2002–2005"
+          ],
+          [
+            "Storylines",
+            "2010–2016"
+          ],
+          [
+            "Storylines",
+            "2018–2019"
+          ],
+          [
+            "Storylines",
+            "2022–present"
+          ]
+        ],
+        "gaps": [
+          "Partial captured history; unreviewed sections are excluded from retrieval.",
+          "Capture time does not establish current storyline completeness.",
+          "Matching identities and repeated accounts do not independently corroborate facts."
+        ]
+      },
+      "source_passages": 41,
+      "source_characters": 32439,
+      "selected_characters": 84,
+      "extraction": [
+        {
+          "batch_id": "alfie-moon",
+          "kind": "relationships",
+          "state": "complete",
+          "failure": null,
+          "extraction_score": {
+            "expected": 1,
+            "predicted": 1,
+            "true_positive": 0,
+            "precision": 0.0,
+            "recall": 0.0,
+            "f1": 0.0,
+            "schema_valid": true,
+            "duplicates": 0,
+            "resolvable_spans": 1,
+            "grounded": 0,
+            "episode_pairs_expected": 0,
+            "episode_pairs_correct": 0,
+            "ordering_expected": 0,
+            "ordering_predicted": 0,
+            "ordering_correct": 0,
+            "alignment_limited": false,
+            "by_relation": {
+              "marriage": {
+                "expected": 1,
+                "predicted": 1,
+                "true_positive": 0,
+                "precision": 0.0,
+                "recall": 0.0,
+                "f1": 0.0
+              }
+            },
+            "scope": "Exposed, completely annotated in-catalogue spans only. Match values and unique passage IDs, with frozen timing alternatives; ignore arbitrary claim/episode IDs. Romantic pairs are symmetric; parent/guardian roles are directed. Distinct episode instances retain multiplicity; duplicates within the same episode collapse. One-to-one value matching ignores ID spelling. Ambiguous alignments maximize episode agreement, then ordering; over 4096 alternatives leaves those two scores unavailable. Raw duplicates and full-reference-span grounding are separate. Missing episode pairs fail. This conservative grounding proxy is not independent semantic/canon adjudication."
+          },
+          "reviewed_reference_decisions": [
+            {
+              "claim_id": "ref-alfie-moon-1",
+              "status": "admitted",
+              "reasons": []
+            }
+          ],
+          "raw_candidate_decisions": [
+            {
+              "claim_id": "raw-alfie-moon-1",
+              "status": "held",
+              "reasons": [
+                "superseded"
+              ]
+            }
+          ],
+          "reference_sha256": "09af3d296b674e7b67db207f70863a9143ced7fd232f70012bc71720ebac3dc7",
+          "result_sha256": "f4fb0bdd42a66b96646d08839921cf240d73ceec3d0fec723e3a56bcb43254c3",
+          "review_note": "Actual earlier marriage; the minister’s Christmas lunch does not establish a calendar year. This excerpt alone does not explicitly date the ceremony, so timing remains unknown.",
+          "split": "exposed_development",
+          "story_groups": [
+            "kat-alfie-marriages"
+          ]
+        }
+      ],
+      "known_gaps": [
+        "Only the selected excerpts and catalogue identities are completely annotated. Other narrative passages, supporting identities, relations and incidents remain unassessed.",
+        "Captured source support is not independent corroboration or exhaustive canon. Unknown dates are retained; capture and broadcast dates are not story dates."
+      ]
+    },
+    {
+      "character_id": "pat-butcher",
+      "source_text": {
+        "character": {
+          "character_id": "pat-butcher",
+          "name": "Pat Butcher",
+          "aliases": [
+            "Pat Harris",
+            "Pat Beale",
+            "Pat Wicks",
+            "Pat Evans",
+            "Fat Pat"
+          ],
+          "performers": [
+            "Pam St Clement",
+            "Emma Cooke"
+          ],
+          "coverage": "core",
+          "wikidata_id": "Q368649",
+          "review_note": "Codex source inspection, 17 October 2026: captured character article, infobox aliases/performers and revision metadata checked. Prominence-based curated selection, not a ranked or exhaustive canon. Identity linkage is not independent story corroboration.",
+          "evidence_sources": [
+            "pat-butcher-wiki"
+          ]
+        },
+        "identity_resolution": {
+          "status": "resolved",
+          "character_ids": [
+            "pat-butcher"
+          ]
+        },
+        "primary_source_ids": [
+          "pat-butcher-wiki"
+        ],
+        "mentioned_in_source_ids": [
+          "peggy-mitchell-wiki",
+          "ian-beale-wiki",
+          "kathy-beale-wiki",
+          "lucy-beale-wiki",
+          "bobby-beale-wiki",
+          "max-branning-wiki"
+        ],
+        "admitted_paragraphs": 39,
+        "excluded_paragraphs": 0,
+        "review_required_paragraphs": 18,
+        "retained_narrative_characters": 20159,
+        "admitted_sections": [
+          [
+            "Storylines",
+            "Backstory"
+          ],
+          [
+            "Storylines",
+            "1986–2012"
+          ]
+        ],
+        "gaps": [
+          "Partial captured history; unreviewed sections are excluded from retrieval.",
+          "Capture time does not establish current storyline completeness.",
+          "Matching identities and repeated accounts do not independently corroborate facts."
+        ]
+      },
+      "source_passages": 40,
+      "source_characters": 20159,
+      "selected_characters": 125,
+      "extraction": [
+        {
+          "batch_id": "pat-butcher",
+          "kind": "events",
+          "state": "complete",
+          "failure": null,
+          "extraction_score": {
+            "schema_valid": true,
+            "expected": 1,
+            "predicted": 1,
+            "duplicates": 0,
+            "true_positive": 1,
+            "resolvable_spans": 1,
+            "grounded": 1,
+            "precision": 1.0,
+            "recall": 1.0,
+            "f1": 1.0,
+            "scope": "Exposed selected incidents and in-catalogue assertions only. Exact values include participant-role assignment, event type, basis, account status, polarity, certainty, story time/precision and evidence IDs. Ignore arbitrary claim/event ID spelling and label wording; incident grouping requires separate support review. Full-value duplicates collapse. Each dimension projects unique full assertions onto values plus passage IDs and event type, preserving multiplicity: identity sets, role multisets, assigned identity-role pairs (direction), polarity, timing, or account attribution. These are diagnostics, not independent per-claim accuracies. Grounding separately requires exact resolvable locators covering frozen supporting spans; it is not canon adjudication. Text classifications are scored separately by kind, character subjects, theme and passage IDs; classification-gap wording is source-reviewed rather than exact-matched. A text classification never counts as an event or connection.",
+            "dimensions": {
+              "identity": {
+                "expected": 1,
+                "predicted": 1,
+                "true_positive": 1,
+                "precision": 1.0,
+                "recall": 1.0,
+                "f1": 1.0
+              },
+              "role": {
+                "expected": 1,
+                "predicted": 1,
+                "true_positive": 1,
+                "precision": 1.0,
+                "recall": 1.0,
+                "f1": 1.0
+              },
+              "direction": {
+                "expected": 1,
+                "predicted": 1,
+                "true_positive": 1,
+                "precision": 1.0,
+                "recall": 1.0,
+                "f1": 1.0
+              },
+              "negation": {
+                "expected": 1,
+                "predicted": 1,
+                "true_positive": 1,
+                "precision": 1.0,
+                "recall": 1.0,
+                "f1": 1.0
+              },
+              "timing": {
+                "expected": 1,
+                "predicted": 1,
+                "true_positive": 1,
+                "precision": 1.0,
+                "recall": 1.0,
+                "f1": 1.0
+              },
+              "account": {
+                "expected": 1,
+                "predicted": 1,
+                "true_positive": 1,
+                "precision": 1.0,
+                "recall": 1.0,
+                "f1": 1.0
+              }
+            },
+            "by_event_type": {
+              "death": {
+                "schema_valid": true,
+                "expected": 1,
+                "predicted": 1,
+                "duplicates": 0,
+                "true_positive": 1,
+                "resolvable_spans": 1,
+                "grounded": 1,
+                "precision": 1.0,
+                "recall": 1.0,
+                "f1": 1.0,
+                "scope": "Exact normalized values within each completely annotated selected input passage. Instances match on values and sorted unique passage IDs, independently of quote offsets. Claim IDs are ignored; semantic duplicates within a passage collapse and are counted. Grounding additionally requires the entire independently reviewed supporting span. These exposed development scores are not held-out or broad-corpus quality."
+              }
+            },
+            "context_score": {
+              "schema_valid": true,
+              "expected": 0,
+              "predicted": 0,
+              "duplicates": 0,
+              "true_positive": 0,
+              "resolvable_spans": 0,
+              "grounded": 0,
+              "precision": 1.0,
+              "recall": 1.0,
+              "f1": 1.0,
+              "scope": "Exact normalized values within each completely annotated selected input passage. Instances match on values and sorted unique passage IDs, independently of quote offsets. Claim IDs are ignored; semantic duplicates within a passage collapse and are counted. Grounding additionally requires the entire independently reviewed supporting span. These exposed development scores are not held-out or broad-corpus quality."
+            },
+            "by_theme": {},
+            "by_classification": {}
+          },
+          "reviewed_reference_decisions": [
+            {
+              "claim_id": "ref-pat-butcher-1",
+              "status": "admitted",
+              "reasons": []
+            }
+          ],
+          "raw_candidate_decisions": [
+            {
+              "claim_id": "raw-pat-butcher-1",
+              "status": "held",
+              "reasons": [
+                "superseded"
+              ]
+            }
+          ],
+          "reference_sha256": "db84b72e22e783975c630dd6df1a9a7092e4ac096de103f4c5d9b1bc45471853",
+          "result_sha256": "8c1d1e41ef757dbf5830c790c05ace750ea2186b8cfaa58b32617a1d8983134f",
+          "review_note": "Actual death. “Moments before” describes reconciliation, not a death date; the preceding New Year paragraph and later funeral must not silently supply one.",
+          "split": "exposed_development",
+          "story_groups": [
+            "pat-death"
+          ]
+        }
+      ],
+      "known_gaps": [
+        "Only the selected excerpts and catalogue identities are completely annotated. Other narrative passages, supporting identities, relations and incidents remain unassessed.",
+        "Captured source support is not independent corroboration or exhaustive canon. Unknown dates are retained; capture and broadcast dates are not story dates."
+      ]
+    },
+    {
+      "character_id": "janine-butcher",
+      "source_text": {
+        "character": {
+          "character_id": "janine-butcher",
+          "name": "Janine Butcher",
+          "aliases": [
+            "Janine Evans",
+            "Janine Malloy",
+            "Janine Carter",
+            "Judith Bernstein"
+          ],
+          "performers": [
+            "Rebecca Michael",
+            "Alexia Demetriou",
+            "Charlie Brooks"
+          ],
+          "coverage": "core",
+          "wikidata_id": "Q2321366",
+          "review_note": "Codex source inspection, 17 October 2026: captured character article, infobox aliases/performers and revision metadata checked. Prominence-based curated selection, not a ranked or exhaustive canon. Identity linkage is not independent story corroboration.",
+          "evidence_sources": [
+            "janine-butcher-wiki"
+          ]
+        },
+        "identity_resolution": {
+          "status": "resolved",
+          "character_ids": [
+            "janine-butcher"
+          ]
+        },
+        "primary_source_ids": [
+          "janine-butcher-wiki"
+        ],
+        "mentioned_in_source_ids": [
+          "phil-mitchell-wiki",
+          "peggy-mitchell-wiki",
+          "sharon-watts-wiki",
+          "ian-beale-wiki",
+          "lucy-beale-wiki",
+          "kat-slater-wiki",
+          "stacey-slater-wiki",
+          "pat-butcher-wiki",
+          "max-branning-wiki",
+          "linda-carter-wiki"
+        ],
+        "admitted_paragraphs": 24,
+        "excluded_paragraphs": 0,
+        "review_required_paragraphs": 26,
+        "retained_narrative_characters": 28491,
+        "admitted_sections": [
+          [
+            "Storylines",
+            "1989–1996"
+          ],
+          [
+            "Storylines",
+            "1999–2004"
+          ],
+          [
+            "Storylines",
+            "2008–2014"
+          ],
+          [
+            "Storylines",
+            "2021–2022"
+          ]
+        ],
+        "gaps": [
+          "Partial captured history; unreviewed sections are excluded from retrieval.",
+          "Capture time does not establish current storyline completeness.",
+          "Matching identities and repeated accounts do not independently corroborate facts."
+        ]
+      },
+      "source_passages": 38,
+      "source_characters": 28491,
+      "selected_characters": 550,
+      "extraction": [
+        {
+          "batch_id": "janine-butcher",
+          "kind": "events",
+          "state": "complete",
+          "failure": null,
+          "extraction_score": {
+            "schema_valid": true,
+            "expected": 3,
+            "predicted": 4,
+            "duplicates": 0,
+            "true_positive": 1,
+            "resolvable_spans": 1,
+            "grounded": 0,
+            "precision": 0.25,
+            "recall": 0.3333333333333333,
+            "f1": 0.28571428571428575,
+            "scope": "Exposed selected incidents and in-catalogue assertions only. Exact values include participant-role assignment, event type, basis, account status, polarity, certainty, story time/precision and evidence IDs. Ignore arbitrary claim/event ID spelling and label wording; incident grouping requires separate support review. Full-value duplicates collapse. Each dimension projects unique full assertions onto values plus passage IDs and event type, preserving multiplicity: identity sets, role multisets, assigned identity-role pairs (direction), polarity, timing, or account attribution. These are diagnostics, not independent per-claim accuracies. Grounding separately requires exact resolvable locators covering frozen supporting spans; it is not canon adjudication. Text classifications are scored separately by kind, character subjects, theme and passage IDs; classification-gap wording is source-reviewed rather than exact-matched. A text classification never counts as an event or connection.",
+            "dimensions": {
+              "identity": {
+                "expected": 3,
+                "predicted": 4,
+                "true_positive": 3,
+                "precision": 0.75,
+                "recall": 1.0,
+                "f1": 0.8571428571428571
+              },
+              "role": {
+                "expected": 3,
+                "predicted": 4,
+                "true_positive": 3,
+                "precision": 0.75,
+                "recall": 1.0,
+                "f1": 0.8571428571428571
+              },
+              "direction": {
+                "expected": 3,
+                "predicted": 4,
+                "true_positive": 3,
+                "precision": 0.75,
+                "recall": 1.0,
+                "f1": 0.8571428571428571
+              },
+              "negation": {
+                "expected": 3,
+                "predicted": 4,
+                "true_positive": 3,
+                "precision": 0.75,
+                "recall": 1.0,
+                "f1": 0.8571428571428571
+              },
+              "timing": {
+                "expected": 3,
+                "predicted": 4,
+                "true_positive": 1,
+                "precision": 0.25,
+                "recall": 0.3333333333333333,
+                "f1": 0.28571428571428575
+              },
+              "account": {
+                "expected": 3,
+                "predicted": 4,
+                "true_positive": 3,
+                "precision": 0.75,
+                "recall": 1.0,
+                "f1": 0.8571428571428571
+              }
+            },
+            "by_event_type": {
+              "arrest": {
+                "schema_valid": true,
+                "expected": 1,
+                "predicted": 1,
+                "duplicates": 0,
+                "true_positive": 0,
+                "resolvable_spans": 0,
+                "grounded": 0,
+                "precision": 0.0,
+                "recall": 0.0,
+                "f1": 0.0,
+                "scope": "Exact normalized values within each completely annotated selected input passage. Instances match on values and sorted unique passage IDs, independently of quote offsets. Claim IDs are ignored; semantic duplicates within a passage collapse and are counted. Grounding additionally requires the entire independently reviewed supporting span. These exposed development scores are not held-out or broad-corpus quality."
+              },
+              "charge": {
+                "schema_valid": true,
+                "expected": 1,
+                "predicted": 1,
+                "duplicates": 0,
+                "true_positive": 0,
+                "resolvable_spans": 0,
+                "grounded": 0,
+                "precision": 0.0,
+                "recall": 0.0,
+                "f1": 0.0,
+                "scope": "Exact normalized values within each completely annotated selected input passage. Instances match on values and sorted unique passage IDs, independently of quote offsets. Claim IDs are ignored; semantic duplicates within a passage collapse and are counted. Grounding additionally requires the entire independently reviewed supporting span. These exposed development scores are not held-out or broad-corpus quality."
+              },
+              "death": {
+                "schema_valid": true,
+                "expected": 0,
+                "predicted": 1,
+                "duplicates": 0,
+                "true_positive": 0,
+                "resolvable_spans": 1,
+                "grounded": 0,
+                "precision": 0.0,
+                "recall": 1.0,
+                "f1": 0.0,
+                "scope": "Exact normalized values within each completely annotated selected input passage. Instances match on values and sorted unique passage IDs, independently of quote offsets. Claim IDs are ignored; semantic duplicates within a passage collapse and are counted. Grounding additionally requires the entire independently reviewed supporting span. These exposed development scores are not held-out or broad-corpus quality."
+              },
+              "imprisonment": {
+                "schema_valid": true,
+                "expected": 1,
+                "predicted": 1,
+                "duplicates": 0,
+                "true_positive": 1,
+                "resolvable_spans": 0,
+                "grounded": 0,
+                "precision": 1.0,
+                "recall": 1.0,
+                "f1": 1.0,
+                "scope": "Exact normalized values within each completely annotated selected input passage. Instances match on values and sorted unique passage IDs, independently of quote offsets. Claim IDs are ignored; semantic duplicates within a passage collapse and are counted. Grounding additionally requires the entire independently reviewed supporting span. These exposed development scores are not held-out or broad-corpus quality."
+              }
+            },
+            "context_score": {
+              "schema_valid": true,
+              "expected": 0,
+              "predicted": 0,
+              "duplicates": 0,
+              "true_positive": 0,
+              "resolvable_spans": 0,
+              "grounded": 0,
+              "precision": 1.0,
+              "recall": 1.0,
+              "f1": 1.0,
+              "scope": "Exact normalized values within each completely annotated selected input passage. Instances match on values and sorted unique passage IDs, independently of quote offsets. Claim IDs are ignored; semantic duplicates within a passage collapse and are counted. Grounding additionally requires the entire independently reviewed supporting span. These exposed development scores are not held-out or broad-corpus quality."
+            },
+            "by_theme": {},
+            "by_classification": {}
+          },
+          "reviewed_reference_decisions": [
+            {
+              "claim_id": "ref-janine-butcher-1",
+              "status": "admitted",
+              "reasons": []
+            },
+            {
+              "claim_id": "ref-janine-butcher-2",
+              "status": "admitted",
+              "reasons": []
+            },
+            {
+              "claim_id": "ref-janine-butcher-3",
+              "status": "admitted",
+              "reasons": []
+            }
+          ],
+          "raw_candidate_decisions": [
+            {
+              "claim_id": "raw-janine-butcher-1",
+              "status": "held",
+              "reasons": [
+                "identity",
+                "support_review_required"
+              ]
+            },
+            {
+              "claim_id": "raw-janine-butcher-2",
+              "status": "held",
+              "reasons": [
+                "evidence_span",
+                "superseded"
+              ]
+            },
+            {
+              "claim_id": "raw-janine-butcher-3",
+              "status": "held",
+              "reasons": [
+                "evidence_span",
+                "superseded"
+              ]
+            },
+            {
+              "claim_id": "raw-janine-butcher-4",
+              "status": "held",
+              "reasons": [
+                "evidence_span",
+                "superseded"
+              ]
+            }
+          ],
+          "reference_sha256": "a933913351db9702da2fa22dcf63004f0187e55fc90a2c21a04804ec4cd5c16e",
+          "result_sha256": "ddbb1183f1979e79a4cf5329eddedcb7c9fbca257dcd0009f12bd3dd721831fe",
+          "review_note": "Arrest, murder charge and remand are legal roles, not commission. The same account places Janine with Pat when Laura died. Laura is outside the evaluated identity catalogue; her death is not included in recall.",
+          "split": "exposed_development",
+          "story_groups": [
+            "laura-death-charge"
+          ]
+        }
+      ],
+      "known_gaps": [
+        "Only the selected excerpts and catalogue identities are completely annotated. Other narrative passages, supporting identities, relations and incidents remain unassessed.",
+        "Captured source support is not independent corroboration or exhaustive canon. Unknown dates are retained; capture and broadcast dates are not story dates."
+      ]
+    },
+    {
+      "character_id": "dot-cotton",
+      "source_text": {
+        "character": {
+          "character_id": "dot-cotton",
+          "name": "Dot Cotton",
+          "aliases": [
+            "Dorothy Colwell",
+            "Dot Branning"
+          ],
+          "performers": [
+            "June Brown",
+            "Tallulah Pitt-Brown"
+          ],
+          "coverage": "core",
+          "wikidata_id": "Q3306375",
+          "review_note": "Codex source inspection, 17 October 2026: captured character article, infobox aliases/performers and revision metadata checked. Prominence-based curated selection, not a ranked or exhaustive canon. Identity linkage is not independent story corroboration.",
+          "evidence_sources": [
+            "dot-cotton-wiki"
+          ]
+        },
+        "identity_resolution": {
+          "status": "resolved",
+          "character_ids": [
+            "dot-cotton"
+          ]
+        },
+        "primary_source_ids": [
+          "dot-cotton-wiki"
+        ],
+        "mentioned_in_source_ids": [
+          "peggy-mitchell-wiki",
+          "ian-beale-wiki",
+          "martin-fowler-wiki",
+          "stacey-slater-wiki",
+          "pat-butcher-wiki"
+        ],
+        "admitted_paragraphs": 9,
+        "excluded_paragraphs": 0,
+        "review_required_paragraphs": 59,
+        "retained_narrative_characters": 10626,
+        "admitted_sections": [
+          [
+            "Storylines",
+            "Backstory"
+          ],
+          [
+            "Storylines",
+            "1985–2020"
+          ]
+        ],
+        "gaps": [
+          "Partial captured history; unreviewed sections are excluded from retrieval.",
+          "Capture time does not establish current storyline completeness.",
+          "Matching identities and repeated accounts do not independently corroborate facts."
+        ]
+      },
+      "source_passages": 15,
+      "source_characters": 10626,
+      "selected_characters": 94,
+      "extraction": [
+        {
+          "batch_id": "dot-cotton",
+          "kind": "events",
+          "state": "complete",
+          "failure": null,
+          "extraction_score": {
+            "schema_valid": true,
+            "expected": 1,
+            "predicted": 1,
+            "duplicates": 0,
+            "true_positive": 0,
+            "resolvable_spans": 0,
+            "grounded": 0,
+            "precision": 0.0,
+            "recall": 0.0,
+            "f1": 0.0,
+            "scope": "Exposed selected incidents and in-catalogue assertions only. Exact values include participant-role assignment, event type, basis, account status, polarity, certainty, story time/precision and evidence IDs. Ignore arbitrary claim/event ID spelling and label wording; incident grouping requires separate support review. Full-value duplicates collapse. Each dimension projects unique full assertions onto values plus passage IDs and event type, preserving multiplicity: identity sets, role multisets, assigned identity-role pairs (direction), polarity, timing, or account attribution. These are diagnostics, not independent per-claim accuracies. Grounding separately requires exact resolvable locators covering frozen supporting spans; it is not canon adjudication. Text classifications are scored separately by kind, character subjects, theme and passage IDs; classification-gap wording is source-reviewed rather than exact-matched. A text classification never counts as an event or connection.",
+            "dimensions": {
+              "identity": {
+                "expected": 1,
+                "predicted": 1,
+                "true_positive": 1,
+                "precision": 1.0,
+                "recall": 1.0,
+                "f1": 1.0
+              },
+              "role": {
+                "expected": 1,
+                "predicted": 1,
+                "true_positive": 1,
+                "precision": 1.0,
+                "recall": 1.0,
+                "f1": 1.0
+              },
+              "direction": {
+                "expected": 1,
+                "predicted": 1,
+                "true_positive": 1,
+                "precision": 1.0,
+                "recall": 1.0,
+                "f1": 1.0
+              },
+              "negation": {
+                "expected": 1,
+                "predicted": 1,
+                "true_positive": 1,
+                "precision": 1.0,
+                "recall": 1.0,
+                "f1": 1.0
+              },
+              "timing": {
+                "expected": 1,
+                "predicted": 1,
+                "true_positive": 0,
+                "precision": 0.0,
+                "recall": 0.0,
+                "f1": 0.0
+              },
+              "account": {
+                "expected": 1,
+                "predicted": 1,
+                "true_positive": 1,
+                "precision": 1.0,
+                "recall": 1.0,
+                "f1": 1.0
+              }
+            },
+            "by_event_type": {
+              "death": {
+                "schema_valid": true,
+                "expected": 1,
+                "predicted": 1,
+                "duplicates": 0,
+                "true_positive": 0,
+                "resolvable_spans": 0,
+                "grounded": 0,
+                "precision": 0.0,
+                "recall": 0.0,
+                "f1": 0.0,
+                "scope": "Exact normalized values within each completely annotated selected input passage. Instances match on values and sorted unique passage IDs, independently of quote offsets. Claim IDs are ignored; semantic duplicates within a passage collapse and are counted. Grounding additionally requires the entire independently reviewed supporting span. These exposed development scores are not held-out or broad-corpus quality."
+              }
+            },
+            "context_score": {
+              "schema_valid": true,
+              "expected": 0,
+              "predicted": 0,
+              "duplicates": 0,
+              "true_positive": 0,
+              "resolvable_spans": 0,
+              "grounded": 0,
+              "precision": 1.0,
+              "recall": 1.0,
+              "f1": 1.0,
+              "scope": "Exact normalized values within each completely annotated selected input passage. Instances match on values and sorted unique passage IDs, independently of quote offsets. Claim IDs are ignored; semantic duplicates within a passage collapse and are counted. Grounding additionally requires the entire independently reviewed supporting span. These exposed development scores are not held-out or broad-corpus quality."
+            },
+            "by_theme": {},
+            "by_classification": {}
+          },
+          "reviewed_reference_decisions": [
+            {
+              "claim_id": "ref-dot-cotton-1",
+              "status": "admitted",
+              "reasons": []
+            }
+          ],
+          "raw_candidate_decisions": [
+            {
+              "claim_id": "raw-dot-cotton-1",
+              "status": "held",
+              "reasons": [
+                "evidence_span",
+                "superseded"
+              ]
+            }
+          ],
+          "reference_sha256": "b527a0f60f346cf33f38616ff94dcabab27e21f42ed0c3b9703daccb7e1d8861",
+          "result_sha256": "4c01f57a990b49278880474650aa869cabeb234d05f87190380a6875deb94b81",
+          "review_note": "Over a year later dates receiving the news relative to prior events, not the actual death. Death is reported without a supported date; no imaginary witness is added.",
+          "split": "exposed_development",
+          "story_groups": [
+            "dot-death"
+          ]
+        }
+      ],
+      "known_gaps": [
+        "Only the selected excerpts and catalogue identities are completely annotated. Other narrative passages, supporting identities, relations and incidents remain unassessed.",
+        "Captured source support is not independent corroboration or exhaustive canon. Unknown dates are retained; capture and broadcast dates are not story dates."
+      ]
+    },
+    {
+      "character_id": "denise-fox",
+      "source_text": {
+        "character": {
+          "character_id": "denise-fox",
+          "name": "Denise Fox",
+          "aliases": [
+            "Denise Johnson",
+            "Denise Wicks"
+          ],
+          "performers": [
+            "Diane Parish"
+          ],
+          "coverage": "core",
+          "wikidata_id": "Q5257665",
+          "review_note": "Codex source inspection, 17 October 2026: captured character article, infobox aliases/performers and revision metadata checked. Prominence-based curated selection, not a ranked or exhaustive canon. Identity linkage is not independent story corroboration.",
+          "evidence_sources": [
+            "denise-fox-wiki"
+          ]
+        },
+        "identity_resolution": {
+          "status": "resolved",
+          "character_ids": [
+            "denise-fox"
+          ]
+        },
+        "primary_source_ids": [
+          "denise-fox-wiki"
+        ],
+        "mentioned_in_source_ids": [
+          "phil-mitchell-wiki",
+          "sharon-watts-wiki",
+          "ben-mitchell-wiki",
+          "ian-beale-wiki",
+          "lucy-beale-wiki",
+          "martin-fowler-wiki",
+          "stacey-slater-wiki",
+          "alfie-moon-wiki",
+          "max-branning-wiki",
+          "linda-carter-wiki"
+        ],
+        "admitted_paragraphs": 19,
+        "excluded_paragraphs": 0,
+        "review_required_paragraphs": 11,
+        "retained_narrative_characters": 31717,
+        "admitted_sections": [
+          [
+            "Storylines"
+          ]
+        ],
+        "gaps": [
+          "Partial captured history; unreviewed sections are excluded from retrieval.",
+          "Capture time does not establish current storyline completeness.",
+          "Matching identities and repeated accounts do not independently corroborate facts."
+        ]
+      },
+      "source_passages": 37,
+      "source_characters": 31717,
+      "selected_characters": 123,
+      "extraction": [
+        {
+          "batch_id": "denise-fox",
+          "kind": "events",
+          "state": "complete",
+          "failure": null,
+          "extraction_score": {
+            "schema_valid": true,
+            "expected": 1,
+            "predicted": 1,
+            "duplicates": 0,
+            "true_positive": 1,
+            "resolvable_spans": 1,
+            "grounded": 0,
+            "precision": 1.0,
+            "recall": 1.0,
+            "f1": 1.0,
+            "scope": "Exposed selected incidents and in-catalogue assertions only. Exact values include participant-role assignment, event type, basis, account status, polarity, certainty, story time/precision and evidence IDs. Ignore arbitrary claim/event ID spelling and label wording; incident grouping requires separate support review. Full-value duplicates collapse. Each dimension projects unique full assertions onto values plus passage IDs and event type, preserving multiplicity: identity sets, role multisets, assigned identity-role pairs (direction), polarity, timing, or account attribution. These are diagnostics, not independent per-claim accuracies. Grounding separately requires exact resolvable locators covering frozen supporting spans; it is not canon adjudication. Text classifications are scored separately by kind, character subjects, theme and passage IDs; classification-gap wording is source-reviewed rather than exact-matched. A text classification never counts as an event or connection.",
+            "dimensions": {
+              "identity": {
+                "expected": 1,
+                "predicted": 1,
+                "true_positive": 1,
+                "precision": 1.0,
+                "recall": 1.0,
+                "f1": 1.0
+              },
+              "role": {
+                "expected": 1,
+                "predicted": 1,
+                "true_positive": 1,
+                "precision": 1.0,
+                "recall": 1.0,
+                "f1": 1.0
+              },
+              "direction": {
+                "expected": 1,
+                "predicted": 1,
+                "true_positive": 1,
+                "precision": 1.0,
+                "recall": 1.0,
+                "f1": 1.0
+              },
+              "negation": {
+                "expected": 1,
+                "predicted": 1,
+                "true_positive": 1,
+                "precision": 1.0,
+                "recall": 1.0,
+                "f1": 1.0
+              },
+              "timing": {
+                "expected": 1,
+                "predicted": 1,
+                "true_positive": 1,
+                "precision": 1.0,
+                "recall": 1.0,
+                "f1": 1.0
+              },
+              "account": {
+                "expected": 1,
+                "predicted": 1,
+                "true_positive": 1,
+                "precision": 1.0,
+                "recall": 1.0,
+                "f1": 1.0
+              }
+            },
+            "by_event_type": {
+              "pregnancy": {
+                "schema_valid": true,
+                "expected": 1,
+                "predicted": 1,
+                "duplicates": 0,
+                "true_positive": 1,
+                "resolvable_spans": 1,
+                "grounded": 0,
+                "precision": 1.0,
+                "recall": 1.0,
+                "f1": 1.0,
+                "scope": "Exact normalized values within each completely annotated selected input passage. Instances match on values and sorted unique passage IDs, independently of quote offsets. Claim IDs are ignored; semantic duplicates within a passage collapse and are counted. Grounding additionally requires the entire independently reviewed supporting span. These exposed development scores are not held-out or broad-corpus quality."
+              }
+            },
+            "context_score": {
+              "schema_valid": true,
+              "expected": 0,
+              "predicted": 0,
+              "duplicates": 0,
+              "true_positive": 0,
+              "resolvable_spans": 0,
+              "grounded": 0,
+              "precision": 1.0,
+              "recall": 1.0,
+              "f1": 1.0,
+              "scope": "Exact normalized values within each completely annotated selected input passage. Instances match on values and sorted unique passage IDs, independently of quote offsets. Claim IDs are ignored; semantic duplicates within a passage collapse and are counted. Grounding additionally requires the entire independently reviewed supporting span. These exposed development scores are not held-out or broad-corpus quality."
+            },
+            "by_theme": {},
+            "by_classification": {}
+          },
+          "reviewed_reference_decisions": [
+            {
+              "claim_id": "ref-denise-fox-1",
+              "status": "admitted",
+              "reasons": []
+            }
+          ],
+          "raw_candidate_decisions": [
+            {
+              "claim_id": "raw-denise-fox-1",
+              "status": "held",
+              "reasons": [
+                "superseded"
+              ]
+            }
+          ],
+          "reference_sha256": "5fdcc355409513d42aa02c9807018e18a0ac9e035c5c4672945be12b15eed7b5",
+          "result_sha256": "29fe94379a1d1ebb2aead04344e324f97334cc1d22bf25757f1f34586fe0e516",
+          "review_note": "Confirmed pregnancy. Initial fear of cancer is not a confirmed diagnosis. No paternity or unborn character is inferred.",
+          "split": "exposed_development",
+          "story_groups": [
+            "denise-pregnancy"
+          ]
+        }
+      ],
+      "known_gaps": [
+        "Only the selected excerpts and catalogue identities are completely annotated. Other narrative passages, supporting identities, relations and incidents remain unassessed.",
+        "Captured source support is not independent corroboration or exhaustive canon. Unknown dates are retained; capture and broadcast dates are not story dates."
+      ]
+    },
+    {
+      "character_id": "max-branning",
+      "source_text": {
+        "character": {
+          "character_id": "max-branning",
+          "name": "Max Branning",
+          "aliases": [],
+          "performers": [
+            "Jake Wood"
+          ],
+          "coverage": "core",
+          "wikidata_id": "Q6794615",
+          "review_note": "Codex source inspection, 17 October 2026: captured character article, infobox aliases/performers and revision metadata checked. Prominence-based curated selection, not a ranked or exhaustive canon. Identity linkage is not independent story corroboration.",
+          "evidence_sources": [
+            "max-branning-wiki"
+          ]
+        },
+        "identity_resolution": {
+          "status": "resolved",
+          "character_ids": [
+            "max-branning"
+          ]
+        },
+        "primary_source_ids": [
+          "max-branning-wiki"
+        ],
+        "mentioned_in_source_ids": [
+          "phil-mitchell-wiki",
+          "sharon-watts-wiki",
+          "ben-mitchell-wiki",
+          "ian-beale-wiki",
+          "kathy-beale-wiki",
+          "cindy-beale-wiki",
+          "bobby-beale-wiki",
+          "martin-fowler-wiki",
+          "kat-slater-wiki",
+          "stacey-slater-wiki",
+          "denise-fox-wiki",
+          "linda-carter-wiki"
+        ],
+        "admitted_paragraphs": 33,
+        "excluded_paragraphs": 0,
+        "review_required_paragraphs": 16,
+        "retained_narrative_characters": 50980,
+        "admitted_sections": [
+          [
+            "Storylines",
+            "2006–2021"
+          ],
+          [
+            "Storylines",
+            "2025–present"
+          ]
+        ],
+        "gaps": [
+          "Partial captured history; unreviewed sections are excluded from retrieval.",
+          "Capture time does not establish current storyline completeness.",
+          "Matching identities and repeated accounts do not independently corroborate facts."
+        ]
+      },
+      "source_passages": 63,
+      "source_characters": 50980,
+      "selected_characters": 235,
+      "extraction": [
+        {
+          "batch_id": "max-branning",
+          "kind": "relationships",
+          "state": "complete",
+          "failure": null,
+          "extraction_score": {
+            "expected": 1,
+            "predicted": 1,
+            "true_positive": 0,
+            "precision": 0.0,
+            "recall": 0.0,
+            "f1": 0.0,
+            "schema_valid": true,
+            "duplicates": 0,
+            "resolvable_spans": 0,
+            "grounded": 0,
+            "episode_pairs_expected": 0,
+            "episode_pairs_correct": 0,
+            "ordering_expected": 0,
+            "ordering_predicted": 0,
+            "ordering_correct": 0,
+            "alignment_limited": false,
+            "by_relation": {
+              "affair": {
+                "expected": 1,
+                "predicted": 1,
+                "true_positive": 0,
+                "precision": 0.0,
+                "recall": 0.0,
+                "f1": 0.0
+              }
+            },
+            "scope": "Exposed, completely annotated in-catalogue spans only. Match values and unique passage IDs, with frozen timing alternatives; ignore arbitrary claim/episode IDs. Romantic pairs are symmetric; parent/guardian roles are directed. Distinct episode instances retain multiplicity; duplicates within the same episode collapse. One-to-one value matching ignores ID spelling. Ambiguous alignments maximize episode agreement, then ordering; over 4096 alternatives leaves those two scores unavailable. Raw duplicates and full-reference-span grounding are separate. Missing episode pairs fail. This conservative grounding proxy is not independent semantic/canon adjudication."
+          },
+          "reviewed_reference_decisions": [
+            {
+              "claim_id": "ref-max-branning-1",
+              "status": "admitted",
+              "reasons": []
+            }
+          ],
+          "raw_candidate_decisions": [
+            {
+              "claim_id": "raw-max-branning-1",
+              "status": "held",
+              "reasons": [
+                "evidence_span",
+                "superseded"
+              ]
+            }
+          ],
+          "reference_sha256": "6af364658ab407072bac042fd07991242b5d78a4789a378400681f0ce4a28bfe",
+          "result_sha256": "4c1fa574cea7d13397e27c17064ff29dbb0d13157a8e09deb0833d5790af8e77",
+          "review_note": "An explicit affair. Christmas 2006 dates the approach/kiss; the affair starts “soon” after. Preserve relative start, not an invented date or current status.",
+          "split": "exposed_development",
+          "story_groups": [
+            "max-stacey-affair"
+          ]
+        }
+      ],
+      "known_gaps": [
+        "Only the selected excerpts and catalogue identities are completely annotated. Other narrative passages, supporting identities, relations and incidents remain unassessed.",
+        "Captured source support is not independent corroboration or exhaustive canon. Unknown dates are retained; capture and broadcast dates are not story dates."
+      ]
+    },
+    {
+      "character_id": "linda-carter",
+      "source_text": {
+        "character": {
+          "character_id": "linda-carter",
+          "name": "Linda Carter",
+          "aliases": [
+            "Linda Peacock"
+          ],
+          "performers": [
+            "Kellie Bright"
+          ],
+          "coverage": "core",
+          "wikidata_id": "Q17620076",
+          "review_note": "Codex source inspection, 17 October 2026: captured character article, infobox aliases/performers and revision metadata checked. Prominence-based curated selection, not a ranked or exhaustive canon. Identity linkage is not independent story corroboration.",
+          "evidence_sources": [
+            "linda-carter-wiki"
+          ]
+        },
+        "identity_resolution": {
+          "status": "resolved",
+          "character_ids": [
+            "linda-carter"
+          ]
+        },
+        "primary_source_ids": [
+          "linda-carter-wiki"
+        ],
+        "mentioned_in_source_ids": [
+          "phil-mitchell-wiki",
+          "grant-mitchell-wiki",
+          "sharon-watts-wiki",
+          "ben-mitchell-wiki",
+          "ian-beale-wiki",
+          "kathy-beale-wiki",
+          "cindy-beale-wiki",
+          "martin-fowler-wiki",
+          "kat-slater-wiki",
+          "stacey-slater-wiki",
+          "alfie-moon-wiki",
+          "janine-butcher-wiki",
+          "max-branning-wiki"
+        ],
+        "admitted_paragraphs": 26,
+        "excluded_paragraphs": 0,
+        "review_required_paragraphs": 20,
+        "retained_narrative_characters": 42500,
+        "admitted_sections": [
+          [
+            "Storylines"
+          ]
+        ],
+        "gaps": [
+          "Partial captured history; unreviewed sections are excluded from retrieval.",
+          "Capture time does not establish current storyline completeness.",
+          "Matching identities and repeated accounts do not independently corroborate facts."
+        ]
+      },
+      "source_passages": 47,
+      "source_characters": 42500,
+      "selected_characters": 161,
+      "extraction": [
+        {
+          "batch_id": "linda-carter",
+          "kind": "events",
+          "state": "complete",
+          "failure": null,
+          "extraction_score": {
+            "schema_valid": true,
+            "expected": 1,
+            "predicted": 1,
+            "duplicates": 0,
+            "true_positive": 1,
+            "resolvable_spans": 0,
+            "grounded": 0,
+            "precision": 1.0,
+            "recall": 1.0,
+            "f1": 1.0,
+            "scope": "Exposed selected incidents and in-catalogue assertions only. Exact values include participant-role assignment, event type, basis, account status, polarity, certainty, story time/precision and evidence IDs. Ignore arbitrary claim/event ID spelling and label wording; incident grouping requires separate support review. Full-value duplicates collapse. Each dimension projects unique full assertions onto values plus passage IDs and event type, preserving multiplicity: identity sets, role multisets, assigned identity-role pairs (direction), polarity, timing, or account attribution. These are diagnostics, not independent per-claim accuracies. Grounding separately requires exact resolvable locators covering frozen supporting spans; it is not canon adjudication. Text classifications are scored separately by kind, character subjects, theme and passage IDs; classification-gap wording is source-reviewed rather than exact-matched. A text classification never counts as an event or connection.",
+            "dimensions": {
+              "identity": {
+                "expected": 1,
+                "predicted": 1,
+                "true_positive": 1,
+                "precision": 1.0,
+                "recall": 1.0,
+                "f1": 1.0
+              },
+              "role": {
+                "expected": 1,
+                "predicted": 1,
+                "true_positive": 1,
+                "precision": 1.0,
+                "recall": 1.0,
+                "f1": 1.0
+              },
+              "direction": {
+                "expected": 1,
+                "predicted": 1,
+                "true_positive": 1,
+                "precision": 1.0,
+                "recall": 1.0,
+                "f1": 1.0
+              },
+              "negation": {
+                "expected": 1,
+                "predicted": 1,
+                "true_positive": 1,
+                "precision": 1.0,
+                "recall": 1.0,
+                "f1": 1.0
+              },
+              "timing": {
+                "expected": 1,
+                "predicted": 1,
+                "true_positive": 1,
+                "precision": 1.0,
+                "recall": 1.0,
+                "f1": 1.0
+              },
+              "account": {
+                "expected": 1,
+                "predicted": 1,
+                "true_positive": 1,
+                "precision": 1.0,
+                "recall": 1.0,
+                "f1": 1.0
+              }
+            },
+            "by_event_type": {
+              "pregnancy": {
+                "schema_valid": true,
+                "expected": 1,
+                "predicted": 1,
+                "duplicates": 0,
+                "true_positive": 1,
+                "resolvable_spans": 0,
+                "grounded": 0,
+                "precision": 1.0,
+                "recall": 1.0,
+                "f1": 1.0,
+                "scope": "Exact normalized values within each completely annotated selected input passage. Instances match on values and sorted unique passage IDs, independently of quote offsets. Claim IDs are ignored; semantic duplicates within a passage collapse and are counted. Grounding additionally requires the entire independently reviewed supporting span. These exposed development scores are not held-out or broad-corpus quality."
+              }
+            },
+            "context_score": {
+              "schema_valid": true,
+              "expected": 0,
+              "predicted": 0,
+              "duplicates": 0,
+              "true_positive": 0,
+              "resolvable_spans": 0,
+              "grounded": 0,
+              "precision": 1.0,
+              "recall": 1.0,
+              "f1": 1.0,
+              "scope": "Exact normalized values within each completely annotated selected input passage. Instances match on values and sorted unique passage IDs, independently of quote offsets. Claim IDs are ignored; semantic duplicates within a passage collapse and are counted. Grounding additionally requires the entire independently reviewed supporting span. These exposed development scores are not held-out or broad-corpus quality."
+            },
+            "by_theme": {},
+            "by_classification": {}
+          },
+          "reviewed_reference_decisions": [
+            {
+              "claim_id": "ref-linda-carter-1",
+              "status": "admitted",
+              "reasons": []
+            }
+          ],
+          "raw_candidate_decisions": [
+            {
+              "claim_id": "raw-linda-carter-1",
+              "status": "held",
+              "reasons": [
+                "evidence_span",
+                "superseded"
+              ]
+            }
+          ],
+          "reference_sha256": "a058031a676a1bff39f22995d17378b43f232d63f73056066b281963c046c894",
+          "result_sha256": "a66e35d6167a694bceac229c0fe2c0f51ffd50ff395b70dba1a88624dab744bf",
+          "review_note": "The test confirms pregnancy; theory alone would not. No father, child identity or date is inferred. The wider assault context remains in the full captured source.",
+          "split": "exposed_development",
+          "story_groups": [
+            "linda-pregnancy"
+          ]
+        }
+      ],
+      "known_gaps": [
+        "Only the selected excerpts and catalogue identities are completely annotated. Other narrative passages, supporting identities, relations and incidents remain unassessed.",
+        "Captured source support is not independent corroboration or exhaustive canon. Unknown dates are retained; capture and broadcast dates are not story dates."
+      ]
+    }
+  ],
+  "story_groups": {
+    "ben-birth": [
+      "phil-mitchell",
+      "ben-mitchell",
+      "kathy-beale"
+    ],
+    "sharongate": [
+      "phil-tape",
+      "grant-abuse"
+    ],
+    "grant-sharon-marriage": [
+      "grant-mitchell"
+    ],
+    "peggy-phil-parentage": [
+      "peggy-mitchell"
+    ],
+    "sharon-adoption": [
+      "sharon-watts"
+    ],
+    "lucy-birth": [
+      "ian-beale",
+      "lucy-beale"
+    ],
+    "cindy-twins-pregnancy": [
+      "cindy-beale"
+    ],
+    "lucy-murder": [
+      "bobby-beale"
+    ],
+    "martin-stacey-marriage": [
+      "martin-fowler",
+      "stacey-slater"
+    ],
+    "kat-alfie-marriages": [
+      "kat-slater",
+      "alfie-moon"
+    ],
+    "pat-death": [
+      "pat-butcher"
+    ],
+    "laura-death-charge": [
+      "janine-butcher"
+    ],
+    "dot-death": [
+      "dot-cotton"
+    ],
+    "denise-pregnancy": [
+      "denise-fox"
+    ],
+    "max-stacey-affair": [
+      "max-branning"
+    ],
+    "linda-pregnancy": [
+      "linda-carter"
+    ]
+  },
+  "exact_duplicate_paragraphs": [
+    {
+      "sha256": "1490f63c60e6d917febe8976718bd9d359034523c9d1ef754fefd8a6eedf7869",
+      "locations": [
+        {
+          "source_id": "kat-slater-wiki",
+          "paragraph_ordinal": 17
+        },
+        {
+          "source_id": "alfie-moon-wiki",
+          "paragraph_ordinal": 6
+        }
+      ]
+    },
+    {
+      "sha256": "91ba7def5e90254da8cf4c18e05c00c603d1ac022e2e50f3b1a631cd81ff4cae",
+      "locations": [
+        {
+          "source_id": "kat-slater-wiki",
+          "paragraph_ordinal": 18
+        },
+        {
+          "source_id": "alfie-moon-wiki",
+          "paragraph_ordinal": 7
+        }
+      ]
+    }
+  ],
+  "admissions": {
+    "family": {
+      "batch_sha256": "e86713d3e04c37f6564b20974d7f4f98e03cc47d45c742898b7164f6d7fd7429",
+      "decisions": [
+        {
+          "claim_id": "ref-phil-mitchell-1",
+          "status": "admitted",
+          "reasons": []
+        },
+        {
+          "claim_id": "ref-phil-mitchell-2",
+          "status": "admitted",
+          "reasons": []
+        },
+        {
+          "claim_id": "raw-phil-mitchell-1",
+          "status": "held",
+          "reasons": [
+            "superseded"
+          ]
+        },
+        {
+          "claim_id": "raw-phil-mitchell-2",
+          "status": "held",
+          "reasons": [
+            "superseded"
+          ]
+        },
+        {
+          "claim_id": "ref-peggy-mitchell-1",
+          "status": "admitted",
+          "reasons": []
+        },
+        {
+          "claim_id": "raw-peggy-mitchell-1",
+          "status": "held",
+          "reasons": [
+            "superseded"
+          ]
+        },
+        {
+          "claim_id": "ref-ben-mitchell-1",
+          "status": "admitted",
+          "reasons": []
+        },
+        {
+          "claim_id": "ref-ben-mitchell-2",
+          "status": "admitted",
+          "reasons": []
+        },
+        {
+          "claim_id": "raw-ben-mitchell-1",
+          "status": "held",
+          "reasons": [
+            "superseded"
+          ]
+        },
+        {
+          "claim_id": "raw-ben-mitchell-2",
+          "status": "held",
+          "reasons": [
+            "superseded"
+          ]
+        },
+        {
+          "claim_id": "ref-ian-beale-1",
+          "status": "admitted",
+          "reasons": []
+        },
+        {
+          "claim_id": "raw-ian-beale-1",
+          "status": "held",
+          "reasons": [
+            "superseded",
+            "uncertain"
+          ]
+        },
+        {
+          "claim_id": "ref-kathy-beale-1",
+          "status": "admitted",
+          "reasons": []
+        },
+        {
+          "claim_id": "ref-kathy-beale-2",
+          "status": "admitted",
+          "reasons": []
+        },
+        {
+          "claim_id": "raw-kathy-beale-1",
+          "status": "held",
+          "reasons": [
+            "evidence_span",
+            "superseded"
+          ]
+        },
+        {
+          "claim_id": "raw-kathy-beale-2",
+          "status": "held",
+          "reasons": [
+            "evidence_span",
+            "superseded",
+            "uncertain"
+          ]
+        },
+        {
+          "claim_id": "ref-lucy-beale-1",
+          "status": "admitted",
+          "reasons": []
+        },
+        {
+          "claim_id": "ref-lucy-beale-2",
+          "status": "admitted",
+          "reasons": []
+        },
+        {
+          "claim_id": "raw-lucy-beale-1",
+          "status": "held",
+          "reasons": [
+            "superseded"
+          ]
+        },
+        {
+          "claim_id": "raw-lucy-beale-2",
+          "status": "held",
+          "reasons": [
+            "superseded"
+          ]
+        }
+      ],
+      "limitation": "Admission requires a content-bound support review. It is not independent canon corroboration. Held claims remain inspectable outside the biological tree."
+    },
+    "relationship": {
+      "batch_sha256": "52374bc0a821003aaeab87527e087b20d3c19a99fa6146013af1752b046df24f",
+      "decisions": [
+        {
+          "claim_id": "ref-grant-mitchell-1",
+          "status": "admitted",
+          "reasons": []
+        },
+        {
+          "claim_id": "raw-grant-mitchell-1",
+          "status": "held",
+          "reasons": [
+            "superseded"
+          ]
+        },
+        {
+          "claim_id": "ref-sharon-watts-1",
+          "status": "admitted",
+          "reasons": []
+        },
+        {
+          "claim_id": "raw-sharon-watts-1",
+          "status": "held",
+          "reasons": [
+            "superseded"
+          ]
+        },
+        {
+          "claim_id": "ref-martin-fowler-1",
+          "status": "admitted",
+          "reasons": []
+        },
+        {
+          "claim_id": "raw-martin-fowler-1",
+          "status": "held",
+          "reasons": [
+            "superseded"
+          ]
+        },
+        {
+          "claim_id": "ref-kat-slater-1",
+          "status": "admitted",
+          "reasons": []
+        },
+        {
+          "claim_id": "raw-kat-slater-1",
+          "status": "held",
+          "reasons": [
+            "evidence_span",
+            "superseded"
+          ]
+        },
+        {
+          "claim_id": "ref-stacey-slater-1",
+          "status": "held",
+          "reasons": [
+            "superseded"
+          ]
+        },
+        {
+          "claim_id": "raw-stacey-slater-1",
+          "status": "held",
+          "reasons": [
+            "superseded"
+          ]
+        },
+        {
+          "claim_id": "ref-alfie-moon-1",
+          "status": "admitted",
+          "reasons": []
+        },
+        {
+          "claim_id": "raw-alfie-moon-1",
+          "status": "held",
+          "reasons": [
+            "superseded"
+          ]
+        },
+        {
+          "claim_id": "ref-max-branning-1",
+          "status": "admitted",
+          "reasons": []
+        },
+        {
+          "claim_id": "raw-max-branning-1",
+          "status": "held",
+          "reasons": [
+            "evidence_span",
+            "superseded"
+          ]
+        }
+      ],
+      "limitation": "Only admitted assertions from selected reviewed spans are shown. Social ties never establish biological ancestry. Status is as reported in the captured account, not a claim about the present. Only explicit after links establish ordering; otherwise listing order is not chronology. Missing history does not prove a relationship never existed. Source-supported does not mean independently cross-checked."
+    },
+    "event": {
+      "batch_sha256": "466e0854f6b09213fdabd94ce2dd254a049f41398b987fd7d0edb87e5b5a8f03",
+      "decisions": [
+        {
+          "claim_id": "ref-cindy-beale-1",
+          "status": "admitted",
+          "reasons": []
+        },
+        {
+          "claim_id": "raw-cindy-beale-1",
+          "status": "held",
+          "reasons": [
+            "superseded"
+          ]
+        },
+        {
+          "claim_id": "ref-bobby-beale-1",
+          "status": "admitted",
+          "reasons": []
+        },
+        {
+          "claim_id": "ref-bobby-beale-2",
+          "status": "admitted",
+          "reasons": []
+        },
+        {
+          "claim_id": "raw-bobby-beale-1",
+          "status": "held",
+          "reasons": [
+            "evidence_span",
+            "superseded",
+            "commission_support"
+          ]
+        },
+        {
+          "claim_id": "raw-bobby-beale-2",
+          "status": "held",
+          "reasons": [
+            "evidence_span",
+            "superseded"
+          ]
+        },
+        {
+          "claim_id": "ref-pat-butcher-1",
+          "status": "admitted",
+          "reasons": []
+        },
+        {
+          "claim_id": "raw-pat-butcher-1",
+          "status": "held",
+          "reasons": [
+            "superseded"
+          ]
+        },
+        {
+          "claim_id": "ref-janine-butcher-1",
+          "status": "admitted",
+          "reasons": []
+        },
+        {
+          "claim_id": "ref-janine-butcher-2",
+          "status": "admitted",
+          "reasons": []
+        },
+        {
+          "claim_id": "ref-janine-butcher-3",
+          "status": "admitted",
+          "reasons": []
+        },
+        {
+          "claim_id": "raw-janine-butcher-1",
+          "status": "held",
+          "reasons": [
+            "identity",
+            "support_review_required"
+          ]
+        },
+        {
+          "claim_id": "raw-janine-butcher-2",
+          "status": "held",
+          "reasons": [
+            "evidence_span",
+            "superseded"
+          ]
+        },
+        {
+          "claim_id": "raw-janine-butcher-3",
+          "status": "held",
+          "reasons": [
+            "evidence_span",
+            "superseded"
+          ]
+        },
+        {
+          "claim_id": "raw-janine-butcher-4",
+          "status": "held",
+          "reasons": [
+            "evidence_span",
+            "superseded"
+          ]
+        },
+        {
+          "claim_id": "ref-dot-cotton-1",
+          "status": "admitted",
+          "reasons": []
+        },
+        {
+          "claim_id": "raw-dot-cotton-1",
+          "status": "held",
+          "reasons": [
+            "evidence_span",
+            "superseded"
+          ]
+        },
+        {
+          "claim_id": "ref-denise-fox-1",
+          "status": "admitted",
+          "reasons": []
+        },
+        {
+          "claim_id": "raw-denise-fox-1",
+          "status": "held",
+          "reasons": [
+            "superseded"
+          ]
+        },
+        {
+          "claim_id": "ref-linda-carter-1",
+          "status": "admitted",
+          "reasons": []
+        },
+        {
+          "claim_id": "raw-linda-carter-1",
+          "status": "held",
+          "reasons": [
+            "evidence_span",
+            "superseded"
+          ]
+        },
+        {
+          "claim_id": "ref-grant-abuse-1",
+          "status": "admitted",
+          "reasons": []
+        },
+        {
+          "claim_id": "ref-grant-abuse-2",
+          "status": "admitted",
+          "reasons": []
+        },
+        {
+          "claim_id": "raw-grant-abuse-1",
+          "status": "held",
+          "reasons": [
+            "superseded"
+          ]
+        },
+        {
+          "claim_id": "raw-grant-abuse-2",
+          "status": "held",
+          "reasons": [
+            "superseded"
+          ]
+        }
+      ],
+      "text_decisions": [
+        {
+          "claim_id": "ref-phil-tape-text-1",
+          "status": "admitted",
+          "reasons": []
+        },
+        {
+          "claim_id": "raw-phil-tape-1",
+          "status": "held",
+          "reasons": [
+            "evidence_span",
+            "superseded"
+          ]
+        },
+        {
+          "claim_id": "ref-grant-abuse-text-1",
+          "status": "admitted",
+          "reasons": []
+        },
+        {
+          "claim_id": "raw-grant-abuse-3",
+          "status": "held",
+          "reasons": [
+            "superseded"
+          ]
+        }
+      ],
+      "limitation": "Only admitted assertions about selected captured incidents are shown. An accusation, confession, charge, conviction, acquittal, imprisonment, release or court appearance alone establishes neither commission nor innocence. Only separately reviewed narrative support establishes commission. An empty legal history does not prove that a character committed no crime. Listing order is not chronology; unknown dates remain unknown. Source-supported does not mean independently cross-checked."
+    }
+  },
+  "limitation": "Per-batch value and grounding scores cover fully annotated selected excerpts only. Other captured text remains available and unassessed for extraction. Curated graph capability is separate from original extraction quality. All cases are exposed development, without human adjudication or independent corroboration."
+}

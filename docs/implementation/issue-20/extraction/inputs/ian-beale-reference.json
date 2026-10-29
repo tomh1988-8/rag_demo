@@ -1,0 +1,72 @@
+{
+  "expected_claims": [
+    {
+      "parent_id": "ian-beale",
+      "child_id": "lucy-beale",
+      "parent_role": "father",
+      "relation": "biological_parent",
+      "polarity": "affirmed",
+      "certainty": "certain",
+      "story_time": "December 1993",
+      "time_precision": "exact",
+      "claim_id": "ref-ian-beale-1",
+      "evidence": [
+        {
+          "evidence_id": "coverage-ian-beale",
+          "start": 0,
+          "end": 161,
+          "quote": "He and Cindy later reconcile and Ian is overjoyed to become a father to twins, Peter (Francis Brittin-Snell) and Lucy Beale (Eva Brittin-Snell) in December 1993."
+        }
+      ]
+    }
+  ],
+  "snapshot_sha256": "cc7144cb209fa197145a889a07a41dd4b920713607f03c638976bbdff9139734",
+  "catalogue": {
+    "characters": [
+      {
+        "character_id": "ian-beale",
+        "name": "Ian Beale",
+        "aliases": [
+          "Ian Albert Beale"
+        ],
+        "performers": [
+          "Adam Woodyatt"
+        ],
+        "coverage": "core",
+        "wikidata_id": "Q899011",
+        "review_note": "Codex source inspection, 17 October 2026: captured character article, infobox aliases/performers and revision metadata checked. Prominence-based curated selection, not a ranked or exhaustive canon. Identity linkage is not independent story corroboration.",
+        "evidence_sources": [
+          "ian-beale-wiki"
+        ]
+      },
+      {
+        "character_id": "lucy-beale",
+        "name": "Lucy Beale",
+        "aliases": [],
+        "performers": [
+          "Eva Brittin-Snell",
+          "Casey Anne Rothery",
+          "Melissa Suffield",
+          "Hetti Bywater"
+        ],
+        "coverage": "core",
+        "wikidata_id": "Q3304512",
+        "review_note": "Codex source inspection, 17 October 2026: captured character article, infobox aliases/performers and revision metadata checked. Prominence-based curated selection, not a ranked or exhaustive canon. Identity linkage is not independent story corroboration.",
+        "evidence_sources": [
+          "lucy-beale-wiki"
+        ]
+      }
+    ]
+  },
+  "origin_snapshot_sha256": "2ea666180ca9600a6d8e35ae7049d21f682d9090cddc92f63630d9250d7a6c76",
+  "annotation_sha256": "56275247f9cf2976827f1fd6d9df6ae7682c73da343bc615b819e3f22a7571bb",
+  "reviewer": "Codex source-based annotation, before extraction; not human canon adjudication",
+  "review_note": "Becoming father to newborn twins supports Ian as biological father of Lucy. Peter and Cindy are outside this narrow catalogue, so neither is a negative reference.",
+  "synthetic": false,
+  "cross_source_checked": false,
+  "split": "exposed_development",
+  "story_groups": [
+    "lucy-birth"
+  ],
+  "completeness": "All explicit in-catalogue assertions of the selected family within these excerpts; events are restricted to the declared incidents."
+}

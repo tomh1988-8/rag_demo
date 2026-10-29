@@ -1,0 +1,265 @@
+{
+  "plan_sha256": "16bd084f870d152d269ae65f05a3165e11d9d7561b95e1da169c4231ab8584b5",
+  "application_sha256": "fb0feb5e544ebda762ad53e5e230df1df87f572c892932a23215a4f35ea0855b",
+  "profile": {
+    "provider_type": "openrouter",
+    "answer_model": "openai/gpt-6-sol",
+    "canonical_slug": "openai/gpt-6-sol-20260922",
+    "provider": "openai",
+    "input_price_per_million": "2",
+    "output_price_per_million": "10",
+    "output_tokens": 8192,
+    "reasoning_effort": "low",
+    "request_timeout_seconds": 180
+  },
+  "state": "incomplete",
+  "batches": [
+    {
+      "batch_id": "phil-mitchell",
+      "character_id": "phil-mitchell",
+      "kind": "family",
+      "state": "complete",
+      "gaps": [
+        "Only the selected excerpts and catalogue identities are completely annotated. Other narrative passages, supporting identities, relations and incidents remain unassessed.",
+        "Captured source support is not independent corroboration or exhaustive canon. Unknown dates are retained; capture and broadcast dates are not story dates."
+      ],
+      "failure": null,
+      "score": {
+        "schema_valid": true,
+        "expected": 2,
+        "predicted": 2,
+        "duplicates": 0,
+        "true_positive": 0,
+        "resolvable_spans": 2,
+        "grounded": 0,
+        "precision": 0.0,
+        "recall": 0.0,
+        "f1": 0.0,
+        "scope": "Exact normalized values within each completely annotated selected input passage. Instances match on values and sorted unique passage IDs, independently of quote offsets. Claim IDs are ignored; semantic duplicates within a passage collapse and are counted. Grounding additionally requires the entire independently reviewed supporting span. These exposed development scores are not held-out or broad-corpus quality."
+      },
+      "usage": {
+        "reservation_id": "081c728513fd48a6bfb3c3195d2ae268",
+        "reserved_usd": 0.106208,
+        "cost_usd": 0.010896,
+        "request_id": "gen-1793212339-x8KW3omJXcMqkmgPi2Ey",
+        "returned_model": "openai/gpt-6-sol",
+        "provider": "OpenAI",
+        "input_tokens": 1703,
+        "output_tokens": 664,
+        "reasoning_tokens": 464
+      },
+      "result_sha256": "1b5c7b94195ff880da84543db4d896f38ecd483d8fe354e5c38e4c7f148c70aa"
+    },
+    {
+      "batch_id": "grant-mitchell",
+      "character_id": "grant-mitchell",
+      "kind": "relationships",
+      "state": "pending",
+      "gaps": [
+        "Only the selected excerpts and catalogue identities are completely annotated. Other narrative passages, supporting identities, relations and incidents remain unassessed.",
+        "Captured source support is not independent corroboration or exhaustive canon. Unknown dates are retained; capture and broadcast dates are not story dates."
+      ]
+    },
+    {
+      "batch_id": "peggy-mitchell",
+      "character_id": "peggy-mitchell",
+      "kind": "family",
+      "state": "pending",
+      "gaps": [
+        "Only the selected excerpts and catalogue identities are completely annotated. Other narrative passages, supporting identities, relations and incidents remain unassessed.",
+        "Captured source support is not independent corroboration or exhaustive canon. Unknown dates are retained; capture and broadcast dates are not story dates."
+      ]
+    },
+    {
+      "batch_id": "sharon-watts",
+      "character_id": "sharon-watts",
+      "kind": "relationships",
+      "state": "pending",
+      "gaps": [
+        "Only the selected excerpts and catalogue identities are completely annotated. Other narrative passages, supporting identities, relations and incidents remain unassessed.",
+        "Captured source support is not independent corroboration or exhaustive canon. Unknown dates are retained; capture and broadcast dates are not story dates."
+      ]
+    },
+    {
+      "batch_id": "ben-mitchell",
+      "character_id": "ben-mitchell",
+      "kind": "family",
+      "state": "pending",
+      "gaps": [
+        "Only the selected excerpts and catalogue identities are completely annotated. Other narrative passages, supporting identities, relations and incidents remain unassessed.",
+        "Captured source support is not independent corroboration or exhaustive canon. Unknown dates are retained; capture and broadcast dates are not story dates."
+      ]
+    },
+    {
+      "batch_id": "ian-beale",
+      "character_id": "ian-beale",
+      "kind": "family",
+      "state": "pending",
+      "gaps": [
+        "Only the selected excerpts and catalogue identities are completely annotated. Other narrative passages, supporting identities, relations and incidents remain unassessed.",
+        "Captured source support is not independent corroboration or exhaustive canon. Unknown dates are retained; capture and broadcast dates are not story dates."
+      ]
+    },
+    {
+      "batch_id": "kathy-beale",
+      "character_id": "kathy-beale",
+      "kind": "family",
+      "state": "pending",
+      "gaps": [
+        "Only the selected excerpts and catalogue identities are completely annotated. Other narrative passages, supporting identities, relations and incidents remain unassessed.",
+        "Captured source support is not independent corroboration or exhaustive canon. Unknown dates are retained; capture and broadcast dates are not story dates."
+      ]
+    },
+    {
+      "batch_id": "cindy-beale",
+      "character_id": "cindy-beale",
+      "kind": "events",
+      "state": "pending",
+      "gaps": [
+        "Only the selected excerpts and catalogue identities are completely annotated. Other narrative passages, supporting identities, relations and incidents remain unassessed.",
+        "Captured source support is not independent corroboration or exhaustive canon. Unknown dates are retained; capture and broadcast dates are not story dates."
+      ]
+    },
+    {
+      "batch_id": "lucy-beale",
+      "character_id": "lucy-beale",
+      "kind": "family",
+      "state": "pending",
+      "gaps": [
+        "Only the selected excerpts and catalogue identities are completely annotated. Other narrative passages, supporting identities, relations and incidents remain unassessed.",
+        "Captured source support is not independent corroboration or exhaustive canon. Unknown dates are retained; capture and broadcast dates are not story dates."
+      ]
+    },
+    {
+      "batch_id": "bobby-beale",
+      "character_id": "bobby-beale",
+      "kind": "events",
+      "state": "pending",
+      "gaps": [
+        "Only the selected excerpts and catalogue identities are completely annotated. Other narrative passages, supporting identities, relations and incidents remain unassessed.",
+        "Captured source support is not independent corroboration or exhaustive canon. Unknown dates are retained; capture and broadcast dates are not story dates."
+      ]
+    },
+    {
+      "batch_id": "martin-fowler",
+      "character_id": "martin-fowler",
+      "kind": "relationships",
+      "state": "pending",
+      "gaps": [
+        "Only the selected excerpts and catalogue identities are completely annotated. Other narrative passages, supporting identities, relations and incidents remain unassessed.",
+        "Captured source support is not independent corroboration or exhaustive canon. Unknown dates are retained; capture and broadcast dates are not story dates."
+      ]
+    },
+    {
+      "batch_id": "kat-slater",
+      "character_id": "kat-slater",
+      "kind": "relationships",
+      "state": "pending",
+      "gaps": [
+        "Only the selected excerpts and catalogue identities are completely annotated. Other narrative passages, supporting identities, relations and incidents remain unassessed.",
+        "Captured source support is not independent corroboration or exhaustive canon. Unknown dates are retained; capture and broadcast dates are not story dates."
+      ]
+    },
+    {
+      "batch_id": "stacey-slater",
+      "character_id": "stacey-slater",
+      "kind": "relationships",
+      "state": "pending",
+      "gaps": [
+        "Only the selected excerpts and catalogue identities are completely annotated. Other narrative passages, supporting identities, relations and incidents remain unassessed.",
+        "Captured source support is not independent corroboration or exhaustive canon. Unknown dates are retained; capture and broadcast dates are not story dates."
+      ]
+    },
+    {
+      "batch_id": "alfie-moon",
+      "character_id": "alfie-moon",
+      "kind": "relationships",
+      "state": "pending",
+      "gaps": [
+        "Only the selected excerpts and catalogue identities are completely annotated. Other narrative passages, supporting identities, relations and incidents remain unassessed.",
+        "Captured source support is not independent corroboration or exhaustive canon. Unknown dates are retained; capture and broadcast dates are not story dates."
+      ]
+    },
+    {
+      "batch_id": "pat-butcher",
+      "character_id": "pat-butcher",
+      "kind": "events",
+      "state": "pending",
+      "gaps": [
+        "Only the selected excerpts and catalogue identities are completely annotated. Other narrative passages, supporting identities, relations and incidents remain unassessed.",
+        "Captured source support is not independent corroboration or exhaustive canon. Unknown dates are retained; capture and broadcast dates are not story dates."
+      ]
+    },
+    {
+      "batch_id": "janine-butcher",
+      "character_id": "janine-butcher",
+      "kind": "events",
+      "state": "pending",
+      "gaps": [
+        "Only the selected excerpts and catalogue identities are completely annotated. Other narrative passages, supporting identities, relations and incidents remain unassessed.",
+        "Captured source support is not independent corroboration or exhaustive canon. Unknown dates are retained; capture and broadcast dates are not story dates."
+      ]
+    },
+    {
+      "batch_id": "dot-cotton",
+      "character_id": "dot-cotton",
+      "kind": "events",
+      "state": "pending",
+      "gaps": [
+        "Only the selected excerpts and catalogue identities are completely annotated. Other narrative passages, supporting identities, relations and incidents remain unassessed.",
+        "Captured source support is not independent corroboration or exhaustive canon. Unknown dates are retained; capture and broadcast dates are not story dates."
+      ]
+    },
+    {
+      "batch_id": "denise-fox",
+      "character_id": "denise-fox",
+      "kind": "events",
+      "state": "pending",
+      "gaps": [
+        "Only the selected excerpts and catalogue identities are completely annotated. Other narrative passages, supporting identities, relations and incidents remain unassessed.",
+        "Captured source support is not independent corroboration or exhaustive canon. Unknown dates are retained; capture and broadcast dates are not story dates."
+      ]
+    },
+    {
+      "batch_id": "max-branning",
+      "character_id": "max-branning",
+      "kind": "relationships",
+      "state": "pending",
+      "gaps": [
+        "Only the selected excerpts and catalogue identities are completely annotated. Other narrative passages, supporting identities, relations and incidents remain unassessed.",
+        "Captured source support is not independent corroboration or exhaustive canon. Unknown dates are retained; capture and broadcast dates are not story dates."
+      ]
+    },
+    {
+      "batch_id": "linda-carter",
+      "character_id": "linda-carter",
+      "kind": "events",
+      "state": "pending",
+      "gaps": [
+        "Only the selected excerpts and catalogue identities are completely annotated. Other narrative passages, supporting identities, relations and incidents remain unassessed.",
+        "Captured source support is not independent corroboration or exhaustive canon. Unknown dates are retained; capture and broadcast dates are not story dates."
+      ]
+    },
+    {
+      "batch_id": "phil-tape",
+      "character_id": "phil-mitchell",
+      "kind": "events",
+      "state": "pending",
+      "gaps": [
+        "Only the selected excerpts and catalogue identities are completely annotated. Other narrative passages, supporting identities, relations and incidents remain unassessed.",
+        "Captured source support is not independent corroboration or exhaustive canon. Unknown dates are retained; capture and broadcast dates are not story dates."
+      ]
+    },
+    {
+      "batch_id": "grant-abuse",
+      "character_id": "grant-mitchell",
+      "kind": "events",
+      "state": "pending",
+      "gaps": [
+        "Only the selected excerpts and catalogue identities are completely annotated. Other narrative passages, supporting identities, relations and incidents remain unassessed.",
+        "Captured source support is not independent corroboration or exhaustive canon. Unknown dates are retained; capture and broadcast dates are not story dates."
+      ]
+    }
+  ],
+  "limitation": "Scores cover only fully annotated selected spans and identities. Failed or interrupted attempts are retained and never retried automatically. No corpus-wide recall or independent canon acceptance is established."
+}

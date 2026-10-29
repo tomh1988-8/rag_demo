@@ -1,0 +1,136 @@
+{
+  "captured_at": "2026-10-29T08:21:14.802111+00:00",
+  "code_revision": "9f60cea4856740f58a9680b0ff00f384996f77b1",
+  "application_sha256": "fb0feb5e544ebda762ad53e5e230df1df87f572c892932a23215a4f35ea0855b",
+  "prompt_sha256": "4f625c048e5652b6d709eaa5eaf40a170feac91b94df8c2b0ab89c1b05afea1e",
+  "snapshot_id": "peggy-mitchell-coverage-v1",
+  "snapshot_sha256": "6ef1f7b460eaf2d2658bc91280c44ea666aa3979fb278c77168966327a48be47",
+  "snapshot_file_sha256": "7cd1059e7ea3697d517e728743e4a5fc4e5b410044135b8a829097ddd75bfb86",
+  "reference_sha256": "f25f58f2c042c55f9db4856f02ea51623860b6d6ea01689ac23d3489e40c500e",
+  "schema_sha256": "753b78b044501f008907d7fead2cef20d64dd0961320420847cb102f265ee53a",
+  "profile": {
+    "provider_type": "openrouter",
+    "answer_model": "openai/gpt-6-sol",
+    "canonical_slug": "openai/gpt-6-sol-20260922",
+    "provider": "openai",
+    "input_price_per_million": "2",
+    "output_price_per_million": "10",
+    "output_tokens": 8192,
+    "reasoning_effort": "low",
+    "request_timeout_seconds": 180
+  },
+  "expenditure_category": "offline_evaluation",
+  "state": "complete",
+  "raw": "{\"claims\":[{\"claim_id\":\"peggy-phil-biological-parent\",\"parent_id\":\"peggy-mitchell\",\"child_id\":\"phil-mitchell\",\"parent_role\":\"mother\",\"relation\":\"biological_parent\",\"polarity\":\"affirmed\",\"certainty\":\"certain\",\"story_time\":\"unknown\",\"time_precision\":\"unknown\",\"evidence\":[{\"evidence_id\":\"coverage-peggy-mitchell\",\"start\":0,\"end\":105,\"quote\":\"Peggy married Eric Mitchell (George Russo) because she was pregnant with their son Phil (Steve McFadden).\"}]}]}",
+  "batch": {
+    "claims": [
+      {
+        "claim_id": "peggy-phil-biological-parent",
+        "parent_id": "peggy-mitchell",
+        "child_id": "phil-mitchell",
+        "parent_role": "mother",
+        "relation": "biological_parent",
+        "polarity": "affirmed",
+        "certainty": "certain",
+        "story_time": "unknown",
+        "time_precision": "unknown",
+        "evidence": [
+          {
+            "evidence_id": "coverage-peggy-mitchell",
+            "start": 0,
+            "end": 105,
+            "quote": "Peggy married Eric Mitchell (George Russo) because she was pregnant with their son Phil (Steve McFadden)."
+          }
+        ]
+      }
+    ],
+    "snapshot_id": "peggy-mitchell-coverage-v1",
+    "snapshot_sha256": "6ef1f7b460eaf2d2658bc91280c44ea666aa3979fb278c77168966327a48be47",
+    "catalogue": {
+      "characters": [
+        {
+          "character_id": "peggy-mitchell",
+          "name": "Peggy Mitchell",
+          "aliases": [
+            "Peggy Butcher"
+          ],
+          "performers": [
+            "Jo Warne",
+            "Barbara Windsor",
+            "Jaime Winstone"
+          ],
+          "coverage": "core",
+          "wikidata_id": "Q13130609",
+          "review_note": "Codex source inspection, 17 October 2026: captured character article, infobox aliases/performers and revision metadata checked. Prominence-based curated selection, not a ranked or exhaustive canon. Identity linkage is not independent story corroboration.",
+          "evidence_sources": [
+            "peggy-mitchell-wiki"
+          ]
+        },
+        {
+          "character_id": "phil-mitchell",
+          "name": "Phil Mitchell",
+          "aliases": [],
+          "performers": [
+            "Steve McFadden",
+            "Daniel Delaney"
+          ],
+          "coverage": "core",
+          "wikidata_id": "Q2115259",
+          "review_note": "Codex source inspection, 17 October 2026: captured character article, infobox aliases/performers and revision metadata checked. Prominence-based curated selection, not a ranked or exhaustive canon. Identity linkage is not independent story corroboration.",
+          "evidence_sources": [
+            "phil-mitchell-wiki"
+          ]
+        }
+      ]
+    },
+    "extractor": "openai/gpt-6-sol-20260922"
+  },
+  "score": {
+    "schema_valid": true,
+    "expected": 1,
+    "predicted": 1,
+    "duplicates": 0,
+    "true_positive": 1,
+    "resolvable_spans": 1,
+    "grounded": 1,
+    "precision": 1.0,
+    "recall": 1.0,
+    "f1": 1.0,
+    "scope": "Exact normalized values within each completely annotated selected input passage. Instances match on values and sorted unique passage IDs, independently of quote offsets. Claim IDs are ignored; semantic duplicates within a passage collapse and are counted. Grounding additionally requires the entire independently reviewed supporting span. These exposed development scores are not held-out or broad-corpus quality."
+  },
+  "usage": {
+    "reservation_id": "da747a91611b44488858494c59c9ddc1",
+    "reserved_usd": 0.104932,
+    "cost_usd": 0.009551,
+    "request_id": "gen-1793262075-YZHCLYOD8iCFnc7rZBER",
+    "returned_model": "openai/gpt-6-sol",
+    "provider": "OpenAI",
+    "input_tokens": 1573,
+    "output_tokens": 562,
+    "reasoning_tokens": 439
+  },
+  "execution": {
+    "limits": {
+      "model_calls": 1,
+      "tool_calls": 0,
+      "http_calls": 3,
+      "seconds": 180.0,
+      "context_bytes": 1200,
+      "spend_usd": "0.15",
+      "retries": 0,
+      "capabilities": [],
+      "concurrency": 4
+    },
+    "model_calls": 1,
+    "tool_calls": 0,
+    "http_calls": 3,
+    "reserved_usd": "0.009551",
+    "stop_reason": null
+  },
+  "elapsed_ms": 7105.320788999961,
+  "failure": null,
+  "trace_id": "tr-11d34079078d2b91ac95632a47201396",
+  "shared_ledger_usd": 0.701298,
+  "unsettled_reservations": 0,
+  "limitation": "Agent-reviewed exposed labels; no held-out, human or independent canon acceptance."
+}

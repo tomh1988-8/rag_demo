@@ -1,0 +1,240 @@
+============================= test session starts ==============================
+platform linux -- Python 3.12.3, pytest-9.1.1, pluggy-1.6.0 -- /home/tom/Documents/code/python/rag_demo/.venv/bin/python
+rootdir: /home/tom/Documents/code/python/rag_demo
+configfile: pyproject.toml
+testpaths: tests
+plugins: asyncio-1.4.0, anyio-4.15.1
+asyncio: mode=Mode.STRICT, debug=False, asyncio_default_fixture_loop_scope=None, asyncio_default_test_loop_scope=function
+collecting ... collected 585 items
+
+tests/test_answer_rules.py::test_schema_sent_to_model_rejects_a_timing_note_without_precision PASSED [  0%]
+tests/test_answer_rules.py::test_generated_drafts_cannot_omit_policy_fields[status] PASSED [  0%]
+tests/test_answer_rules.py::test_generated_drafts_cannot_omit_policy_fields[unanswered] PASSED [  0%]
+tests/test_answer_rules.py::test_generated_drafts_cannot_omit_policy_fields[qualifications] PASSED [  0%]
+tests/test_answer_rules.py::test_answer_cannot_cite_a_retrieved_passage_excluded_from_final_context PASSED [  0%]
+tests/test_answer_rules.py::test_multibyte_question_cannot_exceed_the_context_input_budget PASSED [  1%]
+tests/test_answer_rules.py::test_invalid_outcome_citation_combinations_are_rejected[answered-ids0-unanswered0] PASSED [  1%]
+tests/test_answer_rules.py::test_invalid_outcome_citation_combinations_are_rejected[answered-ids1-unanswered1] PASSED [  1%]
+tests/test_answer_rules.py::test_invalid_outcome_citation_combinations_are_rejected[partial-ids2-unanswered2] PASSED [  1%]
+tests/test_answer_rules.py::test_invalid_outcome_citation_combinations_are_rejected[clarification-ids3-unanswered3] PASSED [  1%]
+tests/test_answer_rules.py::test_invalid_outcome_citation_combinations_are_rejected[insufficient_evidence-ids4-unanswered4] PASSED [  1%]
+tests/test_answer_rules.py::test_invalid_outcome_citation_combinations_are_rejected[answered-ids5-unanswered5] PASSED [  2%]
+tests/test_answer_rules.py::test_qualifications_cannot_fabricate_citations_or_omit_required_information[qualification0] PASSED [  2%]
+tests/test_answer_rules.py::test_qualifications_cannot_fabricate_citations_or_omit_required_information[qualification1] PASSED [  2%]
+tests/test_answer_rules.py::test_qualifications_cannot_fabricate_citations_or_omit_required_information[qualification2] PASSED [  2%]
+tests/test_answer_rules.py::test_qualifications_cannot_fabricate_citations_or_omit_required_information[qualification3] PASSED [  2%]
+tests/test_answer_rules.py::test_saved_v1_response_keeps_its_original_document_shape PASSED [  2%]
+tests/test_answers_api.py::test_partial_answer_preserves_supported_fact_and_unanswered_part[models0] PASSED [  3%]
+tests/test_answers_api.py::test_unresolved_intent_is_distinct_from_absent_evidence[models0-clarification] PASSED [  3%]
+tests/test_answers_api.py::test_unresolved_intent_is_distinct_from_absent_evidence[models1-failed] PASSED [  3%]
+tests/test_answers_api.py::test_unresolved_intent_is_distinct_from_absent_evidence[models2-insufficient_evidence] PASSED [  3%]
+tests/test_answers_api.py::test_false_premise_and_explicit_negative_have_evidence_in_the_neutral_appendix[models0-data/seed/phil-arrival-v1.json-false_premise] PASSED [  3%]
+tests/test_answers_api.py::test_false_premise_and_explicit_negative_have_evidence_in_the_neutral_appendix[models1-data/seed/policy/negative-v1.json-explicit_negative] PASSED [  3%]
+tests/test_answers_api.py::test_conflicting_accounts_keep_both_source_attributions_and_citations[models0] PASSED [  4%]
+tests/test_answers_api.py::test_story_time_precision_survives_answer_appendix_and_saved_receipt[models0-exact-3 March 2001] PASSED [  4%]
+tests/test_answers_api.py::test_story_time_precision_survives_answer_appendix_and_saved_receipt[models1-approximate-around spring 2004] PASSED [  4%]
+tests/test_answers_api.py::test_story_time_precision_survives_answer_appendix_and_saved_receipt[models2-relative-two weeks after the wedding] PASSED [  4%]
+tests/test_answers_api.py::test_story_time_precision_survives_answer_appendix_and_saved_receipt[models3-unknown-doesn't state the hearing's story date] PASSED [  4%]
+tests/test_answers_api.py::test_empty_context_abstains_without_model_inference_or_a_negative_fact[models0] PASSED [  4%]
+tests/test_answers_api.py::test_answer_can_cite_a_long_imported_source_passage[models0] PASSED [  5%]
+tests/test_answers_api.py::test_answer_has_resolvable_citations_real_trace_and_durable_private_receipt PASSED [  5%]
+tests/test_answers_api.py::test_answer_receipts_return_while_a_source_refresh_writer_is_active PASSED [  5%]
+tests/test_answers_api.py::test_invalid_model_citation_becomes_a_traced_failure_with_a_response_identifier PASSED [  5%]
+tests/test_answers_api.py::test_cli_asks_and_resolves_the_original_response_over_http[models0-When did Phil arrive?-answered] PASSED [  5%]
+tests/test_answers_api.py::test_cli_asks_and_resolves_the_original_response_over_http[models1-When did Phil arrive, and who is his mother?-partial] PASSED [  5%]
+tests/test_answers_api.py::test_cli_asks_and_resolves_the_original_response_over_http[models2-When did they arrive?-clarification] PASSED [  6%]
+tests/test_answers_api.py::test_cli_asks_and_resolves_the_original_response_over_http[models3-Who is Phil's mother?-insufficient_evidence] PASSED [  6%]
+tests/test_answers_api.py::test_changed_model_digest_requires_an_explicit_configuration_and_baseline_update PASSED [  6%]
+tests/test_answers_api.py::test_unknown_or_unindexed_snapshot_returns_an_explicit_api_error[missing-404] PASSED [  6%]
+tests/test_answers_api.py::test_unknown_or_unindexed_snapshot_returns_an_explicit_api_error[phil-arrival-v1-503] PASSED [  6%]
+tests/test_answers_api.py::test_embedding_usage_is_reported_separately_from_answer_tokens[models0-None-None] PASSED [  7%]
+tests/test_answers_api.py::test_embedding_usage_is_reported_separately_from_answer_tokens[models1-40-5] PASSED [  7%]
+tests/test_claim_admission.py::test_support_review_binds_the_exact_claim_content[family-stale] PASSED [  7%]
+tests/test_claim_admission.py::test_support_review_binds_the_exact_claim_content[family-unsupported] PASSED [  7%]
+tests/test_claim_admission.py::test_support_review_binds_the_exact_claim_content[family-uncertain] PASSED [  7%]
+tests/test_claim_admission.py::test_support_review_binds_the_exact_claim_content[family-missing] PASSED [  7%]
+tests/test_claim_admission.py::test_support_review_binds_the_exact_claim_content[relationship-stale] PASSED [  8%]
+tests/test_claim_admission.py::test_support_review_binds_the_exact_claim_content[relationship-unsupported] PASSED [  8%]
+tests/test_claim_admission.py::test_support_review_binds_the_exact_claim_content[relationship-uncertain] PASSED [  8%]
+tests/test_claim_admission.py::test_support_review_binds_the_exact_claim_content[relationship-missing] PASSED [  8%]
+tests/test_claim_admission.py::test_support_review_binds_the_exact_claim_content[event-stale] PASSED [  8%]
+tests/test_claim_admission.py::test_support_review_binds_the_exact_claim_content[event-unsupported] PASSED [  8%]
+tests/test_claim_admission.py::test_support_review_binds_the_exact_claim_content[event-uncertain] PASSED [  9%]
+tests/test_claim_admission.py::test_support_review_binds_the_exact_claim_content[event-missing] PASSED [  9%]
+tests/test_claim_admission.py::test_support_review_binds_the_exact_claim_content[text-stale] PASSED [  9%]
+tests/test_claim_admission.py::test_support_review_binds_the_exact_claim_content[text-unsupported] PASSED [  9%]
+tests/test_claim_admission.py::test_support_review_binds_the_exact_claim_content[text-uncertain] PASSED [  9%]
+tests/test_claim_admission.py::test_support_review_binds_the_exact_claim_content[text-missing] PASSED [  9%]
+tests/test_claim_admission.py::test_supported_review_cannot_admit_an_unresolvable_span[family] PASSED [ 10%]
+tests/test_claim_admission.py::test_supported_review_cannot_admit_an_unresolvable_span[relationship] PASSED [ 10%]
+tests/test_claim_admission.py::test_supported_review_cannot_admit_an_unresolvable_span[event] PASSED [ 10%]
+tests/test_claim_admission.py::test_supported_review_cannot_admit_an_unresolvable_span[text] PASSED [ 10%]
+tests/test_claim_admission.py::test_admission_rejects_mismatched_source_or_review_membership[family-snapshot] PASSED [ 10%]
+tests/test_claim_admission.py::test_admission_rejects_mismatched_source_or_review_membership[family-duplicate_review] PASSED [ 10%]
+tests/test_claim_admission.py::test_admission_rejects_mismatched_source_or_review_membership[family-unknown_review] PASSED [ 11%]
+tests/test_claim_admission.py::test_admission_rejects_mismatched_source_or_review_membership[relationship-snapshot] PASSED [ 11%]
+tests/test_claim_admission.py::test_admission_rejects_mismatched_source_or_review_membership[relationship-duplicate_review] PASSED [ 11%]
+tests/test_claim_admission.py::test_admission_rejects_mismatched_source_or_review_membership[relationship-unknown_review] PASSED [ 11%]
+tests/test_claim_admission.py::test_admission_rejects_mismatched_source_or_review_membership[event-snapshot] PASSED [ 11%]
+tests/test_claim_admission.py::test_admission_rejects_mismatched_source_or_review_membership[event-duplicate_review] PASSED [ 11%]
+tests/test_claim_admission.py::test_admission_rejects_mismatched_source_or_review_membership[event-unknown_review] PASSED [ 12%]
+tests/test_claim_admission.py::test_admission_rejects_mismatched_source_or_review_membership[text-snapshot] PASSED [ 12%]
+tests/test_claim_admission.py::test_admission_rejects_mismatched_source_or_review_membership[text-duplicate_review] PASSED [ 12%]
+tests/test_claim_admission.py::test_admission_rejects_mismatched_source_or_review_membership[text-unknown_review] PASSED [ 12%]
+tests/test_claim_projections.py::test_concurrent_replay_retains_one_immutable_audit[family] PASSED [ 12%]
+tests/test_claim_projections.py::test_concurrent_replay_retains_one_immutable_audit[relationship] PASSED [ 12%]
+tests/test_claim_projections.py::test_concurrent_replay_retains_one_immutable_audit[event] PASSED [ 13%]
+tests/test_claim_projections.py::test_concurrent_replay_retains_one_immutable_audit[life] PASSED [ 13%]
+tests/test_claim_projections.py::test_failed_projection_write_retains_prior_graph_and_can_retry[family] PASSED [ 13%]
+tests/test_claim_projections.py::test_failed_projection_write_retains_prior_graph_and_can_retry[relationship] PASSED [ 13%]
+tests/test_claim_projections.py::test_failed_projection_write_retains_prior_graph_and_can_retry[event] PASSED [ 13%]
+tests/test_claim_projections.py::test_failed_projection_write_retains_prior_graph_and_can_retry[life] PASSED [ 14%]
+tests/test_claim_review.py::test_supported_correction_retires_a_conflicting_claim_without_erasing_it PASSED [ 14%]
+tests/test_claim_review.py::test_correction_cannot_bypass_replacement_support[missing] PASSED [ 14%]
+tests/test_claim_review.py::test_correction_cannot_bypass_replacement_support[stale] PASSED [ 14%]
+tests/test_claim_review.py::test_correction_cannot_bypass_replacement_support[unsupported] PASSED [ 14%]
+tests/test_claim_review.py::test_correction_cannot_bypass_replacement_support[cycle] PASSED [ 14%]
+tests/test_claim_review.py::test_disputed_support_does_not_enter_established_parentage PASSED [ 15%]
+tests/test_claim_review.py::test_corrected_relationship_timing_does_not_leave_an_episode_collision PASSED [ 15%]
+tests/test_claim_review.py::test_corrected_event_account_retires_the_conflict_but_keeps_the_false_account PASSED [ 15%]
+tests/test_claim_review.py::test_supported_review_cannot_turn_a_confession_into_a_corrective_commission_claim PASSED [ 15%]
+tests/test_claim_review.py::test_retired_claim_stays_retired_when_its_replacement_is_reviewed_again[superseded] PASSED [ 15%]
+tests/test_claim_review.py::test_retired_claim_stays_retired_when_its_replacement_is_reviewed_again[disputed] PASSED [ 15%]
+tests/test_claim_review.py::test_retired_claim_stays_retired_when_its_replacement_is_reviewed_again[uncertain] PASSED [ 16%]
+tests/test_claim_review.py::test_retired_claim_stays_retired_when_its_replacement_is_reviewed_again[unsupported] PASSED [ 16%]
+tests/test_classified_text.py::test_unclassified_fact_remains_retrievable_and_answerable_without_a_graph_edge[models0] PASSED [ 16%]
+tests/test_classified_text.py::test_stopped_reply_fits_with_the_complete_classification_qualification[1200-text_rag] PASSED [ 16%]
+tests/test_classified_text.py::test_stopped_reply_fits_with_the_complete_classification_qualification[1200-investigation] PASSED [ 16%]
+tests/test_classified_text.py::test_stopped_reply_fits_with_the_complete_classification_qualification[1800-text_rag] PASSED [ 16%]
+tests/test_classified_text.py::test_stopped_reply_fits_with_the_complete_classification_qualification[1800-investigation] PASSED [ 17%]
+tests/test_classified_text.py::test_reviewed_classifications_count_toward_the_serialized_context_budget PASSED [ 17%]
+tests/test_cli.py::test_cli_inspects_evidence_via_http_without_database_credentials PASSED [ 17%]
+tests/test_cli.py::test_cli_reports_an_empty_fixture_result_and_exits_nonzero_on_http_failure PASSED [ 17%]
+tests/test_cli.py::test_maintainer_imports_sources_and_reader_inspects_them_over_http PASSED [ 17%]
+tests/test_cli.py::test_rejected_import_does_not_publish_partial_sources_or_disturb_existing_evidence PASSED [ 17%]
+tests/test_connection_graph.py::test_biological_connection_derives_grandparent_from_directed_steps PASSED [ 18%]
+tests/test_connection_graph.py::test_social_connection_keeps_adoption_and_historical_direction PASSED [ 18%]
+tests/test_connection_graph.py::test_shared_incident_preserves_conviction_and_commission_as_distinct_roles PASSED [ 18%]
+tests/test_connection_graph.py::test_reviewed_connection_cases_allow_supported_alternatives[direct-adoption] PASSED [ 18%]
+tests/test_connection_graph.py::test_reviewed_connection_cases_allow_supported_alternatives[biological-grandchild] PASSED [ 18%]
+tests/test_connection_graph.py::test_reviewed_connection_cases_allow_supported_alternatives[alternative-parent] PASSED [ 18%]
+tests/test_connection_graph.py::test_reviewed_connection_cases_allow_supported_alternatives[misleading-conviction] PASSED [ 19%]
+tests/test_connection_graph.py::test_reviewed_connection_cases_allow_supported_alternatives[composed-family-event] PASSED [ 19%]
+tests/test_connection_graph.py::test_reviewed_connection_cases_allow_supported_alternatives[no-path] PASSED [ 19%]
+tests/test_connection_graph.py::test_reviewed_connection_cases_allow_supported_alternatives[cycle] PASSED [ 19%]
+tests/test_connection_graph.py::test_reviewed_connection_cases_allow_supported_alternatives[theme-is-not-connection] PASSED [ 19%]
+tests/test_connection_graph.py::test_reviewed_connection_cases_allow_supported_alternatives[depth-bound] PASSED [ 20%]
+tests/test_connection_graph.py::test_reviewed_connection_cases_allow_supported_alternatives[performer] PASSED [ 20%]
+tests/test_connection_graph.py::test_expansion_and_result_limits_are_visible PASSED [ 20%]
+tests/test_connection_graph.py::test_connection_answer_exposes_typed_path_citations_and_actual_trace PASSED [ 20%]
+tests/test_connection_graph.py::test_connection_cli_returns_supported_steps_and_explicit_query PASSED [ 20%]
+tests/test_connection_graph.py::test_connection_without_family_projection_uses_only_available_reviewed_incidents PASSED [ 20%]
+tests/test_connection_graph.py::test_connection_scorer_separates_result_set_role_meaning_and_source_resolution PASSED [ 21%]
+tests/test_connection_graph.py::test_unreviewed_relationships_and_text_subjects_cannot_create_connections PASSED [ 21%]
+tests/test_connection_graph.py::test_graph_limits_abstain_without_truncating_evidence_or_bypassing_authority[family] PASSED [ 21%]
+tests/test_connection_graph.py::test_graph_limits_abstain_without_truncating_evidence_or_bypassing_authority[relationships] PASSED [ 21%]
+tests/test_connection_graph.py::test_graph_limits_abstain_without_truncating_evidence_or_bypassing_authority[events] PASSED [ 21%]
+tests/test_connection_graph.py::test_graph_limits_abstain_without_truncating_evidence_or_bypassing_authority[connections] PASSED [ 21%]
+tests/test_connection_graph.py::test_connection_uses_published_review_and_explains_held_dispute PASSED [ 22%]
+tests/test_connection_graph.py::test_biological_history_cannot_restore_parentage_held_by_family_admission PASSED [ 22%]
+tests/test_connection_semantics.py::test_derived_biological_meanings_follow_direction[characters0-parents0-biological_grandparent] PASSED [ 22%]
+tests/test_connection_semantics.py::test_derived_biological_meanings_follow_direction[characters1-parents1-biological_grandchild] PASSED [ 22%]
+tests/test_connection_semantics.py::test_derived_biological_meanings_follow_direction[characters2-parents2-biological_sibling] PASSED [ 22%]
+tests/test_connection_semantics.py::test_social_step_cannot_become_biological_ancestry PASSED [ 22%]
+tests/test_connection_semantics.py::test_paths_reject_reversed_edges_repeated_characters_and_disjoint_steps PASSED [ 23%]
+tests/test_connection_semantics.py::test_connection_arguments_cannot_bypass_typed_bounds[change0] PASSED [ 23%]
+tests/test_connection_semantics.py::test_connection_arguments_cannot_bypass_typed_bounds[change1] PASSED [ 23%]
+tests/test_connection_semantics.py::test_connection_arguments_cannot_bypass_typed_bounds[change2] PASSED [ 23%]
+tests/test_connection_semantics.py::test_connection_arguments_cannot_bypass_typed_bounds[change3] PASSED [ 23%]
+tests/test_connection_semantics.py::test_connection_arguments_cannot_bypass_typed_bounds[change4] PASSED [ 23%]
+tests/test_conversation_api.py::test_quality_capture_uses_fresh_api_sessions_and_preserves_each_repeat PASSED [ 24%]
+tests/test_conversation_api.py::test_turn_module_advances_and_retains_only_character_references PASSED [ 24%]
+tests/test_conversation_api.py::test_followup_retrieves_again_without_using_misleading_generated_history PASSED [ 24%]
+tests/test_conversation_api.py::test_unresolved_and_ambiguous_followups_do_not_ask_model_to_guess PASSED [ 24%]
+tests/test_conversation_api.py::test_character_relationship_question_requires_an_explicit_name_on_followup PASSED [ 24%]
+tests/test_conversation_api.py::test_failed_answer_does_not_advance_the_turn_or_extend_reference_memory PASSED [ 24%]
+tests/test_conversation_api.py::test_failed_turn_persistence_keeps_previous_references_and_allows_recovery[write] PASSED [ 25%]
+tests/test_conversation_api.py::test_failed_turn_persistence_keeps_previous_references_and_allows_recovery[commit] PASSED [ 25%]
+tests/test_conversation_api.py::test_reset_clears_references_and_preserves_original_response_identity PASSED [ 25%]
+tests/test_conversation_api.py::test_idle_and_absolute_lifetimes_remove_context_without_reviving_old_responses PASSED [ 25%]
+tests/test_conversation_api.py::test_feedback_context_outlives_reset_and_session_without_becoming_memory PASSED [ 25%]
+tests/test_conversation_api.py::test_cli_creates_private_session_asks_followup_and_resets_over_http PASSED [ 25%]
+tests/test_conversation_api.py::test_sessions_are_isolated_and_reference_state_survives_application_restart PASSED [ 26%]
+tests/test_conversation_api.py::test_concurrent_turns_have_distinct_monotonic_identity_and_bounded_context PASSED [ 26%]
+tests/test_conversation_api.py::test_interactive_cli_conversation_supports_followups_and_reset PASSED [ 26%]
+tests/test_conversation_api.py::test_waiting_turns_serialize_within_their_request_budgets 
+!!!!!!!!!!!!!!!!!!!!!!!!!!!!!! KeyboardInterrupt !!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
+/home/tom/Documents/code/python/rag_demo/.venv/lib/python3.12/site-packages/bs4/__init__.py:817: KeyboardInterrupt
+(to show a full traceback on KeyboardInterrupt use --full-trace)
+Traceback (most recent call last):
+  File "/home/tom/Documents/code/python/rag_demo/.venv/bin/pytest", line 10, in <module>
+    sys.exit(_console_main())
+             ^^^^^^^^^^^^^^^
+  File "/home/tom/Documents/code/python/rag_demo/.venv/lib/python3.12/site-packages/_pytest/config/__init__.py", line 253, in _console_main
+    code = _main(prog=_get_prog_name(sys.argv))
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/tom/Documents/code/python/rag_demo/.venv/lib/python3.12/site-packages/_pytest/config/__init__.py", line 229, in _main
+    ret: ExitCode | int = config.hook.pytest_cmdline_main(config=config)
+                          ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/tom/Documents/code/python/rag_demo/.venv/lib/python3.12/site-packages/pluggy/_hooks.py", line 512, in __call__
+    return self._hookexec(self.name, self._hookimpls.copy(), kwargs, firstresult)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/tom/Documents/code/python/rag_demo/.venv/lib/python3.12/site-packages/pluggy/_manager.py", line 120, in _hookexec
+    return self._inner_hookexec(hook_name, methods, kwargs, firstresult)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/tom/Documents/code/python/rag_demo/.venv/lib/python3.12/site-packages/pluggy/_callers.py", line 167, in _multicall
+    raise exception
+  File "/home/tom/Documents/code/python/rag_demo/.venv/lib/python3.12/site-packages/pluggy/_callers.py", line 121, in _multicall
+    res = hook_impl.function(*args)
+          ^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/tom/Documents/code/python/rag_demo/.venv/lib/python3.12/site-packages/_pytest/main.py", line 377, in pytest_cmdline_main
+    return wrap_session(config, _main)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/tom/Documents/code/python/rag_demo/.venv/lib/python3.12/site-packages/_pytest/main.py", line 365, in wrap_session
+    config.hook.pytest_sessionfinish(
+  File "/home/tom/Documents/code/python/rag_demo/.venv/lib/python3.12/site-packages/pluggy/_hooks.py", line 512, in __call__
+    return self._hookexec(self.name, self._hookimpls.copy(), kwargs, firstresult)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/tom/Documents/code/python/rag_demo/.venv/lib/python3.12/site-packages/pluggy/_manager.py", line 120, in _hookexec
+    return self._inner_hookexec(hook_name, methods, kwargs, firstresult)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/tom/Documents/code/python/rag_demo/.venv/lib/python3.12/site-packages/pluggy/_callers.py", line 167, in _multicall
+    raise exception
+  File "/home/tom/Documents/code/python/rag_demo/.venv/lib/python3.12/site-packages/pluggy/_callers.py", line 139, in _multicall
+    teardown.throw(exception)
+  File "/home/tom/Documents/code/python/rag_demo/.venv/lib/python3.12/site-packages/_pytest/logging.py", line 888, in pytest_sessionfinish
+    return (yield)
+            ^^^^^
+  File "/home/tom/Documents/code/python/rag_demo/.venv/lib/python3.12/site-packages/pluggy/_callers.py", line 139, in _multicall
+    teardown.throw(exception)
+  File "/home/tom/Documents/code/python/rag_demo/.venv/lib/python3.12/site-packages/_pytest/terminal.py", line 961, in pytest_sessionfinish
+    result = yield
+             ^^^^^
+  File "/home/tom/Documents/code/python/rag_demo/.venv/lib/python3.12/site-packages/pluggy/_callers.py", line 139, in _multicall
+    teardown.throw(exception)
+  File "/home/tom/Documents/code/python/rag_demo/.venv/lib/python3.12/site-packages/_pytest/warnings.py", line 119, in pytest_sessionfinish
+    return (yield)
+            ^^^^^
+  File "/home/tom/Documents/code/python/rag_demo/.venv/lib/python3.12/site-packages/pluggy/_callers.py", line 121, in _multicall
+    res = hook_impl.function(*args)
+          ^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/tom/Documents/code/python/rag_demo/.venv/lib/python3.12/site-packages/_pytest/runner.py", line 112, in pytest_sessionfinish
+    session._setupstate.teardown_exact(None)
+  File "/home/tom/Documents/code/python/rag_demo/.venv/lib/python3.12/site-packages/_pytest/runner.py", line 579, in teardown_exact
+    raise exceptions[0]
+  File "/home/tom/Documents/code/python/rag_demo/.venv/lib/python3.12/site-packages/_pytest/runner.py", line 568, in teardown_exact
+    fin()
+  File "/home/tom/Documents/code/python/rag_demo/.venv/lib/python3.12/site-packages/_pytest/fixtures.py", line 1166, in finish
+    raise exceptions[0]
+  File "/home/tom/Documents/code/python/rag_demo/.venv/lib/python3.12/site-packages/_pytest/fixtures.py", line 1156, in finish
+    fin()
+  File "/home/tom/Documents/code/python/rag_demo/.venv/lib/python3.12/site-packages/_pytest/fixtures.py", line 1014, in _teardown_yield_fixture
+    next(it)
+  File "/home/tom/Documents/code/python/rag_demo/.venv/lib/python3.12/site-packages/_pytest/tmpdir.py", line 305, in tmp_path
+    result_dict = request.node.stash[tmppath_result_key]
+                  ~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^
+  File "/home/tom/Documents/code/python/rag_demo/.venv/lib/python3.12/site-packages/_pytest/stash.py", line 84, in __getitem__
+    return cast(T, self._storage[key])
+                   ~~~~~~~~~~~~~^^^^^
+KeyError: <_pytest.stash.StashKey object at 0x78a630f97be0>
+2026/10/29 08:30:17 INFO mlflow.tracing.export.async_export_queue: Flushing the async trace logging queue before program exit. This may take a while...

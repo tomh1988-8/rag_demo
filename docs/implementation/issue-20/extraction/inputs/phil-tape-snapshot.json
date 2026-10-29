@@ -1,0 +1,58 @@
+{
+  "snapshot_id": "phil-tape-coverage-v1",
+  "fixture_version": 1,
+  "source": {
+    "title": "Phil Mitchell",
+    "url": "https://en.wikipedia.org/wiki/Phil_Mitchell",
+    "revision_id": "1379872347",
+    "revision_url": "https://en.wikipedia.org/w/index.php?oldid=1379872347",
+    "section": "Storylines / 1990–2003",
+    "captured_at": "2026-10-17T13:07:31.014189Z",
+    "capture_sha256": "a338d3065203be54e383f2c9c141bca22ae9aedbb950e2e1eada601bcccfe313",
+    "scope": "main_series",
+    "license_url": "https://creativecommons.org/licenses/by-sa/4.0/",
+    "attribution": "Wikipedia contributors; markup removed and whitespace normalized.",
+    "coverage": "Reviewed narrative sections in this captured revision only.",
+    "gaps": [
+      "Partial canon coverage; other paragraphs remain excluded or awaiting review.",
+      "Identity and episode metadata do not independently corroborate story claims."
+    ],
+    "support_status": "source_supported"
+  },
+  "passages": [
+    {
+      "evidence_id": "coverage-phil-tape",
+      "text": "During Phil and Kathy's engagement party, Grant plays an audio cassette recording of Sharon admitting to the affair.",
+      "sha256": "616f0af4b8976285d4ad48a6d610ede1844656c50a3203fbb09243c5c2e3af4b",
+      "start": 17184,
+      "end": 17300,
+      "source": {
+        "title": "Phil Mitchell",
+        "url": "https://en.wikipedia.org/wiki/Phil_Mitchell",
+        "revision_id": "1379872347",
+        "revision_url": "https://en.wikipedia.org/w/index.php?oldid=1379872347",
+        "section": "Storylines / 1990–2003",
+        "captured_at": "2026-10-17T13:07:31.014189Z",
+        "capture_sha256": "a338d3065203be54e383f2c9c141bca22ae9aedbb950e2e1eada601bcccfe313",
+        "scope": "main_series",
+        "license_url": "https://creativecommons.org/licenses/by-sa/4.0/",
+        "attribution": "Wikipedia contributors; markup removed and whitespace normalized.",
+        "coverage": "Reviewed narrative sections in this captured revision only.",
+        "gaps": [
+          "Partial canon coverage; other paragraphs remain excluded or awaiting review.",
+          "Identity and episode metadata do not independently corroborate story claims."
+        ],
+        "support_status": "source_supported"
+      },
+      "location": {
+        "source_id": "phil-mitchell-wiki",
+        "paragraph_ordinal": 19,
+        "section_id": "1990–2003",
+        "character_ids": [
+          "kathy-beale",
+          "phil-mitchell"
+        ]
+      }
+    }
+  ]
+}

@@ -1,0 +1,135 @@
+{
+  "kind": "captured-answer-review",
+  "expenditure_category": "offline_evaluation",
+  "source_run_id": "0e9df422d0ef44b4a036cbdc01c2bbb7",
+  "answer_model_calls_in_review": 0,
+  "review_model_cost_usd": 0,
+  "model_calls": 0,
+  "cost_usd": "0",
+  "capture_sha256": "d94028260d3e703a97f78042c1850aafe3ef6d7a8c494f08bd5329d6beffc1ef",
+  "reviews_sha256": "f781e8161fb04f7050382a318bec32e5640298a99b8fc5a4d2d4b7e13ddb76c5",
+  "scorer": "reviewed-binary-dimensions-v2",
+  "recorded_at": "2026-10-29T08:49:53.570199+00:00",
+  "reference_file_sha256": "9af94dc9fc397dd2e5e1047d8163dc2c0b0ea698a86bf93f700a59cb65d1504a",
+  "recorder_version": "frozen-evaluation-run-v1",
+  "input_artifacts": [
+    {
+      "artifact_path": "inputs/0/text-runtime.references.json",
+      "sha256": "9af94dc9fc397dd2e5e1047d8163dc2c0b0ea698a86bf93f700a59cb65d1504a"
+    },
+    {
+      "artifact_path": "inputs/1/text-runtime.json",
+      "sha256": "d94028260d3e703a97f78042c1850aafe3ef6d7a8c494f08bd5329d6beffc1ef"
+    },
+    {
+      "artifact_path": "inputs/2/text-annotations.json",
+      "sha256": "f781e8161fb04f7050382a318bec32e5640298a99b8fc5a4d2d4b7e13ddb76c5"
+    }
+  ],
+  "result_artifact": "result/text-quality.json",
+  "case_ids": [
+    "unclassified-tape-r0"
+  ],
+  "cases": [
+    {
+      "case_id": "unclassified-tape-r0",
+      "reference": {
+        "case_id": "unclassified-tape-r0",
+        "question": "What did Grant play at Phil and Kathy\u2019s engagement party, and what did the recording reveal?",
+        "snapshot_id": "core-graph-v1",
+        "required_facts": [
+          "Grant played an audio cassette recording.",
+          "The recording was Sharon admitting to the affair."
+        ],
+        "evidence_ids": [
+          "coverage-phil-tape"
+        ],
+        "forbidden_facts": [
+          "A tape revelation is a typed graph shared event."
+        ],
+        "review_note": "Source is the retained Phil profile. Public revelation stays unclassified and available to text answers. Do not infer an unsupported date.",
+        "snapshot_path": "artifacts/issue-20-snapshot.json",
+        "snapshot_file_sha256": "a25047c1642f85c773af0dec280cc1bad7d7223b49ff4d9ec699d1d655789616",
+        "repeat": 0
+      },
+      "reference_sha256": "3b9c62296e30c15f1b9161ea44cca387ea6ad88029aaae321ae399b1bc955a81",
+      "state": "complete",
+      "review": {
+        "case_id": "unclassified-tape-r0",
+        "response_sha256": "bd64a7a7cdfc347e691c26d54544a0662aae1b0c270fa849433f533f982403a8",
+        "reference_sha256": "3b9c62296e30c15f1b9161ea44cca387ea6ad88029aaae321ae399b1bc955a81",
+        "reviewer": "Codex source-based answer review, independently checked by Spec reviewer; no human canon adjudication",
+        "rationale": "The exact coverage-phil-tape citation supports Grant playing the recording and Sharon admitting the affair. First person refers to Phil. No date or typed graph event is asserted. The separate classification qualification correctly preserves the unclassified fact for text. API, CLI and actual text_rag root outputs match; all three published graphs share the same full source snapshot.",
+        "claims": [
+          {
+            "claim": "Grant played an audio cassette recording at Phil and Kathy\u2019s engagement party.",
+            "correct": true,
+            "grounded": true,
+            "citation_supported": true
+          },
+          {
+            "claim": "The recording contained Sharon admitting to the affair.",
+            "correct": true,
+            "grounded": true,
+            "citation_supported": true
+          }
+        ],
+        "required_facts": [
+          {
+            "fact": "Grant played an audio cassette recording.",
+            "covered": true
+          },
+          {
+            "fact": "The recording was Sharon admitting to the affair.",
+            "covered": true
+          }
+        ],
+        "answerability": true,
+        "relevance": true,
+        "critical_failures": []
+      },
+      "scores": {
+        "correctness": {
+          "passed": 2,
+          "assessed": 2,
+          "unassessed": 0,
+          "value": 1.0
+        },
+        "groundedness": {
+          "passed": 2,
+          "assessed": 2,
+          "unassessed": 0,
+          "value": 1.0
+        },
+        "completeness": {
+          "passed": 2,
+          "assessed": 2,
+          "unassessed": 0,
+          "value": 1.0
+        },
+        "citation_support": {
+          "passed": 2,
+          "assessed": 2,
+          "unassessed": 0,
+          "value": 1.0
+        },
+        "answerability": {
+          "passed": 1,
+          "assessed": 1,
+          "unassessed": 0,
+          "value": 1.0
+        },
+        "relevance": {
+          "passed": 1,
+          "assessed": 1,
+          "unassessed": 0,
+          "value": 1.0
+        },
+        "critical_failures": []
+      }
+    }
+  ],
+  "state": "complete",
+  "run_id": "9b255db9355d4447bbfe74bfc9d44838",
+  "tracking_status": "FINISHED"
+}

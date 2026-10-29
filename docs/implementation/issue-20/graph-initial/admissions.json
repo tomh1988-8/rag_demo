@@ -1,0 +1,419 @@
+{
+  "family": {
+    "batch_sha256": "e86713d3e04c37f6564b20974d7f4f98e03cc47d45c742898b7164f6d7fd7429",
+    "decisions": [
+      {
+        "claim_id": "ref-phil-mitchell-1",
+        "status": "admitted",
+        "reasons": []
+      },
+      {
+        "claim_id": "ref-phil-mitchell-2",
+        "status": "admitted",
+        "reasons": []
+      },
+      {
+        "claim_id": "raw-phil-mitchell-1",
+        "status": "held",
+        "reasons": [
+          "superseded"
+        ]
+      },
+      {
+        "claim_id": "raw-phil-mitchell-2",
+        "status": "held",
+        "reasons": [
+          "superseded"
+        ]
+      },
+      {
+        "claim_id": "ref-peggy-mitchell-1",
+        "status": "admitted",
+        "reasons": []
+      },
+      {
+        "claim_id": "raw-peggy-mitchell-1",
+        "status": "held",
+        "reasons": [
+          "superseded"
+        ]
+      },
+      {
+        "claim_id": "ref-ben-mitchell-1",
+        "status": "admitted",
+        "reasons": []
+      },
+      {
+        "claim_id": "ref-ben-mitchell-2",
+        "status": "admitted",
+        "reasons": []
+      },
+      {
+        "claim_id": "raw-ben-mitchell-1",
+        "status": "held",
+        "reasons": [
+          "superseded"
+        ]
+      },
+      {
+        "claim_id": "raw-ben-mitchell-2",
+        "status": "held",
+        "reasons": [
+          "superseded"
+        ]
+      },
+      {
+        "claim_id": "ref-ian-beale-1",
+        "status": "admitted",
+        "reasons": []
+      },
+      {
+        "claim_id": "raw-ian-beale-1",
+        "status": "held",
+        "reasons": [
+          "superseded",
+          "uncertain"
+        ]
+      },
+      {
+        "claim_id": "ref-kathy-beale-1",
+        "status": "admitted",
+        "reasons": []
+      },
+      {
+        "claim_id": "ref-kathy-beale-2",
+        "status": "admitted",
+        "reasons": []
+      },
+      {
+        "claim_id": "raw-kathy-beale-1",
+        "status": "held",
+        "reasons": [
+          "evidence_span",
+          "superseded"
+        ]
+      },
+      {
+        "claim_id": "raw-kathy-beale-2",
+        "status": "held",
+        "reasons": [
+          "evidence_span",
+          "superseded",
+          "uncertain"
+        ]
+      },
+      {
+        "claim_id": "ref-lucy-beale-1",
+        "status": "admitted",
+        "reasons": []
+      },
+      {
+        "claim_id": "ref-lucy-beale-2",
+        "status": "admitted",
+        "reasons": []
+      },
+      {
+        "claim_id": "raw-lucy-beale-1",
+        "status": "held",
+        "reasons": [
+          "superseded"
+        ]
+      },
+      {
+        "claim_id": "raw-lucy-beale-2",
+        "status": "held",
+        "reasons": [
+          "superseded"
+        ]
+      }
+    ],
+    "limitation": "Admission requires a content-bound support review. It is not independent canon corroboration. Held claims remain inspectable outside the biological tree."
+  },
+  "relationship": {
+    "batch_sha256": "52374bc0a821003aaeab87527e087b20d3c19a99fa6146013af1752b046df24f",
+    "decisions": [
+      {
+        "claim_id": "ref-grant-mitchell-1",
+        "status": "admitted",
+        "reasons": []
+      },
+      {
+        "claim_id": "raw-grant-mitchell-1",
+        "status": "held",
+        "reasons": [
+          "superseded"
+        ]
+      },
+      {
+        "claim_id": "ref-sharon-watts-1",
+        "status": "admitted",
+        "reasons": []
+      },
+      {
+        "claim_id": "raw-sharon-watts-1",
+        "status": "held",
+        "reasons": [
+          "superseded"
+        ]
+      },
+      {
+        "claim_id": "ref-martin-fowler-1",
+        "status": "admitted",
+        "reasons": []
+      },
+      {
+        "claim_id": "raw-martin-fowler-1",
+        "status": "held",
+        "reasons": [
+          "superseded"
+        ]
+      },
+      {
+        "claim_id": "ref-kat-slater-1",
+        "status": "admitted",
+        "reasons": []
+      },
+      {
+        "claim_id": "raw-kat-slater-1",
+        "status": "held",
+        "reasons": [
+          "evidence_span",
+          "superseded"
+        ]
+      },
+      {
+        "claim_id": "ref-stacey-slater-1",
+        "status": "held",
+        "reasons": [
+          "superseded"
+        ]
+      },
+      {
+        "claim_id": "raw-stacey-slater-1",
+        "status": "held",
+        "reasons": [
+          "superseded"
+        ]
+      },
+      {
+        "claim_id": "ref-alfie-moon-1",
+        "status": "admitted",
+        "reasons": []
+      },
+      {
+        "claim_id": "raw-alfie-moon-1",
+        "status": "held",
+        "reasons": [
+          "superseded"
+        ]
+      },
+      {
+        "claim_id": "ref-max-branning-1",
+        "status": "admitted",
+        "reasons": []
+      },
+      {
+        "claim_id": "raw-max-branning-1",
+        "status": "held",
+        "reasons": [
+          "evidence_span",
+          "superseded"
+        ]
+      }
+    ],
+    "limitation": "Only admitted assertions from selected reviewed spans are shown. Social ties never establish biological ancestry. Status is as reported in the captured account, not a claim about the present. Only explicit after links establish ordering; otherwise listing order is not chronology. Missing history does not prove a relationship never existed. Source-supported does not mean independently cross-checked."
+  },
+  "event": {
+    "batch_sha256": "466e0854f6b09213fdabd94ce2dd254a049f41398b987fd7d0edb87e5b5a8f03",
+    "decisions": [
+      {
+        "claim_id": "ref-cindy-beale-1",
+        "status": "admitted",
+        "reasons": []
+      },
+      {
+        "claim_id": "raw-cindy-beale-1",
+        "status": "held",
+        "reasons": [
+          "superseded"
+        ]
+      },
+      {
+        "claim_id": "ref-bobby-beale-1",
+        "status": "admitted",
+        "reasons": []
+      },
+      {
+        "claim_id": "ref-bobby-beale-2",
+        "status": "admitted",
+        "reasons": []
+      },
+      {
+        "claim_id": "raw-bobby-beale-1",
+        "status": "held",
+        "reasons": [
+          "evidence_span",
+          "superseded",
+          "commission_support"
+        ]
+      },
+      {
+        "claim_id": "raw-bobby-beale-2",
+        "status": "held",
+        "reasons": [
+          "evidence_span",
+          "superseded"
+        ]
+      },
+      {
+        "claim_id": "ref-pat-butcher-1",
+        "status": "admitted",
+        "reasons": []
+      },
+      {
+        "claim_id": "raw-pat-butcher-1",
+        "status": "held",
+        "reasons": [
+          "superseded"
+        ]
+      },
+      {
+        "claim_id": "ref-janine-butcher-1",
+        "status": "admitted",
+        "reasons": []
+      },
+      {
+        "claim_id": "ref-janine-butcher-2",
+        "status": "admitted",
+        "reasons": []
+      },
+      {
+        "claim_id": "ref-janine-butcher-3",
+        "status": "admitted",
+        "reasons": []
+      },
+      {
+        "claim_id": "raw-janine-butcher-1",
+        "status": "held",
+        "reasons": [
+          "identity",
+          "support_review_required"
+        ]
+      },
+      {
+        "claim_id": "raw-janine-butcher-2",
+        "status": "held",
+        "reasons": [
+          "evidence_span",
+          "superseded"
+        ]
+      },
+      {
+        "claim_id": "raw-janine-butcher-3",
+        "status": "held",
+        "reasons": [
+          "evidence_span",
+          "superseded"
+        ]
+      },
+      {
+        "claim_id": "raw-janine-butcher-4",
+        "status": "held",
+        "reasons": [
+          "evidence_span",
+          "superseded"
+        ]
+      },
+      {
+        "claim_id": "ref-dot-cotton-1",
+        "status": "admitted",
+        "reasons": []
+      },
+      {
+        "claim_id": "raw-dot-cotton-1",
+        "status": "held",
+        "reasons": [
+          "evidence_span",
+          "superseded"
+        ]
+      },
+      {
+        "claim_id": "ref-denise-fox-1",
+        "status": "admitted",
+        "reasons": []
+      },
+      {
+        "claim_id": "raw-denise-fox-1",
+        "status": "held",
+        "reasons": [
+          "superseded"
+        ]
+      },
+      {
+        "claim_id": "ref-linda-carter-1",
+        "status": "admitted",
+        "reasons": []
+      },
+      {
+        "claim_id": "raw-linda-carter-1",
+        "status": "held",
+        "reasons": [
+          "evidence_span",
+          "superseded"
+        ]
+      },
+      {
+        "claim_id": "ref-grant-abuse-1",
+        "status": "admitted",
+        "reasons": []
+      },
+      {
+        "claim_id": "ref-grant-abuse-2",
+        "status": "admitted",
+        "reasons": []
+      },
+      {
+        "claim_id": "raw-grant-abuse-1",
+        "status": "held",
+        "reasons": [
+          "superseded"
+        ]
+      },
+      {
+        "claim_id": "raw-grant-abuse-2",
+        "status": "held",
+        "reasons": [
+          "superseded"
+        ]
+      }
+    ],
+    "text_decisions": [
+      {
+        "claim_id": "ref-phil-tape-text-1",
+        "status": "admitted",
+        "reasons": []
+      },
+      {
+        "claim_id": "raw-phil-tape-1",
+        "status": "held",
+        "reasons": [
+          "evidence_span",
+          "superseded"
+        ]
+      },
+      {
+        "claim_id": "ref-grant-abuse-text-1",
+        "status": "admitted",
+        "reasons": []
+      },
+      {
+        "claim_id": "raw-grant-abuse-3",
+        "status": "held",
+        "reasons": [
+          "superseded"
+        ]
+      }
+    ],
+    "limitation": "Only admitted assertions about selected captured incidents are shown. An accusation, confession, charge, conviction, acquittal, imprisonment, release or court appearance alone establishes neither commission nor innocence. Only separately reviewed narrative support establishes commission. An empty legal history does not prove that a character committed no crime. Listing order is not chronology; unknown dates remain unknown. Source-supported does not mean independently cross-checked."
+  }
+}

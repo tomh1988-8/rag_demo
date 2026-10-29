@@ -1,0 +1,8 @@
+ Container ask-phil-db-1 Running 
+ Container ask-phil-db-1 Waiting 
+ Container ask-phil-db-1 Healthy 
+ Container ask-phil-test-run-63d65c9a675c Creating 
+ Container ask-phil-test-run-63d65c9a675c Created 
+........                                                                 [100%]
+8 passed in 473.82s (0:07:53)
+2026/10/29 08:46:25 INFO mlflow.tracing.export.async_export_queue: Flushing the async trace logging queue before program exit. This may take a while...

@@ -1,0 +1,126 @@
+{
+  "expected_claims": [
+    {
+      "event_id": "laura-death-charge",
+      "event_label": "Janine's charge over Laura's death",
+      "event_type": "arrest",
+      "basis": "legal_outcome",
+      "participants": [
+        {
+          "character_id": "janine-butcher",
+          "role": "arrested"
+        }
+      ],
+      "account_status": "as_reported",
+      "polarity": "affirmed",
+      "certainty": "certain",
+      "story_time": "May 2004",
+      "time_precision": "exact",
+      "claim_id": "ref-janine-butcher-1",
+      "evidence": [
+        {
+          "evidence_id": "coverage-janine-butcher",
+          "start": 0,
+          "end": 550,
+          "quote": "In April 2004, Janine and Laura are seen fighting just before Laura dies after falling down the stairs. It is noted in the post mortem that Laura had recently been in a fight due to bruising, and Janine's skin is found under her nails. Although Janine was with Pat when Laura died, Pat refuses to give Janine an alibi, and brands her \"pure evil\". In desperation, Janine goes to Paul and offers to sleep with him in return for an alibi, but Paul refuses. She is arrested by the police, charged with Laura's murder, and remanded in custody in May 2004."
+        }
+      ]
+    },
+    {
+      "event_id": "laura-death-charge",
+      "event_label": "Janine's charge over Laura's death",
+      "event_type": "charge",
+      "basis": "legal_outcome",
+      "participants": [
+        {
+          "character_id": "janine-butcher",
+          "role": "accused"
+        }
+      ],
+      "account_status": "as_reported",
+      "polarity": "affirmed",
+      "certainty": "certain",
+      "story_time": "May 2004",
+      "time_precision": "exact",
+      "claim_id": "ref-janine-butcher-2",
+      "evidence": [
+        {
+          "evidence_id": "coverage-janine-butcher",
+          "start": 0,
+          "end": 550,
+          "quote": "In April 2004, Janine and Laura are seen fighting just before Laura dies after falling down the stairs. It is noted in the post mortem that Laura had recently been in a fight due to bruising, and Janine's skin is found under her nails. Although Janine was with Pat when Laura died, Pat refuses to give Janine an alibi, and brands her \"pure evil\". In desperation, Janine goes to Paul and offers to sleep with him in return for an alibi, but Paul refuses. She is arrested by the police, charged with Laura's murder, and remanded in custody in May 2004."
+        }
+      ]
+    },
+    {
+      "event_id": "laura-death-charge",
+      "event_label": "Janine's charge over Laura's death",
+      "event_type": "imprisonment",
+      "basis": "legal_outcome",
+      "participants": [
+        {
+          "character_id": "janine-butcher",
+          "role": "prisoner"
+        }
+      ],
+      "account_status": "as_reported",
+      "polarity": "affirmed",
+      "certainty": "certain",
+      "story_time": "May 2004",
+      "time_precision": "exact",
+      "claim_id": "ref-janine-butcher-3",
+      "evidence": [
+        {
+          "evidence_id": "coverage-janine-butcher",
+          "start": 0,
+          "end": 550,
+          "quote": "In April 2004, Janine and Laura are seen fighting just before Laura dies after falling down the stairs. It is noted in the post mortem that Laura had recently been in a fight due to bruising, and Janine's skin is found under her nails. Although Janine was with Pat when Laura died, Pat refuses to give Janine an alibi, and brands her \"pure evil\". In desperation, Janine goes to Paul and offers to sleep with him in return for an alibi, but Paul refuses. She is arrested by the police, charged with Laura's murder, and remanded in custody in May 2004."
+        }
+      ]
+    }
+  ],
+  "expected_context_claims": [],
+  "incidents": {
+    "coverage-janine-butcher": {
+      "event_id": "laura-death-charge",
+      "event_label": "Janine's charge over Laura's death"
+    }
+  },
+  "snapshot_sha256": "cc765996829ae03365da4187c596bc74a182411663ec76cd76fce85a11d15835",
+  "catalogue": {
+    "characters": [
+      {
+        "character_id": "janine-butcher",
+        "name": "Janine Butcher",
+        "aliases": [
+          "Janine Evans",
+          "Janine Malloy",
+          "Janine Carter",
+          "Judith Bernstein"
+        ],
+        "performers": [
+          "Rebecca Michael",
+          "Alexia Demetriou",
+          "Charlie Brooks"
+        ],
+        "coverage": "core",
+        "wikidata_id": "Q2321366",
+        "review_note": "Codex source inspection, 17 October 2026: captured character article, infobox aliases/performers and revision metadata checked. Prominence-based curated selection, not a ranked or exhaustive canon. Identity linkage is not independent story corroboration.",
+        "evidence_sources": [
+          "janine-butcher-wiki"
+        ]
+      }
+    ]
+  },
+  "origin_snapshot_sha256": "2ea666180ca9600a6d8e35ae7049d21f682d9090cddc92f63630d9250d7a6c76",
+  "annotation_sha256": "56275247f9cf2976827f1fd6d9df6ae7682c73da343bc615b819e3f22a7571bb",
+  "reviewer": "Codex source-based annotation, before extraction; not human canon adjudication",
+  "review_note": "Arrest, murder charge and remand are legal roles, not commission. The same account places Janine with Pat when Laura died. Laura is outside the evaluated identity catalogue; her death is not included in recall.",
+  "synthetic": false,
+  "cross_source_checked": false,
+  "split": "exposed_development",
+  "story_groups": [
+    "laura-death-charge"
+  ],
+  "completeness": "All explicit in-catalogue assertions of the selected family within these excerpts; events are restricted to the declared incidents."
+}

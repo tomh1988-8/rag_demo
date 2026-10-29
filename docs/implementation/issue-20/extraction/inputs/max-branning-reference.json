@@ -1,0 +1,73 @@
+{
+  "expected_claims": [
+    {
+      "subject_id": "max-branning",
+      "object_id": "stacey-slater",
+      "relation": "affair",
+      "episode_id": "max-stacey-affair",
+      "status": "unknown",
+      "polarity": "affirmed",
+      "certainty": "certain",
+      "story_time": "soon",
+      "time_precision": "relative",
+      "after_claim_id": null,
+      "claim_id": "ref-max-branning-1",
+      "evidence": [
+        {
+          "evidence_id": "coverage-max-branning",
+          "start": 0,
+          "end": 235,
+          "quote": "However, the abortion ends the relationship Stacey decides to hurt Bradley by making a move on Max during Christmas 2006; Max and Stacey kiss and the two soon embark on a passionate affair that lasts for several months going into 2007."
+        }
+      ]
+    }
+  ],
+  "snapshot_sha256": "85d77fe2833a3ef4e1f819b05188c116df7849b5850b95236ef7cd1a6154cb43",
+  "catalogue": {
+    "characters": [
+      {
+        "character_id": "max-branning",
+        "name": "Max Branning",
+        "aliases": [],
+        "performers": [
+          "Jake Wood"
+        ],
+        "coverage": "core",
+        "wikidata_id": "Q6794615",
+        "review_note": "Codex source inspection, 17 October 2026: captured character article, infobox aliases/performers and revision metadata checked. Prominence-based curated selection, not a ranked or exhaustive canon. Identity linkage is not independent story corroboration.",
+        "evidence_sources": [
+          "max-branning-wiki"
+        ]
+      },
+      {
+        "character_id": "stacey-slater",
+        "name": "Stacey Slater",
+        "aliases": [
+          "Stacey Branning",
+          "Stacey Fowler",
+          "Jenny Smith"
+        ],
+        "performers": [
+          "Lacey Turner"
+        ],
+        "coverage": "core",
+        "wikidata_id": "Q7595869",
+        "review_note": "Codex source inspection, 17 October 2026: captured character article, infobox aliases/performers and revision metadata checked. Prominence-based curated selection, not a ranked or exhaustive canon. Identity linkage is not independent story corroboration.",
+        "evidence_sources": [
+          "stacey-slater-wiki"
+        ]
+      }
+    ]
+  },
+  "origin_snapshot_sha256": "2ea666180ca9600a6d8e35ae7049d21f682d9090cddc92f63630d9250d7a6c76",
+  "annotation_sha256": "56275247f9cf2976827f1fd6d9df6ae7682c73da343bc615b819e3f22a7571bb",
+  "reviewer": "Codex source-based annotation, before extraction; not human canon adjudication",
+  "review_note": "An explicit affair. Christmas 2006 dates the approach/kiss; the affair starts “soon” after. Preserve relative start, not an invented date or current status.",
+  "synthetic": false,
+  "cross_source_checked": false,
+  "split": "exposed_development",
+  "story_groups": [
+    "max-stacey-affair"
+  ],
+  "completeness": "All explicit in-catalogue assertions of the selected family within these excerpts; events are restricted to the declared incidents."
+}

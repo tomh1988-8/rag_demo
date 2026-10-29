@@ -1,0 +1,57 @@
+{
+  "snapshot_id": "janine-butcher-coverage-v1",
+  "fixture_version": 1,
+  "source": {
+    "title": "Phil Mitchell",
+    "url": "https://en.wikipedia.org/wiki/Phil_Mitchell",
+    "revision_id": "1379872347",
+    "revision_url": "https://en.wikipedia.org/w/index.php?oldid=1379872347",
+    "section": "Storylines / 1990–2003",
+    "captured_at": "2026-10-17T13:07:31.014189Z",
+    "capture_sha256": "a338d3065203be54e383f2c9c141bca22ae9aedbb950e2e1eada601bcccfe313",
+    "scope": "main_series",
+    "license_url": "https://creativecommons.org/licenses/by-sa/4.0/",
+    "attribution": "Wikipedia contributors; markup removed and whitespace normalized.",
+    "coverage": "Reviewed narrative sections in this captured revision only.",
+    "gaps": [
+      "Partial canon coverage; other paragraphs remain excluded or awaiting review.",
+      "Identity and episode metadata do not independently corroborate story claims."
+    ],
+    "support_status": "source_supported"
+  },
+  "passages": [
+    {
+      "evidence_id": "coverage-janine-butcher",
+      "text": "In April 2004, Janine and Laura are seen fighting just before Laura dies after falling down the stairs. It is noted in the post mortem that Laura had recently been in a fight due to bruising, and Janine's skin is found under her nails. Although Janine was with Pat when Laura died, Pat refuses to give Janine an alibi, and brands her \"pure evil\". In desperation, Janine goes to Paul and offers to sleep with him in return for an alibi, but Paul refuses. She is arrested by the police, charged with Laura's murder, and remanded in custody in May 2004.",
+      "sha256": "6c403e1982630dcb8c813f41f10f929ef46c915fceddffaed3775e6cd6873db2",
+      "start": 17824,
+      "end": 18374,
+      "source": {
+        "title": "Janine Butcher",
+        "url": "https://en.wikipedia.org/wiki/Janine_Butcher",
+        "revision_id": "1378379064",
+        "revision_url": "https://en.wikipedia.org/w/index.php?oldid=1378379064",
+        "section": "Storylines / 1999–2004",
+        "captured_at": "2026-10-17T13:07:34.191734Z",
+        "capture_sha256": "1edd6bcd906c84e4ebd9f78235ea8857ad1a117e67475baf675dd7b51fa56eb8",
+        "scope": "main_series",
+        "license_url": "https://creativecommons.org/licenses/by-sa/4.0/",
+        "attribution": "Wikipedia contributors; markup removed and whitespace normalized.",
+        "coverage": "Reviewed narrative sections in this captured revision only.",
+        "gaps": [
+          "Partial canon coverage; other paragraphs remain excluded or awaiting review.",
+          "Identity and episode metadata do not independently corroborate story claims."
+        ],
+        "support_status": "source_supported"
+      },
+      "location": {
+        "source_id": "janine-butcher-wiki",
+        "paragraph_ordinal": 26,
+        "section_id": "1999–2004",
+        "character_ids": [
+          "janine-butcher"
+        ]
+      }
+    }
+  ]
+}

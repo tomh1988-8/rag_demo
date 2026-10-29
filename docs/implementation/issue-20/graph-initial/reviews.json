@@ -1,0 +1,559 @@
+{
+  "family": [
+    {
+      "verdict": "superseded",
+      "reviewer": "Codex source-based full-candidate audit, 29 October 2026; not human canon adjudication",
+      "note": "Both source parent identities are supported. Freeze conservative reference timing unknown and Phil’s generic role. Raw later/father interpretation differs from the pre-reviewed exact policy; do not rewrite its scores. Retain the whole excerpt identifying both parents and Ben.",
+      "superseded_by": [
+        "ref-phil-mitchell-2"
+      ],
+      "claim_id": "raw-phil-mitchell-1",
+      "claim_sha256": "dc64134ab369e7f932f072c18aea600033d8235506a73e19585372f1036333eb"
+    },
+    {
+      "verdict": "superseded",
+      "reviewer": "Codex source-based full-candidate audit, 29 October 2026; not human canon adjudication",
+      "note": "Both source parent identities are supported. Freeze conservative reference timing unknown and Phil’s generic role. Raw later/father interpretation differs from the pre-reviewed exact policy; do not rewrite its scores. Retain the whole excerpt identifying both parents and Ben.",
+      "superseded_by": [
+        "ref-phil-mitchell-1"
+      ],
+      "claim_id": "raw-phil-mitchell-2",
+      "claim_sha256": "ab576ea9235f23da24cbde6280731557548d677de9e973151817ef0252556624"
+    },
+    {
+      "claim_id": "ref-phil-mitchell-1",
+      "claim_sha256": "51f9d3de762297c51ee032698812f8d0b05b6d9689ccd48b978003bab55533d8",
+      "verdict": "supported",
+      "reviewer": "Codex source-based annotation, before extraction; not human canon adjudication",
+      "note": "Birth to their son supports both biological parents. Giving birth establishes Kathy’s mother role; no explicit father role or calendar time is stated for Phil."
+    },
+    {
+      "claim_id": "ref-phil-mitchell-2",
+      "claim_sha256": "ca94dcccb1da5b8e62d4155b25a76668549f542a7d5555c7453075ae66b72481",
+      "verdict": "supported",
+      "reviewer": "Codex source-based annotation, before extraction; not human canon adjudication",
+      "note": "Birth to their son supports both biological parents. Giving birth establishes Kathy’s mother role; no explicit father role or calendar time is stated for Phil."
+    },
+    {
+      "verdict": "superseded",
+      "reviewer": "Codex source-based full-candidate audit, 29 October 2026; not human canon adjudication",
+      "note": "Pregnancy explicitly establishes Peggy as biological mother of Phil; unknown time. Raw values and exact full quote pass. Canonical replacement only consolidates the reviewed graph namespace; original model quality is unchanged.",
+      "superseded_by": [
+        "ref-peggy-mitchell-1"
+      ],
+      "claim_id": "raw-peggy-mitchell-1",
+      "claim_sha256": "914a8b9f705e1250ff56188214e191ec3ed2dc57722e79857ae3cf30b0236ca5"
+    },
+    {
+      "claim_id": "ref-peggy-mitchell-1",
+      "claim_sha256": "f5dda5e0fd1e51db9085c32456020644eba09aa1b807cfef6d0db7749c7c98fb",
+      "verdict": "supported",
+      "reviewer": "Codex source-based annotation, before extraction; not human canon adjudication",
+      "note": "Pregnancy establishes Peggy as biological mother. Eric is outside this selected catalogue; his parentage is not measured. Backstory retained without fabricating a calendar date."
+    },
+    {
+      "verdict": "superseded",
+      "reviewer": "Codex source-based full-candidate audit, 29 October 2026; not human canon adjudication",
+      "note": "Explicit born-to parents, generic parent roles and March 1996. Both raw values and full-span locators pass. Canonical IDs consolidate duplicate story accounts without independent-corroboration credit.",
+      "superseded_by": [
+        "ref-ben-mitchell-1"
+      ],
+      "claim_id": "raw-ben-mitchell-1",
+      "claim_sha256": "c642d406084a0cc65f2a2f278b4fade6d0ea7be6719802a0d0d2770ead84c6e0"
+    },
+    {
+      "verdict": "superseded",
+      "reviewer": "Codex source-based full-candidate audit, 29 October 2026; not human canon adjudication",
+      "note": "Explicit born-to parents, generic parent roles and March 1996. Both raw values and full-span locators pass. Canonical IDs consolidate duplicate story accounts without independent-corroboration credit.",
+      "superseded_by": [
+        "ref-ben-mitchell-2"
+      ],
+      "claim_id": "raw-ben-mitchell-2",
+      "claim_sha256": "9f735da91a752c8792e00c32f9ead92b53c4f651566a546dbd7a5d6dfa74b825"
+    },
+    {
+      "claim_id": "ref-ben-mitchell-1",
+      "claim_sha256": "d89ed920c647fba3bdb79f6db8ceb01b7ce3f25575a40a7255936fab364e97b0",
+      "verdict": "supported",
+      "reviewer": "Codex source-based annotation, before extraction; not human canon adjudication",
+      "note": "Born to establishes biological parentage with generic roles. Month precision exactly matches the prior pilot. Same story as Phil and Kathy profiles, not independent evidence."
+    },
+    {
+      "claim_id": "ref-ben-mitchell-2",
+      "claim_sha256": "1b59c1de99221640e6792a0e2588639c512804a204b9fa68075daf4f904990c8",
+      "verdict": "supported",
+      "reviewer": "Codex source-based annotation, before extraction; not human canon adjudication",
+      "note": "Born to establishes biological parentage with generic roles. Month precision exactly matches the prior pilot. Same story as Phil and Kathy profiles, not independent evidence."
+    },
+    {
+      "verdict": "superseded",
+      "reviewer": "Codex source-based full-candidate audit, 29 October 2026; not human canon adjudication",
+      "note": "Becoming a father to newborn twins supports Ian’s biological father role for Lucy. Raw uncertainty is conservative undercoverage. Keep reference certainty and December 1993 from the pre-pilot source audit.",
+      "superseded_by": [
+        "ref-ian-beale-1"
+      ],
+      "claim_id": "raw-ian-beale-1",
+      "claim_sha256": "7063011656d24f10835ac858472deb3d539187326a464bbc14bfe542f978c92c"
+    },
+    {
+      "claim_id": "ref-ian-beale-1",
+      "claim_sha256": "b8948af55421fef8cb07b24b703c9a237be6f66f9f8c01330a02bee166863e2b",
+      "verdict": "supported",
+      "reviewer": "Codex source-based annotation, before extraction; not human canon adjudication",
+      "note": "Becoming father to newborn twins supports Ian as biological father of Lucy. Peter and Cindy are outside this narrow catalogue, so neither is a negative reference."
+    },
+    {
+      "verdict": "superseded",
+      "reviewer": "Codex source-based full-candidate audit, 29 October 2026; not human canon adjudication",
+      "note": "Pregnancy/labour and naming identify Kathy as mother of Ben; explicit becoming a father supports Phil’s father role. Early 1995 dates the marriage, not birth. Raw split locators have range/quote discrepancies and Phil uncertainty; replacement retains the exact full excerpt.",
+      "superseded_by": [
+        "ref-kathy-beale-2"
+      ],
+      "claim_id": "raw-kathy-beale-1",
+      "claim_sha256": "5a53f7de7a318bb9fc9741e0e848870077c6429df4afdde094dd6d85c60e8ca8"
+    },
+    {
+      "verdict": "superseded",
+      "reviewer": "Codex source-based full-candidate audit, 29 October 2026; not human canon adjudication",
+      "note": "Pregnancy/labour and naming identify Kathy as mother of Ben; explicit becoming a father supports Phil’s father role. Early 1995 dates the marriage, not birth. Raw split locators have range/quote discrepancies and Phil uncertainty; replacement retains the exact full excerpt.",
+      "superseded_by": [
+        "ref-kathy-beale-1"
+      ],
+      "claim_id": "raw-kathy-beale-2",
+      "claim_sha256": "8c6e0174bd16c8be34d881288040e18f1626c2b3ace2315769a1281c221cc455"
+    },
+    {
+      "claim_id": "ref-kathy-beale-1",
+      "claim_sha256": "49c49f5930397d7d3ef56c3566f5905aa007afbf1db9de5cb84f7e98c8d40782",
+      "verdict": "supported",
+      "reviewer": "Codex source-based annotation, before extraction; not human canon adjudication",
+      "note": "Kathy gives birth to their son, then names him Ben. Early 1995 explicitly dates the marriage, not the birth; preserve unknown birth time and do not infer it from the paragraph. The explicit phrase becoming a father supports Phil’s father role."
+    },
+    {
+      "claim_id": "ref-kathy-beale-2",
+      "claim_sha256": "5a1d6d329fd5c77e72375d2a05607ecdf89897c0771f47a04436a08429b30e2f",
+      "verdict": "supported",
+      "reviewer": "Codex source-based annotation, before extraction; not human canon adjudication",
+      "note": "Kathy gives birth to their son, then names him Ben. Early 1995 explicitly dates the marriage, not the birth; preserve unknown birth time and do not infer it from the paragraph. The explicit phrase becoming a father supports Phil’s father role."
+    },
+    {
+      "verdict": "superseded",
+      "reviewer": "Codex source-based full-candidate audit, 29 October 2026; not human canon adjudication",
+      "note": "Born-to parents and exact 9 December 1993 are supported. Both raw candidates have malformed ranges; retain the exact full sentence. Peter stays outside this selected catalogue.",
+      "superseded_by": [
+        "ref-lucy-beale-1"
+      ],
+      "claim_id": "raw-lucy-beale-1",
+      "claim_sha256": "d117c07b7d13790ad0bb017a720bf3859d2caef8ea9413b77caab3ade07b9ef0"
+    },
+    {
+      "verdict": "superseded",
+      "reviewer": "Codex source-based full-candidate audit, 29 October 2026; not human canon adjudication",
+      "note": "Born-to parents and exact 9 December 1993 are supported. Both raw candidates have malformed ranges; retain the exact full sentence. Peter stays outside this selected catalogue.",
+      "superseded_by": [
+        "ref-lucy-beale-2"
+      ],
+      "claim_id": "raw-lucy-beale-2",
+      "claim_sha256": "fc6c858f653f01d7e7ba3454e10de8523ef368dc8129544b9154fb563463266a"
+    },
+    {
+      "claim_id": "ref-lucy-beale-1",
+      "claim_sha256": "646265d4b1fa1a65338f8ab99752aa3f9e3e77d07b04dafccb4e0da887bad38a",
+      "verdict": "supported",
+      "reviewer": "Codex source-based annotation, before extraction; not human canon adjudication",
+      "note": "Explicit born-to parentage and full date. Peter remains outside the selected catalogue. This is the same birth reported in Ian’s profile, kept in one development group."
+    },
+    {
+      "claim_id": "ref-lucy-beale-2",
+      "claim_sha256": "75ac16cde8e198283f36c3a0533d33d36c715bdc3a85e9b3d81a94305d78ce27",
+      "verdict": "supported",
+      "reviewer": "Codex source-based annotation, before extraction; not human canon adjudication",
+      "note": "Explicit born-to parentage and full date. Peter remains outside the selected catalogue. This is the same birth reported in Ian’s profile, kept in one development group."
+    }
+  ],
+  "relationship": [
+    {
+      "verdict": "superseded",
+      "reviewer": "Codex source-based full-candidate audit, 29 October 2026; not human canon adjudication",
+      "note": "Explicit actual marriage in December 1991. Preserve unknown status and unify the reviewed episode ID. The narrower original quote resolves, but does not cover the frozen full-span reference.",
+      "superseded_by": [
+        "ref-grant-mitchell-1"
+      ],
+      "claim_id": "raw-grant-mitchell-1",
+      "claim_sha256": "ff4c0015b329f76e66980d4c44cfe2900cee30ad40adac9aece0fb0cc0573907"
+    },
+    {
+      "claim_id": "ref-grant-mitchell-1",
+      "claim_sha256": "b63c56d962078945b6ecd61bf9d38729e03a66c492063a95f300f697fb34bc94",
+      "verdict": "supported",
+      "reviewer": "Codex source-based annotation, before extraction; not human canon adjudication",
+      "note": "Actual marriage, month precision; running a pub supplies no additional relationship type. Present narrative does not prove current status."
+    },
+    {
+      "verdict": "superseded",
+      "reviewer": "Codex source-based full-candidate audit, 29 October 2026; not human canon adjudication",
+      "note": "Explicit adoption by Den at age three. The short raw quote omits child identity; preserve complete source context. Adoption stays outside biological ancestry.",
+      "superseded_by": [
+        "ref-sharon-watts-1"
+      ],
+      "claim_id": "raw-sharon-watts-1",
+      "claim_sha256": "f3c51b527012067448faf0bed9b99c32814937b907c614909f928a48de22ac5e"
+    },
+    {
+      "claim_id": "ref-sharon-watts-1",
+      "claim_sha256": "5973693740341b4f3a83f423cf7b41d34c4900713cdf1450be60baa43dd8b972",
+      "verdict": "supported",
+      "reviewer": "Codex source-based annotation, before extraction; not human canon adjudication",
+      "note": "Explicit adoption at age three; retain supporting character Den, and exclude this tie from biological ancestry. Angie is outside this selected identity scope."
+    },
+    {
+      "verdict": "superseded",
+      "reviewer": "Codex source-based full-candidate audit, 29 October 2026; not human canon adjudication",
+      "note": "Actual Martin/Stacey marriage; no date. Raw short quote resolves but frozen full-span support includes registry-office wording. The reviewed episode matches Stacey’s same-story account, preserving both source assertions.",
+      "superseded_by": [
+        "ref-martin-fowler-1"
+      ],
+      "claim_id": "raw-martin-fowler-1",
+      "claim_sha256": "42a053582a392cb9fbb61a138c0efbe139f11a9b948e9c80094bab28d67015fe"
+    },
+    {
+      "claim_id": "ref-martin-fowler-1",
+      "claim_sha256": "5cb0a3bda3303c07830f07c2cb17e53fb8ce228b1bb2ec6205b722e4bb2866fd",
+      "verdict": "supported",
+      "reviewer": "Codex source-based annotation, before extraction; not human canon adjudication",
+      "note": "Actual marriage crossing a text chunk boundary. No date is supplied by this sentence; capture time and nearby event order do not create one."
+    },
+    {
+      "verdict": "superseded",
+      "reviewer": "Codex source-based full-candidate audit, 29 October 2026; not human canon adjudication",
+      "note": "Actual remarriage after leaving hospital, a separate episode from the first marriage. Raw locator is malformed and lacks named-subject context. Preserve source-based relative time and both distinct marriages.",
+      "superseded_by": [
+        "ref-kat-slater-1"
+      ],
+      "claim_id": "raw-kat-slater-1",
+      "claim_sha256": "3de06c24f43b85846f3028015bcfdc959b5dc51e11ed962771ead4a5ba722a9f"
+    },
+    {
+      "claim_id": "ref-kat-slater-1",
+      "claim_sha256": "e3a128d9f5b3cccc6899160fbaf491d7296ba6dadee5e77bcfc5f0a60f13c667",
+      "verdict": "supported",
+      "reviewer": "Codex source-based annotation, before extraction; not human canon adjudication",
+      "note": "Kat is named before the pronoun; actual remarriage is a distinct episode from Alfie’s earlier wedding. On leaving hospital is relative timing; the fire is not a relationship assertion."
+    },
+    {
+      "verdict": "superseded",
+      "reviewer": "Codex source-based full-candidate audit, 29 October 2026; not human canon adjudication",
+      "note": "Actual Martin/Stacey marriage. The expanded raw relative phrase differs from frozen literal then; preserve that scorer miss. Review uses full exact source and unifies the same marriage episode with Martin’s account.",
+      "superseded_by": [
+        "ref-stacey-slater-1"
+      ],
+      "claim_id": "raw-stacey-slater-1",
+      "claim_sha256": "25bf99c13b4d41fe61e772df3f80bbb6cb22e14f6251f289fd2b6afa78413c63"
+    },
+    {
+      "claim_id": "ref-stacey-slater-1",
+      "claim_sha256": "252864d3a625d507b3c8fb03202bc7dc6fab4793d5a1a8ca1a3c7f2e5e972d21",
+      "verdict": "superseded",
+      "reviewer": "Codex maintainer projection review, independently source-checked by Spec reviewer, 29 October 2026",
+      "note": "Both full retained biographies place the same marriage after Peggy’s death and before Bex moves in, with matching Andy/rent/proposal sequence. Stacey’s valid then/relative assertion stays unchanged in the extraction reference and audit. Its projection is retired in favour of Martin’s less-specific unknown-date assertion so the existing episode-collision rule need not be weakened. This is projection compatibility, not a false-source verdict or improved model score.",
+      "superseded_by": [
+        "ref-martin-fowler-1"
+      ]
+    },
+    {
+      "verdict": "superseded",
+      "reviewer": "Codex source-based full-candidate audit, 29 October 2026; not human canon adjudication",
+      "note": "Actual first wedding is supported. This short excerpt dates the minister’s lunch, without explicitly dating the ceremony. Keep reference unknown timing; retain raw Christmas/approximate as observed timing overreach under the declared scope.",
+      "superseded_by": [
+        "ref-alfie-moon-1"
+      ],
+      "claim_id": "raw-alfie-moon-1",
+      "claim_sha256": "6580953a1ddd0d09fa244bf3d046176680f2517ff6c94bdc3e53e4f423283814"
+    },
+    {
+      "claim_id": "ref-alfie-moon-1",
+      "claim_sha256": "c89e03325e7410aa8fa14c2b27223306520109face10f6e45ba6de7a1e76bfaa",
+      "verdict": "supported",
+      "reviewer": "Codex source-based annotation, before extraction; not human canon adjudication",
+      "note": "Actual earlier marriage; the minister’s Christmas lunch does not establish a calendar year. This excerpt alone does not explicitly date the ceremony, so timing remains unknown."
+    },
+    {
+      "verdict": "superseded",
+      "reviewer": "Codex source-based full-candidate audit, 29 October 2026; not human canon adjudication",
+      "note": "Actual affair follows the approach/kiss soon. Raw approximate calendar wording overstates the selected exact start policy and has a malformed range. Preserve source relative soon and unknown status.",
+      "superseded_by": [
+        "ref-max-branning-1"
+      ],
+      "claim_id": "raw-max-branning-1",
+      "claim_sha256": "691dbb08e2e3a18480748c563c4848470ee73b5ad0685a7ee312fec9a0d7098b"
+    },
+    {
+      "claim_id": "ref-max-branning-1",
+      "claim_sha256": "6f562bc3a534b034ed5fe1b22bf6bd9dbb9da200dd424e6dcef796ad35f6b4c6",
+      "verdict": "supported",
+      "reviewer": "Codex source-based annotation, before extraction; not human canon adjudication",
+      "note": "An explicit affair. Christmas 2006 dates the approach/kiss; the affair starts “soon” after. Preserve relative start, not an invented date or current status."
+    }
+  ],
+  "event": [
+    {
+      "verdict": "superseded",
+      "reviewer": "Codex source-based full-candidate audit, 29 October 2026; not human canon adjudication",
+      "note": "Explicit pregnancy in 1993. Literal in 1993 versus 1993 remains an original scorer mismatch, not a factual year disagreement. Preserve a complete supporting quote and no inferred paternity.",
+      "superseded_by": [
+        "ref-cindy-beale-1"
+      ],
+      "claim_id": "raw-cindy-beale-1",
+      "claim_sha256": "99e5d803588416e5591a8ea829b214c9afa376bb8fde64291f334b0c25cc1d07"
+    },
+    {
+      "claim_id": "ref-cindy-beale-1",
+      "claim_sha256": "51aa87f52a98e7f5d106a67d8f8c9310b6ab8dced0c7156a18aacd385d5e32b0",
+      "verdict": "supported",
+      "reviewer": "Codex source-based annotation, before extraction; not human canon adjudication",
+      "note": "Only explicit pregnancy and its year. No parentage is inferred from pregnancy; paternity rumours elsewhere are not imported.",
+      "narrative_commission": false
+    },
+    {
+      "verdict": "superseded",
+      "reviewer": "Codex source-based full-candidate audit, 29 October 2026; not human canon adjudication",
+      "note": "Narrative explicitly establishes Bobby’s commission and Lucy’s death ten months before the remarriage. No legal role implies guilt. The raw death quote range is malformed; whole context supports identities and the relative anchor.",
+      "superseded_by": [
+        "ref-bobby-beale-1"
+      ],
+      "claim_id": "raw-bobby-beale-1",
+      "claim_sha256": "e28760102fe46dcc4b05a0f6765e606f4b5f46ffc9dadca6ea5e0b22b22d439a"
+    },
+    {
+      "verdict": "superseded",
+      "reviewer": "Codex source-based full-candidate audit, 29 October 2026; not human canon adjudication",
+      "note": "Narrative explicitly establishes Bobby’s commission and Lucy’s death ten months before the remarriage. No legal role implies guilt. The raw death quote range is malformed; whole context supports identities and the relative anchor.",
+      "superseded_by": [
+        "ref-bobby-beale-2"
+      ],
+      "claim_id": "raw-bobby-beale-2",
+      "claim_sha256": "c810c8b2eae3e0ea7efc82b1137d7f6db1ac3ec345e817e2fe204ded6ef248d3"
+    },
+    {
+      "claim_id": "ref-bobby-beale-1",
+      "claim_sha256": "9ff206f1d6956d0eebf72ca4a8b0f6469b7565cde14c9f5ef2be905d2bd709e2",
+      "verdict": "supported",
+      "reviewer": "Codex source-based annotation, before extraction; not human canon adjudication",
+      "note": "Narrative establishes commission by Bobby and death of Lucy. Relative timing is anchored to Ian/Jane’s remarriage, not a fabricated calendar date. No allegation or conviction is substituted for commission.",
+      "narrative_commission": true
+    },
+    {
+      "claim_id": "ref-bobby-beale-2",
+      "claim_sha256": "68b56672f33f7e058997fa9b881aca67a1fd23e4f449d38b9927ac2f277fb980",
+      "verdict": "supported",
+      "reviewer": "Codex source-based annotation, before extraction; not human canon adjudication",
+      "note": "Narrative establishes commission by Bobby and death of Lucy. Relative timing is anchored to Ian/Jane’s remarriage, not a fabricated calendar date. No allegation or conviction is substituted for commission.",
+      "narrative_commission": false
+    },
+    {
+      "verdict": "superseded",
+      "reviewer": "Codex source-based full-candidate audit, 29 October 2026; not human canon adjudication",
+      "note": "Pat’s actual death is explicit. No supported calendar date is supplied. Raw values and full quote pass; replacement only consolidates namespace.",
+      "superseded_by": [
+        "ref-pat-butcher-1"
+      ],
+      "claim_id": "raw-pat-butcher-1",
+      "claim_sha256": "f4b9328e60b0e55e4692edf5b36a20a122dfa2c9407f4a200894b0b4b6030ce9"
+    },
+    {
+      "claim_id": "ref-pat-butcher-1",
+      "claim_sha256": "a28acb7f45a65546690bb60779c16134670f9aa0def6519b85b2e21f7b667bdf",
+      "verdict": "supported",
+      "reviewer": "Codex source-based annotation, before extraction; not human canon adjudication",
+      "note": "Actual death. “Moments before” describes reconciliation, not a death date; the preceding New Year paragraph and later funeral must not silently supply one.",
+      "narrative_commission": false
+    },
+    {
+      "verdict": "unsupported",
+      "reviewer": "Codex source-based full-candidate audit, 29 October 2026; not human canon adjudication",
+      "note": "Actual out-of-catalogue Laura candidate is excluded from the declared identity scope. The source reports Laura’s death, but the supplied catalogue contains Janine only; this raw identity/contract failure must remain held, with no fabricated replacement identity.",
+      "claim_id": "raw-janine-butcher-1",
+      "claim_sha256": "366fef3cb7bd5bd8f2dbf7b006ffa8fb410b3a9b74ada66ded7a5e30e9ef3ea6"
+    },
+    {
+      "verdict": "superseded",
+      "reviewer": "Codex source-based full-candidate audit, 29 October 2026; not human canon adjudication",
+      "note": "The source describes arrest, charge and remand for Laura’s death in May 2004, and an alibi. These are legal roles, not commission. Raw Laura identity is outside the supplied catalogue and cannot be admitted; raw arrest/charge omit the supported shared time. Replacement retains complete context.",
+      "superseded_by": [
+        "ref-janine-butcher-1"
+      ],
+      "claim_id": "raw-janine-butcher-2",
+      "claim_sha256": "f87d925ebdff4930e64a597a45351fc03a8626f2deaf321103eb8f5832b1c2bc"
+    },
+    {
+      "verdict": "superseded",
+      "reviewer": "Codex source-based full-candidate audit, 29 October 2026; not human canon adjudication",
+      "note": "The source describes arrest, charge and remand for Laura’s death in May 2004, and an alibi. These are legal roles, not commission. Raw Laura identity is outside the supplied catalogue and cannot be admitted; raw arrest/charge omit the supported shared time. Replacement retains complete context.",
+      "superseded_by": [
+        "ref-janine-butcher-2"
+      ],
+      "claim_id": "raw-janine-butcher-3",
+      "claim_sha256": "2d1ca7eb37b47fd936b4daeb2cd3fa7ca53085bd9da4c1bbdc56ff62705af530"
+    },
+    {
+      "verdict": "superseded",
+      "reviewer": "Codex source-based full-candidate audit, 29 October 2026; not human canon adjudication",
+      "note": "The source describes arrest, charge and remand for Laura’s death in May 2004, and an alibi. These are legal roles, not commission. Raw Laura identity is outside the supplied catalogue and cannot be admitted; raw arrest/charge omit the supported shared time. Replacement retains complete context.",
+      "superseded_by": [
+        "ref-janine-butcher-3"
+      ],
+      "claim_id": "raw-janine-butcher-4",
+      "claim_sha256": "5b990af95ae396bc959bac8ca392d82a9e7140a465d5134bbce2f231c736063a"
+    },
+    {
+      "claim_id": "ref-janine-butcher-1",
+      "claim_sha256": "3c6088c334fb33e9d254161e418079bdf75a439c813b94268e65a1347f467b3f",
+      "verdict": "supported",
+      "reviewer": "Codex source-based annotation, before extraction; not human canon adjudication",
+      "note": "Arrest, murder charge and remand are legal roles, not commission. The same account places Janine with Pat when Laura died. Laura is outside the evaluated identity catalogue; her death is not included in recall.",
+      "narrative_commission": false
+    },
+    {
+      "claim_id": "ref-janine-butcher-2",
+      "claim_sha256": "ed98360a03815fd6e38a45009d1a9451b33097318092226c491b53e95dc8a919",
+      "verdict": "supported",
+      "reviewer": "Codex source-based annotation, before extraction; not human canon adjudication",
+      "note": "Arrest, murder charge and remand are legal roles, not commission. The same account places Janine with Pat when Laura died. Laura is outside the evaluated identity catalogue; her death is not included in recall.",
+      "narrative_commission": false
+    },
+    {
+      "claim_id": "ref-janine-butcher-3",
+      "claim_sha256": "b0ec8efc8d68948ccf38aff31948c7dd768b228728b029fae170ca65cbebc7d5",
+      "verdict": "supported",
+      "reviewer": "Codex source-based annotation, before extraction; not human canon adjudication",
+      "note": "Arrest, murder charge and remand are legal roles, not commission. The same account places Janine with Pat when Laura died. Laura is outside the evaluated identity catalogue; her death is not included in recall.",
+      "narrative_commission": false
+    },
+    {
+      "verdict": "superseded",
+      "reviewer": "Codex source-based full-candidate audit, 29 October 2026; not human canon adjudication",
+      "note": "News is received over a year later; the source does not thereby date Dot’s death. Reject transfer of the news-receipt timing to death. No witness or cause is inferred; full quote retains who received the report.",
+      "superseded_by": [
+        "ref-dot-cotton-1"
+      ],
+      "claim_id": "raw-dot-cotton-1",
+      "claim_sha256": "6638ab26c2b0287b38508a34397d31703edc6e61ef559091ea1f2588f52f9173"
+    },
+    {
+      "claim_id": "ref-dot-cotton-1",
+      "claim_sha256": "7c0ee76c662804b5e9665f558b475a0aca7ce7beb931642f56673bdd8f5b92f6",
+      "verdict": "supported",
+      "reviewer": "Codex source-based annotation, before extraction; not human canon adjudication",
+      "note": "Over a year later dates receiving the news relative to prior events, not the actual death. Death is reported without a supported date; no imaginary witness is added.",
+      "narrative_commission": false
+    },
+    {
+      "verdict": "superseded",
+      "reviewer": "Codex source-based full-candidate audit, 29 October 2026; not human canon adjudication",
+      "note": "Confirmed pregnancy, not a cancer diagnosis; unknown timing. Narrow raw quote resolves but frozen full-span grounding requires the whole sentence. No child or parent is inferred.",
+      "superseded_by": [
+        "ref-denise-fox-1"
+      ],
+      "claim_id": "raw-denise-fox-1",
+      "claim_sha256": "ee55e43fd05e09d71ebcd2b94c3e5f7ff620377aee8359a218455c6cd5a3f386"
+    },
+    {
+      "claim_id": "ref-denise-fox-1",
+      "claim_sha256": "561e0780832b0cc57382ca615e52cf36652e12a1fb26cd41d1cf6359c1b71c2c",
+      "verdict": "supported",
+      "reviewer": "Codex source-based annotation, before extraction; not human canon adjudication",
+      "note": "Confirmed pregnancy. Initial fear of cancer is not a confirmed diagnosis. No paternity or unborn character is inferred.",
+      "narrative_commission": false
+    },
+    {
+      "verdict": "superseded",
+      "reviewer": "Codex source-based full-candidate audit, 29 October 2026; not human canon adjudication",
+      "note": "A test confirms Linda’s pregnancy; theory alone is insufficient. Raw locator range is malformed. Whole quote retains the test and no father, unborn identity or calendar date.",
+      "superseded_by": [
+        "ref-linda-carter-1"
+      ],
+      "claim_id": "raw-linda-carter-1",
+      "claim_sha256": "e60697930731be55a38a724fb56fa2c972537e47fb99a85ce24c540364b9c9fb"
+    },
+    {
+      "claim_id": "ref-linda-carter-1",
+      "claim_sha256": "80ac5acd4a78daf37c3bc59081144e11ae6e08bc6922fce3be43e2cfc915cdc2",
+      "verdict": "supported",
+      "reviewer": "Codex source-based annotation, before extraction; not human canon adjudication",
+      "note": "The test confirms pregnancy; theory alone would not. No father, child identity or date is inferred. The wider assault context remains in the full captured source.",
+      "narrative_commission": false
+    },
+    {
+      "verdict": "superseded",
+      "reviewer": "Codex source-based full-candidate audit, 29 October 2026; not human canon adjudication",
+      "note": "Public tape revelation stays unclassified. Raw subjects omit Phil and Kathy despite the explicitly named engagement party, and its locator is malformed. The reviewed text-only replacement preserves all four subjects; no graph event is invented.",
+      "superseded_by": [
+        "ref-phil-tape-text-1"
+      ],
+      "claim_id": "raw-phil-tape-1",
+      "claim_sha256": "cb82ac4fadcc740b57da0ef7cb40dd5681246e6cd60964b1c5dc93893a99dbe6"
+    },
+    {
+      "claim_id": "ref-phil-tape-text-1",
+      "claim_sha256": "9bb678e701e32162d9b71d3ff5b424a35f201e82d5a3a227c83bb29d116a8e52",
+      "verdict": "supported",
+      "reviewer": "Codex source-based annotation, before extraction; not human canon adjudication",
+      "note": "The public tape revelation has no checked event category. Preserve all four explicit character subjects for text retrieval; co-appearance does not create a shared event.",
+      "narrative_commission": false
+    },
+    {
+      "verdict": "superseded",
+      "reviewer": "Codex source-based full-candidate audit, 29 October 2026; not human canon adjudication",
+      "note": "Arrest and imprisonment are explicit legal stages; partner violence supports domestic_abuse. Raw roles and theme values pass; whole context is retained. The theme does not create a shared event or prove a separate commission assertion.",
+      "superseded_by": [
+        "ref-grant-abuse-1"
+      ],
+      "claim_id": "raw-grant-abuse-1",
+      "claim_sha256": "c3e4d4c874b11e8745de115b26edcb5b078b9ec34e53debb326b40f5120dea35"
+    },
+    {
+      "verdict": "superseded",
+      "reviewer": "Codex source-based full-candidate audit, 29 October 2026; not human canon adjudication",
+      "note": "Arrest and imprisonment are explicit legal stages; partner violence supports domestic_abuse. Raw roles and theme values pass; whole context is retained. The theme does not create a shared event or prove a separate commission assertion.",
+      "superseded_by": [
+        "ref-grant-abuse-2"
+      ],
+      "claim_id": "raw-grant-abuse-2",
+      "claim_sha256": "66cb83dcec6eebe64a7eb22479a78cbea372921bafb7b87e6bc7fbd51a8c0f5c"
+    },
+    {
+      "verdict": "superseded",
+      "reviewer": "Codex source-based full-candidate audit, 29 October 2026; not human canon adjudication",
+      "note": "Arrest and imprisonment are explicit legal stages; partner violence supports domestic_abuse. Raw roles and theme values pass; whole context is retained. The theme does not create a shared event or prove a separate commission assertion.",
+      "superseded_by": [
+        "ref-grant-abuse-text-1"
+      ],
+      "claim_id": "raw-grant-abuse-3",
+      "claim_sha256": "da9f04c7028a1112b079c7713ebf7c2d06370018f14f3b8d23780d0b551378bf"
+    },
+    {
+      "claim_id": "ref-grant-abuse-1",
+      "claim_sha256": "9b2f86a4c01ecfea3eb8906f003a3da66570a423c24774e05ab44430b3c4c75e",
+      "verdict": "supported",
+      "reviewer": "Codex source-based annotation, before extraction; not human canon adjudication",
+      "note": "The captured partner violence establishes the theme and the explicitly reported arrest/imprisonment. It does not give a conviction, exact date or a separately explicit perpetrator assignment for a commission claim.",
+      "narrative_commission": false
+    },
+    {
+      "claim_id": "ref-grant-abuse-2",
+      "claim_sha256": "1cd907525e69c1236c1d0ee1faf7f57f2d5de62756bb9377716e72a0a0a8232b",
+      "verdict": "supported",
+      "reviewer": "Codex source-based annotation, before extraction; not human canon adjudication",
+      "note": "The captured partner violence establishes the theme and the explicitly reported arrest/imprisonment. It does not give a conviction, exact date or a separately explicit perpetrator assignment for a commission claim.",
+      "narrative_commission": false
+    },
+    {
+      "claim_id": "ref-grant-abuse-text-1",
+      "claim_sha256": "8a0207a8fa26dd971345b218f4756d08f19aa2df08cf0f8c96d78337d622ec59",
+      "verdict": "supported",
+      "reviewer": "Codex source-based annotation, before extraction; not human canon adjudication",
+      "note": "The captured partner violence establishes the theme and the explicitly reported arrest/imprisonment. It does not give a conviction, exact date or a separately explicit perpetrator assignment for a commission claim.",
+      "narrative_commission": false
+    }
+  ]
+}

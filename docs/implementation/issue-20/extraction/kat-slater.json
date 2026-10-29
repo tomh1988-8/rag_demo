@@ -1,0 +1,158 @@
+{
+  "captured_at": "2026-10-29T08:23:34.398622+00:00",
+  "code_revision": "9f60cea4856740f58a9680b0ff00f384996f77b1",
+  "application_sha256": "fb0feb5e544ebda762ad53e5e230df1df87f572c892932a23215a4f35ea0855b",
+  "prompt_sha256": "1e7473f85c87dfa400293d480c3091eab8950a0cb2fa707a01ba9bf028f78db3",
+  "snapshot_id": "kat-slater-coverage-v1",
+  "snapshot_sha256": "183dafd7ee58c46b0355b85befd0fa388c4a467007cb33ab701026e656661a68",
+  "snapshot_file_sha256": "e4a3a9ef4ccbeb1281a6a36dde7b54cb4cec8b012501d82cb0d6688e50f4f675",
+  "reference_sha256": "549432ca10d18a8183d24f8ef70853499232e63ac67aa4578a4d7e5a5eb7f8cd",
+  "schema_sha256": "8573863eb1966327a8823dd7c00da28eae6a7c87dcc20decc5843e1a66039354",
+  "profile": {
+    "provider_type": "openrouter",
+    "answer_model": "openai/gpt-6-sol",
+    "canonical_slug": "openai/gpt-6-sol-20260922",
+    "provider": "openai",
+    "input_price_per_million": "2",
+    "output_price_per_million": "10",
+    "output_tokens": 8192,
+    "reasoning_effort": "low",
+    "request_timeout_seconds": 180
+  },
+  "expenditure_category": "offline_evaluation",
+  "state": "complete",
+  "raw": "{\"claims\":[{\"claim_id\":\"claim-1\",\"subject_id\":\"kat-slater\",\"object_id\":\"alfie-moon\",\"relation\":\"remarriage\",\"episode_id\":\"episode-1\",\"status\":\"unknown\",\"polarity\":\"affirmed\",\"certainty\":\"certain\",\"story_time\":\"On leaving hospital\",\"time_precision\":\"relative\",\"after_claim_id\":null,\"evidence\":[{\"evidence_id\":\"coverage-kat-slater\",\"start\":612,\"end\":784,\"quote\":\"On leaving hospital, she and Alfie remarry, with two nurses as the only witnesses, before returning to the square and moving into a flat Alfie had organised for them to squat in.\"}]}]}",
+  "batch": {
+    "claims": [
+      {
+        "claim_id": "claim-1",
+        "subject_id": "kat-slater",
+        "object_id": "alfie-moon",
+        "relation": "remarriage",
+        "episode_id": "episode-1",
+        "status": "unknown",
+        "polarity": "affirmed",
+        "certainty": "certain",
+        "story_time": "On leaving hospital",
+        "time_precision": "relative",
+        "after_claim_id": null,
+        "evidence": [
+          {
+            "evidence_id": "coverage-kat-slater",
+            "start": 612,
+            "end": 784,
+            "quote": "On leaving hospital, she and Alfie remarry, with two nurses as the only witnesses, before returning to the square and moving into a flat Alfie had organised for them to squat in."
+          }
+        ]
+      }
+    ],
+    "snapshot_id": "kat-slater-coverage-v1",
+    "snapshot_sha256": "183dafd7ee58c46b0355b85befd0fa388c4a467007cb33ab701026e656661a68",
+    "catalogue": {
+      "characters": [
+        {
+          "character_id": "kat-slater",
+          "name": "Kat Slater",
+          "aliases": [
+            "Kat Moon",
+            "Kat Mitchell"
+          ],
+          "performers": [
+            "Jessie Wallace",
+            "Kate Peck",
+            "Sumar-Elise Sandford",
+            "Amelia Crouch"
+          ],
+          "coverage": "core",
+          "wikidata_id": "Q3955054",
+          "review_note": "Codex source inspection, 17 October 2026: captured character article, infobox aliases/performers and revision metadata checked. Prominence-based curated selection, not a ranked or exhaustive canon. Identity linkage is not independent story corroboration.",
+          "evidence_sources": [
+            "kat-slater-wiki"
+          ]
+        },
+        {
+          "character_id": "alfie-moon",
+          "name": "Alfie Moon",
+          "aliases": [
+            "Alfred William Moon",
+            "Chris Wright"
+          ],
+          "performers": [
+            "Shane Richie"
+          ],
+          "coverage": "core",
+          "wikidata_id": "Q4721932",
+          "review_note": "Codex source inspection, 17 October 2026: captured character article, infobox aliases/performers and revision metadata checked. Prominence-based curated selection, not a ranked or exhaustive canon. Identity linkage is not independent story corroboration.",
+          "evidence_sources": [
+            "alfie-moon-wiki"
+          ]
+        }
+      ]
+    },
+    "extractor": "openai/gpt-6-sol-20260922"
+  },
+  "score": {
+    "expected": 1,
+    "predicted": 1,
+    "true_positive": 1,
+    "precision": 1.0,
+    "recall": 1.0,
+    "f1": 1.0,
+    "schema_valid": true,
+    "duplicates": 0,
+    "resolvable_spans": 0,
+    "grounded": 0,
+    "episode_pairs_expected": 0,
+    "episode_pairs_correct": 0,
+    "ordering_expected": 0,
+    "ordering_predicted": 0,
+    "ordering_correct": 0,
+    "alignment_limited": false,
+    "by_relation": {
+      "remarriage": {
+        "expected": 1,
+        "predicted": 1,
+        "true_positive": 1,
+        "precision": 1.0,
+        "recall": 1.0,
+        "f1": 1.0
+      }
+    },
+    "scope": "Exposed, completely annotated in-catalogue spans only. Match values and unique passage IDs, with frozen timing alternatives; ignore arbitrary claim/episode IDs. Romantic pairs are symmetric; parent/guardian roles are directed. Distinct episode instances retain multiplicity; duplicates within the same episode collapse. One-to-one value matching ignores ID spelling. Ambiguous alignments maximize episode agreement, then ordering; over 4096 alternatives leaves those two scores unavailable. Raw duplicates and full-reference-span grounding are separate. Missing episode pairs fail. This conservative grounding proxy is not independent semantic/canon adjudication."
+  },
+  "usage": {
+    "reservation_id": "ceaa5c73914647029f62513ddc9293a1",
+    "reserved_usd": 0.1079,
+    "cost_usd": 0.0097535,
+    "request_id": "gen-1793262216-BYuROdluCGYGi7qHuHL6",
+    "returned_model": "openai/gpt-6-sol",
+    "provider": "OpenAI",
+    "input_tokens": 1898,
+    "output_tokens": 501,
+    "reasoning_tokens": 355
+  },
+  "execution": {
+    "limits": {
+      "model_calls": 1,
+      "tool_calls": 0,
+      "http_calls": 3,
+      "seconds": 180.0,
+      "context_bytes": 1200,
+      "spend_usd": "0.15",
+      "retries": 0,
+      "capabilities": [],
+      "concurrency": 4
+    },
+    "model_calls": 1,
+    "tool_calls": 0,
+    "http_calls": 3,
+    "reserved_usd": "0.0097535",
+    "stop_reason": null
+  },
+  "elapsed_ms": 9400.131907999821,
+  "failure": null,
+  "trace_id": "tr-30465e570ce8a137cf454e71da89888d",
+  "shared_ledger_usd": 0.794852,
+  "unsettled_reservations": 0,
+  "limitation": "Agent-reviewed exposed labels; no held-out, human or independent canon acceptance."
+}

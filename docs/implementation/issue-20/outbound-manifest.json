@@ -1,0 +1,313 @@
+{
+  "purpose": "Inspect exact public outbound model payloads after automatic egress review rejection; this is a controlled-HTTP inspection, not live model evaluation.",
+  "inspection_network_calls": 0,
+  "real_key_read": false,
+  "shared_budget_touched": false,
+  "destination": "https://openrouter.ai/api/v1/chat/completions",
+  "provider": "openai; fallback disabled",
+  "payload_content": [
+    "reviewed public Wikipedia storyline excerpts for fictional EastEnders characters",
+    "public character names/aliases/performers and public Wikidata identifiers",
+    "extraction instructions and JSON schema",
+    "reviewed incident IDs and labels for event scopes"
+  ],
+  "not_transmitted": [
+    "captured HTML documents",
+    "private workspace files",
+    "local paths",
+    "review reference answers or expected claim labels",
+    "API key in the JSON body"
+  ],
+  "authorization_context": "User requested implementation of the next ticket; issue20 requires budgeted live extraction. Existing repository setup records the authorized shared non-resetting $5 trial.",
+  "trial_limit_usd": 5,
+  "ledger_before_usd": 0.673627,
+  "maximum_extraction_requests": 22,
+  "requests": [
+    {
+      "batch_id": "phil-mitchell",
+      "destination": "https://openrouter.ai/api/v1/chat/completions",
+      "payload_path": "docs/implementation/issue-20/outbound/phil-mitchell.json",
+      "payload_sha256": "219b20785393ac717a368d16ac0adc8326c129606c97d1698209b9b10b4f72fc",
+      "payload_bytes": 7841,
+      "public_sources": [
+        "https://en.wikipedia.org/w/index.php?oldid=1379872347"
+      ],
+      "source_evidence_ids": [
+        "coverage-phil-mitchell"
+      ]
+    },
+    {
+      "batch_id": "grant-mitchell",
+      "destination": "https://openrouter.ai/api/v1/chat/completions",
+      "payload_path": "docs/implementation/issue-20/outbound/grant-mitchell.json",
+      "payload_sha256": "ca341b6e3cd6ff793be0d38712f54608f0e1a38dcfd69f49f227e828afc4891a",
+      "payload_bytes": 7966,
+      "public_sources": [
+        "https://en.wikipedia.org/w/index.php?oldid=1370914760"
+      ],
+      "source_evidence_ids": [
+        "coverage-grant-mitchell"
+      ]
+    },
+    {
+      "batch_id": "peggy-mitchell",
+      "destination": "https://openrouter.ai/api/v1/chat/completions",
+      "payload_path": "docs/implementation/issue-20/outbound/peggy-mitchell.json",
+      "payload_sha256": "2bfb9a176c646177a6b74ccaa0b25384b432d68f7c074644b439f6decdb4842a",
+      "payload_bytes": 7203,
+      "public_sources": [
+        "https://en.wikipedia.org/w/index.php?oldid=1372787814"
+      ],
+      "source_evidence_ids": [
+        "coverage-peggy-mitchell"
+      ]
+    },
+    {
+      "batch_id": "sharon-watts",
+      "destination": "https://openrouter.ai/api/v1/chat/completions",
+      "payload_path": "docs/implementation/issue-20/outbound/sharon-watts.json",
+      "payload_sha256": "77e9e6c8e03bbe3c7292aead41498fec89f84953188259f4a8b4b787cd759005",
+      "payload_bytes": 8111,
+      "public_sources": [
+        "https://en.wikipedia.org/w/index.php?oldid=1372798905"
+      ],
+      "source_evidence_ids": [
+        "coverage-sharon-watts"
+      ]
+    },
+    {
+      "batch_id": "ben-mitchell",
+      "destination": "https://openrouter.ai/api/v1/chat/completions",
+      "payload_path": "docs/implementation/issue-20/outbound/ben-mitchell.json",
+      "payload_sha256": "75c974f05374fa72817ac9893c1e8e8641140d5530df5d714013382113f2dbae",
+      "payload_bytes": 7791,
+      "public_sources": [
+        "https://en.wikipedia.org/w/index.php?oldid=1376729134"
+      ],
+      "source_evidence_ids": [
+        "coverage-ben-mitchell"
+      ]
+    },
+    {
+      "batch_id": "ian-beale",
+      "destination": "https://openrouter.ai/api/v1/chat/completions",
+      "payload_path": "docs/implementation/issue-20/outbound/ian-beale.json",
+      "payload_sha256": "856d0b898feaa9ac0a3335a3ed39c92996e3a40fabe0da8ede61971c6c7b8b9b",
+      "payload_bytes": 7243,
+      "public_sources": [
+        "https://en.wikipedia.org/w/index.php?oldid=1378295578"
+      ],
+      "source_evidence_ids": [
+        "coverage-ian-beale"
+      ]
+    },
+    {
+      "batch_id": "kathy-beale",
+      "destination": "https://openrouter.ai/api/v1/chat/completions",
+      "payload_path": "docs/implementation/issue-20/outbound/kathy-beale.json",
+      "payload_sha256": "2211693788f7d1a7ef3bce1b9327675f50b13b6e74a86f9a9266c03005e840ce",
+      "payload_bytes": 8232,
+      "public_sources": [
+        "https://en.wikipedia.org/w/index.php?oldid=1372746094"
+      ],
+      "source_evidence_ids": [
+        "coverage-kathy-beale"
+      ]
+    },
+    {
+      "batch_id": "cindy-beale",
+      "destination": "https://openrouter.ai/api/v1/chat/completions",
+      "payload_path": "docs/implementation/issue-20/outbound/cindy-beale.json",
+      "payload_sha256": "5ad04214fbbbc92c2680306e02040211a55baa6edceeb3a8ca60698ac85631fb",
+      "payload_bytes": 7995,
+      "public_sources": [
+        "https://en.wikipedia.org/w/index.php?oldid=1375368032"
+      ],
+      "source_evidence_ids": [
+        "coverage-cindy-beale"
+      ]
+    },
+    {
+      "batch_id": "lucy-beale",
+      "destination": "https://openrouter.ai/api/v1/chat/completions",
+      "payload_path": "docs/implementation/issue-20/outbound/lucy-beale.json",
+      "payload_sha256": "6793350d48dd1f30f74f197ea4b3a0090885fb6ce3990347985b08009b667238",
+      "payload_bytes": 7982,
+      "public_sources": [
+        "https://en.wikipedia.org/w/index.php?oldid=1373199144"
+      ],
+      "source_evidence_ids": [
+        "coverage-lucy-beale"
+      ]
+    },
+    {
+      "batch_id": "bobby-beale",
+      "destination": "https://openrouter.ai/api/v1/chat/completions",
+      "payload_path": "docs/implementation/issue-20/outbound/bobby-beale.json",
+      "payload_sha256": "f345a42bf93f0dbd1c4062be7266a1bd41796df9b0f2d00e4d3ae67e000327ab",
+      "payload_bytes": 8360,
+      "public_sources": [
+        "https://en.wikipedia.org/w/index.php?oldid=1364396059"
+      ],
+      "source_evidence_ids": [
+        "coverage-bobby-beale"
+      ]
+    },
+    {
+      "batch_id": "martin-fowler",
+      "destination": "https://openrouter.ai/api/v1/chat/completions",
+      "payload_path": "docs/implementation/issue-20/outbound/martin-fowler.json",
+      "payload_sha256": "e70c78b18878529e4dc65b40373c4556f4fe81048d86ab77dcb9f5411ad66ed5",
+      "payload_bytes": 7963,
+      "public_sources": [
+        "https://en.wikipedia.org/w/index.php?oldid=1375375419"
+      ],
+      "source_evidence_ids": [
+        "coverage-martin-fowler"
+      ]
+    },
+    {
+      "batch_id": "kat-slater",
+      "destination": "https://openrouter.ai/api/v1/chat/completions",
+      "payload_path": "docs/implementation/issue-20/outbound/kat-slater.json",
+      "payload_sha256": "137b6e606ad239a777ec7afe9ef8fb80a6b95542ff68792f13ebc2bbdc94c012",
+      "payload_bytes": 8661,
+      "public_sources": [
+        "https://en.wikipedia.org/w/index.php?oldid=1380652225"
+      ],
+      "source_evidence_ids": [
+        "coverage-kat-slater"
+      ]
+    },
+    {
+      "batch_id": "stacey-slater",
+      "destination": "https://openrouter.ai/api/v1/chat/completions",
+      "payload_path": "docs/implementation/issue-20/outbound/stacey-slater.json",
+      "payload_sha256": "913767b71bbd0d4f2bb0d80f4cc8c4db6d4c8c4852b0532689cb83fc7dcd75f2",
+      "payload_bytes": 7998,
+      "public_sources": [
+        "https://en.wikipedia.org/w/index.php?oldid=1379843622"
+      ],
+      "source_evidence_ids": [
+        "coverage-stacey-slater"
+      ]
+    },
+    {
+      "batch_id": "alfie-moon",
+      "destination": "https://openrouter.ai/api/v1/chat/completions",
+      "payload_path": "docs/implementation/issue-20/outbound/alfie-moon.json",
+      "payload_sha256": "205a617a7fc89757228b7383ce4399594da6d10ca42027bc5c7a76c9a0720387",
+      "payload_bytes": 8018,
+      "public_sources": [
+        "https://en.wikipedia.org/w/index.php?oldid=1377842543"
+      ],
+      "source_evidence_ids": [
+        "coverage-alfie-moon"
+      ]
+    },
+    {
+      "batch_id": "pat-butcher",
+      "destination": "https://openrouter.ai/api/v1/chat/completions",
+      "payload_path": "docs/implementation/issue-20/outbound/pat-butcher.json",
+      "payload_sha256": "68f64ab4b5c45eac68311b6fb48f94a605dd76b5a4007bfbabc3be0a0de32b31",
+      "payload_bytes": 8094,
+      "public_sources": [
+        "https://en.wikipedia.org/w/index.php?oldid=1375429106"
+      ],
+      "source_evidence_ids": [
+        "coverage-pat-butcher"
+      ]
+    },
+    {
+      "batch_id": "janine-butcher",
+      "destination": "https://openrouter.ai/api/v1/chat/completions",
+      "payload_path": "docs/implementation/issue-20/outbound/janine-butcher.json",
+      "payload_sha256": "60d1b20ec897bcedac72e70987cfc8343aa001133561e394cbf990e418fcc608",
+      "payload_bytes": 8597,
+      "public_sources": [
+        "https://en.wikipedia.org/w/index.php?oldid=1378379064"
+      ],
+      "source_evidence_ids": [
+        "coverage-janine-butcher"
+      ]
+    },
+    {
+      "batch_id": "dot-cotton",
+      "destination": "https://openrouter.ai/api/v1/chat/completions",
+      "payload_path": "docs/implementation/issue-20/outbound/dot-cotton.json",
+      "payload_sha256": "5047b314d206dfda73a8c0f89d5529e8adc3b8bdd6d28001a8b711239c34dbeb",
+      "payload_bytes": 8036,
+      "public_sources": [
+        "https://en.wikipedia.org/w/index.php?oldid=1372705076"
+      ],
+      "source_evidence_ids": [
+        "coverage-dot-cotton"
+      ]
+    },
+    {
+      "batch_id": "denise-fox",
+      "destination": "https://openrouter.ai/api/v1/chat/completions",
+      "payload_path": "docs/implementation/issue-20/outbound/denise-fox.json",
+      "payload_sha256": "1d1de0598ed4cf59cc6ae9a768702f0a7e12d893ccd4516a329d87c3f2ca6cce",
+      "payload_bytes": 8058,
+      "public_sources": [
+        "https://en.wikipedia.org/w/index.php?oldid=1378939229"
+      ],
+      "source_evidence_ids": [
+        "coverage-denise-fox"
+      ]
+    },
+    {
+      "batch_id": "max-branning",
+      "destination": "https://openrouter.ai/api/v1/chat/completions",
+      "payload_path": "docs/implementation/issue-20/outbound/max-branning.json",
+      "payload_sha256": "f3664fab0bb1bc1ea171af21bfced2b6c4c8433f6d8699a6d3d2e11c5f0ade4f",
+      "payload_bytes": 8109,
+      "public_sources": [
+        "https://en.wikipedia.org/w/index.php?oldid=1378782554"
+      ],
+      "source_evidence_ids": [
+        "coverage-max-branning"
+      ]
+    },
+    {
+      "batch_id": "linda-carter",
+      "destination": "https://openrouter.ai/api/v1/chat/completions",
+      "payload_path": "docs/implementation/issue-20/outbound/linda-carter.json",
+      "payload_sha256": "4577a0668f64e9289115309cba6f4560ef325e03f127f74db15e4513f6e231cf",
+      "payload_bytes": 8095,
+      "public_sources": [
+        "https://en.wikipedia.org/w/index.php?oldid=1379097965"
+      ],
+      "source_evidence_ids": [
+        "coverage-linda-carter"
+      ]
+    },
+    {
+      "batch_id": "phil-tape",
+      "destination": "https://openrouter.ai/api/v1/chat/completions",
+      "payload_path": "docs/implementation/issue-20/outbound/phil-tape.json",
+      "payload_sha256": "7082ce14253fa2b674a5c89561c4d6bb921c853a56c9bfdf932a253e9425b72a",
+      "payload_bytes": 8513,
+      "public_sources": [
+        "https://en.wikipedia.org/w/index.php?oldid=1379872347"
+      ],
+      "source_evidence_ids": [
+        "coverage-phil-tape"
+      ]
+    },
+    {
+      "batch_id": "grant-abuse",
+      "destination": "https://openrouter.ai/api/v1/chat/completions",
+      "payload_path": "docs/implementation/issue-20/outbound/grant-abuse.json",
+      "payload_sha256": "c0e0f56eac9698e209ecdf2a6f515c4aac7983634ee43d0722e43db59af6bf8f",
+      "payload_bytes": 8303,
+      "public_sources": [
+        "https://en.wikipedia.org/w/index.php?oldid=1379872347"
+      ],
+      "source_evidence_ids": [
+        "coverage-grant-abuse"
+      ]
+    }
+  ]
+}

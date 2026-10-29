@@ -1,0 +1,58 @@
+{
+  "snapshot_id": "denise-fox-coverage-v1",
+  "fixture_version": 1,
+  "source": {
+    "title": "Phil Mitchell",
+    "url": "https://en.wikipedia.org/wiki/Phil_Mitchell",
+    "revision_id": "1379872347",
+    "revision_url": "https://en.wikipedia.org/w/index.php?oldid=1379872347",
+    "section": "Storylines / 1990–2003",
+    "captured_at": "2026-10-17T13:07:31.014189Z",
+    "capture_sha256": "a338d3065203be54e383f2c9c141bca22ae9aedbb950e2e1eada601bcccfe313",
+    "scope": "main_series",
+    "license_url": "https://creativecommons.org/licenses/by-sa/4.0/",
+    "attribution": "Wikipedia contributors; markup removed and whitespace normalized.",
+    "coverage": "Reviewed narrative sections in this captured revision only.",
+    "gaps": [
+      "Partial canon coverage; other paragraphs remain excluded or awaiting review.",
+      "Identity and episode metadata do not independently corroborate story claims."
+    ],
+    "support_status": "source_supported"
+  },
+  "passages": [
+    {
+      "evidence_id": "coverage-denise-fox",
+      "text": "When Denise faints, she researches her symptoms and initially fears that she has cancer but discovers that she is pregnant.",
+      "sha256": "e92d11907e2ec61c0a11427673452f7491a393607e86ea4e1310ab7a074529e5",
+      "start": 19865,
+      "end": 19988,
+      "source": {
+        "title": "Denise Fox",
+        "url": "https://en.wikipedia.org/wiki/Denise_Fox",
+        "revision_id": "1378939229",
+        "revision_url": "https://en.wikipedia.org/w/index.php?oldid=1378939229",
+        "section": "Storylines",
+        "captured_at": "2026-10-17T13:07:34.640123Z",
+        "capture_sha256": "2545a525bd8f3338a51ed788e0c88658b60503df4a025557ff78ef046168476c",
+        "scope": "main_series",
+        "license_url": "https://creativecommons.org/licenses/by-sa/4.0/",
+        "attribution": "Wikipedia contributors; markup removed and whitespace normalized.",
+        "coverage": "Reviewed narrative sections in this captured revision only.",
+        "gaps": [
+          "Partial canon coverage; other paragraphs remain excluded or awaiting review.",
+          "Identity and episode metadata do not independently corroborate story claims."
+        ],
+        "support_status": "source_supported"
+      },
+      "location": {
+        "source_id": "denise-fox-wiki",
+        "paragraph_ordinal": 16,
+        "section_id": "Storylines",
+        "character_ids": [
+          "denise-fox",
+          "sharon-watts"
+        ]
+      }
+    }
+  ]
+}

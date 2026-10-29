@@ -1,0 +1,58 @@
+{
+  "snapshot_id": "max-branning-coverage-v1",
+  "fixture_version": 1,
+  "source": {
+    "title": "Phil Mitchell",
+    "url": "https://en.wikipedia.org/wiki/Phil_Mitchell",
+    "revision_id": "1379872347",
+    "revision_url": "https://en.wikipedia.org/w/index.php?oldid=1379872347",
+    "section": "Storylines / 1990–2003",
+    "captured_at": "2026-10-17T13:07:31.014189Z",
+    "capture_sha256": "a338d3065203be54e383f2c9c141bca22ae9aedbb950e2e1eada601bcccfe313",
+    "scope": "main_series",
+    "license_url": "https://creativecommons.org/licenses/by-sa/4.0/",
+    "attribution": "Wikipedia contributors; markup removed and whitespace normalized.",
+    "coverage": "Reviewed narrative sections in this captured revision only.",
+    "gaps": [
+      "Partial canon coverage; other paragraphs remain excluded or awaiting review.",
+      "Identity and episode metadata do not independently corroborate story claims."
+    ],
+    "support_status": "source_supported"
+  },
+  "passages": [
+    {
+      "evidence_id": "coverage-max-branning",
+      "text": "However, the abortion ends the relationship Stacey decides to hurt Bradley by making a move on Max during Christmas 2006; Max and Stacey kiss and the two soon embark on a passionate affair that lasts for several months going into 2007.",
+      "sha256": "a6dc48389d3e35d45e8557bb0c46762fda779b89c7b8e5543f67ca1d1523bf55",
+      "start": 9165,
+      "end": 9400,
+      "source": {
+        "title": "Max Branning",
+        "url": "https://en.wikipedia.org/wiki/Max_Branning",
+        "revision_id": "1378782554",
+        "revision_url": "https://en.wikipedia.org/w/index.php?oldid=1378782554",
+        "section": "Storylines / 2006–2021",
+        "captured_at": "2026-10-17T13:07:34.684245Z",
+        "capture_sha256": "48c3bdd9d5f7110e9cbcd9e6cbc7f32970c519fee14c1a32b231b42c639dc615",
+        "scope": "main_series",
+        "license_url": "https://creativecommons.org/licenses/by-sa/4.0/",
+        "attribution": "Wikipedia contributors; markup removed and whitespace normalized.",
+        "coverage": "Reviewed narrative sections in this captured revision only.",
+        "gaps": [
+          "Partial canon coverage; other paragraphs remain excluded or awaiting review.",
+          "Identity and episode metadata do not independently corroborate story claims."
+        ],
+        "support_status": "source_supported"
+      },
+      "location": {
+        "source_id": "max-branning-wiki",
+        "paragraph_ordinal": 15,
+        "section_id": "2006–2021",
+        "character_ids": [
+          "max-branning",
+          "stacey-slater"
+        ]
+      }
+    }
+  ]
+}

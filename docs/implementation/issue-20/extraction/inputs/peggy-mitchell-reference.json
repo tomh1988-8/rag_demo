@@ -1,0 +1,72 @@
+{
+  "expected_claims": [
+    {
+      "parent_id": "peggy-mitchell",
+      "child_id": "phil-mitchell",
+      "parent_role": "mother",
+      "relation": "biological_parent",
+      "polarity": "affirmed",
+      "certainty": "certain",
+      "story_time": "unknown",
+      "time_precision": "unknown",
+      "claim_id": "ref-peggy-mitchell-1",
+      "evidence": [
+        {
+          "evidence_id": "coverage-peggy-mitchell",
+          "start": 0,
+          "end": 105,
+          "quote": "Peggy married Eric Mitchell (George Russo) because she was pregnant with their son Phil (Steve McFadden)."
+        }
+      ]
+    }
+  ],
+  "snapshot_sha256": "6ef1f7b460eaf2d2658bc91280c44ea666aa3979fb278c77168966327a48be47",
+  "catalogue": {
+    "characters": [
+      {
+        "character_id": "peggy-mitchell",
+        "name": "Peggy Mitchell",
+        "aliases": [
+          "Peggy Butcher"
+        ],
+        "performers": [
+          "Jo Warne",
+          "Barbara Windsor",
+          "Jaime Winstone"
+        ],
+        "coverage": "core",
+        "wikidata_id": "Q13130609",
+        "review_note": "Codex source inspection, 17 October 2026: captured character article, infobox aliases/performers and revision metadata checked. Prominence-based curated selection, not a ranked or exhaustive canon. Identity linkage is not independent story corroboration.",
+        "evidence_sources": [
+          "peggy-mitchell-wiki"
+        ]
+      },
+      {
+        "character_id": "phil-mitchell",
+        "name": "Phil Mitchell",
+        "aliases": [],
+        "performers": [
+          "Steve McFadden",
+          "Daniel Delaney"
+        ],
+        "coverage": "core",
+        "wikidata_id": "Q2115259",
+        "review_note": "Codex source inspection, 17 October 2026: captured character article, infobox aliases/performers and revision metadata checked. Prominence-based curated selection, not a ranked or exhaustive canon. Identity linkage is not independent story corroboration.",
+        "evidence_sources": [
+          "phil-mitchell-wiki"
+        ]
+      }
+    ]
+  },
+  "origin_snapshot_sha256": "2ea666180ca9600a6d8e35ae7049d21f682d9090cddc92f63630d9250d7a6c76",
+  "annotation_sha256": "56275247f9cf2976827f1fd6d9df6ae7682c73da343bc615b819e3f22a7571bb",
+  "reviewer": "Codex source-based annotation, before extraction; not human canon adjudication",
+  "review_note": "Pregnancy establishes Peggy as biological mother. Eric is outside this selected catalogue; his parentage is not measured. Backstory retained without fabricating a calendar date.",
+  "synthetic": false,
+  "cross_source_checked": false,
+  "split": "exposed_development",
+  "story_groups": [
+    "peggy-phil-parentage"
+  ],
+  "completeness": "All explicit in-catalogue assertions of the selected family within these excerpts; events are restricted to the declared incidents."
+}

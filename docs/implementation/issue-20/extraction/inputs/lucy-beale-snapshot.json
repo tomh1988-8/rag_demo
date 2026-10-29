@@ -1,0 +1,62 @@
+{
+  "snapshot_id": "lucy-beale-coverage-v1",
+  "fixture_version": 1,
+  "source": {
+    "title": "Phil Mitchell",
+    "url": "https://en.wikipedia.org/wiki/Phil_Mitchell",
+    "revision_id": "1379872347",
+    "revision_url": "https://en.wikipedia.org/w/index.php?oldid=1379872347",
+    "section": "Storylines / 1990–2003",
+    "captured_at": "2026-10-17T13:07:31.014189Z",
+    "capture_sha256": "a338d3065203be54e383f2c9c141bca22ae9aedbb950e2e1eada601bcccfe313",
+    "scope": "main_series",
+    "license_url": "https://creativecommons.org/licenses/by-sa/4.0/",
+    "attribution": "Wikipedia contributors; markup removed and whitespace normalized.",
+    "coverage": "Reviewed narrative sections in this captured revision only.",
+    "gaps": [
+      "Partial canon coverage; other paragraphs remain excluded or awaiting review.",
+      "Identity and episode metadata do not independently corroborate story claims."
+    ],
+    "support_status": "source_supported"
+  },
+  "passages": [
+    {
+      "evidence_id": "coverage-lucy-beale",
+      "text": "Lucy and her twin brother Peter Beale (Francis Brittin-Snell) are born off-screen on 9 December 1993, to Ian (Adam Woodyatt) and Cindy Beale (Michelle Collins).",
+      "sha256": "44f9d2dd940e928a5df9b2deaf83a36509e245e19fab698dfbfe6cade25e1fb9",
+      "start": 6407,
+      "end": 6567,
+      "source": {
+        "title": "Lucy Beale",
+        "url": "https://en.wikipedia.org/wiki/Lucy_Beale",
+        "revision_id": "1373199144",
+        "revision_url": "https://en.wikipedia.org/w/index.php?oldid=1373199144",
+        "section": "Storylines / 1993–2010",
+        "captured_at": "2026-10-17T13:07:32.327559Z",
+        "capture_sha256": "9936ed0d7447cbd3d2ecd1c57897adc9d6eada5b4bf9c9a9644cf08a09af3109",
+        "scope": "main_series",
+        "license_url": "https://creativecommons.org/licenses/by-sa/4.0/",
+        "attribution": "Wikipedia contributors; markup removed and whitespace normalized.",
+        "coverage": "Reviewed narrative sections in this captured revision only.",
+        "gaps": [
+          "Partial canon coverage; other paragraphs remain excluded or awaiting review.",
+          "Identity and episode metadata do not independently corroborate story claims."
+        ],
+        "support_status": "source_supported"
+      },
+      "location": {
+        "source_id": "lucy-beale-wiki",
+        "paragraph_ordinal": 10,
+        "section_id": "1993–2010",
+        "character_ids": [
+          "bobby-beale",
+          "cindy-beale",
+          "grant-mitchell",
+          "ian-beale",
+          "lucy-beale",
+          "phil-mitchell"
+        ]
+      }
+    }
+  ]
+}

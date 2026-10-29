@@ -1,0 +1,70 @@
+{
+  "expected_claims": [
+    {
+      "event_id": "denise-pregnancy",
+      "event_label": "Denise's pregnancy",
+      "event_type": "pregnancy",
+      "basis": "narrative",
+      "participants": [
+        {
+          "character_id": "denise-fox",
+          "role": "pregnant_person"
+        }
+      ],
+      "account_status": "as_reported",
+      "polarity": "affirmed",
+      "certainty": "certain",
+      "story_time": "unknown",
+      "time_precision": "unknown",
+      "claim_id": "ref-denise-fox-1",
+      "evidence": [
+        {
+          "evidence_id": "coverage-denise-fox",
+          "start": 0,
+          "end": 123,
+          "quote": "When Denise faints, she researches her symptoms and initially fears that she has cancer but discovers that she is pregnant."
+        }
+      ]
+    }
+  ],
+  "expected_context_claims": [],
+  "incidents": {
+    "coverage-denise-fox": {
+      "event_id": "denise-pregnancy",
+      "event_label": "Denise's pregnancy"
+    }
+  },
+  "snapshot_sha256": "38a6e87cdfa45bfc9c70a99c6ca2b7139e6a5679ec03ccb8878325af03a18cf4",
+  "catalogue": {
+    "characters": [
+      {
+        "character_id": "denise-fox",
+        "name": "Denise Fox",
+        "aliases": [
+          "Denise Johnson",
+          "Denise Wicks"
+        ],
+        "performers": [
+          "Diane Parish"
+        ],
+        "coverage": "core",
+        "wikidata_id": "Q5257665",
+        "review_note": "Codex source inspection, 17 October 2026: captured character article, infobox aliases/performers and revision metadata checked. Prominence-based curated selection, not a ranked or exhaustive canon. Identity linkage is not independent story corroboration.",
+        "evidence_sources": [
+          "denise-fox-wiki"
+        ]
+      }
+    ]
+  },
+  "origin_snapshot_sha256": "2ea666180ca9600a6d8e35ae7049d21f682d9090cddc92f63630d9250d7a6c76",
+  "annotation_sha256": "56275247f9cf2976827f1fd6d9df6ae7682c73da343bc615b819e3f22a7571bb",
+  "reviewer": "Codex source-based annotation, before extraction; not human canon adjudication",
+  "review_note": "Confirmed pregnancy. Initial fear of cancer is not a confirmed diagnosis. No paternity or unborn character is inferred.",
+  "synthetic": false,
+  "cross_source_checked": false,
+  "split": "exposed_development",
+  "story_groups": [
+    "denise-pregnancy"
+  ],
+  "completeness": "All explicit in-catalogue assertions of the selected family within these excerpts; events are restricted to the declared incidents."
+}

@@ -1,0 +1,500 @@
+{
+  "reviews": [
+    {
+      "case_id": "core-roster-phil-mitchell",
+      "response_sha256": "0b11e822fd399392100a0cd5c8177557e182a46759187af9f0e4dfda3e1caf57",
+      "reference_sha256": "7deb50d8f3497526d176a6f27a075507779cd54ac319e9ef8835c7c242e29cb9",
+      "reviewer": "Codex source-based review; all25 answers independently checked by Spec code reviewer; no human canon adjudication",
+      "rationale": "Actual prose and resolved citations support the named roles, biological/social distinction, separate episodes and exact/relative/unknown timing. The qualified partial or ineligible/empty outcome matches this bounded snapshot. Current source support is not independent canon corroboration. Structural result completeness is measured by the separate frozen graph component scorer; this capture reference has no prose required-fact denominator.",
+      "claims": [
+        {
+          "claim": "Phil is Ben’s biological parent.",
+          "correct": true,
+          "grounded": true,
+          "citation_supported": true
+        }
+      ],
+      "required_facts": [],
+      "answerability": true,
+      "relevance": true,
+      "critical_failures": []
+    },
+    {
+      "case_id": "core-roster-peggy-mitchell",
+      "response_sha256": "47c33ac2ab60bfbe5d82ac8f87e9afc0d8f90de2624eb55883e3e2745f9c4c59",
+      "reference_sha256": "77865132c31ae2a215f5f5ebdb27841196f1ca2b226869a519fad0171ea0a0ce",
+      "reviewer": "Codex source-based review; all25 answers independently checked by Spec code reviewer; no human canon adjudication",
+      "rationale": "Actual prose and resolved citations support the named roles, biological/social distinction, separate episodes and exact/relative/unknown timing. The qualified partial or ineligible/empty outcome matches this bounded snapshot. Current source support is not independent canon corroboration. Structural result completeness is measured by the separate frozen graph component scorer; this capture reference has no prose required-fact denominator.",
+      "claims": [
+        {
+          "claim": "Peggy is Phil’s biological mother.",
+          "correct": true,
+          "grounded": true,
+          "citation_supported": true
+        }
+      ],
+      "required_facts": [],
+      "answerability": true,
+      "relevance": true,
+      "critical_failures": []
+    },
+    {
+      "case_id": "core-roster-ben-mitchell",
+      "response_sha256": "95a4c1b6d0b465c0d3630f532772302f95675b6688b4e4ac765cf50322fc6523",
+      "reference_sha256": "1e8f21779346b2e0d52345253088d448a47e5d81228ce594c257246e7f8db4a2",
+      "reviewer": "Codex source-based review; all25 answers independently checked by Spec code reviewer; no human canon adjudication",
+      "rationale": "Actual prose and resolved citations support the named roles, biological/social distinction, separate episodes and exact/relative/unknown timing. The qualified partial or ineligible/empty outcome matches this bounded snapshot. Current source support is not independent canon corroboration. Structural result completeness is measured by the separate frozen graph component scorer; this capture reference has no prose required-fact denominator.",
+      "claims": [
+        {
+          "claim": "Kathy is Ben’s biological parent.",
+          "correct": true,
+          "grounded": true,
+          "citation_supported": true
+        },
+        {
+          "claim": "Phil is Ben’s biological parent.",
+          "correct": true,
+          "grounded": true,
+          "citation_supported": true
+        }
+      ],
+      "required_facts": [],
+      "answerability": true,
+      "relevance": true,
+      "critical_failures": []
+    },
+    {
+      "case_id": "core-roster-ian-beale",
+      "response_sha256": "a67b9cfa32a745e777311c5c6d3b778f8c737698cd1e6e38351dba37fd0c9598",
+      "reference_sha256": "134399a9947416c7c3e740ec0dc6badbc058476fc2cba4f309775b0f2174ddb1",
+      "reviewer": "Codex source-based review; all25 answers independently checked by Spec code reviewer; no human canon adjudication",
+      "rationale": "Actual prose and resolved citations support the named roles, biological/social distinction, separate episodes and exact/relative/unknown timing. The qualified partial or ineligible/empty outcome matches this bounded snapshot. Current source support is not independent canon corroboration. Structural result completeness is measured by the separate frozen graph component scorer; this capture reference has no prose required-fact denominator.",
+      "claims": [
+        {
+          "claim": "Ian is Lucy’s biological father.",
+          "correct": true,
+          "grounded": true,
+          "citation_supported": true
+        }
+      ],
+      "required_facts": [],
+      "answerability": true,
+      "relevance": true,
+      "critical_failures": []
+    },
+    {
+      "case_id": "core-roster-kathy-beale",
+      "response_sha256": "d4ab5e598b77efe80f95164f6d56426edef962a675b1bba1cd9de1493e44cfee",
+      "reference_sha256": "298ffd0d117ea17201ece846f7e516916bf2f59c116c844bbc5069b518ef030d",
+      "reviewer": "Codex source-based review; all25 answers independently checked by Spec code reviewer; no human canon adjudication",
+      "rationale": "Actual prose and resolved citations support the named roles, biological/social distinction, separate episodes and exact/relative/unknown timing. The qualified partial or ineligible/empty outcome matches this bounded snapshot. Current source support is not independent canon corroboration. Structural result completeness is measured by the separate frozen graph component scorer; this capture reference has no prose required-fact denominator.",
+      "claims": [
+        {
+          "claim": "Kathy is Ben’s biological mother.",
+          "correct": true,
+          "grounded": true,
+          "citation_supported": true
+        }
+      ],
+      "required_facts": [],
+      "answerability": true,
+      "relevance": true,
+      "critical_failures": []
+    },
+    {
+      "case_id": "core-roster-lucy-beale",
+      "response_sha256": "d46bbeb2c7a9b5dcf87c0cab7b24ac10919880b4999e94a393dff5cdb7ef0a8e",
+      "reference_sha256": "31fb98ffe01a2d10863f9e1389dc7a629d8547ea105c94f5bd0076122f92cfdf",
+      "reviewer": "Codex source-based review; all25 answers independently checked by Spec code reviewer; no human canon adjudication",
+      "rationale": "Actual prose and resolved citations support the named roles, biological/social distinction, separate episodes and exact/relative/unknown timing. The qualified partial or ineligible/empty outcome matches this bounded snapshot. Current source support is not independent canon corroboration. Structural result completeness is measured by the separate frozen graph component scorer; this capture reference has no prose required-fact denominator.",
+      "claims": [
+        {
+          "claim": "Cindy is Lucy’s biological parent.",
+          "correct": true,
+          "grounded": true,
+          "citation_supported": true
+        },
+        {
+          "claim": "Ian is Lucy’s biological parent.",
+          "correct": true,
+          "grounded": true,
+          "citation_supported": true
+        }
+      ],
+      "required_facts": [],
+      "answerability": true,
+      "relevance": true,
+      "critical_failures": []
+    },
+    {
+      "case_id": "core-roster-grant-mitchell",
+      "response_sha256": "b223bdd48a3cb914e6c9e15e89590a7f96a86598b0e0da1ac4a51900cdd39cbb",
+      "reference_sha256": "4226e73868104df0050a7c1436b9e6ba3a359c86aa7a839c22f1b213bc5ede32",
+      "reviewer": "Codex source-based review; all25 answers independently checked by Spec code reviewer; no human canon adjudication",
+      "rationale": "Actual prose and resolved citations support the named roles, biological/social distinction, separate episodes and exact/relative/unknown timing. The qualified partial or ineligible/empty outcome matches this bounded snapshot. Current source support is not independent canon corroboration. Structural result completeness is measured by the separate frozen graph component scorer; this capture reference has no prose required-fact denominator.",
+      "claims": [
+        {
+          "claim": "Grant married Sharon in December 1991; the selected account does not establish current status.",
+          "correct": true,
+          "grounded": true,
+          "citation_supported": true
+        }
+      ],
+      "required_facts": [],
+      "answerability": true,
+      "relevance": true,
+      "critical_failures": []
+    },
+    {
+      "case_id": "core-roster-sharon-watts",
+      "response_sha256": "c668b2f25733175dd69f0afb398b3edd8d5c6831c9215f4723594575157ef747",
+      "reference_sha256": "76e0f0d9bdc82e1d7000345729ab8c6e6946a13c39de89103a5ca51ca8080650",
+      "reviewer": "Codex source-based review; all25 answers independently checked by Spec code reviewer; no human canon adjudication",
+      "rationale": "Actual prose and resolved citations support the named roles, biological/social distinction, separate episodes and exact/relative/unknown timing. The qualified partial or ineligible/empty outcome matches this bounded snapshot. Current source support is not independent canon corroboration. Structural result completeness is measured by the separate frozen graph component scorer; this capture reference has no prose required-fact denominator.",
+      "claims": [
+        {
+          "claim": "Den adopted Sharon at age three; adoption is not biological parentage.",
+          "correct": true,
+          "grounded": true,
+          "citation_supported": true
+        }
+      ],
+      "required_facts": [],
+      "answerability": true,
+      "relevance": true,
+      "critical_failures": []
+    },
+    {
+      "case_id": "core-roster-martin-fowler",
+      "response_sha256": "fc5f63764a79001f34b0580c1862a6d9d7eb6e42f4fc0197251e37a425ca997b",
+      "reference_sha256": "6c303fdb39d334e535f0b0554618a563117ed3f8c4fca2c11f3219462ecf7480",
+      "reviewer": "Codex source-based review; all25 answers independently checked by Spec code reviewer; no human canon adjudication",
+      "rationale": "Actual prose and resolved citations support the named roles, biological/social distinction, separate episodes and exact/relative/unknown timing. The qualified partial or ineligible/empty outcome matches this bounded snapshot. Current source support is not independent canon corroboration. Structural result completeness is measured by the separate frozen graph component scorer; this capture reference has no prose required-fact denominator.",
+      "claims": [
+        {
+          "claim": "Martin and Stacey married; the current canonical graph assertion has unknown date.",
+          "correct": true,
+          "grounded": true,
+          "citation_supported": true
+        }
+      ],
+      "required_facts": [],
+      "answerability": true,
+      "relevance": true,
+      "critical_failures": []
+    },
+    {
+      "case_id": "core-roster-stacey-slater",
+      "response_sha256": "db15168949dd043de296f931702a23aaa2a31ae12cdcc4461ca31f8d9acc326f",
+      "reference_sha256": "a96b8fddb4579380a9a2fae911fbd63eb023baa4dc84898b81bfd191b8f2fdc6",
+      "reviewer": "Codex source-based review; all25 answers independently checked by Spec code reviewer; no human canon adjudication",
+      "rationale": "Actual prose and resolved citations support the named roles, biological/social distinction, separate episodes and exact/relative/unknown timing. The qualified partial or ineligible/empty outcome matches this bounded snapshot. Current source support is not independent canon corroboration. Structural result completeness is measured by the separate frozen graph component scorer; this capture reference has no prose required-fact denominator.",
+      "claims": [
+        {
+          "claim": "Martin and Stacey married; the valid relative source account remains in the audit.",
+          "correct": true,
+          "grounded": true,
+          "citation_supported": true
+        }
+      ],
+      "required_facts": [],
+      "answerability": true,
+      "relevance": true,
+      "critical_failures": []
+    },
+    {
+      "case_id": "core-roster-kat-slater",
+      "response_sha256": "c5589f20567fabe9aab6b91157c75d99e530b736e54f160e34544d7946d9c8f8",
+      "reference_sha256": "ecce53a15a55491d32cae87dbf267a440f9188985cd542ea285f6bd8a6a6f725",
+      "reviewer": "Codex source-based review; all25 answers independently checked by Spec code reviewer; no human canon adjudication",
+      "rationale": "Actual prose and resolved citations support the named roles, biological/social distinction, separate episodes and exact/relative/unknown timing. The qualified partial or ineligible/empty outcome matches this bounded snapshot. Current source support is not independent canon corroboration. Structural result completeness is measured by the separate frozen graph component scorer; this capture reference has no prose required-fact denominator.",
+      "claims": [
+        {
+          "claim": "Alfie and Kat married.",
+          "correct": true,
+          "grounded": true,
+          "citation_supported": true
+        },
+        {
+          "claim": "Alfie and Kat remarried on leaving hospital in a separate episode.",
+          "correct": true,
+          "grounded": true,
+          "citation_supported": true
+        }
+      ],
+      "required_facts": [],
+      "answerability": true,
+      "relevance": true,
+      "critical_failures": []
+    },
+    {
+      "case_id": "core-roster-alfie-moon",
+      "response_sha256": "cdbe943ce0126e6de7e184b0f3abdf59d6ae0cdf06e361be88ab579f65c202af",
+      "reference_sha256": "92a2da44744ea05536b7af0e14b8c92e6b721cf7aedd88c5c8904b0b9127d264",
+      "reviewer": "Codex source-based review; all25 answers independently checked by Spec code reviewer; no human canon adjudication",
+      "rationale": "Actual prose and resolved citations support the named roles, biological/social distinction, separate episodes and exact/relative/unknown timing. The qualified partial or ineligible/empty outcome matches this bounded snapshot. Current source support is not independent canon corroboration. Structural result completeness is measured by the separate frozen graph component scorer; this capture reference has no prose required-fact denominator.",
+      "claims": [
+        {
+          "claim": "Alfie and Kat married.",
+          "correct": true,
+          "grounded": true,
+          "citation_supported": true
+        },
+        {
+          "claim": "Alfie and Kat remarried on leaving hospital in a separate episode.",
+          "correct": true,
+          "grounded": true,
+          "citation_supported": true
+        }
+      ],
+      "required_facts": [],
+      "answerability": true,
+      "relevance": true,
+      "critical_failures": []
+    },
+    {
+      "case_id": "core-roster-max-branning",
+      "response_sha256": "c4fa14ede893cdd4a4dd04c20182fefc5e5ac91c156955b67c51ed9e991aa5d7",
+      "reference_sha256": "f4b386a9b50a5722c6e318ecfb21361903dbcade0eae5944257fd50b1f4fa688",
+      "reviewer": "Codex source-based review; all25 answers independently checked by Spec code reviewer; no human canon adjudication",
+      "rationale": "Actual prose and resolved citations support the named roles, biological/social distinction, separate episodes and exact/relative/unknown timing. The qualified partial or ineligible/empty outcome matches this bounded snapshot. Current source support is not independent canon corroboration. Structural result completeness is measured by the separate frozen graph component scorer; this capture reference has no prose required-fact denominator.",
+      "claims": [
+        {
+          "claim": "Max and Stacey had an affair, soon after the narrated approach; status remains unknown.",
+          "correct": true,
+          "grounded": true,
+          "citation_supported": true
+        }
+      ],
+      "required_facts": [],
+      "answerability": true,
+      "relevance": true,
+      "critical_failures": []
+    },
+    {
+      "case_id": "core-roster-cindy-beale",
+      "response_sha256": "0399d736f725211e42a30c6a35c7fa26a386a8b90d410c6e7a7975953afc32e3",
+      "reference_sha256": "e6ce83ba2e55fd180b2f048aae8151c7d2ddee6df78b6935726a44ea2b45d889",
+      "reviewer": "Codex source-based review; all25 answers independently checked by Spec code reviewer; no human canon adjudication",
+      "rationale": "Actual prose and resolved citations support the named roles, biological/social distinction, separate episodes and exact/relative/unknown timing. The qualified partial or ineligible/empty outcome matches this bounded snapshot. Current source support is not independent canon corroboration. Structural result completeness is measured by the separate frozen graph component scorer; this capture reference has no prose required-fact denominator.",
+      "claims": [
+        {
+          "claim": "Cindy was pregnant in 1993.",
+          "correct": true,
+          "grounded": true,
+          "citation_supported": true
+        }
+      ],
+      "required_facts": [],
+      "answerability": true,
+      "relevance": true,
+      "critical_failures": []
+    },
+    {
+      "case_id": "core-roster-bobby-beale",
+      "response_sha256": "4fe817b2b62e4069ab5dec52ff22a61aed84acc91fa841a57ae70cb5a692e782",
+      "reference_sha256": "f15533fa1a38e6f49fed48a0cff2af1d0a79a9b933deb4e05cd3e41e4045e73b",
+      "reviewer": "Codex source-based review; all25 answers independently checked by Spec code reviewer; no human canon adjudication",
+      "rationale": "Actual prose and resolved citations support the named roles, biological/social distinction, separate episodes and exact/relative/unknown timing. The qualified partial or ineligible/empty outcome matches this bounded snapshot. Current source support is not independent canon corroboration. Structural result completeness is measured by the separate frozen graph component scorer; this capture reference has no prose required-fact denominator.",
+      "claims": [
+        {
+          "claim": "Narrative establishes Bobby’s commission and Lucy as victim ten months before the remarriage.",
+          "correct": true,
+          "grounded": true,
+          "citation_supported": true
+        }
+      ],
+      "required_facts": [],
+      "answerability": true,
+      "relevance": true,
+      "critical_failures": []
+    },
+    {
+      "case_id": "core-roster-pat-butcher",
+      "response_sha256": "c236cb466e9bc70e8ed67aba78bd90e6cfc26cf2716a96f7fd36ce69f83c28db",
+      "reference_sha256": "740c4d8ffacc2bb2774e45d7ff5188c226d3af4a7bd9e66ca7fb9347bccee01e",
+      "reviewer": "Codex source-based review; all25 answers independently checked by Spec code reviewer; no human canon adjudication",
+      "rationale": "Actual prose and resolved citations support the named roles, biological/social distinction, separate episodes and exact/relative/unknown timing. The qualified partial or ineligible/empty outcome matches this bounded snapshot. Current source support is not independent canon corroboration. Structural result completeness is measured by the separate frozen graph component scorer; this capture reference has no prose required-fact denominator.",
+      "claims": [
+        {
+          "claim": "Pat died; the selected assertion has unknown date.",
+          "correct": true,
+          "grounded": true,
+          "citation_supported": true
+        }
+      ],
+      "required_facts": [],
+      "answerability": true,
+      "relevance": true,
+      "critical_failures": []
+    },
+    {
+      "case_id": "core-roster-janine-butcher",
+      "response_sha256": "fd02b139b3d5754791b1f27c75fb69ce727e7d17e34aca974648f7640f565aee",
+      "reference_sha256": "91db3443c16adb5722592cc8cd0a3132cfd443262c82b3d1d85c4e845ceee582",
+      "reviewer": "Codex source-based review; all25 answers independently checked by Spec code reviewer; no human canon adjudication",
+      "rationale": "Actual prose and resolved citations support the named roles, biological/social distinction, separate episodes and exact/relative/unknown timing. The qualified partial or ineligible/empty outcome matches this bounded snapshot. Current source support is not independent canon corroboration. Structural result completeness is measured by the separate frozen graph component scorer; this capture reference has no prose required-fact denominator.",
+      "claims": [
+        {
+          "claim": "Janine was arrested over Laura’s death in May 2004.",
+          "correct": true,
+          "grounded": true,
+          "citation_supported": true
+        },
+        {
+          "claim": "Janine was charged over Laura’s death in May 2004.",
+          "correct": true,
+          "grounded": true,
+          "citation_supported": true
+        },
+        {
+          "claim": "Janine was remanded in custody in May 2004; this does not establish commission.",
+          "correct": true,
+          "grounded": true,
+          "citation_supported": true
+        }
+      ],
+      "required_facts": [],
+      "answerability": true,
+      "relevance": true,
+      "critical_failures": []
+    },
+    {
+      "case_id": "core-roster-dot-cotton",
+      "response_sha256": "e3d680cbf0dce2403563e933dcb94b349324597edce6ebcefc4db37b7e4867ed",
+      "reference_sha256": "171796cb15cc3b34151615eb3f8cdd53c87d8f6f2d817d814a82a0b36b619e3d",
+      "reviewer": "Codex source-based review; all25 answers independently checked by Spec code reviewer; no human canon adjudication",
+      "rationale": "Actual prose and resolved citations support the named roles, biological/social distinction, separate episodes and exact/relative/unknown timing. The qualified partial or ineligible/empty outcome matches this bounded snapshot. Current source support is not independent canon corroboration. Structural result completeness is measured by the separate frozen graph component scorer; this capture reference has no prose required-fact denominator.",
+      "claims": [
+        {
+          "claim": "Dot died; the selected account supplies no death date.",
+          "correct": true,
+          "grounded": true,
+          "citation_supported": true
+        }
+      ],
+      "required_facts": [],
+      "answerability": true,
+      "relevance": true,
+      "critical_failures": []
+    },
+    {
+      "case_id": "core-roster-denise-fox",
+      "response_sha256": "79b4dd464c24f57c4eaa46259bbd39da2e379a23faf616e926714b433b8757c0",
+      "reference_sha256": "967ba834a9f522e3fc2583c8466479c58668af46c1b55ebb812d5c6593bd0ae1",
+      "reviewer": "Codex source-based review; all25 answers independently checked by Spec code reviewer; no human canon adjudication",
+      "rationale": "Actual prose and resolved citations support the named roles, biological/social distinction, separate episodes and exact/relative/unknown timing. The qualified partial or ineligible/empty outcome matches this bounded snapshot. Current source support is not independent canon corroboration. Structural result completeness is measured by the separate frozen graph component scorer; this capture reference has no prose required-fact denominator.",
+      "claims": [
+        {
+          "claim": "Denise’s pregnancy was confirmed, with unknown date.",
+          "correct": true,
+          "grounded": true,
+          "citation_supported": true
+        }
+      ],
+      "required_facts": [],
+      "answerability": true,
+      "relevance": true,
+      "critical_failures": []
+    },
+    {
+      "case_id": "core-roster-linda-carter",
+      "response_sha256": "45a0ccc29c9428b16365c3ad81e7077323dd9d0f98cc1b927bb51dee7fd01059",
+      "reference_sha256": "fd236bf0936b8b84071f687c666c81690d561d339c9a990c797b7803ed099b61",
+      "reviewer": "Codex source-based review; all25 answers independently checked by Spec code reviewer; no human canon adjudication",
+      "rationale": "Actual prose and resolved citations support the named roles, biological/social distinction, separate episodes and exact/relative/unknown timing. The qualified partial or ineligible/empty outcome matches this bounded snapshot. Current source support is not independent canon corroboration. Structural result completeness is measured by the separate frozen graph component scorer; this capture reference has no prose required-fact denominator.",
+      "claims": [
+        {
+          "claim": "A test confirmed Linda’s pregnancy, with unknown date.",
+          "correct": true,
+          "grounded": true,
+          "citation_supported": true
+        }
+      ],
+      "required_facts": [],
+      "answerability": true,
+      "relevance": true,
+      "critical_failures": []
+    },
+    {
+      "case_id": "core-roster-shared-event",
+      "response_sha256": "24158e6fb0225abbf43778795c4223325db51d75018f03651b610f3c012e1419",
+      "reference_sha256": "c60fdb76a0395a45b1643ef83f417fe5e2e9f5b3e01691fac78298a9e41e7a24",
+      "reviewer": "Codex source-based review; all25 answers independently checked by Spec code reviewer; no human canon adjudication",
+      "rationale": "Actual prose and resolved citations support the named roles, biological/social distinction, separate episodes and exact/relative/unknown timing. The qualified partial or ineligible/empty outcome matches this bounded snapshot. Current source support is not independent canon corroboration. Structural result completeness is measured by the separate frozen graph component scorer; this capture reference has no prose required-fact denominator.",
+      "claims": [
+        {
+          "claim": "Narrative identifies Bobby as perpetrator and Lucy as victim in the same killing.",
+          "correct": true,
+          "grounded": true,
+          "citation_supported": true
+        }
+      ],
+      "required_facts": [],
+      "answerability": true,
+      "relevance": true,
+      "critical_failures": []
+    },
+    {
+      "case_id": "core-roster-adoption-not-biology",
+      "response_sha256": "2eea25651aa6710ebfa9c9bba28d2b031745c7876bb82e493a957ab6a3e1e781",
+      "reference_sha256": "27c9f62fe460f676bb52a2f9a63f3293eacaa6c70fddcb2c93e31d577b3a62f6",
+      "reviewer": "Codex source-based review; all25 answers independently checked by Spec code reviewer; no human canon adjudication",
+      "rationale": "Actual prose and resolved citations support the named roles, biological/social distinction, separate episodes and exact/relative/unknown timing. The qualified partial or ineligible/empty outcome matches this bounded snapshot. Current source support is not independent canon corroboration. Structural result completeness is measured by the separate frozen graph component scorer; this capture reference has no prose required-fact denominator.",
+      "claims": [],
+      "required_facts": [],
+      "answerability": true,
+      "relevance": true,
+      "critical_failures": []
+    },
+    {
+      "case_id": "core-roster-unclassified-not-event",
+      "response_sha256": "7b88956b65e3e301818c74f5688cddeae41a0ee2bc23e9927733e0781cdc8ef4",
+      "reference_sha256": "a5366b2ce4e08eba18ff9f6ba36f163ea801edff4ba6d9c04ed87549bd5ec814",
+      "reviewer": "Codex source-based review; all25 answers independently checked by Spec code reviewer; no human canon adjudication",
+      "rationale": "Actual prose and resolved citations support the named roles, biological/social distinction, separate episodes and exact/relative/unknown timing. The qualified partial or ineligible/empty outcome matches this bounded snapshot. Current source support is not independent canon corroboration. Structural result completeness is measured by the separate frozen graph component scorer; this capture reference has no prose required-fact denominator.",
+      "claims": [],
+      "required_facts": [],
+      "answerability": true,
+      "relevance": true,
+      "critical_failures": []
+    },
+    {
+      "case_id": "core-roster-theme-not-event",
+      "response_sha256": "defb22590c45e1c588a3c1cf54c696477d822df0a9cc6a2bacc23e82b2608b17",
+      "reference_sha256": "094c0bab28677edfc1fa50267d4a483aab449c6e3b1c5e847f10a40d2365f2af",
+      "reviewer": "Codex source-based review; all25 answers independently checked by Spec code reviewer; no human canon adjudication",
+      "rationale": "Actual prose and resolved citations support the named roles, biological/social distinction, separate episodes and exact/relative/unknown timing. The qualified partial or ineligible/empty outcome matches this bounded snapshot. Current source support is not independent canon corroboration. Structural result completeness is measured by the separate frozen graph component scorer; this capture reference has no prose required-fact denominator.",
+      "claims": [],
+      "required_facts": [],
+      "answerability": true,
+      "relevance": true,
+      "critical_failures": []
+    },
+    {
+      "case_id": "core-roster-grant-legal-history",
+      "response_sha256": "13382de85dffe78d33c8abd8a267a8914afc7de2bd476652c97ed453236a2e65",
+      "reference_sha256": "7487ac7b7827afa7fff096b8cbc9b5c352b088dcbbb28d374cd90a7ca223e255",
+      "reviewer": "Codex source-based review; all25 answers independently checked by Spec code reviewer; no human canon adjudication",
+      "rationale": "Actual prose and resolved citations support the named roles, biological/social distinction, separate episodes and exact/relative/unknown timing. The qualified partial or ineligible/empty outcome matches this bounded snapshot. Current source support is not independent canon corroboration. Structural result completeness is measured by the separate frozen graph component scorer; this capture reference has no prose required-fact denominator.",
+      "claims": [
+        {
+          "claim": "Grant was arrested in the captured incident.",
+          "correct": true,
+          "grounded": true,
+          "citation_supported": true
+        },
+        {
+          "claim": "Grant was imprisoned in the captured incident.",
+          "correct": true,
+          "grounded": true,
+          "citation_supported": true
+        }
+      ],
+      "required_facts": [],
+      "answerability": true,
+      "relevance": true,
+      "critical_failures": []
+    }
+  ]
+}

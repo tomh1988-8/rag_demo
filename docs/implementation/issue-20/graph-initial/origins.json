@@ -1,0 +1,162 @@
+[
+  {
+    "origin": "phil-mitchell/kathy-ben-parentage",
+    "claim_id": "raw-phil-mitchell-1",
+    "raw_document_sha256": "1b5c7b94195ff880da84543db4d896f38ecd483d8fe354e5c38e4c7f148c70aa"
+  },
+  {
+    "origin": "phil-mitchell/phil-ben-parentage",
+    "claim_id": "raw-phil-mitchell-2",
+    "raw_document_sha256": "1b5c7b94195ff880da84543db4d896f38ecd483d8fe354e5c38e4c7f148c70aa"
+  },
+  {
+    "origin": "grant-mitchell/grant-sharon-marriage-1",
+    "claim_id": "raw-grant-mitchell-1",
+    "raw_document_sha256": "8fe55932290eab6964dd48d851c63e53a823641147c17ea790255b79d69e3610"
+  },
+  {
+    "origin": "peggy-mitchell/peggy-phil-biological-parent",
+    "claim_id": "raw-peggy-mitchell-1",
+    "raw_document_sha256": "6aa755e682f3ce91c62f519d1391cfe145bd743311a199bdc645c7bb44096aff"
+  },
+  {
+    "origin": "sharon-watts/claim-den-sharon-adoption",
+    "claim_id": "raw-sharon-watts-1",
+    "raw_document_sha256": "63b60dcf0ea0d2d54e211f41f0c11547abf73a1e47382f6ff28f442531504eab"
+  },
+  {
+    "origin": "ben-mitchell/phil-ben-birth",
+    "claim_id": "raw-ben-mitchell-1",
+    "raw_document_sha256": "fb029f845bcecd49cfc52de95a4b69a088cd9b4d3f3f688afcdb095cab0a2d19"
+  },
+  {
+    "origin": "ben-mitchell/kathy-ben-birth",
+    "claim_id": "raw-ben-mitchell-2",
+    "raw_document_sha256": "fb029f845bcecd49cfc52de95a4b69a088cd9b4d3f3f688afcdb095cab0a2d19"
+  },
+  {
+    "origin": "ian-beale/ian-lucy-father-1",
+    "claim_id": "raw-ian-beale-1",
+    "raw_document_sha256": "34dce8c3ca4667d94bb7a8579a56095144c759884b2a55b6632804d770d5a842"
+  },
+  {
+    "origin": "kathy-beale/kathy-ben-parentage",
+    "claim_id": "raw-kathy-beale-1",
+    "raw_document_sha256": "3d7a79aa19d3817123ad6d6be8c9b7a86aff3b7b97535e429ca1b7ba59e0ee57"
+  },
+  {
+    "origin": "kathy-beale/phil-ben-parentage",
+    "claim_id": "raw-kathy-beale-2",
+    "raw_document_sha256": "3d7a79aa19d3817123ad6d6be8c9b7a86aff3b7b97535e429ca1b7ba59e0ee57"
+  },
+  {
+    "origin": "cindy-beale/claim-1",
+    "claim_id": "raw-cindy-beale-1",
+    "raw_document_sha256": "7317f4fad5e2da738d28df8e1883c62d8bb950649d056f92262d057dc47738d5"
+  },
+  {
+    "origin": "lucy-beale/ian-lucy-birth",
+    "claim_id": "raw-lucy-beale-1",
+    "raw_document_sha256": "ae86e16fc2ea625f9894ec3d2ea7bd7f08fa4b88a4171a25789bd9d7f62f80d4"
+  },
+  {
+    "origin": "lucy-beale/cindy-lucy-birth",
+    "claim_id": "raw-lucy-beale-2",
+    "raw_document_sha256": "ae86e16fc2ea625f9894ec3d2ea7bd7f08fa4b88a4171a25789bd9d7f62f80d4"
+  },
+  {
+    "origin": "bobby-beale/claim-1",
+    "claim_id": "raw-bobby-beale-1",
+    "raw_document_sha256": "044e9803f9751c5019e8f489d018284ef1b63cbe97baee3e9313b7cd0af4198f"
+  },
+  {
+    "origin": "bobby-beale/claim-2",
+    "claim_id": "raw-bobby-beale-2",
+    "raw_document_sha256": "044e9803f9751c5019e8f489d018284ef1b63cbe97baee3e9313b7cd0af4198f"
+  },
+  {
+    "origin": "martin-fowler/claim-1",
+    "claim_id": "raw-martin-fowler-1",
+    "raw_document_sha256": "35480dd3f86da7718a8ed78b2c2200e09b11bd06b66339499d20580d8d123f0d"
+  },
+  {
+    "origin": "kat-slater/claim-1",
+    "claim_id": "raw-kat-slater-1",
+    "raw_document_sha256": "0248ab5d228a1a33011d5d9a0e516c525421fa783246bc3589a4b95442b15935"
+  },
+  {
+    "origin": "stacey-slater/claim-1",
+    "claim_id": "raw-stacey-slater-1",
+    "raw_document_sha256": "702a7794150d1ddcddce7acbe19b2ba1e719487e47bf42989bbb4c9359e694bc"
+  },
+  {
+    "origin": "alfie-moon/claim-1",
+    "claim_id": "raw-alfie-moon-1",
+    "raw_document_sha256": "f4fb0bdd42a66b96646d08839921cf240d73ceec3d0fec723e3a56bcb43254c3"
+  },
+  {
+    "origin": "pat-butcher/claim-1",
+    "claim_id": "raw-pat-butcher-1",
+    "raw_document_sha256": "8c1d1e41ef757dbf5830c790c05ace750ea2186b8cfaa58b32617a1d8983134f"
+  },
+  {
+    "origin": "janine-butcher/claim-1",
+    "claim_id": "raw-janine-butcher-1",
+    "raw_document_sha256": "ddbb1183f1979e79a4cf5329eddedcb7c9fbca257dcd0009f12bd3dd721831fe"
+  },
+  {
+    "origin": "janine-butcher/claim-2",
+    "claim_id": "raw-janine-butcher-2",
+    "raw_document_sha256": "ddbb1183f1979e79a4cf5329eddedcb7c9fbca257dcd0009f12bd3dd721831fe"
+  },
+  {
+    "origin": "janine-butcher/claim-3",
+    "claim_id": "raw-janine-butcher-3",
+    "raw_document_sha256": "ddbb1183f1979e79a4cf5329eddedcb7c9fbca257dcd0009f12bd3dd721831fe"
+  },
+  {
+    "origin": "janine-butcher/claim-4",
+    "claim_id": "raw-janine-butcher-4",
+    "raw_document_sha256": "ddbb1183f1979e79a4cf5329eddedcb7c9fbca257dcd0009f12bd3dd721831fe"
+  },
+  {
+    "origin": "dot-cotton/claim-1",
+    "claim_id": "raw-dot-cotton-1",
+    "raw_document_sha256": "4c01f57a990b49278880474650aa869cabeb234d05f87190380a6875deb94b81"
+  },
+  {
+    "origin": "denise-fox/claim-1",
+    "claim_id": "raw-denise-fox-1",
+    "raw_document_sha256": "29fe94379a1d1ebb2aead04344e324f97334cc1d22bf25757f1f34586fe0e516"
+  },
+  {
+    "origin": "max-branning/claim-1",
+    "claim_id": "raw-max-branning-1",
+    "raw_document_sha256": "4c1fa574cea7d13397e27c17064ff29dbb0d13157a8e09deb0833d5790af8e77"
+  },
+  {
+    "origin": "linda-carter/claim-1",
+    "claim_id": "raw-linda-carter-1",
+    "raw_document_sha256": "a66e35d6167a694bceac229c0fe2c0f51ffd50ff395b70dba1a88624dab744bf"
+  },
+  {
+    "origin": "phil-tape/context-1",
+    "claim_id": "raw-phil-tape-1",
+    "raw_document_sha256": "453a307e5042073ca35a8d779bc2c1459c91b4f5c100f4e735a8970088e60e08"
+  },
+  {
+    "origin": "grant-abuse/claim-1",
+    "claim_id": "raw-grant-abuse-1",
+    "raw_document_sha256": "27d8696f69fee2288df2d8fb923f7f5ae45519da4c480ee0d8416a54ac8cb75e"
+  },
+  {
+    "origin": "grant-abuse/claim-2",
+    "claim_id": "raw-grant-abuse-2",
+    "raw_document_sha256": "27d8696f69fee2288df2d8fb923f7f5ae45519da4c480ee0d8416a54ac8cb75e"
+  },
+  {
+    "origin": "grant-abuse/context-1",
+    "claim_id": "raw-grant-abuse-3",
+    "raw_document_sha256": "27d8696f69fee2288df2d8fb923f7f5ae45519da4c480ee0d8416a54ac8cb75e"
+  }
+]

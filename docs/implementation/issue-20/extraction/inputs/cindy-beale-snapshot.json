@@ -1,0 +1,58 @@
+{
+  "snapshot_id": "cindy-beale-coverage-v1",
+  "fixture_version": 1,
+  "source": {
+    "title": "Phil Mitchell",
+    "url": "https://en.wikipedia.org/wiki/Phil_Mitchell",
+    "revision_id": "1379872347",
+    "revision_url": "https://en.wikipedia.org/w/index.php?oldid=1379872347",
+    "section": "Storylines / 1990–2003",
+    "captured_at": "2026-10-17T13:07:31.014189Z",
+    "capture_sha256": "a338d3065203be54e383f2c9c141bca22ae9aedbb950e2e1eada601bcccfe313",
+    "scope": "main_series",
+    "license_url": "https://creativecommons.org/licenses/by-sa/4.0/",
+    "attribution": "Wikipedia contributors; markup removed and whitespace normalized.",
+    "coverage": "Reviewed narrative sections in this captured revision only.",
+    "gaps": [
+      "Partial canon coverage; other paragraphs remain excluded or awaiting review.",
+      "Identity and episode metadata do not independently corroborate story claims."
+    ],
+    "support_status": "source_supported"
+  },
+  "passages": [
+    {
+      "evidence_id": "coverage-cindy-beale",
+      "text": "They reunite and Cindy gets pregnant in 1993.",
+      "sha256": "72d85671070733b02261c54000ec18b65b91acd8ac9a0ac0585a6c4458e94ef8",
+      "start": 6836,
+      "end": 6881,
+      "source": {
+        "title": "Cindy Beale",
+        "url": "https://en.wikipedia.org/wiki/Cindy_Beale",
+        "revision_id": "1375368032",
+        "revision_url": "https://en.wikipedia.org/w/index.php?oldid=1375368032",
+        "section": "Storylines / 1992–1998",
+        "captured_at": "2026-10-17T13:07:31.847644Z",
+        "capture_sha256": "a6f18a70890f11a9fae1e53f9a7779598b48241fffc0341cbf9c05b1d6631626",
+        "scope": "main_series",
+        "license_url": "https://creativecommons.org/licenses/by-sa/4.0/",
+        "attribution": "Wikipedia contributors; markup removed and whitespace normalized.",
+        "coverage": "Reviewed narrative sections in this captured revision only.",
+        "gaps": [
+          "Partial canon coverage; other paragraphs remain excluded or awaiting review.",
+          "Identity and episode metadata do not independently corroborate story claims."
+        ],
+        "support_status": "source_supported"
+      },
+      "location": {
+        "source_id": "cindy-beale-wiki",
+        "paragraph_ordinal": 10,
+        "section_id": "1992–1998",
+        "character_ids": [
+          "cindy-beale",
+          "lucy-beale"
+        ]
+      }
+    }
+  ]
+}

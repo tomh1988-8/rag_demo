@@ -1,0 +1,175 @@
+{
+  "captured_at": "2026-10-29T08:21:27.829705+00:00",
+  "code_revision": "9f60cea4856740f58a9680b0ff00f384996f77b1",
+  "application_sha256": "fb0feb5e544ebda762ad53e5e230df1df87f572c892932a23215a4f35ea0855b",
+  "prompt_sha256": "4f625c048e5652b6d709eaa5eaf40a170feac91b94df8c2b0ab89c1b05afea1e",
+  "snapshot_id": "ben-mitchell-coverage-v1",
+  "snapshot_sha256": "2a0877f6318b62ec9ad39a210e64ba99ebb78f0fc3b9c43a7c07a278e2a40473",
+  "snapshot_file_sha256": "49ffa95fa557f0ae6ad3897320376eee9fffdd1e3d1e106a471f12acc481fd17",
+  "reference_sha256": "60fe521fe242fd1af8a8adee147fe12553352dad43cd76ceafce688b49264139",
+  "schema_sha256": "753b78b044501f008907d7fead2cef20d64dd0961320420847cb102f265ee53a",
+  "profile": {
+    "provider_type": "openrouter",
+    "answer_model": "openai/gpt-6-sol",
+    "canonical_slug": "openai/gpt-6-sol-20260922",
+    "provider": "openai",
+    "input_price_per_million": "2",
+    "output_price_per_million": "10",
+    "output_tokens": 8192,
+    "reasoning_effort": "low",
+    "request_timeout_seconds": 180
+  },
+  "expenditure_category": "offline_evaluation",
+  "state": "complete",
+  "raw": "{\"claims\":[{\"claim_id\":\"phil-ben-birth\",\"parent_id\":\"phil-mitchell\",\"child_id\":\"ben-mitchell\",\"parent_role\":\"parent\",\"relation\":\"biological_parent\",\"polarity\":\"affirmed\",\"certainty\":\"certain\",\"story_time\":\"March 1996\",\"time_precision\":\"exact\",\"evidence\":[{\"evidence_id\":\"coverage-ben-mitchell\",\"start\":0,\"end\":110,\"quote\":\"Ben is born to Phil Mitchell (Steve McFadden) and his then wife Kathy Beale (Gillian Taylforth) in March 1996.\"}]},{\"claim_id\":\"kathy-ben-birth\",\"parent_id\":\"kathy-beale\",\"child_id\":\"ben-mitchell\",\"parent_role\":\"parent\",\"relation\":\"biological_parent\",\"polarity\":\"affirmed\",\"certainty\":\"certain\",\"story_time\":\"March 1996\",\"time_precision\":\"exact\",\"evidence\":[{\"evidence_id\":\"coverage-ben-mitchell\",\"start\":0,\"end\":110,\"quote\":\"Ben is born to Phil Mitchell (Steve McFadden) and his then wife Kathy Beale (Gillian Taylforth) in March 1996.\"}]}]}",
+  "batch": {
+    "claims": [
+      {
+        "claim_id": "phil-ben-birth",
+        "parent_id": "phil-mitchell",
+        "child_id": "ben-mitchell",
+        "parent_role": "parent",
+        "relation": "biological_parent",
+        "polarity": "affirmed",
+        "certainty": "certain",
+        "story_time": "March 1996",
+        "time_precision": "exact",
+        "evidence": [
+          {
+            "evidence_id": "coverage-ben-mitchell",
+            "start": 0,
+            "end": 110,
+            "quote": "Ben is born to Phil Mitchell (Steve McFadden) and his then wife Kathy Beale (Gillian Taylforth) in March 1996."
+          }
+        ]
+      },
+      {
+        "claim_id": "kathy-ben-birth",
+        "parent_id": "kathy-beale",
+        "child_id": "ben-mitchell",
+        "parent_role": "parent",
+        "relation": "biological_parent",
+        "polarity": "affirmed",
+        "certainty": "certain",
+        "story_time": "March 1996",
+        "time_precision": "exact",
+        "evidence": [
+          {
+            "evidence_id": "coverage-ben-mitchell",
+            "start": 0,
+            "end": 110,
+            "quote": "Ben is born to Phil Mitchell (Steve McFadden) and his then wife Kathy Beale (Gillian Taylforth) in March 1996."
+          }
+        ]
+      }
+    ],
+    "snapshot_id": "ben-mitchell-coverage-v1",
+    "snapshot_sha256": "2a0877f6318b62ec9ad39a210e64ba99ebb78f0fc3b9c43a7c07a278e2a40473",
+    "catalogue": {
+      "characters": [
+        {
+          "character_id": "phil-mitchell",
+          "name": "Phil Mitchell",
+          "aliases": [],
+          "performers": [
+            "Steve McFadden",
+            "Daniel Delaney"
+          ],
+          "coverage": "core",
+          "wikidata_id": "Q2115259",
+          "review_note": "Codex source inspection, 17 October 2026: captured character article, infobox aliases/performers and revision metadata checked. Prominence-based curated selection, not a ranked or exhaustive canon. Identity linkage is not independent story corroboration.",
+          "evidence_sources": [
+            "phil-mitchell-wiki"
+          ]
+        },
+        {
+          "character_id": "kathy-beale",
+          "name": "Kathy Beale",
+          "aliases": [
+            "Kathy Mitchell",
+            "Kathy Sullivan",
+            "Kathy Richards",
+            "Kathy Cotton"
+          ],
+          "performers": [
+            "Gillian Taylforth"
+          ],
+          "coverage": "core",
+          "wikidata_id": "Q6377182",
+          "review_note": "Codex source inspection, 17 October 2026: captured character article, infobox aliases/performers and revision metadata checked. Prominence-based curated selection, not a ranked or exhaustive canon. Identity linkage is not independent story corroboration.",
+          "evidence_sources": [
+            "kathy-beale-wiki"
+          ]
+        },
+        {
+          "character_id": "ben-mitchell",
+          "name": "Ben Mitchell",
+          "aliases": [],
+          "performers": [
+            "Matthew Silver",
+            "Morgan Whittle",
+            "Charlie Jones",
+            "Joshua Pascoe",
+            "Harry Reid",
+            "Max Bowden"
+          ],
+          "coverage": "core",
+          "wikidata_id": "Q2766568",
+          "review_note": "Codex source inspection, 17 October 2026: captured character article, infobox aliases/performers and revision metadata checked. Prominence-based curated selection, not a ranked or exhaustive canon. Identity linkage is not independent story corroboration.",
+          "evidence_sources": [
+            "ben-mitchell-wiki"
+          ]
+        }
+      ]
+    },
+    "extractor": "openai/gpt-6-sol-20260922"
+  },
+  "score": {
+    "schema_valid": true,
+    "expected": 2,
+    "predicted": 2,
+    "duplicates": 0,
+    "true_positive": 2,
+    "resolvable_spans": 2,
+    "grounded": 2,
+    "precision": 1.0,
+    "recall": 1.0,
+    "f1": 1.0,
+    "scope": "Exact normalized values within each completely annotated selected input passage. Instances match on values and sorted unique passage IDs, independently of quote offsets. Claim IDs are ignored; semantic duplicates within a passage collapse and are counted. Grounding additionally requires the entire independently reviewed supporting span. These exposed development scores are not held-out or broad-corpus quality."
+  },
+  "usage": {
+    "reservation_id": "5b1cea73cd9f40fdbdf8644cabdb5f28",
+    "reserved_usd": 0.106108,
+    "cost_usd": 0.0096835,
+    "request_id": "gen-1793262088-hfCjSdD8rQienWrO7sBH",
+    "returned_model": "openai/gpt-6-sol",
+    "provider": "OpenAI",
+    "input_tokens": 1702,
+    "output_tokens": 543,
+    "reasoning_tokens": 296
+  },
+  "execution": {
+    "limits": {
+      "model_calls": 1,
+      "tool_calls": 0,
+      "http_calls": 3,
+      "seconds": 180.0,
+      "context_bytes": 1200,
+      "spend_usd": "0.15",
+      "retries": 0,
+      "capabilities": [],
+      "concurrency": 4
+    },
+    "model_calls": 1,
+    "tool_calls": 0,
+    "http_calls": 3,
+    "reserved_usd": "0.0096835",
+    "stop_reason": null
+  },
+  "elapsed_ms": 6471.932338999977,
+  "failure": null,
+  "trace_id": "tr-2fe5e9c3022ea57e1e51a2e86619d8d1",
+  "shared_ledger_usd": 0.718063,
+  "unsettled_reservations": 0,
+  "limitation": "Agent-reviewed exposed labels; no held-out, human or independent canon acceptance."
+}

@@ -1,0 +1,155 @@
+{
+  "captured_at": "2026-10-29T08:23:44.890483+00:00",
+  "code_revision": "9f60cea4856740f58a9680b0ff00f384996f77b1",
+  "application_sha256": "fb0feb5e544ebda762ad53e5e230df1df87f572c892932a23215a4f35ea0855b",
+  "prompt_sha256": "1e7473f85c87dfa400293d480c3091eab8950a0cb2fa707a01ba9bf028f78db3",
+  "snapshot_id": "stacey-slater-coverage-v1",
+  "snapshot_sha256": "e4884ad7cc7a78cdd05b62ccaca3d6dd8c7286a337eafc3fa6212f519f428b9a",
+  "snapshot_file_sha256": "ef69079bc28985b7425319de40993b51c30cc7d2cf4303845d6a6193f3e8f7d1",
+  "reference_sha256": "5acc0b8db59ec8dba968026e3c7a46f9fc03e11b9c69eaa5219a41ceb6252099",
+  "schema_sha256": "8573863eb1966327a8823dd7c00da28eae6a7c87dcc20decc5843e1a66039354",
+  "profile": {
+    "provider_type": "openrouter",
+    "answer_model": "openai/gpt-6-sol",
+    "canonical_slug": "openai/gpt-6-sol-20260922",
+    "provider": "openai",
+    "input_price_per_million": "2",
+    "output_price_per_million": "10",
+    "output_tokens": 8192,
+    "reasoning_effort": "low",
+    "request_timeout_seconds": 180
+  },
+  "expenditure_category": "offline_evaluation",
+  "state": "complete",
+  "raw": "{\"claims\":[{\"claim_id\":\"claim-1\",\"subject_id\":\"stacey-slater\",\"object_id\":\"martin-fowler\",\"relation\":\"marriage\",\"episode_id\":\"episode-1\",\"status\":\"unknown\",\"polarity\":\"affirmed\",\"certainty\":\"certain\",\"story_time\":\"then, after Stacey receives forgiveness from Peggy\",\"time_precision\":\"relative\",\"after_claim_id\":null,\"evidence\":[{\"evidence_id\":\"coverage-stacey-slater\",\"start\":0,\"end\":82,\"quote\":\"Stacey receives forgiveness from Peggy before she dies. She and Martin then marry.\"}]}]}",
+  "batch": {
+    "claims": [
+      {
+        "claim_id": "claim-1",
+        "subject_id": "stacey-slater",
+        "object_id": "martin-fowler",
+        "relation": "marriage",
+        "episode_id": "episode-1",
+        "status": "unknown",
+        "polarity": "affirmed",
+        "certainty": "certain",
+        "story_time": "then, after Stacey receives forgiveness from Peggy",
+        "time_precision": "relative",
+        "after_claim_id": null,
+        "evidence": [
+          {
+            "evidence_id": "coverage-stacey-slater",
+            "start": 0,
+            "end": 82,
+            "quote": "Stacey receives forgiveness from Peggy before she dies. She and Martin then marry."
+          }
+        ]
+      }
+    ],
+    "snapshot_id": "stacey-slater-coverage-v1",
+    "snapshot_sha256": "e4884ad7cc7a78cdd05b62ccaca3d6dd8c7286a337eafc3fa6212f519f428b9a",
+    "catalogue": {
+      "characters": [
+        {
+          "character_id": "stacey-slater",
+          "name": "Stacey Slater",
+          "aliases": [
+            "Stacey Branning",
+            "Stacey Fowler",
+            "Jenny Smith"
+          ],
+          "performers": [
+            "Lacey Turner"
+          ],
+          "coverage": "core",
+          "wikidata_id": "Q7595869",
+          "review_note": "Codex source inspection, 17 October 2026: captured character article, infobox aliases/performers and revision metadata checked. Prominence-based curated selection, not a ranked or exhaustive canon. Identity linkage is not independent story corroboration.",
+          "evidence_sources": [
+            "stacey-slater-wiki"
+          ]
+        },
+        {
+          "character_id": "martin-fowler",
+          "name": "Martin Fowler",
+          "aliases": [],
+          "performers": [
+            "Jon Peyton-Price",
+            "James Alexandrou",
+            "James Bye"
+          ],
+          "coverage": "core",
+          "wikidata_id": "Q16992426",
+          "review_note": "Codex source inspection, 17 October 2026: captured character article, infobox aliases/performers and revision metadata checked. Prominence-based curated selection, not a ranked or exhaustive canon. Identity linkage is not independent story corroboration.",
+          "evidence_sources": [
+            "martin-fowler-wiki"
+          ]
+        }
+      ]
+    },
+    "extractor": "openai/gpt-6-sol-20260922"
+  },
+  "score": {
+    "expected": 1,
+    "predicted": 1,
+    "true_positive": 0,
+    "precision": 0.0,
+    "recall": 0.0,
+    "f1": 0.0,
+    "schema_valid": true,
+    "duplicates": 0,
+    "resolvable_spans": 1,
+    "grounded": 0,
+    "episode_pairs_expected": 0,
+    "episode_pairs_correct": 0,
+    "ordering_expected": 0,
+    "ordering_predicted": 0,
+    "ordering_correct": 0,
+    "alignment_limited": false,
+    "by_relation": {
+      "marriage": {
+        "expected": 1,
+        "predicted": 1,
+        "true_positive": 0,
+        "precision": 0.0,
+        "recall": 0.0,
+        "f1": 0.0
+      }
+    },
+    "scope": "Exposed, completely annotated in-catalogue spans only. Match values and unique passage IDs, with frozen timing alternatives; ignore arbitrary claim/episode IDs. Romantic pairs are symmetric; parent/guardian roles are directed. Distinct episode instances retain multiplicity; duplicates within the same episode collapse. One-to-one value matching ignores ID spelling. Ambiguous alignments maximize episode agreement, then ordering; over 4096 alternatives leaves those two scores unavailable. Raw duplicates and full-reference-span grounding are separate. Missing episode pairs fail. This conservative grounding proxy is not independent semantic/canon adjudication."
+  },
+  "usage": {
+    "reservation_id": "2293a25e92774d33b40af506f6028437",
+    "reserved_usd": 0.106574,
+    "cost_usd": 0.0077585,
+    "request_id": "gen-1793262225-lLEr4Gyv4h1qTDiLNJ2H",
+    "returned_model": "openai/gpt-6-sol",
+    "provider": "OpenAI",
+    "input_tokens": 1748,
+    "output_tokens": 339,
+    "reasoning_tokens": 211
+  },
+  "execution": {
+    "limits": {
+      "model_calls": 1,
+      "tool_calls": 0,
+      "http_calls": 3,
+      "seconds": 180.0,
+      "context_bytes": 1200,
+      "spend_usd": "0.15",
+      "retries": 0,
+      "capabilities": [],
+      "concurrency": 4
+    },
+    "model_calls": 1,
+    "tool_calls": 0,
+    "http_calls": 3,
+    "reserved_usd": "0.0077585",
+    "stop_reason": null
+  },
+  "elapsed_ms": 5285.221498000283,
+  "failure": null,
+  "trace_id": "tr-b246526984a9ef904cb6953a30361ab8",
+  "shared_ledger_usd": 0.802611,
+  "unsettled_reservations": 0,
+  "limitation": "Agent-reviewed exposed labels; no held-out, human or independent canon acceptance."
+}

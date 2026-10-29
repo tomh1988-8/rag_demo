@@ -1,0 +1,361 @@
+{
+  "reviewer": "Codex source-based full audit",
+  "reviewed": 32,
+  "eligible": 32,
+  "sampling_rate": 1.0,
+  "labels_frozen_before_extraction": false,
+  "reference_labels_frozen_before_extraction": true,
+  "raw_unchanged": true,
+  "cases": [
+    {
+      "origin": "phil-mitchell/kathy-ben-parentage",
+      "selection": "all raw candidates: ambiguity, roles, identity, timing, contradiction and locator risk; no sampling",
+      "review_note": "Both source parent identities are supported. Freeze conservative reference timing unknown and Phil’s generic role. Raw later/father interpretation differs from the pre-reviewed exact policy; do not rewrite its scores. Retain the whole excerpt identifying both parents and Ben.",
+      "replacement_ids": [
+        "ref-phil-mitchell-2"
+      ],
+      "synthetic": false,
+      "cross_source_checked": false,
+      "split": "exposed_development"
+    },
+    {
+      "origin": "phil-mitchell/phil-ben-parentage",
+      "selection": "all raw candidates: ambiguity, roles, identity, timing, contradiction and locator risk; no sampling",
+      "review_note": "Both source parent identities are supported. Freeze conservative reference timing unknown and Phil’s generic role. Raw later/father interpretation differs from the pre-reviewed exact policy; do not rewrite its scores. Retain the whole excerpt identifying both parents and Ben.",
+      "replacement_ids": [
+        "ref-phil-mitchell-1"
+      ],
+      "synthetic": false,
+      "cross_source_checked": false,
+      "split": "exposed_development"
+    },
+    {
+      "origin": "grant-mitchell/grant-sharon-marriage-1",
+      "selection": "all raw candidates: ambiguity, roles, identity, timing, contradiction and locator risk; no sampling",
+      "review_note": "Explicit actual marriage in December 1991. Preserve unknown status and unify the reviewed episode ID. The narrower original quote resolves, but does not cover the frozen full-span reference.",
+      "replacement_ids": [
+        "ref-grant-mitchell-1"
+      ],
+      "synthetic": false,
+      "cross_source_checked": false,
+      "split": "exposed_development"
+    },
+    {
+      "origin": "peggy-mitchell/peggy-phil-biological-parent",
+      "selection": "all raw candidates: ambiguity, roles, identity, timing, contradiction and locator risk; no sampling",
+      "review_note": "Pregnancy explicitly establishes Peggy as biological mother of Phil; unknown time. Raw values and exact full quote pass. Canonical replacement only consolidates the reviewed graph namespace; original model quality is unchanged.",
+      "replacement_ids": [
+        "ref-peggy-mitchell-1"
+      ],
+      "synthetic": false,
+      "cross_source_checked": false,
+      "split": "exposed_development"
+    },
+    {
+      "origin": "sharon-watts/claim-den-sharon-adoption",
+      "selection": "all raw candidates: ambiguity, roles, identity, timing, contradiction and locator risk; no sampling",
+      "review_note": "Explicit adoption by Den at age three. The short raw quote omits child identity; preserve complete source context. Adoption stays outside biological ancestry.",
+      "replacement_ids": [
+        "ref-sharon-watts-1"
+      ],
+      "synthetic": false,
+      "cross_source_checked": false,
+      "split": "exposed_development"
+    },
+    {
+      "origin": "ben-mitchell/phil-ben-birth",
+      "selection": "all raw candidates: ambiguity, roles, identity, timing, contradiction and locator risk; no sampling",
+      "review_note": "Explicit born-to parents, generic parent roles and March 1996. Both raw values and full-span locators pass. Canonical IDs consolidate duplicate story accounts without independent-corroboration credit.",
+      "replacement_ids": [
+        "ref-ben-mitchell-1"
+      ],
+      "synthetic": false,
+      "cross_source_checked": false,
+      "split": "exposed_development"
+    },
+    {
+      "origin": "ben-mitchell/kathy-ben-birth",
+      "selection": "all raw candidates: ambiguity, roles, identity, timing, contradiction and locator risk; no sampling",
+      "review_note": "Explicit born-to parents, generic parent roles and March 1996. Both raw values and full-span locators pass. Canonical IDs consolidate duplicate story accounts without independent-corroboration credit.",
+      "replacement_ids": [
+        "ref-ben-mitchell-2"
+      ],
+      "synthetic": false,
+      "cross_source_checked": false,
+      "split": "exposed_development"
+    },
+    {
+      "origin": "ian-beale/ian-lucy-father-1",
+      "selection": "all raw candidates: ambiguity, roles, identity, timing, contradiction and locator risk; no sampling",
+      "review_note": "Becoming a father to newborn twins supports Ian’s biological father role for Lucy. Raw uncertainty is conservative undercoverage. Keep reference certainty and December 1993 from the pre-pilot source audit.",
+      "replacement_ids": [
+        "ref-ian-beale-1"
+      ],
+      "synthetic": false,
+      "cross_source_checked": false,
+      "split": "exposed_development"
+    },
+    {
+      "origin": "kathy-beale/kathy-ben-parentage",
+      "selection": "all raw candidates: ambiguity, roles, identity, timing, contradiction and locator risk; no sampling",
+      "review_note": "Pregnancy/labour and naming identify Kathy as mother of Ben; explicit becoming a father supports Phil’s father role. Early 1995 dates the marriage, not birth. Raw split locators have range/quote discrepancies and Phil uncertainty; replacement retains the exact full excerpt.",
+      "replacement_ids": [
+        "ref-kathy-beale-2"
+      ],
+      "synthetic": false,
+      "cross_source_checked": false,
+      "split": "exposed_development"
+    },
+    {
+      "origin": "kathy-beale/phil-ben-parentage",
+      "selection": "all raw candidates: ambiguity, roles, identity, timing, contradiction and locator risk; no sampling",
+      "review_note": "Pregnancy/labour and naming identify Kathy as mother of Ben; explicit becoming a father supports Phil’s father role. Early 1995 dates the marriage, not birth. Raw split locators have range/quote discrepancies and Phil uncertainty; replacement retains the exact full excerpt.",
+      "replacement_ids": [
+        "ref-kathy-beale-1"
+      ],
+      "synthetic": false,
+      "cross_source_checked": false,
+      "split": "exposed_development"
+    },
+    {
+      "origin": "cindy-beale/claim-1",
+      "selection": "all raw candidates: ambiguity, roles, identity, timing, contradiction and locator risk; no sampling",
+      "review_note": "Explicit pregnancy in 1993. Literal in 1993 versus 1993 remains an original scorer mismatch, not a factual year disagreement. Preserve a complete supporting quote and no inferred paternity.",
+      "replacement_ids": [
+        "ref-cindy-beale-1"
+      ],
+      "synthetic": false,
+      "cross_source_checked": false,
+      "split": "exposed_development"
+    },
+    {
+      "origin": "lucy-beale/ian-lucy-birth",
+      "selection": "all raw candidates: ambiguity, roles, identity, timing, contradiction and locator risk; no sampling",
+      "review_note": "Born-to parents and exact 9 December 1993 are supported. Both raw candidates have malformed ranges; retain the exact full sentence. Peter stays outside this selected catalogue.",
+      "replacement_ids": [
+        "ref-lucy-beale-1"
+      ],
+      "synthetic": false,
+      "cross_source_checked": false,
+      "split": "exposed_development"
+    },
+    {
+      "origin": "lucy-beale/cindy-lucy-birth",
+      "selection": "all raw candidates: ambiguity, roles, identity, timing, contradiction and locator risk; no sampling",
+      "review_note": "Born-to parents and exact 9 December 1993 are supported. Both raw candidates have malformed ranges; retain the exact full sentence. Peter stays outside this selected catalogue.",
+      "replacement_ids": [
+        "ref-lucy-beale-2"
+      ],
+      "synthetic": false,
+      "cross_source_checked": false,
+      "split": "exposed_development"
+    },
+    {
+      "origin": "bobby-beale/claim-1",
+      "selection": "all raw candidates: ambiguity, roles, identity, timing, contradiction and locator risk; no sampling",
+      "review_note": "Narrative explicitly establishes Bobby’s commission and Lucy’s death ten months before the remarriage. No legal role implies guilt. The raw death quote range is malformed; whole context supports identities and the relative anchor.",
+      "replacement_ids": [
+        "ref-bobby-beale-1"
+      ],
+      "synthetic": false,
+      "cross_source_checked": false,
+      "split": "exposed_development"
+    },
+    {
+      "origin": "bobby-beale/claim-2",
+      "selection": "all raw candidates: ambiguity, roles, identity, timing, contradiction and locator risk; no sampling",
+      "review_note": "Narrative explicitly establishes Bobby’s commission and Lucy’s death ten months before the remarriage. No legal role implies guilt. The raw death quote range is malformed; whole context supports identities and the relative anchor.",
+      "replacement_ids": [
+        "ref-bobby-beale-2"
+      ],
+      "synthetic": false,
+      "cross_source_checked": false,
+      "split": "exposed_development"
+    },
+    {
+      "origin": "martin-fowler/claim-1",
+      "selection": "all raw candidates: ambiguity, roles, identity, timing, contradiction and locator risk; no sampling",
+      "review_note": "Actual Martin/Stacey marriage; no date. Raw short quote resolves but frozen full-span support includes registry-office wording. The reviewed episode matches Stacey’s same-story account, preserving both source assertions.",
+      "replacement_ids": [
+        "ref-martin-fowler-1"
+      ],
+      "synthetic": false,
+      "cross_source_checked": false,
+      "split": "exposed_development"
+    },
+    {
+      "origin": "kat-slater/claim-1",
+      "selection": "all raw candidates: ambiguity, roles, identity, timing, contradiction and locator risk; no sampling",
+      "review_note": "Actual remarriage after leaving hospital, a separate episode from the first marriage. Raw locator is malformed and lacks named-subject context. Preserve source-based relative time and both distinct marriages.",
+      "replacement_ids": [
+        "ref-kat-slater-1"
+      ],
+      "synthetic": false,
+      "cross_source_checked": false,
+      "split": "exposed_development"
+    },
+    {
+      "origin": "stacey-slater/claim-1",
+      "selection": "all raw candidates: ambiguity, roles, identity, timing, contradiction and locator risk; no sampling",
+      "review_note": "Actual Martin/Stacey marriage. The expanded raw relative phrase differs from frozen literal then; preserve that scorer miss. Review uses full exact source and unifies the same marriage episode with Martin’s account.",
+      "replacement_ids": [
+        "ref-stacey-slater-1"
+      ],
+      "synthetic": false,
+      "cross_source_checked": false,
+      "split": "exposed_development"
+    },
+    {
+      "origin": "alfie-moon/claim-1",
+      "selection": "all raw candidates: ambiguity, roles, identity, timing, contradiction and locator risk; no sampling",
+      "review_note": "Actual first wedding is supported. This short excerpt dates the minister’s lunch, without explicitly dating the ceremony. Keep reference unknown timing; retain raw Christmas/approximate as observed timing overreach under the declared scope.",
+      "replacement_ids": [
+        "ref-alfie-moon-1"
+      ],
+      "synthetic": false,
+      "cross_source_checked": false,
+      "split": "exposed_development"
+    },
+    {
+      "origin": "pat-butcher/claim-1",
+      "selection": "all raw candidates: ambiguity, roles, identity, timing, contradiction and locator risk; no sampling",
+      "review_note": "Pat’s actual death is explicit. No supported calendar date is supplied. Raw values and full quote pass; replacement only consolidates namespace.",
+      "replacement_ids": [
+        "ref-pat-butcher-1"
+      ],
+      "synthetic": false,
+      "cross_source_checked": false,
+      "split": "exposed_development"
+    },
+    {
+      "origin": "janine-butcher/claim-1",
+      "selection": "all raw candidates: ambiguity, roles, identity, timing, contradiction and locator risk; no sampling",
+      "review_note": "Actual out-of-catalogue Laura candidate is excluded from the declared identity scope. The source reports Laura’s death, but the supplied catalogue contains Janine only; this raw identity/contract failure must remain held, with no fabricated replacement identity.",
+      "replacement_ids": [],
+      "synthetic": false,
+      "cross_source_checked": false,
+      "split": "exposed_development"
+    },
+    {
+      "origin": "janine-butcher/claim-2",
+      "selection": "all raw candidates: ambiguity, roles, identity, timing, contradiction and locator risk; no sampling",
+      "review_note": "The source describes arrest, charge and remand for Laura’s death in May 2004, and an alibi. These are legal roles, not commission. Raw Laura identity is outside the supplied catalogue and cannot be admitted; raw arrest/charge omit the supported shared time. Replacement retains complete context.",
+      "replacement_ids": [
+        "ref-janine-butcher-1"
+      ],
+      "synthetic": false,
+      "cross_source_checked": false,
+      "split": "exposed_development"
+    },
+    {
+      "origin": "janine-butcher/claim-3",
+      "selection": "all raw candidates: ambiguity, roles, identity, timing, contradiction and locator risk; no sampling",
+      "review_note": "The source describes arrest, charge and remand for Laura’s death in May 2004, and an alibi. These are legal roles, not commission. Raw Laura identity is outside the supplied catalogue and cannot be admitted; raw arrest/charge omit the supported shared time. Replacement retains complete context.",
+      "replacement_ids": [
+        "ref-janine-butcher-2"
+      ],
+      "synthetic": false,
+      "cross_source_checked": false,
+      "split": "exposed_development"
+    },
+    {
+      "origin": "janine-butcher/claim-4",
+      "selection": "all raw candidates: ambiguity, roles, identity, timing, contradiction and locator risk; no sampling",
+      "review_note": "The source describes arrest, charge and remand for Laura’s death in May 2004, and an alibi. These are legal roles, not commission. Raw Laura identity is outside the supplied catalogue and cannot be admitted; raw arrest/charge omit the supported shared time. Replacement retains complete context.",
+      "replacement_ids": [
+        "ref-janine-butcher-3"
+      ],
+      "synthetic": false,
+      "cross_source_checked": false,
+      "split": "exposed_development"
+    },
+    {
+      "origin": "dot-cotton/claim-1",
+      "selection": "all raw candidates: ambiguity, roles, identity, timing, contradiction and locator risk; no sampling",
+      "review_note": "News is received over a year later; the source does not thereby date Dot’s death. Reject transfer of the news-receipt timing to death. No witness or cause is inferred; full quote retains who received the report.",
+      "replacement_ids": [
+        "ref-dot-cotton-1"
+      ],
+      "synthetic": false,
+      "cross_source_checked": false,
+      "split": "exposed_development"
+    },
+    {
+      "origin": "denise-fox/claim-1",
+      "selection": "all raw candidates: ambiguity, roles, identity, timing, contradiction and locator risk; no sampling",
+      "review_note": "Confirmed pregnancy, not a cancer diagnosis; unknown timing. Narrow raw quote resolves but frozen full-span grounding requires the whole sentence. No child or parent is inferred.",
+      "replacement_ids": [
+        "ref-denise-fox-1"
+      ],
+      "synthetic": false,
+      "cross_source_checked": false,
+      "split": "exposed_development"
+    },
+    {
+      "origin": "max-branning/claim-1",
+      "selection": "all raw candidates: ambiguity, roles, identity, timing, contradiction and locator risk; no sampling",
+      "review_note": "Actual affair follows the approach/kiss soon. Raw approximate calendar wording overstates the selected exact start policy and has a malformed range. Preserve source relative soon and unknown status.",
+      "replacement_ids": [
+        "ref-max-branning-1"
+      ],
+      "synthetic": false,
+      "cross_source_checked": false,
+      "split": "exposed_development"
+    },
+    {
+      "origin": "linda-carter/claim-1",
+      "selection": "all raw candidates: ambiguity, roles, identity, timing, contradiction and locator risk; no sampling",
+      "review_note": "A test confirms Linda’s pregnancy; theory alone is insufficient. Raw locator range is malformed. Whole quote retains the test and no father, unborn identity or calendar date.",
+      "replacement_ids": [
+        "ref-linda-carter-1"
+      ],
+      "synthetic": false,
+      "cross_source_checked": false,
+      "split": "exposed_development"
+    },
+    {
+      "origin": "phil-tape/context-1",
+      "selection": "all raw candidates: ambiguity, roles, identity, timing, contradiction and locator risk; no sampling",
+      "review_note": "Public tape revelation stays unclassified. Raw subjects omit Phil and Kathy despite the explicitly named engagement party, and its locator is malformed. The reviewed text-only replacement preserves all four subjects; no graph event is invented.",
+      "replacement_ids": [
+        "ref-phil-tape-text-1"
+      ],
+      "synthetic": false,
+      "cross_source_checked": false,
+      "split": "exposed_development"
+    },
+    {
+      "origin": "grant-abuse/claim-1",
+      "selection": "all raw candidates: ambiguity, roles, identity, timing, contradiction and locator risk; no sampling",
+      "review_note": "Arrest and imprisonment are explicit legal stages; partner violence supports domestic_abuse. Raw roles and theme values pass; whole context is retained. The theme does not create a shared event or prove a separate commission assertion.",
+      "replacement_ids": [
+        "ref-grant-abuse-1"
+      ],
+      "synthetic": false,
+      "cross_source_checked": false,
+      "split": "exposed_development"
+    },
+    {
+      "origin": "grant-abuse/claim-2",
+      "selection": "all raw candidates: ambiguity, roles, identity, timing, contradiction and locator risk; no sampling",
+      "review_note": "Arrest and imprisonment are explicit legal stages; partner violence supports domestic_abuse. Raw roles and theme values pass; whole context is retained. The theme does not create a shared event or prove a separate commission assertion.",
+      "replacement_ids": [
+        "ref-grant-abuse-2"
+      ],
+      "synthetic": false,
+      "cross_source_checked": false,
+      "split": "exposed_development"
+    },
+    {
+      "origin": "grant-abuse/context-1",
+      "selection": "all raw candidates: ambiguity, roles, identity, timing, contradiction and locator risk; no sampling",
+      "review_note": "Arrest and imprisonment are explicit legal stages; partner violence supports domestic_abuse. Raw roles and theme values pass; whole context is retained. The theme does not create a shared event or prove a separate commission assertion.",
+      "replacement_ids": [
+        "ref-grant-abuse-text-1"
+      ],
+      "synthetic": false,
+      "cross_source_checked": false,
+      "split": "exposed_development"
+    }
+  ]
+}

@@ -1,0 +1,59 @@
+{
+  "snapshot_id": "sharon-watts-coverage-v1",
+  "fixture_version": 1,
+  "source": {
+    "title": "Phil Mitchell",
+    "url": "https://en.wikipedia.org/wiki/Phil_Mitchell",
+    "revision_id": "1379872347",
+    "revision_url": "https://en.wikipedia.org/w/index.php?oldid=1379872347",
+    "section": "Storylines / 1990–2003",
+    "captured_at": "2026-10-17T13:07:31.014189Z",
+    "capture_sha256": "a338d3065203be54e383f2c9c141bca22ae9aedbb950e2e1eada601bcccfe313",
+    "scope": "main_series",
+    "license_url": "https://creativecommons.org/licenses/by-sa/4.0/",
+    "attribution": "Wikipedia contributors; markup removed and whitespace normalized.",
+    "coverage": "Reviewed narrative sections in this captured revision only.",
+    "gaps": [
+      "Partial canon coverage; other paragraphs remain excluded or awaiting review.",
+      "Identity and episode metadata do not independently corroborate story claims."
+    ],
+    "support_status": "source_supported"
+  },
+  "passages": [
+    {
+      "evidence_id": "coverage-sharon-watts",
+      "text": "Adopted at the age of three by Den (Leslie Grantham) and Angie Watts (Anita Dobson), Sharon is raised at The Queen Victoria public house in Albert Square, Walford, where her adoptive parents are landlords.",
+      "sha256": "1e54773bc770474ace800fa686ba855dce8b3eac079403d0dd1c78e958023f31",
+      "start": 50624,
+      "end": 50829,
+      "source": {
+        "title": "Sharon Watts",
+        "url": "https://en.wikipedia.org/wiki/Sharon_Watts",
+        "revision_id": "1372798905",
+        "revision_url": "https://en.wikipedia.org/w/index.php?oldid=1372798905",
+        "section": "Storylines / 1985–1995",
+        "captured_at": "2026-10-17T13:07:31.327518Z",
+        "capture_sha256": "9ccef3de99353ff737101d9d00561c217608dd4fa6fba0c8200f80ac0114ea85",
+        "scope": "main_series",
+        "license_url": "https://creativecommons.org/licenses/by-sa/4.0/",
+        "attribution": "Wikipedia contributors; markup removed and whitespace normalized.",
+        "coverage": "Reviewed narrative sections in this captured revision only.",
+        "gaps": [
+          "Partial canon coverage; other paragraphs remain excluded or awaiting review.",
+          "Identity and episode metadata do not independently corroborate story claims."
+        ],
+        "support_status": "source_supported"
+      },
+      "location": {
+        "source_id": "sharon-watts-wiki",
+        "paragraph_ordinal": 53,
+        "section_id": "1985–1995",
+        "character_ids": [
+          "den-watts",
+          "ian-beale",
+          "sharon-watts"
+        ]
+      }
+    }
+  ]
+}

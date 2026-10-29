@@ -1,0 +1,58 @@
+{
+  "snapshot_id": "linda-carter-coverage-v1",
+  "fixture_version": 1,
+  "source": {
+    "title": "Phil Mitchell",
+    "url": "https://en.wikipedia.org/wiki/Phil_Mitchell",
+    "revision_id": "1379872347",
+    "revision_url": "https://en.wikipedia.org/w/index.php?oldid=1379872347",
+    "section": "Storylines / 1990–2003",
+    "captured_at": "2026-10-17T13:07:31.014189Z",
+    "capture_sha256": "a338d3065203be54e383f2c9c141bca22ae9aedbb950e2e1eada601bcccfe313",
+    "scope": "main_series",
+    "license_url": "https://creativecommons.org/licenses/by-sa/4.0/",
+    "attribution": "Wikipedia contributors; markup removed and whitespace normalized.",
+    "coverage": "Reviewed narrative sections in this captured revision only.",
+    "gaps": [
+      "Partial canon coverage; other paragraphs remain excluded or awaiting review.",
+      "Identity and episode metadata do not independently corroborate story claims."
+    ],
+    "support_status": "source_supported"
+  },
+  "passages": [
+    {
+      "evidence_id": "coverage-linda-carter",
+      "text": "Mick theorises that Linda is pregnant when she vomits at the smell of lavender bath soap, and she, is horrified to discover he is correct, when she takes a test.",
+      "sha256": "26d766d8f05ae31f602702aa5db254713f6c9580b318a835042c829af445a90c",
+      "start": 19773,
+      "end": 19934,
+      "source": {
+        "title": "Linda Carter",
+        "url": "https://en.wikipedia.org/wiki/Linda_Carter",
+        "revision_id": "1379097965",
+        "revision_url": "https://en.wikipedia.org/w/index.php?oldid=1379097965",
+        "section": "Storylines",
+        "captured_at": "2026-10-17T13:07:34.761741Z",
+        "capture_sha256": "ae80ce98997723c92e8985e2710c8f7eccf92ed6703b79ee6099a29999b9f7a6",
+        "scope": "main_series",
+        "license_url": "https://creativecommons.org/licenses/by-sa/4.0/",
+        "attribution": "Wikipedia contributors; markup removed and whitespace normalized.",
+        "coverage": "Reviewed narrative sections in this captured revision only.",
+        "gaps": [
+          "Partial canon coverage; other paragraphs remain excluded or awaiting review.",
+          "Identity and episode metadata do not independently corroborate story claims."
+        ],
+        "support_status": "source_supported"
+      },
+      "location": {
+        "source_id": "linda-carter-wiki",
+        "paragraph_ordinal": 21,
+        "section_id": "Storylines",
+        "character_ids": [
+          "linda-carter",
+          "stacey-slater"
+        ]
+      }
+    }
+  ]
+}

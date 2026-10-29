@@ -1,0 +1,153 @@
+{
+  "captured_at": "2026-10-29T08:24:43.347176+00:00",
+  "code_revision": "9f60cea4856740f58a9680b0ff00f384996f77b1",
+  "application_sha256": "fb0feb5e544ebda762ad53e5e230df1df87f572c892932a23215a4f35ea0855b",
+  "prompt_sha256": "1e7473f85c87dfa400293d480c3091eab8950a0cb2fa707a01ba9bf028f78db3",
+  "snapshot_id": "max-branning-coverage-v1",
+  "snapshot_sha256": "85d77fe2833a3ef4e1f819b05188c116df7849b5850b95236ef7cd1a6154cb43",
+  "snapshot_file_sha256": "feba2a886aa50911937e1dac813e88a648d58946d996ba83d3dbf36fb57f6e81",
+  "reference_sha256": "6af364658ab407072bac042fd07991242b5d78a4789a378400681f0ce4a28bfe",
+  "schema_sha256": "8573863eb1966327a8823dd7c00da28eae6a7c87dcc20decc5843e1a66039354",
+  "profile": {
+    "provider_type": "openrouter",
+    "answer_model": "openai/gpt-6-sol",
+    "canonical_slug": "openai/gpt-6-sol-20260922",
+    "provider": "openai",
+    "input_price_per_million": "2",
+    "output_price_per_million": "10",
+    "output_tokens": 8192,
+    "reasoning_effort": "low",
+    "request_timeout_seconds": 180
+  },
+  "expenditure_category": "offline_evaluation",
+  "state": "complete",
+  "raw": "{\"claims\":[{\"claim_id\":\"claim-1\",\"subject_id\":\"max-branning\",\"object_id\":\"stacey-slater\",\"relation\":\"affair\",\"episode_id\":\"episode-1\",\"status\":\"unknown\",\"polarity\":\"affirmed\",\"certainty\":\"certain\",\"story_time\":\"soon after Christmas 2006, lasting for several months going into 2007\",\"time_precision\":\"approximate\",\"after_claim_id\":null,\"evidence\":[{\"evidence_id\":\"coverage-max-branning\",\"start\":123,\"end\":234,\"quote\":\"Max and Stacey kiss and the two soon embark on a passionate affair that lasts for several months going into 2007.\"}]}]}",
+  "batch": {
+    "claims": [
+      {
+        "claim_id": "claim-1",
+        "subject_id": "max-branning",
+        "object_id": "stacey-slater",
+        "relation": "affair",
+        "episode_id": "episode-1",
+        "status": "unknown",
+        "polarity": "affirmed",
+        "certainty": "certain",
+        "story_time": "soon after Christmas 2006, lasting for several months going into 2007",
+        "time_precision": "approximate",
+        "after_claim_id": null,
+        "evidence": [
+          {
+            "evidence_id": "coverage-max-branning",
+            "start": 123,
+            "end": 234,
+            "quote": "Max and Stacey kiss and the two soon embark on a passionate affair that lasts for several months going into 2007."
+          }
+        ]
+      }
+    ],
+    "snapshot_id": "max-branning-coverage-v1",
+    "snapshot_sha256": "85d77fe2833a3ef4e1f819b05188c116df7849b5850b95236ef7cd1a6154cb43",
+    "catalogue": {
+      "characters": [
+        {
+          "character_id": "max-branning",
+          "name": "Max Branning",
+          "aliases": [],
+          "performers": [
+            "Jake Wood"
+          ],
+          "coverage": "core",
+          "wikidata_id": "Q6794615",
+          "review_note": "Codex source inspection, 17 October 2026: captured character article, infobox aliases/performers and revision metadata checked. Prominence-based curated selection, not a ranked or exhaustive canon. Identity linkage is not independent story corroboration.",
+          "evidence_sources": [
+            "max-branning-wiki"
+          ]
+        },
+        {
+          "character_id": "stacey-slater",
+          "name": "Stacey Slater",
+          "aliases": [
+            "Stacey Branning",
+            "Stacey Fowler",
+            "Jenny Smith"
+          ],
+          "performers": [
+            "Lacey Turner"
+          ],
+          "coverage": "core",
+          "wikidata_id": "Q7595869",
+          "review_note": "Codex source inspection, 17 October 2026: captured character article, infobox aliases/performers and revision metadata checked. Prominence-based curated selection, not a ranked or exhaustive canon. Identity linkage is not independent story corroboration.",
+          "evidence_sources": [
+            "stacey-slater-wiki"
+          ]
+        }
+      ]
+    },
+    "extractor": "openai/gpt-6-sol-20260922"
+  },
+  "score": {
+    "expected": 1,
+    "predicted": 1,
+    "true_positive": 0,
+    "precision": 0.0,
+    "recall": 0.0,
+    "f1": 0.0,
+    "schema_valid": true,
+    "duplicates": 0,
+    "resolvable_spans": 0,
+    "grounded": 0,
+    "episode_pairs_expected": 0,
+    "episode_pairs_correct": 0,
+    "ordering_expected": 0,
+    "ordering_predicted": 0,
+    "ordering_correct": 0,
+    "alignment_limited": false,
+    "by_relation": {
+      "affair": {
+        "expected": 1,
+        "predicted": 1,
+        "true_positive": 0,
+        "precision": 0.0,
+        "recall": 0.0,
+        "f1": 0.0
+      }
+    },
+    "scope": "Exposed, completely annotated in-catalogue spans only. Match values and unique passage IDs, with frozen timing alternatives; ignore arbitrary claim/episode IDs. Romantic pairs are symmetric; parent/guardian roles are directed. Distinct episode instances retain multiplicity; duplicates within the same episode collapse. One-to-one value matching ignores ID spelling. Ambiguous alignments maximize episode agreement, then ordering; over 4096 alternatives leaves those two scores unavailable. Raw duplicates and full-reference-span grounding are separate. Missing episode pairs fail. This conservative grounding proxy is not independent semantic/canon adjudication."
+  },
+  "usage": {
+    "reservation_id": "bfee1ca27dad4185a6120a1639eecd56",
+    "reserved_usd": 0.106796,
+    "cost_usd": 0.012471,
+    "request_id": "gen-1793262283-9OR7rfjFd3hKKFfQ9hYO",
+    "returned_model": "openai/gpt-6-sol",
+    "provider": "OpenAI",
+    "input_tokens": 1769,
+    "output_tokens": 805,
+    "reasoning_tokens": 662
+  },
+  "execution": {
+    "limits": {
+      "model_calls": 1,
+      "tool_calls": 0,
+      "http_calls": 3,
+      "seconds": 180.0,
+      "context_bytes": 1200,
+      "spend_usd": "0.15",
+      "retries": 0,
+      "capabilities": [],
+      "concurrency": 4
+    },
+    "model_calls": 1,
+    "tool_calls": 0,
+    "http_calls": 3,
+    "reserved_usd": "0.012471",
+    "stop_reason": null
+  },
+  "elapsed_ms": 9801.862135000192,
+  "failure": null,
+  "trace_id": "tr-f925fb995a774f521247e90973703eee",
+  "shared_ledger_usd": 0.872689,
+  "unsettled_reservations": 0,
+  "limitation": "Agent-reviewed exposed labels; no held-out, human or independent canon acceptance."
+}

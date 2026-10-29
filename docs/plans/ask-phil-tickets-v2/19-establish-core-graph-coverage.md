@@ -1,6 +1,6 @@
 # 19: Establish checked graph coverage across the core roster
 
-Status: approved and published as [GitHub #20](https://github.com/tomh1988-8/rag_demo/issues/20), labelled ready-for-agent; body and label verified on 23 September 2026. Plan version: 2. Implementation has not started.
+Status: implemented at `eec7033` for [GitHub #20](https://github.com/tomh1988-8/rag_demo/issues/20); all 586 native tests, eight Docker contracts and static checks pass; publication in progress. [Evidence](../../implementation/issue-20/README.md) retains all raw scores, corrections, coverage gaps and actual public results.
 
 Spec stories: S11, S12, S13, S15, S16, S17, S18, S20, S21, S22, S23, S24, S25, S26, S27, S29, S30, S31, S32, S39, S41, S42, S58, S59, S60, S61, S62, S64, S75, S76, S77, S78, S79, S81, S86, S87, S88, S89, S92. Checklist evidence owner for: the extensions and rechecks below; primary ownership is recorded in the project register.
 
