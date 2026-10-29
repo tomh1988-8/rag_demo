@@ -1,0 +1,43 @@
+[
+  {
+    "command": [
+      ".venv/bin/mypy",
+      "src",
+      "tests",
+      "scripts",
+      "docs/implementation/issue-9/apply_support.py"
+    ],
+    "returncode": 0
+  },
+  {
+    "command": [
+      ".venv/bin/ruff",
+      "check",
+      "src",
+      "tests",
+      "scripts",
+      "docs/implementation/issue-9/apply_support.py"
+    ],
+    "returncode": 0
+  },
+  {
+    "command": [
+      ".venv/bin/ruff",
+      "format",
+      "--check",
+      "src",
+      "tests",
+      "scripts",
+      "docs/implementation/issue-9/apply_support.py"
+    ],
+    "returncode": 0
+  },
+  {
+    "command": [
+      "git",
+      "diff",
+      "--check"
+    ],
+    "returncode": 0
+  }
+]
