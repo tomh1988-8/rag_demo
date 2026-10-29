@@ -1,0 +1,25 @@
+{
+  "fixed_point": "f69b7f8add0f28c8867de1b312eca7fbcc7174e8",
+  "profiles": 20,
+  "batches": 22,
+  "artifacts": {
+    "claims": {
+      "sha256": "e20bd7b3ef978af06e6bccaa5c5b835f6f56b49fedd229bf1d4bd388ef7ebc08",
+      "exact_original_bytes": true
+    },
+    "reviews": {
+      "sha256": "ced6492d362792bcd620ca82ce6b97441c022b7392c17dbe676715425ccf9bd1",
+      "exact_original_bytes": true
+    },
+    "admissions": {
+      "sha256": "2526c9e2992dc647819cef9d7a2f41405d86c3e45880baeb38212fb5f831f348",
+      "exact_original_bytes": true
+    },
+    "origins": {
+      "sha256": "b9fd66030a654a4132c809f703cac7436a684edb9f2aa33002a815818a3e5701",
+      "exact_original_bytes": true
+    }
+  },
+  "inventory_matches_original": true,
+  "paid_model_calls": 0
+}

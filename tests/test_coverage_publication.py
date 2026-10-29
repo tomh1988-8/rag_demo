@@ -9,17 +9,14 @@ import pytest
 from mlflow import MlflowClient
 
 from ask_phil.connection_graph import ConnectionQuery
-from ask_phil.coverage import CoveragePlan
+from ask_phil.coverage import CoverageEvidence, CoveragePlan
 from ask_phil.family_graph import FamilyQuery
 from ask_phil.graph_acceptance import GraphAcceptanceRun, GraphCase, GraphPhase
 from ask_phil.parentage import ClaimBatch
 from ask_phil.relationships import RelationshipClaim
 
 
-@pytest.mark.parametrize("change", [None, "candidate", "reference", "admission"])
-def test_a_roster_locator_correction_is_bound_to_the_retained_candidate(
-    database_url: str, tmp_path: Path, change: str | None
-) -> None:
+def _locator_correction(tmp_path: Path) -> tuple[Path, Path, Path, Path]:
     inputs = tmp_path / "inputs"
     snapshot = tmp_path / "snapshot.json"
     subprocess.run(
@@ -70,7 +67,6 @@ def test_a_roster_locator_correction_is_bound_to_the_retained_candidate(
             }
         )
     )
-    original = raw_path.read_bytes()
     decisions = tmp_path / "decisions.json"
     decisions.write_text(
         json.dumps(
@@ -86,11 +82,16 @@ def test_a_roster_locator_correction_is_bound_to_the_retained_candidate(
             }
         )
     )
+    return snapshot, plan_path, captures, decisions
+
+
+def test_a_roster_locator_correction_is_bound_to_the_retained_candidate(
+    database_url: str, tmp_path: Path
+) -> None:
+    snapshot, plan_path, captures, decisions = _locator_correction(tmp_path)
+    raw_path = captures / "peggy-mitchell.json"
+    original = raw_path.read_bytes()
     graph = tmp_path / "graph"
-    if change == "candidate":
-        changed = json.loads(raw_path.read_bytes())
-        changed["batch"]["claims"][0]["parent_id"] = "ben-mitchell"
-        raw_path.write_text(json.dumps(changed))
     compilation = subprocess.run(
         [
             sys.executable,
@@ -109,20 +110,7 @@ def test_a_roster_locator_correction_is_bound_to_the_retained_candidate(
         capture_output=True,
         timeout=60,
     )
-    if change == "candidate":
-        assert compilation.returncode != 0
-        assert b"reviewed candidate changed" in compilation.stderr
-        assert not graph.exists()
-        return
     assert compilation.returncode == 0, compilation.stderr.decode()
-    if change == "reference":
-        changed = json.loads((inputs / selected.reference).read_bytes())
-        changed["expected_claims"] = []
-        (inputs / selected.reference).write_text(json.dumps(changed))
-    if change == "admission":
-        changed = json.loads((graph / "admissions.json").read_bytes())
-        changed["family"]["decisions"][0]["status"] = "held"
-        (graph / "admissions.json").write_text(json.dumps(changed))
     inventory_path = tmp_path / "inventory.json"
     reporting = subprocess.run(
         [
@@ -142,10 +130,6 @@ def test_a_roster_locator_correction_is_bound_to_the_retained_candidate(
         capture_output=True,
         timeout=60,
     )
-    if change in {"reference", "admission"}:
-        assert reporting.returncode != 0
-        assert not inventory_path.exists()
-        return
     assert reporting.returncode == 0, reporting.stderr.decode()
     inventory = json.loads(inventory_path.read_bytes())
     assert inventory["profiles"][0]["character_id"] == "peggy-mitchell"
@@ -256,6 +240,85 @@ def test_same_marriage_accounts_can_be_explicitly_consolidated_without_rewriting
     decisions = tmp_path / "decisions.json"
     decisions.write_text("{}")
     graph = tmp_path / "graph"
+    CoverageEvidence(snapshot, plan_path, captures).assemble(
+        decisions, graph, reference_reviews_path=reviews
+    )
+    admission = json.loads((graph / "admissions.json").read_bytes())["relationship"]
+    assert {d["claim_id"]: (d["status"], d["reasons"]) for d in admission["decisions"]} == {
+        "ref-martin-fowler-1": ("admitted", []),
+        "ref-stacey-slater-1": ("held", ["superseded"]),
+    }
+    assert all((inputs / name).read_bytes() == contents for name, contents in frozen.items())
+
+
+@pytest.mark.parametrize(
+    "change",
+    ["candidate", "reference", "source", "capture", "reviews", "admissions", "origins", "plan"],
+)
+def test_coverage_evidence_rejects_changed_reviews_and_artifacts(
+    tmp_path: Path, change: str
+) -> None:
+    snapshot, plan_path, captures, decisions = _locator_correction(tmp_path)
+    coverage = CoverageEvidence(snapshot, plan_path, captures)
+    raw_path = captures / "peggy-mitchell.json"
+    graph = tmp_path / "graph"
+    if change == "candidate":
+        changed = json.loads(raw_path.read_bytes())
+        changed["batch"]["claims"][0]["parent_id"] = "ben-mitchell"
+        raw_path.write_text(json.dumps(changed))
+        with pytest.raises(ValueError, match="reviewed candidate changed"):
+            coverage.assemble(decisions, graph)
+        assert not graph.exists()
+        return
+    coverage.assemble(decisions, graph)
+    selected = CoveragePlan.model_validate_json(plan_path.read_bytes()).batches[0]
+    changed_path = {
+        "reference": plan_path.parent / selected.reference,
+        "source": plan_path.parent / selected.snapshot,
+        "capture": raw_path,
+        "reviews": graph / "reviews.json",
+        "admissions": graph / "admissions.json",
+        "origins": graph / "origins.json",
+        "plan": plan_path,
+    }[change]
+    changed_path.write_bytes(changed_path.read_bytes() + b"\n")
+    with pytest.raises(ValueError):
+        coverage.report(graph)
+
+
+def test_reviewed_coverage_replays_retained_claims_and_inventory(tmp_path: Path) -> None:
+    snapshot, plan_path, _, _ = _locator_correction(tmp_path)
+    retained = Path("docs/implementation/issue-20")
+    coverage = CoverageEvidence(snapshot, plan_path.parent / "plan.json", retained / "extraction")
+    graph = tmp_path / "graph"
+    coverage.assemble(
+        retained / "raw-reviews.json",
+        graph,
+        reference_reviews_path=retained / "reference-reviews.json",
+    )
+    expected = {
+        name: (retained / "graph" / f"{name}.json").read_bytes()
+        for name in ("claims", "reviews", "admissions", "origins")
+    }
+    assert {name: (graph / f"{name}.json").read_bytes() for name in expected} == expected
+    assert json.loads(json.dumps(coverage.report(graph))) == json.loads(
+        (retained / "coverage.json").read_bytes()
+    )
+    with pytest.raises(FileExistsError):
+        coverage.assemble(
+            retained / "raw-reviews.json",
+            graph,
+            reference_reviews_path=retained / "reference-reviews.json",
+        )
+    assert {name: (graph / f"{name}.json").read_bytes() for name in expected} == expected
+
+
+def test_changed_coverage_source_is_rejected_before_reviewed_composition(tmp_path: Path) -> None:
+    snapshot, plan_path, captures, decisions = _locator_correction(tmp_path)
+    batch = CoveragePlan.model_validate_json(plan_path.read_bytes()).batches[0]
+    source = plan_path.parent / batch.snapshot
+    source.write_bytes(source.read_bytes() + b"\n")
+    graph = tmp_path / "graph"
     result = subprocess.run(
         [
             sys.executable,
@@ -268,18 +331,11 @@ def test_same_marriage_accounts_can_be_explicitly_consolidated_without_rewriting
             str(captures),
             "--decisions",
             str(decisions),
-            "--reference-reviews",
-            str(reviews),
             "--output",
             str(graph),
         ],
         capture_output=True,
         timeout=60,
     )
-    assert result.returncode == 0, result.stderr.decode()
-    admission = json.loads((graph / "admissions.json").read_bytes())["relationship"]
-    assert {d["claim_id"]: (d["status"], d["reasons"]) for d in admission["decisions"]} == {
-        "ref-martin-fowler-1": ("admitted", []),
-        "ref-stacey-slater-1": ("held", ["superseded"]),
-    }
-    assert all((inputs / name).read_bytes() == contents for name, contents in frozen.items())
+    assert result.returncode != 0, "Composition accepted changed frozen source bytes."
+    assert not graph.exists()

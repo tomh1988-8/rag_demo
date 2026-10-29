@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="utf-8"?><testsuites name="pytest tests"><testsuite name="pytest" errors="0" failures="1" skipped="0" tests="1" time="14.962" timestamp="2026-10-29T13:14:24.900727+00:00" hostname="tom-Latitude-3510"><testcase classname="tests.test_coverage_publication" name="test_changed_coverage_source_is_rejected_before_reviewed_composition" time="14.678"><failure message="AssertionError: Composition accepted changed frozen source bytes.&#10;assert 0 != 0&#10; +  where 0 = CompletedProcess(args=['/home/tom/Documents/code/python/rag_demo/.venv/bin/python', 'scripts/assemble_coverage.py', '-...'--output', '/tmp/pytest-of-tom/pytest-2/test_changed_coverage_source_i0/graph'], returncode=0, stdout=b'', stderr=b'').returncode">tmp_path = PosixPath('/tmp/pytest-of-tom/pytest-2/test_changed_coverage_source_i0')
+
+    def test_changed_coverage_source_is_rejected_before_reviewed_composition(tmp_path: Path) -&gt; None:
+        snapshot, plan_path, captures, decisions = _locator_correction(tmp_path)
+        batch = CoveragePlan.model_validate_json(plan_path.read_bytes()).batches[0]
+        source = plan_path.parent / batch.snapshot
+        source.write_bytes(source.read_bytes() + b"\n")
+        graph = tmp_path / "graph"
+        result = subprocess.run(
+            [
+                sys.executable,
+                "scripts/assemble_coverage.py",
+                "--snapshot", str(snapshot),
+                "--plan", str(plan_path),
+                "--captures", str(captures),
+                "--decisions", str(decisions),
+                "--output", str(graph),
+            ],
+            capture_output=True,
+            timeout=60,
+        )
+&gt;       assert result.returncode != 0, "Composition accepted changed frozen source bytes."
+E       AssertionError: Composition accepted changed frozen source bytes.
+E       assert 0 != 0
+E        +  where 0 = CompletedProcess(args=['/home/tom/Documents/code/python/rag_demo/.venv/bin/python', 'scripts/assemble_coverage.py', '-...'--output', '/tmp/pytest-of-tom/pytest-2/test_changed_coverage_source_i0/graph'], returncode=0, stdout=b'', stderr=b'').returncode
+
+tests/test_coverage_publication.py:315: AssertionError</failure></testcase></testsuite></testsuites>
