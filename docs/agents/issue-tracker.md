@@ -11,18 +11,30 @@ commands so they work even without a configured Git remote.
 
 ## Current Ask Phil handoff
 
-**Issue #20 is validated; publication and tracker closure are in progress.**
-Continue this ticket from [its evidence](../implementation/issue-20/README.md),
-not from an earlier paused session. Workflow source is `eec7033`, with test-only repair `416ef2f`; all 22 paid
-extraction attempts and 26 public answer outcomes are retained. Independent
-reviews have zero findings; all 586 native cases, eight Docker contracts and
-strict static checks pass. All 243 frozen software inputs match.
+**Issue #20 is complete and closed** after [verified publication](https://github.com/tomh1988-8/rag_demo/commit/99d4b4ae47a0361c46576f54d2cc392ed7587bd5) and exact tracker readback.
+[Evidence](../implementation/issue-20/README.md) and the
+[receipt](../implementation/issue-20/publication.json) retain all seven checked
+criteria, 586 passing native cases, eight Docker contracts, strict mypy across
+140 files, Ruff/formatting and zero findings on both independent review axes.
+All 243 frozen software inputs and 45 original tracked data files verify.
 
-Preserve the non-resetting $5 ledger at **$0.911656**, zero unsettled reservations,
-and reuse the recorded paid results. All 45 original tracked data files and the
-user’s pre-existing workspace/private inputs remain preserved. Check the linked
-validation/publication receipts before reporting completion or closing #20.
-After #20 completion, **#22 is next**; #24 is also unblocked and #18 waits for #24.
+All 22 paid extraction outcomes and 26 public answers have exact trace/citation
+readback. Raw extraction failures, annotation-policy differences and original
+review/composition failures remain preserved. The coherent projection and full
+text publication share the source and all three graph fingerprints. These are
+source-based agent reviews of selected exposed scopes, without human canon or
+held-out release acceptance. RAG-04 passes for checked contracts; counts are
+36 Pass and 15 Pending. Workflow source is `eec7033`; final test-only repair is
+`416ef2f`. The original cancellation failure was a test setup race; its actual
+trace confirms safe cancellation before any model operation.
+
+Preserve the original non-resetting $5 ledger at **$0.911656**, zero unsettled
+reservations, and reuse the recorded paid work. Preserve the user's pre-existing
+workspace and private inputs. The user's `approve` supersedes the initial
+main-publication rejection; there is no current publication blocker.
+
+**#22 is next.** #24 is also unblocked; #18 waits for #24.
+Wait for the user's next implementation instruction before another issue.
 
 ### Prior issue #19 handoff
 

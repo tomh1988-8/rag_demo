@@ -3,7 +3,8 @@
 Issue [#20](https://github.com/tomh1988-8/rag_demo/issues/20) extends the existing
 extraction, admission and graph tools. The 22 live extraction batches and 25
 public graph outcomes and text demonstration are complete. All 586 native tests,
-eight Docker contracts and static checks pass; publication is in progress.
+eight Docker contracts and static checks pass. [Publication and completed tracker
+closure](publication.json) have exact readback, with all seven criteria checked.
 
 The retained 20-profile corpus has 794 narrative passages. The first coverage
 version deliberately annotates selected excerpts across every profile, including

@@ -1,0 +1,11 @@
+{
+  "method": "native fast-forward Git HTTPS push and fetched exact-tree readback",
+  "approved_by_user": "approve, after automatic review rejected this exact main-branch push",
+  "published_revision": "99d4b4ae47a0361c46576f54d2cc392ed7587bd5",
+  "published_tree": "22f67733acc28d1e34aa7bed637deda1f54ee76d",
+  "local_revision": "99d4b4ae47a0361c46576f54d2cc392ed7587bd5",
+  "exact_revision_match": true,
+  "exact_tree_match": true,
+  "validation_sha256": "09c5e0d7ba04797f9413b7f9aef0b53674713952fc7e9467ecdea12fe99778b4",
+  "initial_automatic_rejection": "Direct publication to shared default main required explicit authorization; user approve superseded it."
+}

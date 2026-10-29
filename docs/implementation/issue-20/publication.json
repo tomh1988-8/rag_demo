@@ -1,0 +1,34 @@
+{
+  "state": "complete",
+  "issue": 20,
+  "completed_at": "2026-10-29T09:37:57.418539+00:00",
+  "user_publication_approval": "approve, after explicit main-push rejection",
+  "publication": {
+    "method": "native fast-forward Git HTTPS push and fetched exact-tree readback",
+    "approved_by_user": "approve, after automatic review rejected this exact main-branch push",
+    "published_revision": "99d4b4ae47a0361c46576f54d2cc392ed7587bd5",
+    "published_tree": "22f67733acc28d1e34aa7bed637deda1f54ee76d",
+    "local_revision": "99d4b4ae47a0361c46576f54d2cc392ed7587bd5",
+    "exact_revision_match": true,
+    "exact_tree_match": true,
+    "validation_sha256": "09c5e0d7ba04797f9413b7f9aef0b53674713952fc7e9467ecdea12fe99778b4",
+    "initial_automatic_rejection": "Direct publication to shared default main required explicit authorization; user approve superseded it."
+  },
+  "tracker": {
+    "url": "https://github.com/tomh1988-8/rag_demo/issues/20",
+    "state": "CLOSED",
+    "state_reason": "COMPLETED",
+    "checked_criteria": 7,
+    "prepared_body_sha256": "475a5c3ba4a95a45740108502418d4dac6cca329553fca6440484bd3916847db",
+    "readback_body_sha256": "475a5c3ba4a95a45740108502418d4dac6cca329553fca6440484bd3916847db",
+    "exact_prepared_body_match": true
+  },
+  "software_inputs_verified": 243,
+  "validation_artifacts_verified": 32,
+  "source_and_paid_results_unchanged": true,
+  "original_tracked_data_preserved": 45,
+  "pre_existing_user_workspace_preserved": true,
+  "shared_ledger_usd": 0.911656,
+  "unsettled_reservations": 0,
+  "completion_receipt_publication": "Subsequent commit contains documentation and receipt metadata only; no code, configuration, frozen data or validated outcome changes."
+}

@@ -1,27 +1,36 @@
 # Ask Phil: publication and next-skill handoff
 
-## Issue #20: checked core-roster coverage validated, publication in progress
+## Issue #20: checked core-roster coverage published and closed
 
-Continue the existing implementation at `eec7033` and test-only repair `416ef2f`, with [source-linked evidence](../../implementation/issue-20/README.md).
-All 20 original profiles and 794 passages are preserved; 22 scoped batches have
-32 actual candidates, unchanged pre-extraction labels/scores, full source review
-and exact trace readback. The coherent projection retains earlier records and
-explicitly consolidates the same Martin/Stacey wedding. All 25 graph questions
-and the unclassified text question pass separate result/value/support checks.
-The full source/text publication seals all three graph versions together.
+Issue #20 is complete after [verified publication](https://github.com/tomh1988-8/rag_demo/commit/99d4b4ae47a0361c46576f54d2cc392ed7587bd5), all seven checked
+criteria and exact completed-tracker readback. The
+[receipt](../../implementation/issue-20/publication.json) records the user's
+`approve`, final source/evidence hashes and closure. Completion metadata changes
+documentation only. There is no current publication/tracker blocker.
 
-Both review axes clear the graph/source results, and all eight Docker contracts
-pass. All 586 native cases pass exactly once across disjoint selections; strict
-mypy/formatting and all 243 frozen inputs verify. Publication and tracker closure
-remain outstanding; read the validation and publication receipts before claiming
-completion. Reuse the 23 paid outcomes, not new calls. Shared spend is **$0.911656**
-under the original non-resetting $5 cap, with zero unsettled reservations.
-The issue’s raw-model failures, note corrections and initial composition failure
-remain retained. RAG-04 passes for checked contracts; checklist counts are
-36 Pass and 15 Pending, with broader release/variation obligations unchanged.
+[Evidence](../../implementation/issue-20/README.md) retains 586 passing native
+cases, eight Docker contracts, strict mypy across 140 files, Ruff/formatting and
+zero remaining findings on both review axes. All 243 frozen software inputs and
+45 original tracked data files verify. Workflow source is `eec7033`; the final
+`416ef2f` repair changes only cancellation-test readiness. Preserve the original
+failed trace, passing handshake checks and full-suite partition manifest.
 
-After #20 completion, #22 is next; #24 is also unblocked and #18 waits for #24.
-Wait for the user’s next implementation instruction before another issue.
+All 20 original profiles and 794 passages remain in the 816-passage snapshot.
+Twenty-two bounded live batches retain 32 candidates, unchanged extraction
+references/scores, full source review and exact trace readback. The coherent
+projection admits 28 structured source assertions and two text classifications,
+preserving the same-marriage consolidation and original claims. All 25 graph
+answers and the unclassified text answer independently pass source review;
+source and all three graph fingerprints agree. Raw-model failures and scope gaps
+remain explicit; no human canon, representative variation or held-out release
+acceptance is claimed. RAG-04 passes for checked contracts; counts are
+36 Pass and 15 Pending.
+
+Preserve the shared non-resetting $5 ledger at **$0.911656**, zero unsettled
+reservations, the user's existing workspace and private inputs. Reuse all 23
+paid outcomes; do not repeat unchanged work. #22 is next; #24 is also unblocked
+and #18 waits for #24. Wait for the user's next implementation instruction before
+another issue.
 
 ## Prior issue #19: persona validation implemented and verified
 
