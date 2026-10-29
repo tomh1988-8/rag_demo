@@ -1,0 +1,13 @@
+Traceback (most recent call last):
+  File "/home/tom/Documents/code/python/rag_demo/scripts/assemble_coverage.py", line 200, in <module>
+    main()
+  File "/home/tom/Documents/code/python/rag_demo/scripts/assemble_coverage.py", line 196, in main
+    assemble(args.snapshot, args.plan, args.captures, args.decisions, args.output)
+  File "/home/tom/Documents/code/python/rag_demo/scripts/assemble_coverage.py", line 157, in assemble
+    "relationship": admit_relationships(
+                    ^^^^^^^^^^^^^^^^^^^^
+  File "/home/tom/Documents/code/python/rag_demo/src/ask_phil/relationships.py", line 180, in admit_relationships
+    admission.validate_corrections(decisions)
+  File "/home/tom/Documents/code/python/rag_demo/src/ask_phil/claims.py", line 182, in validate_corrections
+    raise ValueError("Correction replacement fails domain admission checks.")
+ValueError: Correction replacement fails domain admission checks.

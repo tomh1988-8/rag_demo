@@ -1,0 +1,14 @@
+{
+  "relationship": [
+    {
+      "claim_id": "ref-stacey-slater-1",
+      "claim_sha256": "252864d3a625d507b3c8fb03202bc7dc6fab4793d5a1a8ca1a3c7f2e5e972d21",
+      "verdict": "superseded",
+      "superseded_by": [
+        "ref-martin-fowler-1"
+      ],
+      "reviewer": "Codex maintainer projection review, independently source-checked by Spec reviewer, 29 October 2026",
+      "note": "Both full retained biographies place the same marriage after Peggy’s death and before Bex moves in, with matching Andy/rent/proposal sequence. Stacey’s valid then/relative assertion stays unchanged in the extraction reference and audit. Its projection is retired in favour of Martin’s less-specific unknown-date assertion so the existing episode-collision rule need not be weakened. This is projection compatibility, not a false-source verdict or improved model score."
+    }
+  ]
+}

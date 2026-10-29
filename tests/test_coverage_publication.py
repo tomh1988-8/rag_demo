@@ -13,6 +13,7 @@ from ask_phil.coverage import CoveragePlan
 from ask_phil.family_graph import FamilyQuery
 from ask_phil.graph_acceptance import GraphAcceptanceRun, GraphCase, GraphPhase
 from ask_phil.parentage import ClaimBatch
+from ask_phil.relationships import RelationshipClaim
 
 
 @pytest.mark.parametrize("change", [None, "candidate", "reference", "admission"])
@@ -188,3 +189,97 @@ def test_a_roster_locator_correction_is_bound_to_the_retained_candidate(
     paths = response["response"]["graph"]["paths"]
     assert [p["characters"] for p in paths] == [["peggy-mitchell", "phil-mitchell"]]
     assert paths[0]["edges"][0]["claim_ids"] == ["ref-peggy-mitchell-1"]
+
+
+def test_same_marriage_accounts_can_be_explicitly_consolidated_without_rewriting_references(
+    tmp_path: Path,
+) -> None:
+    inputs, snapshot = tmp_path / "inputs", tmp_path / "snapshot.json"
+    subprocess.run(
+        [
+            sys.executable,
+            "scripts/prepare_coverage.py",
+            "--annotations",
+            "data/references/core-graph-v1.json",
+            "--output",
+            str(inputs),
+            "--snapshot",
+            str(snapshot),
+        ],
+        check=True,
+        capture_output=True,
+        timeout=60,
+    )
+    original = CoveragePlan.model_validate_json((inputs / "plan.json").read_bytes())
+    batches = tuple(b for b in original.batches if b.batch_id in {"martin-fowler", "stacey-slater"})
+    plan = original.model_copy(
+        update={"roster": ("martin-fowler", "stacey-slater"), "batches": batches}
+    )
+    plan_path = inputs / "selected.json"
+    plan_path.write_text(plan.model_dump_json())
+    captures = tmp_path / "captures"
+    captures.mkdir()
+    frozen = {}
+    for batch in batches:
+        frozen[batch.reference] = (inputs / batch.reference).read_bytes()
+        (captures / f"{batch.batch_id}.json").write_text(
+            json.dumps(
+                {
+                    "snapshot_file_sha256": batch.snapshot_file_sha256,
+                    "reference_sha256": batch.reference_sha256,
+                    "batch": None,
+                }
+            )
+        )
+    stacey = RelationshipClaim.model_validate(
+        json.loads((inputs / "stacey-slater-reference.json").read_bytes())["expected_claims"][0]
+    )
+    reviews = tmp_path / "reference-reviews.json"
+    reviews.write_text(
+        json.dumps(
+            {
+                "relationship": [
+                    {
+                        "claim_id": stacey.claim_id,
+                        "claim_sha256": stacey.fingerprint,
+                        "verdict": "superseded",
+                        "superseded_by": ["ref-martin-fowler-1"],
+                        "reviewer": "Synthetic orchestration regression with source-based claims",
+                        "note": "Same marriage. Preserve the relative account in the audit; "
+                        "use the "
+                        "less-specific unknown-date assertion as the current shared episode.",
+                    }
+                ]
+            }
+        )
+    )
+    decisions = tmp_path / "decisions.json"
+    decisions.write_text("{}")
+    graph = tmp_path / "graph"
+    result = subprocess.run(
+        [
+            sys.executable,
+            "scripts/assemble_coverage.py",
+            "--snapshot",
+            str(snapshot),
+            "--plan",
+            str(plan_path),
+            "--captures",
+            str(captures),
+            "--decisions",
+            str(decisions),
+            "--reference-reviews",
+            str(reviews),
+            "--output",
+            str(graph),
+        ],
+        capture_output=True,
+        timeout=60,
+    )
+    assert result.returncode == 0, result.stderr.decode()
+    admission = json.loads((graph / "admissions.json").read_bytes())["relationship"]
+    assert {d["claim_id"]: (d["status"], d["reasons"]) for d in admission["decisions"]} == {
+        "ref-martin-fowler-1": ("admitted", []),
+        "ref-stacey-slater-1": ("held", ["superseded"]),
+    }
+    assert all((inputs / name).read_bytes() == contents for name, contents in frozen.items())

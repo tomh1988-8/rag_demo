@@ -1,0 +1,59 @@
+F                                                                        [100%]
+=================================== FAILURES ===================================
+_ test_same_marriage_accounts_can_be_explicitly_consolidated_without_rewriting_references _
+
+tmp_path = PosixPath('/tmp/pytest-of-tom/pytest-1/test_same_marriage_accounts_ca0')
+
+    def test_same_marriage_accounts_can_be_explicitly_consolidated_without_rewriting_references(
+        tmp_path: Path,
+    ) -> None:
+        inputs, snapshot = tmp_path / "inputs", tmp_path / "snapshot.json"
+        subprocess.run([
+            sys.executable, "scripts/prepare_coverage.py", "--annotations",
+            "data/references/core-graph-v1.json", "--output", str(inputs), "--snapshot", str(snapshot),
+        ], check=True, capture_output=True, timeout=60)
+        original = CoveragePlan.model_validate_json((inputs / "plan.json").read_bytes())
+        batches = tuple(b for b in original.batches if b.batch_id in {"martin-fowler", "stacey-slater"})
+        plan = original.model_copy(update={"roster": ("martin-fowler", "stacey-slater"), "batches": batches})
+        plan_path = inputs / "selected.json"
+        plan_path.write_text(plan.model_dump_json())
+        captures = tmp_path / "captures"
+        captures.mkdir()
+        frozen = {}
+        for batch in batches:
+            frozen[batch.reference] = (inputs / batch.reference).read_bytes()
+            (captures / f"{batch.batch_id}.json").write_text(json.dumps({
+                "snapshot_file_sha256": batch.snapshot_file_sha256,
+                "reference_sha256": batch.reference_sha256, "batch": None,
+            }))
+        stacey = RelationshipClaim.model_validate(json.loads(
+            (inputs / "stacey-slater-reference.json").read_bytes()
+        )["expected_claims"][0])
+        reviews = tmp_path / "reference-reviews.json"
+        reviews.write_text(json.dumps({"relationship": [{
+            "claim_id": stacey.claim_id, "claim_sha256": stacey.fingerprint,
+            "verdict": "superseded", "superseded_by": ["ref-martin-fowler-1"],
+            "reviewer": "Synthetic orchestration regression, source-based reference claims",
+            "note": "Same marriage. Preserve the relative account in the audit; use the "
+            "less-specific unknown-date assertion as the current shared episode.",
+        }]}))
+        decisions = tmp_path / "decisions.json"
+        decisions.write_text("{}")
+        graph = tmp_path / "graph"
+        result = subprocess.run([
+            sys.executable, "scripts/assemble_coverage.py", "--snapshot", str(snapshot),
+            "--plan", str(plan_path), "--captures", str(captures), "--decisions", str(decisions),
+            "--reference-reviews", str(reviews), "--output", str(graph),
+        ], capture_output=True, timeout=60)
+>       assert result.returncode == 0, result.stderr.decode()
+E       AssertionError: usage: assemble_coverage.py [-h] --snapshot SNAPSHOT --plan PLAN --captures
+E                                     CAPTURES --decisions DECISIONS --output OUTPUT
+E         assemble_coverage.py: error: unrecognized arguments: --reference-reviews /tmp/pytest-of-tom/pytest-1/test_same_marriage_accounts_ca0/reference-reviews.json
+E         
+E       assert 2 == 0
+E        +  where 2 = CompletedProcess(args=['/home/tom/Documents/code/python/rag_demo/.venv/bin/python', 'scripts/assemble_coverage.py', '-...d arguments: --reference-reviews /tmp/pytest-of-tom/pytest-1/test_same_marriage_accounts_ca0/reference-reviews.json\n').returncode
+
+tests/test_coverage_publication.py:235: AssertionError
+=========================== short test summary info ============================
+FAILED tests/test_coverage_publication.py::test_same_marriage_accounts_can_be_explicitly_consolidated_without_rewriting_references
+1 failed, 4 deselected in 15.70s

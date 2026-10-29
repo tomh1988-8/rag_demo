@@ -19,7 +19,13 @@ from ask_phil.story_events import EventBatch, EventClaim, EventReview, admit_eve
 
 
 def assemble(
-    snapshot_path: Path, plan_path: Path, captures: Path, decisions_path: Path, output: Path
+    snapshot_path: Path,
+    plan_path: Path,
+    captures: Path,
+    decisions_path: Path,
+    output: Path,
+    *,
+    reference_reviews_path: Path | None = None,
 ) -> None:
     snapshot = SourceSnapshot.model_validate_json(snapshot_path.read_bytes())
     assert snapshot.imported is not None
@@ -32,7 +38,15 @@ def assemble(
         "context_claims": [],
     }
     reviews: dict[str, list[dict[str, Any]]] = {"family": [], "relationship": [], "event": []}
+    reference_ids: dict[str, set[str]] = {family: set() for family in reviews}
     origins = {"plan": hashlib.sha256(plan_path.read_bytes()).hexdigest()}
+    reference_reviews = {}
+    if reference_reviews_path is not None:
+        contents = reference_reviews_path.read_bytes()
+        reference_reviews = json.loads(contents)
+        if not set(reference_reviews) <= reviews.keys():
+            raise ValueError("Reference reviews must identify existing projection families.")
+        origins["reference-review-input"] = hashlib.sha256(contents).hexdigest()
     translations = []
     consumed = set()
     for batch in plan.batches:
@@ -97,6 +111,7 @@ def assemble(
                 }
             )
         for claim in [*reference["expected_claims"], *reference.get("expected_context_claims", [])]:
+            reference_ids[family].add(claim["claim_id"])
             reviews[family].append(
                 review_cls(
                     claim_id=claim["claim_id"],
@@ -147,6 +162,21 @@ def assemble(
     for family in reviews:
         for review in reviews[family]:
             review["claim_sha256"] = fingerprints[review["claim_id"]]
+        positions = {review["claim_id"]: i for i, review in enumerate(reviews[family])}
+        changed = set()
+        for review in reference_reviews.get(family, []):
+            typed_review = (EventReview if family == "event" else ClaimReview).model_validate(
+                review
+            )
+            identifier = typed_review.claim_id
+            if (
+                identifier not in reference_ids[family]
+                or identifier in changed
+                or (typed_review.claim_sha256 != fingerprints[identifier])
+            ):
+                raise ValueError("Reference reviews require unique, content-bound original Claims.")
+            changed.add(identifier)
+            reviews[family][positions[identifier]] = typed_review.model_dump(mode="json")
     family_reviews = TypeAdapter(tuple[ClaimReview, ...]).validate_python(reviews["family"])
     relationship_reviews = TypeAdapter(tuple[ClaimReview, ...]).validate_python(
         reviews["relationship"]
@@ -191,9 +221,17 @@ def main() -> None:
     parser.add_argument("--plan", type=Path, required=True)
     parser.add_argument("--captures", type=Path, required=True)
     parser.add_argument("--decisions", type=Path, required=True)
+    parser.add_argument("--reference-reviews", type=Path)
     parser.add_argument("--output", type=Path, required=True)
     args = parser.parse_args()
-    assemble(args.snapshot, args.plan, args.captures, args.decisions, args.output)
+    assemble(
+        args.snapshot,
+        args.plan,
+        args.captures,
+        args.decisions,
+        args.output,
+        reference_reviews_path=args.reference_reviews,
+    )
 
 
 if __name__ == "__main__":
