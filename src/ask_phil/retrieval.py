@@ -20,11 +20,10 @@ from sqlalchemy.exc import DBAPIError
 from sqlalchemy.pool import NullPool
 
 from ask_phil.classified_facts import ContextClaim
-from ask_phil.event_graph import EventGraph
 from ask_phil.evidence import Fingerprint, Passage, Record, SourceSnapshot
 from ask_phil.execution import ExecutionStopped, current_execution, read_options
 from ask_phil.models import query_embedding
-from ask_phil.review_notes import ReviewNotice, retrieved_review_notices
+from ask_phil.review_notes import ReviewedClaims, ReviewNotice
 from ask_phil.storage import EvidenceStore
 
 if TYPE_CHECKING:
@@ -287,7 +286,9 @@ class TextRetriever:
         _validate_query(query, k)
         return self.pin(snapshot_id).retrieve(query, k=k)
 
-    def _retrieve(self, snapshot: SourceSnapshot, query: str, *, k: int = 3) -> Retrieval:
+    def _retrieve(
+        self, snapshot: SourceSnapshot, query: str, *, k: int, reviews: ReviewedClaims
+    ) -> Retrieval:
         budget = current_execution.get()
         if budget:
             budget.tool_call("text_retrieval")
@@ -343,12 +344,7 @@ class TextRetriever:
             )
         except (ValueError, TypeError, KeyError, IndexError):
             raise ExecutionStopped("malformed_output") from None
-        annotations = EventGraph(self.database_url).text_context(
-            snapshot.snapshot_id, tuple(h.passage.evidence_id for h in hits)
-        )
-        notices = retrieved_review_notices(
-            self.database_url, snapshot.snapshot_id, {h.passage.evidence_id for h in hits}
-        )
+        reviewed = reviews.text({h.passage.evidence_id for h in hits})
         if budget:
             budget.check()
         return Retrieval(
@@ -356,8 +352,8 @@ class TextRetriever:
             hits=hits,
             k=k,
             embedding_id=self.embedding_id,
-            context_claims=annotations,
-            review_notices=notices,
+            context_claims=reviewed.context_claims,
+            review_notices=reviewed.notices,
         )
 
 
@@ -374,6 +370,7 @@ class PinnedText:
         self._snapshot = snapshot
         self._publication = publication
         self._verified = False
+        self.reviews = ReviewedClaims(retriever.database_url, snapshot)
 
     @property
     def snapshot(self) -> SourceSnapshot:
@@ -412,4 +409,4 @@ class PinnedText:
         _validate_query(query, k)
         with _read_timeout():
             self.verify()
-            return self._retriever._retrieve(self.snapshot, query, k=k)
+            return self._retriever._retrieve(self.snapshot, query, k=k, reviews=self.reviews)

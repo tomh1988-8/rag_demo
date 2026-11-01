@@ -87,8 +87,9 @@ def test_review_publishes_corrected_graph_and_preserves_inspectable_history(
 
 
 @pytest.mark.parametrize("models", [{"forbid_chat": True}], indirect=True)
+@pytest.mark.parametrize("archived_review_unreadable", [False, True])
 def test_text_and_graph_answers_explain_the_same_pinned_dispute(
-    database_url: str, tmp_path: Path, models: Models
+    database_url: str, tmp_path: Path, models: Models, archived_review_unreadable: bool
 ) -> None:
     from ask_phil.knowledge_review import KnowledgeReview, ReviewRequest
 
@@ -111,7 +112,34 @@ def test_text_and_graph_answers_explain_the_same_pinned_dispute(
             ),
         ),
     )
-    reviewer.apply(request)
+    first = reviewer.apply(request)
+    if archived_review_unreadable:
+        assert first.snapshot_id is not None
+        current = reviewer.inspect(first.snapshot_id)
+        latest = reviewer.apply(
+            request.model_copy(
+                update={
+                    "snapshot_id": current.snapshot_id,
+                    "snapshot_sha256": current.snapshot_sha256,
+                    "graphs": current.graphs,
+                    "family_reviews": (
+                        request.family_reviews[0].model_copy(
+                            update={"note": "Current supported interpretation remains disputed."}
+                        ),
+                    ),
+                }
+            )
+        )
+        # Simulate archival damage in this disposable database. Current evidence,
+        # admission and the published review record remain intact.
+        with psycopg.connect(database_url) as conn:
+            conn.execute(
+                "UPDATE review_revisions SET document = document - 'request' WHERE snapshot_id=%s",
+                (first.snapshot_id,),
+            )
+        assert latest.snapshot_id is not None
+        with pytest.raises(ValueError, match="request"):
+            reviewer.inspect(latest.snapshot_id)
     with TestClient(
         create_app(database_url, models=models, tracking_uri=f"sqlite:///{tmp_path}/review.db")
     ) as client:

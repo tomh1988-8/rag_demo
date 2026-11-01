@@ -8,7 +8,7 @@ from pydantic import Field, model_validator
 
 from ask_phil.claim_projections import EventAudit as EventAudit
 from ask_phil.claim_projections import install_projection
-from ask_phil.classified_facts import ContextClaim, context_for
+from ask_phil.classified_facts import ContextClaim
 from ask_phil.evidence import Fingerprint, Identifier, Record
 from ask_phil.execution import current_execution, read_options
 from ask_phil.storage import EvidenceStore
@@ -102,12 +102,7 @@ class EventGraph:
     ) -> tuple[ContextClaim, ...]:
         """Reviewed annotations for whole retrieved spans; no graph traversal or adjacency."""
         audit = self.audit(snapshot_id)
-        if audit is None:
-            return ()
-        admitted = {d.claim_id for d in audit.admission.text_decisions if d.status == "admitted"}
-        return context_for(
-            tuple(c for c in audit.batch.context_claims if c.claim_id in admitted), evidence_ids
-        )
+        return audit.text_context(evidence_ids) if audit else ()
 
     def query(
         self, snapshot_id: str, query: EventQuery, *, publication: "ActivePublication | None" = None

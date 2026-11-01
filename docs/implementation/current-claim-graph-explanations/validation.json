@@ -1,0 +1,58 @@
+{
+  "started_at": "2026-11-01T13:44:25.238742+00:00",
+  "finished_at": "2026-11-01T14:14:55.308199+00:00",
+  "command": [
+    ".venv/bin/pytest",
+    "-q",
+    "-p",
+    "no:cacheprovider",
+    "--disable-warnings",
+    "--junitxml=/home/tom/Documents/code/python/rag_demo/docs/implementation/current-claim-graph-explanations/software-tests.xml"
+  ],
+  "exit_code": 0,
+  "software_inputs": 154,
+  "tested_inputs_unchanged": true,
+  "suite": {
+    "name": "pytest",
+    "errors": "0",
+    "failures": "0",
+    "skipped": "0",
+    "tests": "618",
+    "time": "1803.866",
+    "timestamp": "2026-11-01T13:44:28.527995+00:00",
+    "hostname": "tom-Latitude-3510"
+  },
+  "review_fixed_point": "44cdaad4d399509d66b6508b5eab591c50950fb8",
+  "reviews": {
+    "standards": 0,
+    "spec": 0
+  },
+  "static_checks": {
+    "mypy_files": 149,
+    "ruff": "passed",
+    "formatting": "passed"
+  },
+  "preservation": {
+    "existing_files": 1108,
+    "unchanged_existing_files": 1100,
+    "intentional_existing_edits": [
+      "src/ask_phil/claim_projections.py",
+      "src/ask_phil/event_graph.py",
+      "src/ask_phil/family_answering.py",
+      "src/ask_phil/investigation_tools.py",
+      "src/ask_phil/retrieval.py",
+      "src/ask_phil/review_notes.py",
+      "tests/test_investigation_api.py",
+      "tests/test_knowledge_review.py"
+    ],
+    "original_data_inputs_unchanged": 94,
+    "unexpected_changes": []
+  },
+  "original_failure_sha256": "9a137c3c1edebe9bd95d007b7f9c768714ba16aea24a3a1fc54e4c2ca0f94fd5",
+  "characterization_command": {
+    "passing_cases_recorded": 4,
+    "clean_exit_verified": false,
+    "termination_requested": true,
+    "note": "Earlier characterization process remained blocked in host I/O after termination requests. The independent six-case verification and final full suite exited successfully."
+  }
+}

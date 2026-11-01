@@ -1,20 +1,22 @@
 """Qualified, deterministic explanations of retained review outcomes."""
 
 from dataclasses import dataclass
+from functools import cached_property
 from typing import Literal
 
-from ask_phil.claim_projections import EventAudit
+from ask_phil.claim_projections import EventAudit, FamilyAudit, RelationshipAudit
 from ask_phil.claims import evidence_resolves, replacement_claim_ids
 from ask_phil.classified_facts import ContextClaim
 from ask_phil.connection_graph import ConnectionResult
-from ask_phil.event_graph import EventResult
+from ask_phil.event_graph import EventGraph, EventResult
 from ask_phil.evidence import Identifier, Passage, Record, SourceSnapshot
 from ask_phil.execution import ExecutionStopped
-from ask_phil.family_graph import FamilyResult
+from ask_phil.family_graph import FamilyGraph, FamilyResult
 from ask_phil.parentage import ParentageClaim
 from ask_phil.passage_context import context_text
-from ask_phil.relationship_graph import RelationshipResult
+from ask_phil.relationship_graph import RelationshipGraph, RelationshipResult
 from ask_phil.relationships import RelationshipClaim
+from ask_phil.storage import EvidenceStore
 from ask_phil.story_events import EventClaim
 
 type ReviewedClaim = ParentageClaim | RelationshipClaim | EventClaim | ContextClaim
@@ -162,16 +164,6 @@ def _wording_bytes(snapshot: SourceSnapshot, explanation: ReviewExplanation) -> 
     return len(text.encode())
 
 
-def retrieved_review_notices(
-    database_url: str, snapshot_id: str, evidence_ids: set[str]
-) -> tuple[ReviewNotice, ...]:
-    """A retrieved predecessor brings every connected correction and competing account."""
-    notices = review_notices(database_url, snapshot_id)
-    return _complete_review_groups(
-        notices, tuple(n for n in notices if evidence_ids.intersection(n.evidence_ids))
-    )
-
-
 def prepare_text_review(
     snapshot: SourceSnapshot, notices: tuple[ReviewNotice, ...], byte_budget: int
 ) -> ReviewExplanation:
@@ -187,73 +179,121 @@ def prepare_text_review(
     return explanation
 
 
-def prepare_graph_review(
-    database_url: str,
-    snapshot: SourceSnapshot,
-    result: FamilyResult | RelationshipResult | EventResult | ConnectionResult,
-    byte_budget: int,
-) -> ReviewExplanation:
-    """Complete the graph's evidence and relevant review groups, or stop without an excerpt."""
-    family = (
-        "event"
-        if isinstance(result, EventResult)
-        else "relationship"
-        if isinstance(result, RelationshipResult)
-        else "family"
-    )
-    notices: tuple[ReviewNotice, ...] = ()
-    characters = {result.query.character_id}
-    if isinstance(result, ConnectionResult):
-        characters.add(result.query.target_id)
-        characters.update(c for p in result.paths for c in p.characters)
-    if result.status not in {"unknown_character", "ineligible", "unavailable"}:
-        all_notices = review_notices(database_url, snapshot.snapshot_id)
-        notices = _complete_review_groups(
-            all_notices,
-            tuple(
-                n
-                for n in all_notices
-                if (isinstance(result, ConnectionResult) or n.family == family)
-                and characters.intersection(n.character_ids)
+@dataclass(frozen=True)
+class ReviewedText:
+    context_claims: tuple[ContextClaim, ...]
+    notices: tuple[ReviewNotice, ...]
+
+
+class ReviewedClaims:
+    """Current interpretation retained within one pinned operation, without history inspection."""
+
+    def __init__(self, database_url: str, snapshot: SourceSnapshot) -> None:
+        self._database_url = database_url
+        self._snapshot = snapshot
+
+    @cached_property
+    def _event(self) -> EventAudit | None:
+        return EventGraph(self._database_url).audit(self._snapshot.snapshot_id)
+
+    @cached_property
+    def _notices(self) -> tuple[ReviewNotice, ...]:
+        from ask_phil.knowledge_review import review_revision
+
+        if review_revision(self._database_url, self._snapshot.snapshot_id) is None:
+            return ()
+        return _current_notices(
+            self._snapshot,
+            (
+                FamilyGraph(self._database_url).audit(self._snapshot.snapshot_id),
+                RelationshipGraph(self._database_url).audit(self._snapshot.snapshot_id),
+                self._event,
             ),
         )
-    evidence_ids = (
-        {e.evidence_id for p in result.paths for step in p.steps for e in step.evidence}
-        if isinstance(result, ConnectionResult)
-        else {e.evidence_id for c in result.claims for e in c.evidence}
-        if isinstance(result, RelationshipResult | EventResult)
-        else {e.evidence_id for p in result.paths for edge in p.edges for e in edge.evidence}
-    )
-    evidence_ids.update(eid for n in notices for eid in n.evidence_ids)
-    explanation = _explanation(snapshot, notices, evidence_ids)
-    if explanation is None:
-        raise ExecutionStopped("malformed_output")
-    if (
-        sum(len(p.text.encode()) for p in explanation.context)
-        + _wording_bytes(snapshot, explanation)
-        > byte_budget
-    ):
-        raise ExecutionStopped("context_limit")
-    return explanation
+
+    def text(self, evidence_ids: set[str]) -> ReviewedText:
+        """Return admitted classifications and complete connected review groups together."""
+        audit = self._event
+        classifications = audit.text_context(evidence_ids) if audit else ()
+        notices = self._notices
+        return ReviewedText(
+            context_claims=classifications,
+            notices=_complete_review_groups(
+                notices, tuple(n for n in notices if evidence_ids.intersection(n.evidence_ids))
+            ),
+        )
+
+    def graph(
+        self,
+        result: FamilyResult | RelationshipResult | EventResult | ConnectionResult,
+        byte_budget: int,
+    ) -> ReviewExplanation:
+        """Keep graph evidence and connected review groups complete within the existing limit."""
+        snapshot = self._snapshot
+        family = (
+            "event"
+            if isinstance(result, EventResult)
+            else "relationship"
+            if isinstance(result, RelationshipResult)
+            else "family"
+        )
+        notices: tuple[ReviewNotice, ...] = ()
+        characters = {result.query.character_id}
+        if isinstance(result, ConnectionResult):
+            characters.add(result.query.target_id)
+            characters.update(c for p in result.paths for c in p.characters)
+        if result.status not in {"unknown_character", "ineligible", "unavailable"}:
+            all_notices = self._notices
+            notices = _complete_review_groups(
+                all_notices,
+                tuple(
+                    n
+                    for n in all_notices
+                    if (isinstance(result, ConnectionResult) or n.family == family)
+                    and characters.intersection(n.character_ids)
+                ),
+            )
+        evidence_ids = (
+            {e.evidence_id for p in result.paths for step in p.steps for e in step.evidence}
+            if isinstance(result, ConnectionResult)
+            else {e.evidence_id for c in result.claims for e in c.evidence}
+            if isinstance(result, RelationshipResult | EventResult)
+            else {e.evidence_id for p in result.paths for edge in p.edges for e in edge.evidence}
+        )
+        evidence_ids.update(eid for n in notices for eid in n.evidence_ids)
+        explanation = _explanation(snapshot, notices, evidence_ids)
+        if explanation is None:
+            raise ExecutionStopped("malformed_output")
+        if (
+            sum(len(p.text.encode()) for p in explanation.context)
+            + _wording_bytes(snapshot, explanation)
+            > byte_budget
+        ):
+            raise ExecutionStopped("context_limit")
+        return explanation
 
 
 def review_notices(database_url: str, snapshot_id: str) -> tuple[ReviewNotice, ...]:
     """Only review revisions change serving interpretation; legacy snapshots retain behavior."""
-    from ask_phil.knowledge_review import inspect_reviews, review_revision
+    from ask_phil.knowledge_review import review_revision
 
     if review_revision(database_url, snapshot_id) is None:
         return ()
-    inspection = inspect_reviews(database_url, snapshot_id)
-    passages = {p.evidence_id: p for p in inspection.evidence}
+    return ReviewedClaims(database_url, EvidenceStore(database_url).snapshot(snapshot_id))._notices
+
+
+def _current_notices(
+    snapshot: SourceSnapshot,
+    audits: tuple[FamilyAudit | None, RelationshipAudit | None, EventAudit | None],
+) -> tuple[ReviewNotice, ...]:
+    passages = {p.evidence_id: p for p in snapshot.passages}
     notices = []
     kinds: tuple[Literal["family", "relationship", "event"], ...] = (
         "family",
         "relationship",
         "event",
     )
-    for kind, audit in zip(
-        kinds, (inspection.family, inspection.relationship, inspection.event), strict=True
-    ):
+    for kind, audit in zip(kinds, audits, strict=True):
         if audit is None:
             continue
         claims: dict[str, ReviewedClaim] = {c.claim_id: c for c in audit.batch.claims}

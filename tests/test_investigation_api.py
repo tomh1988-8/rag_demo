@@ -82,6 +82,11 @@ def investigator_models() -> Callable[[list[dict[str, Any]]], Models]:
                 )
             assert request.url.path == "/api/chat"
             output = dict(next(outputs))
+            expected_finding = output.pop("_expected_graph_finding", None)
+            if expected_finding is not None:
+                messages = json.loads(request.content)["messages"]
+                context = json.loads(messages[-1]["content"])["context"]
+                assert expected_finding in context["graph_findings"][0]["findings"]
             usage = output.pop("_usage", {"prompt_eval_count": 40, "eval_count": 60})
             hook = output.pop("_hook", None)
             if hook:
@@ -696,8 +701,15 @@ def test_investigation_network_deadline_and_disconnect_cancel_inflight_work(
 
 
 @pytest.mark.parametrize(
-    "tool,arguments,evidence_id,expected_text",
+    "tool,arguments,evidence_id,expected_text,expected_finding",
     [
+        (
+            "family",
+            {"character_id": "ben-mitchell", "direction": "ancestors", "max_depth": 1},
+            "family-ben-birth",
+            "Phil Mitchell is Ben Mitchell's biological father.",
+            "Phil Mitchell is a biological parent of Ben Mitchell",
+        ),
         (
             "relationships",
             {
@@ -707,6 +719,7 @@ def test_investigation_network_deadline_and_disconnect_cancel_inflight_work(
             },
             "history-den-adoption",
             "Den adopted Sharon.",
+            "Den Watts was identified as an adoptive parent of Sharon Watts",
         ),
         (
             "events",
@@ -717,6 +730,7 @@ def test_investigation_network_deadline_and_disconnect_cancel_inflight_work(
             },
             "sharon-christmas-pregnancy",
             "Sharon discovered she was pregnant on Christmas Day 2005.",
+            "Sharon Watts was pregnant; story timing Christmas Day 2005 (exact)",
         ),
         (
             "connections",
@@ -728,6 +742,7 @@ def test_investigation_network_deadline_and_disconnect_cancel_inflight_work(
             },
             "history-den-adoption",
             "Den is Sharon's adoptive parent, not her biological parent.",
+            "Den Watts → Sharon Watts: adoptive parent; captured status unknown",
         ),
     ],
 )
@@ -740,10 +755,12 @@ def test_investigator_can_select_each_declared_graph_family_without_changing_rol
     arguments: dict[str, Any],
     evidence_id: str,
     expected_text: str,
+    expected_finding: str,
 ) -> None:
     part = "Explain the captured character fact."
     final = finish(part, evidence_id)
     final["action"]["draft"]["answer"] = "Right, listen. " + expected_text
+    final["_expected_graph_finding"] = expected_finding
     models = investigator_models([decision(tool, arguments, part), final])
     publish(database_url, connection_snapshot, models)
     with TestClient(

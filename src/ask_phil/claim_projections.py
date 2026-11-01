@@ -1,7 +1,7 @@
 """Atomic, immutable installation of typed projections from reviewed Claims."""
 
 import hashlib
-from collections.abc import Sequence
+from collections.abc import Iterable, Sequence
 from dataclasses import dataclass
 from typing import Literal, cast, overload
 
@@ -11,6 +11,7 @@ from psycopg.types.json import Jsonb
 from pydantic import Field
 
 from ask_phil.claims import ClaimEvidence, ClaimReview
+from ask_phil.classified_facts import ContextClaim, context_for
 from ask_phil.evidence import Fingerprint, Identifier, Record, SourceSnapshot
 from ask_phil.execution import database_options
 from ask_phil.parentage import AdmissionReport, ClaimBatch, admit_claims
@@ -52,6 +53,13 @@ class EventAudit(Record):
     reviews: tuple[EventReview, ...]
     admission: EventAdmission
     graph_sha256: Fingerprint
+
+    def text_context(self, evidence_ids: Iterable[str]) -> tuple[ContextClaim, ...]:
+        """Admitted classifications supported by whole retained evidence spans."""
+        admitted = {d.claim_id for d in self.admission.text_decisions if d.status == "admitted"}
+        return context_for(
+            tuple(c for c in self.batch.context_claims if c.claim_id in admitted), evidence_ids
+        )
 
 
 type _Audit = FamilyAudit | RelationshipAudit | EventAudit

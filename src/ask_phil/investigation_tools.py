@@ -10,20 +10,18 @@ import mlflow
 from pydantic import Field, StringConstraints
 
 from ask_phil.classified_facts import ContextClaim
-from ask_phil.connection_graph import ConnectionQuery, ConnectionResult
-from ask_phil.connection_wording import render_connections
-from ask_phil.event_graph import EventQuery, EventResult
-from ask_phil.event_wording import render_events
+from ask_phil.connection_graph import ConnectionQuery
+from ask_phil.event_graph import EventQuery
 from ask_phil.evidence import Passage, Record
 from ask_phil.execution import ExecutionBudget, ExecutionStopped
-from ask_phil.family_answering import render_history
 from ask_phil.family_graph import FamilyQuery
 from ask_phil.graph_execution import GraphExecution, GraphResult
+from ask_phil.graph_wording import GraphExplanation
 from ask_phil.investigation_records import InvestigationStep, TextFinding
 from ask_phil.passage_context import context_text
-from ask_phil.relationship_graph import RelationshipQuery, RelationshipResult
+from ask_phil.relationship_graph import RelationshipQuery
 from ask_phil.retrieval import IndexNotReady, PinnedText
-from ask_phil.review_notes import ReviewNotice, prepare_graph_review, prepare_text_review
+from ask_phil.review_notes import ReviewNotice, prepare_text_review
 
 TOOL_CONTRACT = """captured-read-tools-v1. Arguments are a JSON-encoded object string.
 text_search: {query: string (1..500 characters, <=1000 UTF-8 bytes), k: integer 1..3}.
@@ -179,27 +177,12 @@ class InvestigationTools:
                     finding = self._graph.query(query)
                     if finding.snapshot_sha256 != self._pinned.snapshot.fingerprint:
                         raise ValueError("Incompatible graph source")
-                    review = prepare_graph_review(
-                        self._database_url,
-                        self._pinned.snapshot,
-                        finding,
-                        self._budget.limits.context_bytes,
-                    )
+                    review = self._pinned.reviews.graph(finding, self._budget.limits.context_bytes)
                     passages = review.context
                     notices = review.notices
-                    if isinstance(finding, ConnectionResult):
-                        description = render_connections(finding, synthetic=review.synthetic)
-                    elif isinstance(finding, EventResult):
-                        description = render_events(finding, synthetic=review.synthetic)
-                    elif isinstance(finding, RelationshipResult):
-                        description = render_history(finding, synthetic=review.synthetic)
-                    else:
-                        description = "; ".join(
-                            f"{finding.names[e.parent_id]} is a biological parent "
-                            f"of {finding.names[e.child_id]}"
-                            for p in finding.paths
-                            for e in p.edges
-                        )
+                    description = GraphExplanation.for_query(query).render(
+                        finding, synthetic=review.synthetic, investigation=True
+                    )
                     graphs.append({"tool": tool, "status": finding.status, "findings": description})
                 span.set_outputs(finding.model_dump(mode="json"))
                 record = record.model_copy(update={"status": "executed", "result": finding})
