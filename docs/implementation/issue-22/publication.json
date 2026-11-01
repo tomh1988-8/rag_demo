@@ -1,0 +1,31 @@
+{
+  "verified_at": "2026-11-01T12:44:00.982387+00:00",
+  "issue": {
+    "url": "https://github.com/tomh1988-8/rag_demo/issues/22",
+    "state": "CLOSED",
+    "state_reason": "COMPLETED",
+    "checked_criteria": 9,
+    "exact_body_readback": true,
+    "body_sha256": "10243c31c9ad1291e7282cd75118d9979ec2ecd200e9b5b818468519b92cc8c9"
+  },
+  "implementation_commit": "25dbc826a7ca34f2099dc597728f0a3b1b872c8d",
+  "implementation_tree": "8cb4630ea4ec7a25edaca532494392e679404128",
+  "publication_method": "native Git fast-forward push to origin/main",
+  "remote_commit_and_tree_readback": "exact match",
+  "frozen_source_inputs_verified_from_published_commit": 251,
+  "application_sha256": "cf505a333aa596d0af078edc5ec75e873638f7c38c21661d322bc17aa32f0a74",
+  "full_suite_passed": 616,
+  "strict_mypy_files": 147,
+  "review_findings": {
+    "Standards": 0,
+    "Spec": 0
+  },
+  "provider_ledger_usd": "0.911656",
+  "unsettled_reservations": 0,
+  "initial_automatic_rejection": {
+    "action": "git push origin main",
+    "reason": "Default-branch publishing required explicit authorization.",
+    "resolution": "Verified the user-provided AGENTS-linked end-of-issue push requirement and that main was unprotected at the exact tested base. The authorization-supported retry succeeded; no workaround or force push was used."
+  },
+  "followup_scope": "Publication receipt, exact tracker body and current handoff changes are documentation only; the tested implementation remains this commit."
+}

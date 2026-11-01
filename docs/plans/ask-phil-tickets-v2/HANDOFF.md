@@ -1,20 +1,21 @@
 # Ask Phil: publication and next-skill handoff
 
-## Issue #22: response feedback implemented and verified
+## Issue #22: response feedback published and closed
 
 [Evidence](../../implementation/issue-22/README.md) records 616 passing tests,
 strict mypy across 147 files, Ruff/formatting, Compose validation and zero remaining
 findings on both independent review axes. Four actual controlled-model runtime
 captures bind final source, API/CLI responses and HUMAN MLflow assessments. Durable
 acceptance, revisions, isolation, failed storage/export, expiry, original-backend
-cleanup and fair recovery are exercised. Publication/tracker completion is pending.
+cleanup and fair recovery are exercised. [The publication receipt](../../implementation/issue-22/publication.json) verifies
+[the published commit](https://github.com/tomh1988-8/rag_demo/commit/25dbc826a7ca34f2099dc597728f0a3b1b872c8d),
+its exact remote tree, nine checked criteria and completed closure.
 ONLINE-01 passes; automatic judging and checked review dispositions remain #23.
 Current checklist counts are 37 Pass and 14 Pending.
 
 The shared non-resetting $5 ledger stays **$0.911656**, zero unsettled reservations.
 No paid inference was made. Preserve all 94 original data files, the existing
-workspace and private inputs. **#23 is next after verified #22 publication and
-closure**; #24 is also unblocked and #18 waits for #24. Start another issue only
+workspace and private inputs. **#23 is next**; #24 is also unblocked and #18 waits for #24. Start another issue only
 after the user's next implementation instruction.
 
 ## Prior issue #20: checked core-roster coverage published and closed

@@ -11,7 +11,9 @@ commands so they work even without a configured Git remote.
 
 ## Current Ask Phil handoff
 
-**Issue #22 is implemented and verified; publication/tracker completion is pending.**
+**Issue #22 is complete and closed** after [verified publication](https://github.com/tomh1988-8/rag_demo/commit/25dbc826a7ca34f2099dc597728f0a3b1b872c8d).
+[The receipt](../implementation/issue-22/publication.json) records exact remote-tree
+and completed-tracker readback, all nine checked criteria and 251 published inputs.
 [Evidence](../implementation/issue-22/README.md) records 616 passing tests, strict
 mypy across 147 files and zero remaining findings on both independent review axes.
 All four controlled-model runtime captures bind the frozen application and actual
@@ -22,8 +24,7 @@ Checklist counts are 37 Pass and 14 Pending.
 
 Preserve the shared non-resetting $5 ledger at **$0.911656**, zero unsettled
 reservations, all 94 original data files and the user's existing workspace/private
-inputs. No paid inference was made. **#23 is next after verified #22 publication
-and closure**; #24 is also unblocked, and #18 waits for #24. Wait for the user's
+inputs. No paid inference was made. **#23 is next**; #24 is also unblocked, and #18 waits for #24. Wait for the user's
 next implementation instruction before starting another issue.
 
 ### Prior issue #20 handoff

@@ -5,6 +5,11 @@ Implements [#22](https://github.com/tomh1988-8/rag_demo/issues/22) from
 [reviewed cases](cases.md) preceded implementation at the confirmed conversation
 API/CLI and evaluation boundaries. See [usage and operating policy](../../feedback.md).
 
+Published implementation: [25dbc82](https://github.com/tomh1988-8/rag_demo/commit/25dbc826a7ca34f2099dc597728f0a3b1b872c8d).
+[The publication receipt](publication.json) verifies the exact remote tree,
+all 251 frozen input blobs, nine checked criteria and completed tracker closure.
+The receipt/handoff follow-up changes documentation only.
+
 ## Implemented behavior
 
 Feedback is attached to an actual delivered response with a server-resolved
