@@ -157,7 +157,15 @@ def main() -> int:
         "--category",
         action="append",
         default=[],
-        choices=("facts", "missing_outdated", "evidence", "clarity", "persona_tone", "other"),
+        choices=(
+            "facts",
+            "missing_outdated",
+            "evidence",
+            "harm",
+            "clarity",
+            "persona_tone",
+            "other",
+        ),
     )
     feedback.add_argument("--comment", default="")
     feedback.add_argument("--proposed-correction", default="")
@@ -198,6 +206,9 @@ def main() -> int:
     runs.add_argument(
         "--captures", action="store_true", help="Inspect retained captures for a run."
     )
+    from ask_phil.online_cli import add_online_commands
+
+    add_online_commands(commands)
     args = parser.parse_args()
     if args.command == "ask":
         if args.route == "graph" and (
@@ -252,6 +263,10 @@ def main() -> int:
             with args.output.open("xb") as output:
                 output.write(gzip.compress(data, mtime=0) if args.output.suffix == ".gz" else data)
             print(json.dumps({"output": str(args.output), "captured_sources": len(batch.captures)}))
+        elif args.command.startswith("online-"):
+            from ask_phil.online_cli import run_online_command
+
+            run_online_command(args)
         elif args.command in {
             "load",
             "index",

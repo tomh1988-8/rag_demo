@@ -5,7 +5,7 @@ import json
 from decimal import Decimal
 from functools import partial
 from pathlib import Path
-from threading import BoundedSemaphore
+from threading import BoundedSemaphore, Event
 from typing import Any, Literal, Self
 
 from llama_index.core.llms import ChatMessage
@@ -94,9 +94,18 @@ class SupportJudge:
         finally:
             self._offline_slots.release()
 
-    def assess_online(self, supplied: SupportInput) -> OnlineAssessment:
+    def assess_online(
+        self,
+        supplied: SupportInput,
+        *,
+        cancellation: Event | None = None,
+        seconds: float | None = None,
+    ) -> OnlineAssessment:
         """Admission/result contract for #23's durable worker, without blocking serving."""
-        budget = ExecutionBudget(self.policies.online_evaluation)
+        limits = self.policies.online_evaluation
+        if seconds is not None:
+            limits = limits.model_copy(update={"seconds": max(0.001, min(seconds, limits.seconds))})
+        budget = ExecutionBudget(limits, cancellation=cancellation)
         if not self.policies.online_enabled:
             return OnlineAssessment(status="disabled", execution=budget.record())
         if not self._online_slots.acquire(blocking=False):

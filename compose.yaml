@@ -80,6 +80,9 @@ services:
       MLFLOW_TRACKING_URI: sqlite:////app/artifacts/mlflow.db
       ASK_PHIL_FEEDBACK_ENABLED: "true"
       ASK_PHIL_FEEDBACK_RETENTION_DAYS: "30"
+      ASK_PHIL_ONLINE_AUTO_PROCESS: "true"
+      ASK_PHIL_ONLINE_ENABLED: "true"
+      PREFECT_SERVER_ANALYTICS_ENABLED: "false"
       MLFLOW_HTTP_REQUEST_TIMEOUT: "5"
       MLFLOW_HTTP_REQUEST_MAX_RETRIES: "0"
     volumes:

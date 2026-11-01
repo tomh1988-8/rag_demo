@@ -57,6 +57,7 @@ def test_skip_and_missing_feedback_never_become_positive_ratings() -> None:
         "positive_share": 0.5,
         "reported_factual_errors": 1,
         "reported_evidence_errors": 0,
+        "reported_harm_problems": 0,
         "pending_delivery": 3,
         "independently_reviewed_correctness": None,
     }

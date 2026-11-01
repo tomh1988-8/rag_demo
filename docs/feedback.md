@@ -29,7 +29,7 @@ private session receipt to `feedback` and `feedback-history` using
 feedback capability. Another session's capability and the answer's read token
 cannot authorize feedback on that session answer.
 
-Categories are `facts`, `missing_outdated`, `evidence`, `clarity`, `persona_tone`
+Categories are `facts`, `missing_outdated`, `evidence`, `harm`, `clarity`, `persona_tone`
 and `other`. `--proposed-correction` accepts an optional suggestion. Comment and
 correction are each limited to 500 characters and share a 1,000 UTF-8 byte
 budget. Recognizable credentials and the submitted capability are redacted.
@@ -119,6 +119,6 @@ Reports also separate actual route, outcome, source snapshot, application,
 prompt and model versions. Self-selected ratings do not establish unbiased
 accuracy or causal improvement.
 
-Automatic sampled judging, feedback-directed evaluation, dispositions and checked
-regression promotion are the separate workflow in issue #23. Raw feedback never
+Automatic sampled checks, feedback-directed evaluation, dispositions and checked
+regression promotion use the [online workflow](online-evaluation.md). Raw feedback never
 changes source claims, prompts, routing or a gold expectation.

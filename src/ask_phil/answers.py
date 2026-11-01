@@ -136,6 +136,7 @@ class AskRequest(Record):
 
 class AnswerRecord(Record):
     response_id: UUID
+    generation_id: UUID | None = Field(default=None, exclude_if=lambda value: value is None)
     question: str
     conversation: ConversationReference | None = Field(default=None, exclude_if=lambda v: v is None)
     status: Outcome | Literal["failed"]

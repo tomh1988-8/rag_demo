@@ -58,6 +58,7 @@ class FeedbackCounts(Record):
     positive_share: float | None
     reported_factual_errors: int
     reported_evidence_errors: int
+    reported_harm_problems: int = 0
     pending_delivery: int
     independently_reviewed_correctness: None = None
 
@@ -91,6 +92,7 @@ class FeedbackSummary(Record):
         "the cutoff. Coverage is rated/eligible; positive share is helpful/(helpful + "
         "not helpful). Skip and no feedback are not positive. Self-selected helpfulness "
         "and reported problems are not unbiased accuracy, checked correctness or causal proof. "
+        "Category slices overlap when an item reports multiple categories. "
         "Delivery state is current processing state, not reconstructed historical state."
     )
 
@@ -116,6 +118,7 @@ def _counts(rows: list[tuple[ServedFeedback, FeedbackSignal | None]]) -> Feedbac
             for signal in signals
         ),
         reported_evidence_errors=sum("evidence" in signal.categories for signal in signals),
+        reported_harm_problems=sum("harm" in signal.categories for signal in signals),
         pending_delivery=sum(signal.delivery_state == "pending" for signal in signals),
     )
 
@@ -161,6 +164,14 @@ def summarize_feedback(
             FeedbackSlice(dimension=dimension, value=value, counts=_counts(group))
             for value, group in sorted(groups.items())
         )
+    categories: dict[str, list[tuple[ServedFeedback, FeedbackSignal | None]]] = {}
+    for row, signal in rows:
+        for category in signal.categories if signal and signal.categories else ("none",):
+            categories.setdefault(category, []).append((row, signal))
+    slices.extend(
+        FeedbackSlice(dimension="category", value=value, counts=_counts(group))
+        for value, group in sorted(categories.items())
+    )
     priorities = []
     for row, signal in rows:
         if signal is None:
@@ -168,6 +179,8 @@ def summarize_feedback(
         priority = (
             1
             if {"facts", "missing_outdated"}.intersection(signal.categories)
+            else 1
+            if "harm" in signal.categories
             else 2
             if "evidence" in signal.categories
             else 3

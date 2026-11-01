@@ -22,7 +22,9 @@ if TYPE_CHECKING:
     from ask_phil.feedback_reporting import FeedbackCohort, FeedbackSummary
 
 Rating = Literal["helpful", "not_helpful", "skip"]
-Category = Literal["facts", "missing_outdated", "evidence", "clarity", "persona_tone", "other"]
+Category = Literal[
+    "facts", "missing_outdated", "evidence", "harm", "clarity", "persona_tone", "other"
+]
 FeedbackText = Annotated[str, StringConstraints(strip_whitespace=True, max_length=500)]
 _ASSESSMENT_NAMESPACE = UUID("580c1c4b-e58c-49cf-81c4-af465a225f9d")
 
@@ -57,7 +59,7 @@ class FeedbackInput(Record):
     submission_id: UUID
     policy_version: Literal["feedback-v1"]
     rating: Rating
-    categories: tuple[Category, ...] = Field(default=(), max_length=6)
+    categories: tuple[Category, ...] = Field(default=(), max_length=7)
     comment: FeedbackText = ""
     proposed_correction: FeedbackText = ""
 

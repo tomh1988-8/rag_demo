@@ -40,6 +40,7 @@ from ask_phil.graph_execution import GraphExecution
 from ask_phil.identity import IdentityResolution
 from ask_phil.knowledge_review import ReviewInspection, inspect_reviews
 from ask_phil.models import ModelConfigurationError, Models
+from ask_phil.online_evaluation import OnlinePolicy
 from ask_phil.openrouter import ProviderError
 from ask_phil.publications import (
     ActivePublication,
@@ -85,6 +86,7 @@ def create_app(
     execution_limits: ExecutionLimits | None = None,
     session_clock: Callable[[], datetime] = lambda: datetime.now(UTC),
     feedback_policy: FeedbackPolicy | None = None,
+    online_policy: OnlinePolicy | None = None,
 ) -> FastAPI:
     database_url = database_url or os.environ["DATABASE_URL"]
     answer_tracking_uri = tracking_uri or os.environ.get(
@@ -103,9 +105,17 @@ def create_app(
         )
     feedback_stop = threading.Event()
     feedback_wake = threading.Event()
+    online_wake = threading.Event()
 
     @asynccontextmanager
     async def lifespan(app: FastAPI) -> AsyncIterator[None]:
+        from ask_phil.online_runtime import online_worker
+
+        online = threading.Thread(
+            target=online_worker,
+            args=(database_url, answer_tracking_uri, feedback_stop, online_wake, online_policy),
+            daemon=True,
+        )
         worker = threading.Thread(
             target=feedback_worker,
             args=(feedback, answer_tracking_uri, feedback_stop, feedback_wake),
@@ -113,13 +123,18 @@ def create_app(
         )
         if feedback.policy.auto_deliver:
             worker.start()
+        if online_policy is not None or os.environ.get("ASK_PHIL_ONLINE_AUTO_PROCESS") == "true":
+            online.start()
         try:
             yield
         finally:
             feedback_stop.set()
             feedback_wake.set()
+            online_wake.set()
             if worker.is_alive():
                 await asyncio.to_thread(worker.join, 15)
+            if online.is_alive():
+                await asyncio.to_thread(online.join, 15)
 
     app = FastAPI(title="Ask Phil evidence inspection", version="0.1.0", lifespan=lifespan)
     service = (
@@ -174,6 +189,7 @@ def create_app(
     ) -> FeedbackReceipt:
         receipt = feedback.accept(response_id, bearer_token(authorization), submission, session_id)
         feedback_wake.set()
+        online_wake.set()
         return receipt
 
     @app.get("/v1/sessions/{session_id}/responses/{response_id}/feedback")
@@ -192,6 +208,7 @@ def create_app(
     ) -> FeedbackReceipt:
         receipt = feedback.accept(response_id, bearer_token(authorization), submission)
         feedback_wake.set()
+        online_wake.set()
         return receipt
 
     @app.get("/v1/responses/{response_id}/feedback")
@@ -356,6 +373,7 @@ def create_app(
             receipt = await worker
             if not budget.cancellation.is_set():
                 await asyncio.to_thread(feedback.record_delivery, receipt.response)
+                online_wake.set()
             return receipt
         finally:
             if not worker.done():
