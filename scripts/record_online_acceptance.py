@@ -363,11 +363,37 @@ def main() -> None:
 
                 def verify(row: dict[str, Any]) -> dict[str, Any]:
                     response = row["response"]
+                    label = (
+                        "wrong"
+                        if response["response_id"] == wrong["response"]["response_id"]
+                        else "fixed"
+                    )
+                    cli = subprocess.run(
+                        [
+                            sys.executable,
+                            "-m",
+                            "ask_phil.cli",
+                            "--api-url",
+                            str(client.base_url),
+                            "response",
+                            str(private / (label + ".json")),
+                        ],
+                        capture_output=True,
+                        text=True,
+                        check=True,
+                    )
+                    cli_response = json.loads(cli.stdout)
+                    if cli_response != response:
+                        raise ValueError("Offline CLI response differs from the original receipt.")
                     trace = tracking.get_trace(response["trace_id"], flush=True)
                     roots = [s for s in trace.data.spans if s.parent_id is None]
                     if len(roots) != 1 or roots[0].outputs != response:
                         raise ValueError("Offline original response/trace mismatch.")
-                    return {"original_trace_readback": True}
+                    return {
+                        "original_trace_readback": True,
+                        "cli_response": cli_response,
+                        "trace_response": roots[0].outputs,
+                    }
 
                 with EvaluationRun(
                     capture_path,
