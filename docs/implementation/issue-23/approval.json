@@ -1,0 +1,15 @@
+{
+  "user_reply": "Approve the two-call pilot",
+  "approved_inputs": "data/references/online-support-scope-v1.json",
+  "destination": "OpenRouter routed to OpenAI openai/gpt-6-sol",
+  "max_judge_calls": 2,
+  "max_new_expense_usd": "0.25",
+  "shared_non_resetting_provider_cap_usd": "5.00",
+  "actual_judge_calls": 2,
+  "actual_expense_usd": "0.001988",
+  "initial_automatic_rejection": {
+    "reason": "External transmission of saved answer/context and paid inference lacked trusted authorization for the exact payload and destination.",
+    "attempt_started": false,
+    "resolution": "The user's explicit approval above authorized the exact two reviewed public-source controls; the approved retry completed. There is no remaining approval blocker."
+  }
+}

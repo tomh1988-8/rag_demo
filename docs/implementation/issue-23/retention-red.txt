@@ -1,0 +1,94 @@
+F
+=================================== FAILURES ===================================
+_____ test_expired_feedback_is_removed_from_online_reports_and_inspection ______
+
+feedback_client = <starlette.testclient.TestClient object at 0x795944f94440>
+feedback_clock = [datetime.datetime(2026, 11, 1, 14, 51, 58, 975884, tzinfo=datetime.timezone.utc)]
+database_url = 'user=ask_phil password=local-demo-only dbname=ask_phil_test_3d37c7058cf043799faad7e63e7614c1 host=127.0.0.1 port=55432'
+tmp_path = PosixPath('/tmp/pytest-of-tom/pytest-54/test_expired_feedback_is_remov0')
+
+    def test_expired_feedback_is_removed_from_online_reports_and_inspection(
+        feedback_client: TestClient, feedback_clock: list["datetime"],
+        database_url: str, tmp_path: Path,
+    ) -> None:
+        from ask_phil.feedback_reporting import FeedbackCohort
+        from ask_phil.online_evaluation import OnlinePolicy
+        from ask_phil.online_workflow import OnlineEvaluation
+        from ask_phil.online_review import OnlineReview
+        import pytest
+    
+        receipt = feedback_client.post("/v1/answers", json={"snapshot_id": "phil-arrival-v1",
+                                      "question": "When did Phil arrive?"}).json()
+        response_id = receipt["response"]["response_id"]
+        feedback_client.post(f"/v1/responses/{response_id}/feedback",
+            headers={"Authorization": "Bearer " + receipt["read_token"]},
+            json={"submission_id": str(uuid4()), "policy_version": "feedback-v1", "rating": "not_helpful",
+>                 "categories": ["harm"], "comment": "Please review the treatment of harm."}).raise_for_status()
+                                                                                              ^^^^^^^^^^^^^^^^^^
+
+tests/test_online_evaluation.py:253: 
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ 
+
+self = <Response [422 Unprocessable Entity]>
+
+    def raise_for_status(self) -> Response:
+        """
+        Raise the `HTTPStatusError` if one occurred.
+        """
+        request = self._request
+        if request is None:
+            raise RuntimeError(
+                "Cannot call `raise_for_status` as the request "
+                "instance has not been set on this response."
+            )
+    
+        if self.is_success:
+            return self
+    
+        if self.has_redirect_location:
+            message = (
+                "{error_type} '{0.status_code} {0.reason_phrase}' for url '{0.url}'\n"
+                "Redirect location: '{0.headers[location]}'\n"
+                "For more information check: https://developer.mozilla.org/en-US/docs/Web/HTTP/Status/{0.status_code}"
+            )
+        else:
+            message = (
+                "{error_type} '{0.status_code} {0.reason_phrase}' for url '{0.url}'\n"
+                "For more information check: https://developer.mozilla.org/en-US/docs/Web/HTTP/Status/{0.status_code}"
+            )
+    
+        status_class = self.status_code // 100
+        error_types = {
+            1: "Informational response",
+            3: "Redirect response",
+            4: "Client error",
+            5: "Server error",
+        }
+        error_type = error_types.get(status_class, "Invalid status code")
+        message = message.format(self, error_type=error_type)
+>       raise HTTPStatusError(message, request=request, response=self)
+E       httpx.HTTPStatusError: Client error '422 Unprocessable Entity' for url 'http://testserver/v1/responses/ef910729-9cb3-4c7e-adce-0aef44a0c0d8/feedback'
+E       For more information check: https://developer.mozilla.org/en-US/docs/Web/HTTP/Status/422
+
+.venv/lib/python3.12/site-packages/httpx/_models.py:829: HTTPStatusError
+---------------------------- Captured stderr setup -----------------------------
+2026/11/01 14:51:59 INFO mlflow.store.db.utils: Creating initial MLflow database tables...
+2026/11/01 14:51:59 INFO mlflow.store.db.utils: Updating database tables
+------------------------------ Captured log setup ------------------------------
+INFO     mlflow.store.db.utils:utils.py:87 Creating initial MLflow database tables...
+INFO     mlflow.store.db.utils:utils.py:294 Updating database tables
+------------------------------ Captured log call -------------------------------
+WARNING  mlflow.types.type_hints:type_hints.py:237 Union type hint with multiple non-None types is inferred as AnyType, and MLflow doesn't validate the data against its element types.
+WARNING  mlflow.types.type_hints:type_hints.py:244 Union type hint is inferred as AnyType, and MLflow doesn't validate the data against its element types.
+WARNING  mlflow.types.type_hints:type_hints.py:237 Union type hint with multiple non-None types is inferred as AnyType, and MLflow doesn't validate the data against its element types.
+=============================== warnings summary ===============================
+.venv/lib/python3.12/site-packages/fastapi/testclient.py:1
+  /home/tom/Documents/code/python/rag_demo/.venv/lib/python3.12/site-packages/fastapi/testclient.py:1: StarletteDeprecationWarning: Using `httpx` with `starlette.testclient` is deprecated; install `httpx2` instead.
+    from starlette.testclient import TestClient as TestClient  # noqa
+
+-- Docs: https://docs.pytest.org/en/stable/how-to/capture-warnings.html
+=========================== short test summary info ============================
+FAILED tests/test_online_evaluation.py::test_expired_feedback_is_removed_from_online_reports_and_inspection
+!!!!!!!!!!!!!!!!!!!!!!!!!! stopping after 1 failures !!!!!!!!!!!!!!!!!!!!!!!!!!!
+1 failed, 1 warning in 5.22s
+2026/11/01 14:52:04 INFO mlflow.tracing.export.async_export_queue: Flushing the async trace logging queue before program exit. This may take a while...

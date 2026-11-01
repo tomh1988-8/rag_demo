@@ -1,0 +1,105 @@
+F
+=================================== FAILURES ===================================
+__________ test_interrupted_judge_is_not_charged_again_after_restart ___________
+
+feedback_client = <starlette.testclient.TestClient object at 0x7c3d82842300>
+database_url = 'user=ask_phil password=local-demo-only dbname=ask_phil_test_8406460e619d4612b627ae5ec9d910dd host=127.0.0.1 port=55432'
+tmp_path = PosixPath('/tmp/pytest-of-tom/pytest-50/test_interrupted_judge_is_not_0')
+bounded_judge = (<ask_phil.semantic_judge.SupportJudge object at 0x7c3d8286f380>, <ask_phil.openrouter.Budget object at 0x7c3d8286e930>, {'mode': 'normal'})
+
+    def test_interrupted_judge_is_not_charged_again_after_restart(
+        feedback_client: TestClient, database_url: str, tmp_path: Path,
+        bounded_judge: tuple[SupportJudge, Budget, dict[str, str]],
+    ) -> None:
+        judge, ledger, control = bounded_judge
+        receipt = feedback_client.post("/v1/answers", json={"snapshot_id": "phil-arrival-v1",
+                                      "question": "When did Phil arrive?"}).json()
+        policy = OnlinePolicy(background_rate=1)
+        uri = f"sqlite:///{tmp_path}/feedback.db"
+        evaluation = OnlineEvaluation(database_url, uri, policy=policy, judge=judge, calibration=CALIBRATION)
+        control["mode"] = "interrupted"
+        with pytest.raises(SimulatedProcessExit):
+            evaluation.process()
+        reserved = ledger.summary()
+        assert reserved[1] == 1
+        control["mode"] = "normal"
+        restarted = OnlineEvaluation(database_url, uri, policy=policy, judge=judge, calibration=CALIBRATION)
+        restarted.process()
+        now = datetime.now(UTC)
+        report = restarted.report(FeedbackCohort(served_from=now-timedelta(hours=1),
+                                   served_until=now+timedelta(hours=1), feedback_as_of=now))
+>       assert report.jobs[0].state == "failed"
+E       AssertionError: assert 'running' == 'failed'
+E         
+E         - failed
+E         + running
+
+tests/test_online_judges.py:84: AssertionError
+---------------------------- Captured stderr setup -----------------------------
+2026/11/01 14:47:17 INFO mlflow.store.db.utils: Creating initial MLflow database tables...
+2026/11/01 14:47:17 INFO mlflow.store.db.utils: Updating database tables
+------------------------------ Captured log setup ------------------------------
+INFO     mlflow.store.db.utils:utils.py:87 Creating initial MLflow database tables...
+INFO     mlflow.store.db.utils:utils.py:294 Updating database tables
+----------------------------- Captured stderr call -----------------------------
+14:47:22.194 | INFO    | prefect - Starting temporary server on http://127.0.0.1:8887
+See https://docs.prefect.io/v3/concepts/server#how-to-guides for more information on running a dedicated Prefect server.
+14:47:26.633 | INFO    | Flow run 'rough-cockatoo' - Beginning flow run 'rough-cockatoo' for flow 'ask-phil-online-evaluation'
+14:47:27.676 | ERROR   | Flow run 'rough-cockatoo' - Crash detected! Execution was interrupted by an unexpected exception: SimulatedProcessExit: 
+14:47:27.718 | INFO    | Flow run 'rough-cockatoo' - Finished in state Crashed('Execution was interrupted by an unexpected exception: SimulatedProcessExit: ')
+14:47:27.949 | INFO    | Flow run 'glaring-bee' - Beginning flow run 'glaring-bee' for flow 'ask-phil-online-evaluation'
+14:47:28.952 | INFO    | Flow run 'glaring-bee' - Finished in state Completed()
+------------------------------ Captured log call -------------------------------
+WARNING  mlflow.types.type_hints:type_hints.py:237 Union type hint with multiple non-None types is inferred as AnyType, and MLflow doesn't validate the data against its element types.
+WARNING  mlflow.types.type_hints:type_hints.py:244 Union type hint is inferred as AnyType, and MLflow doesn't validate the data against its element types.
+WARNING  mlflow.types.type_hints:type_hints.py:237 Union type hint with multiple non-None types is inferred as AnyType, and MLflow doesn't validate the data against its element types.
+INFO     prefect:server.py:1133 Starting temporary server on http://127.0.0.1:8887
+See https://docs.prefect.io/v3/concepts/server#how-to-guides for more information on running a dedicated Prefect server.
+INFO     prefect.flow_runs:flow_engine.py:1155 Beginning flow run 'rough-cockatoo' for flow 'ask-phil-online-evaluation'
+ERROR    prefect.flow_runs:flow_engine.py:894 Crash detected! Execution was interrupted by an unexpected exception: SimulatedProcessExit: 
+INFO     prefect.flow_runs:flow_engine.py:1277 Finished in state Crashed('Execution was interrupted by an unexpected exception: SimulatedProcessExit: ')
+INFO     prefect.flow_runs:flow_engine.py:1155 Beginning flow run 'glaring-bee' for flow 'ask-phil-online-evaluation'
+INFO     prefect.flow_runs:flow_engine.py:1277 Finished in state Completed()
+=============================== warnings summary ===============================
+.venv/lib/python3.12/site-packages/fastapi/testclient.py:1
+  /home/tom/Documents/code/python/rag_demo/.venv/lib/python3.12/site-packages/fastapi/testclient.py:1: StarletteDeprecationWarning: Using `httpx` with `starlette.testclient` is deprecated; install `httpx2` instead.
+    from starlette.testclient import TestClient as TestClient  # noqa
+
+-- Docs: https://docs.pytest.org/en/stable/how-to/capture-warnings.html
+=========================== short test summary info ============================
+FAILED tests/test_online_judges.py::test_interrupted_judge_is_not_charged_again_after_restart
+!!!!!!!!!!!!!!!!!!!!!!!!!! stopping after 1 failures !!!!!!!!!!!!!!!!!!!!!!!!!!!
+1 failed, 1 warning in 13.61s
+--- Logging error ---
+Traceback (most recent call last):
+  File "/home/tom/Documents/code/python/rag_demo/.venv/lib/python3.12/site-packages/prefect/logging/handlers.py", line 410, in emit
+    self.console.print(message, soft_wrap=True)
+  File "/home/tom/Documents/code/python/rag_demo/.venv/lib/python3.12/site-packages/rich/console.py", line 1704, in print
+    with self:
+  File "/home/tom/Documents/code/python/rag_demo/.venv/lib/python3.12/site-packages/rich/console.py", line 864, in __exit__
+    self._exit_buffer()
+  File "/home/tom/Documents/code/python/rag_demo/.venv/lib/python3.12/site-packages/rich/console.py", line 820, in _exit_buffer
+    self._check_buffer()
+  File "/home/tom/Documents/code/python/rag_demo/.venv/lib/python3.12/site-packages/rich/console.py", line 2055, in _check_buffer
+    self._write_buffer()
+  File "/home/tom/Documents/code/python/rag_demo/.venv/lib/python3.12/site-packages/rich/console.py", line 2124, in _write_buffer
+    self.file.write(text)
+ValueError: I/O operation on closed file.
+Call stack:
+  File "/home/tom/Documents/code/python/rag_demo/.venv/lib/python3.12/site-packages/prefect/server/api/server.py", line 1212, in stop
+    subprocess_server_logger.info(
+  File "/usr/lib/python3.12/logging/__init__.py", line 1539, in info
+    self._log(INFO, msg, args, **kwargs)
+  File "/usr/lib/python3.12/logging/__init__.py", line 1684, in _log
+    self.handle(record)
+  File "/usr/lib/python3.12/logging/__init__.py", line 1700, in handle
+    self.callHandlers(record)
+  File "/usr/lib/python3.12/logging/__init__.py", line 1762, in callHandlers
+    hdlr.handle(record)
+  File "/usr/lib/python3.12/logging/__init__.py", line 1028, in handle
+    self.emit(record)
+  File "/home/tom/Documents/code/python/rag_demo/.venv/lib/python3.12/site-packages/prefect/logging/handlers.py", line 416, in emit
+    self.handleError(record)
+Message: 'Stopping temporary server on http://127.0.0.1:8887'
+Arguments: ()
+2026/11/01 14:47:30 INFO mlflow.tracing.export.async_export_queue: Flushing the async trace logging queue before program exit. This may take a while...

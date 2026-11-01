@@ -1,0 +1,140 @@
+{
+  "state": "complete",
+  "capture_path": "docs/implementation/issue-23/runtime-local/offline-verified.json",
+  "capture_sha256": "73423e2305793cde5cb4a23ca030c5748c247409da2db969ff4de26474d87b43",
+  "reviewer_type": "agent; requires maintainer quality acceptance",
+  "cases": [
+    {
+      "case_id": "original-failure",
+      "review": {
+        "case_id": "original-failure",
+        "response_sha256": "41c42f56909ec48559519fddfa7b51f93ab957a8aa6f93158ef6d3bd75241cc1",
+        "reference_sha256": "0fa53df0cb245d511418c2a927a8a61bc9e9257e4c6527bcf68857292ce12cc9",
+        "reviewer": "Codex source-review agent",
+        "rationale": "Retained source clause states February 1990; scripted demo answers.",
+        "claims": [
+          {
+            "claim": "Phil Mitchell first arrived in February 1991.",
+            "correct": false,
+            "grounded": false,
+            "citation_supported": false
+          }
+        ],
+        "required_facts": [
+          {
+            "fact": "Phil first arrived in February 1990.",
+            "covered": false
+          }
+        ],
+        "answerability": true,
+        "relevance": null,
+        "critical_failures": []
+      },
+      "scores": {
+        "correctness": {
+          "passed": 0,
+          "assessed": 1,
+          "unassessed": 0,
+          "value": 0.0
+        },
+        "groundedness": {
+          "passed": 0,
+          "assessed": 1,
+          "unassessed": 0,
+          "value": 0.0
+        },
+        "completeness": {
+          "passed": 0,
+          "assessed": 1,
+          "unassessed": 0,
+          "value": 0.0
+        },
+        "citation_support": {
+          "passed": 0,
+          "assessed": 1,
+          "unassessed": 0,
+          "value": 0.0
+        },
+        "answerability": {
+          "passed": 1,
+          "assessed": 1,
+          "unassessed": 0,
+          "value": 1.0
+        },
+        "relevance": {
+          "passed": 0,
+          "assessed": 0,
+          "unassessed": 1,
+          "value": null
+        },
+        "critical_failures": []
+      }
+    },
+    {
+      "case_id": "fixed-control",
+      "review": {
+        "case_id": "fixed-control",
+        "response_sha256": "38509a3b5302665d6d84f0528f98af6977a013f1a20c314bd568b4ba5f5e8df5",
+        "reference_sha256": "8d290fa09c096fcfb446ac20638af5a9a5d667cbd13efdd460b5598f592cbcfd",
+        "reviewer": "Codex source-review agent",
+        "rationale": "Retained source clause states February 1990; scripted demo answers.",
+        "claims": [
+          {
+            "claim": "Phil Mitchell first arrived in February 1990.",
+            "correct": true,
+            "grounded": true,
+            "citation_supported": true
+          }
+        ],
+        "required_facts": [
+          {
+            "fact": "Phil first arrived in February 1990.",
+            "covered": true
+          }
+        ],
+        "answerability": true,
+        "relevance": null,
+        "critical_failures": []
+      },
+      "scores": {
+        "correctness": {
+          "passed": 1,
+          "assessed": 1,
+          "unassessed": 0,
+          "value": 1.0
+        },
+        "groundedness": {
+          "passed": 1,
+          "assessed": 1,
+          "unassessed": 0,
+          "value": 1.0
+        },
+        "completeness": {
+          "passed": 1,
+          "assessed": 1,
+          "unassessed": 0,
+          "value": 1.0
+        },
+        "citation_support": {
+          "passed": 1,
+          "assessed": 1,
+          "unassessed": 0,
+          "value": 1.0
+        },
+        "answerability": {
+          "passed": 1,
+          "assessed": 1,
+          "unassessed": 0,
+          "value": 1.0
+        },
+        "relevance": {
+          "passed": 0,
+          "assessed": 0,
+          "unassessed": 1,
+          "value": null
+        },
+        "critical_failures": []
+      }
+    }
+  ]
+}

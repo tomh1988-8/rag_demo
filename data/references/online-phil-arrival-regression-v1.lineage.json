@@ -1,0 +1,180 @@
+{
+  "promotion_id": "438075ce-d3dd-4674-8606-fa292f572ff7",
+  "review_id": "b720d273-88f0-4ab0-8638-3f68cf82a746",
+  "response_id": "4b1de142-eac1-4b1e-b178-b28e15ac0f75",
+  "generation_id": "4b1de142-eac1-4b1e-b178-b28e15ac0f75",
+  "response_sha256": "a166eb9ed928ea305c460ec305e5e5c8030407c1e6799e8815153d5a586dc529",
+  "dataset_sha256": "da1dd018a1ccc75fe6ea0faa58c63bdfa1a92db545608daa93c5edf3c18e8680",
+  "held_out_labels_exposed": false,
+  "original_response": {
+    "response_id": "4b1de142-eac1-4b1e-b178-b28e15ac0f75",
+    "question": "When did Phil Mitchell first arrive in Walford?",
+    "status": "answered",
+    "answer": "Phil Mitchell first arrived in February 1991.",
+    "citations": [
+      {
+        "evidence_id": "phil-arrival-001",
+        "text": "Phil Mitchell first arrives in Walford in February 1990 to open an automobile repair shop, known as The Arches;",
+        "sha256": "c58db6653c582d8d2c75291831d8a3c48142261499f6a04ea732d8b2469031db",
+        "start": 0,
+        "end": 111,
+        "resolve_path": "/v1/snapshots/phil-arrival-v1/evidence/phil-arrival-001"
+      }
+    ],
+    "snapshot_id": "phil-arrival-v1",
+    "snapshot_sha256": "26da379f1f9c27c0bf41ca4a200072280bf441f7e84eacee92c761cede134462",
+    "source": {
+      "title": "Phil Mitchell",
+      "url": "https://en.wikipedia.org/wiki/Phil_Mitchell",
+      "revision_id": "1375499431",
+      "revision_url": "https://en.wikipedia.org/w/index.php?title=Phil_Mitchell&oldid=1375499431",
+      "section": "Storylines / 1990\u20132003 / opening sentence, first clause",
+      "captured_at": "2026-09-23T14:18:05.792450Z",
+      "capture_sha256": "df4f36d8f708824e7003353c6fcb52bff387050e3010053a373741ee33dbad8e",
+      "scope": "main_series",
+      "license_url": "https://creativecommons.org/licenses/by-sa/4.0/",
+      "attribution": "Wikipedia contributors, Phil Mitchell, revision 1375499431",
+      "coverage": "One clause about Phil's arrival in February 1990 and The Arches; no continuous storyline coverage.",
+      "gaps": [
+        "Family relationships",
+        "Later events",
+        "Current character status"
+      ],
+      "support_status": "source_supported"
+    },
+    "retrieved": [
+      {
+        "passage": {
+          "evidence_id": "phil-arrival-001",
+          "text": "Phil Mitchell first arrives in Walford in February 1990 to open an automobile repair shop, known as The Arches;",
+          "sha256": "c58db6653c582d8d2c75291831d8a3c48142261499f6a04ea732d8b2469031db",
+          "start": 0,
+          "end": 111
+        },
+        "similarity": 1.0
+      }
+    ],
+    "context": [
+      {
+        "evidence_id": "phil-arrival-001",
+        "text": "Phil Mitchell first arrives in Walford in February 1990 to open an automobile repair shop, known as The Arches;",
+        "sha256": "c58db6653c582d8d2c75291831d8a3c48142261499f6a04ea732d8b2469031db",
+        "start": 0,
+        "end": 111
+      }
+    ],
+    "retrieval_k": 3,
+    "route": "text_rag",
+    "baseline_version": "single-query-uncached-v2",
+    "model_settings": {
+      "embedding_model": "demo-embedding",
+      "embedding_digest": "bbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbb",
+      "embedding_dimensions": 3,
+      "answer_model": "demo-answer",
+      "answer_digest": "aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa",
+      "context_window": 4096,
+      "output_tokens": 256,
+      "temperature": 0.0,
+      "request_timeout_seconds": 180,
+      "seed": 17
+    },
+    "prompt_sha256": "1837220ea074375ef25b894885b2530a0b28b8c3f7f37f95b7746cd380341afc",
+    "application_sha256": "13aca48a9b7c7e8a49ca7f924c75b8f37eefe097c75ad1552dd8e8d3c1bfb1dd",
+    "trace_id": "tr-64ab15a6185c9f8603cdb98fa198e745",
+    "execution": {
+      "limits": {
+        "model_calls": 2,
+        "tool_calls": 1,
+        "http_calls": 8,
+        "seconds": 180.0,
+        "context_bytes": 1200,
+        "spend_usd": "0.15",
+        "retries": 0,
+        "capabilities": [
+          "text_retrieval",
+          "family_graph",
+          "event_graph",
+          "connection_graph"
+        ],
+        "concurrency": 4
+      },
+      "model_calls": 2,
+      "tool_calls": 1,
+      "http_calls": 0,
+      "reserved_usd": "0",
+      "stop_reason": null
+    },
+    "elapsed_ms": 146.89822899890714,
+    "usage": {
+      "input_tokens": null,
+      "output_tokens": null,
+      "embedding_tokens": null
+    },
+    "expenditure_category": "serving",
+    "estimated_api_cost_usd": 0.0,
+    "cost_scope": "Local Ollama API only; hardware, electricity and hosting are unmeasured.",
+    "limitation": "Source-supported is not independently cross-checked. Coverage is limited to the captured snapshot. Local-model results are development smoke evidence, not a deployment or representative quality assessment."
+  },
+  "review": {
+    "review_id": "b720d273-88f0-4ab0-8638-3f68cf82a746",
+    "report_id": "77cba567-a237-497e-8c3c-b75e3d3f4881",
+    "reviewer": "Codex source-review agent",
+    "note": "Checked required demo items and the remaining helpful rating.",
+    "dispositions": [
+      {
+        "response_id": "4b1de142-eac1-4b1e-b178-b28e15ac0f75",
+        "feedback_revision": 1,
+        "response_sha256": "a166eb9ed928ea305c460ec305e5e5c8030407c1e6799e8815153d5a586dc529",
+        "disposition": "confirmed",
+        "note": "Checked source: February 1990. This answer's 1991 is unsupported."
+      },
+      {
+        "response_id": "44b8423a-736c-4c13-ae18-86908bad27a9",
+        "feedback_revision": 2,
+        "response_sha256": "a1dffdf650799ea4f501c2e0cc369790815265969d9ef0ff82f95ba4a3a0710b",
+        "disposition": "rejected",
+        "note": "Checked source: February 1990. This answer matches the source; no factual error found."
+      }
+    ]
+  },
+  "source_checks": [
+    {
+      "fact": "Phil first arrived in February 1990.",
+      "evidence_ids": [
+        "phil-arrival-001"
+      ],
+      "note": "Read Wikipedia revision 1375499431: first arrives in February 1990."
+    }
+  ],
+  "registry_fingerprints": {
+    "/home/tom/Documents/code/python/rag_demo/data/references/answer-policy-regressions-v1.json": "d54c0d0e6495e37ebcadcdb3ad8eb25cb8ab28c0e812da3755482a6bea5e569b",
+    "/home/tom/Documents/code/python/rag_demo/data/references/answer-policy-regressions-v2.json": "a8974cdae1eed084ee6398540de304c9d57ff0c2b0cb6971877037127aa469eb",
+    "/home/tom/Documents/code/python/rag_demo/data/references/answer-policy-v1.json": "131c84ceafa7c730c5854f220a6b28b3441a40aa3cd0c657363c315ad73ae4f9",
+    "/home/tom/Documents/code/python/rag_demo/data/references/answer-policy-v2.json": "6e5d81207393ec8c2b324ed790133432c5d8dac6ccdaeb8b63ce1b939fa7e8e7",
+    "/home/tom/Documents/code/python/rag_demo/data/references/connections-v1.json": "51ed3a8d417aea0773a02eec5a554fd41ba2cbef62e118008a48227451806123",
+    "/home/tom/Documents/code/python/rag_demo/data/references/conversation-v1.json": "71e6bfa28f8c09bd0a79bacf617d577bf93ffc868b42539de9f27d87fe73958d",
+    "/home/tom/Documents/code/python/rag_demo/data/references/core-graph-questions-v1.json": "6db0b69c028d8b51325b050fcc713c3f68f6cbb33b8cc68b6f2fbfa07fd361aa",
+    "/home/tom/Documents/code/python/rag_demo/data/references/core-graph-questions-v2.json": "f733a80020452fd5498264a7fc74e0912cc3075972b2423da99f6081af35fd6b",
+    "/home/tom/Documents/code/python/rag_demo/data/references/core-graph-text-v1.json": "cfdfb97ef0dd8abc1b53a4a13a36bd190289181176df3ca1706b46c6ab9915e2",
+    "/home/tom/Documents/code/python/rag_demo/data/references/core-graph-v1.json": "56275247f9cf2976827f1fd6d9df6ae7682c73da343bc615b819e3f22a7571bb",
+    "/home/tom/Documents/code/python/rag_demo/data/references/core-profiles-v1.json": "8127346fb4e31f9bb844b6bf2f6c447655ee0c40d61e86e8715636588538ab5e",
+    "/home/tom/Documents/code/python/rag_demo/data/references/core-profiles-v2.json": "c0a08239b5b01eafdc37fdf4b11632e57990d21327da2caf17eb2226e26d55c4",
+    "/home/tom/Documents/code/python/rag_demo/data/references/crime-justice-v1.json": "2f9173bd23dbd99b7b4848479315e64d177d2f59fae51172e51c7b57b0d21a77",
+    "/home/tom/Documents/code/python/rag_demo/data/references/crime-justice-v2.json": "9dca294792ccb1cd83cb950cf9b0a8dd7d03f19b6162d833cbf3bd3ecbf351ae",
+    "/home/tom/Documents/code/python/rag_demo/data/references/investigation-v1.json": "86b81cc9595a8a40c7e78e95fdf1f9c956bb0de35f0b7424d3e832470f9addae",
+    "/home/tom/Documents/code/python/rag_demo/data/references/life-events-v1.json": "10eb79db7ea4a6916113506a0d84c6b274dc07cc15e6d528b53f2f621659c3b0",
+    "/home/tom/Documents/code/python/rag_demo/data/references/life-text-v1.json": "081b3a0a147412bf05c284ed5a311d8c0aaba9a89dbdc08fec6e3c7dc9188f4b",
+    "/home/tom/Documents/code/python/rag_demo/data/references/online-support-scope-v1.json": "a560e4a156e8ea8a9006165cb82b782c287f0c7ce8288fb985adccb296e0d708",
+    "/home/tom/Documents/code/python/rag_demo/data/references/parentage-v1.json": "7f200f7d38c09c66fc2039288180db7f98c8cd2a130672abcfef165f8c8b777e",
+    "/home/tom/Documents/code/python/rag_demo/data/references/persona-v1.json": "81d1e8ed4ea6b76122bb03228f17fd899fa7a2a4814216645d28bcaf482cf9b2",
+    "/home/tom/Documents/code/python/rag_demo/data/references/phil-arrival-rag-v1.json": "a19df8459191b27e355f246afeab3640d2f3086424d4e2deeb88494f8a0840aa",
+    "/home/tom/Documents/code/python/rag_demo/data/references/phil-arrival-v1.json": "0afb6859fbb655f42b7b5c0756f3f07f9895027c69536c95369d642cece519de",
+    "/home/tom/Documents/code/python/rag_demo/data/references/quality-comparison-v1.json": "dfc4e22247cef79faea55ebfca325239cfcef0c4fba0f4ddc21be5503bd8bcf1",
+    "/home/tom/Documents/code/python/rag_demo/data/references/quality-scorer-contracts-v1.json": "430fee618c6fcb8cce661ab818474ddf059fc4da5f9897d5d0392ceda12fb1ca",
+    "/home/tom/Documents/code/python/rag_demo/data/references/relationships-v1.json": "3bfa591869c680ae3c928326509d249350ff4e8b820a8fdecb9561624b04fed2",
+    "/home/tom/Documents/code/python/rag_demo/data/references/relationships-v2.json": "09c258dfb092b7f85672d6c77a749cf5bb6994ffa7f4916078ed688d2807caf8",
+    "/home/tom/Documents/code/python/rag_demo/data/references/source-ingestion-v1.json": "1bb00dc59f4b4f34c57a12453dc7135fb7f589dd2c258a876b54ae174a43f86b",
+    "/home/tom/Documents/code/python/rag_demo/data/references/support-judge-v1.json": "5b7cab78ae1cd8b125e2e90ad8f65b7f787fc99b437853aab76092533c049f89"
+  },
+  "limitation": "Reviewer source checks establish this source-supported expectation; they do not establish independent canon corroboration or held-out acceptance."
+}

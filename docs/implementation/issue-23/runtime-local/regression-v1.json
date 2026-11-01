@@ -1,0 +1,44 @@
+{
+  "dataset_id": "online-phil-arrival-regression-v1",
+  "cases": [
+    {
+      "case_id": "online-phil-arrival-regression-v1",
+      "group_ids": [
+        "mitchell-arrival-1990",
+        "phil-arrival-february-1990"
+      ],
+      "split": "regression",
+      "category": "arrival-year",
+      "question": "When did Phil Mitchell first arrive in Walford?",
+      "snapshot_id": "phil-arrival-v1",
+      "session": null,
+      "derived_from": [],
+      "expected_status": "answered",
+      "required_facts": [
+        {
+          "fact": "Phil first arrived in February 1990.",
+          "sufficient_sets": [
+            [
+              "phil-arrival-001"
+            ]
+          ]
+        }
+      ],
+      "allowed_alternatives": [],
+      "forbidden_assertions": [
+        "Phil arrived in 1991."
+      ],
+      "evidence": [
+        {
+          "evidence_id": "phil-arrival-001",
+          "text": "Phil Mitchell first arrives in Walford in February 1990 to open an automobile repair shop, known as The Arches;",
+          "source_revision": "1375499431",
+          "sha256": "c58db6653c582d8d2c75291831d8a3c48142261499f6a04ea732d8b2469031db"
+        }
+      ],
+      "review_note": "Expected year independently read from the captured clause.",
+      "synthetic_provenance": "Controlled model outputs and scripted demo feedback; no external model service."
+    }
+  ],
+  "prior_group_splits": {}
+}

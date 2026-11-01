@@ -1,0 +1,9 @@
+{
+  "promotion_id": "438075ce-d3dd-4674-8606-fa292f572ff7",
+  "review_id": "b720d273-88f0-4ab0-8638-3f68cf82a746",
+  "response_id": "4b1de142-eac1-4b1e-b178-b28e15ac0f75",
+  "generation_id": "4b1de142-eac1-4b1e-b178-b28e15ac0f75",
+  "response_sha256": "a166eb9ed928ea305c460ec305e5e5c8030407c1e6799e8815153d5a586dc529",
+  "dataset_sha256": "da1dd018a1ccc75fe6ea0faa58c63bdfa1a92db545608daa93c5edf3c18e8680",
+  "held_out_labels_exposed": false
+}

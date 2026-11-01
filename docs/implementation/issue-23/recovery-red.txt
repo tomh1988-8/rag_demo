@@ -1,0 +1,250 @@
+F
+=================================== FAILURES ===================================
+________ test_missing_trace_outage_and_lost_export_ack_survive_restart _________
+
+feedback_client = <starlette.testclient.TestClient object at 0x76d04bfe7d70>
+database_url = 'user=ask_phil password=local-demo-only dbname=ask_phil_test_667f1a68bab54b2097eb3462d30827c6 host=127.0.0.1 port=55432'
+models = Models(settings=ModelSettings(embedding_model='test-embedding', embedding_digest='bbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbb... additional_kwargs={'num_predict': 256}, is_function_calling_model=True, keep_alive=None, thinking=None, headers=None))
+mlflow_http = 'http://127.0.0.1:45217'
+http_server = <function http_server.<locals>.serve at 0x76d04bb77a60>
+
+    def test_missing_trace_outage_and_lost_export_ack_survive_restart(
+        feedback_client: TestClient,
+        database_url: str,
+        models: Models,
+        mlflow_http: str,
+        http_server: Callable[[ASGIApp], AbstractContextManager[str]],
+    ) -> None:
+        faults = {"hidden": False, "offline": False, "lose_ack": False}
+        proxy = FastAPI()
+    
+        @proxy.api_route("/{path:path}", methods=["GET", "POST", "PATCH", "DELETE"])
+        async def forward(path: str, request: Request) -> Response:
+            if faults["offline"]:
+                return Response(status_code=503)
+            if faults["hidden"] and request.method == "GET" and "/traces/" in path:
+                return Response(json.dumps({"error_code": "RESOURCE_DOES_NOT_EXIST", "message": "Pending"}),
+                                status_code=404, media_type="application/json")
+            async with httpx.AsyncClient(timeout=3, trust_env=False) as client:
+                result = await client.request(request.method, mlflow_http + "/" + path,
+                                              params=request.query_params, content=await request.body(),
+                                              headers={"Content-Type": "application/json"})
+            if faults["lose_ack"] and request.method == "POST" and path.endswith("/assessments"):
+                faults["lose_ack"] = False
+                return Response(status_code=503)
+            return Response(result.content, status_code=result.status_code,
+                            media_type=result.headers.get("content-type", "application/json"))
+    
+        with http_server(proxy) as uri:
+            with TestClient(create_app(database_url, models=models, tracking_uri=uri,
+                                       feedback_policy=FeedbackPolicy(auto_deliver=False))) as client:
+                receipt = client.post("/v1/answers", json={"snapshot_id": "phil-arrival-v1",
+                                      "question": "When did Phil arrive?"}).json()
+            policy = OnlinePolicy(background_rate=1, retry_seconds=0.1, max_attempts=5)
+            evaluation = OnlineEvaluation(database_url, uri, policy=policy)
+            faults["hidden"] = True
+>           assert evaluation.process().pending == 1
+                   ^^^^^^^^^^^^^^^^^^^^
+
+tests/test_online_recovery.py:61: 
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ 
+src/ask_phil/online_workflow.py:71: in process
+    return execute()
+           ^^^^^^^^^
+.venv/lib/python3.12/site-packages/prefect/flows.py:1887: in __call__
+    return run_flow(
+.venv/lib/python3.12/site-packages/prefect/flow_engine.py:2246: in run_flow
+    ret_val = run_flow_sync(**kwargs)
+              ^^^^^^^^^^^^^^^^^^^^^^^
+.venv/lib/python3.12/site-packages/prefect/flow_engine.py:2091: in run_flow_sync
+    return engine.state if return_type == "state" else engine.result()
+                                                       ^^^^^^^^^^^^^^^
+.venv/lib/python3.12/site-packages/prefect/flow_engine.py:788: in result
+    raise self._raised
+.venv/lib/python3.12/site-packages/prefect/flow_engine.py:1319: in run_context
+    yield self
+.venv/lib/python3.12/site-packages/prefect/flow_engine.py:2089: in run_flow_sync
+    engine.call_flow_fn()
+.venv/lib/python3.12/site-packages/prefect/flow_engine.py:1339: in call_flow_fn
+    result = call_with_parameters(self.flow.fn, self.parameters)
+             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+.venv/lib/python3.12/site-packages/prefect/utilities/callables/__init__.py:348: in call_with_parameters
+    return fn(*args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^
+src/ask_phil/online_workflow.py:69: in execute
+    return self._process(UUID(str(flow_run.id)))
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+src/ask_phil/online_workflow.py:199: in _process
+    trace = _tracking(self.tracking_uri).get_trace(response.trace_id)
+            ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+.venv/lib/python3.12/site-packages/mlflow/tracing/client.py:226: in get_trace
+    trace_info = self.get_trace_info(trace_id)
+                 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+.venv/lib/python3.12/site-packages/mlflow/tracing/client.py:183: in get_trace_info
+    return self.store.get_trace_info(trace_id)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+.venv/lib/python3.12/site-packages/mlflow/store/tracking/rest_store.py:516: in get_trace_info
+    trace_v3_response_proto = self._call_endpoint(
+.venv/lib/python3.12/site-packages/mlflow/store/tracking/rest_store.py:269: in _call_endpoint
+    return call_endpoint(
+.venv/lib/python3.12/site-packages/mlflow/utils/rest_utils.py:673: in call_endpoint
+    response = verify_rest_response(
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ 
+
+response = <Response [404]>
+endpoint = '/api/3.0/mlflow/traces/tr-e753d44b342cda4dd2c82d3fdac11a34'
+expected_status = 200
+
+    def verify_rest_response(
+        response,
+        endpoint,
+        expected_status: int = 200,
+    ):
+        """Verify the return code and format, raise exception if the request was not successful."""
+        # Handle Armeria-specific response case where response text is "200 OK"
+        # v1/traces endpoint might return empty response
+        if response.status_code == 200 and response.text.strip() in (_ARMERIA_OK, ""):
+            response._content = b"{}"  # Update response content to be an empty JSON dictionary
+            return response
+    
+        # Handle non-expected status codes
+        if response.status_code != expected_status:
+            if _can_parse_as_json_object(response.text):
+>               raise RestException(json.loads(response.text))
+E               mlflow.exceptions.RestException: RESOURCE_DOES_NOT_EXIST: Pending
+
+.venv/lib/python3.12/site-packages/mlflow/utils/rest_utils.py:380: RestException
+---------------------------- Captured stderr setup -----------------------------
+2026/11/01 14:32:33 INFO mlflow.store.db.utils: Creating initial MLflow database tables...
+2026/11/01 14:32:33 INFO mlflow.store.db.utils: Updating database tables
+------------------------------ Captured log setup ------------------------------
+INFO     mlflow.store.db.utils:utils.py:87 Creating initial MLflow database tables...
+INFO     mlflow.store.db.utils:utils.py:294 Updating database tables
+----------------------------- Captured stderr call -----------------------------
+14:32:48.433 | INFO    | prefect - Starting temporary server on http://127.0.0.1:8205
+See https://docs.prefect.io/v3/concepts/server#how-to-guides for more information on running a dedicated Prefect server.
+14:32:52.896 | INFO    | Flow run 'optimistic-tamarin' - Beginning flow run 'optimistic-tamarin' for flow 'ask-phil-online-evaluation'
+14:32:53.935 | ERROR   | Flow run 'optimistic-tamarin' - Encountered exception during execution: RestException('RESOURCE_DOES_NOT_EXIST: Pending')
+Traceback (most recent call last):
+  File "/home/tom/Documents/code/python/rag_demo/.venv/lib/python3.12/site-packages/prefect/flow_engine.py", line 1319, in run_context
+    yield self
+  File "/home/tom/Documents/code/python/rag_demo/.venv/lib/python3.12/site-packages/prefect/flow_engine.py", line 2089, in run_flow_sync
+    engine.call_flow_fn()
+  File "/home/tom/Documents/code/python/rag_demo/.venv/lib/python3.12/site-packages/prefect/flow_engine.py", line 1339, in call_flow_fn
+    result = call_with_parameters(self.flow.fn, self.parameters)
+             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/tom/Documents/code/python/rag_demo/.venv/lib/python3.12/site-packages/prefect/utilities/callables/__init__.py", line 348, in call_with_parameters
+    return fn(*args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^
+  File "/home/tom/Documents/code/python/rag_demo/src/ask_phil/online_workflow.py", line 69, in execute
+    return self._process(UUID(str(flow_run.id)))
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/tom/Documents/code/python/rag_demo/src/ask_phil/online_workflow.py", line 199, in _process
+    trace = _tracking(self.tracking_uri).get_trace(response.trace_id)
+            ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/tom/Documents/code/python/rag_demo/.venv/lib/python3.12/site-packages/mlflow/tracing/client.py", line 226, in get_trace
+    trace_info = self.get_trace_info(trace_id)
+                 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/tom/Documents/code/python/rag_demo/.venv/lib/python3.12/site-packages/mlflow/tracing/client.py", line 183, in get_trace_info
+    return self.store.get_trace_info(trace_id)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/tom/Documents/code/python/rag_demo/.venv/lib/python3.12/site-packages/mlflow/store/tracking/rest_store.py", line 516, in get_trace_info
+    trace_v3_response_proto = self._call_endpoint(
+                              ^^^^^^^^^^^^^^^^^^^^
+  File "/home/tom/Documents/code/python/rag_demo/.venv/lib/python3.12/site-packages/mlflow/store/tracking/rest_store.py", line 269, in _call_endpoint
+    return call_endpoint(
+           ^^^^^^^^^^^^^^
+  File "/home/tom/Documents/code/python/rag_demo/.venv/lib/python3.12/site-packages/mlflow/utils/rest_utils.py", line 673, in call_endpoint
+    response = verify_rest_response(
+               ^^^^^^^^^^^^^^^^^^^^^
+  File "/home/tom/Documents/code/python/rag_demo/.venv/lib/python3.12/site-packages/mlflow/utils/rest_utils.py", line 380, in verify_rest_response
+    raise RestException(json.loads(response.text))
+mlflow.exceptions.RestException: RESOURCE_DOES_NOT_EXIST: Pending
+14:32:54.003 | INFO    | Flow run 'optimistic-tamarin' - Finished in state Failed('Flow run encountered an exception: RestException: RESOURCE_DOES_NOT_EXIST: Pending')
+------------------------------ Captured log call -------------------------------
+WARNING  mlflow.types.type_hints:type_hints.py:237 Union type hint with multiple non-None types is inferred as AnyType, and MLflow doesn't validate the data against its element types.
+WARNING  mlflow.types.type_hints:type_hints.py:244 Union type hint is inferred as AnyType, and MLflow doesn't validate the data against its element types.
+WARNING  mlflow.types.type_hints:type_hints.py:237 Union type hint with multiple non-None types is inferred as AnyType, and MLflow doesn't validate the data against its element types.
+INFO     prefect:server.py:1133 Starting temporary server on http://127.0.0.1:8205
+See https://docs.prefect.io/v3/concepts/server#how-to-guides for more information on running a dedicated Prefect server.
+INFO     prefect.flow_runs:flow_engine.py:1155 Beginning flow run 'optimistic-tamarin' for flow 'ask-phil-online-evaluation'
+ERROR    prefect.flow_runs:flow_engine.py:1323 Encountered exception during execution: RestException('RESOURCE_DOES_NOT_EXIST: Pending')
+Traceback (most recent call last):
+  File "/home/tom/Documents/code/python/rag_demo/.venv/lib/python3.12/site-packages/prefect/flow_engine.py", line 1319, in run_context
+    yield self
+  File "/home/tom/Documents/code/python/rag_demo/.venv/lib/python3.12/site-packages/prefect/flow_engine.py", line 2089, in run_flow_sync
+    engine.call_flow_fn()
+  File "/home/tom/Documents/code/python/rag_demo/.venv/lib/python3.12/site-packages/prefect/flow_engine.py", line 1339, in call_flow_fn
+    result = call_with_parameters(self.flow.fn, self.parameters)
+             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/tom/Documents/code/python/rag_demo/.venv/lib/python3.12/site-packages/prefect/utilities/callables/__init__.py", line 348, in call_with_parameters
+    return fn(*args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^
+  File "/home/tom/Documents/code/python/rag_demo/src/ask_phil/online_workflow.py", line 69, in execute
+    return self._process(UUID(str(flow_run.id)))
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/tom/Documents/code/python/rag_demo/src/ask_phil/online_workflow.py", line 199, in _process
+    trace = _tracking(self.tracking_uri).get_trace(response.trace_id)
+            ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/tom/Documents/code/python/rag_demo/.venv/lib/python3.12/site-packages/mlflow/tracing/client.py", line 226, in get_trace
+    trace_info = self.get_trace_info(trace_id)
+                 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/tom/Documents/code/python/rag_demo/.venv/lib/python3.12/site-packages/mlflow/tracing/client.py", line 183, in get_trace_info
+    return self.store.get_trace_info(trace_id)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/tom/Documents/code/python/rag_demo/.venv/lib/python3.12/site-packages/mlflow/store/tracking/rest_store.py", line 516, in get_trace_info
+    trace_v3_response_proto = self._call_endpoint(
+                              ^^^^^^^^^^^^^^^^^^^^
+  File "/home/tom/Documents/code/python/rag_demo/.venv/lib/python3.12/site-packages/mlflow/store/tracking/rest_store.py", line 269, in _call_endpoint
+    return call_endpoint(
+           ^^^^^^^^^^^^^^
+  File "/home/tom/Documents/code/python/rag_demo/.venv/lib/python3.12/site-packages/mlflow/utils/rest_utils.py", line 673, in call_endpoint
+    response = verify_rest_response(
+               ^^^^^^^^^^^^^^^^^^^^^
+  File "/home/tom/Documents/code/python/rag_demo/.venv/lib/python3.12/site-packages/mlflow/utils/rest_utils.py", line 380, in verify_rest_response
+    raise RestException(json.loads(response.text))
+mlflow.exceptions.RestException: RESOURCE_DOES_NOT_EXIST: Pending
+INFO     prefect.flow_runs:flow_engine.py:1277 Finished in state Failed('Flow run encountered an exception: RestException: RESOURCE_DOES_NOT_EXIST: Pending')
+=============================== warnings summary ===============================
+.venv/lib/python3.12/site-packages/fastapi/testclient.py:1
+  /home/tom/Documents/code/python/rag_demo/.venv/lib/python3.12/site-packages/fastapi/testclient.py:1: StarletteDeprecationWarning: Using `httpx` with `starlette.testclient` is deprecated; install `httpx2` instead.
+    from starlette.testclient import TestClient as TestClient  # noqa
+
+-- Docs: https://docs.pytest.org/en/stable/how-to/capture-warnings.html
+=========================== short test summary info ============================
+FAILED tests/test_online_recovery.py::test_missing_trace_outage_and_lost_export_ack_survive_restart
+!!!!!!!!!!!!!!!!!!!!!!!!!! stopping after 1 failures !!!!!!!!!!!!!!!!!!!!!!!!!!!
+1 failed, 1 warning in 24.10s
+--- Logging error ---
+Traceback (most recent call last):
+  File "/home/tom/Documents/code/python/rag_demo/.venv/lib/python3.12/site-packages/prefect/logging/handlers.py", line 410, in emit
+    self.console.print(message, soft_wrap=True)
+  File "/home/tom/Documents/code/python/rag_demo/.venv/lib/python3.12/site-packages/rich/console.py", line 1704, in print
+    with self:
+  File "/home/tom/Documents/code/python/rag_demo/.venv/lib/python3.12/site-packages/rich/console.py", line 864, in __exit__
+    self._exit_buffer()
+  File "/home/tom/Documents/code/python/rag_demo/.venv/lib/python3.12/site-packages/rich/console.py", line 820, in _exit_buffer
+    self._check_buffer()
+  File "/home/tom/Documents/code/python/rag_demo/.venv/lib/python3.12/site-packages/rich/console.py", line 2055, in _check_buffer
+    self._write_buffer()
+  File "/home/tom/Documents/code/python/rag_demo/.venv/lib/python3.12/site-packages/rich/console.py", line 2124, in _write_buffer
+    self.file.write(text)
+ValueError: I/O operation on closed file.
+Call stack:
+  File "/home/tom/Documents/code/python/rag_demo/.venv/lib/python3.12/site-packages/prefect/server/api/server.py", line 1212, in stop
+    subprocess_server_logger.info(
+  File "/usr/lib/python3.12/logging/__init__.py", line 1539, in info
+    self._log(INFO, msg, args, **kwargs)
+  File "/usr/lib/python3.12/logging/__init__.py", line 1684, in _log
+    self.handle(record)
+  File "/usr/lib/python3.12/logging/__init__.py", line 1700, in handle
+    self.callHandlers(record)
+  File "/usr/lib/python3.12/logging/__init__.py", line 1762, in callHandlers
+    hdlr.handle(record)
+  File "/usr/lib/python3.12/logging/__init__.py", line 1028, in handle
+    self.emit(record)
+  File "/home/tom/Documents/code/python/rag_demo/.venv/lib/python3.12/site-packages/prefect/logging/handlers.py", line 416, in emit
+    self.handleError(record)
+Message: 'Stopping temporary server on http://127.0.0.1:8205'
+Arguments: ()
+2026/11/01 14:32:56 INFO mlflow.tracing.export.async_export_queue: Flushing the async trace logging queue before program exit. This may take a while...

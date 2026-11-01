@@ -1,0 +1,15 @@
+{
+  "review_id": "d904ebbd-8929-4744-afa8-cf312aaede2a",
+  "report_id": "3fc38a68-36e4-4d6f-975b-f3ca67a895f7",
+  "reviewer": "Codex source-review agent",
+  "note": "Demo/test traffic; inspected the retained Wikipedia clause.",
+  "dispositions": [
+    {
+      "response_id": "44b8423a-736c-4c13-ae18-86908bad27a9",
+      "feedback_revision": 1,
+      "response_sha256": "a1dffdf650799ea4f501c2e0cc369790815265969d9ef0ff82f95ba4a3a0710b",
+      "disposition": "rejected",
+      "note": "Source states February 1990, matching the answer; the negative factual report is rejected."
+    }
+  ]
+}

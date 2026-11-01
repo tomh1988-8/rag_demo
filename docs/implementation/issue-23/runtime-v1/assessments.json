@@ -1,0 +1,228 @@
+{
+  "correct": [
+    {
+      "assessment_id": "a-ed85d111033553e289784eabfb0ed16f",
+      "assessment_name": "online_evidence_checks",
+      "trace_id": "tr-345a959572fce4512ee071559235c2d9",
+      "source": {
+        "source_type": "CODE",
+        "source_id": "ad60d38e7a6b341dee40ea476d373bc2b33ef51216d8bf7fb1c74bd1b00521b5"
+      },
+      "create_time": "2026-11-01T17:05:54.359Z",
+      "last_update_time": "2026-11-01T17:05:54.359Z",
+      "feedback": {
+        "value": {
+          "citation_integrity": true,
+          "reference_recall": null,
+          "version": "saved-evidence-checks-v1",
+          "reason": "Citation identity checks only; support needs a calibrated semantic judge. Correctness, recall, completeness and persona have no reviewed online expectations.",
+          "reference_correctness": null,
+          "persona": null,
+          "context_available": true,
+          "reference_completeness": null
+        }
+      },
+      "metadata": {
+        "response_id": "44b8423a-736c-4c13-ae18-86908bad27a9",
+        "job_id": "c136b9d4-b49c-528b-9697-ec7e855c1680"
+      },
+      "valid": true
+    },
+    {
+      "assessment_id": "a-9b2030aad7485669b8ab687835ee1234",
+      "assessment_name": "online_context_support",
+      "trace_id": "tr-345a959572fce4512ee071559235c2d9",
+      "source": {
+        "source_type": "LLM_JUDGE",
+        "source_id": "ad60d38e7a6b341dee40ea476d373bc2b33ef51216d8bf7fb1c74bd1b00521b5"
+      },
+      "create_time": "2026-11-01T17:05:54.368Z",
+      "last_update_time": "2026-11-01T17:05:54.368Z",
+      "feedback": {
+        "value": {
+          "online_evaluation_cost_usd": 0.000984,
+          "assessment": {
+            "usage": {
+              "returned_model": "openai/gpt-6-sol",
+              "request_id": "gen-1793552751-pauHvsNNBgn2j9FfGNt2",
+              "provider": "OpenAI",
+              "reasoning_tokens": 0.0,
+              "cost_usd": 0.000984,
+              "input_tokens": 277.0,
+              "reservation_id": "73a218cceb6b4eb1817480fc4dcd8d9e",
+              "output_tokens": 43.0,
+              "reserved_usd": 0.093886
+            },
+            "rubric_version": "all-assertions-supported-v1",
+            "reason": "The passage states that Phil Mitchell first arrived in Walford in February 1990.",
+            "cost_usd": 0.000984,
+            "rubric_sha256": "99271033de9a536ea3b9b93e9efd15ad2a57f1ff0b7df54071578f141808bd1d",
+            "input_sha256": "e38f885210c5b3e9cf173a01c9f5a301ea265c25f11a1d19fceab041aa4d8127",
+            "evidence_ids": [
+              "phil-arrival-001"
+            ],
+            "supported": true,
+            "judge_settings_sha256": "1c91a994d2d659eba99ed65f4011dc81421bcbe7ff1e5218667bbbdcd196f567"
+          },
+          "origin_job_id": "c136b9d4-b49c-528b-9697-ec7e855c1680",
+          "online_evaluation_model_calls": 1.0,
+          "reused": false
+        }
+      },
+      "metadata": {
+        "response_id": "44b8423a-736c-4c13-ae18-86908bad27a9",
+        "calibration_sha256": "ada876e4b09ec7362a7db479edd577dfe498e513d14b8ffa2b8d0f7db9c48fc5",
+        "support_result_key": "e5fd2800aa6b74b5d33f9100fd325a7c8cb42c18dbbf5e3ecb74c22e42830f81"
+      },
+      "valid": true
+    },
+    {
+      "assessment_id": "a-2c614ab3aeb059d3b3e1598aa27d6090",
+      "assessment_name": "human_helpfulness",
+      "trace_id": "tr-345a959572fce4512ee071559235c2d9",
+      "source": {
+        "source_type": "HUMAN",
+        "source_id": "db9a7733-c039-4290-b095-662ac2931cc2"
+      },
+      "create_time": "2026-11-01T17:05:55.008Z",
+      "last_update_time": "2026-11-01T17:05:55.008Z",
+      "feedback": {
+        "value": "not_helpful"
+      },
+      "metadata": {
+        "feedback_id": "db9a7733-c039-4290-b095-662ac2931cc2",
+        "response_id": "44b8423a-736c-4c13-ae18-86908bad27a9",
+        "categories": "[\"facts\"]",
+        "policy_version": "feedback-v1",
+        "interpretation": "Self-selected helpfulness and reported issues; not checked correctness.",
+        "revision": "1"
+      },
+      "valid": false
+    },
+    {
+      "assessment_id": "a-048e4b98844e555f8fa2cc61084e2314",
+      "assessment_name": "human_helpfulness",
+      "trace_id": "tr-345a959572fce4512ee071559235c2d9",
+      "source": {
+        "source_type": "HUMAN",
+        "source_id": "db9a7733-c039-4290-b095-662ac2931cc2"
+      },
+      "create_time": "2026-11-01T17:06:00.767Z",
+      "last_update_time": "2026-11-01T17:06:00.767Z",
+      "feedback": {
+        "value": "helpful"
+      },
+      "metadata": {
+        "feedback_id": "db9a7733-c039-4290-b095-662ac2931cc2",
+        "response_id": "44b8423a-736c-4c13-ae18-86908bad27a9",
+        "categories": "[]",
+        "policy_version": "feedback-v1",
+        "interpretation": "Self-selected helpfulness and reported issues; not checked correctness.",
+        "revision": "2"
+      },
+      "overrides": "a-2c614ab3aeb059d3b3e1598aa27d6090",
+      "valid": true
+    }
+  ],
+  "wrong": [
+    {
+      "assessment_id": "a-e168834bf8fb5853aa09b495d256f07c",
+      "assessment_name": "online_evidence_checks",
+      "trace_id": "tr-64ab15a6185c9f8603cdb98fa198e745",
+      "source": {
+        "source_type": "CODE",
+        "source_id": "ad60d38e7a6b341dee40ea476d373bc2b33ef51216d8bf7fb1c74bd1b00521b5"
+      },
+      "create_time": "2026-11-01T17:05:59.168Z",
+      "last_update_time": "2026-11-01T17:05:59.168Z",
+      "feedback": {
+        "value": {
+          "citation_integrity": true,
+          "reference_recall": null,
+          "version": "saved-evidence-checks-v1",
+          "reason": "Citation identity checks only; support needs a calibrated semantic judge. Correctness, recall, completeness and persona have no reviewed online expectations.",
+          "reference_correctness": null,
+          "persona": null,
+          "context_available": true,
+          "reference_completeness": null
+        }
+      },
+      "metadata": {
+        "response_id": "4b1de142-eac1-4b1e-b178-b28e15ac0f75",
+        "job_id": "2c626894-30c1-59df-8fa5-d7c431498abf"
+      },
+      "valid": true
+    },
+    {
+      "assessment_id": "a-cd53fed458ed5ce5854283646ce692d8",
+      "assessment_name": "online_context_support",
+      "trace_id": "tr-64ab15a6185c9f8603cdb98fa198e745",
+      "source": {
+        "source_type": "LLM_JUDGE",
+        "source_id": "ad60d38e7a6b341dee40ea476d373bc2b33ef51216d8bf7fb1c74bd1b00521b5"
+      },
+      "create_time": "2026-11-01T17:05:59.174Z",
+      "last_update_time": "2026-11-01T17:05:59.174Z",
+      "feedback": {
+        "value": {
+          "online_evaluation_cost_usd": 0.001004,
+          "assessment": {
+            "usage": {
+              "returned_model": "openai/gpt-6-sol",
+              "request_id": "gen-1793552757-79HD9ORycEbkLOAGyfay",
+              "provider": "OpenAI",
+              "reasoning_tokens": 0.0,
+              "cost_usd": 0.001004,
+              "input_tokens": 277.0,
+              "reservation_id": "91eed2daaff14a10bf59dcd275fb464c",
+              "output_tokens": 45.0,
+              "reserved_usd": 0.093886
+            },
+            "rubric_version": "all-assertions-supported-v1",
+            "reason": "The passage says Phil Mitchell first arrived in February 1990, not February 1991.",
+            "cost_usd": 0.001004,
+            "rubric_sha256": "99271033de9a536ea3b9b93e9efd15ad2a57f1ff0b7df54071578f141808bd1d",
+            "input_sha256": "b5c8b887148cc2b01e273d7d5bff7ecf81f80bd6dccc9e0e4f9a1c176769447b",
+            "evidence_ids": [
+              "phil-arrival-001"
+            ],
+            "supported": false,
+            "judge_settings_sha256": "1c91a994d2d659eba99ed65f4011dc81421bcbe7ff1e5218667bbbdcd196f567"
+          },
+          "origin_job_id": "2c626894-30c1-59df-8fa5-d7c431498abf",
+          "online_evaluation_model_calls": 1.0,
+          "reused": false
+        }
+      },
+      "metadata": {
+        "response_id": "4b1de142-eac1-4b1e-b178-b28e15ac0f75",
+        "calibration_sha256": "ada876e4b09ec7362a7db479edd577dfe498e513d14b8ffa2b8d0f7db9c48fc5",
+        "support_result_key": "54aff63b9348584ca94dd67308016fe885561802f597d12f6ab5b7e88191b6a6"
+      },
+      "valid": true
+    },
+    {
+      "assessment_id": "a-0ac3d65a923c53e8b0e256a4c8c023a8",
+      "assessment_name": "human_helpfulness",
+      "trace_id": "tr-64ab15a6185c9f8603cdb98fa198e745",
+      "source": {
+        "source_type": "HUMAN",
+        "source_id": "ace2042a-67d8-4cd7-9b05-59dea957cb69"
+      },
+      "create_time": "2026-11-01T17:06:00.675Z",
+      "last_update_time": "2026-11-01T17:06:00.675Z",
+      "feedback": {
+        "value": "not_helpful"
+      },
+      "metadata": {
+        "feedback_id": "ace2042a-67d8-4cd7-9b05-59dea957cb69",
+        "response_id": "4b1de142-eac1-4b1e-b178-b28e15ac0f75",
+        "categories": "[\"facts\"]",
+        "policy_version": "feedback-v1",
+        "interpretation": "Self-selected helpfulness and reported issues; not checked correctness.",
+        "revision": "1"
+      },
+      "valid": true
+    }
+  ]
+}

@@ -1,0 +1,203 @@
+FF                                                                       [100%]
+=================================== FAILURES ===================================
+__ test_another_mlflow_backend_cannot_claim_or_score_the_original_interaction __
+
+feedback_client = <starlette.testclient.TestClient object at 0x7bd22fd50a40>
+database_url = 'user=ask_phil password=local-demo-only dbname=ask_phil_test_c19fccb39ccf4d309d352ac1266e9f7f host=127.0.0.1 port=55432'
+tmp_path = PosixPath('/tmp/pytest-of-tom/pytest-57/test_another_mlflow_backend_ca0')
+
+    def test_another_mlflow_backend_cannot_claim_or_score_the_original_interaction(
+        feedback_client: TestClient, database_url: str, tmp_path: Path,
+    ) -> None:
+        from datetime import UTC, datetime
+        from ask_phil.feedback_reporting import FeedbackCohort
+        from ask_phil.online_evaluation import OnlinePolicy
+        from ask_phil.online_workflow import OnlineEvaluation
+    
+        feedback_client.post("/v1/answers", json={"snapshot_id": "phil-arrival-v1",
+                             "question": "When did Phil arrive?"}).raise_for_status()
+        evaluation = OnlineEvaluation(database_url, f"sqlite:///{tmp_path}/another.db",
+                                       policy=OnlinePolicy(background_rate=1))
+        assert evaluation.process().completed == 0
+        now = datetime.now(UTC)
+        report = evaluation.report(FeedbackCohort(served_from=now-timedelta(hours=1),
+                                   served_until=now+timedelta(hours=1), feedback_as_of=now))
+        assert report.feedback.counts.eligible == 1
+>       assert report.online_eligible == 0
+               ^^^^^^^^^^^^^^^^^^^^^^
+
+tests/test_online_evaluation.py:206: 
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ 
+
+self = OnlineReport(report_id=UUID('e0bc93c1-ce90-4776-8ccf-dd296be4d629'), created_at=datetime.datetime(2026, 11, 1, 15, 2, ...xt support is not canon correctness. Observed trends do not establish causality. Offline expense is unavailable here.")
+item = 'online_eligible'
+
+    def __getattr__(self, item: str) -> Any:
+        private_attributes = object.__getattribute__(self, '__private_attributes__')
+        if item in private_attributes:
+            attribute = private_attributes[item]
+            if hasattr(attribute, '__get__'):
+                return attribute.__get__(self, type(self))  # type: ignore
+    
+            try:
+                # Note: self.__pydantic_private__ cannot be None if self.__private_attributes__ has items
+                return self.__pydantic_private__[item]  # type: ignore
+            except KeyError as exc:
+                raise AttributeError(f'{type(self).__name__!r} object has no attribute {item!r}') from exc
+        else:
+            # `__pydantic_extra__` can fail to be set if the model is not yet fully initialized.
+            # See `BaseModel.__repr_args__` for more details
+            try:
+                pydantic_extra = object.__getattribute__(self, '__pydantic_extra__')
+            except AttributeError:
+                pydantic_extra = None
+    
+            if pydantic_extra and item in pydantic_extra:
+                return pydantic_extra[item]
+            else:
+                if hasattr(self.__class__, item):
+                    return super().__getattribute__(item)  # Raises AttributeError if appropriate
+                else:
+                    # this is the current error
+>                   raise AttributeError(f'{type(self).__name__!r} object has no attribute {item!r}')
+E                   AttributeError: 'OnlineReport' object has no attribute 'online_eligible'
+
+.venv/lib/python3.12/site-packages/pydantic/main.py:1042: AttributeError
+---------------------------- Captured stderr setup -----------------------------
+2026/11/01 15:01:53 INFO mlflow.store.db.utils: Creating initial MLflow database tables...
+2026/11/01 15:01:53 INFO mlflow.store.db.utils: Updating database tables
+------------------------------ Captured log setup ------------------------------
+INFO     mlflow.store.db.utils:utils.py:87 Creating initial MLflow database tables...
+INFO     mlflow.store.db.utils:utils.py:294 Updating database tables
+----------------------------- Captured stderr call -----------------------------
+15:01:58.628 | INFO    | prefect - Starting temporary server on http://127.0.0.1:8790
+See https://docs.prefect.io/v3/concepts/server#how-to-guides for more information on running a dedicated Prefect server.
+15:02:02.953 | INFO    | Flow run 'gleeful-grebe' - Beginning flow run 'gleeful-grebe' for flow 'ask-phil-online-evaluation'
+15:02:03.990 | INFO    | Flow run 'gleeful-grebe' - Finished in state Completed()
+------------------------------ Captured log call -------------------------------
+WARNING  mlflow.types.type_hints:type_hints.py:237 Union type hint with multiple non-None types is inferred as AnyType, and MLflow doesn't validate the data against its element types.
+WARNING  mlflow.types.type_hints:type_hints.py:244 Union type hint is inferred as AnyType, and MLflow doesn't validate the data against its element types.
+WARNING  mlflow.types.type_hints:type_hints.py:237 Union type hint with multiple non-None types is inferred as AnyType, and MLflow doesn't validate the data against its element types.
+INFO     prefect:server.py:1133 Starting temporary server on http://127.0.0.1:8790
+See https://docs.prefect.io/v3/concepts/server#how-to-guides for more information on running a dedicated Prefect server.
+INFO     prefect.flow_runs:flow_engine.py:1155 Beginning flow run 'gleeful-grebe' for flow 'ask-phil-online-evaluation'
+INFO     prefect.flow_runs:flow_engine.py:1277 Finished in state Completed()
+_ test_report_uses_all_feedback_denominators_even_before_a_bounded_batch_finishes _
+
+feedback_client = <starlette.testclient.TestClient object at 0x7bd22dd84230>
+database_url = 'user=ask_phil password=local-demo-only dbname=ask_phil_test_7735156e718c49499bc0b9041f833639 host=127.0.0.1 port=55432'
+tmp_path = PosixPath('/tmp/pytest-of-tom/pytest-57/test_report_uses_all_feedback_0')
+
+    def test_report_uses_all_feedback_denominators_even_before_a_bounded_batch_finishes(
+        feedback_client: TestClient, database_url: str, tmp_path: Path
+    ) -> None:
+        from datetime import UTC, datetime
+    
+        from ask_phil.feedback_reporting import FeedbackCohort
+        from ask_phil.online_evaluation import OnlinePolicy
+        from ask_phil.online_workflow import OnlineEvaluation
+    
+        evaluation = OnlineEvaluation(
+            database_url,
+            f"sqlite:///{tmp_path}/feedback.db",
+            policy=OnlinePolicy(background_rate=0, batch_size=1),
+        )
+        now = datetime.now(UTC)
+        cohort = FeedbackCohort(
+            served_from=now - timedelta(hours=1),
+            served_until=now + timedelta(hours=1),
+            feedback_as_of=now,
+        )
+        empty = evaluation.report(cohort)
+        assert empty.sample_coverage is None
+        assert empty.score_coverage is None
+        assert empty.feedback.counts.positive_share is None
+        receipts = [
+            feedback_client.post(
+                "/v1/answers",
+                json={"snapshot_id": "phil-arrival-v1", "question": "When did Phil arrive?"},
+            ).json()
+            for _ in range(3)
+        ]
+        for receipt in receipts[:2]:
+            assert (
+                feedback_client.post(
+                    f"/v1/responses/{receipt['response']['response_id']}/feedback",
+                    headers={"Authorization": "Bearer " + receipt["read_token"]},
+                    json={
+                        "submission_id": str(uuid4()),
+                        "policy_version": "feedback-v1",
+                        "rating": "not_helpful",
+                        "categories": ["evidence"],
+                    },
+                ).status_code
+                == 202
+            )
+        assert evaluation.process().completed == 1
+        report = evaluation.report(cohort.model_copy(update={"feedback_as_of": datetime.now(UTC)}))
+        assert (report.feedback.counts.eligible, report.feedback.counts.rated) == (3, 2)
+        assert report.selected == 1
+        assert report.sample_coverage == 1 / 3
+        assert report.states["undiscovered"] == 2
+        assert report.feedback.counts.feedback_coverage == 2 / 3
+        assert report.oldest_pending_seconds is not None
+>       category = next(s for s in report.feedback.slices if s.dimension == "category" and s.value == "evidence")
+                   ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+E       StopIteration
+
+tests/test_online_evaluation.py:185: StopIteration
+---------------------------- Captured stderr setup -----------------------------
+2026/11/01 15:02:04 INFO mlflow.store.db.utils: Creating initial MLflow database tables...
+2026/11/01 15:02:04 INFO mlflow.store.db.utils: Updating database tables
+------------------------------ Captured log setup ------------------------------
+INFO     mlflow.store.db.utils:utils.py:87 Creating initial MLflow database tables...
+INFO     mlflow.store.db.utils:utils.py:294 Updating database tables
+----------------------------- Captured stderr call -----------------------------
+15:02:10.767 | INFO    | Flow run 'chivalrous-leopard' - Beginning flow run 'chivalrous-leopard' for flow 'ask-phil-online-evaluation'
+15:02:11.770 | INFO    | Flow run 'chivalrous-leopard' - Finished in state Completed()
+------------------------------ Captured log call -------------------------------
+INFO     prefect.flow_runs:flow_engine.py:1155 Beginning flow run 'chivalrous-leopard' for flow 'ask-phil-online-evaluation'
+INFO     prefect.flow_runs:flow_engine.py:1277 Finished in state Completed()
+=============================== warnings summary ===============================
+.venv/lib/python3.12/site-packages/fastapi/testclient.py:1
+  /home/tom/Documents/code/python/rag_demo/.venv/lib/python3.12/site-packages/fastapi/testclient.py:1: StarletteDeprecationWarning: Using `httpx` with `starlette.testclient` is deprecated; install `httpx2` instead.
+    from starlette.testclient import TestClient as TestClient  # noqa
+
+-- Docs: https://docs.pytest.org/en/stable/how-to/capture-warnings.html
+=========================== short test summary info ============================
+FAILED tests/test_online_evaluation.py::test_another_mlflow_backend_cannot_claim_or_score_the_original_interaction
+FAILED tests/test_online_evaluation.py::test_report_uses_all_feedback_denominators_even_before_a_bounded_batch_finishes
+2 failed, 1 warning in 19.65s
+2026/11/01 15:02:12 INFO mlflow.tracing.export.async_export_queue: Flushing the async trace logging queue before program exit. This may take a while...
+--- Logging error ---
+Traceback (most recent call last):
+  File "/home/tom/Documents/code/python/rag_demo/.venv/lib/python3.12/site-packages/prefect/logging/handlers.py", line 410, in emit
+    self.console.print(message, soft_wrap=True)
+  File "/home/tom/Documents/code/python/rag_demo/.venv/lib/python3.12/site-packages/rich/console.py", line 1704, in print
+    with self:
+  File "/home/tom/Documents/code/python/rag_demo/.venv/lib/python3.12/site-packages/rich/console.py", line 864, in __exit__
+    self._exit_buffer()
+  File "/home/tom/Documents/code/python/rag_demo/.venv/lib/python3.12/site-packages/rich/console.py", line 820, in _exit_buffer
+    self._check_buffer()
+  File "/home/tom/Documents/code/python/rag_demo/.venv/lib/python3.12/site-packages/rich/console.py", line 2055, in _check_buffer
+    self._write_buffer()
+  File "/home/tom/Documents/code/python/rag_demo/.venv/lib/python3.12/site-packages/rich/console.py", line 2124, in _write_buffer
+    self.file.write(text)
+ValueError: I/O operation on closed file.
+Call stack:
+  File "/home/tom/Documents/code/python/rag_demo/.venv/lib/python3.12/site-packages/prefect/server/api/server.py", line 1212, in stop
+    subprocess_server_logger.info(
+  File "/usr/lib/python3.12/logging/__init__.py", line 1539, in info
+    self._log(INFO, msg, args, **kwargs)
+  File "/usr/lib/python3.12/logging/__init__.py", line 1684, in _log
+    self.handle(record)
+  File "/usr/lib/python3.12/logging/__init__.py", line 1700, in handle
+    self.callHandlers(record)
+  File "/usr/lib/python3.12/logging/__init__.py", line 1762, in callHandlers
+    hdlr.handle(record)
+  File "/usr/lib/python3.12/logging/__init__.py", line 1028, in handle
+    self.emit(record)
+  File "/home/tom/Documents/code/python/rag_demo/.venv/lib/python3.12/site-packages/prefect/logging/handlers.py", line 416, in emit
+    self.handleError(record)
+Message: 'Stopping temporary server on http://127.0.0.1:8790'
+Arguments: ()

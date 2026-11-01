@@ -1,0 +1,16 @@
+{
+  "version": "online-v1",
+  "enabled": true,
+  "background_rate": 1.0,
+  "feedback_rate": 1.0,
+  "seed": "ask-phil-online-v1",
+  "batch_size": 20,
+  "interval_seconds": 0.5,
+  "retry_seconds": 10.0,
+  "max_attempts": 3,
+  "seconds": 45.0,
+  "max_judge_calls": 2,
+  "max_judge_spend_usd": 0.25,
+  "review_rate": 0.1,
+  "evaluator_revision": "support-v1"
+}

@@ -1,0 +1,540 @@
+.EEEEEEEEEEEF.........                                                   [100%]
+==================================== ERRORS ====================================
+_ ERROR at setup of test_unreviewed_source_scope_is_not_sent_to_the_paid_judge[models0] _
+
+tmp_path = PosixPath('/tmp/pytest-of-unknown/pytest-0/test_unreviewed_source_scope_i0')
+
+    @pytest.fixture
+    def bounded_judge(tmp_path: Path) -> Iterator[tuple[SupportJudge, Budget, dict[str, str]]]:
+        profile = OpenRouterProfile.model_validate(
+>           json.loads(CALIBRATION.read_bytes())["judge_profile"]
+                       ^^^^^^^^^^^^^^^^^^^^^^^^
+        )
+
+tests/test_online_judges.py:99: 
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ 
+/usr/local/lib/python3.12/pathlib.py:1019: in read_bytes
+    with self.open(mode='rb') as f:
+         ^^^^^^^^^^^^^^^^^^^^
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ 
+
+self = PosixPath('docs/implementation/issue-9/judge-calibration.json')
+mode = 'rb', buffering = -1, encoding = None, errors = None, newline = None
+
+    def open(self, mode='r', buffering=-1, encoding=None,
+             errors=None, newline=None):
+        """
+        Open the file pointed to by this path and return a file object, as
+        the built-in open() function does.
+        """
+        if "b" not in mode:
+            encoding = io.text_encoding(encoding)
+>       return io.open(self, mode, buffering, encoding, errors, newline)
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+E       PermissionError: [Errno 13] Permission denied: 'docs/implementation/issue-9/judge-calibration.json'
+
+/usr/local/lib/python3.12/pathlib.py:1013: PermissionError
+---------------------------- Captured stderr setup -----------------------------
+2026/11/01 16:16:15 INFO mlflow.store.db.utils: Creating initial MLflow database tables...
+2026/11/01 16:16:15 INFO mlflow.store.db.utils: Updating database tables
+------------------------------ Captured log setup ------------------------------
+INFO     mlflow.store.db.utils:utils.py:87 Creating initial MLflow database tables...
+INFO     mlflow.store.db.utils:utils.py:294 Updating database tables
+_ ERROR at setup of test_interrupted_judge_is_not_charged_again_after_restart[models0] _
+
+tmp_path = PosixPath('/tmp/pytest-of-unknown/pytest-0/test_interrupted_judge_is_not_0')
+
+    @pytest.fixture
+    def bounded_judge(tmp_path: Path) -> Iterator[tuple[SupportJudge, Budget, dict[str, str]]]:
+        profile = OpenRouterProfile.model_validate(
+>           json.loads(CALIBRATION.read_bytes())["judge_profile"]
+                       ^^^^^^^^^^^^^^^^^^^^^^^^
+        )
+
+tests/test_online_judges.py:99: 
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ 
+/usr/local/lib/python3.12/pathlib.py:1019: in read_bytes
+    with self.open(mode='rb') as f:
+         ^^^^^^^^^^^^^^^^^^^^
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ 
+
+self = PosixPath('docs/implementation/issue-9/judge-calibration.json')
+mode = 'rb', buffering = -1, encoding = None, errors = None, newline = None
+
+    def open(self, mode='r', buffering=-1, encoding=None,
+             errors=None, newline=None):
+        """
+        Open the file pointed to by this path and return a file object, as
+        the built-in open() function does.
+        """
+        if "b" not in mode:
+            encoding = io.text_encoding(encoding)
+>       return io.open(self, mode, buffering, encoding, errors, newline)
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+E       PermissionError: [Errno 13] Permission denied: 'docs/implementation/issue-9/judge-calibration.json'
+
+/usr/local/lib/python3.12/pathlib.py:1013: PermissionError
+---------------------------- Captured stderr setup -----------------------------
+2026/11/01 16:16:17 INFO mlflow.store.db.utils: Creating initial MLflow database tables...
+2026/11/01 16:16:17 INFO mlflow.store.db.utils: Updating database tables
+------------------------------ Captured log setup ------------------------------
+INFO     mlflow.store.db.utils:utils.py:87 Creating initial MLflow database tables...
+INFO     mlflow.store.db.utils:utils.py:294 Updating database tables
+_ ERROR at setup of test_limited_failed_and_missing_usage_judges_leave_honest_inspectable_results[normal-0-0.25-skipped-models0] _
+
+tmp_path = PosixPath('/tmp/pytest-of-unknown/pytest-0/test_limited_failed_and_missin0')
+
+    @pytest.fixture
+    def bounded_judge(tmp_path: Path) -> Iterator[tuple[SupportJudge, Budget, dict[str, str]]]:
+        profile = OpenRouterProfile.model_validate(
+>           json.loads(CALIBRATION.read_bytes())["judge_profile"]
+                       ^^^^^^^^^^^^^^^^^^^^^^^^
+        )
+
+tests/test_online_judges.py:99: 
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ 
+/usr/local/lib/python3.12/pathlib.py:1019: in read_bytes
+    with self.open(mode='rb') as f:
+         ^^^^^^^^^^^^^^^^^^^^
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ 
+
+self = PosixPath('docs/implementation/issue-9/judge-calibration.json')
+mode = 'rb', buffering = -1, encoding = None, errors = None, newline = None
+
+    def open(self, mode='r', buffering=-1, encoding=None,
+             errors=None, newline=None):
+        """
+        Open the file pointed to by this path and return a file object, as
+        the built-in open() function does.
+        """
+        if "b" not in mode:
+            encoding = io.text_encoding(encoding)
+>       return io.open(self, mode, buffering, encoding, errors, newline)
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+E       PermissionError: [Errno 13] Permission denied: 'docs/implementation/issue-9/judge-calibration.json'
+
+/usr/local/lib/python3.12/pathlib.py:1013: PermissionError
+---------------------------- Captured stderr setup -----------------------------
+2026/11/01 16:16:19 INFO mlflow.store.db.utils: Creating initial MLflow database tables...
+2026/11/01 16:16:19 INFO mlflow.store.db.utils: Updating database tables
+------------------------------ Captured log setup ------------------------------
+INFO     mlflow.store.db.utils:utils.py:87 Creating initial MLflow database tables...
+INFO     mlflow.store.db.utils:utils.py:294 Updating database tables
+_ ERROR at setup of test_limited_failed_and_missing_usage_judges_leave_honest_inspectable_results[normal-1-0-budget_skipped-models0] _
+
+tmp_path = PosixPath('/tmp/pytest-of-unknown/pytest-0/test_limited_failed_and_missin1')
+
+    @pytest.fixture
+    def bounded_judge(tmp_path: Path) -> Iterator[tuple[SupportJudge, Budget, dict[str, str]]]:
+        profile = OpenRouterProfile.model_validate(
+>           json.loads(CALIBRATION.read_bytes())["judge_profile"]
+                       ^^^^^^^^^^^^^^^^^^^^^^^^
+        )
+
+tests/test_online_judges.py:99: 
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ 
+/usr/local/lib/python3.12/pathlib.py:1019: in read_bytes
+    with self.open(mode='rb') as f:
+         ^^^^^^^^^^^^^^^^^^^^
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ 
+
+self = PosixPath('docs/implementation/issue-9/judge-calibration.json')
+mode = 'rb', buffering = -1, encoding = None, errors = None, newline = None
+
+    def open(self, mode='r', buffering=-1, encoding=None,
+             errors=None, newline=None):
+        """
+        Open the file pointed to by this path and return a file object, as
+        the built-in open() function does.
+        """
+        if "b" not in mode:
+            encoding = io.text_encoding(encoding)
+>       return io.open(self, mode, buffering, encoding, errors, newline)
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+E       PermissionError: [Errno 13] Permission denied: 'docs/implementation/issue-9/judge-calibration.json'
+
+/usr/local/lib/python3.12/pathlib.py:1013: PermissionError
+---------------------------- Captured stderr setup -----------------------------
+2026/11/01 16:16:21 INFO mlflow.store.db.utils: Creating initial MLflow database tables...
+2026/11/01 16:16:21 INFO mlflow.store.db.utils: Updating database tables
+------------------------------ Captured log setup ------------------------------
+INFO     mlflow.store.db.utils:utils.py:87 Creating initial MLflow database tables...
+INFO     mlflow.store.db.utils:utils.py:294 Updating database tables
+_ ERROR at setup of test_limited_failed_and_missing_usage_judges_leave_honest_inspectable_results[failed-1-0.25-failed-models0] _
+
+tmp_path = PosixPath('/tmp/pytest-of-unknown/pytest-0/test_limited_failed_and_missin2')
+
+    @pytest.fixture
+    def bounded_judge(tmp_path: Path) -> Iterator[tuple[SupportJudge, Budget, dict[str, str]]]:
+        profile = OpenRouterProfile.model_validate(
+>           json.loads(CALIBRATION.read_bytes())["judge_profile"]
+                       ^^^^^^^^^^^^^^^^^^^^^^^^
+        )
+
+tests/test_online_judges.py:99: 
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ 
+/usr/local/lib/python3.12/pathlib.py:1019: in read_bytes
+    with self.open(mode='rb') as f:
+         ^^^^^^^^^^^^^^^^^^^^
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ 
+
+self = PosixPath('docs/implementation/issue-9/judge-calibration.json')
+mode = 'rb', buffering = -1, encoding = None, errors = None, newline = None
+
+    def open(self, mode='r', buffering=-1, encoding=None,
+             errors=None, newline=None):
+        """
+        Open the file pointed to by this path and return a file object, as
+        the built-in open() function does.
+        """
+        if "b" not in mode:
+            encoding = io.text_encoding(encoding)
+>       return io.open(self, mode, buffering, encoding, errors, newline)
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+E       PermissionError: [Errno 13] Permission denied: 'docs/implementation/issue-9/judge-calibration.json'
+
+/usr/local/lib/python3.12/pathlib.py:1013: PermissionError
+---------------------------- Captured stderr setup -----------------------------
+2026/11/01 16:16:23 INFO mlflow.store.db.utils: Creating initial MLflow database tables...
+2026/11/01 16:16:23 INFO mlflow.store.db.utils: Updating database tables
+------------------------------ Captured log setup ------------------------------
+INFO     mlflow.store.db.utils:utils.py:87 Creating initial MLflow database tables...
+INFO     mlflow.store.db.utils:utils.py:294 Updating database tables
+_ ERROR at setup of test_limited_failed_and_missing_usage_judges_leave_honest_inspectable_results[invalid-1-0.25-failed-models0] _
+
+tmp_path = PosixPath('/tmp/pytest-of-unknown/pytest-0/test_limited_failed_and_missin3')
+
+    @pytest.fixture
+    def bounded_judge(tmp_path: Path) -> Iterator[tuple[SupportJudge, Budget, dict[str, str]]]:
+        profile = OpenRouterProfile.model_validate(
+>           json.loads(CALIBRATION.read_bytes())["judge_profile"]
+                       ^^^^^^^^^^^^^^^^^^^^^^^^
+        )
+
+tests/test_online_judges.py:99: 
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ 
+/usr/local/lib/python3.12/pathlib.py:1019: in read_bytes
+    with self.open(mode='rb') as f:
+         ^^^^^^^^^^^^^^^^^^^^
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ 
+
+self = PosixPath('docs/implementation/issue-9/judge-calibration.json')
+mode = 'rb', buffering = -1, encoding = None, errors = None, newline = None
+
+    def open(self, mode='r', buffering=-1, encoding=None,
+             errors=None, newline=None):
+        """
+        Open the file pointed to by this path and return a file object, as
+        the built-in open() function does.
+        """
+        if "b" not in mode:
+            encoding = io.text_encoding(encoding)
+>       return io.open(self, mode, buffering, encoding, errors, newline)
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+E       PermissionError: [Errno 13] Permission denied: 'docs/implementation/issue-9/judge-calibration.json'
+
+/usr/local/lib/python3.12/pathlib.py:1013: PermissionError
+---------------------------- Captured stderr setup -----------------------------
+2026/11/01 16:16:25 INFO mlflow.store.db.utils: Creating initial MLflow database tables...
+2026/11/01 16:16:25 INFO mlflow.store.db.utils: Updating database tables
+------------------------------ Captured log setup ------------------------------
+INFO     mlflow.store.db.utils:utils.py:87 Creating initial MLflow database tables...
+INFO     mlflow.store.db.utils:utils.py:294 Updating database tables
+_ ERROR at setup of test_limited_failed_and_missing_usage_judges_leave_honest_inspectable_results[missing_usage-1-0.25-completed-models0] _
+
+tmp_path = PosixPath('/tmp/pytest-of-unknown/pytest-0/test_limited_failed_and_missin4')
+
+    @pytest.fixture
+    def bounded_judge(tmp_path: Path) -> Iterator[tuple[SupportJudge, Budget, dict[str, str]]]:
+        profile = OpenRouterProfile.model_validate(
+>           json.loads(CALIBRATION.read_bytes())["judge_profile"]
+                       ^^^^^^^^^^^^^^^^^^^^^^^^
+        )
+
+tests/test_online_judges.py:99: 
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ 
+/usr/local/lib/python3.12/pathlib.py:1019: in read_bytes
+    with self.open(mode='rb') as f:
+         ^^^^^^^^^^^^^^^^^^^^
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ 
+
+self = PosixPath('docs/implementation/issue-9/judge-calibration.json')
+mode = 'rb', buffering = -1, encoding = None, errors = None, newline = None
+
+    def open(self, mode='r', buffering=-1, encoding=None,
+             errors=None, newline=None):
+        """
+        Open the file pointed to by this path and return a file object, as
+        the built-in open() function does.
+        """
+        if "b" not in mode:
+            encoding = io.text_encoding(encoding)
+>       return io.open(self, mode, buffering, encoding, errors, newline)
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+E       PermissionError: [Errno 13] Permission denied: 'docs/implementation/issue-9/judge-calibration.json'
+
+/usr/local/lib/python3.12/pathlib.py:1013: PermissionError
+---------------------------- Captured stderr setup -----------------------------
+2026/11/01 16:16:27 INFO mlflow.store.db.utils: Creating initial MLflow database tables...
+2026/11/01 16:16:27 INFO mlflow.store.db.utils: Updating database tables
+------------------------------ Captured log setup ------------------------------
+INFO     mlflow.store.db.utils:utils.py:87 Creating initial MLflow database tables...
+INFO     mlflow.store.db.utils:utils.py:294 Updating database tables
+_ ERROR at setup of test_online_spending_allocation_does_not_reset_with_configuration_revisions[change0-models0] _
+
+tmp_path = PosixPath('/tmp/pytest-of-unknown/pytest-0/test_online_spending_allocatio0')
+
+    @pytest.fixture
+    def bounded_judge(tmp_path: Path) -> Iterator[tuple[SupportJudge, Budget, dict[str, str]]]:
+        profile = OpenRouterProfile.model_validate(
+>           json.loads(CALIBRATION.read_bytes())["judge_profile"]
+                       ^^^^^^^^^^^^^^^^^^^^^^^^
+        )
+
+tests/test_online_judges.py:99: 
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ 
+/usr/local/lib/python3.12/pathlib.py:1019: in read_bytes
+    with self.open(mode='rb') as f:
+         ^^^^^^^^^^^^^^^^^^^^
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ 
+
+self = PosixPath('docs/implementation/issue-9/judge-calibration.json')
+mode = 'rb', buffering = -1, encoding = None, errors = None, newline = None
+
+    def open(self, mode='r', buffering=-1, encoding=None,
+             errors=None, newline=None):
+        """
+        Open the file pointed to by this path and return a file object, as
+        the built-in open() function does.
+        """
+        if "b" not in mode:
+            encoding = io.text_encoding(encoding)
+>       return io.open(self, mode, buffering, encoding, errors, newline)
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+E       PermissionError: [Errno 13] Permission denied: 'docs/implementation/issue-9/judge-calibration.json'
+
+/usr/local/lib/python3.12/pathlib.py:1013: PermissionError
+---------------------------- Captured stderr setup -----------------------------
+2026/11/01 16:16:29 INFO mlflow.store.db.utils: Creating initial MLflow database tables...
+2026/11/01 16:16:29 INFO mlflow.store.db.utils: Updating database tables
+------------------------------ Captured log setup ------------------------------
+INFO     mlflow.store.db.utils:utils.py:87 Creating initial MLflow database tables...
+INFO     mlflow.store.db.utils:utils.py:294 Updating database tables
+_ ERROR at setup of test_online_spending_allocation_does_not_reset_with_configuration_revisions[change1-models0] _
+
+tmp_path = PosixPath('/tmp/pytest-of-unknown/pytest-0/test_online_spending_allocatio1')
+
+    @pytest.fixture
+    def bounded_judge(tmp_path: Path) -> Iterator[tuple[SupportJudge, Budget, dict[str, str]]]:
+        profile = OpenRouterProfile.model_validate(
+>           json.loads(CALIBRATION.read_bytes())["judge_profile"]
+                       ^^^^^^^^^^^^^^^^^^^^^^^^
+        )
+
+tests/test_online_judges.py:99: 
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ 
+/usr/local/lib/python3.12/pathlib.py:1019: in read_bytes
+    with self.open(mode='rb') as f:
+         ^^^^^^^^^^^^^^^^^^^^
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ 
+
+self = PosixPath('docs/implementation/issue-9/judge-calibration.json')
+mode = 'rb', buffering = -1, encoding = None, errors = None, newline = None
+
+    def open(self, mode='r', buffering=-1, encoding=None,
+             errors=None, newline=None):
+        """
+        Open the file pointed to by this path and return a file object, as
+        the built-in open() function does.
+        """
+        if "b" not in mode:
+            encoding = io.text_encoding(encoding)
+>       return io.open(self, mode, buffering, encoding, errors, newline)
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+E       PermissionError: [Errno 13] Permission denied: 'docs/implementation/issue-9/judge-calibration.json'
+
+/usr/local/lib/python3.12/pathlib.py:1013: PermissionError
+---------------------------- Captured stderr setup -----------------------------
+2026/11/01 16:16:30 INFO mlflow.store.db.utils: Creating initial MLflow database tables...
+2026/11/01 16:16:30 INFO mlflow.store.db.utils: Updating database tables
+------------------------------ Captured log setup ------------------------------
+INFO     mlflow.store.db.utils:utils.py:87 Creating initial MLflow database tables...
+INFO     mlflow.store.db.utils:utils.py:294 Updating database tables
+_ ERROR at setup of test_online_spending_allocation_does_not_reset_with_configuration_revisions[change2-models0] _
+
+tmp_path = PosixPath('/tmp/pytest-of-unknown/pytest-0/test_online_spending_allocatio2')
+
+    @pytest.fixture
+    def bounded_judge(tmp_path: Path) -> Iterator[tuple[SupportJudge, Budget, dict[str, str]]]:
+        profile = OpenRouterProfile.model_validate(
+>           json.loads(CALIBRATION.read_bytes())["judge_profile"]
+                       ^^^^^^^^^^^^^^^^^^^^^^^^
+        )
+
+tests/test_online_judges.py:99: 
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ 
+/usr/local/lib/python3.12/pathlib.py:1019: in read_bytes
+    with self.open(mode='rb') as f:
+         ^^^^^^^^^^^^^^^^^^^^
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ 
+
+self = PosixPath('docs/implementation/issue-9/judge-calibration.json')
+mode = 'rb', buffering = -1, encoding = None, errors = None, newline = None
+
+    def open(self, mode='r', buffering=-1, encoding=None,
+             errors=None, newline=None):
+        """
+        Open the file pointed to by this path and return a file object, as
+        the built-in open() function does.
+        """
+        if "b" not in mode:
+            encoding = io.text_encoding(encoding)
+>       return io.open(self, mode, buffering, encoding, errors, newline)
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+E       PermissionError: [Errno 13] Permission denied: 'docs/implementation/issue-9/judge-calibration.json'
+
+/usr/local/lib/python3.12/pathlib.py:1013: PermissionError
+---------------------------- Captured stderr setup -----------------------------
+2026/11/01 16:16:32 INFO mlflow.store.db.utils: Creating initial MLflow database tables...
+2026/11/01 16:16:32 INFO mlflow.store.db.utils: Updating database tables
+------------------------------ Captured log setup ------------------------------
+INFO     mlflow.store.db.utils:utils.py:87 Creating initial MLflow database tables...
+INFO     mlflow.store.db.utils:utils.py:294 Updating database tables
+_ ERROR at setup of test_online_spending_allocation_does_not_reset_with_configuration_revisions[change3-models0] _
+
+tmp_path = PosixPath('/tmp/pytest-of-unknown/pytest-0/test_online_spending_allocatio3')
+
+    @pytest.fixture
+    def bounded_judge(tmp_path: Path) -> Iterator[tuple[SupportJudge, Budget, dict[str, str]]]:
+        profile = OpenRouterProfile.model_validate(
+>           json.loads(CALIBRATION.read_bytes())["judge_profile"]
+                       ^^^^^^^^^^^^^^^^^^^^^^^^
+        )
+
+tests/test_online_judges.py:99: 
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ 
+/usr/local/lib/python3.12/pathlib.py:1019: in read_bytes
+    with self.open(mode='rb') as f:
+         ^^^^^^^^^^^^^^^^^^^^
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ 
+
+self = PosixPath('docs/implementation/issue-9/judge-calibration.json')
+mode = 'rb', buffering = -1, encoding = None, errors = None, newline = None
+
+    def open(self, mode='r', buffering=-1, encoding=None,
+             errors=None, newline=None):
+        """
+        Open the file pointed to by this path and return a file object, as
+        the built-in open() function does.
+        """
+        if "b" not in mode:
+            encoding = io.text_encoding(encoding)
+>       return io.open(self, mode, buffering, encoding, errors, newline)
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+E       PermissionError: [Errno 13] Permission denied: 'docs/implementation/issue-9/judge-calibration.json'
+
+/usr/local/lib/python3.12/pathlib.py:1013: PermissionError
+---------------------------- Captured stderr setup -----------------------------
+2026/11/01 16:16:34 INFO mlflow.store.db.utils: Creating initial MLflow database tables...
+2026/11/01 16:16:34 INFO mlflow.store.db.utils: Updating database tables
+------------------------------ Captured log setup ------------------------------
+INFO     mlflow.store.db.utils:utils.py:87 Creating initial MLflow database tables...
+INFO     mlflow.store.db.utils:utils.py:294 Updating database tables
+=================================== FAILURES ===================================
+_ test_calibrated_judge_uses_original_context_without_the_rating_or_hostile_comment[models0] _
+
+feedback_client = <starlette.testclient.TestClient object at 0x796d886f1370>
+database_url = 'user=ask_phil password=local-demo-only dbname=ask_phil_test_44a531d165bb4589a420c925a807130f host=127.0.0.1 port=55432'
+tmp_path = PosixPath('/tmp/pytest-of-unknown/pytest-0/test_calibrated_judge_uses_ori0')
+
+    def test_calibrated_judge_uses_original_context_without_the_rating_or_hostile_comment(
+        feedback_client: TestClient, database_url: str, tmp_path: Path
+    ) -> None:
+        profile = OpenRouterProfile.model_validate(
+>           json.loads(CALIBRATION.read_bytes())["judge_profile"]
+                       ^^^^^^^^^^^^^^^^^^^^^^^^
+        )
+
+tests/test_online_judges.py:336: 
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ 
+/usr/local/lib/python3.12/pathlib.py:1019: in read_bytes
+    with self.open(mode='rb') as f:
+         ^^^^^^^^^^^^^^^^^^^^
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ 
+
+self = PosixPath('docs/implementation/issue-9/judge-calibration.json')
+mode = 'rb', buffering = -1, encoding = None, errors = None, newline = None
+
+    def open(self, mode='r', buffering=-1, encoding=None,
+             errors=None, newline=None):
+        """
+        Open the file pointed to by this path and return a file object, as
+        the built-in open() function does.
+        """
+        if "b" not in mode:
+            encoding = io.text_encoding(encoding)
+>       return io.open(self, mode, buffering, encoding, errors, newline)
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+E       PermissionError: [Errno 13] Permission denied: 'docs/implementation/issue-9/judge-calibration.json'
+
+/usr/local/lib/python3.12/pathlib.py:1013: PermissionError
+---------------------------- Captured stderr setup -----------------------------
+2026/11/01 16:16:35 INFO mlflow.store.db.utils: Creating initial MLflow database tables...
+2026/11/01 16:16:35 INFO mlflow.store.db.utils: Updating database tables
+------------------------------ Captured log setup ------------------------------
+INFO     mlflow.store.db.utils:utils.py:87 Creating initial MLflow database tables...
+INFO     mlflow.store.db.utils:utils.py:294 Updating database tables
+=============================== warnings summary ===============================
+.venv/lib/python3.12/site-packages/fastapi/testclient.py:1
+  /app/.venv/lib/python3.12/site-packages/fastapi/testclient.py:1: StarletteDeprecationWarning: Using `httpx` with `starlette.testclient` is deprecated; install `httpx2` instead.
+    from starlette.testclient import TestClient as TestClient  # noqa
+
+-- Docs: https://docs.pytest.org/en/stable/how-to/capture-warnings.html
+=========================== short test summary info ============================
+FAILED tests/test_online_judges.py::test_calibrated_judge_uses_original_context_without_the_rating_or_hostile_comment[models0]
+ERROR tests/test_online_judges.py::test_unreviewed_source_scope_is_not_sent_to_the_paid_judge[models0]
+ERROR tests/test_online_judges.py::test_interrupted_judge_is_not_charged_again_after_restart[models0]
+ERROR tests/test_online_judges.py::test_limited_failed_and_missing_usage_judges_leave_honest_inspectable_results[normal-0-0.25-skipped-models0]
+ERROR tests/test_online_judges.py::test_limited_failed_and_missing_usage_judges_leave_honest_inspectable_results[normal-1-0-budget_skipped-models0]
+ERROR tests/test_online_judges.py::test_limited_failed_and_missing_usage_judges_leave_honest_inspectable_results[failed-1-0.25-failed-models0]
+ERROR tests/test_online_judges.py::test_limited_failed_and_missing_usage_judges_leave_honest_inspectable_results[invalid-1-0.25-failed-models0]
+ERROR tests/test_online_judges.py::test_limited_failed_and_missing_usage_judges_leave_honest_inspectable_results[missing_usage-1-0.25-completed-models0]
+ERROR tests/test_online_judges.py::test_online_spending_allocation_does_not_reset_with_configuration_revisions[change0-models0]
+ERROR tests/test_online_judges.py::test_online_spending_allocation_does_not_reset_with_configuration_revisions[change1-models0]
+ERROR tests/test_online_judges.py::test_online_spending_allocation_does_not_reset_with_configuration_revisions[change2-models0]
+ERROR tests/test_online_judges.py::test_online_spending_allocation_does_not_reset_with_configuration_revisions[change3-models0]
+1 failed, 10 passed, 1 warning, 11 errors in 115.41s (0:01:55)
+2026/11/01 16:17:23 INFO mlflow.tracing.export.async_export_queue: Flushing the async trace logging queue before program exit. This may take a while...
+--- Logging error ---
+Traceback (most recent call last):
+  File "/app/.venv/lib/python3.12/site-packages/prefect/logging/handlers.py", line 410, in emit
+    self.console.print(message, soft_wrap=True)
+  File "/app/.venv/lib/python3.12/site-packages/rich/console.py", line 1704, in print
+    with self:
+         ^^^^
+  File "/app/.venv/lib/python3.12/site-packages/rich/console.py", line 864, in __exit__
+    self._exit_buffer()
+  File "/app/.venv/lib/python3.12/site-packages/rich/console.py", line 820, in _exit_buffer
+    self._check_buffer()
+  File "/app/.venv/lib/python3.12/site-packages/rich/console.py", line 2055, in _check_buffer
+    self._write_buffer()
+  File "/app/.venv/lib/python3.12/site-packages/rich/console.py", line 2124, in _write_buffer
+    self.file.write(text)
+ValueError: I/O operation on closed file.
+Call stack:
+  File "/app/.venv/lib/python3.12/site-packages/prefect/server/api/server.py", line 1212, in stop
+    subprocess_server_logger.info(
+  File "/usr/local/lib/python3.12/logging/__init__.py", line 1539, in info
+    self._log(INFO, msg, args, **kwargs)
+  File "/usr/local/lib/python3.12/logging/__init__.py", line 1684, in _log
+    self.handle(record)
+  File "/usr/local/lib/python3.12/logging/__init__.py", line 1700, in handle
+    self.callHandlers(record)
+  File "/usr/local/lib/python3.12/logging/__init__.py", line 1762, in callHandlers
+    hdlr.handle(record)
+  File "/usr/local/lib/python3.12/logging/__init__.py", line 1028, in handle
+    self.emit(record)
+  File "/app/.venv/lib/python3.12/site-packages/prefect/logging/handlers.py", line 416, in emit
+    self.handleError(record)
+Message: 'Stopping temporary server on http://127.0.0.1:8223'
+Arguments: ()

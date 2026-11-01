@@ -1,0 +1,136 @@
+{
+  "scores": {
+    "original-failure": {
+      "review": {
+        "case_id": "original-failure",
+        "response_sha256": "a166eb9ed928ea305c460ec305e5e5c8030407c1e6799e8815153d5a586dc529",
+        "reference_sha256": "1c1152230e476790f9888c9538e87d6cd513de2aaa5343ea2eb513b3e46d2ef5",
+        "reviewer": "Codex source-review agent",
+        "rationale": "Expected year read independently from source; demo traffic.",
+        "claims": [
+          {
+            "claim": "Phil Mitchell first arrived in February 1991.",
+            "correct": false,
+            "grounded": false,
+            "citation_supported": false
+          }
+        ],
+        "required_facts": [
+          {
+            "fact": "Phil first arrived in February 1990.",
+            "covered": false
+          }
+        ],
+        "answerability": true,
+        "relevance": null,
+        "critical_failures": []
+      },
+      "scores": {
+        "correctness": {
+          "passed": 0,
+          "assessed": 1,
+          "unassessed": 0,
+          "value": 0.0
+        },
+        "groundedness": {
+          "passed": 0,
+          "assessed": 1,
+          "unassessed": 0,
+          "value": 0.0
+        },
+        "completeness": {
+          "passed": 0,
+          "assessed": 1,
+          "unassessed": 0,
+          "value": 0.0
+        },
+        "citation_support": {
+          "passed": 0,
+          "assessed": 1,
+          "unassessed": 0,
+          "value": 0.0
+        },
+        "answerability": {
+          "passed": 1,
+          "assessed": 1,
+          "unassessed": 0,
+          "value": 1.0
+        },
+        "relevance": {
+          "passed": 0,
+          "assessed": 0,
+          "unassessed": 1,
+          "value": null
+        },
+        "critical_failures": []
+      }
+    },
+    "fixed-control": {
+      "review": {
+        "case_id": "fixed-control",
+        "response_sha256": "ec139b2a7a7d5f6da472ea387a45a4444734030564210c762e1f5d639b7ec4a9",
+        "reference_sha256": "91fcf8f78fef5cdba21d2c5208a95b6e5c929b42efb56c0d229d8950e822c22f",
+        "reviewer": "Codex source-review agent",
+        "rationale": "Expected year read independently from source; demo traffic.",
+        "claims": [
+          {
+            "claim": "Phil Mitchell first arrived in February 1990.",
+            "correct": true,
+            "grounded": true,
+            "citation_supported": true
+          }
+        ],
+        "required_facts": [
+          {
+            "fact": "Phil first arrived in February 1990.",
+            "covered": true
+          }
+        ],
+        "answerability": true,
+        "relevance": null,
+        "critical_failures": []
+      },
+      "scores": {
+        "correctness": {
+          "passed": 1,
+          "assessed": 1,
+          "unassessed": 0,
+          "value": 1.0
+        },
+        "groundedness": {
+          "passed": 1,
+          "assessed": 1,
+          "unassessed": 0,
+          "value": 1.0
+        },
+        "completeness": {
+          "passed": 1,
+          "assessed": 1,
+          "unassessed": 0,
+          "value": 1.0
+        },
+        "citation_support": {
+          "passed": 1,
+          "assessed": 1,
+          "unassessed": 0,
+          "value": 1.0
+        },
+        "answerability": {
+          "passed": 1,
+          "assessed": 1,
+          "unassessed": 0,
+          "value": 1.0
+        },
+        "relevance": {
+          "passed": 0,
+          "assessed": 0,
+          "unassessed": 1,
+          "value": null
+        },
+        "critical_failures": []
+      }
+    }
+  },
+  "reviewer_type": "agent; requires maintainer quality acceptance",
+  "capture_sha256": "68032af4b5777435dd21d5abf74aaf5df095332bbaaacc490a28bc4718d9b2f5"
+}

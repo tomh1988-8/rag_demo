@@ -1,0 +1,23 @@
+{
+  "traffic": "demo-test",
+  "serving_models": "controlled external HTTP boundary",
+  "online_judge": "actual paid calibrated provider; narrow explicit-subject support pilot",
+  "code_revision": "c4cb625e4ddf6e15761a24c676c6f9b34acd7c5a",
+  "application_sha256": "13aca48a9b7c7e8a49ca7f924c75b8f37eefe097c75ad1552dd8e8d3c1bfb1dd",
+  "code_sha256": "9c083deb29ef7c794228d8b0117d5776d3a9c6e6cef552f0db6be5c4a327f24a",
+  "report_id": "77cba567-a237-497e-8c3c-b75e3d3f4881",
+  "review_id": "b720d273-88f0-4ab0-8638-3f68cf82a746",
+  "source_revision": "1375499431",
+  "provider_ledger_before": [
+    0.911656,
+    0
+  ],
+  "provider_ledger_after": [
+    0.913644,
+    0
+  ],
+  "new_serving_provider_calls": 0,
+  "new_online_judge_calls": 2,
+  "offline_judge_calls": 0,
+  "limitation": "Scripted ratings and controlled serving; source-supported agent review, not human canon or held-out acceptance."
+}

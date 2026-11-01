@@ -1,0 +1,22 @@
+{
+  "review_id": "cde02fee-88d0-4512-819e-e4a828056d77",
+  "report_id": "047ed6c6-d088-4f7d-8e04-fe655049f79f",
+  "reviewer": "Codex source-review agent",
+  "note": "Demo/test traffic; required items checked against source.",
+  "dispositions": [
+    {
+      "response_id": "3145d4a9-990a-4e4c-ab5f-428a84ec0b05",
+      "feedback_revision": 1,
+      "response_sha256": "41c42f56909ec48559519fddfa7b51f93ab957a8aa6f93158ef6d3bd75241cc1",
+      "disposition": "confirmed",
+      "note": "Inspected original source: February 1990. The 1991 answer is unsupported."
+    },
+    {
+      "response_id": "72f6ef73-16c2-4ebf-a532-be1a0c2ae407",
+      "feedback_revision": 1,
+      "response_sha256": "38509a3b5302665d6d84f0528f98af6977a013f1a20c314bd568b4ba5f5e8df5",
+      "disposition": "rejected",
+      "note": "Inspected original source: February 1990. No factual discrepancy found."
+    }
+  ]
+}

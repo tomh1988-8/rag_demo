@@ -1,0 +1,242 @@
+F                                                                        [100%]
+=================================== FAILURES ===================================
+_ test_checked_live_failure_is_promoted_with_evidence_lineage_and_split_controls[evidence_excerpt-plain-models0] _
+
+feedback_client = <starlette.testclient.TestClient object at 0x7f48f5cc9280>
+database_url = 'user=ask_phil password=local-demo-only dbname=ask_phil_test_0341808470914a96adf5acc4a210f4de host=127.0.0.1 port=55432'
+tmp_path = PosixPath('/tmp/pytest-of-tom/pytest-69/test_checked_live_failure_is_p0')
+contamination = 'evidence_excerpt'
+monkeypatch = <_pytest.monkeypatch.MonkeyPatch object at 0x7f48f5794950>
+
+    @pytest.mark.parametrize(
+        "models",
+        [
+            {
+                "draft": {
+                    "answer": "I arrived in February 1991.",
+                    "evidence_ids": ["phil-arrival-001"],
+                }
+            }
+        ],
+        indirect=True,
+    )
+    @pytest.mark.parametrize(
+        "contamination,seed",
+        [
+            ("none", "plain"),
+            ("group", "plain"),
+            ("question", "plain"),
+            ("evidence", "plain"),
+            ("derivative", "plain"),
+            ("prior_group", "plain"),
+            ("evidence", "escaped"),
+            ("evidence_excerpt", "plain"),
+            ("registry_missing", "plain"),
+        ],
+        indirect=["seed"],
+    )
+    def test_checked_live_failure_is_promoted_with_evidence_lineage_and_split_controls(
+        feedback_client: TestClient,
+        database_url: str,
+        tmp_path: Path,
+        contamination: str,
+        monkeypatch: pytest.MonkeyPatch,
+    ) -> None:
+        from ask_phil.online_review import OnlineReview, RegressionPromotion, ReportReview
+    
+        receipt = feedback_client.post(
+            "/v1/answers",
+            json={
+                "snapshot_id": "phil-arrival-v1",
+                "question": "When did Phil first arrive in Walford?",
+            },
+        ).json()
+        response = receipt["response"]
+        response_id = UUID(response["response_id"])
+        feedback_client.post(
+            f"/v1/responses/{response_id}/feedback",
+            headers={"Authorization": "Bearer " + receipt["read_token"]},
+            json={
+                "submission_id": str(uuid4()),
+                "policy_version": "feedback-v1",
+                "rating": "not_helpful",
+                "categories": ["facts"],
+                "comment": "The year does not match the source.",
+            },
+        ).raise_for_status()
+        evaluation = OnlineEvaluation(
+            database_url, f"sqlite:///{tmp_path}/feedback.db", policy=OnlinePolicy(background_rate=0)
+        )
+        evaluation.process()
+        now = datetime.now(UTC)
+        report = evaluation.report(
+            FeedbackCohort(
+                served_from=now - timedelta(hours=1),
+                served_until=now + timedelta(hours=1),
+                feedback_as_of=now,
+            )
+        )
+        review = OnlineReview(database_url)
+        checked = review.record(
+            ReportReview.model_validate(
+                dict(
+                    report_id=report.report_id,
+                    reviewer="source-review-test",
+                    note="Controlled external-model failure; checked against the captured source.",
+                    dispositions=(
+                        {
+                            "response_id": response_id,
+                            "feedback_revision": 1,
+                            "disposition": "confirmed",
+                            "note": "Source states February 1990, not 1991.",
+                            "response_sha256": document_fingerprint(response),
+                        },
+                    ),
+                )
+            )
+        )
+        passage = response["context"][0]
+        promotion = RegressionPromotion.model_validate(
+            dict(
+                review_id=checked.review_id,
+                response_id=response_id,
+                case={
+                    "case_id": "online-arrival-regression",
+                    "group_ids": ["phil-arrival"],
+                    "split": "regression",
+                    "category": "arrival-year",
+                    "question": response["question"],
+                    "snapshot_id": response["snapshot_id"],
+                    "expected_status": "answered",
+                    "required_facts": [
+                        {
+                            "fact": "Phil first arrived in February 1990.",
+                            "sufficient_sets": [["phil-arrival-001"]],
+                        }
+                    ],
+                    "allowed_alternatives": [],
+                    "forbidden_assertions": ["Phil arrived in 1991."],
+                    "evidence": [
+                        {
+                            "evidence_id": passage["evidence_id"],
+                            "text": passage["text"],
+                            "source_revision": response["source"]["revision_id"],
+                            "sha256": hashlib.sha256(passage["text"].encode()).hexdigest(),
+                        }
+                    ],
+                    "review_note": "Independent expected date from the original source passage.",
+                    "synthetic_provenance": "Controlled model output and scripted demo feedback.",
+                },
+                source_checks=(
+                    {
+                        "fact": "Phil first arrived in February 1990.",
+                        "evidence_ids": ("phil-arrival-001",),
+                        "note": "Read the passage and independently established the expected year.",
+                    },
+                ),
+            )
+        )
+        output = tmp_path / "regression-v1.json"
+        monkeypatch.chdir(tmp_path)
+        if contamination == "registry_missing":
+            monkeypatch.setenv("ASK_PHIL_REFERENCE_DIRECTORY", str(tmp_path / "missing-registry"))
+            with pytest.raises(ValueError, match="registry"):
+                review.promote(promotion, output)
+            assert not output.exists()
+            return
+        if contamination != "none":
+            registry = tmp_path / "data" / "references"
+            registry.mkdir(parents=True)
+            held_out: dict[str, object] = {"split": "held_out", "case_id": "held-parent"}
+            if contamination == "group":
+                held_out["group_ids"] = list(promotion.case.group_ids)
+            elif contamination == "question":
+                held_out["question"] = promotion.case.question
+            elif contamination in {"evidence", "evidence_excerpt"}:
+                held_out["evidence"] = [e.model_dump(mode="json") for e in promotion.case.evidence]
+                if contamination == "evidence_excerpt":
+                    excerpt = promotion.case.evidence[0].model_dump(mode="json")
+                    excerpt["text"] = str(excerpt["text"])[:55]
+                    excerpt["sha256"] = hashlib.sha256(excerpt["text"].encode()).hexdigest()
+                    excerpt["evidence_id"] = "protected-excerpt"
+                    held_out["evidence"] = [excerpt]
+            else:
+                promotion = promotion.model_copy(
+                    update={
+                        "case": promotion.case.model_copy(update={"derived_from": ("held-parent",)})
+                    }
+                )
+            document: dict[str, object] = {
+                "prior_group_splits": {promotion.case.group_ids[0]: "held_out"},
+                "cases": [],
+            }
+            if contamination != "prior_group":
+                document = {"cases": [held_out]}
+            (registry / "protected.json").write_text(json.dumps(document))
+            monkeypatch.setenv("ASK_PHIL_REFERENCE_DIRECTORY", str(registry))
+            monkeypatch.chdir(tmp_path)
+>           with pytest.raises(ValueError, match="Held-out"):
+E           Failed: DID NOT RAISE ValueError
+
+/home/tom/Documents/code/python/rag_demo/tests/test_online_review.py:212: Failed
+---------------------------- Captured stderr setup -----------------------------
+2026/11/01 16:27:32 INFO mlflow.store.db.utils: Creating initial MLflow database tables...
+2026/11/01 16:27:32 INFO mlflow.store.db.utils: Updating database tables
+------------------------------ Captured log setup ------------------------------
+INFO     mlflow.store.db.utils:utils.py:87 Creating initial MLflow database tables...
+INFO     mlflow.store.db.utils:utils.py:294 Updating database tables
+----------------------------- Captured stderr call -----------------------------
+16:27:37.466 | INFO    | prefect - Starting temporary server on http://127.0.0.1:8256
+See https://docs.prefect.io/v3/concepts/server#how-to-guides for more information on running a dedicated Prefect server.
+16:27:41.940 | INFO    | Flow run 'chestnut-chamois' - Beginning flow run 'chestnut-chamois' for flow 'ask-phil-online-evaluation'
+16:27:42.982 | INFO    | Flow run 'chestnut-chamois' - Finished in state Completed()
+------------------------------ Captured log call -------------------------------
+WARNING  mlflow.types.type_hints:type_hints.py:237 Union type hint with multiple non-None types is inferred as AnyType, and MLflow doesn't validate the data against its element types.
+WARNING  mlflow.types.type_hints:type_hints.py:244 Union type hint is inferred as AnyType, and MLflow doesn't validate the data against its element types.
+WARNING  mlflow.types.type_hints:type_hints.py:237 Union type hint with multiple non-None types is inferred as AnyType, and MLflow doesn't validate the data against its element types.
+INFO     prefect:server.py:1133 Starting temporary server on http://127.0.0.1:8256
+See https://docs.prefect.io/v3/concepts/server#how-to-guides for more information on running a dedicated Prefect server.
+INFO     prefect.flow_runs:flow_engine.py:1155 Beginning flow run 'chestnut-chamois' for flow 'ask-phil-online-evaluation'
+INFO     prefect.flow_runs:flow_engine.py:1277 Finished in state Completed()
+=============================== warnings summary ===============================
+.venv/lib/python3.12/site-packages/fastapi/testclient.py:1
+  /home/tom/Documents/code/python/rag_demo/.venv/lib/python3.12/site-packages/fastapi/testclient.py:1: StarletteDeprecationWarning: Using `httpx` with `starlette.testclient` is deprecated; install `httpx2` instead.
+    from starlette.testclient import TestClient as TestClient  # noqa
+
+-- Docs: https://docs.pytest.org/en/stable/how-to/capture-warnings.html
+=========================== short test summary info ============================
+FAILED tests/test_online_review.py::test_checked_live_failure_is_promoted_with_evidence_lineage_and_split_controls[evidence_excerpt-plain-models0]
+1 failed, 8 deselected, 1 warning in 12.54s
+--- Logging error ---
+Traceback (most recent call last):
+  File "/home/tom/Documents/code/python/rag_demo/.venv/lib/python3.12/site-packages/prefect/logging/handlers.py", line 410, in emit
+    self.console.print(message, soft_wrap=True)
+  File "/home/tom/Documents/code/python/rag_demo/.venv/lib/python3.12/site-packages/rich/console.py", line 1704, in print
+    with self:
+  File "/home/tom/Documents/code/python/rag_demo/.venv/lib/python3.12/site-packages/rich/console.py", line 864, in __exit__
+    self._exit_buffer()
+  File "/home/tom/Documents/code/python/rag_demo/.venv/lib/python3.12/site-packages/rich/console.py", line 820, in _exit_buffer
+    self._check_buffer()
+  File "/home/tom/Documents/code/python/rag_demo/.venv/lib/python3.12/site-packages/rich/console.py", line 2055, in _check_buffer
+    self._write_buffer()
+  File "/home/tom/Documents/code/python/rag_demo/.venv/lib/python3.12/site-packages/rich/console.py", line 2124, in _write_buffer
+    self.file.write(text)
+ValueError: I/O operation on closed file.
+Call stack:
+  File "/home/tom/Documents/code/python/rag_demo/.venv/lib/python3.12/site-packages/prefect/server/api/server.py", line 1212, in stop
+    subprocess_server_logger.info(
+  File "/usr/lib/python3.12/logging/__init__.py", line 1539, in info
+    self._log(INFO, msg, args, **kwargs)
+  File "/usr/lib/python3.12/logging/__init__.py", line 1684, in _log
+    self.handle(record)
+  File "/usr/lib/python3.12/logging/__init__.py", line 1700, in handle
+    self.callHandlers(record)
+  File "/usr/lib/python3.12/logging/__init__.py", line 1762, in callHandlers
+    hdlr.handle(record)
+  File "/usr/lib/python3.12/logging/__init__.py", line 1028, in handle
+    self.emit(record)
+  File "/home/tom/Documents/code/python/rag_demo/.venv/lib/python3.12/site-packages/prefect/logging/handlers.py", line 416, in emit
+    self.handleError(record)
+Message: 'Stopping temporary server on http://127.0.0.1:8256'
+Arguments: ()
+2026/11/01 16:27:44 INFO mlflow.tracing.export.async_export_queue: Flushing the async trace logging queue before program exit. This may take a while...

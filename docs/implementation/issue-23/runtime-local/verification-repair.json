@@ -1,0 +1,14 @@
+{
+  "original_failure": "failure.json",
+  "original_capture": "offline.json",
+  "repaired_capture": "offline-verified.json",
+  "review": "offline-reviewed.json",
+  "verified_cli_and_original_trace": true,
+  "new_agent_generations": 0,
+  "new_provider_calls": 0,
+  "local_run_ledger_before_and_after": [
+    0.911656,
+    0
+  ],
+  "limitation": "The shared ledger later changed in the separate approved paid pilot."
+}

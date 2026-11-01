@@ -1,0 +1,9 @@
+{
+  "traffic": "demo-test",
+  "provider_ledger_before": [
+    0.911656,
+    0
+  ],
+  "external_judge": "disabled; no provider credentials or network used",
+  "code_revision": "1eb85289a89febb5d764905cf12815b6b63a0b6f"
+}

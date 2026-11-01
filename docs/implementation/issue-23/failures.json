@@ -1,0 +1,65 @@
+{
+  "scope": "Observed software/workflow failures, source-review findings and capture failures; preserved separately from model-quality acceptance.",
+  "observed": [
+    {
+      "failure": "Late revisions did not reconcile into existing generic jobs.",
+      "original": "late-red.txt",
+      "repair": "Revision-specific triage and current counts reconcile without repeating generic scoring."
+    },
+    {
+      "failure": "Early report metrics depended on unfinished selected jobs and did not expose tracking-backend eligibility.",
+      "original": "cohorts-red.txt",
+      "repair": "Descriptive counts include all current retained feedback; online eligibility and sampling/scoring denominators are separate."
+    },
+    {
+      "failure": "Semantic judge admission/accounting and interrupted-call state were initially incomplete.",
+      "original": ["judge-red.txt", "bounds-red.txt", "interruption-red.txt"],
+      "repair": "Exact reviewed input admission, durable allocation and uncertain paid-attempt recovery prevent unapproved scope and repeated charges."
+    },
+    {
+      "failure": "A missing-trace MLflow exception escaped rather than persisting bounded retry state.",
+      "original": "recovery-red.txt",
+      "repair": "Missing traces/outages retry within bounds; stable export identity recovers a lost acknowledgement without rejudging."
+    },
+    {
+      "failure": "The initial feedback contract rejected the requested harm category.",
+      "original": "retention-red.txt",
+      "repair": "Harm is accepted and prioritized; the same public retention scenario verifies online artifact expiry without resetting expense."
+    },
+    {
+      "failure": "A committed revision watermark could hide interrupted triage insertion.",
+      "original": "triage-review-red.txt",
+      "independent_reproduction": true,
+      "repair": "Discovery reconciles missing revision records independently; bounded missing-only triage makes forward progress without rewriting completed items."
+    },
+    {
+      "failure": "Held-out protection missed caller-directory changes, encoded strings, prior split reservations and an excerpt containing protected text.",
+      "original": "excerpt-red.txt",
+      "independent_reproduction": "Review agents independently reproduced encoded-evidence promotion and checked final repair.",
+      "repair": "Anchored fail-closed registry, decoded textual comparisons, inherited/prior reservations and symmetric excerpt overlap checks."
+    },
+    {
+      "failure": "Reporting/sampling configuration changes could buy the unchanged support result again; late triage backlog was hidden.",
+      "independent_reproduction": true,
+      "repair": "Semantic result identity is independent of reporting/selection/retry settings; durable provenance and cumulative calls/cost survive revisions. Reports show late pending count, age and lag."
+    },
+    {
+      "failure": "Background execution could lose its slot at the processing deadline.",
+      "repair": "Durable even rounds put the reserved background slot first, including alternating one-item batches; deadline-interrupted support remains pending."
+    },
+    {
+      "failure": "Packaged calibration fixture was mode 0600 and root-owned, unreadable to the image's non-root user.",
+      "original": "docker-calibration-permission-failure.txt",
+      "repair": "Image COPY sets ownership to uid/gid 10001 without changing protected host fixture permissions.",
+      "verified": "23 passing packaged contracts in docker-contracts.txt."
+    },
+    {
+      "failure": "The local capture helper marked verification complete after a boolean readback but omitted the CLI/trace copies required for strict offline review.",
+      "original": ["runtime-local/failure.json", "runtime-local/offline.json", "local-capture-failure.txt"],
+      "repair": "c4cb625 binds the paid helper to actual CLI and original trace outputs. The original local artifacts remain unchanged; a separate saved-response verification repair succeeds without generation/judge reruns.",
+      "verified": ["runtime-v1/offline.json", "runtime-local/verification-repair.json"]
+    }
+  ],
+  "not_used_as_red_evidence": "The first-red temporary log completed green due execution timing; it is not represented as a failing-before result.",
+  "unchanged_quality_limits": "Historical support identity/null-policy disagreements and the foreman label remain unresolved/excluded. Scripted serving corrections and two support controls do not establish broad quality, human canon or held-out acceptance."
+}

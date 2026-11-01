@@ -1,0 +1,13 @@
+{
+  "registered_dataset": "data/references/online-phil-arrival-regression-v1.json",
+  "lineage": "data/references/online-phil-arrival-regression-v1.lineage.json",
+  "byte_identical_to_checked_promotion": true,
+  "dataset_sha256": "da1dd018a1ccc75fe6ea0faa58c63bdfa1a92db545608daa93c5edf3c18e8680",
+  "original_response_sha256": "a166eb9ed928ea305c460ec305e5e5c8030407c1e6799e8815153d5a586dc529",
+  "verified_offline_original_correctness": 0.0,
+  "verified_offline_control_correctness": 1.0,
+  "source_based_agent_review": true,
+  "new_agent_generations": 0,
+  "new_provider_calls": 0,
+  "limitation": "Same exposed arrival example; original response and story aliases remain grouped. No broad quality or held-out acceptance."
+}

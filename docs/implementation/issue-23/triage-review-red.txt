@@ -1,0 +1,160 @@
+F                                                                        [100%]
+=================================== FAILURES ===================================
+_ test_interrupted_triage_is_reconciled_even_after_the_revision_watermark_commits _
+
+feedback_client = <starlette.testclient.TestClient object at 0x7a09e207cb00>
+database_url = 'user=ask_phil password=local-demo-only dbname=ask_phil_test_0bb66076b0934bee9e7a5aca751c86b8 host=127.0.0.1 port=55432'
+tmp_path = PosixPath('/tmp/pytest-of-tom/pytest-60/test_interrupted_triage_is_rec0')
+
+    def test_interrupted_triage_is_reconciled_even_after_the_revision_watermark_commits(
+        feedback_client: TestClient, database_url: str, tmp_path: Path,
+    ) -> None:
+        import psycopg
+        import pytest
+        from ask_phil.online_evaluation import OnlinePolicy
+        from ask_phil.online_workflow import OnlineEvaluation
+        from ask_phil.feedback_reporting import FeedbackCohort
+        from datetime import UTC, datetime
+    
+        receipt = feedback_client.post("/v1/answers", json={"snapshot_id": "phil-arrival-v1",
+                                      "question": "When did Phil arrive?"}).json()
+        evaluation = OnlineEvaluation(database_url, f"sqlite:///{tmp_path}/feedback.db",
+                                       policy=OnlinePolicy(background_rate=1))
+        evaluation.process()
+        feedback_client.post(f"/v1/responses/{receipt['response']['response_id']}/feedback",
+            headers={"Authorization": "Bearer " + receipt["read_token"]},
+            json={"submission_id": str(uuid4()), "policy_version": "feedback-v1", "rating": "not_helpful",
+                  "categories": ["facts"]}).raise_for_status()
+        with psycopg.connect(database_url) as conn:
+            conn.execute("CREATE FUNCTION triage_outage() RETURNS trigger LANGUAGE plpgsql AS $$ "
+                         "BEGIN RAISE EXCEPTION 'controlled triage outage'; END $$")
+            conn.execute("CREATE TRIGGER triage_outage BEFORE INSERT ON online_triage "
+                         "FOR EACH ROW EXECUTE FUNCTION triage_outage()")
+        with pytest.raises(psycopg.Error):
+            evaluation.process()
+        with psycopg.connect(database_url) as conn:
+            conn.execute("DROP TRIGGER triage_outage ON online_triage")
+        evaluation.process()
+        now = datetime.now(UTC)
+        report = evaluation.report(FeedbackCohort(served_from=now-timedelta(hours=1),
+                                   served_until=now+timedelta(hours=1), feedback_as_of=now))
+        job = evaluation.inspect(report.jobs[0].job_id)
+        assert job.feedback_revision == 1
+>       assert [item.feedback_revision for item in job.triage] == [1]
+E       assert [] == [1]
+E         
+E         Right contains one more item: 1
+E         Use -v to get more diff
+
+tests/test_online_evaluation.py:359: AssertionError
+---------------------------- Captured stderr setup -----------------------------
+2026/11/01 15:17:30 INFO mlflow.store.db.utils: Creating initial MLflow database tables...
+2026/11/01 15:17:30 INFO mlflow.store.db.utils: Updating database tables
+------------------------------ Captured log setup ------------------------------
+INFO     mlflow.store.db.utils:utils.py:87 Creating initial MLflow database tables...
+INFO     mlflow.store.db.utils:utils.py:294 Updating database tables
+----------------------------- Captured stderr call -----------------------------
+15:17:36.517 | INFO    | prefect - Starting temporary server on http://127.0.0.1:8742
+See https://docs.prefect.io/v3/concepts/server#how-to-guides for more information on running a dedicated Prefect server.
+15:17:40.931 | INFO    | Flow run 'ruby-mackerel' - Beginning flow run 'ruby-mackerel' for flow 'ask-phil-online-evaluation'
+15:17:41.967 | INFO    | Flow run 'ruby-mackerel' - Finished in state Completed()
+15:17:42.288 | INFO    | Flow run 'amorphous-swallow' - Beginning flow run 'amorphous-swallow' for flow 'ask-phil-online-evaluation'
+15:17:43.291 | ERROR   | Flow run 'amorphous-swallow' - Encountered exception during execution: RaiseException('controlled triage outage\nCONTEXT:  PL/pgSQL function triage_outage() line 1 at RAISE')
+Traceback (most recent call last):
+  File "/home/tom/Documents/code/python/rag_demo/.venv/lib/python3.12/site-packages/prefect/flow_engine.py", line 1319, in run_context
+    yield self
+  File "/home/tom/Documents/code/python/rag_demo/.venv/lib/python3.12/site-packages/prefect/flow_engine.py", line 2089, in run_flow_sync
+    engine.call_flow_fn()
+  File "/home/tom/Documents/code/python/rag_demo/.venv/lib/python3.12/site-packages/prefect/flow_engine.py", line 1339, in call_flow_fn
+    result = call_with_parameters(self.flow.fn, self.parameters)
+             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/tom/Documents/code/python/rag_demo/.venv/lib/python3.12/site-packages/prefect/utilities/callables/__init__.py", line 348, in call_with_parameters
+    return fn(*args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^
+  File "/home/tom/Documents/code/python/rag_demo/src/ask_phil/online_workflow.py", line 121, in execute
+    return self._process(UUID(str(flow_run.id)))
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/tom/Documents/code/python/rag_demo/src/ask_phil/online_workflow.py", line 263, in _process
+    conn.execute(
+  File "/home/tom/Documents/code/python/rag_demo/.venv/lib/python3.12/site-packages/psycopg/connection.py", line 304, in execute
+    raise ex.with_traceback(None)
+psycopg.errors.RaiseException: controlled triage outage
+CONTEXT:  PL/pgSQL function triage_outage() line 1 at RAISE
+15:17:43.369 | INFO    | Flow run 'amorphous-swallow' - Finished in state Failed('Flow run encountered an exception: RaiseException: controlled triage outage\nCONTEXT:  PL/pgSQL function triage_outage() line 1 at RAISE')
+15:17:43.507 | INFO    | Flow run 'dangerous-bonobo' - Beginning flow run 'dangerous-bonobo' for flow 'ask-phil-online-evaluation'
+15:17:44.510 | INFO    | Flow run 'dangerous-bonobo' - Finished in state Completed()
+------------------------------ Captured log call -------------------------------
+WARNING  mlflow.types.type_hints:type_hints.py:237 Union type hint with multiple non-None types is inferred as AnyType, and MLflow doesn't validate the data against its element types.
+WARNING  mlflow.types.type_hints:type_hints.py:244 Union type hint is inferred as AnyType, and MLflow doesn't validate the data against its element types.
+WARNING  mlflow.types.type_hints:type_hints.py:237 Union type hint with multiple non-None types is inferred as AnyType, and MLflow doesn't validate the data against its element types.
+INFO     prefect:server.py:1133 Starting temporary server on http://127.0.0.1:8742
+See https://docs.prefect.io/v3/concepts/server#how-to-guides for more information on running a dedicated Prefect server.
+INFO     prefect.flow_runs:flow_engine.py:1155 Beginning flow run 'ruby-mackerel' for flow 'ask-phil-online-evaluation'
+INFO     prefect.flow_runs:flow_engine.py:1277 Finished in state Completed()
+INFO     prefect.flow_runs:flow_engine.py:1155 Beginning flow run 'amorphous-swallow' for flow 'ask-phil-online-evaluation'
+ERROR    prefect.flow_runs:flow_engine.py:1323 Encountered exception during execution: RaiseException('controlled triage outage\nCONTEXT:  PL/pgSQL function triage_outage() line 1 at RAISE')
+Traceback (most recent call last):
+  File "/home/tom/Documents/code/python/rag_demo/.venv/lib/python3.12/site-packages/prefect/flow_engine.py", line 1319, in run_context
+    yield self
+  File "/home/tom/Documents/code/python/rag_demo/.venv/lib/python3.12/site-packages/prefect/flow_engine.py", line 2089, in run_flow_sync
+    engine.call_flow_fn()
+  File "/home/tom/Documents/code/python/rag_demo/.venv/lib/python3.12/site-packages/prefect/flow_engine.py", line 1339, in call_flow_fn
+    result = call_with_parameters(self.flow.fn, self.parameters)
+             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/tom/Documents/code/python/rag_demo/.venv/lib/python3.12/site-packages/prefect/utilities/callables/__init__.py", line 348, in call_with_parameters
+    return fn(*args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^
+  File "/home/tom/Documents/code/python/rag_demo/src/ask_phil/online_workflow.py", line 121, in execute
+    return self._process(UUID(str(flow_run.id)))
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/tom/Documents/code/python/rag_demo/src/ask_phil/online_workflow.py", line 263, in _process
+    conn.execute(
+  File "/home/tom/Documents/code/python/rag_demo/.venv/lib/python3.12/site-packages/psycopg/connection.py", line 304, in execute
+    raise ex.with_traceback(None)
+psycopg.errors.RaiseException: controlled triage outage
+CONTEXT:  PL/pgSQL function triage_outage() line 1 at RAISE
+INFO     prefect.flow_runs:flow_engine.py:1277 Finished in state Failed('Flow run encountered an exception: RaiseException: controlled triage outage\nCONTEXT:  PL/pgSQL function triage_outage() line 1 at RAISE')
+INFO     prefect.flow_runs:flow_engine.py:1155 Beginning flow run 'dangerous-bonobo' for flow 'ask-phil-online-evaluation'
+INFO     prefect.flow_runs:flow_engine.py:1277 Finished in state Completed()
+=============================== warnings summary ===============================
+.venv/lib/python3.12/site-packages/fastapi/testclient.py:1
+  /home/tom/Documents/code/python/rag_demo/.venv/lib/python3.12/site-packages/fastapi/testclient.py:1: StarletteDeprecationWarning: Using `httpx` with `starlette.testclient` is deprecated; install `httpx2` instead.
+    from starlette.testclient import TestClient as TestClient  # noqa
+
+-- Docs: https://docs.pytest.org/en/stable/how-to/capture-warnings.html
+=========================== short test summary info ============================
+FAILED tests/test_online_evaluation.py::test_interrupted_triage_is_reconciled_even_after_the_revision_watermark_commits
+1 failed, 1 warning in 15.03s
+--- Logging error ---
+Traceback (most recent call last):
+  File "/home/tom/Documents/code/python/rag_demo/.venv/lib/python3.12/site-packages/prefect/logging/handlers.py", line 410, in emit
+    self.console.print(message, soft_wrap=True)
+  File "/home/tom/Documents/code/python/rag_demo/.venv/lib/python3.12/site-packages/rich/console.py", line 1704, in print
+    with self:
+  File "/home/tom/Documents/code/python/rag_demo/.venv/lib/python3.12/site-packages/rich/console.py", line 864, in __exit__
+    self._exit_buffer()
+  File "/home/tom/Documents/code/python/rag_demo/.venv/lib/python3.12/site-packages/rich/console.py", line 820, in _exit_buffer
+    self._check_buffer()
+  File "/home/tom/Documents/code/python/rag_demo/.venv/lib/python3.12/site-packages/rich/console.py", line 2055, in _check_buffer
+    self._write_buffer()
+  File "/home/tom/Documents/code/python/rag_demo/.venv/lib/python3.12/site-packages/rich/console.py", line 2124, in _write_buffer
+    self.file.write(text)
+ValueError: I/O operation on closed file.
+Call stack:
+  File "/home/tom/Documents/code/python/rag_demo/.venv/lib/python3.12/site-packages/prefect/server/api/server.py", line 1212, in stop
+    subprocess_server_logger.info(
+  File "/usr/lib/python3.12/logging/__init__.py", line 1539, in info
+    self._log(INFO, msg, args, **kwargs)
+  File "/usr/lib/python3.12/logging/__init__.py", line 1684, in _log
+    self.handle(record)
+  File "/usr/lib/python3.12/logging/__init__.py", line 1700, in handle
+    self.callHandlers(record)
+  File "/usr/lib/python3.12/logging/__init__.py", line 1762, in callHandlers
+    hdlr.handle(record)
+  File "/usr/lib/python3.12/logging/__init__.py", line 1028, in handle
+    self.emit(record)
+  File "/home/tom/Documents/code/python/rag_demo/.venv/lib/python3.12/site-packages/prefect/logging/handlers.py", line 416, in emit
+    self.handleError(record)
+Message: 'Stopping temporary server on http://127.0.0.1:8742'
+Arguments: ()
+2026/11/01 15:17:45 INFO mlflow.tracing.export.async_export_queue: Flushing the async trace logging queue before program exit. This may take a while...

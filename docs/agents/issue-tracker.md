@@ -11,6 +11,36 @@ commands so they work even without a configured Git remote.
 
 ## Current Ask Phil handoff
 
+
+**Issue #23 is implemented and validated locally; publication verification is next.**
+[Evidence](../implementation/issue-23/README.md) records 654 passing software
+cases, 23 packaged contracts, strict mypy across 162 files, Ruff/formatting and
+zero remaining findings on both independent review axes. The automatic
+PostgreSQL/Prefect/MLflow workflow preserves served answers, reconciles feedback,
+reports bounded sampled assessments and records source-checked review/promotion.
+The later CLI report has three interactions, two rated, two support-scored and
+zero pending triage; its third semantic result is explicitly budget-skipped.
+
+The user approved exactly two external support calls. Both match independently
+reviewed source controls (1990 supported; 1991 contradicted), costing **$0.001988**.
+The shared non-resetting $5 ledger is **$0.913644**, zero unsettled reservations.
+Do not repeat unchanged paid work. All 94 original data files and the user's
+pre-existing/private inputs remain unchanged. New data consists only of the
+scoped admission artifact and checked regression/lineage. The two-call pilot and
+scripted ratings establish the exercised workflow, not broad judge reliability,
+human canon, held-out acceptance or an application quality improvement.
+
+Application/test source is `1eb8528`; `c4cb625` changes only capture verification.
+The initial 270-input manifest remains preserved; the separate 272-input
+publication manifest adds the verified helper and post-suite regression registry
+entries. ONLINE-02/03/04 pass within that scope; counts are **40 Pass / 11 Pending**.
+AD-10.4's final release/dependency work and AD-09.3's routing comparisons remain
+Pending. After verified publication/closure, #24 is next; #25 is also unblocked
+by #23, and #18 still waits for #24. Wait for the user's next implementation
+instruction before starting another issue.
+
+### Prior issue #22 handoff
+
 **Issue #22 is complete and closed** after [verified publication](https://github.com/tomh1988-8/rag_demo/commit/25dbc826a7ca34f2099dc597728f0a3b1b872c8d).
 [The receipt](../implementation/issue-22/publication.json) records exact remote-tree
 and completed-tracker readback, all nine checked criteria and 251 published inputs.

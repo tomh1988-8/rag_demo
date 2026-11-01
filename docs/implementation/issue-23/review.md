@@ -32,7 +32,7 @@ It also reproduced promotion of protected Unicode evidence and two controlled
 judge charges after changing only `review_rate`. Those simulations made no paid
 calls and used disposable databases with real MLflow/Prefect.
 
-## Repairs under re-review
+## Repairs and final source re-review
 
 - Exact input/source admission uses independently reviewed positive/negative
   pilot controls. All 20 earlier unlabelled cases and the foreman disagreement
@@ -48,4 +48,38 @@ calls and used disposable databases with real MLflow/Prefect.
   and processing retain a reserved slot. Export backlogs remain inspectable and
   retryable without repeating scoring. Configurations are durably inspectable.
 
-Final independent re-review and runtime validation are recorded when completed.
+Standards re-reviewed `0523496...6f50595` and `6f50595..1eb8528` with no
+remaining findings. It independently ran four focused checks. A temporary
+deadline concern was withdrawn after checking the explicit pending-result branch.
+Spec independently ran fourteen repaired-source checks, then four final checks
+covering symmetric excerpt overlap, missing-only triage and background progress.
+It found no remaining source defects or scope creep at `1eb8528`.
+
+## Standards — actual runtime review
+
+No actionable findings. The independent reviewer reconstructed artifact/config,
+implementation/scope, response/reference/review and promotion hashes; verified
+both exact support labels and usage totals; and read the actual MLflow backend.
+All three original root outputs match the published responses. Both offline CLI
+and trace copies match their original answers. No receipt/auth/key or synthetic
+secret-marker leakage was detected in public runtime JSON.
+
+The earlier report has two pending triage revisions. The later CLI report has
+zero pending, three triaged revisions and an explicit third budget-skipped
+semantic assessment. The $0.001988 expense equals both returned usage and the
+shared-ledger delta. These are scoped workflow and two-control integration
+findings, without broad quality, human canon or held-out acceptance.
+
+## Spec — actual runtime review
+
+Independent verification found zero mismatches in the application fingerprint,
+report configurations, response/judge-input/profile identities, all three
+required-review sets, promotion lineage, 28 registry fingerprints, and both
+offline CLI/trace/original-answer comparisons. Both paid jobs remain at one
+attempt/one call after feedback revision. The later CLI report drains all three
+feedback revisions and retains the third budget-skipped interaction.
+
+The original local-only capture verification failure is retained separately.
+Its saved-response repair supplies actual maintainer CLI and original trace
+readback without rerunning the agent or model. Full-suite results and the final
+evidence/register update are recorded separately from these runtime reviews.

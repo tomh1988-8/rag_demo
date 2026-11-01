@@ -1,0 +1,458 @@
+{
+  "report_id": "047ed6c6-d088-4f7d-8e04-fe655049f79f",
+  "created_at": "2026-11-01T16:56:15.513901Z",
+  "config_sha256": "a8d1d82768385efc92b6bd0a9786e5be9defbebf7c6a70b06c101e53d4d7cb25",
+  "configuration": {
+    "policy": {
+      "version": "online-v1",
+      "enabled": true,
+      "background_rate": 1.0,
+      "feedback_rate": 1.0,
+      "seed": "ask-phil-online-v1",
+      "batch_size": 20,
+      "interval_seconds": 0.2,
+      "retry_seconds": 10.0,
+      "max_attempts": 3,
+      "seconds": 45.0,
+      "max_judge_calls": 0,
+      "max_judge_spend_usd": 0.0,
+      "review_rate": 0.1,
+      "evaluator_revision": "support-v1"
+    },
+    "tracking_sha256": "c300f019ed1c231f60dc9e4856e26c6d19233b6b2f447bd8592383a44a5d1a89",
+    "calibration_sha256": null,
+    "scope_sha256": null,
+    "judge": null,
+    "execution": null,
+    "implementation": {
+      "online_workflow.py": "a7c58ebd21e94db6af3d08fc7c0f9dfacff448f3a104824f588fb0313940005e",
+      "online_evaluation.py": "40e1ed8e68d93e793882c061edc4531b831479f1889b9db4d05145217690df2f",
+      "online_judging.py": "7f6306f1d27673c55bdfc7c3fcf4a411e925c44a7bed86d8c3460ba64e962507",
+      "semantic_judge.py": "2d5cc35aaae168dc8cf6cc7cf7df34a5a5cbf4eab8c74509fedca883456a2455"
+    }
+  },
+  "feedback": {
+    "cohort": {
+      "served_from": "2026-11-01T15:56:15.443329Z",
+      "served_until": "2026-11-01T17:56:15.443329Z",
+      "feedback_as_of": "2026-11-01T16:56:15.443329Z"
+    },
+    "counts": {
+      "eligible": 3,
+      "submitted": 2,
+      "rated": 2,
+      "positive": 1,
+      "negative": 1,
+      "skipped": 0,
+      "unrated": 1,
+      "no_feedback": 1,
+      "feedback_coverage": 0.6666666666666666,
+      "positive_share": 0.5,
+      "reported_factual_errors": 1,
+      "reported_evidence_errors": 0,
+      "reported_harm_problems": 0,
+      "pending_delivery": 0,
+      "independently_reviewed_correctness": null
+    },
+    "slices": [
+      {
+        "dimension": "route",
+        "value": "text_rag",
+        "counts": {
+          "eligible": 3,
+          "submitted": 2,
+          "rated": 2,
+          "positive": 1,
+          "negative": 1,
+          "skipped": 0,
+          "unrated": 1,
+          "no_feedback": 1,
+          "feedback_coverage": 0.6666666666666666,
+          "positive_share": 0.5,
+          "reported_factual_errors": 1,
+          "reported_evidence_errors": 0,
+          "reported_harm_problems": 0,
+          "pending_delivery": 0,
+          "independently_reviewed_correctness": null
+        }
+      },
+      {
+        "dimension": "outcome",
+        "value": "answered",
+        "counts": {
+          "eligible": 3,
+          "submitted": 2,
+          "rated": 2,
+          "positive": 1,
+          "negative": 1,
+          "skipped": 0,
+          "unrated": 1,
+          "no_feedback": 1,
+          "feedback_coverage": 0.6666666666666666,
+          "positive_share": 0.5,
+          "reported_factual_errors": 1,
+          "reported_evidence_errors": 0,
+          "reported_harm_problems": 0,
+          "pending_delivery": 0,
+          "independently_reviewed_correctness": null
+        }
+      },
+      {
+        "dimension": "snapshot_id",
+        "value": "phil-arrival-v1",
+        "counts": {
+          "eligible": 3,
+          "submitted": 2,
+          "rated": 2,
+          "positive": 1,
+          "negative": 1,
+          "skipped": 0,
+          "unrated": 1,
+          "no_feedback": 1,
+          "feedback_coverage": 0.6666666666666666,
+          "positive_share": 0.5,
+          "reported_factual_errors": 1,
+          "reported_evidence_errors": 0,
+          "reported_harm_problems": 0,
+          "pending_delivery": 0,
+          "independently_reviewed_correctness": null
+        }
+      },
+      {
+        "dimension": "application_sha256",
+        "value": "13aca48a9b7c7e8a49ca7f924c75b8f37eefe097c75ad1552dd8e8d3c1bfb1dd",
+        "counts": {
+          "eligible": 3,
+          "submitted": 2,
+          "rated": 2,
+          "positive": 1,
+          "negative": 1,
+          "skipped": 0,
+          "unrated": 1,
+          "no_feedback": 1,
+          "feedback_coverage": 0.6666666666666666,
+          "positive_share": 0.5,
+          "reported_factual_errors": 1,
+          "reported_evidence_errors": 0,
+          "reported_harm_problems": 0,
+          "pending_delivery": 0,
+          "independently_reviewed_correctness": null
+        }
+      },
+      {
+        "dimension": "prompt_sha256",
+        "value": "1837220ea074375ef25b894885b2530a0b28b8c3f7f37f95b7746cd380341afc",
+        "counts": {
+          "eligible": 3,
+          "submitted": 2,
+          "rated": 2,
+          "positive": 1,
+          "negative": 1,
+          "skipped": 0,
+          "unrated": 1,
+          "no_feedback": 1,
+          "feedback_coverage": 0.6666666666666666,
+          "positive_share": 0.5,
+          "reported_factual_errors": 1,
+          "reported_evidence_errors": 0,
+          "reported_harm_problems": 0,
+          "pending_delivery": 0,
+          "independently_reviewed_correctness": null
+        }
+      },
+      {
+        "dimension": "model_id",
+        "value": "2b4e4592fe281f2fa2572c4812e56a8a75f2f1e40c408611f428168d8e2c3d19",
+        "counts": {
+          "eligible": 3,
+          "submitted": 2,
+          "rated": 2,
+          "positive": 1,
+          "negative": 1,
+          "skipped": 0,
+          "unrated": 1,
+          "no_feedback": 1,
+          "feedback_coverage": 0.6666666666666666,
+          "positive_share": 0.5,
+          "reported_factual_errors": 1,
+          "reported_evidence_errors": 0,
+          "reported_harm_problems": 0,
+          "pending_delivery": 0,
+          "independently_reviewed_correctness": null
+        }
+      },
+      {
+        "dimension": "category",
+        "value": "facts",
+        "counts": {
+          "eligible": 1,
+          "submitted": 1,
+          "rated": 1,
+          "positive": 0,
+          "negative": 1,
+          "skipped": 0,
+          "unrated": 0,
+          "no_feedback": 0,
+          "feedback_coverage": 1.0,
+          "positive_share": 0.0,
+          "reported_factual_errors": 1,
+          "reported_evidence_errors": 0,
+          "reported_harm_problems": 0,
+          "pending_delivery": 0,
+          "independently_reviewed_correctness": null
+        }
+      },
+      {
+        "dimension": "category",
+        "value": "none",
+        "counts": {
+          "eligible": 2,
+          "submitted": 1,
+          "rated": 1,
+          "positive": 1,
+          "negative": 0,
+          "skipped": 0,
+          "unrated": 1,
+          "no_feedback": 1,
+          "feedback_coverage": 0.5,
+          "positive_share": 1.0,
+          "reported_factual_errors": 0,
+          "reported_evidence_errors": 0,
+          "reported_harm_problems": 0,
+          "pending_delivery": 0,
+          "independently_reviewed_correctness": null
+        }
+      }
+    ],
+    "review_priorities": [
+      {
+        "response_id": "3145d4a9-990a-4e4c-ab5f-428a84ec0b05",
+        "served_at": "2026-11-01T16:55:48.494520Z",
+        "route": "text_rag",
+        "outcome": "answered",
+        "priority": 1,
+        "signal": {
+          "feedback_id": "f1c9c2f0-d8bc-4b9e-ad63-ac68be05f012",
+          "revision": 1,
+          "accepted_at": "2026-11-01T16:56:00.511585Z",
+          "rating": "not_helpful",
+          "categories": [
+            "facts"
+          ],
+          "comment": "Check the year. [REDACTED]",
+          "proposed_correction": "",
+          "delivery_state": "delivered"
+        }
+      },
+      {
+        "response_id": "72f6ef73-16c2-4ebf-a532-be1a0c2ae407",
+        "served_at": "2026-11-01T16:56:01.842000Z",
+        "route": "text_rag",
+        "outcome": "answered",
+        "priority": 5,
+        "signal": {
+          "feedback_id": "b0748259-ad94-4a88-8969-6dbf3ea476cc",
+          "revision": 1,
+          "accepted_at": "2026-11-01T16:56:01.923099Z",
+          "rating": "helpful",
+          "categories": [],
+          "comment": "",
+          "proposed_correction": "",
+          "delivery_state": "delivered"
+        }
+      }
+    ],
+    "total_review_items": 2,
+    "next_offset": null,
+    "interpretation": "Retained committed API outcomes offered for delivery, including failed and unrated outcomes; socket receipt and unique people are not measured. The served-time interval is [from, until); feedback is the latest revision accepted at or before the cutoff. Coverage is rated/eligible; positive share is helpful/(helpful + not helpful). Skip and no feedback are not positive. Self-selected helpfulness and reported problems are not unbiased accuracy, checked correctness or causal proof. Category slices overlap when an item reports multiple categories. Delivery state is current processing state, not reconstructed historical state."
+  },
+  "selected": 3,
+  "online_eligible": 3,
+  "completed": 3,
+  "states": {
+    "completed": 3
+  },
+  "selection_cohorts": {
+    "random_background": 3,
+    "feedback_directed": 2
+  },
+  "sample_coverage": 1.0,
+  "score_coverage": 1.0,
+  "oldest_pending_seconds": null,
+  "pending_triage_revisions": 0,
+  "triaged_revisions": 2,
+  "oldest_pending_triage_seconds": null,
+  "maximum_triage_lag_seconds": 0.585062,
+  "assessment_lag_seconds": [
+    11.52547,
+    0.517847,
+    0.243995
+  ],
+  "online_judge_cost_usd": 0.0,
+  "online_judge_reserved_usd": 0.0,
+  "online_judge_calls": 0,
+  "cumulative_online_judge_calls": 0,
+  "cumulative_online_judge_cost_usd": 0.0,
+  "cumulative_online_judge_allocation_usd": 0.0,
+  "unsettled_online_judge_jobs": 0,
+  "scored": 3,
+  "support_scored": 0,
+  "exported": 3,
+  "enabled": true,
+  "serving_cost_usd": 0.0,
+  "offline_evaluation_cost_usd": null,
+  "jobs": [
+    {
+      "job_id": "593d4072-af5b-552d-8bd3-2dc75b60be0e",
+      "response_id": "3145d4a9-990a-4e4c-ab5f-428a84ec0b05",
+      "generation_id": "3145d4a9-990a-4e4c-ab5f-428a84ec0b05",
+      "config_sha256": "a8d1d82768385efc92b6bd0a9786e5be9defbebf7c6a70b06c101e53d4d7cb25",
+      "created_at": "2026-11-01T16:55:59.927956Z",
+      "served_at": "2026-11-01T16:55:48.494520Z",
+      "updated_at": "2026-11-01T16:56:01.096647Z",
+      "state": "completed",
+      "selection_reasons": [
+        "random_background",
+        "feedback_directed"
+      ],
+      "selection_priority": 0,
+      "background_rate": 1.0,
+      "feedback_rate": 1.0,
+      "feedback_revision": 1,
+      "assessment_feedback_revision": 0,
+      "attempts": 1,
+      "next_attempt_at": "2026-11-01T16:55:59.927956Z",
+      "failure": null,
+      "response_sha256": "41c42f56909ec48559519fddfa7b51f93ab957a8aa6f93158ef6d3bd75241cc1",
+      "trace_verified": true,
+      "checks": {
+        "version": "saved-evidence-checks-v1",
+        "citation_integrity": true,
+        "context_available": true,
+        "reference_correctness": null,
+        "reference_recall": null,
+        "reference_completeness": null,
+        "persona": null,
+        "reason": "Citation identity checks only; support needs a calibrated semantic judge. Correctness, recall, completeness and persona have no reviewed online expectations."
+      },
+      "support_state": "disabled",
+      "support": null,
+      "support_execution": null,
+      "support_result_key": null,
+      "support_origin_job_id": null,
+      "support_reused": false,
+      "judge_calls": 0,
+      "judge_reserved_usd": 0.0,
+      "judge_cost_usd": 0.0,
+      "completed_at": "2026-11-01T16:56:00.019990Z",
+      "exported": true,
+      "prefect_run_id": "739288d5-73de-4153-aa04-1b5fac46d0ae"
+    },
+    {
+      "job_id": "2eaf19f6-d9bc-5c56-8b0e-56ea905f19c9",
+      "response_id": "72f6ef73-16c2-4ebf-a532-be1a0c2ae407",
+      "generation_id": "72f6ef73-16c2-4ebf-a532-be1a0c2ae407",
+      "config_sha256": "a8d1d82768385efc92b6bd0a9786e5be9defbebf7c6a70b06c101e53d4d7cb25",
+      "created_at": "2026-11-01T16:56:02.235612Z",
+      "served_at": "2026-11-01T16:56:01.842000Z",
+      "updated_at": "2026-11-01T16:56:02.381454Z",
+      "state": "completed",
+      "selection_reasons": [
+        "random_background",
+        "feedback_directed"
+      ],
+      "selection_priority": 2,
+      "background_rate": 1.0,
+      "feedback_rate": 1.0,
+      "feedback_revision": 1,
+      "assessment_feedback_revision": 1,
+      "attempts": 1,
+      "next_attempt_at": "2026-11-01T16:56:02.235612Z",
+      "failure": null,
+      "response_sha256": "38509a3b5302665d6d84f0528f98af6977a013f1a20c314bd568b4ba5f5e8df5",
+      "trace_verified": true,
+      "checks": {
+        "version": "saved-evidence-checks-v1",
+        "citation_integrity": true,
+        "context_available": true,
+        "reference_correctness": null,
+        "reference_recall": null,
+        "reference_completeness": null,
+        "persona": null,
+        "reason": "Citation identity checks only; support needs a calibrated semantic judge. Correctness, recall, completeness and persona have no reviewed online expectations."
+      },
+      "support_state": "disabled",
+      "support": null,
+      "support_execution": null,
+      "support_result_key": null,
+      "support_origin_job_id": null,
+      "support_reused": false,
+      "judge_calls": 0,
+      "judge_reserved_usd": 0.0,
+      "judge_cost_usd": 0.0,
+      "completed_at": "2026-11-01T16:56:02.359847Z",
+      "exported": true,
+      "prefect_run_id": "655ab448-05b6-42fd-9db7-366d08392291"
+    },
+    {
+      "job_id": "006794f4-4fde-5a7b-b00b-df3a02cb762f",
+      "response_id": "22ae7d2e-d97c-4a33-b8d3-e690a6f23e04",
+      "generation_id": "22ae7d2e-d97c-4a33-b8d3-e690a6f23e04",
+      "config_sha256": "a8d1d82768385efc92b6bd0a9786e5be9defbebf7c6a70b06c101e53d4d7cb25",
+      "created_at": "2026-11-01T16:56:03.491286Z",
+      "served_at": "2026-11-01T16:56:03.334790Z",
+      "updated_at": "2026-11-01T16:56:03.598974Z",
+      "state": "completed",
+      "selection_reasons": [
+        "random_background"
+      ],
+      "selection_priority": 3,
+      "background_rate": 1.0,
+      "feedback_rate": 1.0,
+      "feedback_revision": 0,
+      "assessment_feedback_revision": 0,
+      "attempts": 1,
+      "next_attempt_at": "2026-11-01T16:56:03.491286Z",
+      "failure": null,
+      "response_sha256": "4bf524e0fe78023941139e1ca2adc63574a40f77b9460b05fb8339c6ba547869",
+      "trace_verified": true,
+      "checks": {
+        "version": "saved-evidence-checks-v1",
+        "citation_integrity": true,
+        "context_available": true,
+        "reference_correctness": null,
+        "reference_recall": null,
+        "reference_completeness": null,
+        "persona": null,
+        "reason": "Citation identity checks only; support needs a calibrated semantic judge. Correctness, recall, completeness and persona have no reviewed online expectations."
+      },
+      "support_state": "disabled",
+      "support": null,
+      "support_execution": null,
+      "support_result_key": null,
+      "support_origin_job_id": null,
+      "support_reused": false,
+      "judge_calls": 0,
+      "judge_reserved_usd": 0.0,
+      "judge_cost_usd": 0.0,
+      "completed_at": "2026-11-01T16:56:03.578785Z",
+      "exported": true,
+      "prefect_run_id": "d8114663-7a4e-4f89-bcf6-ddf65d9157c1"
+    }
+  ],
+  "disagreements": [],
+  "required_reviews": [
+    {
+      "response_id": "3145d4a9-990a-4e4c-ab5f-428a84ec0b05",
+      "feedback_revision": 1,
+      "reason": "category_or_comment"
+    },
+    {
+      "response_id": "72f6ef73-16c2-4ebf-a532-be1a0c2ae407",
+      "feedback_revision": 1,
+      "reason": "remaining_rating_sample_minimum_one"
+    }
+  ],
+  "remaining_rating_review_rate": 0.1,
+  "interpretation": "Eligible/rated denominators are all retained served interactions; selected/eligible and scored/selected describe this configuration's sample. Completed includes only successful jobs; code checks and semantic scores have separate denominators. Cumulative online expense includes all configuration revisions and retained uncertain reservations, even after interaction expiry. Feedback is latest as of the stated cutoff; processing states are current at report creation. Counts are served deliveries, not independent factual examples. Background and directed samples may overlap. Ratings are self-selected helpfulness and reported issues, not unbiased accuracy. Context support is not canon correctness. Observed trends do not establish causality. Offline expense is unavailable here."
+}

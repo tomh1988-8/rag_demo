@@ -1,0 +1,78 @@
+{
+  "serving": {
+    "model_calls": 2,
+    "tool_calls": 1,
+    "http_calls": 8,
+    "seconds": 180.0,
+    "context_bytes": 1200,
+    "spend_usd": "0.15",
+    "retries": 0,
+    "capabilities": [
+      "text_retrieval",
+      "family_graph",
+      "event_graph",
+      "connection_graph"
+    ],
+    "concurrency": 4
+  },
+  "offline_evaluation": {
+    "model_calls": 2,
+    "tool_calls": 1,
+    "http_calls": 8,
+    "seconds": 180.0,
+    "context_bytes": 1200,
+    "spend_usd": "0.15",
+    "retries": 0,
+    "capabilities": [
+      "text_retrieval",
+      "family_graph",
+      "event_graph",
+      "connection_graph"
+    ],
+    "concurrency": 1
+  },
+  "investigation_serving": {
+    "model_calls": 8,
+    "tool_calls": 4,
+    "http_calls": 24,
+    "seconds": 180.0,
+    "context_bytes": 4000,
+    "spend_usd": "0.15",
+    "retries": 0,
+    "capabilities": [
+      "text_retrieval",
+      "family_graph",
+      "event_graph",
+      "connection_graph"
+    ],
+    "concurrency": 1
+  },
+  "investigation_offline_evaluation": {
+    "model_calls": 8,
+    "tool_calls": 4,
+    "http_calls": 24,
+    "seconds": 180.0,
+    "context_bytes": 4000,
+    "spend_usd": "0.15",
+    "retries": 0,
+    "capabilities": [
+      "text_retrieval",
+      "family_graph",
+      "event_graph",
+      "connection_graph"
+    ],
+    "concurrency": 1
+  },
+  "online_evaluation": {
+    "model_calls": 1,
+    "tool_calls": 0,
+    "http_calls": 8,
+    "seconds": 30.0,
+    "context_bytes": 1200,
+    "spend_usd": "0.15",
+    "retries": 0,
+    "capabilities": [],
+    "concurrency": 1
+  },
+  "online_enabled": true
+}
