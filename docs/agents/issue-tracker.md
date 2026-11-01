@@ -11,8 +11,11 @@ commands so they work even without a configured Git remote.
 
 ## Current Ask Phil handoff
 
-
-**Issue #23 is implemented and validated locally; publication verification is next.**
+**Issue #23 is complete and closed** after [verified publication](https://github.com/tomh1988-8/rag_demo/commit/668477cc324a4ae06316392c34395113031605b7).
+[The receipt](../implementation/issue-23/publication.json) records the exact
+remote commit/tree, 272 published inputs, all eleven checked criteria and
+completed tracker readback. The user's explicit publication approval supersedes
+the initial automatic rejection; there is no current publication blocker.
 [Evidence](../implementation/issue-23/README.md) records 654 passing software
 cases, 23 packaged contracts, strict mypy across 162 files, Ruff/formatting and
 zero remaining findings on both independent review axes. The automatic
@@ -35,9 +38,9 @@ The initial 270-input manifest remains preserved; the separate 272-input
 publication manifest adds the verified helper and post-suite regression registry
 entries. ONLINE-02/03/04 pass within that scope; counts are **40 Pass / 11 Pending**.
 AD-10.4's final release/dependency work and AD-09.3's routing comparisons remain
-Pending. After verified publication/closure, #24 is next; #25 is also unblocked
-by #23, and #18 still waits for #24. Wait for the user's next implementation
-instruction before starting another issue.
+Pending. **#24 is next**; #25 is also unblocked by #23, and #18 still waits
+for #24. Wait for the user's next implementation instruction before starting
+another issue.
 
 ### Prior issue #22 handoff
 

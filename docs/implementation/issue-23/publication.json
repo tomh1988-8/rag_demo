@@ -1,0 +1,37 @@
+{
+  "verified_at": "2026-11-01T17:38:57.972546+00:00",
+  "issue": {
+    "url": "https://github.com/tomh1988-8/rag_demo/issues/23",
+    "state": "CLOSED",
+    "state_reason": "COMPLETED",
+    "closed_at": "2026-11-01T17:38:13Z",
+    "checked_criteria": 11,
+    "exact_body_readback": true,
+    "body_sha256": "9767cf265ad6c46106b73f7b0180e5c5ea0cc2475e98c845ca83bcb12512af6c"
+  },
+  "implementation_commit": "668477cc324a4ae06316392c34395113031605b7",
+  "implementation_tree": "c7407dad9964577f9f7c5ac9b0cc739a437a9e90",
+  "publication_method": "native Git fast-forward push to origin/main",
+  "remote_commit_and_tree_readback": "exact match",
+  "frozen_source_inputs_verified_from_published_commit": 272,
+  "application_sha256": "13aca48a9b7c7e8a49ca7f924c75b8f37eefe097c75ad1552dd8e8d3c1bfb1dd",
+  "full_suite_passed": 654,
+  "strict_mypy_files": 162,
+  "review_findings": {
+    "Standards": 0,
+    "Spec": 0
+  },
+  "provider_ledger_usd": "0.913644",
+  "unsettled_reservations": 0,
+  "new_paid_inference_calls_in_publication": 0,
+  "user_approval": {
+    "reply": "i approve",
+    "scope": "Publish the reviewed commits through 668477c to main, verify remote, update and close #23, and publish documentation-only completion receipt."
+  },
+  "initial_automatic_rejection": {
+    "action": "git push origin main",
+    "reason": "Direct default-branch publication was not considered explicitly authorized by the implementation/commit request; repository documentation alone was insufficient.",
+    "resolution": "Superseded by the explicit user approval above. The normal fast-forward push succeeded; no current publication blocker."
+  },
+  "followup_scope": "Publication receipt, prepared tracker body and current handoff are documentation only. The tested application/test source and all 272 published inputs remain unchanged."
+}
