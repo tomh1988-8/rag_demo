@@ -2,7 +2,6 @@
 
 import hashlib
 import json
-import os
 import time
 from datetime import timedelta
 from threading import Event
@@ -10,10 +9,9 @@ from typing import Any
 from uuid import UUID
 
 from mlflow.entities import AssessmentSource, AssessmentSourceType, Feedback
-from mlflow.exceptions import MlflowException
-from mlflow.tracing.client import TracingClient
 from psycopg.rows import class_row
 
+from ask_phil.assessment_publication import AssessmentPublication, delete_assessment
 from ask_phil.evidence import Record
 from ask_phil.feedback import FeedbackInput, FeedbackStore
 
@@ -85,12 +83,7 @@ def deliver_feedback(store: FeedbackStore, tracking_uri: str) -> DeliveryResult:
             ).fetchone()
             if cleanup:
                 try:
-                    tracking = _tracking(tracking_uri)
-                    try:
-                        tracking.delete_assessment(cleanup[0], cleanup[1])
-                    except MlflowException as exc:
-                        if exc.error_code != "RESOURCE_DOES_NOT_EXIST":
-                            raise
+                    delete_assessment(tracking_uri, cleanup[0], cleanup[1])
                     conn.execute(
                         "DELETE FROM feedback_cleanup WHERE assessment_id = %s", (cleanup[1],)
                     )
@@ -135,7 +128,7 @@ def deliver_feedback(store: FeedbackStore, tracking_uri: str) -> DeliveryResult:
                     (pending.response_id, pending.revision - 1),
                 ).fetchone()
                 _deliver(
-                    _tracking(tracking_uri),
+                    tracking_uri,
                     original[0],
                     pending,
                     previous[0] if previous else None,
@@ -174,26 +167,13 @@ def deliver_feedback(store: FeedbackStore, tracking_uri: str) -> DeliveryResult:
     )
 
 
-def _tracking(uri: str) -> TracingClient:
-    if uri.startswith(("http://", "https://")) and (
-        float(os.environ.get("MLFLOW_HTTP_REQUEST_TIMEOUT", "120")) > 5
-        or int(os.environ.get("MLFLOW_HTTP_REQUEST_MAX_RETRIES", "7")) != 0
-    ):
-        raise ValueError("Configure a maximum five-second MLflow timeout and zero HTTP retries.")
-    return TracingClient(tracking_uri=uri)
-
-
 def _deliver(
-    tracking: TracingClient,
+    tracking_uri: str,
     response: dict[str, Any],
     pending: PendingDelivery,
     previous_id: str | None,
 ) -> None:
-    trace_id = response["trace_id"]
-    trace = tracking.get_trace(trace_id)
-    roots = [span for span in trace.data.spans if span.parent_id is None]
-    if len(roots) != 1 or roots[0].outputs != response:
-        raise ValueError("Original trace does not match the served response.")
+    publication = AssessmentPublication(tracking_uri, response)
     submission = pending.submission
     metadata = {
         "feedback_id": str(pending.feedback_id),
@@ -203,12 +183,9 @@ def _deliver(
         "categories": json.dumps(submission.categories),
         "interpretation": "Self-selected helpfulness and reported issues; not checked correctness.",
     }
-    try:
-        existing = tracking.get_assessment(trace_id, pending.assessment_id)
-    except MlflowException as exc:
-        if exc.error_code != "RESOURCE_DOES_NOT_EXIST":
-            raise
-        assessment = Feedback(
+    publication.publish(
+        pending.assessment_id,
+        Feedback(
             name="human_helpfulness",
             value=submission.rating,
             source=AssessmentSource(
@@ -216,21 +193,8 @@ def _deliver(
             ),
             metadata=metadata,
             overrides=previous_id,
-        )
-        # The pinned self-hosted MLflow accepts this public entity field and enforces
-        # uniqueness. Stable IDs also cover a successful write with a lost acknowledgement.
-        assessment.assessment_id = pending.assessment_id
-        tracking.log_assessment(trace_id, assessment)
-        existing = tracking.get_assessment(trace_id, pending.assessment_id)
-    if (
-        existing.name != "human_helpfulness"
-        or existing.feedback is None
-        or existing.feedback.value != submission.rating
-        or existing.source.source_type != AssessmentSourceType.HUMAN
-        or existing.source.source_id != str(pending.feedback_id)
-        or existing.metadata != metadata
-    ):
-        raise ValueError("Assessment readback differs from the accepted feedback.")
+        ),
+    )
 
 
 def feedback_worker(store: FeedbackStore, tracking_uri: str, stop: Event, wake: Event) -> None:

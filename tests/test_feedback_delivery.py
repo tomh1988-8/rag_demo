@@ -209,6 +209,117 @@ def test_missing_trace_outage_lost_acknowledgement_and_restart_are_recoverable(
         )
 
 
+def test_revised_feedback_rejects_incorrect_supersession_readback(
+    feedback_client: TestClient,
+    feedback_clock: list[datetime],
+    database_url: str,
+    models: Models,
+    mlflow_http: str,
+    http_server: Callable[[ASGIApp], AbstractContextManager[str]],
+) -> None:
+    faults = {"omit_override": False, "exercised": False}
+    proxy = FastAPI()
+
+    @proxy.api_route("/{path:path}", methods=["GET", "POST", "PATCH", "DELETE"])
+    async def forward(path: str, request: Request) -> Response:
+        async with httpx.AsyncClient(timeout=3, trust_env=False) as client:
+            result = await client.request(
+                request.method,
+                mlflow_http + "/" + path,
+                params=request.query_params,
+                content=await request.body(),
+                headers={"Content-Type": "application/json"},
+            )
+        if (
+            faults["omit_override"]
+            and request.method == "GET"
+            and "/assessments/" in path
+            and result.is_success
+        ):
+            document = result.json()
+            document["assessment"].pop("overrides", None)
+            faults["exercised"] = True
+            return Response(json.dumps(document), media_type="application/json")
+        return Response(
+            result.content,
+            status_code=result.status_code,
+            media_type=result.headers.get("content-type", "application/json"),
+        )
+
+    with http_server(proxy) as uri:
+        with TestClient(
+            create_app(
+                database_url,
+                models=models,
+                tracking_uri=uri,
+                session_clock=lambda: feedback_clock[0],
+                feedback_policy=FeedbackPolicy(auto_deliver=False),
+            )
+        ) as client:
+            receipt = client.post(
+                "/v1/answers",
+                json={"snapshot_id": "phil-arrival-v1", "question": "When did Phil arrive?"},
+            ).json()
+            response = receipt["response"]
+            response_id = UUID(response["response_id"])
+            path = f"/v1/responses/{response_id}/feedback"
+            headers = {"Authorization": "Bearer " + receipt["read_token"]}
+            first = client.post(
+                path,
+                headers=headers,
+                json={
+                    "submission_id": str(uuid4()),
+                    "policy_version": "feedback-v1",
+                    "rating": "helpful",
+                },
+            )
+            assert first.status_code == 202
+            store = FeedbackStore(database_url, tracking_uri=uri, clock=lambda: feedback_clock[0])
+            assert deliver_feedback(store, uri).delivered == 1
+            prior = store.inspect(response_id, receipt["read_token"]).revisions[0]
+            revised = client.post(
+                path,
+                headers=headers,
+                json={
+                    "submission_id": str(uuid4()),
+                    "policy_version": "feedback-v1",
+                    "rating": "not_helpful",
+                    "categories": ["evidence"],
+                },
+            )
+            assert revised.status_code == 202
+            assert revised.json()["revision"] == 2
+            faults["omit_override"] = True
+            delivery = deliver_feedback(store, uri)
+            assert faults["exercised"]
+            assert (delivery.delivered, delivery.pending) == (0, 1)
+            pending = store.inspect(response_id, receipt["read_token"])
+            assert pending.revisions[1].delivery_state == "pending"
+            assert pending.revisions[1].last_failure == "ValueError"
+
+            faults["omit_override"] = False
+            feedback_clock[0] += timedelta(seconds=6)
+            restarted = FeedbackStore(
+                database_url, tracking_uri=uri, clock=lambda: feedback_clock[0]
+            )
+            assert deliver_feedback(restarted, uri).delivered == 1
+            recovered = restarted.inspect(response_id, receipt["read_token"])
+            assert recovered.response.model_dump(mode="json") == response
+            assert recovered.revisions[1].assessment_id == pending.revisions[1].assessment_id
+            assert recovered.revisions[1].delivery_state == "delivered"
+            assert recovered.revisions[1].attempts == 2
+            assessment = next(
+                assessment
+                for assessment in MlflowClient(tracking_uri=mlflow_http)
+                .get_trace(response["trace_id"])
+                .info.assessments
+                if assessment.assessment_id == recovered.revisions[1].assessment_id
+            )
+            assert assessment.overrides == prior.assessment_id
+            assert assessment.feedback is not None
+            assert assessment.feedback.value == "not_helpful"
+
+
 def test_expired_feedback_is_purged_and_cleanup_cannot_switch_mlflow_backends(
     feedback_client: TestClient,
     database_url: str,

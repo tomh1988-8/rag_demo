@@ -12,15 +12,14 @@ from typing import Any
 from uuid import NAMESPACE_URL, UUID, uuid4, uuid5
 
 from mlflow.entities import AssessmentSource, AssessmentSourceType, Feedback
-from mlflow.exceptions import MlflowException
 from prefect import flow
 from prefect.runtime import flow_run
 from psycopg.types.json import Jsonb
 
 from ask_phil.answers import AnswerRecord
+from ask_phil.assessment_publication import AssessmentPublication
 from ask_phil.evaluation import document_fingerprint
 from ask_phil.feedback import FeedbackStore
-from ask_phil.feedback_delivery import _tracking
 from ask_phil.feedback_reporting import FeedbackCohort
 from ask_phil.online_evaluation import (
     OnlineConfiguration,
@@ -89,6 +88,7 @@ class OnlineEvaluation:
                     p.name: hashlib.sha256(p.read_bytes()).hexdigest()
                     for p in (
                         Path(__file__),
+                        Path(__file__).with_name("assessment_publication.py"),
                         Path(__file__).with_name("online_evaluation.py"),
                         Path(__file__).with_name("online_judging.py"),
                         Path(__file__).with_name("semantic_judge.py"),
@@ -389,13 +389,13 @@ class OnlineEvaluation:
                     )
                     try:
                         response = self.inspect(job.job_id).response
+                        publication = AssessmentPublication(
+                            self.tracking_uri,
+                            response.model_dump(mode="json"),
+                            deadline=deadline,
+                            cancellation=self.cancellation,
+                        )
                         if job.checks is None:
-                            trace = _tracking(self.tracking_uri).get_trace(response.trace_id)
-                            roots = [s for s in trace.data.spans if s.parent_id is None]
-                            if len(roots) != 1 or roots[0].outputs != response.model_dump(
-                                mode="json"
-                            ):
-                                raise ValueError("Original trace differs from saved response.")
                             job = self._judge(job, response, deadline)
                             if job.support_state == "pending":
                                 self._save(
@@ -423,7 +423,7 @@ class OnlineEvaluation:
                             )
                             # Commit before export; a lost acknowledgement never repeats scoring.
                             self._save(job)
-                        self._export(job, response, deadline)
+                        self._export(job, publication)
                         job = job.model_copy(
                             update={
                                 "exported": True,
@@ -459,44 +459,21 @@ class OnlineEvaluation:
             discovered=discovered, completed=completed, pending=remaining[0] if remaining else 0
         )
 
-    def _export(self, job: OnlineJob, response: AnswerRecord, deadline: float) -> None:
-        def check() -> None:
-            if self.cancellation.is_set() or time.monotonic() >= deadline:
-                raise TimeoutError("Online export deferred.")
-
-        check()
-        tracking = _tracking(self.tracking_uri)
+    def _export(self, job: OnlineJob, publication: AssessmentPublication) -> None:
         identifier = "a-" + uuid5(job.job_id, "checks").hex
         value = job.checks.model_dump(mode="json") if job.checks else {}
-        try:
-            existing = tracking.get_assessment(response.trace_id, identifier)
-        except MlflowException as exc:
-            if exc.error_code != "RESOURCE_DOES_NOT_EXIST":
-                raise
-            assessment = Feedback(
+        publication.publish(
+            identifier,
+            Feedback(
                 name="online_evidence_checks",
                 value=value,
                 source=AssessmentSource(
                     source_type=AssessmentSourceType.CODE, source_id=job.config_sha256
                 ),
                 metadata={"response_id": str(job.response_id), "job_id": str(job.job_id)},
-            )
-            assessment.assessment_id = identifier
-            check()
-            tracking.log_assessment(response.trace_id, assessment)
-            check()
-            existing = tracking.get_assessment(response.trace_id, identifier)
-        if (
-            existing.feedback is None
-            or existing.feedback.value != value
-            or existing.name != "online_evidence_checks"
-            or existing.source.source_type != AssessmentSourceType.CODE
-            or existing.source.source_id != job.config_sha256
-            or existing.metadata != {"response_id": str(job.response_id), "job_id": str(job.job_id)}
-        ):
-            raise ValueError("Online assessment readback differs.")
+            ),
+        )
         if job.support is not None:
-            check()
             support_id = "a-" + uuid5(job.job_id, "support").hex
             support_value: dict[str, Any] = {
                 "assessment": job.support.model_dump(mode="json"),
@@ -510,33 +487,17 @@ class OnlineEvaluation:
                 "calibration_sha256": self.calibration_sha256 or "",
                 "support_result_key": job.support_result_key or "",
             }
-            try:
-                result = tracking.get_assessment(response.trace_id, support_id)
-            except MlflowException as exc:
-                if exc.error_code != "RESOURCE_DOES_NOT_EXIST":
-                    raise
-                assessment = Feedback(
+            publication.publish(
+                support_id,
+                Feedback(
                     name="online_context_support",
                     value=support_value,
                     source=AssessmentSource(
                         source_type=AssessmentSourceType.LLM_JUDGE, source_id=job.config_sha256
                     ),
                     metadata=metadata,
-                )
-                assessment.assessment_id = support_id
-                check()
-                tracking.log_assessment(response.trace_id, assessment)
-                check()
-                result = tracking.get_assessment(response.trace_id, support_id)
-            if (
-                result.feedback is None
-                or result.feedback.value != support_value
-                or result.name != "online_context_support"
-                or result.source.source_type != AssessmentSourceType.LLM_JUDGE
-                or result.source.source_id != job.config_sha256
-                or result.metadata != metadata
-            ):
-                raise ValueError("Online semantic assessment readback differs.")
+                ),
+            )
 
     def _judge(self, job: OnlineJob, response: AnswerRecord, deadline: float) -> OnlineJob:
         judge = self.judge

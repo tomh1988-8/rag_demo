@@ -1,0 +1,63 @@
+{
+  "recorded_at": "2026-11-01T19:31:48.567261+00:00",
+  "starting_revision": "e217853cb6f7c2a8e7a8dca70cf66c9c76127496",
+  "branch": "main",
+  "scope": "Selected architecture candidate 01: shared assessment publication",
+  "application_sha256": "cc032c250a87b43d03a185f8089aa543cd1b3fbf20797c0579bad6d74b9f8677",
+  "software_inputs": {
+    "path": "software-inputs.json",
+    "count": 176,
+    "sha256": "48fe166ce67c7dccd47ddf19c64772eb9f4351672a4342e11c05d84f52b0217d",
+    "all_match_tested_bytes": true
+  },
+  "full_suite": {
+    "runs": 1,
+    "cases": 658,
+    "failures": 0,
+    "errors": 0,
+    "skipped": 0,
+    "seconds": 2246.425,
+    "exit_code": 0,
+    "warnings": 16,
+    "junit_sha256": "8441833b98c9c012d68d4499f1577232b93ef783b44c80f98dd1da8efba75888"
+  },
+  "focused_suite": {
+    "cases": 43,
+    "failures": 0,
+    "errors": 0,
+    "skipped": 0
+  },
+  "typechecking": {
+    "result": "passed",
+    "files": 164
+  },
+  "ruff": {
+    "lint": "passed",
+    "format": "passed"
+  },
+  "reviews": {
+    "standards_findings": 0,
+    "spec_findings": 0,
+    "method": "Independent staged-diff reviews"
+  },
+  "public_openapi": {
+    "unchanged": true,
+    "paths": 28,
+    "schemas": 95,
+    "sha256": "03b931de18a85b313d37ea56deb9216e5845728470a799d1ec0564ba68f93208"
+  },
+  "preservation": {
+    "existing_protected_files": 1212,
+    "existing_data_files": 97,
+    "all_match_starting_bytes": true,
+    "shared_paid_ledger_unchanged": true,
+    "paid_inference_performed": false
+  },
+  "shutdown_diagnostic": "Existing Prefect closed-file logging error after test completion; process exited successfully.",
+  "limitation": "Controlled-model software checks; no new model-quality or canon acceptance.",
+  "supersession_regression": {
+    "initial_result": "failed: incorrectly marked delivered when readback omitted supersession",
+    "original_xml_sha256": "46c56ec8e412596202b91304a8aefd1c0eab44f3a7fef042cbdbadd0be32ded4",
+    "lossless_artifact": "supersession-red.xml.gz"
+  }
+}
