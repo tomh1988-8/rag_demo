@@ -196,6 +196,7 @@ class OnlineEvaluation:
                 reserve_background = self.policy.batch_size > 1 or bool(
                     round_row and round_row[0] % 2 == 0
                 )
+                background_first = bool(round_row and round_row[0] % 2 == 0)
                 interrupted = lock.execute(
                     "SELECT document FROM online_jobs WHERE config_sha256=%s "
                     "AND document->>'state'='running'",
@@ -250,8 +251,12 @@ class OnlineEvaluation:
                         "ORDER BY i.served_at, i.response_id LIMIT 1",
                         (now, self.feedback.tracking_sha256, self.config_sha256),
                     ).fetchone()
-                    if background and all(row[0] != background[0] for row in rows):
-                        rows = rows[: self.policy.batch_size - 1] + [background]
+                    if background:
+                        others = [row for row in rows if row[0] != background[0]]
+                        if background_first:
+                            rows = [background] + others[: self.policy.batch_size - 1]
+                        elif all(row[0] != background[0] for row in rows):
+                            rows = others[: self.policy.batch_size - 1] + [background]
                 for response_id, served_at, previous, revision, submission, generation_id in rows:
                     if self.cancellation.is_set() or time.monotonic() >= deadline:
                         break
@@ -313,8 +318,10 @@ class OnlineEvaluation:
                                 "SELECT r.revision, r.submission, r.accepted_at, i.feedback_id "
                                 "FROM feedback_revisions r JOIN feedback_interactions i "
                                 "USING (response_id) WHERE response_id = %s "
-                                "AND revision <= %s ORDER BY revision",
-                                (response_id, revision),
+                                "AND revision <= %s AND NOT EXISTS "
+                                "(SELECT 1 FROM online_triage t WHERE t.job_id=%s "
+                                "AND t.revision=r.revision) ORDER BY revision DESC LIMIT %s",
+                                (response_id, revision, job.job_id, self.policy.batch_size),
                             ).fetchall()
                             for rev, item, accepted_at, feedback_id in revisions:
                                 if self.cancellation.is_set() or time.monotonic() >= deadline:
@@ -361,10 +368,14 @@ class OnlineEvaluation:
                         "ORDER BY document->>'created_at' LIMIT 1",
                         (self.config_sha256, now),
                     ).fetchone()
-                    if background_job and all(
-                        d[0]["job_id"] != background_job[0]["job_id"] for d in documents
-                    ):
-                        documents = documents[: self.policy.batch_size - 1] + [background_job]
+                    if background_job:
+                        others = [
+                            d for d in documents if d[0]["job_id"] != background_job[0]["job_id"]
+                        ]
+                        if background_first:
+                            documents = [background_job] + others[: self.policy.batch_size - 1]
+                        elif len(others) == len(documents):
+                            documents = others[: self.policy.batch_size - 1] + [background_job]
                 for (document,) in documents:
                     if (
                         self.cancellation.is_set()
@@ -546,6 +557,8 @@ class OnlineEvaluation:
             return job.model_copy(update={"support_state": "ineligible_input_budget"})
         if self.scope is None or not self.scope.admits(supplied, response.snapshot_sha256):
             return job.model_copy(update={"support_state": "requires_scope_review"})
+        if self.cancellation.is_set() or time.monotonic() >= deadline:
+            return job.model_copy(update={"support_state": "pending"})
         result_key = document_fingerprint(
             {
                 "generation_id": str(job.generation_id),

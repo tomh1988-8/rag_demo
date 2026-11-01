@@ -392,6 +392,26 @@ def test_interrupted_triage_is_reconciled_even_after_the_revision_watermark_comm
     assert job.feedback_revision == 1
     assert [item.feedback_revision for item in job.triage] == [1]
     assert job.attempts == 1
+    with psycopg.connect(database_url) as conn:
+        conn.execute(
+            "CREATE FUNCTION reject_duplicate_triage() RETURNS trigger LANGUAGE plpgsql AS $$ "
+            "BEGIN IF EXISTS (SELECT 1 FROM online_triage WHERE job_id=NEW.job_id "
+            "AND revision=NEW.revision) THEN RAISE EXCEPTION 'completed revision revisited'; "
+            "END IF; RETURN NEW; END $$"
+        )
+        conn.execute(
+            "CREATE TRIGGER reject_duplicate_triage BEFORE INSERT ON online_triage "
+            "FOR EACH ROW EXECUTE FUNCTION reject_duplicate_triage()"
+        )
+    feedback_client.post(
+        f"/v1/responses/{receipt['response']['response_id']}/feedback",
+        headers={"Authorization": "Bearer " + receipt["read_token"]},
+        json={"submission_id": str(uuid4()), "policy_version": "feedback-v1", "rating": "helpful"},
+    ).raise_for_status()
+    evaluation.process()
+    current = evaluation.inspect(job.job_id)
+    assert [item.feedback_revision for item in current.triage] == [1, 2]
+    assert current.attempts == 1
 
 
 def test_late_feedback_has_its_own_backlog_age_and_triage_lag(

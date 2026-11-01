@@ -5,7 +5,7 @@ COPY pyproject.toml uv.lock .python-version ./
 COPY src ./src
 COPY data ./data
 COPY config ./config
-COPY docs/implementation/issue-9/judge-calibration.json ./docs/implementation/issue-9/
+COPY --chown=10001:10001 docs/implementation/issue-9/judge-calibration.json ./docs/implementation/issue-9/
 COPY scripts/evaluate_text_baseline.py scripts/evaluate_answer_policy.py scripts/evaluate_text_corpus.py scripts/evaluate_conversation.py ./scripts/
 RUN uv sync --frozen --no-dev --no-editable --cache-dir /tmp/uv-cache
 RUN mkdir -p /app/artifacts && chown 10001:10001 /app/artifacts
@@ -22,17 +22,17 @@ USER root
 RUN uv sync --frozen --no-editable --cache-dir /tmp/uv-cache
 COPY tests ./tests
 COPY scripts ./scripts
-COPY docs/implementation/issue-9 ./docs/implementation/issue-9
-COPY docs/implementation/issue-15 ./docs/implementation/issue-15
-COPY docs/implementation/issue-19 ./docs/implementation/issue-19
-COPY docs/implementation/issue-20 ./docs/implementation/issue-20
-COPY docs/implementation/issue-3/docker-serving.json ./docs/implementation/issue-3/docker-serving.json
+COPY --chown=10001:10001 docs/implementation/issue-9 ./docs/implementation/issue-9
+COPY --chown=10001:10001 docs/implementation/issue-15 ./docs/implementation/issue-15
+COPY --chown=10001:10001 docs/implementation/issue-19 ./docs/implementation/issue-19
+COPY --chown=10001:10001 docs/implementation/issue-20 ./docs/implementation/issue-20
+COPY --chown=10001:10001 docs/implementation/issue-3/docker-serving.json ./docs/implementation/issue-3/docker-serving.json
 COPY scripts/record_family_acceptance.py scripts/record_relationship_acceptance.py scripts/record_event_acceptance.py ./scripts/
 COPY scripts/prepare_coverage.py scripts/run_coverage.py scripts/assemble_coverage.py scripts/report_coverage.py scripts/record_coverage.py ./scripts/
-COPY docs/implementation/issue-11/claims.json docs/implementation/issue-11/claim-reviews.json ./docs/implementation/issue-11/
-COPY docs/implementation/issue-12/raw-claims.json docs/implementation/issue-12/raw-claim-reviews.json docs/implementation/issue-12/reviewed-claims-v2.json docs/implementation/issue-12/reviewed-claim-reviews-v2.json ./docs/implementation/issue-12/
-COPY docs/implementation/issue-13/raw-claims.json docs/implementation/issue-13/raw-reviews.json docs/implementation/issue-13/reviewed-claims-v2.json docs/implementation/issue-13/reviewed-reviews-v2.json ./docs/implementation/issue-13/
-COPY docs/implementation/issue-16/claim-reviews.json ./docs/implementation/issue-16/
+COPY --chown=10001:10001 docs/implementation/issue-11/claims.json docs/implementation/issue-11/claim-reviews.json ./docs/implementation/issue-11/
+COPY --chown=10001:10001 docs/implementation/issue-12/raw-claims.json docs/implementation/issue-12/raw-claim-reviews.json docs/implementation/issue-12/reviewed-claims-v2.json docs/implementation/issue-12/reviewed-claim-reviews-v2.json ./docs/implementation/issue-12/
+COPY --chown=10001:10001 docs/implementation/issue-13/raw-claims.json docs/implementation/issue-13/raw-reviews.json docs/implementation/issue-13/reviewed-claims-v2.json docs/implementation/issue-13/reviewed-reviews-v2.json ./docs/implementation/issue-13/
+COPY --chown=10001:10001 docs/implementation/issue-16/claim-reviews.json ./docs/implementation/issue-16/
 USER 10001:10001
 CMD ["pytest", "-q", "-p", "no:cacheprovider"]
 

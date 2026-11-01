@@ -252,10 +252,14 @@ class OnlineReview:
         evidence = {" ".join(e.text.casefold().split()) for e in case.evidence}
 
         def strings(value: Any) -> set[str]:
-            if isinstance(value, str):
-                return {" ".join(value.casefold().split())}
             if isinstance(value, dict):
-                return {s for nested in value.values() for s in strings(nested)}
+                text = {
+                    " ".join(v.casefold().split())
+                    for k, v in value.items()
+                    if k in {"text", "source_text", "passage_text", "context_text"}
+                    and isinstance(v, str)
+                }
+                return text | {s for nested in value.values() for s in strings(nested)}
             if isinstance(value, list):
                 return {s for nested in value for s in strings(nested)}
             return set()
@@ -272,7 +276,12 @@ class OnlineReview:
                     if (
                         groups.intersection(case.group_ids)
                         or " ".join(str(value.get("question", "")).casefold().split()) == question
-                        or any(text in retained for text in evidence for retained in material)
+                        or any(
+                            text in retained or retained in text
+                            for text in evidence
+                            for retained in material
+                            if retained
+                        )
                         or value.get("case_id") in case.derived_from
                     ):
                         raise ValueError(

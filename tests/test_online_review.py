@@ -64,6 +64,7 @@ def seed(request: pytest.FixtureRequest) -> SourceSnapshot:
         ("derivative", "plain"),
         ("prior_group", "plain"),
         ("evidence", "escaped"),
+        ("evidence_excerpt", "plain"),
         ("registry_missing", "plain"),
     ],
     indirect=["seed"],
@@ -185,8 +186,14 @@ def test_checked_live_failure_is_promoted_with_evidence_lineage_and_split_contro
             held_out["group_ids"] = list(promotion.case.group_ids)
         elif contamination == "question":
             held_out["question"] = promotion.case.question
-        elif contamination == "evidence":
+        elif contamination in {"evidence", "evidence_excerpt"}:
             held_out["evidence"] = [e.model_dump(mode="json") for e in promotion.case.evidence]
+            if contamination == "evidence_excerpt":
+                excerpt = promotion.case.evidence[0].model_dump(mode="json")
+                excerpt["text"] = str(excerpt["text"])[:55]
+                excerpt["sha256"] = hashlib.sha256(excerpt["text"].encode()).hexdigest()
+                excerpt["evidence_id"] = "protected-excerpt"
+                held_out["evidence"] = [excerpt]
         else:
             promotion = promotion.model_copy(
                 update={
