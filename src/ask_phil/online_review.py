@@ -15,6 +15,7 @@ from ask_phil.evidence import Fingerprint, Identifier, NonEmpty, Record
 from ask_phil.feedback import FeedbackStore
 from ask_phil.online_evaluation import OnlineReport
 from ask_phil.quality_comparison import ComparisonCase, ComparisonDataset
+from ask_phil.reference_data import reference_directory
 from ask_phil.security import redact_text
 from ask_phil.storage import EvidenceStore
 
@@ -250,27 +251,40 @@ class OnlineReview:
         question = " ".join(case.question.casefold().split())
         evidence = {" ".join(e.text.casefold().split()) for e in case.evidence}
 
-        def inspect(value: Any) -> None:
+        def strings(value: Any) -> set[str]:
+            if isinstance(value, str):
+                return {" ".join(value.casefold().split())}
             if isinstance(value, dict):
-                if value.get("split") == "held_out":
+                return {s for nested in value.values() for s in strings(nested)}
+            if isinstance(value, list):
+                return {s for nested in value for s in strings(nested)}
+            return set()
+
+        def inspect(value: Any, protected: bool = False) -> None:
+            if isinstance(value, dict):
+                prior = value.get("prior_group_splits", {})
+                if any(prior.get(group) == "held_out" for group in case.group_ids):
+                    raise ValueError("Held-out contamination: story group remains reserved.")
+                protected = protected or value.get("split") == "held_out"
+                if protected:
                     groups = set(value.get("group_ids", ())) | {value.get("group_id", "")}
-                    material = json.dumps(value, sort_keys=True).casefold()
+                    material = strings(value)
                     if (
                         groups.intersection(case.group_ids)
                         or " ".join(str(value.get("question", "")).casefold().split()) == question
-                        or any(text in " ".join(material.split()) for text in evidence)
+                        or any(text in retained for text in evidence for retained in material)
                         or value.get("case_id") in case.derived_from
                     ):
                         raise ValueError(
                             "Held-out contamination: retire/adjudicate the overlapping group first."
                         )
                 for nested in value.values():
-                    inspect(nested)
+                    inspect(nested, protected)
             elif isinstance(value, list):
                 for nested in value:
-                    inspect(nested)
+                    inspect(nested, protected)
 
-        for path in sorted(Path("data/references").glob("*.json")):
+        for path in sorted(reference_directory().glob("*.json")):
             raw = path.read_bytes()
             registry[str(path)] = hashlib.sha256(raw).hexdigest()
             inspect(json.loads(raw))

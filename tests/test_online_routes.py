@@ -56,12 +56,18 @@ def test_graph_and_investigation_assessments_preserve_the_actual_route_evidence(
                 "graph": {"character_id": "ben-mitchell", "direction": "ancestors"},
             },
             {"snapshot_id": seed.snapshot_id, "route": "investigation", "question": part},
+            {
+                "snapshot_id": family_batch.snapshot_id,
+                "route": "graph",
+                "question": "Who are Sharon's biological parents?",
+                "graph": {"character_id": "sharon-watts", "direction": "ancestors"},
+            },
         ):
             answered = client.post("/v1/answers", json=request)
             answered.raise_for_status()
             responses.append(answered.json()["response"])
     evaluation = OnlineEvaluation(database_url, uri, policy=OnlinePolicy(background_rate=1))
-    assert evaluation.process().completed == 2
+    assert evaluation.process().completed == 3
     now = datetime.now(UTC)
     report = evaluation.report(
         FeedbackCohort(
@@ -76,7 +82,14 @@ def test_graph_and_investigation_assessments_preserve_the_actual_route_evidence(
     }
     for job, original in zip(report.jobs, responses, strict=True):
         assert evaluation.inspect(job.job_id).response.model_dump(mode="json") == original
-        assert job.checks is not None and job.checks.citation_integrity is True
+        assert job.checks is not None
+        if original["citations"]:
+            assert job.checks.citation_integrity is True
+        else:
+            assert job.checks.citation_integrity is None
+            assert job.checks.context_available is False
+            assert job.support is None
+            assert job.checks.reference_correctness is None
 
 
 def test_follow_up_and_reset_feedback_assess_the_two_original_turns(

@@ -11,10 +11,11 @@ from pydantic import AwareDatetime, Field
 
 from ask_phil.answers import AnswerRecord
 from ask_phil.evaluation import document_fingerprint
-from ask_phil.evidence import Fingerprint, Record
-from ask_phil.execution import ExecutionRecord
+from ask_phil.evidence import Fingerprint, Identifier, Record
+from ask_phil.execution import ExecutionPolicies, ExecutionRecord
 from ask_phil.feedback import Category, Rating
 from ask_phil.feedback_reporting import FeedbackSummary
+from ask_phil.openrouter import OpenRouterProfile
 from ask_phil.semantic_judge import SupportAssessment
 
 
@@ -32,6 +33,7 @@ class OnlinePolicy(Record):
     max_judge_calls: int = Field(default=20, ge=0, le=100)
     max_judge_spend_usd: float = Field(default=0.25, ge=0, le=1, allow_inf_nan=False)
     review_rate: float = Field(default=0.1, gt=0, le=1, allow_inf_nan=False)
+    evaluator_revision: Identifier = "support-v1"
 
     @classmethod
     def from_environment(cls) -> "OnlinePolicy":
@@ -47,7 +49,7 @@ class OnlinePolicy(Record):
 
     def selects(self, response_id: UUID, cohort: str, rate: float) -> bool:
         value = hashlib.sha256(f"{self.seed}:{cohort}:{response_id}".encode()).digest()
-        return int.from_bytes(value, "big") / 2**256 < rate
+        return int.from_bytes(value, "big") < int(rate * 2**256)
 
 
 class OnlineChecks(Record):
@@ -59,6 +61,16 @@ class OnlineChecks(Record):
     reference_completeness: None = None
     persona: None = None
     reason: str
+
+
+class OnlineConfiguration(Record):
+    policy: OnlinePolicy
+    tracking_sha256: Fingerprint
+    calibration_sha256: Fingerprint | None
+    scope_sha256: Fingerprint | None
+    judge: OpenRouterProfile | None
+    execution: ExecutionPolicies | None
+    implementation: dict[str, Fingerprint]
 
 
 def check_saved_answer(response: AnswerRecord) -> OnlineChecks:
@@ -102,6 +114,7 @@ class OnlineJob(Record):
     updated_at: AwareDatetime
     state: JobState
     selection_reasons: tuple[str, ...] = ()
+    selection_priority: int = 3
     background_rate: float
     feedback_rate: float
     feedback_revision: int = 0
@@ -115,6 +128,9 @@ class OnlineJob(Record):
     support_state: str = "disabled"
     support: SupportAssessment | None = None
     support_execution: ExecutionRecord | None = None
+    support_result_key: Fingerprint | None = None
+    support_origin_job_id: UUID | None = None
+    support_reused: bool = False
     judge_calls: int = 0
     judge_reserved_usd: float = 0
     judge_cost_usd: float | None = 0
@@ -125,6 +141,7 @@ class OnlineJob(Record):
 
 class OnlineInspection(OnlineJob):
     response: AnswerRecord
+    configuration: OnlineConfiguration | None = None
     triage: tuple["OnlineTriage", ...] = ()
 
 
@@ -168,6 +185,7 @@ class OnlineReport(Record):
     report_id: UUID
     created_at: AwareDatetime
     config_sha256: Fingerprint
+    configuration: OnlineConfiguration
     feedback: FeedbackSummary
     selected: int
     online_eligible: int
@@ -177,6 +195,10 @@ class OnlineReport(Record):
     sample_coverage: float | None
     score_coverage: float | None
     oldest_pending_seconds: float | None
+    pending_triage_revisions: int = 0
+    triaged_revisions: int = 0
+    oldest_pending_triage_seconds: float | None = None
+    maximum_triage_lag_seconds: float | None = None
     assessment_lag_seconds: tuple[float, ...]
     online_judge_cost_usd: float | None
     online_judge_reserved_usd: float
@@ -202,6 +224,7 @@ class OnlineReport(Record):
         "Cumulative online expense includes all configuration revisions and retained "
         "uncertain reservations, even after interaction expiry. Feedback is latest "
         "as of the stated cutoff; processing states are current at report creation. "
+        "Counts are served deliveries, not independent factual examples. "
         "Background and directed samples may overlap. Ratings are self-selected helpfulness "
         "and reported issues, not unbiased accuracy. Context support is not canon correctness. "
         "Observed trends do not establish causality. Offline expense is unavailable here."

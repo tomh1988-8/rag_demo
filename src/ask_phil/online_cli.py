@@ -37,6 +37,11 @@ def add_online_commands(commands: argparse._SubParsersAction[argparse.ArgumentPa
         "online-review-history", help="Maintainer: inspect report dispositions."
     )
     history.add_argument("report_id", type=UUID)
+    response = commands.add_parser(
+        "online-review-response", help="Maintainer: inspect any reported original response."
+    )
+    response.add_argument("report_id", type=UUID)
+    response.add_argument("response_id", type=UUID)
     promotion = commands.add_parser(
         "online-promote", help="Maintainer: promote a source-checked regression."
     )
@@ -56,6 +61,13 @@ def run_online_command(args: argparse.Namespace) -> None:
                 ReportReview.model_validate_json(args.request.read_bytes())
             ).model_dump_json()
         )
+    elif args.command == "online-review-response":
+        import json
+
+        from ask_phil.evaluation import document_fingerprint
+
+        original = review.response(args.report_id, args.response_id).model_dump(mode="json")
+        print(json.dumps({"response": original, "response_sha256": document_fingerprint(original)}))
     elif args.command == "online-review-history":
         from pydantic import TypeAdapter
 

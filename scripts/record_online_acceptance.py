@@ -303,7 +303,7 @@ def main() -> None:
                 passage = seed.passages[0]
                 case = {
                     "case_id": "online-phil-arrival-regression-v1",
-                    "group_ids": ["phil-arrival"],
+                    "group_ids": ["mitchell-arrival-1990", "phil-arrival-february-1990"],
                     "split": "regression",
                     "category": "arrival-year",
                     "question": wrong["response"]["question"],

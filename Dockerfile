@@ -5,6 +5,7 @@ COPY pyproject.toml uv.lock .python-version ./
 COPY src ./src
 COPY data ./data
 COPY config ./config
+COPY docs/implementation/issue-9/judge-calibration.json ./docs/implementation/issue-9/
 COPY scripts/evaluate_text_baseline.py scripts/evaluate_answer_policy.py scripts/evaluate_text_corpus.py scripts/evaluate_conversation.py ./scripts/
 RUN uv sync --frozen --no-dev --no-editable --cache-dir /tmp/uv-cache
 RUN mkdir -p /app/artifacts && chown 10001:10001 /app/artifacts
@@ -12,6 +13,7 @@ ENV PATH="/app/.venv/bin:$PATH"
 ENV PYTHONDONTWRITEBYTECODE=1
 ENV MLFLOW_DISABLE_AGENT_HINT=1
 ENV PREFECT_HOME=/app/artifacts/prefect
+ENV ASK_PHIL_REFERENCE_DIRECTORY=/app/data/references
 USER 10001:10001
 CMD ["uvicorn", "ask_phil.api:create_app", "--factory", "--host", "0.0.0.0", "--port", "8000"]
 
@@ -19,6 +21,11 @@ FROM base AS test
 USER root
 RUN uv sync --frozen --no-editable --cache-dir /tmp/uv-cache
 COPY tests ./tests
+COPY scripts ./scripts
+COPY docs/implementation/issue-9 ./docs/implementation/issue-9
+COPY docs/implementation/issue-15 ./docs/implementation/issue-15
+COPY docs/implementation/issue-19 ./docs/implementation/issue-19
+COPY docs/implementation/issue-20 ./docs/implementation/issue-20
 COPY docs/implementation/issue-3/docker-serving.json ./docs/implementation/issue-3/docker-serving.json
 COPY scripts/record_family_acceptance.py scripts/record_relationship_acceptance.py scripts/record_event_acceptance.py ./scripts/
 COPY scripts/prepare_coverage.py scripts/run_coverage.py scripts/assemble_coverage.py scripts/report_coverage.py scripts/record_coverage.py ./scripts/

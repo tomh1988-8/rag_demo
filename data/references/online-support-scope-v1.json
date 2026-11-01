@@ -1,0 +1,149 @@
+{
+  "scope_id": "explicit-arrival-support-pilot-v1",
+  "reviewer": "Independent Codex Standards source-review agent",
+  "reviewer_type": "agent",
+  "human_reviewed": false,
+  "limitation": "Exact-input/source pilot only. Existing human synthetic calibration remains unchanged. Identity, no-assertion and foreman semantic disagreements remain unresolved and excluded; no broad judge eligibility, canon adjudication or held-out acceptance. Fresh pilot observations do not establish repeat or sensitivity reliability.",
+  "calibration_sha256": "ada876e4b09ec7362a7db479edd577dfe498e513d14b8ffa2b8d0f7db9c48fc5",
+  "judge_settings_sha256": "1c91a994d2d659eba99ed65f4011dc81421bcbe7ff1e5218667bbbdcd196f567",
+  "rubric_sha256": "99271033de9a536ea3b9b93e9efd15ad2a57f1ff0b7df54071578f141808bd1d",
+  "controls": [
+    {
+      "case_id": "arrival-1990-support-control",
+      "supplied": {
+        "answer": "Phil Mitchell first arrived in February 1990.",
+        "context": [
+          {
+            "evidence_id": "phil-arrival-001",
+            "text": "Phil Mitchell first arrives in Walford in February 1990 to open an automobile repair shop, known as The Arches;"
+          }
+        ]
+      },
+      "snapshot_sha256": "26da379f1f9c27c0bf41ca4a200072280bf441f7e84eacee92c761cede134462",
+      "expected_supported": true,
+      "review_note": "Independent Standards agent read retained revision 1375499431: February 1990 is supported; 1991 is contradicted. Labels frozen before online provider calls."
+    },
+    {
+      "case_id": "arrival-1991-support-control",
+      "supplied": {
+        "answer": "Phil Mitchell first arrived in February 1991.",
+        "context": [
+          {
+            "evidence_id": "phil-arrival-001",
+            "text": "Phil Mitchell first arrives in Walford in February 1990 to open an automobile repair shop, known as The Arches;"
+          }
+        ]
+      },
+      "snapshot_sha256": "26da379f1f9c27c0bf41ca4a200072280bf441f7e84eacee92c761cede134462",
+      "expected_supported": false,
+      "review_note": "Independent Standards agent read retained revision 1375499431: February 1990 is supported; 1991 is contradicted. Labels frozen before online provider calls."
+    }
+  ],
+  "exclusions": [
+    {
+      "case_id": "baseline-ambiguous-r0",
+      "input_sha256": "d3f20785f55276cae217770ebd2f7af163e3ea68a798c984c8a67b0e525588b8",
+      "disposition": "unresolved_excluded"
+    },
+    {
+      "case_id": "baseline-isolated-r0",
+      "input_sha256": "d3f20785f55276cae217770ebd2f7af163e3ea68a798c984c8a67b0e525588b8",
+      "disposition": "unresolved_excluded"
+    },
+    {
+      "case_id": "baseline-janine-butcher-profile-r0",
+      "input_sha256": "33d514af8f130f9f806635ff474f5e784a44dfd1a6fd1596b14cb80ac52a15a6",
+      "disposition": "unresolved_excluded"
+    },
+    {
+      "case_id": "baseline-phil-mitchell-missing-r0",
+      "input_sha256": "97bd24be68d333148e7d9eccf5af71fdaffedd071df9248c8e872742c22cd10d",
+      "disposition": "unresolved_excluded"
+    },
+    {
+      "case_id": "baseline-cross-mitchell-garage-r0",
+      "input_sha256": "d3f20785f55276cae217770ebd2f7af163e3ea68a798c984c8a67b0e525588b8",
+      "disposition": "unresolved_excluded"
+    },
+    {
+      "case_id": "baseline-ambiguous-r1",
+      "input_sha256": "d3f20785f55276cae217770ebd2f7af163e3ea68a798c984c8a67b0e525588b8",
+      "disposition": "unresolved_excluded"
+    },
+    {
+      "case_id": "baseline-isolated-r1",
+      "input_sha256": "d3f20785f55276cae217770ebd2f7af163e3ea68a798c984c8a67b0e525588b8",
+      "disposition": "unresolved_excluded"
+    },
+    {
+      "case_id": "baseline-janine-butcher-profile-r1",
+      "input_sha256": "3a09e175a31673efb49689480a7aee30e0532e3c3ae9c2da29cf48f14f234f32",
+      "disposition": "unresolved_excluded"
+    },
+    {
+      "case_id": "baseline-phil-mitchell-missing-r1",
+      "input_sha256": "09f5eb80cff92bcd80c717edb8cc30a60bbe1ec110c2be3e6f1c827fe01ad702",
+      "disposition": "unresolved_excluded"
+    },
+    {
+      "case_id": "baseline-cross-mitchell-garage-r1",
+      "input_sha256": "d3f20785f55276cae217770ebd2f7af163e3ea68a798c984c8a67b0e525588b8",
+      "disposition": "unresolved_excluded"
+    },
+    {
+      "case_id": "candidate-ambiguous-r0",
+      "input_sha256": "d3f20785f55276cae217770ebd2f7af163e3ea68a798c984c8a67b0e525588b8",
+      "disposition": "unresolved_excluded"
+    },
+    {
+      "case_id": "candidate-isolated-r0",
+      "input_sha256": "d3f20785f55276cae217770ebd2f7af163e3ea68a798c984c8a67b0e525588b8",
+      "disposition": "unresolved_excluded"
+    },
+    {
+      "case_id": "candidate-janine-butcher-profile-r0",
+      "input_sha256": "9e69ec2604005ca67b5479a6baaba0571a5e00c3876f35391cae43913ebb75af",
+      "disposition": "unresolved_excluded"
+    },
+    {
+      "case_id": "candidate-phil-mitchell-missing-r0",
+      "input_sha256": "09f5eb80cff92bcd80c717edb8cc30a60bbe1ec110c2be3e6f1c827fe01ad702",
+      "disposition": "unresolved_excluded"
+    },
+    {
+      "case_id": "candidate-cross-mitchell-garage-r0",
+      "input_sha256": "d3f20785f55276cae217770ebd2f7af163e3ea68a798c984c8a67b0e525588b8",
+      "disposition": "unresolved_excluded"
+    },
+    {
+      "case_id": "candidate-ambiguous-r1",
+      "input_sha256": "d3f20785f55276cae217770ebd2f7af163e3ea68a798c984c8a67b0e525588b8",
+      "disposition": "unresolved_excluded"
+    },
+    {
+      "case_id": "candidate-isolated-r1",
+      "input_sha256": "d3f20785f55276cae217770ebd2f7af163e3ea68a798c984c8a67b0e525588b8",
+      "disposition": "unresolved_excluded"
+    },
+    {
+      "case_id": "candidate-janine-butcher-profile-r1",
+      "input_sha256": "ebb0c2de3e1b3ff29ad5016a2cf37014bb7b5d3a54d9a01d324b42d10a833c49",
+      "disposition": "unresolved_excluded"
+    },
+    {
+      "case_id": "candidate-phil-mitchell-missing-r1",
+      "input_sha256": "97bd24be68d333148e7d9eccf5af71fdaffedd071df9248c8e872742c22cd10d",
+      "disposition": "unresolved_excluded"
+    },
+    {
+      "case_id": "candidate-cross-mitchell-garage-r1",
+      "input_sha256": "d3f20785f55276cae217770ebd2f7af163e3ea68a798c984c8a67b0e525588b8",
+      "disposition": "unresolved_excluded"
+    },
+    {
+      "case_id": "issue19-foreman-verdict-attribution",
+      "input_sha256": null,
+      "disposition": "unresolved_excluded"
+    }
+  ]
+}

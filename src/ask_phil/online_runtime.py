@@ -26,6 +26,11 @@ def configured_online(
     policy: OnlinePolicy | None = None,
     cancellation: Event | None = None,
 ) -> Iterator[OnlineEvaluation]:
+    if (policy is not None and not policy.enabled) or os.environ.get(
+        "ASK_PHIL_ONLINE_ENABLED", "true"
+    ).lower() != "true":
+        yield OnlineEvaluation(database_url, tracking_uri, policy=policy, cancellation=cancellation)
+        return
     calibration = os.environ.get("ASK_PHIL_ONLINE_CALIBRATION")
     if calibration is None:
         yield OnlineEvaluation(database_url, tracking_uri, policy=policy, cancellation=cancellation)
@@ -48,6 +53,9 @@ def configured_online(
             policy=policy,
             judge=judge,
             calibration=path,
+            scope=Path(os.environ["ASK_PHIL_ONLINE_SCOPE"])
+            if "ASK_PHIL_ONLINE_SCOPE" in os.environ
+            else None,
             cancellation=cancellation,
         )
 
@@ -60,8 +68,10 @@ def online_worker(
     policy: OnlinePolicy | None = None,
 ) -> None:
     while not stop.is_set():
-        effective = policy or OnlinePolicy.from_environment()
+        interval = 10.0
         try:
+            effective = policy or OnlinePolicy.from_environment()
+            interval = effective.interval_seconds
             with configured_online(
                 database_url, tracking_uri, policy=effective, cancellation=stop
             ) as evaluation:
@@ -71,5 +81,5 @@ def online_worker(
             logging.getLogger(__name__).warning(
                 "Online workflow unavailable: %s", type(exc).__name__
             )
-        wake.wait(effective.interval_seconds)
+        wake.wait(interval)
         wake.clear()

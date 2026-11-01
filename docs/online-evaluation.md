@@ -21,6 +21,9 @@ Feedback-directed sampling defaults to 100%, prioritizing reported facts,
 missing/outdated evidence, evidence problems and harm, followed by negative
 ratings. Selection is bounded per processing batch. Sampling reasons, rates,
 configuration fingerprint and response/generation identities remain visible.
+Reported factual/evidence/harm problems also take priority in the runnable queue.
+Each normal batch reserves discovery and execution capacity for unrated background
+work; a one-item batch alternates that reservation across durable polling rounds.
 
 Code checks verify retained citation identity. They do not infer support from a
 matching identifier. Without reviewed expectations, correctness, recall and
@@ -35,6 +38,16 @@ recomputes the saved calibration against the human-reviewed support controls,
 and checks the exact rubric/model/settings identity. It uses the existing private
 key and non-resetting provider ledger. Generic judges see only the preserved
 answer and context, without the vote, comment or proposed correction.
+
+Admission is additionally limited to the exact input and source fingerprints in
+the [reviewed arrival pilot](../data/references/online-support-scope-v1.json).
+Those two positive/negative controls have independent agent source review, not
+new human calibration. Unknown inputs remain `requires_scope_review` without a
+model reservation. `ASK_PHIL_ONLINE_SCOPE` can name a separately reviewed scope
+artifact. The old identity/no-assertion cases and foreman disagreement have
+explicit unresolved/excluded admission dispositions; their semantic labels are
+unchanged. Two fresh pilot calls cannot establish repeat/sensitivity reliability
+or broaden eligible scope.
 
 The existing calibration establishes narrow synthetic context-support controls.
 Earlier identity/null-policy disagreements and the disputed foreman-role label
@@ -58,6 +71,13 @@ configured bounds; failed/exhausted work remains inspectable. An interrupted
 model attempt is uncertain and is never automatically charged again. Missing
 usage stays null and retains its conservative allocation. Configuration changes
 and expired interactions do not reset cumulative online expense.
+Selection, reporting and retry-policy revisions create new configuration records
+without buying an unchanged judge result again. Semantic reuse keys identify
+the generation, preserved input/source, calibrated rubric/model and explicit
+`evaluator_revision`. Reused results retain their origin with zero new calls/cost.
+Paid failed and uncertain outcomes are also retained; unattempted budget skips
+can become eligible when limits change. Deliberately changing the evaluator
+revision requests a fresh assessment within the same persistent allocation.
 
 Configure HTTP MLflow with `MLFLOW_HTTP_REQUEST_TIMEOUT` at most 5 and
 `MLFLOW_HTTP_REQUEST_MAX_RETRIES=0`, as Compose does. Requests already in progress
@@ -74,6 +94,7 @@ ask-phil online-process
 ask-phil online-report --served-from 2026-11-01T00:00:00Z \
   --served-until 2026-11-02T00:00:00Z --as-of 2026-11-01T12:00:00Z
 ask-phil online-inspect JOB_UUID
+ask-phil online-review-response REPORT_UUID RESPONSE_UUID
 ask-phil online-review review-request.json
 ask-phil online-review-history REPORT_UUID
 ask-phil online-promote promotion-request.json --output data/references/online-regression-v1.json
@@ -88,6 +109,11 @@ states, backlog age, assessment lag, separate serving/online expense and missing
 offline measurements. Background and feedback cohorts can overlap. Repeated
 deliveries are not independent story examples; future cache integration must
 preserve `generation_id` and charge serving inference only to its original call.
+Late feedback has separate pending-revision counts, backlog age and processing
+lag, even when its generic answer assessment completed earlier. Configurations
+and their fingerprints are durable and included in reports/inspection. Descriptive
+feedback counts cover every retained interaction; online eligibility excludes
+interactions belonging to another tracking backend and shows that count explicitly.
 
 Reports designate every category/comment/correction item, every visible
 user/judge disagreement, and a reproducible 10% sample of remaining ratings
@@ -122,3 +148,10 @@ Dependency contracts were tested on MLflow 3.16.1 and Prefect 3.8.6. MLflow's
 distinguish human ratings, code checks and semantic judges; actual local integration
 readback, rather than hosted automatic-evaluation assumptions, establishes the
 supported lifecycle here.
+
+Reference discovery uses the installed/project location, rather than the caller's
+working directory. Packaged deployments set the absolute
+`ASK_PHIL_REFERENCE_DIRECTORY` (the image uses `/app/data/references`). Missing or
+empty registries fail closed. Promotion checks decoded Unicode/quoted evidence
+and existing `prior_group_splits` reservations. Use absolute paths for externally
+configured policy/calibration files when invoking the CLI outside the project.

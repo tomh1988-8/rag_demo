@@ -10,21 +10,87 @@ import httpx
 import pytest
 from fastapi.testclient import TestClient
 from test_answers_api import models as models
+from test_family_graph import family_batch as family_batch
+from test_family_graph import install_family
 from test_feedback_api import feedback_client as feedback_client
 from test_feedback_api import feedback_clock as feedback_clock
 
+from ask_phil.api import create_app
 from ask_phil.execution import ExecutionPolicies
+from ask_phil.feedback import FeedbackPolicy
 from ask_phil.feedback_reporting import FeedbackCohort
 from ask_phil.online_evaluation import OnlinePolicy
 from ask_phil.online_workflow import OnlineEvaluation
 from ask_phil.openrouter import Budget, OpenRouterChat, OpenRouterProfile
+from ask_phil.parentage import ClaimBatch
 from ask_phil.semantic_judge import SupportJudge
 
 CALIBRATION = Path("docs/implementation/issue-9/judge-calibration.json")
 
+pytestmark = pytest.mark.parametrize(
+    "models",
+    [
+        {
+            "draft": {
+                "answer": "Phil Mitchell first arrived in February 1990.",
+                "evidence_ids": ["phil-arrival-001"],
+            }
+        }
+    ],
+    indirect=True,
+)
+
 
 class SimulatedProcessExit(BaseException):
     pass
+
+
+def test_unreviewed_source_scope_is_not_sent_to_the_paid_judge(
+    feedback_client: TestClient,
+    database_url: str,
+    tmp_path: Path,
+    family_batch: ClaimBatch,
+    bounded_judge: tuple[SupportJudge, Budget, dict[str, str]],
+) -> None:
+    judge, ledger, _ = bounded_judge
+    install_family(database_url, family_batch)
+    uri = f"sqlite:///{tmp_path}/unreviewed-scope.db"
+    with TestClient(
+        create_app(
+            database_url, tracking_uri=uri, feedback_policy=FeedbackPolicy(auto_deliver=False)
+        )
+    ) as client:
+        result = client.post(
+            "/v1/answers",
+            json={
+                "snapshot_id": family_batch.snapshot_id,
+                "route": "graph",
+                "question": "Who are Ben's ancestors?",
+                "graph": {"character_id": "ben-mitchell", "direction": "ancestors"},
+            },
+        )
+        result.raise_for_status()
+    evaluation = OnlineEvaluation(
+        database_url,
+        uri,
+        policy=OnlinePolicy(background_rate=1),
+        judge=judge,
+        calibration=CALIBRATION,
+    )
+    evaluation.process()
+    now = datetime.now(UTC)
+    report = evaluation.report(
+        FeedbackCohort(
+            served_from=now - timedelta(hours=1),
+            served_until=now + timedelta(hours=1),
+            feedback_as_of=now,
+        )
+    )
+    assert report.jobs[0].support_state == "requires_scope_review"
+    assert report.jobs[0].checks is not None
+    assert report.online_judge_calls == 0
+    assert report.support_scored == 0
+    assert ledger.summary() == (0, 0)
 
 
 @pytest.fixture
@@ -202,11 +268,21 @@ def test_limited_failed_and_missing_usage_judges_leave_honest_inspectable_result
         assert ledger.summary() == (0, 0)
 
 
+@pytest.mark.parametrize(
+    "change",
+    [
+        {"seed": "revision-2"},
+        {"review_rate": 0.2},
+        {"retry_seconds": 20},
+        {"interval_seconds": 20},
+    ],
+)
 def test_online_spending_allocation_does_not_reset_with_configuration_revisions(
     feedback_client: TestClient,
     database_url: str,
     tmp_path: Path,
     bounded_judge: tuple[SupportJudge, Budget, dict[str, str]],
+    change: dict[str, object],
 ) -> None:
     judge, ledger, _ = bounded_judge
     feedback_client.post(
@@ -220,7 +296,7 @@ def test_online_spending_allocation_does_not_reset_with_configuration_revisions(
     changed = OnlineEvaluation(
         database_url,
         uri,
-        policy=policy.model_copy(update={"seed": "revision-2"}),
+        policy=policy.model_copy(update=change),
         judge=judge,
         calibration=CALIBRATION,
     )
@@ -233,9 +309,23 @@ def test_online_spending_allocation_does_not_reset_with_configuration_revisions(
             feedback_as_of=now,
         )
     )
-    assert report.jobs[0].state == "budget_skipped"
+    assert report.jobs[0].state == "completed"
+    assert report.jobs[0].support_reused is True
+    assert report.jobs[0].judge_calls == 0
+    assert report.online_judge_cost_usd == 0
     assert report.cumulative_online_judge_calls == 1
     assert report.cumulative_online_judge_cost_usd == 0.001
+    assert ledger.summary() == (0.001, 0)
+    second = feedback_client.post(
+        "/v1/answers", json={"snapshot_id": "phil-arrival-v1", "question": "When did Phil arrive?"}
+    ).json()["response"]
+    changed.process()
+    current = changed.report(
+        report.feedback.cohort.model_copy(update={"feedback_as_of": datetime.now(UTC)})
+    )
+    fresh = next(j for j in current.jobs if str(j.response_id) == second["response_id"])
+    assert fresh.state == "budget_skipped"
+    assert current.cumulative_online_judge_calls == 1
     assert ledger.summary() == (0.001, 0)
 
 

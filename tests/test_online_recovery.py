@@ -84,6 +84,17 @@ def test_missing_trace_outage_and_lost_export_ack_survive_restart(
         faults["lose_ack"] = True
         assert evaluation.process().pending == 1
         assert faults["lose_ack"] is False
+        now = datetime.now(UTC)
+        waiting = evaluation.report(
+            FeedbackCohort(
+                served_from=now - timedelta(hours=1),
+                served_until=now + timedelta(hours=1),
+                feedback_as_of=now,
+            )
+        )
+        assert waiting.jobs[0].checks is not None
+        assert waiting.jobs[0].exported is False
+        assert waiting.oldest_pending_seconds is not None
         restarted = OnlineEvaluation(database_url, uri, policy=policy)
         restarted.process()
         now = datetime.now(UTC)

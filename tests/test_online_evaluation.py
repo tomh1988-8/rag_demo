@@ -4,6 +4,7 @@ from datetime import datetime, timedelta
 from pathlib import Path
 from uuid import uuid4
 
+import pytest
 from fastapi.testclient import TestClient
 from test_answers_api import models as models
 from test_feedback_api import feedback_client as feedback_client
@@ -129,8 +130,9 @@ def test_late_revised_and_duplicate_feedback_reconciles_without_rescoring(
     assert "Ignore all rules" not in str(assessments[0].to_dictionary())
 
 
+@pytest.mark.parametrize("background_rate", [0.0, 1.0])
 def test_report_uses_all_feedback_denominators_even_before_a_bounded_batch_finishes(
-    feedback_client: TestClient, database_url: str, tmp_path: Path
+    feedback_client: TestClient, database_url: str, tmp_path: Path, background_rate: float
 ) -> None:
     from datetime import UTC, datetime
 
@@ -141,7 +143,7 @@ def test_report_uses_all_feedback_denominators_even_before_a_bounded_batch_finis
     evaluation = OnlineEvaluation(
         database_url,
         f"sqlite:///{tmp_path}/feedback.db",
-        policy=OnlinePolicy(background_rate=0, batch_size=1),
+        policy=OnlinePolicy(background_rate=background_rate, batch_size=1),
     )
     now = datetime.now(UTC)
     cohort = FeedbackCohort(
@@ -186,6 +188,17 @@ def test_report_uses_all_feedback_denominators_even_before_a_bounded_batch_finis
         s for s in report.feedback.slices if s.dimension == "category" and s.value == "evidence"
     )
     assert (category.counts.eligible, category.counts.rated, category.counts.negative) == (2, 2, 2)
+    evaluation.process()
+    after = evaluation.report(cohort.model_copy(update={"feedback_as_of": datetime.now(UTC)}))
+    unrated = next(
+        j for j in after.jobs if str(j.response_id) == receipts[2]["response"]["response_id"]
+    )
+    if background_rate == 1:
+        assert unrated.selection_reasons == ("random_background",)
+        assert unrated.checks is not None
+    else:
+        assert unrated.selection_reasons == ()
+        assert unrated.checks is None
 
 
 def test_another_mlflow_backend_cannot_claim_or_score_the_original_interaction(
@@ -320,3 +333,171 @@ def test_expired_feedback_is_removed_from_online_reports_and_inspection(
         evaluation.inspect(report.jobs[0].job_id)
     with pytest.raises(LookupError):
         OnlineReview(database_url).report(report.report_id)
+
+
+def test_interrupted_triage_is_reconciled_even_after_the_revision_watermark_commits(
+    feedback_client: TestClient,
+    database_url: str,
+    tmp_path: Path,
+) -> None:
+    from datetime import UTC, datetime
+
+    import psycopg
+    import pytest
+
+    from ask_phil.feedback_reporting import FeedbackCohort
+    from ask_phil.online_evaluation import OnlinePolicy
+    from ask_phil.online_workflow import OnlineEvaluation
+
+    receipt = feedback_client.post(
+        "/v1/answers", json={"snapshot_id": "phil-arrival-v1", "question": "When did Phil arrive?"}
+    ).json()
+    evaluation = OnlineEvaluation(
+        database_url, f"sqlite:///{tmp_path}/feedback.db", policy=OnlinePolicy(background_rate=1)
+    )
+    evaluation.process()
+    feedback_client.post(
+        f"/v1/responses/{receipt['response']['response_id']}/feedback",
+        headers={"Authorization": "Bearer " + receipt["read_token"]},
+        json={
+            "submission_id": str(uuid4()),
+            "policy_version": "feedback-v1",
+            "rating": "not_helpful",
+            "categories": ["facts"],
+        },
+    ).raise_for_status()
+    with psycopg.connect(database_url) as conn:
+        conn.execute(
+            "CREATE FUNCTION triage_outage() RETURNS trigger LANGUAGE plpgsql AS $$ "
+            "BEGIN RAISE EXCEPTION 'controlled triage outage'; END $$"
+        )
+        conn.execute(
+            "CREATE TRIGGER triage_outage BEFORE INSERT ON online_triage "
+            "FOR EACH ROW EXECUTE FUNCTION triage_outage()"
+        )
+    with pytest.raises(psycopg.Error):
+        evaluation.process()
+    with psycopg.connect(database_url) as conn:
+        conn.execute("DROP TRIGGER triage_outage ON online_triage")
+    evaluation.process()
+    now = datetime.now(UTC)
+    report = evaluation.report(
+        FeedbackCohort(
+            served_from=now - timedelta(hours=1),
+            served_until=now + timedelta(hours=1),
+            feedback_as_of=now,
+        )
+    )
+    job = evaluation.inspect(report.jobs[0].job_id)
+    assert job.feedback_revision == 1
+    assert [item.feedback_revision for item in job.triage] == [1]
+    assert job.attempts == 1
+
+
+def test_late_feedback_has_its_own_backlog_age_and_triage_lag(
+    feedback_client: TestClient,
+    feedback_clock: list[datetime],
+    database_url: str,
+    tmp_path: Path,
+) -> None:
+    from ask_phil.feedback_reporting import FeedbackCohort
+    from ask_phil.online_evaluation import OnlinePolicy
+    from ask_phil.online_workflow import OnlineEvaluation
+
+    receipt = feedback_client.post(
+        "/v1/answers", json={"snapshot_id": "phil-arrival-v1", "question": "When did Phil arrive?"}
+    ).json()
+    evaluation = OnlineEvaluation(
+        database_url,
+        f"sqlite:///{tmp_path}/feedback.db",
+        policy=OnlinePolicy(background_rate=1),
+        clock=lambda: feedback_clock[0],
+    )
+    evaluation.process()
+    feedback_client.post(
+        f"/v1/responses/{receipt['response']['response_id']}/feedback",
+        headers={"Authorization": "Bearer " + receipt["read_token"]},
+        json={
+            "submission_id": str(uuid4()),
+            "policy_version": "feedback-v1",
+            "rating": "not_helpful",
+            "categories": ["facts"],
+        },
+    ).raise_for_status()
+    feedback_clock[0] += timedelta(seconds=7)
+    now = feedback_clock[0]
+    cohort = FeedbackCohort(
+        served_from=now - timedelta(hours=1),
+        served_until=now + timedelta(hours=1),
+        feedback_as_of=now,
+    )
+    pending = evaluation.report(cohort)
+    assert pending.completed == 1
+    assert pending.pending_triage_revisions == 1
+    assert pending.oldest_pending_triage_seconds == 7
+    assert pending.oldest_pending_seconds == 7
+    evaluation.process()
+    completed = evaluation.report(cohort)
+    assert completed.pending_triage_revisions == 0
+    assert completed.triaged_revisions == 1
+    assert completed.maximum_triage_lag_seconds == 7
+    assert completed.jobs[0].attempts == 1
+
+
+def test_disable_control_preserves_work_until_processing_is_enabled(
+    feedback_client: TestClient,
+    database_url: str,
+    tmp_path: Path,
+    monkeypatch: "pytest.MonkeyPatch",
+) -> None:
+    from datetime import UTC
+
+    from ask_phil.feedback_reporting import FeedbackCohort
+    from ask_phil.online_evaluation import OnlinePolicy
+    from ask_phil.online_workflow import OnlineEvaluation
+
+    receipt = feedback_client.post(
+        "/v1/answers", json={"snapshot_id": "phil-arrival-v1", "question": "When did Phil arrive?"}
+    ).json()
+    monkeypatch.setenv("ASK_PHIL_ONLINE_ENABLED", "false")
+    uri = f"sqlite:///{tmp_path}/feedback.db"
+    disabled = OnlineEvaluation(database_url, uri)
+    assert disabled.process().disabled is True
+    now = datetime.now(UTC)
+    cohort = FeedbackCohort(
+        served_from=now - timedelta(hours=1),
+        served_until=now + timedelta(hours=1),
+        feedback_as_of=now,
+    )
+    report = disabled.report(cohort)
+    assert report.enabled is False
+    assert report.scored == 0
+    assert report.feedback.counts.eligible == 1
+    assert report.online_judge_calls == 0
+    explicit = OnlineEvaluation(database_url, uri, policy=OnlinePolicy(background_rate=1))
+    assert explicit.process().disabled is True
+    monkeypatch.setenv("ASK_PHIL_ONLINE_ENABLED", "true")
+    resumed = OnlineEvaluation(database_url, uri, policy=OnlinePolicy(background_rate=1))
+    assert resumed.process().completed == 1
+    result = resumed.report(cohort)
+    assert (
+        resumed.inspect(result.jobs[0].job_id).response.model_dump(mode="json")
+        == receipt["response"]
+    )
+
+
+def test_code_checks_reject_a_citation_without_matching_original_context(
+    feedback_client: TestClient,
+) -> None:
+    from ask_phil.answers import AnswerRecord
+    from ask_phil.online_evaluation import check_saved_answer
+
+    receipt = feedback_client.post(
+        "/v1/answers", json={"snapshot_id": "phil-arrival-v1", "question": "When did Phil arrive?"}
+    ).json()
+    original = AnswerRecord.model_validate(receipt["response"])
+    assert check_saved_answer(original).citation_integrity is True
+    missing = check_saved_answer(original.model_copy(update={"context": ()}))
+    assert missing.citation_integrity is False
+    assert missing.context_available is False
+    assert missing.reference_correctness is None
