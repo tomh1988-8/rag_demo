@@ -1,0 +1,56 @@
+{
+  "starting_revision": "ce0e27cc62a9933af38ec6efceafe42107570640",
+  "verified_at": "2026-11-01T12:36:23.793459+00:00",
+  "application_sha256": "cf505a333aa596d0af078edc5ec75e873638f7c38c21661d322bc17aa32f0a74",
+  "software_tests": {
+    "passed": 616,
+    "failures": 0,
+    "errors": 0,
+    "skipped": 0,
+    "warnings": 16,
+    "elapsed_seconds": 2438.872,
+    "full_suite_runs": 1,
+    "exit_code": 0
+  },
+  "focused_tests": {
+    "original_full_feedback_file_set_passed": 22,
+    "post_review_delivery_passed": 3,
+    "independent_reporting_passed": 4
+  },
+  "strict_mypy_files": 147,
+  "ruff": "pass",
+  "formatting": "pass",
+  "compose_config": "pass",
+  "review": {
+    "Standards": 0,
+    "Spec": 0,
+    "spec_recheck_tool_exit": "unavailable; passing assertion observed; root full run exited 0"
+  },
+  "frozen_inputs_verified": 251,
+  "protected_existing_files": 1079,
+  "protected_data_files": 94,
+  "unexpected_existing_file_changes": [],
+  "user_readme_unchanged": true,
+  "provider_ledger_usd": "0.911656",
+  "unsettled_reservations": 0,
+  "new_paid_inference_calls": 0,
+  "runtime_scope": "Controlled external models and scripted feedback; actual PostgreSQL/API/CLI/local MLflow operations. No organic-use or factual-quality acceptance.",
+  "artifacts": {
+    "cases.md": "0465acc433f6cf95404614db86ac5c1c9afcf9fd21c5696b06e5a0f3ed5b8a4d",
+    "cli-red.txt": "b4577c9dc88113d788a33b37955235859f569fb3a3558b5a3dfc7a30068a50a4",
+    "expiry-red.txt": "d7cc19d361edc054a526093830ffe741f2a87584d0f9fa7b57db475dafd81539",
+    "failures.json": "c09d39061711f7436716c3ef5290eb13442c447557c3fd9f5308a10aab7109e2",
+    "focused-tests.xml": "774c5894e6d82d506d3866e5998dbb444d955298d1d0ee7dd270c34b6fd47e4c",
+    "retention-red.txt": "abf7da66dcb80c906e3df4169509eb92add93167794ff9a91add81085b3e1e2f",
+    "review-starvation-red.txt": "c7e7bef5614036bd69809486d2371c520faa6ae625e6d8fa3580d523155860fb",
+    "review.md": "3b48a4810f530760e0b85874a92469920a165e5121d840f6668e187edbf5a24f",
+    "runtime/cli-feedback.json": "fe879e54c6c3672959beede5cafabb8f96872884959e93c159a5e698f0845dfb",
+    "runtime/graph-feedback.json": "0b056663a3bccfd016934399522e6e1655d2de0eb19287f607fb28ffa1df8765",
+    "runtime/http-recovery.json": "bb000e509aa1530a8639ab1f1ea6173abc6a3c1d97509e84ec950d955128cf76",
+    "runtime/investigation-feedback.json": "8d1f1019999a3a2b801e09ac80b5cabc5eda927a3c371a57352e4b205edbae77",
+    "software-inputs.json": "eb1fee1ef353282d425498c0863abd93fd790cdc068f85fb496ed5e012ac5a04",
+    "software-tests.xml": "1b32aaf13acd0c354a8148df566f5ea37c8a996ae7d59317c7e18b242a607d53",
+    "summary-red.txt": "2bc0d757746f3de973ee21ddab7f6bd3e9f9fada42cb96ad817629e2c7dd337f",
+    "typecheck.txt": "6cc51e6d734f69afc4b639a3379d25d6b00f3cd05159e86430b9b95bc9fb1745"
+  }
+}

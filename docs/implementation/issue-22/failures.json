@@ -1,0 +1,59 @@
+{
+  "starting_revision": "ce0e27cc62a9933af38ec6efceafe42107570640",
+  "failures": [
+    {
+      "kind": "missing_behavior",
+      "observed": "Feedback POST returned 404 instead of a durable acceptance receipt.",
+      "repair": "Implemented response-bound API acceptance and authorized durable readback."
+    },
+    {
+      "kind": "missing_behavior",
+      "observed": "The initial delivery test remained pending without a HUMAN assessment.",
+      "repair": "Added bounded asynchronous export and restartable delivery."
+    },
+    {
+      "kind": "missing_behavior",
+      "evidence": "summary-red.txt",
+      "observed": "The public feedback summary module was absent.",
+      "repair": "Implemented independently tested cohort, cutoff, revision and denominator rules."
+    },
+    {
+      "kind": "missing_behavior",
+      "evidence": "cli-red.txt",
+      "observed": "The CLI rejected the feedback command.",
+      "repair": "Implemented feedback, history, policy, maintainer delivery/report and interactive use."
+    },
+    {
+      "kind": "implementation_defect",
+      "evidence": "retention-red.txt",
+      "observed": "Cleanup reported one deletion and zero pending work after selecting an empty different MLflow backend; the original assessment remained.",
+      "repair": "Persisted the serving backend fingerprint and bound assessment export/deletion to it."
+    },
+    {
+      "kind": "implementation_defect",
+      "evidence": "expiry-red.txt",
+      "observed": "A response served thirty minutes into a session advertised feedback expiry thirty minutes beyond its capability expiry.",
+      "repair": "Use the earlier of the configured retention expiry and original session capability expiry."
+    },
+    {
+      "kind": "independent_review_finding",
+      "axis": "Spec",
+      "severity": "P2",
+      "evidence": "review-starvation-red.txt",
+      "observed": "With a one-item batch, foreign cleanup prevented current-backend export: delivered=0, pending=2, cleanup_pending=1 instead of 1,1,1.",
+      "repair": "Filter both cleanup and exports by backend before batch selection; preserve foreign work and total backlog counts."
+    },
+    {
+      "kind": "test_expectation_error",
+      "observed": "The reviewed family pilot returned its honest partial ancestry outcome; the first lineage test incorrectly expected answered.",
+      "repair": "Corrected the fixture expectation to partial and preserved the original response without changing graph behavior."
+    }
+  ],
+  "limitations": [
+    "Runtime feedback is scripted against controlled external model fixtures, not organic usage or new model-quality evidence.",
+    "Independent Spec recheck displayed PASS but its tool session did not return a final process exit; the root delivery run exited successfully.",
+    "Semantic judging, automatic sampling, dispositions and checked regression promotion remain issue #23 work.",
+    "Original source captures, immutable response receipts and original MLflow traces retain their existing separate retention policies."
+  ],
+  "log_normalization": "Trailing whitespace removed from retained pytest logs; assertion content and outcomes are unchanged."
+}

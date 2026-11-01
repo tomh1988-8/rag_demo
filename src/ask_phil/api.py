@@ -3,8 +3,8 @@
 import asyncio
 import os
 import threading
-from collections.abc import Callable, Iterator
-from contextlib import contextmanager
+from collections.abc import AsyncIterator, Callable, Iterator
+from contextlib import asynccontextmanager, contextmanager
 from datetime import UTC, datetime
 from functools import partial
 from pathlib import Path
@@ -25,6 +25,17 @@ from ask_phil.event_graph import EventAudit, EventGraph, EventQuery, EventResult
 from ask_phil.evidence import Identifier, Inspection
 from ask_phil.execution import ExecutionBudget, ExecutionLimits, ExecutionPolicies, ExecutionStopped
 from ask_phil.family_graph import FamilyAudit, FamilyGraph, FamilyQuery, FamilyResult
+from ask_phil.feedback import (
+    FeedbackConflict,
+    FeedbackInput,
+    FeedbackInspection,
+    FeedbackPolicy,
+    FeedbackRateLimited,
+    FeedbackReceipt,
+    FeedbackStore,
+    FeedbackUnavailable,
+)
+from ask_phil.feedback_delivery import feedback_worker
 from ask_phil.graph_execution import GraphExecution
 from ask_phil.identity import IdentityResolution
 from ask_phil.knowledge_review import ReviewInspection, inspect_reviews
@@ -73,6 +84,7 @@ def create_app(
     tracking_uri: str | None = None,
     execution_limits: ExecutionLimits | None = None,
     session_clock: Callable[[], datetime] = lambda: datetime.now(UTC),
+    feedback_policy: FeedbackPolicy | None = None,
 ) -> FastAPI:
     database_url = database_url or os.environ["DATABASE_URL"]
     answer_tracking_uri = tracking_uri or os.environ.get(
@@ -81,12 +93,35 @@ def create_app(
     store = EvidenceStore(database_url)
     publications = PublicationStore(database_url)
     sessions = ConversationSessions(database_url, clock=session_clock)
+    feedback = FeedbackStore(
+        database_url, policy=feedback_policy, clock=session_clock, tracking_uri=answer_tracking_uri
+    )
     policies = ExecutionPolicies.from_environment()
     if execution_limits is not None:
         policies = policies.model_copy(
             update={"serving": execution_limits, "investigation_serving": execution_limits}
         )
-    app = FastAPI(title="Ask Phil evidence inspection", version="0.1.0")
+    feedback_stop = threading.Event()
+    feedback_wake = threading.Event()
+
+    @asynccontextmanager
+    async def lifespan(app: FastAPI) -> AsyncIterator[None]:
+        worker = threading.Thread(
+            target=feedback_worker,
+            args=(feedback, answer_tracking_uri, feedback_stop, feedback_wake),
+            daemon=True,
+        )
+        if feedback.policy.auto_deliver:
+            worker.start()
+        try:
+            yield
+        finally:
+            feedback_stop.set()
+            feedback_wake.set()
+            if worker.is_alive():
+                await asyncio.to_thread(worker.join, 15)
+
+    app = FastAPI(title="Ask Phil evidence inspection", version="0.1.0", lifespan=lifespan)
     service = (
         AnswerService(database_url, models, answer_tracking_uri, policies=policies)
         if models
@@ -113,6 +148,58 @@ def create_app(
     @app.exception_handler(SessionNotFound)
     async def session_missing(request: Request, exc: SessionNotFound) -> JSONResponse:
         return JSONResponse(status_code=404, content={"detail": str(exc)})
+
+    @app.exception_handler(FeedbackUnavailable)
+    async def feedback_missing(request: Request, exc: FeedbackUnavailable) -> JSONResponse:
+        return JSONResponse(status_code=404, content={"detail": str(exc)})
+
+    @app.exception_handler(FeedbackConflict)
+    async def feedback_conflict(request: Request, exc: FeedbackConflict) -> JSONResponse:
+        return JSONResponse(status_code=409, content={"detail": str(exc)})
+
+    @app.exception_handler(FeedbackRateLimited)
+    async def feedback_rate_limited(request: Request, exc: FeedbackRateLimited) -> JSONResponse:
+        return JSONResponse(status_code=429, content={"detail": str(exc)})
+
+    @app.get("/v1/feedback-policy")
+    def collection_policy() -> FeedbackPolicy:
+        return feedback.policy
+
+    @app.post("/v1/sessions/{session_id}/responses/{response_id}/feedback", status_code=202)
+    def session_feedback(
+        session_id: UUID,
+        response_id: UUID,
+        submission: FeedbackInput,
+        authorization: Annotated[str | None, Header()] = None,
+    ) -> FeedbackReceipt:
+        receipt = feedback.accept(response_id, bearer_token(authorization), submission, session_id)
+        feedback_wake.set()
+        return receipt
+
+    @app.get("/v1/sessions/{session_id}/responses/{response_id}/feedback")
+    def inspect_session_feedback(
+        session_id: UUID,
+        response_id: UUID,
+        authorization: Annotated[str | None, Header()] = None,
+    ) -> FeedbackInspection:
+        return feedback.inspect(response_id, bearer_token(authorization), session_id)
+
+    @app.post("/v1/responses/{response_id}/feedback", status_code=202)
+    def standalone_feedback(
+        response_id: UUID,
+        submission: FeedbackInput,
+        authorization: Annotated[str | None, Header()] = None,
+    ) -> FeedbackReceipt:
+        receipt = feedback.accept(response_id, bearer_token(authorization), submission)
+        feedback_wake.set()
+        return receipt
+
+    @app.get("/v1/responses/{response_id}/feedback")
+    def inspect_standalone_feedback(
+        response_id: UUID,
+        authorization: Annotated[str | None, Header()] = None,
+    ) -> FeedbackInspection:
+        return feedback.inspect(response_id, bearer_token(authorization))
 
     @app.post("/v1/sessions", status_code=201)
     def start_session() -> SessionReceipt:
@@ -266,7 +353,10 @@ def create_app(
                 if await request.is_disconnected():
                     budget.cancellation.set()
                 await asyncio.sleep(0.02)
-            return await worker
+            receipt = await worker
+            if not budget.cancellation.is_set():
+                await asyncio.to_thread(feedback.record_delivery, receipt.response)
+            return receipt
         finally:
             if not worker.done():
                 budget.cancellation.set()

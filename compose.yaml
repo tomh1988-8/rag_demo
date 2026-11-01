@@ -78,6 +78,10 @@ services:
       DATABASE_URL: postgresql://ask_phil:local-demo-only@db:5432/ask_phil
       ASK_PHIL_OLLAMA_URL: http://ollama:11434
       MLFLOW_TRACKING_URI: sqlite:////app/artifacts/mlflow.db
+      ASK_PHIL_FEEDBACK_ENABLED: "true"
+      ASK_PHIL_FEEDBACK_RETENTION_DAYS: "30"
+      MLFLOW_HTTP_REQUEST_TIMEOUT: "5"
+      MLFLOW_HTTP_REQUEST_MAX_RETRIES: "0"
     volumes:
       - traces:/app/artifacts
     ports:

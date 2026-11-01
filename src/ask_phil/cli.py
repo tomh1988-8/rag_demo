@@ -6,6 +6,7 @@ import gzip
 import json
 import os
 import sys
+from datetime import UTC, datetime, timedelta
 from pathlib import Path
 from uuid import UUID
 
@@ -143,6 +144,40 @@ def main() -> int:
         "response", help="Read the original answer using a saved receipt."
     )
     response.add_argument("receipt", type=Path)
+    commands.add_parser("feedback-policy", help="Read feedback use, access and retention policy.")
+    feedback = commands.add_parser(
+        "feedback", help="Optionally rate a selected delivered response."
+    )
+    feedback.add_argument("receipt", type=Path, help="Private saved answer receipt.")
+    feedback.add_argument(
+        "--session", type=Path, help="Private session receipt for a session answer."
+    )
+    feedback.add_argument("--rating", required=True, choices=("helpful", "not_helpful", "skip"))
+    feedback.add_argument(
+        "--category",
+        action="append",
+        default=[],
+        choices=("facts", "missing_outdated", "evidence", "clarity", "persona_tone", "other"),
+    )
+    feedback.add_argument("--comment", default="")
+    feedback.add_argument("--proposed-correction", default="")
+    feedback.add_argument("--submission-id", type=UUID, help="Reuse this ID for an exact retry.")
+    feedback_history = commands.add_parser(
+        "feedback-history", help="Inspect your feedback revisions."
+    )
+    feedback_history.add_argument("receipt", type=Path)
+    feedback_history.add_argument("--session", type=Path)
+    commands.add_parser(
+        "feedback-deliver", help="Maintainer: retry a bounded delivery/cleanup batch."
+    )
+    feedback_report = commands.add_parser(
+        "feedback-report", help="Maintainer: inspect live feedback."
+    )
+    feedback_report.add_argument("--served-from", type=datetime.fromisoformat)
+    feedback_report.add_argument("--served-until", type=datetime.fromisoformat)
+    feedback_report.add_argument("--as-of", type=datetime.fromisoformat)
+    feedback_report.add_argument("--offset", type=int, default=0)
+    feedback_report.add_argument("--limit", type=int, default=100)
     index = commands.add_parser(
         "index", help="Maintainer: embed a snapshot using configured models."
     )
@@ -227,11 +262,40 @@ def main() -> int:
             "install-relationships",
             "install-events",
             "review-claims",
+            "feedback-deliver",
+            "feedback-report",
         }:
             database_url = os.environ.get("DATABASE_URL")
             if not database_url:
                 parser.error("DATABASE_URL is required for the maintainer storage command.")
-            if args.command == "review-claims":
+            if args.command in {"feedback-deliver", "feedback-report"}:
+                from ask_phil.feedback import FeedbackStore
+
+                now = datetime.now(UTC)
+                feedback_store = FeedbackStore(database_url, clock=lambda: now)
+                if args.command == "feedback-deliver":
+                    from ask_phil.feedback_delivery import deliver_feedback
+
+                    delivery = deliver_feedback(
+                        feedback_store,
+                        os.environ.get("MLFLOW_TRACKING_URI", "sqlite:///artifacts/mlflow.db"),
+                    )
+                    print(delivery.model_dump_json())
+                else:
+                    from ask_phil.feedback_reporting import FeedbackCohort
+
+                    cohort = FeedbackCohort(
+                        served_from=args.served_from
+                        or now - timedelta(days=feedback_store.policy.retention_days),
+                        served_until=args.served_until or now,
+                        feedback_as_of=args.as_of or now,
+                    )
+                    print(
+                        feedback_store.report(
+                            cohort, offset=args.offset, limit=args.limit
+                        ).model_dump_json()
+                    )
+            elif args.command == "review-claims":
                 from ask_phil.knowledge_review import KnowledgeReview, ReviewRequest
                 from ask_phil.models import ModelConfigurationError, embedding_from_environment
 
@@ -336,6 +400,29 @@ def main() -> int:
             with httpx.Client(base_url=args.api_url, timeout=timeout, trust_env=False) as client:
                 if args.command == "chat":
                     return chat_session(client, args.snapshot)
+                elif args.command == "feedback-policy":
+                    result = client.get("/v1/feedback-policy")
+                elif args.command in {"feedback", "feedback-history"}:
+                    from ask_phil.feedback_cli import (
+                        feedback_access,
+                        feedback_input,
+                        submit_feedback,
+                    )
+
+                    feedback_path, feedback_token = feedback_access(args.receipt, args.session)
+                    if args.command == "feedback":
+                        submission = feedback_input(
+                            args.rating,
+                            args.category,
+                            args.comment,
+                            args.proposed_correction,
+                            args.submission_id,
+                        )
+                        result = submit_feedback(client, feedback_path, feedback_token, submission)
+                    else:
+                        result = client.get(
+                            feedback_path, headers={"Authorization": f"Bearer {feedback_token}"}
+                        )
                 elif args.command == "start-session":
                     from ask_phil.sessions import SessionReceipt
 
@@ -490,6 +577,8 @@ def session_access(path: Path) -> tuple[str, dict[str, str]]:
 
 
 def chat_session(client: httpx.Client, snapshot_id: str | None) -> int:
+    from ask_phil.answers import AnswerReceipt
+    from ask_phil.feedback_cli import feedback_input, submit_feedback
     from ask_phil.sessions import SessionReceipt
 
     created = client.post("/v1/sessions")
@@ -498,6 +587,8 @@ def chat_session(client: httpx.Client, snapshot_id: str | None) -> int:
     path = f"/v1/sessions/{receipt.session.session_id}"
     headers = {"Authorization": f"Bearer {receipt.session_token}"}
     print("Ask Phil. Use /reset to clear context, /quit to leave.")
+    print("Optional: /feedback helpful|not_helpful|skip [comment] rates the last response.")
+    latest: AnswerReceipt | None = None
     while True:
         try:
             question = input("You> ").strip()
@@ -506,6 +597,24 @@ def chat_session(client: httpx.Client, snapshot_id: str | None) -> int:
         if question == "/quit":
             return 0
         if not question:
+            continue
+        if question.startswith("/feedback"):
+            parts = question.split(maxsplit=2)
+            if latest is None or len(parts) < 2:
+                print("Choose a response first; use /feedback helpful|not_helpful|skip [comment].")
+                continue
+            try:
+                submission = feedback_input(parts[1], [], parts[2] if len(parts) == 3 else "", "")
+                result = submit_feedback(
+                    client,
+                    path + f"/responses/{latest.response.response_id}/feedback",
+                    receipt.feedback_token,
+                    submission,
+                )
+                result.raise_for_status()
+                print(json.dumps(result.json(), indent=2, ensure_ascii=True))
+            except (ValueError, httpx.HTTPError):
+                print("Feedback was not confirmed. Keep the submission ID for an exact retry.")
             continue
         if question == "/reset":
             result = client.post(path + "/reset", headers=headers)
@@ -516,6 +625,8 @@ def chat_session(client: httpx.Client, snapshot_id: str | None) -> int:
                 json={"question": question, "snapshot_id": snapshot_id},
             )
         result.raise_for_status()
+        if question != "/reset":
+            latest = AnswerReceipt.model_validate(result.json())
         print(json.dumps(result.json(), indent=2, ensure_ascii=True))
 
 

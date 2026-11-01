@@ -1,0 +1,31 @@
+F                                                                        [100%]
+=================================== FAILURES ===================================
+___ test_feedback_capability_outlives_chat_and_redacts_its_own_bearer_value ____
+tests/test_feedback_security.py:89: in test_feedback_capability_outlives_chat_and_redacts_its_own_bearer_value
+    assert accepted.json()["expires_at"] == session["feedback_expires_at"]
+E   AssertionError: assert '2026-12-01T12:13:24.631339Z' == '2026-12-01T11:43:24.631339Z'
+E
+E     - 2026-12-01T11:43:24.631339Z
+E     ?              --
+E     + 2026-12-01T12:13:24.631339Z
+E     ?             ++
+---------------------------- Captured stderr setup -----------------------------
+2026/11/01 11:43:25 INFO mlflow.store.db.utils: Creating initial MLflow database tables...
+2026/11/01 11:43:25 INFO mlflow.store.db.utils: Updating database tables
+------------------------------ Captured log setup ------------------------------
+INFO     mlflow.store.db.utils:utils.py:87 Creating initial MLflow database tables...
+INFO     mlflow.store.db.utils:utils.py:294 Updating database tables
+------------------------------ Captured log call -------------------------------
+WARNING  mlflow.types.type_hints:type_hints.py:237 Union type hint with multiple non-None types is inferred as AnyType, and MLflow doesn't validate the data against its element types.
+WARNING  mlflow.types.type_hints:type_hints.py:244 Union type hint is inferred as AnyType, and MLflow doesn't validate the data against its element types.
+WARNING  mlflow.types.type_hints:type_hints.py:237 Union type hint with multiple non-None types is inferred as AnyType, and MLflow doesn't validate the data against its element types.
+=============================== warnings summary ===============================
+.venv/lib/python3.12/site-packages/fastapi/testclient.py:1
+  /home/tom/Documents/code/python/rag_demo/.venv/lib/python3.12/site-packages/fastapi/testclient.py:1: StarletteDeprecationWarning: Using `httpx` with `starlette.testclient` is deprecated; install `httpx2` instead.
+    from starlette.testclient import TestClient as TestClient  # noqa
+
+-- Docs: https://docs.pytest.org/en/stable/how-to/capture-warnings.html
+=========================== short test summary info ============================
+FAILED tests/test_feedback_security.py::test_feedback_capability_outlives_chat_and_redacts_its_own_bearer_value
+1 failed, 1 warning in 4.15s
+2026/11/01 11:43:29 INFO mlflow.tracing.export.async_export_queue: Flushing the async trace logging queue before program exit. This may take a while...

@@ -1,0 +1,226 @@
+{
+  "kind": "controlled-model-runtime; scripted feedback, not organic usage",
+  "response": {
+    "response_id": "e4e26100-f588-40f8-838e-bd879a241193",
+    "question": "When did Phil arrive?",
+    "status": "answered",
+    "answer": "Right, listen. I arrived in February 1990.",
+    "citations": [
+      {
+        "evidence_id": "phil-arrival-001",
+        "text": "Phil Mitchell first arrives in Walford in February 1990 to open an automobile repair shop, known as The Arches;",
+        "sha256": "c58db6653c582d8d2c75291831d8a3c48142261499f6a04ea732d8b2469031db",
+        "start": 0,
+        "end": 111,
+        "resolve_path": "/v1/snapshots/phil-arrival-v1/evidence/phil-arrival-001"
+      }
+    ],
+    "snapshot_id": "phil-arrival-v1",
+    "snapshot_sha256": "26da379f1f9c27c0bf41ca4a200072280bf441f7e84eacee92c761cede134462",
+    "publication": {
+      "compatibility_id": "0d79e8723cfcadbda43531b1bfc97ac75c89cea6cee0a1e498297a2b86b045be",
+      "index_sha256": "430d5c5299b8206162524ec07a3e97d5864323131ffef3d0d3441f0c84d4c287",
+      "generation": 1
+    },
+    "source": {
+      "title": "Phil Mitchell",
+      "url": "https://en.wikipedia.org/wiki/Phil_Mitchell",
+      "revision_id": "1375499431",
+      "revision_url": "https://en.wikipedia.org/w/index.php?title=Phil_Mitchell&oldid=1375499431",
+      "section": "Storylines / 1990\u20132003 / opening sentence, first clause",
+      "captured_at": "2026-09-23T14:18:05.792450Z",
+      "capture_sha256": "df4f36d8f708824e7003353c6fcb52bff387050e3010053a373741ee33dbad8e",
+      "scope": "main_series",
+      "license_url": "https://creativecommons.org/licenses/by-sa/4.0/",
+      "attribution": "Wikipedia contributors, Phil Mitchell, revision 1375499431",
+      "coverage": "One clause about Phil's arrival in February 1990 and The Arches; no continuous storyline coverage.",
+      "gaps": [
+        "Family relationships",
+        "Later events",
+        "Current character status"
+      ],
+      "support_status": "source_supported"
+    },
+    "retrieved": [
+      {
+        "passage": {
+          "evidence_id": "phil-arrival-001",
+          "text": "Phil Mitchell first arrives in Walford in February 1990 to open an automobile repair shop, known as The Arches;",
+          "sha256": "c58db6653c582d8d2c75291831d8a3c48142261499f6a04ea732d8b2469031db",
+          "start": 0,
+          "end": 111
+        },
+        "similarity": 1.0
+      }
+    ],
+    "context": [
+      {
+        "evidence_id": "phil-arrival-001",
+        "text": "Phil Mitchell first arrives in Walford in February 1990 to open an automobile repair shop, known as The Arches;",
+        "sha256": "c58db6653c582d8d2c75291831d8a3c48142261499f6a04ea732d8b2469031db",
+        "start": 0,
+        "end": 111
+      }
+    ],
+    "retrieval_k": 1,
+    "route": "investigation",
+    "route_override": true,
+    "investigation": {
+      "version": "bounded-investigator-v1",
+      "tool_contract_version": "captured-read-tools-v1",
+      "tool_contract_sha256": "b644aae0494a7e99b07efdc0408683b121903d82871b495bba207c238707b8b7",
+      "coverage": [
+        {
+          "part": "When did Phil arrive?",
+          "evidence_ids": [
+            "phil-arrival-001"
+          ],
+          "resolved": true
+        }
+      ],
+      "steps": [
+        {
+          "tool": "text_search",
+          "arguments": "{\"query\": \"When did Phil arrive?\", \"k\": 1}",
+          "status": "executed",
+          "result": {
+            "hits": [
+              {
+                "passage": {
+                  "evidence_id": "phil-arrival-001",
+                  "text": "Phil Mitchell first arrives in Walford in February 1990 to open an automobile repair shop, known as The Arches;",
+                  "sha256": "c58db6653c582d8d2c75291831d8a3c48142261499f6a04ea732d8b2469031db",
+                  "start": 0,
+                  "end": 111
+                },
+                "similarity": 1.0
+              }
+            ],
+            "context_claims": [],
+            "review_notices": []
+          },
+          "context_ids": [
+            "phil-arrival-001"
+          ],
+          "elapsed_ms": 225.4892139990261
+        }
+      ],
+      "model_executions": [
+        {
+          "content": "{\"coverage\": [{\"part\": \"When did Phil arrive?\", \"evidence_ids\": [], \"resolved\": false}], \"action\": {\"kind\": \"tool\", \"tool\": \"text_search\", \"arguments\": \"{\\\"query\\\": \\\"When did Phil arrive?\\\", \\\"k\\\": 1}\"}}",
+          "usage": {
+            "input_tokens": 40,
+            "output_tokens": 60,
+            "embedding_tokens": 0
+          },
+          "provider_usage": null,
+          "failure_type": null,
+          "estimated_api_cost_usd": 0.0,
+          "cost_scope": "Local Ollama API only; hardware, electricity and hosting are unmeasured.",
+          "limitation": "Source-supported is not independently cross-checked. Coverage is limited to the captured snapshot. Local-model results are development smoke evidence, not a deployment or representative quality assessment."
+        },
+        {
+          "content": "{\"coverage\": [{\"part\": \"When did Phil arrive?\", \"evidence_ids\": [\"phil-arrival-001\"], \"resolved\": true}], \"action\": {\"kind\": \"finish\", \"draft\": {\"answer\": \"Right, listen. I arrived in February 1990.\", \"status\": \"answered\", \"evidence_ids\": [\"phil-arrival-001\"], \"unanswered\": [], \"qualifications\": []}}}",
+          "usage": {
+            "input_tokens": 40,
+            "output_tokens": 60,
+            "embedding_tokens": 0
+          },
+          "provider_usage": null,
+          "failure_type": null,
+          "estimated_api_cost_usd": 0.0,
+          "cost_scope": "Local Ollama API only; hardware, electricity and hosting are unmeasured.",
+          "limitation": "Source-supported is not independently cross-checked. Coverage is limited to the captured snapshot. Local-model results are development smoke evidence, not a deployment or representative quality assessment."
+        }
+      ],
+      "embedding_tokens": [
+        7
+      ],
+      "stop_reason": "completed",
+      "context_bytes": 329,
+      "context": [
+        {
+          "evidence_id": "phil-arrival-001",
+          "text": "Phil Mitchell first arrives in Walford in February 1990 to open an automobile repair shop, known as The Arches;",
+          "sha256": "c58db6653c582d8d2c75291831d8a3c48142261499f6a04ea732d8b2469031db",
+          "start": 0,
+          "end": 111
+        }
+      ]
+    },
+    "baseline_version": "bounded-investigator-v1",
+    "model_settings": {
+      "embedding_model": "test-embedding",
+      "embedding_digest": "bbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbb",
+      "embedding_dimensions": 3,
+      "answer_model": "test-answer",
+      "answer_digest": "aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa",
+      "context_window": 4096,
+      "output_tokens": 256,
+      "temperature": 0.0,
+      "request_timeout_seconds": 180,
+      "seed": 17
+    },
+    "prompt_sha256": "4c1bfdee8674a93dd2e730319cf1b77a9058339d4bf1605131cd1be9004a2d74",
+    "application_sha256": "cf505a333aa596d0af078edc5ec75e873638f7c38c21661d322bc17aa32f0a74",
+    "trace_id": "tr-470592effaf8b379d2fed1a7e3600e8b",
+    "execution": {
+      "limits": {
+        "model_calls": 8,
+        "tool_calls": 4,
+        "http_calls": 24,
+        "seconds": 180.0,
+        "context_bytes": 4000,
+        "spend_usd": "0.15",
+        "retries": 0,
+        "capabilities": [
+          "text_retrieval",
+          "family_graph",
+          "event_graph",
+          "connection_graph"
+        ],
+        "concurrency": 1
+      },
+      "model_calls": 3,
+      "tool_calls": 1,
+      "http_calls": 0,
+      "reserved_usd": "0",
+      "stop_reason": null,
+      "context_bytes": 329
+    },
+    "elapsed_ms": 733.3817290000297,
+    "usage": {
+      "input_tokens": 80,
+      "output_tokens": 120,
+      "embedding_tokens": 7
+    },
+    "expenditure_category": "serving",
+    "estimated_api_cost_usd": 0.0,
+    "cost_scope": "All investigator decisions and query embeddings; Local Ollama API only; hardware, electricity and hosting are unmeasured.",
+    "limitation": "Source-supported is not independently cross-checked. Coverage is limited to the captured snapshot. Local-model results are development smoke evidence, not a deployment or representative quality assessment."
+  },
+  "served_at": "2026-11-01T12:18:02.986610Z",
+  "expires_at": "2026-12-01T12:18:02.986610Z",
+  "revisions": [
+    {
+      "feedback_id": "ede250c2-3b19-46a3-9a3c-31b21937d226",
+      "response_id": "e4e26100-f588-40f8-838e-bd879a241193",
+      "submission_id": "6b417dfb-a6ae-4c85-938c-49994dcb9026",
+      "revision": 1,
+      "accepted_at": "2026-11-01T12:18:03.143374Z",
+      "expires_at": "2026-12-01T12:18:02.986610Z",
+      "delivery_state": "delivered",
+      "submission": {
+        "submission_id": "6b417dfb-a6ae-4c85-938c-49994dcb9026",
+        "policy_version": "feedback-v1",
+        "rating": "helpful",
+        "categories": [],
+        "comment": "",
+        "proposed_correction": ""
+      },
+      "attempts": 1,
+      "last_failure": null,
+      "assessment_id": "a-65d984cdf86c5cd5a855ce84e03148dd"
+    }
+  ]
+}

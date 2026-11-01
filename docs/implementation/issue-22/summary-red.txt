@@ -1,0 +1,18 @@
+
+==================================== ERRORS ====================================
+______________ ERROR collecting tests/test_feedback_reporting.py _______________
+ImportError while importing test module '/home/tom/Documents/code/python/rag_demo/tests/test_feedback_reporting.py'.
+Hint: make sure your test modules/packages have valid Python names.
+Traceback:
+/usr/lib/python3.12/importlib/__init__.py:90: in import_module
+    return _bootstrap._gcd_import(name[level:], package, level)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+tests/test_feedback_reporting.py:4: in <module>
+    from ask_phil.feedback_reporting import (
+E   ModuleNotFoundError: No module named 'ask_phil.feedback_reporting'
+------------------------------- Captured stderr --------------------------------
+2026/10/29 14:25:48 INFO mlflow.agent.hint: Load the `instrumenting-with-mlflow-tracing` skill at /home/tom/Documents/code/python/rag_demo/.venv/lib/python3.12/site-packages/mlflow/assistant/skills/instrumenting-with-mlflow-tracing/SKILL.md before writing any tracing code; it ships with this MLflow install. Set MLFLOW_DISABLE_AGENT_HINT=1 to silence this.
+=========================== short test summary info ============================
+ERROR tests/test_feedback_reporting.py
+!!!!!!!!!!!!!!!!!!!! Interrupted: 1 error during collection !!!!!!!!!!!!!!!!!!!!
+1 error in 0.29s

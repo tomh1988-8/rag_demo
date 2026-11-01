@@ -11,6 +11,23 @@ commands so they work even without a configured Git remote.
 
 ## Current Ask Phil handoff
 
+**Issue #22 is implemented and verified; publication/tracker completion is pending.**
+[Evidence](../implementation/issue-22/README.md) records 616 passing tests, strict
+mypy across 147 files and zero remaining findings on both independent review axes.
+All four controlled-model runtime captures bind the frozen application and actual
+API/CLI/PostgreSQL/local MLflow feedback. Original failures and repaired backend
+selection/cleanup and capability-expiry regressions remain visible. ONLINE-01
+passes; ONLINE-03 and AD-10.4 retain #23 automatic-evaluation/review obligations.
+Checklist counts are 37 Pass and 14 Pending.
+
+Preserve the shared non-resetting $5 ledger at **$0.911656**, zero unsettled
+reservations, all 94 original data files and the user's existing workspace/private
+inputs. No paid inference was made. **#23 is next after verified #22 publication
+and closure**; #24 is also unblocked, and #18 waits for #24. Wait for the user's
+next implementation instruction before starting another issue.
+
+### Prior issue #20 handoff
+
 **Issue #20 is complete and closed** after [verified publication](https://github.com/tomh1988-8/rag_demo/commit/99d4b4ae47a0361c46576f54d2cc392ed7587bd5) and exact tracker readback.
 [Evidence](../implementation/issue-20/README.md) and the
 [receipt](../implementation/issue-20/publication.json) retain all seven checked
