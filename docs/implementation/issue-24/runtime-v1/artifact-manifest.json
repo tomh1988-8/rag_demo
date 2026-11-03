@@ -1,0 +1,39 @@
+{
+  "version": 1,
+  "compression": "gzip, mtime=0; uncompressed bytes unchanged",
+  "artifacts": [
+    {
+      "archive": "baseline.json.gz",
+      "raw_name": "baseline.json",
+      "raw_bytes": 15041705,
+      "raw_sha256": "1f2ab05e2b70fdf519a24d9b47d2a3a2dc7dccda65fa89de8336f9252116f5e4",
+      "archive_bytes": 2867963,
+      "archive_sha256": "5fea4740ae2e0d476f4c52ed5c2ad724a17758c40f012e90daa860ed9a1c2d7c"
+    },
+    {
+      "archive": "combined.json.gz",
+      "raw_name": "combined.json",
+      "raw_bytes": 46225088,
+      "raw_sha256": "11df8ccc78d6f95c196ba52f8d8906109e5f28497ec2b7000c0547823cef68dd",
+      "archive_bytes": 8686544,
+      "archive_sha256": "64a0a856df1232ef18675154a0b1e0cabb50da198a9946f1aa5db49c4ca5ebd2"
+    },
+    {
+      "archive": "expansion.json.gz",
+      "raw_name": "expansion.json",
+      "raw_bytes": 16745434,
+      "raw_sha256": "592c1f00036f31ea0d547278d1139c8eb0c21c127400dc49d65e998048e94102",
+      "archive_bytes": 3017276,
+      "archive_sha256": "887ccc68531462e8b2050712a3523241ae6b532159ee3a25ec3364b5194eeb9f"
+    },
+    {
+      "archive": "fusion.json.gz",
+      "raw_name": "fusion.json",
+      "raw_bytes": 44457978,
+      "raw_sha256": "30983c71655a5b26f708e3d988bad2dbc0cbde1b3c44180325b0f2f934a46e1b",
+      "archive_bytes": 8518972,
+      "archive_sha256": "f64828a1b5d13cb7335cc47424fa78362e2bfaf7205f012fb894481716007603"
+    }
+  ],
+  "orchestrator_followup": "The final script adds compressed-artifact reading after capture; original orchestrator/source input bytes remain in the four MLflow run artifacts. The serving application fingerprint is unchanged."
+}

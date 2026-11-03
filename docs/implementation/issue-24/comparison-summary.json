@@ -1,0 +1,153 @@
+{
+  "version": "text-comparison-v1",
+  "selection": "baseline",
+  "selection_reason": "Fusion adds no context or completed-task gain. Its one frozen completeness-label improvement is extra allegation detail not required by the why/who question; retain this label sensitivity rather than treating it as a reliable policy gain. Expansion loses Ben parentage under the common serialized budget. Keep the established single-query default and version all optional modes.",
+  "modes": {
+    "baseline": {
+      "context_facts": 6,
+      "required_facts": 6,
+      "context_sufficient_questions": 3,
+      "answerable_questions": 3,
+      "completed_tasks": 4,
+      "total_tasks": 4,
+      "reviewed_claims": 8,
+      "correct_claims": 8,
+      "grounded_claims": 8,
+      "citation_supported_claims": 8,
+      "complete_facts": 5,
+      "cost_usd": 0.0138503,
+      "mean_complete_api_ms": 6340.632257750258,
+      "mean_application_ms": 3940.7308275021933,
+      "paid_calls": 4,
+      "model_operations": 8,
+      "candidate_recall": [
+        1.0,
+        1.0,
+        1.0,
+        null
+      ],
+      "fused_recall_at_3": [
+        1.0,
+        1.0,
+        1.0,
+        null
+      ],
+      "fused_mrr_at_3": [
+        1.0,
+        1.0,
+        1.0,
+        null
+      ]
+    },
+    "fusion": {
+      "context_facts": 6,
+      "required_facts": 6,
+      "context_sufficient_questions": 3,
+      "answerable_questions": 3,
+      "completed_tasks": 4,
+      "total_tasks": 4,
+      "reviewed_claims": 8,
+      "correct_claims": 8,
+      "grounded_claims": 8,
+      "citation_supported_claims": 8,
+      "complete_facts": 6,
+      "cost_usd": 0.0181825,
+      "mean_complete_api_ms": 9617.783702751694,
+      "mean_application_ms": 7175.795785502487,
+      "paid_calls": 8,
+      "model_operations": 20,
+      "candidate_recall": [
+        1.0,
+        1.0,
+        1.0,
+        null
+      ],
+      "fused_recall_at_3": [
+        1.0,
+        1.0,
+        1.0,
+        null
+      ],
+      "fused_mrr_at_3": [
+        1.0,
+        1.0,
+        1.0,
+        null
+      ]
+    },
+    "expansion": {
+      "context_facts": 5,
+      "required_facts": 6,
+      "context_sufficient_questions": 2,
+      "answerable_questions": 3,
+      "completed_tasks": 3,
+      "total_tasks": 4,
+      "reviewed_claims": 7,
+      "correct_claims": 7,
+      "grounded_claims": 7,
+      "citation_supported_claims": 7,
+      "complete_facts": 4,
+      "cost_usd": 0.0162524,
+      "mean_complete_api_ms": 6771.758200002296,
+      "mean_application_ms": 4398.256837250301,
+      "paid_calls": 4,
+      "model_operations": 8,
+      "candidate_recall": [
+        1.0,
+        1.0,
+        1.0,
+        null
+      ],
+      "fused_recall_at_3": [
+        1.0,
+        1.0,
+        1.0,
+        null
+      ],
+      "fused_mrr_at_3": [
+        1.0,
+        1.0,
+        1.0,
+        null
+      ]
+    },
+    "combined": {
+      "context_facts": 5,
+      "required_facts": 6,
+      "context_sufficient_questions": 2,
+      "answerable_questions": 3,
+      "completed_tasks": 3,
+      "total_tasks": 4,
+      "reviewed_claims": 8,
+      "correct_claims": 8,
+      "grounded_claims": 8,
+      "citation_supported_claims": 8,
+      "complete_facts": 4,
+      "cost_usd": 0.0136508,
+      "mean_complete_api_ms": 10677.98959150059,
+      "mean_application_ms": 8237.509523249173,
+      "paid_calls": 8,
+      "model_operations": 20,
+      "candidate_recall": [
+        1.0,
+        1.0,
+        1.0,
+        null
+      ],
+      "fused_recall_at_3": [
+        1.0,
+        1.0,
+        1.0,
+        null
+      ],
+      "fused_mrr_at_3": [
+        1.0,
+        1.0,
+        1.0,
+        null
+      ]
+    }
+  },
+  "label_limitation": "The frozen first Stella fact asks for the nature of the false allegation. Three modes identify the lie and liar without repeating its content. They fail that literal fact label despite answering the user question; the original labels and these failures are preserved. Clarify this label before any holdout acceptance.",
+  "scope": "Four exposed development questions, one response per configuration. Source-based agent annotations, not human canon adjudication, a calibrated new judge or held-out acceptance."
+}

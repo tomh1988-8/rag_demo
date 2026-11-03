@@ -1,0 +1,554 @@
+{
+  "kind": "captured-answer-review",
+  "expenditure_category": "offline_evaluation",
+  "source_run_id": "00c739cbc95545288da3dd90bd51eda0",
+  "answer_model_calls_in_review": 0,
+  "review_model_cost_usd": 0,
+  "model_calls": 0,
+  "cost_usd": "0",
+  "capture_sha256": "30983c71655a5b26f708e3d988bad2dbc0cbde1b3c44180325b0f2f934a46e1b",
+  "reviews_sha256": "844c9a98d1601dc5361816ac4687077bee6f41bfc7ecb3d56f59978037238eb0",
+  "scorer": "reviewed-binary-dimensions-v2",
+  "recorded_at": "2026-11-03T20:17:28.679232+00:00",
+  "reference_file_sha256": "41d57483fb046937af046dfc45bc698238b7a18d11d1de503717eb893f4acd89",
+  "recorder_version": "frozen-evaluation-run-v1",
+  "input_artifacts": [
+    {
+      "artifact_path": "inputs/0/text-fusion-v1.json",
+      "sha256": "41d57483fb046937af046dfc45bc698238b7a18d11d1de503717eb893f4acd89"
+    },
+    {
+      "artifact_path": "inputs/1/fusion.json",
+      "sha256": "30983c71655a5b26f708e3d988bad2dbc0cbde1b3c44180325b0f2f934a46e1b"
+    },
+    {
+      "artifact_path": "inputs/2/fusion-annotations.json",
+      "sha256": "844c9a98d1601dc5361816ac4687077bee6f41bfc7ecb3d56f59978037238eb0"
+    }
+  ],
+  "result_artifact": "result/fusion-quality.json",
+  "case_ids": [
+    "multi-family",
+    "stella-false-account",
+    "lola-changing-account",
+    "unsupported-theme"
+  ],
+  "cases": [
+    {
+      "case_id": "multi-family",
+      "reference": {
+        "case_id": "multi-family",
+        "group_id": "ben-birth-and-sharon-adoption",
+        "split": "development",
+        "question": "Who are Ben Mitchell's parents, and who adopted Sharon Watts when she was three?",
+        "answerable": true,
+        "expected_status": "answered",
+        "required_facts": [
+          {
+            "fact": "Ben is the son of Phil Mitchell and Kathy Beale.",
+            "sufficient_sets": [
+              [
+                "ben-wiki-0022-17983"
+              ]
+            ],
+            "span_sufficient_sets": [
+              [
+                {
+                  "source_id": "ben-wiki",
+                  "revision_id": "1369268749",
+                  "start": 17983,
+                  "end": 18093,
+                  "text": "Ben is born to Phil Mitchell (Steve McFadden) and his then wife Kathy Beale (Gillian Taylforth) in March 1996.",
+                  "sha256": "8179f5f0724cc08e5a5d51567fb7de0f8e55a4d5fc9881f5e050ae9d153eca08"
+                }
+              ]
+            ]
+          },
+          {
+            "fact": "Den and Angie Watts adopted Sharon at age three.",
+            "sufficient_sets": [
+              [
+                "sharon-wiki-0053-50624"
+              ]
+            ],
+            "span_sufficient_sets": [
+              [
+                {
+                  "source_id": "sharon-wiki",
+                  "revision_id": "1372798905",
+                  "start": 50624,
+                  "end": 50829,
+                  "text": "Adopted at the age of three by Den (Leslie Grantham) and Angie Watts (Anita Dobson), Sharon is raised at The Queen Victoria public house in Albert Square, Walford, where her adoptive parents are landlords.",
+                  "sha256": "1e54773bc770474ace800fa686ba855dce8b3eac079403d0dd1c78e958023f31"
+                }
+              ]
+            ]
+          }
+        ],
+        "snapshot_id": "text-expansion-development-v1",
+        "relevant_ids": [
+          "ben-wiki-0022-17983",
+          "sharon-wiki-0053-50624"
+        ],
+        "forbidden_assertions": [
+          "Missing evidence establishes a negative.",
+          "An allegation establishes guilt.",
+          "Adoptive parents establish biological ancestry."
+        ]
+      },
+      "reference_sha256": "06916c046f7b1424fe72655219e78d953c60a943b61c75029a93435289006913",
+      "state": "complete",
+      "review": {
+        "case_id": "multi-family",
+        "response_sha256": "c85adedf16a8a55aae5b70f165a94f15ff801c5371d8e866dff21a979ab024a9",
+        "reference_sha256": "06916c046f7b1424fe72655219e78d953c60a943b61c75029a93435289006913",
+        "reviewer": "source-based implementer review, 2026-11-03",
+        "rationale": "Each asserted story fact checked against the returned citation and actual final context. Partial family outcomes are honest for their truncated context. Literal Stella-label omissions remain failures even though the question is answered without repeating the allegation. No missing-theme claim is scored as a positive factual example.",
+        "claims": [
+          {
+            "claim": "Ben is the son of Phil Mitchell and Kathy Beale.",
+            "correct": true,
+            "grounded": true,
+            "citation_supported": true
+          },
+          {
+            "claim": "Den and Angie Watts adopted Sharon at age three.",
+            "correct": true,
+            "grounded": true,
+            "citation_supported": true
+          }
+        ],
+        "required_facts": [
+          {
+            "fact": "Ben is the son of Phil Mitchell and Kathy Beale.",
+            "covered": true
+          },
+          {
+            "fact": "Den and Angie Watts adopted Sharon at age three.",
+            "covered": true
+          }
+        ],
+        "answerability": true,
+        "relevance": true,
+        "critical_failures": []
+      },
+      "scores": {
+        "correctness": {
+          "passed": 2,
+          "assessed": 2,
+          "unassessed": 0,
+          "value": 1.0
+        },
+        "groundedness": {
+          "passed": 2,
+          "assessed": 2,
+          "unassessed": 0,
+          "value": 1.0
+        },
+        "completeness": {
+          "passed": 2,
+          "assessed": 2,
+          "unassessed": 0,
+          "value": 1.0
+        },
+        "citation_support": {
+          "passed": 2,
+          "assessed": 2,
+          "unassessed": 0,
+          "value": 1.0
+        },
+        "answerability": {
+          "passed": 1,
+          "assessed": 1,
+          "unassessed": 0,
+          "value": 1.0
+        },
+        "relevance": {
+          "passed": 1,
+          "assessed": 1,
+          "unassessed": 0,
+          "value": 1.0
+        },
+        "critical_failures": []
+      }
+    },
+    {
+      "case_id": "stella-false-account",
+      "reference": {
+        "case_id": "stella-false-account",
+        "group_id": "stella-investigation",
+        "split": "development",
+        "question": "Why was Phil Mitchell released after being charged over Stella's death, and who had lied to the police?",
+        "answerable": true,
+        "expected_status": "answered",
+        "required_facts": [
+          {
+            "fact": "Ben alleged Phil forced Stella to jump, but this account was a lie.",
+            "sufficient_sets": [
+              [
+                "ben-wiki-0027-23262"
+              ]
+            ],
+            "span_sufficient_sets": [
+              [
+                {
+                  "source_id": "ben-wiki",
+                  "revision_id": "1369268749",
+                  "start": 23644,
+                  "end": 23731,
+                  "text": "Ben tells her that Phil forced Stella to jump off a building on threat of being pushed.",
+                  "sha256": "6a97ea6a338a49647e97809f8bce84f06437301e960990800cfe355171fb6dbe"
+                },
+                {
+                  "source_id": "ben-wiki",
+                  "revision_id": "1369268749",
+                  "start": 23980,
+                  "end": 24066,
+                  "text": "Ben's brother Ian eventually discovers Ben lied to DCI Marsden and informs the police.",
+                  "sha256": "5fe14368e67e32d7853dec0180950ce793511283e682e2ddf84d6497a81f3ba8"
+                }
+              ]
+            ]
+          },
+          {
+            "fact": "Ian reported the lie to police and Phil was released.",
+            "sufficient_sets": [
+              [
+                "ben-wiki-0027-23262"
+              ]
+            ],
+            "span_sufficient_sets": [
+              [
+                {
+                  "source_id": "ben-wiki",
+                  "revision_id": "1369268749",
+                  "start": 23980,
+                  "end": 24066,
+                  "text": "Ben's brother Ian eventually discovers Ben lied to DCI Marsden and informs the police.",
+                  "sha256": "5fe14368e67e32d7853dec0180950ce793511283e682e2ddf84d6497a81f3ba8"
+                },
+                {
+                  "source_id": "ben-wiki",
+                  "revision_id": "1369268749",
+                  "start": 24067,
+                  "end": 24205,
+                  "text": "Phil is released; however, Ben mistakenly believes he has been betrayed by Heather Trott (Cheryl Fergison), who also knows he set Phil up.",
+                  "sha256": "372ad21b71ff7c47b2337e6b0b89dac3156396f0eb32c12fab74468e4071e3da"
+                }
+              ]
+            ]
+          }
+        ],
+        "snapshot_id": "text-expansion-development-v1",
+        "relevant_ids": [
+          "ben-wiki-0027-23262"
+        ],
+        "forbidden_assertions": [
+          "Missing evidence establishes a negative.",
+          "An allegation establishes guilt.",
+          "Adoptive parents establish biological ancestry."
+        ]
+      },
+      "reference_sha256": "e3f32f2a09a7a35475dc711506b946182b1a39a44b7ce1f511f130826c78f24a",
+      "state": "complete",
+      "review": {
+        "case_id": "stella-false-account",
+        "response_sha256": "f8c572becff71cc51bf05e66720333e16116de5887a30b12085e1593b98f3f6f",
+        "reference_sha256": "e3f32f2a09a7a35475dc711506b946182b1a39a44b7ce1f511f130826c78f24a",
+        "reviewer": "source-based implementer review, 2026-11-03",
+        "rationale": "Each asserted story fact checked against the returned citation and actual final context. Partial family outcomes are honest for their truncated context. Literal Stella-label omissions remain failures even though the question is answered without repeating the allegation. No missing-theme claim is scored as a positive factual example.",
+        "claims": [
+          {
+            "claim": "Ian discovered Ben lied to DCI Marsden about Stella and told the police.",
+            "correct": true,
+            "grounded": true,
+            "citation_supported": true
+          },
+          {
+            "claim": "Phil was released after Ian reported the lie.",
+            "correct": true,
+            "grounded": true,
+            "citation_supported": true
+          },
+          {
+            "claim": "Ben was the person who lied.",
+            "correct": true,
+            "grounded": true,
+            "citation_supported": true
+          },
+          {
+            "claim": "Ben falsely alleged Phil forced Stella to jump by threatening to push her.",
+            "correct": true,
+            "grounded": true,
+            "citation_supported": true
+          }
+        ],
+        "required_facts": [
+          {
+            "fact": "Ben alleged Phil forced Stella to jump, but this account was a lie.",
+            "covered": true
+          },
+          {
+            "fact": "Ian reported the lie to police and Phil was released.",
+            "covered": true
+          }
+        ],
+        "answerability": true,
+        "relevance": true,
+        "critical_failures": []
+      },
+      "scores": {
+        "correctness": {
+          "passed": 4,
+          "assessed": 4,
+          "unassessed": 0,
+          "value": 1.0
+        },
+        "groundedness": {
+          "passed": 4,
+          "assessed": 4,
+          "unassessed": 0,
+          "value": 1.0
+        },
+        "completeness": {
+          "passed": 2,
+          "assessed": 2,
+          "unassessed": 0,
+          "value": 1.0
+        },
+        "citation_support": {
+          "passed": 4,
+          "assessed": 4,
+          "unassessed": 0,
+          "value": 1.0
+        },
+        "answerability": {
+          "passed": 1,
+          "assessed": 1,
+          "unassessed": 0,
+          "value": 1.0
+        },
+        "relevance": {
+          "passed": 1,
+          "assessed": 1,
+          "unassessed": 0,
+          "value": 1.0
+        },
+        "critical_failures": []
+      }
+    },
+    {
+      "case_id": "lola-changing-account",
+      "reference": {
+        "case_id": "lola-changing-account",
+        "group_id": "lexi-parentage-accounts",
+        "split": "development",
+        "question": "What did Lola first say about Ben Mitchell being her baby's father, and how did Ben later discover he was Lexi's father?",
+        "answerable": true,
+        "expected_status": "answered",
+        "required_facts": [
+          {
+            "fact": "Lola initially denied Ben was the father.",
+            "sufficient_sets": [
+              [
+                "ben-wiki-0026-22977"
+              ]
+            ],
+            "span_sufficient_sets": [
+              [
+                {
+                  "source_id": "ben-wiki",
+                  "revision_id": "1369268749",
+                  "start": 23171,
+                  "end": 23260,
+                  "text": "Ben is later concerned to discover Lola is pregnant, however she denies he is the father.",
+                  "sha256": "970c147e4dfee5bf5c3a57b9ba6061c9930030f608a4953fcd0190efff3515cb"
+                }
+              ]
+            ]
+          },
+          {
+            "fact": "Ben later discovered he was Lexi's father after a visit from Lola.",
+            "sufficient_sets": [
+              [
+                "ben-wiki-0028-26263"
+              ]
+            ],
+            "span_sufficient_sets": [
+              [
+                {
+                  "source_id": "ben-wiki",
+                  "revision_id": "1369268749",
+                  "start": 26356,
+                  "end": 26458,
+                  "text": "Ben is sentenced to four years imprisonment and discovers he is Lexi's father after a visit from Lola.",
+                  "sha256": "9e484c2e27cdb58d79339819ee40326b0bdb2e26588b0c8a293fda7fc64e4f8e"
+                }
+              ]
+            ]
+          }
+        ],
+        "snapshot_id": "text-expansion-development-v1",
+        "relevant_ids": [
+          "ben-wiki-0026-22977",
+          "ben-wiki-0028-26263"
+        ],
+        "forbidden_assertions": [
+          "Missing evidence establishes a negative.",
+          "An allegation establishes guilt.",
+          "Adoptive parents establish biological ancestry."
+        ]
+      },
+      "reference_sha256": "fe93e809c6e94cd1df40d8f86d064bbae532c2189bec5b2668dcb8758c70085f",
+      "state": "complete",
+      "review": {
+        "case_id": "lola-changing-account",
+        "response_sha256": "f542a036980c955fb0465ef0eca6c6803e5137047965763e637d1832f1d1bbaf",
+        "reference_sha256": "fe93e809c6e94cd1df40d8f86d064bbae532c2189bec5b2668dcb8758c70085f",
+        "reviewer": "source-based implementer review, 2026-11-03",
+        "rationale": "Each asserted story fact checked against the returned citation and actual final context. Partial family outcomes are honest for their truncated context. Literal Stella-label omissions remain failures even though the question is answered without repeating the allegation. No missing-theme claim is scored as a positive factual example.",
+        "claims": [
+          {
+            "claim": "Lola initially denied Ben was the father.",
+            "correct": true,
+            "grounded": true,
+            "citation_supported": true
+          },
+          {
+            "claim": "Ben later learned he was Lexi's father after a visit from Lola.",
+            "correct": true,
+            "grounded": true,
+            "citation_supported": true
+          }
+        ],
+        "required_facts": [
+          {
+            "fact": "Lola initially denied Ben was the father.",
+            "covered": true
+          },
+          {
+            "fact": "Ben later discovered he was Lexi's father after a visit from Lola.",
+            "covered": true
+          }
+        ],
+        "answerability": true,
+        "relevance": true,
+        "critical_failures": []
+      },
+      "scores": {
+        "correctness": {
+          "passed": 2,
+          "assessed": 2,
+          "unassessed": 0,
+          "value": 1.0
+        },
+        "groundedness": {
+          "passed": 2,
+          "assessed": 2,
+          "unassessed": 0,
+          "value": 1.0
+        },
+        "completeness": {
+          "passed": 2,
+          "assessed": 2,
+          "unassessed": 0,
+          "value": 1.0
+        },
+        "citation_support": {
+          "passed": 2,
+          "assessed": 2,
+          "unassessed": 0,
+          "value": 1.0
+        },
+        "answerability": {
+          "passed": 1,
+          "assessed": 1,
+          "unassessed": 0,
+          "value": 1.0
+        },
+        "relevance": {
+          "passed": 1,
+          "assessed": 1,
+          "unassessed": 0,
+          "value": 1.0
+        },
+        "critical_failures": []
+      }
+    },
+    {
+      "case_id": "unsupported-theme",
+      "reference": {
+        "case_id": "unsupported-theme",
+        "group_id": "unsupported-manosphere",
+        "split": "development",
+        "question": "How did Phil Mitchell respond to the manosphere?",
+        "answerable": false,
+        "expected_status": "insufficient_evidence",
+        "required_facts": [],
+        "snapshot_id": "text-expansion-development-v1",
+        "relevant_ids": [],
+        "forbidden_assertions": [
+          "Missing evidence establishes a negative.",
+          "An allegation establishes guilt.",
+          "Adoptive parents establish biological ancestry."
+        ]
+      },
+      "reference_sha256": "690d5bf3eaddceef1e2d0dc64c226f8cfc3fb54a7d62f55e4d011cda01b381cc",
+      "state": "complete",
+      "review": {
+        "case_id": "unsupported-theme",
+        "response_sha256": "7b1fa82418bea134bac2e1478c87dfdbd83835d62cdbf1d71c9943f37ce32771",
+        "reference_sha256": "690d5bf3eaddceef1e2d0dc64c226f8cfc3fb54a7d62f55e4d011cda01b381cc",
+        "reviewer": "source-based implementer review, 2026-11-03",
+        "rationale": "Each asserted story fact checked against the returned citation and actual final context. Partial family outcomes are honest for their truncated context. Literal Stella-label omissions remain failures even though the question is answered without repeating the allegation. No missing-theme claim is scored as a positive factual example.",
+        "claims": [],
+        "required_facts": [],
+        "answerability": true,
+        "relevance": true,
+        "critical_failures": []
+      },
+      "scores": {
+        "correctness": {
+          "passed": 0,
+          "assessed": 0,
+          "unassessed": 0,
+          "value": null
+        },
+        "groundedness": {
+          "passed": 0,
+          "assessed": 0,
+          "unassessed": 0,
+          "value": null
+        },
+        "completeness": {
+          "passed": 0,
+          "assessed": 0,
+          "unassessed": 0,
+          "value": null
+        },
+        "citation_support": {
+          "passed": 0,
+          "assessed": 0,
+          "unassessed": 0,
+          "value": null
+        },
+        "answerability": {
+          "passed": 1,
+          "assessed": 1,
+          "unassessed": 0,
+          "value": 1.0
+        },
+        "relevance": {
+          "passed": 1,
+          "assessed": 1,
+          "unassessed": 0,
+          "value": 1.0
+        },
+        "critical_failures": []
+      }
+    }
+  ],
+  "state": "complete",
+  "run_id": "89ebb9aa1c7e467c8b012efffce6df73",
+  "tracking_status": "FINISHED"
+}

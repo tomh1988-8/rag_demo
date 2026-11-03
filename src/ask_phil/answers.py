@@ -29,6 +29,7 @@ from ask_phil.relationship_graph import RelationshipQuery, RelationshipResult
 from ask_phil.retrieval import RetrievedPassage
 from ask_phil.review_notes import ReviewNotice
 from ask_phil.security import redact_text
+from ask_phil.text_retrieval import TextPipelineRecord
 
 Outcome = Literal["answered", "partial", "clarification", "insufficient_evidence"]
 QuestionPart = Annotated[
@@ -163,8 +164,12 @@ class AnswerRecord(Record):
         default=None, exclude_if=lambda v: v is None
     )
     investigation: InvestigationRecord | None = Field(default=None, exclude_if=lambda v: v is None)
+    text_pipeline: TextPipelineRecord | None = Field(default=None, exclude_if=lambda v: v is None)
     baseline_version: Literal[
-        "single-query-uncached-v1", "single-query-uncached-v2", "bounded-investigator-v1"
+        "single-query-uncached-v1",
+        "single-query-uncached-v2",
+        "bounded-investigator-v1",
+        "bounded-text-v1",
     ] = "single-query-uncached-v1"
     model_settings: ModelSettings | OpenRouterSettings | None
     prompt_sha256: Fingerprint
@@ -190,7 +195,7 @@ _DRAFT_ANSWER_LIMIT = 1600
 
 class Draft(Record):
     answer: str = Field(min_length=1, max_length=_DRAFT_ANSWER_LIMIT)
-    evidence_ids: tuple[Identifier, ...] = Field(max_length=3)
+    evidence_ids: tuple[Identifier, ...] = Field(max_length=20)
     status: Outcome
     unanswered: tuple[QuestionPart, ...] = Field(max_length=5)
     qualifications: tuple[Qualification, ...] = Field(max_length=5)
@@ -292,8 +297,12 @@ class AnswerContent:
     retrieved: tuple[RetrievedPassage, ...] = ()
     retrieval_k: int = 0
     baseline_version: Literal[
-        "single-query-uncached-v1", "single-query-uncached-v2", "bounded-investigator-v1"
+        "single-query-uncached-v1",
+        "single-query-uncached-v2",
+        "bounded-investigator-v1",
+        "bounded-text-v1",
     ] = "single-query-uncached-v1"
     model_settings: ModelSettings | OpenRouterSettings | None = None
     graph: FamilyResult | RelationshipResult | EventResult | ConnectionResult | None = None
     investigation: InvestigationRecord | None = None
+    text_pipeline: TextPipelineRecord | None = None

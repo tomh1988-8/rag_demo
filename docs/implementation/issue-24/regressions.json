@@ -1,0 +1,50 @@
+{
+  "regressions": [
+    {
+      "kind": "development_context_failure",
+      "mode": "expansion",
+      "case_id": "multi-family",
+      "group_id": "ben-birth-and-sharon-adoption",
+      "capture": "runtime-v1/expansion.json",
+      "response_sha256": "06424c3a729c6088715ea7723fddaa74096294dc433bc58cdefd2a6c3ca18f73",
+      "application_sha256": "098b693923b6ad7513c41f14630aa4c12e48271cc1c3b0ba895712b027636cf6",
+      "missing_fact": "Ben is the son of Phil Mitchell and Kathy Beale.",
+      "context_byte_budget": 4000,
+      "status": "retained_not_fixed_by_tuning",
+      "explanation": "Whole sentence windows serialize with repeated identifiers and source titles. The first window leaves insufficient room for the Ben window; the model correctly returns partial. These two configurations are the same story group, not independent questions.",
+      "action": "Keep baseline selected. Re-evaluate sentence segmentation and metadata overhead on broader reviewed development data before activation."
+    },
+    {
+      "kind": "development_context_failure",
+      "mode": "combined",
+      "case_id": "multi-family",
+      "group_id": "ben-birth-and-sharon-adoption",
+      "capture": "runtime-v1/combined.json",
+      "response_sha256": "ad94248ca36602a2a40581ad7fbf5761fc5fbc939eb0626ce7f221aebca179af",
+      "application_sha256": "098b693923b6ad7513c41f14630aa4c12e48271cc1c3b0ba895712b027636cf6",
+      "missing_fact": "Ben is the son of Phil Mitchell and Kathy Beale.",
+      "context_byte_budget": 4000,
+      "status": "retained_not_fixed_by_tuning",
+      "explanation": "Whole sentence windows serialize with repeated identifiers and source titles. The first window leaves insufficient room for the Ben window; the model correctly returns partial. These two configurations are the same story group, not independent questions.",
+      "action": "Keep baseline selected. Re-evaluate sentence segmentation and metadata overhead on broader reviewed development data before activation."
+    },
+    {
+      "kind": "reference_label_sensitivity",
+      "case_id": "stella-false-account",
+      "status": "retained_before_holdout",
+      "explanation": "The first frozen required fact asks for the nature of the false allegation, beyond the why/who question. Baseline, expansion and combined identify the lie and liar but fail that literal completeness label. Preserve all original labels and outcomes; do not activate fusion based on this verbosity difference.",
+      "action": "Clarify and version the reference before holdout acceptance, then rescore all preserved configurations against the same corrected label."
+    }
+  ],
+  "repaired_contract_failures": [
+    "duplicate fusion votes",
+    "non-deterministic vector ties before LIMIT",
+    "window truncation losing qualification",
+    "unresolvable derived citations",
+    "fanout consuming answer capacity",
+    "optional transport failure poisoning fallback",
+    "word-bag role and negation drift",
+    "lost source classification",
+    "secondary-query evidence loss"
+  ]
+}

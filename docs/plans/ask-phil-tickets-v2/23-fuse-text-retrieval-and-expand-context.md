@@ -1,6 +1,6 @@
 # 23: Answer with fused retrieval and wider source context
 
-Status: published as [GitHub #24](https://github.com/tomh1988-8/rag_demo/issues/24) for the user-requested fusion/cache amendment. Implementation has not started; runtime evidence is Pending.
+Status: published as [GitHub #24](https://github.com/tomh1988-8/rag_demo/issues/24) for the user-requested fusion/cache amendment. Implementation and four runtime ablations are recorded in [issue #24 evidence](../../implementation/issue-24/README.md); independent review and final-suite verification are pending at this checkpoint.
 
 Spec stories: S117, S118, S119, S120, S121.
 

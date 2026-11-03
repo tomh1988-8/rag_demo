@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="utf-8"?><testsuites name="pytest tests"><testsuite name="pytest" errors="0" failures="1" skipped="0" tests="1" time="1.632" timestamp="2026-11-03T18:44:48.616783+00:00" hostname="tom-Latitude-3510"><testcase classname="tests.test_text_pipeline_api" name="test_expanded_citation_resolves_to_the_exact_saved_revision_after_restart" time="1.415"><failure message="assert 404 == 200&#10; +  where 404 = &lt;Response [404 Not Found]&gt;.status_code">database_url = 'user=ask_phil password=local-demo-only dbname=ask_phil_test_ecaa0442bd764f7f95c6a007ba2728d6 host=127.0.0.1 port=55424'
+window_source = SourceSnapshot(snapshot_id='window-test', fixture_version=1, source=Source(title='Phil Mitchell', url=HttpUrl('https:/...5b77ccdf33f43c32e31941be', scope='other_media', reason='Test spin-off.', linked_titles=()))),), records=(), issues=()))
+
+    def test_expanded_citation_resolves_to_the_exact_saved_revision_after_restart(
+        database_url: str, window_source: SourceSnapshot
+    ) -&gt; None:
+        EvidenceStore(database_url).load(window_source)
+        context = expand_context(
+            window_source,
+            (RetrievedPassage(passage=window_source.passages[0], similarity=1),),
+            byte_budget=1200,
+        ).context
+        qualification = context[1]
+    
+        with TestClient(create_app(database_url)) as client:
+            response = client.get(
+                f"/v1/snapshots/{window_source.snapshot_id}/evidence/{qualification.evidence_id}"
+            )
+&gt;       assert response.status_code == 200
+E       assert 404 == 200
+E        +  where 404 = &lt;Response [404 Not Found]&gt;.status_code
+
+tests/test_text_pipeline_api.py:29: AssertionError</failure></testcase></testsuite></testsuites>

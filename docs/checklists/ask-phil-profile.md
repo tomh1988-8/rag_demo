@@ -21,7 +21,25 @@ Preserve the six confirmed public test boundaries and all accepted ADRs. R Shiny
 | N/A | 12 | ACT, MEM, MULTI and TUNE modules for this release |
 | Total reviewed | 64 | Every checklist item has an applicability decision |
 
-Of the 51 current checks, **40 Pass** and **11 remain Pending**. [Issue #9](../implementation/issue-9/README.md) adds the scoped comparison/evaluation checks AD-04.3/4, AD-06.4, AD-08.1/2 and AD-09.2. Actual public API runs, independently reviewed outcomes and human-approved synthetic judge calibration validate the measurement workflow. Both answer configurations fail critical quality gates, and the live support application exposes unresolved identity/null-policy limits. These measured failures remain current release obligations. Fusion, cache and final held-out acceptance remain pending. Checked graph coverage is recorded in issue #20 below. Historical issue #2–#8 results remain preserved. [Issue #10](../implementation/issue-10/README.md) adds scoped execution controls AD-07.1–4: public stop receipts, adversarial/malformed inputs, credential redaction, deadlines/cancellation and separate evaluation admission. Its independent reviews have zero remaining findings; the full software validation is recorded with the implementation.
+Of the 51 current checks, **40 Pass** and **11 remain Pending**. [Issue #9](../implementation/issue-9/README.md) adds the scoped comparison/evaluation checks AD-04.3/4, AD-06.4, AD-08.1/2 and AD-09.2. Actual public API runs, independently reviewed outcomes and human-approved synthetic judge calibration validate the measurement workflow. Both answer configurations fail critical quality gates, and the live support application exposes unresolved identity/null-policy limits. These measured failures remain current release obligations. Fusion's executed development comparison is recorded below; cache and final held-out acceptance remain pending. Checked graph coverage is recorded in issue #20 below. Historical issue #2–#8 results remain preserved. [Issue #10](../implementation/issue-10/README.md) adds scoped execution controls AD-07.1–4: public stop receipts, adversarial/malformed inputs, credential redaction, deadlines/cancellation and separate evaluation admission. Its independent reviews have zero remaining findings; the full software validation is recorded with the implementation.
+
+[Issue #24](../implementation/issue-24/README.md) executes the fusion/context
+amendment at the confirmed retrieval, conversation and scorer seams. Four
+uncached, same-corpus/model/budget ablations retain 16 actual API/CLI responses,
+exact saved-answer/root/citation readback, actual final model context, 16 reviewed
+faithful variants and separate candidate/ranking/context/answer measurements.
+Baseline and fusion retain 6/6 context facts; expansion and combined retain 5/6
+and honestly return partial on one family task. All 31 asserted claims pass
+source-based support/citation review. Literal completeness is 5/6, 6/6, 4/6 and
+4/6; the Stella label over-specification and both expansion failures remain
+[regressions](../implementation/issue-24/regressions.json). The selected default
+remains baseline. This extends scoped AD-02.1, AD-05.1, AD-06.1/2, AD-09.1 and
+RAG-02/03 evidence; the text portion of AD-08.3/AD-09.3 is measured, while broader
+routing/release acceptance remains Pending. Software final-suite and independent
+review results are recorded in the issue evidence before publication. Twenty-four
+paid calls cost $0.061936; the shared ledger is $0.975588, zero unsettled
+reservations. These exposed development results do not discharge held-out or
+owner-threshold acceptance, and the global counts remain 40 Pass / 11 Pending.
 
 [Issue #22](../implementation/issue-22/README.md) passes ONLINE-01 and extends scoped AD-06.2, AD-07.2/3 and AD-09.1/2 evidence with 616 passing tests, actual feedback-to-HUMAN-assessment readback, revision-correct live metrics and inspectable review priorities. All four runtime captures match the frozen application. Self-selected ratings, reported errors and independently reviewed correctness remain separate. Its automatic evaluation and review-loop obligations are addressed by #23 below.
 
@@ -315,6 +333,6 @@ checklist obligations without changing checklist IDs or the six public seams.
 - Caching: AD-05.3, AD-06.1/2, AD-09.1/3, RAG-03 and ONLINE-01–04 need exact-match
   eligibility, snapshot/configuration invalidation, isolated new delivery identities,
   cold/warm reports and actual feedback/online evaluation of cache hits.
-- Final acceptance in plan 20 integrates both. All added runtime evidence is Pending.
+- Final acceptance in plan 20 integrates both. Fusion runtime evidence is recorded in issue #24; cache runtime evidence remains Pending.
   Existing Pass records remain limited to the exercised scopes documented above;
   40 Pass and 11 Pending checks do not imply either new feature works.

@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="utf-8"?><testsuites name="pytest tests"><testsuite name="pytest" errors="0" failures="1" skipped="0" tests="2" time="0.230" timestamp="2026-11-03T18:43:27.614257+00:00" hostname="tom-Latitude-3510"><testcase classname="tests.test_source_windows" name="test_expansion_retains_adjacent_qualification_and_merges_overlapping_windows" time="0.010" /><testcase classname="tests.test_source_windows" name="test_truncation_omits_a_whole_window_instead_of_losing_its_qualification" time="0.004"><failure message="AssertionError: assert (Passage(evid...mitchell',)))) == ()&#10;  &#10;  Left contains 2 more items, first extra item: Passage(evidence_id='sent-0f3c0b9b1a2ce807dd8b8a7b13f6cc7e13ed06b1', text='Phil was accused of a fictional robbery.', ...=SourceLocation(source_id='phil-test', paragraph_ordinal=0, section_id='Storylines', character_ids=('phil-mitchell',)))&#10;  Use -v to get more diff">window_source = SourceSnapshot(snapshot_id='window-test', fixture_version=1, source=Source(title='Phil Mitchell', url=HttpUrl('https:/...5b77ccdf33f43c32e31941be', scope='other_media', reason='Test spin-off.', linked_titles=()))),), records=(), issues=()))
+
+    def test_truncation_omits_a_whole_window_instead_of_losing_its_qualification(
+        window_source: SourceSnapshot,
+    ) -&gt; None:
+        result = expand_context(
+            window_source,
+            (RetrievedPassage(passage=window_source.passages[0], similarity=1),),
+            byte_budget=180,
+            neighbours=1,
+        )
+    
+&gt;       assert result.context == ()
+E       AssertionError: assert (Passage(evid...mitchell',)))) == ()
+E         
+E         Left contains 2 more items, first extra item: Passage(evidence_id='sent-0f3c0b9b1a2ce807dd8b8a7b13f6cc7e13ed06b1', text='Phil was accused of a fictional robbery.', ...=SourceLocation(source_id='phil-test', paragraph_ordinal=0, section_id='Storylines', character_ids=('phil-mitchell',)))
+E         Use -v to get more diff
+
+tests/test_source_windows.py:109: AssertionError</failure></testcase></testsuite></testsuites>

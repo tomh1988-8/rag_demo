@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="utf-8"?><testsuites name="pytest tests"><testsuite name="pytest" errors="1" failures="0" skipped="0" tests="1" time="0.284" timestamp="2026-11-03T19:27:40.753488+00:00" hostname="tom-Latitude-3510"><testcase classname="" name="tests.test_text_context_evaluation" time="0.000"><error message="collection failure">ImportError while importing test module '/home/tom/Documents/code/python/rag_demo/tests/test_text_context_evaluation.py'.
+Hint: make sure your test modules/packages have valid Python names.
+Traceback:
+/usr/lib/python3.12/importlib/__init__.py:90: in import_module
+    return _bootstrap._gcd_import(name[level:], package, level)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+tests/test_text_context_evaluation.py:4: in &lt;module&gt;
+    from ask_phil.text_evaluation import SpanExpectation, score_text_context
+E   ModuleNotFoundError: No module named 'ask_phil.text_evaluation'</error></testcase></testsuite></testsuites>

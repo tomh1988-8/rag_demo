@@ -1,0 +1,276 @@
+{
+  "version": "text-fusion-references-v1",
+  "synthetic": false,
+  "review_note": "Source-based implementer review before model capture; explicit spans and query-fidelity controls are independent of the answer/variant model. Exposed development cases, not human canon, exhaustive relevance or held-out release acceptance.",
+  "source_file": "data/sources/real-sources-v1.json.gz",
+  "source_file_sha256": "bfcaae65ecd30c4ebee805a71d02910ce85db636aa0d5f1ef2a08368a06eb76a",
+  "snapshot_id": "text-expansion-development-v1",
+  "snapshot_sha256": "4746acc28fb72647a876f8ab75df1f9948d6591499c882338b836b1d4e81c17f",
+  "parser_version": "html-context-fit-v2",
+  "passages": 147,
+  "cases": [
+    {
+      "case_id": "multi-family",
+      "group_id": "ben-birth-and-sharon-adoption",
+      "split": "development",
+      "question": "Who are Ben Mitchell's parents, and who adopted Sharon Watts when she was three?",
+      "answerable": true,
+      "expected_status": "answered",
+      "required_facts": [
+        {
+          "fact": "Ben is the son of Phil Mitchell and Kathy Beale.",
+          "sufficient_sets": [
+            [
+              "ben-wiki-0022-17983"
+            ]
+          ],
+          "span_sufficient_sets": [
+            [
+              {
+                "source_id": "ben-wiki",
+                "revision_id": "1369268749",
+                "start": 17983,
+                "end": 18093,
+                "text": "Ben is born to Phil Mitchell (Steve McFadden) and his then wife Kathy Beale (Gillian Taylforth) in March 1996.",
+                "sha256": "8179f5f0724cc08e5a5d51567fb7de0f8e55a4d5fc9881f5e050ae9d153eca08"
+              }
+            ]
+          ]
+        },
+        {
+          "fact": "Den and Angie Watts adopted Sharon at age three.",
+          "sufficient_sets": [
+            [
+              "sharon-wiki-0053-50624"
+            ]
+          ],
+          "span_sufficient_sets": [
+            [
+              {
+                "source_id": "sharon-wiki",
+                "revision_id": "1372798905",
+                "start": 50624,
+                "end": 50829,
+                "text": "Adopted at the age of three by Den (Leslie Grantham) and Angie Watts (Anita Dobson), Sharon is raised at The Queen Victoria public house in Albert Square, Walford, where her adoptive parents are landlords.",
+                "sha256": "1e54773bc770474ace800fa686ba855dce8b3eac079403d0dd1c78e958023f31"
+              }
+            ]
+          ]
+        }
+      ],
+      "snapshot_id": "text-expansion-development-v1",
+      "relevant_ids": [
+        "ben-wiki-0022-17983",
+        "sharon-wiki-0053-50624"
+      ],
+      "forbidden_assertions": [
+        "Missing evidence establishes a negative.",
+        "An allegation establishes guilt.",
+        "Adoptive parents establish biological ancestry."
+      ]
+    },
+    {
+      "case_id": "stella-false-account",
+      "group_id": "stella-investigation",
+      "split": "development",
+      "question": "Why was Phil Mitchell released after being charged over Stella's death, and who had lied to the police?",
+      "answerable": true,
+      "expected_status": "answered",
+      "required_facts": [
+        {
+          "fact": "Ben alleged Phil forced Stella to jump, but this account was a lie.",
+          "sufficient_sets": [
+            [
+              "ben-wiki-0027-23262"
+            ]
+          ],
+          "span_sufficient_sets": [
+            [
+              {
+                "source_id": "ben-wiki",
+                "revision_id": "1369268749",
+                "start": 23644,
+                "end": 23731,
+                "text": "Ben tells her that Phil forced Stella to jump off a building on threat of being pushed.",
+                "sha256": "6a97ea6a338a49647e97809f8bce84f06437301e960990800cfe355171fb6dbe"
+              },
+              {
+                "source_id": "ben-wiki",
+                "revision_id": "1369268749",
+                "start": 23980,
+                "end": 24066,
+                "text": "Ben's brother Ian eventually discovers Ben lied to DCI Marsden and informs the police.",
+                "sha256": "5fe14368e67e32d7853dec0180950ce793511283e682e2ddf84d6497a81f3ba8"
+              }
+            ]
+          ]
+        },
+        {
+          "fact": "Ian reported the lie to police and Phil was released.",
+          "sufficient_sets": [
+            [
+              "ben-wiki-0027-23262"
+            ]
+          ],
+          "span_sufficient_sets": [
+            [
+              {
+                "source_id": "ben-wiki",
+                "revision_id": "1369268749",
+                "start": 23980,
+                "end": 24066,
+                "text": "Ben's brother Ian eventually discovers Ben lied to DCI Marsden and informs the police.",
+                "sha256": "5fe14368e67e32d7853dec0180950ce793511283e682e2ddf84d6497a81f3ba8"
+              },
+              {
+                "source_id": "ben-wiki",
+                "revision_id": "1369268749",
+                "start": 24067,
+                "end": 24205,
+                "text": "Phil is released; however, Ben mistakenly believes he has been betrayed by Heather Trott (Cheryl Fergison), who also knows he set Phil up.",
+                "sha256": "372ad21b71ff7c47b2337e6b0b89dac3156396f0eb32c12fab74468e4071e3da"
+              }
+            ]
+          ]
+        }
+      ],
+      "snapshot_id": "text-expansion-development-v1",
+      "relevant_ids": [
+        "ben-wiki-0027-23262"
+      ],
+      "forbidden_assertions": [
+        "Missing evidence establishes a negative.",
+        "An allegation establishes guilt.",
+        "Adoptive parents establish biological ancestry."
+      ]
+    },
+    {
+      "case_id": "lola-changing-account",
+      "group_id": "lexi-parentage-accounts",
+      "split": "development",
+      "question": "What did Lola first say about Ben Mitchell being her baby's father, and how did Ben later discover he was Lexi's father?",
+      "answerable": true,
+      "expected_status": "answered",
+      "required_facts": [
+        {
+          "fact": "Lola initially denied Ben was the father.",
+          "sufficient_sets": [
+            [
+              "ben-wiki-0026-22977"
+            ]
+          ],
+          "span_sufficient_sets": [
+            [
+              {
+                "source_id": "ben-wiki",
+                "revision_id": "1369268749",
+                "start": 23171,
+                "end": 23260,
+                "text": "Ben is later concerned to discover Lola is pregnant, however she denies he is the father.",
+                "sha256": "970c147e4dfee5bf5c3a57b9ba6061c9930030f608a4953fcd0190efff3515cb"
+              }
+            ]
+          ]
+        },
+        {
+          "fact": "Ben later discovered he was Lexi's father after a visit from Lola.",
+          "sufficient_sets": [
+            [
+              "ben-wiki-0028-26263"
+            ]
+          ],
+          "span_sufficient_sets": [
+            [
+              {
+                "source_id": "ben-wiki",
+                "revision_id": "1369268749",
+                "start": 26356,
+                "end": 26458,
+                "text": "Ben is sentenced to four years imprisonment and discovers he is Lexi's father after a visit from Lola.",
+                "sha256": "9e484c2e27cdb58d79339819ee40326b0bdb2e26588b0c8a293fda7fc64e4f8e"
+              }
+            ]
+          ]
+        }
+      ],
+      "snapshot_id": "text-expansion-development-v1",
+      "relevant_ids": [
+        "ben-wiki-0026-22977",
+        "ben-wiki-0028-26263"
+      ],
+      "forbidden_assertions": [
+        "Missing evidence establishes a negative.",
+        "An allegation establishes guilt.",
+        "Adoptive parents establish biological ancestry."
+      ]
+    },
+    {
+      "case_id": "unsupported-theme",
+      "group_id": "unsupported-manosphere",
+      "split": "development",
+      "question": "How did Phil Mitchell respond to the manosphere?",
+      "answerable": false,
+      "expected_status": "insufficient_evidence",
+      "required_facts": [],
+      "snapshot_id": "text-expansion-development-v1",
+      "relevant_ids": [],
+      "forbidden_assertions": [
+        "Missing evidence establishes a negative.",
+        "An allegation establishes guilt.",
+        "Adoptive parents establish biological ancestry."
+      ]
+    }
+  ],
+  "reserved_questions": [
+    {
+      "case_id": "reserved-kat-zoe",
+      "group_id": "kat-zoe-origin",
+      "split": "reserved_unexecuted",
+      "question": "Who is Zoe Slater's biological mother and how was she raised within Kat's family?"
+    },
+    {
+      "case_id": "reserved-sharon-pregnancy",
+      "group_id": "sharon-christmas-pregnancy",
+      "split": "reserved_unexecuted",
+      "question": "When did Sharon discover she was pregnant, and why did it surprise her?"
+    }
+  ],
+  "fidelity_controls": [
+    {
+      "question": "Why was Phil Mitchell not convicted in 1990?",
+      "variant": "EastEnders: Why was Phil Mitchell not convicted in 1990?",
+      "faithful": true,
+      "reason": "Only a fixed main-series search prefix is added."
+    },
+    {
+      "question": "Why was Phil Mitchell not convicted in 1990?",
+      "variant": "Why was Grant Mitchell not convicted in 1990?",
+      "faithful": false,
+      "reason": "Different character."
+    },
+    {
+      "question": "Why was Phil Mitchell not convicted in 1990?",
+      "variant": "Why was Phil Mitchell not convicted in 1991?",
+      "faithful": false,
+      "reason": "Different year."
+    },
+    {
+      "question": "Why was Phil Mitchell not convicted in 1990?",
+      "variant": "Why was Phil Mitchell convicted in 1990?",
+      "faithful": false,
+      "reason": "Negation removed."
+    },
+    {
+      "question": "Did Phil accuse Grant?",
+      "variant": "Did Grant accuse Phil?",
+      "faithful": false,
+      "reason": "Subject and object swapped."
+    },
+    {
+      "question": "Did Phil say Grant was not convicted?",
+      "variant": "Did Phil not say Grant was convicted?",
+      "faithful": false,
+      "reason": "Negation scope changed."
+    }
+  ]
+}

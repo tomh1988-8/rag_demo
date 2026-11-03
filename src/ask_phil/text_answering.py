@@ -1,6 +1,7 @@
 """Text evidence and wording inside the shared answer execution lifecycle."""
 
 import hashlib
+from typing import Literal
 
 import mlflow
 from llama_index.core.llms import ChatMessage
@@ -12,7 +13,6 @@ from ask_phil.answers import (
     AskRequest,
     Citation,
     Draft,
-    assemble_context,
     cite_answer,
     context_text,
     stopped_answer,
@@ -35,14 +35,16 @@ from ask_phil.review_notes import (
     ReviewNotice,
     prepare_text_review,
 )
+from ask_phil.text_retrieval import ConventionalText, TextPolicy
 
 
 class TextAnswer:
-    def __init__(self, models: Models, pinned: PinnedText) -> None:
+    def __init__(self, models: Models, pinned: PinnedText, policy: TextPolicy) -> None:
         self.models = models
         self.pinned = pinned
         self.snapshot = pinned.snapshot
         self.publication = pinned.publication
+        self.policy = policy
         if models.redact(self.snapshot.model_dump_json()) != self.snapshot.model_dump_json():
             raise ModelConfigurationError("Captured evidence contains unsafe credential text.")
 
@@ -87,6 +89,9 @@ class TextAnswer:
                 embedding_id=self.models.settings.embedding_id,
             )
             context: tuple[Passage, ...] = ()
+            pipeline = ConventionalText(
+                self.pinned, self.models, self.policy, request.question, question
+            )
             citations: tuple[Citation, ...] = ()
             failure = False
             stopped = False
@@ -109,16 +114,9 @@ class TextAnswer:
                     root.set_attribute("retrieval_skipped", "unresolved_reference")
                     root.set_attribute("answer_model_skipped", "unresolved_reference")
                 else:
-                    with mlflow.start_span("text_retrieval", span_type="RETRIEVER") as span:
-                        span.set_inputs({"question": question, "k": 3})
-                        retrieved = self.pinned.retrieve(question, k=3)
-                        span.set_outputs(retrieved.model_dump(mode="json"))
+                    selection = pipeline.retrieve(budget)
+                    retrieved, context = selection.retrieved, selection.context
                     with mlflow.start_span("assembled_context") as span:
-                        context = assemble_context(
-                            retrieved.hits,
-                            budget.limits.context_bytes,
-                            context_claims=retrieved.context_claims,
-                        )
                         if retrieved.review_notices:
                             review = prepare_text_review(
                                 snapshot, retrieved.review_notices, budget.limits.context_bytes
@@ -189,6 +187,8 @@ class TextAnswer:
                         budget.check()
                         citations = cite_answer(draft, context, snapshot_id)
             except ExecutionStopped as exc:
+                if pipeline.selection is not None:
+                    retrieved, context = pipeline.selection.retrieved, pipeline.selection.context
                 reason = str(exc)
                 budget.record_stop(reason)
                 root.set_status("ERROR")
@@ -210,6 +210,20 @@ class TextAnswer:
             answer = draft.answer
             if classifications and not stopped:
                 answer += "\n" + "\n".join(dict.fromkeys(c.qualification for c in classifications))
+            record = pipeline.record.model_copy(
+                update={
+                    "final_context_ids": tuple(p.evidence_id for p in context),
+                    "context_bytes": len(context_text(context, retrieved.context_claims).encode()),
+                    "model_executions": accounting.executions,
+                    "embedding_tokens": accounting.embedding_tokens,
+                }
+            )
+            version: Literal["single-query-uncached-v2", "bounded-text-v1"] = (
+                "single-query-uncached-v2" if self.policy.mode == "baseline" else "bounded-text-v1"
+            )
+            root.set_attributes(
+                {"text_pipeline": record.model_dump(mode="json"), "baseline_version": version}
+            )
             return AnswerContent(
                 conversation=conversation,
                 status="failed" if failure else draft.status,
@@ -222,7 +236,8 @@ class TextAnswer:
                 context=context,
                 retrieved=retrieved.hits,
                 retrieval_k=retrieved.k,
-                baseline_version="single-query-uncached-v2",
+                baseline_version=version,
+                text_pipeline=record,
                 model_settings=self.models.settings,
                 prompt_sha256=hashlib.sha256(
                     (REVIEW_WORDING if notices else SYSTEM_PROMPT).encode()

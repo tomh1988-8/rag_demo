@@ -1,0 +1,782 @@
+{
+  "kind": "text-stage-metrics-v1",
+  "cases": [
+    {
+      "mode": "baseline",
+      "case_id": "multi-family",
+      "status": "answered",
+      "response_sha256": "b803cdf329dbc1eb7a5892f9148cd6a6f731f29c39fb79f342599915e44aee1c",
+      "candidate": {
+        "k": 3,
+        "relevant_passage_count": 2,
+        "recall_at_k": 1.0,
+        "hit_at_k": 1.0,
+        "mrr_at_k": 1.0,
+        "required_fact_count": 2,
+        "context_fact_coverage": 0.0,
+        "context_sufficient": false
+      },
+      "fused": {
+        "k": 3,
+        "relevant_passage_count": 2,
+        "recall_at_k": 1.0,
+        "hit_at_k": 1.0,
+        "mrr_at_k": 1.0,
+        "required_fact_count": 2,
+        "context_fact_coverage": 0.0,
+        "context_sufficient": false
+      },
+      "context": {
+        "covered_facts": 2,
+        "required_facts": 2,
+        "coverage": 1.0,
+        "sufficient": true
+      },
+      "complete_api_elapsed_ms": 11231.868674993166,
+      "estimated_api_cost_usd": 0.005946,
+      "usage": {
+        "input_tokens": 1991,
+        "output_tokens": 97,
+        "embedding_tokens": 27
+      },
+      "model_operations": 2,
+      "paid_calls": 1,
+      "variant_proposals": [],
+      "fallback_reasons": []
+    },
+    {
+      "mode": "baseline",
+      "case_id": "stella-false-account",
+      "status": "answered",
+      "response_sha256": "dbf2c9ea53d61b54ef62bff7a212c40a164edbd8505ae5a134b6aaecc2778828",
+      "candidate": {
+        "k": 3,
+        "relevant_passage_count": 1,
+        "recall_at_k": 1.0,
+        "hit_at_k": 1.0,
+        "mrr_at_k": 1.0,
+        "required_fact_count": 2,
+        "context_fact_coverage": 0.0,
+        "context_sufficient": false
+      },
+      "fused": {
+        "k": 3,
+        "relevant_passage_count": 1,
+        "recall_at_k": 1.0,
+        "hit_at_k": 1.0,
+        "mrr_at_k": 1.0,
+        "required_fact_count": 2,
+        "context_fact_coverage": 0.0,
+        "context_sufficient": false
+      },
+      "context": {
+        "covered_facts": 2,
+        "required_facts": 2,
+        "coverage": 1.0,
+        "sufficient": true
+      },
+      "complete_api_elapsed_ms": 4811.016445004498,
+      "estimated_api_cost_usd": 0.0034006,
+      "usage": {
+        "input_tokens": 2085,
+        "output_tokens": 106,
+        "embedding_tokens": 31
+      },
+      "model_operations": 2,
+      "paid_calls": 1,
+      "variant_proposals": [],
+      "fallback_reasons": []
+    },
+    {
+      "mode": "baseline",
+      "case_id": "lola-changing-account",
+      "status": "answered",
+      "response_sha256": "42b4d383ed09fbccf8f047d5accb032ffe7e5f072664763e29fc4b8af87db4e4",
+      "candidate": {
+        "k": 3,
+        "relevant_passage_count": 2,
+        "recall_at_k": 1.0,
+        "hit_at_k": 1.0,
+        "mrr_at_k": 1.0,
+        "required_fact_count": 2,
+        "context_fact_coverage": 0.0,
+        "context_sufficient": false
+      },
+      "fused": {
+        "k": 3,
+        "relevant_passage_count": 2,
+        "recall_at_k": 1.0,
+        "hit_at_k": 1.0,
+        "mrr_at_k": 1.0,
+        "required_fact_count": 2,
+        "context_fact_coverage": 0.0,
+        "context_sufficient": false
+      },
+      "context": {
+        "covered_facts": 2,
+        "required_facts": 2,
+        "coverage": 1.0,
+        "sufficient": true
+      },
+      "complete_api_elapsed_ms": 5083.931307002786,
+      "estimated_api_cost_usd": 0.0024131,
+      "usage": {
+        "input_tokens": 1594,
+        "output_tokens": 130,
+        "embedding_tokens": 38
+      },
+      "model_operations": 2,
+      "paid_calls": 1,
+      "variant_proposals": [],
+      "fallback_reasons": []
+    },
+    {
+      "mode": "baseline",
+      "case_id": "unsupported-theme",
+      "status": "insufficient_evidence",
+      "response_sha256": "70328a7d955dfb17d88b21a3a3147f56e5c193f24107d1bda769a37bbc5eb91f",
+      "candidate": {
+        "k": 3,
+        "relevant_passage_count": 0,
+        "recall_at_k": null,
+        "hit_at_k": null,
+        "mrr_at_k": null,
+        "required_fact_count": 0,
+        "context_fact_coverage": null,
+        "context_sufficient": false
+      },
+      "fused": {
+        "k": 3,
+        "relevant_passage_count": 0,
+        "recall_at_k": null,
+        "hit_at_k": null,
+        "mrr_at_k": null,
+        "required_fact_count": 0,
+        "context_fact_coverage": null,
+        "context_sufficient": false
+      },
+      "context": {
+        "covered_facts": 0,
+        "required_facts": 0,
+        "coverage": null,
+        "sufficient": false
+      },
+      "complete_api_elapsed_ms": 4235.712604000582,
+      "estimated_api_cost_usd": 0.0020906,
+      "usage": {
+        "input_tokens": 1721,
+        "output_tokens": 66,
+        "embedding_tokens": 19
+      },
+      "model_operations": 2,
+      "paid_calls": 1,
+      "variant_proposals": [],
+      "fallback_reasons": []
+    },
+    {
+      "mode": "fusion",
+      "case_id": "multi-family",
+      "status": "answered",
+      "response_sha256": "c85adedf16a8a55aae5b70f165a94f15ff801c5371d8e866dff21a979ab024a9",
+      "candidate": {
+        "k": 4,
+        "relevant_passage_count": 2,
+        "recall_at_k": 1.0,
+        "hit_at_k": 1.0,
+        "mrr_at_k": 1.0,
+        "required_fact_count": 2,
+        "context_fact_coverage": 0.0,
+        "context_sufficient": false
+      },
+      "fused": {
+        "k": 3,
+        "relevant_passage_count": 2,
+        "recall_at_k": 1.0,
+        "hit_at_k": 1.0,
+        "mrr_at_k": 1.0,
+        "required_fact_count": 2,
+        "context_fact_coverage": 0.0,
+        "context_sufficient": false
+      },
+      "context": {
+        "covered_facts": 2,
+        "required_facts": 2,
+        "coverage": 1.0,
+        "sufficient": true
+      },
+      "complete_api_elapsed_ms": 13449.565452006937,
+      "estimated_api_cost_usd": 0.0053336,
+      "usage": {
+        "input_tokens": 2235,
+        "output_tokens": 274,
+        "embedding_tokens": 90
+      },
+      "model_operations": 5,
+      "paid_calls": 2,
+      "variant_proposals": [
+        {
+          "query": "EastEnders: Who are Ben Mitchell's parents, and who adopted Sharon Watts when she was three?",
+          "accepted": true,
+          "reason": null
+        },
+        {
+          "query": "Captured main-series evidence: Who are Ben Mitchell's parents, and who adopted Sharon Watts when she was three?",
+          "accepted": true,
+          "reason": null
+        }
+      ],
+      "fallback_reasons": []
+    },
+    {
+      "mode": "fusion",
+      "case_id": "stella-false-account",
+      "status": "answered",
+      "response_sha256": "f8c572becff71cc51bf05e66720333e16116de5887a30b12085e1593b98f3f6f",
+      "candidate": {
+        "k": 4,
+        "relevant_passage_count": 1,
+        "recall_at_k": 1.0,
+        "hit_at_k": 1.0,
+        "mrr_at_k": 1.0,
+        "required_fact_count": 2,
+        "context_fact_coverage": 0.0,
+        "context_sufficient": false
+      },
+      "fused": {
+        "k": 3,
+        "relevant_passage_count": 1,
+        "recall_at_k": 1.0,
+        "hit_at_k": 1.0,
+        "mrr_at_k": 1.0,
+        "required_fact_count": 2,
+        "context_fact_coverage": 0.0,
+        "context_sufficient": false
+      },
+      "context": {
+        "covered_facts": 2,
+        "required_facts": 2,
+        "coverage": 1.0,
+        "sufficient": true
+      },
+      "complete_api_elapsed_ms": 8684.492884000065,
+      "estimated_api_cost_usd": 0.0052566,
+      "usage": {
+        "input_tokens": 2333,
+        "output_tokens": 242,
+        "embedding_tokens": 102
+      },
+      "model_operations": 5,
+      "paid_calls": 2,
+      "variant_proposals": [
+        {
+          "query": "EastEnders: Why was Phil Mitchell released after being charged over Stella's death, and who had lied to the police?",
+          "accepted": true,
+          "reason": null
+        },
+        {
+          "query": "Captured main-series evidence: Why was Phil Mitchell released after being charged over Stella's death, and who had lied to the police?",
+          "accepted": true,
+          "reason": null
+        }
+      ],
+      "fallback_reasons": []
+    },
+    {
+      "mode": "fusion",
+      "case_id": "lola-changing-account",
+      "status": "answered",
+      "response_sha256": "f542a036980c955fb0465ef0eca6c6803e5137047965763e637d1832f1d1bbaf",
+      "candidate": {
+        "k": 3,
+        "relevant_passage_count": 2,
+        "recall_at_k": 1.0,
+        "hit_at_k": 1.0,
+        "mrr_at_k": 1.0,
+        "required_fact_count": 2,
+        "context_fact_coverage": 0.0,
+        "context_sufficient": false
+      },
+      "fused": {
+        "k": 3,
+        "relevant_passage_count": 2,
+        "recall_at_k": 1.0,
+        "hit_at_k": 1.0,
+        "mrr_at_k": 1.0,
+        "required_fact_count": 2,
+        "context_fact_coverage": 0.0,
+        "context_sufficient": false
+      },
+      "context": {
+        "covered_facts": 2,
+        "required_facts": 2,
+        "coverage": 1.0,
+        "sufficient": true
+      },
+      "complete_api_elapsed_ms": 8813.555685999745,
+      "estimated_api_cost_usd": 0.0038802,
+      "usage": {
+        "input_tokens": 1847,
+        "output_tokens": 305,
+        "embedding_tokens": 123
+      },
+      "model_operations": 5,
+      "paid_calls": 2,
+      "variant_proposals": [
+        {
+          "query": "EastEnders: What did Lola first say about Ben Mitchell being her baby's father, and how did Ben later discover he was Lexi's father?",
+          "accepted": true,
+          "reason": null
+        },
+        {
+          "query": "Captured main-series evidence: What did Lola first say about Ben Mitchell being her baby's dad, and how did Ben later discover he was Lexi's dad?",
+          "accepted": true,
+          "reason": null
+        }
+      ],
+      "fallback_reasons": []
+    },
+    {
+      "mode": "fusion",
+      "case_id": "unsupported-theme",
+      "status": "insufficient_evidence",
+      "response_sha256": "7b1fa82418bea134bac2e1478c87dfdbd83835d62cdbf1d71c9943f37ce32771",
+      "candidate": {
+        "k": 6,
+        "relevant_passage_count": 0,
+        "recall_at_k": null,
+        "hit_at_k": null,
+        "mrr_at_k": null,
+        "required_fact_count": 0,
+        "context_fact_coverage": null,
+        "context_sufficient": false
+      },
+      "fused": {
+        "k": 3,
+        "relevant_passage_count": 0,
+        "recall_at_k": null,
+        "hit_at_k": null,
+        "mrr_at_k": null,
+        "required_fact_count": 0,
+        "context_fact_coverage": null,
+        "context_sufficient": false
+      },
+      "context": {
+        "covered_facts": 0,
+        "required_facts": 0,
+        "coverage": null,
+        "sufficient": false
+      },
+      "complete_api_elapsed_ms": 7523.520789000031,
+      "estimated_api_cost_usd": 0.0037121000000000003,
+      "usage": {
+        "input_tokens": 2069,
+        "output_tokens": 153,
+        "embedding_tokens": 66
+      },
+      "model_operations": 5,
+      "paid_calls": 2,
+      "variant_proposals": [
+        {
+          "query": "EastEnders: How did Phil Mitchell respond to the manosphere?",
+          "accepted": true,
+          "reason": null
+        },
+        {
+          "query": "Captured main-series evidence: How did Phil Mitchell respond to the manosphere?",
+          "accepted": true,
+          "reason": null
+        }
+      ],
+      "fallback_reasons": []
+    },
+    {
+      "mode": "expansion",
+      "case_id": "multi-family",
+      "status": "partial",
+      "response_sha256": "06424c3a729c6088715ea7723fddaa74096294dc433bc58cdefd2a6c3ca18f73",
+      "candidate": {
+        "k": 3,
+        "relevant_passage_count": 2,
+        "recall_at_k": 1.0,
+        "hit_at_k": 1.0,
+        "mrr_at_k": 1.0,
+        "required_fact_count": 2,
+        "context_fact_coverage": 0.0,
+        "context_sufficient": false
+      },
+      "fused": {
+        "k": 3,
+        "relevant_passage_count": 2,
+        "recall_at_k": 1.0,
+        "hit_at_k": 1.0,
+        "mrr_at_k": 1.0,
+        "required_fact_count": 2,
+        "context_fact_coverage": 0.0,
+        "context_sufficient": false
+      },
+      "context": {
+        "covered_facts": 1,
+        "required_facts": 2,
+        "coverage": 0.5,
+        "sufficient": false
+      },
+      "complete_api_elapsed_ms": 9551.82480700023,
+      "estimated_api_cost_usd": 0.0033756,
+      "usage": {
+        "input_tokens": 2059,
+        "output_tokens": 110,
+        "embedding_tokens": 27
+      },
+      "model_operations": 2,
+      "paid_calls": 1,
+      "variant_proposals": [],
+      "fallback_reasons": []
+    },
+    {
+      "mode": "expansion",
+      "case_id": "stella-false-account",
+      "status": "answered",
+      "response_sha256": "28c8fc4b0f884605832b27f200f7a8860e10285ccd931dfaafa06cfeaca05748",
+      "candidate": {
+        "k": 3,
+        "relevant_passage_count": 1,
+        "recall_at_k": 1.0,
+        "hit_at_k": 1.0,
+        "mrr_at_k": 1.0,
+        "required_fact_count": 2,
+        "context_fact_coverage": 0.0,
+        "context_sufficient": false
+      },
+      "fused": {
+        "k": 3,
+        "relevant_passage_count": 1,
+        "recall_at_k": 1.0,
+        "hit_at_k": 1.0,
+        "mrr_at_k": 1.0,
+        "required_fact_count": 2,
+        "context_fact_coverage": 0.0,
+        "context_sufficient": false
+      },
+      "context": {
+        "covered_facts": 2,
+        "required_facts": 2,
+        "coverage": 1.0,
+        "sufficient": true
+      },
+      "complete_api_elapsed_ms": 5931.580679003673,
+      "estimated_api_cost_usd": 0.0041031,
+      "usage": {
+        "input_tokens": 2058,
+        "output_tokens": 183,
+        "embedding_tokens": 31
+      },
+      "model_operations": 2,
+      "paid_calls": 1,
+      "variant_proposals": [],
+      "fallback_reasons": []
+    },
+    {
+      "mode": "expansion",
+      "case_id": "lola-changing-account",
+      "status": "answered",
+      "response_sha256": "1eafea9b59f6bfe83369046b5b5713e041367eae9b9ee9c4f916a161903bb24d",
+      "candidate": {
+        "k": 3,
+        "relevant_passage_count": 2,
+        "recall_at_k": 1.0,
+        "hit_at_k": 1.0,
+        "mrr_at_k": 1.0,
+        "required_fact_count": 2,
+        "context_fact_coverage": 0.0,
+        "context_sufficient": false
+      },
+      "fused": {
+        "k": 3,
+        "relevant_passage_count": 2,
+        "recall_at_k": 1.0,
+        "hit_at_k": 1.0,
+        "mrr_at_k": 1.0,
+        "required_fact_count": 2,
+        "context_fact_coverage": 0.0,
+        "context_sufficient": false
+      },
+      "context": {
+        "covered_facts": 2,
+        "required_facts": 2,
+        "coverage": 1.0,
+        "sufficient": true
+      },
+      "complete_api_elapsed_ms": 7052.740172002814,
+      "estimated_api_cost_usd": 0.0050756,
+      "usage": {
+        "input_tokens": 2103,
+        "output_tokens": 269,
+        "embedding_tokens": 38
+      },
+      "model_operations": 2,
+      "paid_calls": 1,
+      "variant_proposals": [],
+      "fallback_reasons": []
+    },
+    {
+      "mode": "expansion",
+      "case_id": "unsupported-theme",
+      "status": "insufficient_evidence",
+      "response_sha256": "ba09c3bfaaecbb2238b3b1f1b240231352627bded99bdf1757d2e3f46466eb2a",
+      "candidate": {
+        "k": 3,
+        "relevant_passage_count": 0,
+        "recall_at_k": null,
+        "hit_at_k": null,
+        "mrr_at_k": null,
+        "required_fact_count": 0,
+        "context_fact_coverage": null,
+        "context_sufficient": false
+      },
+      "fused": {
+        "k": 3,
+        "relevant_passage_count": 0,
+        "recall_at_k": null,
+        "hit_at_k": null,
+        "mrr_at_k": null,
+        "required_fact_count": 0,
+        "context_fact_coverage": null,
+        "context_sufficient": false
+      },
+      "context": {
+        "covered_facts": 0,
+        "required_facts": 0,
+        "coverage": null,
+        "sufficient": false
+      },
+      "complete_api_elapsed_ms": 4550.887142002466,
+      "estimated_api_cost_usd": 0.0036981,
+      "usage": {
+        "input_tokens": 2356,
+        "output_tokens": 68,
+        "embedding_tokens": 19
+      },
+      "model_operations": 2,
+      "paid_calls": 1,
+      "variant_proposals": [],
+      "fallback_reasons": []
+    },
+    {
+      "mode": "combined",
+      "case_id": "multi-family",
+      "status": "partial",
+      "response_sha256": "ad94248ca36602a2a40581ad7fbf5761fc5fbc939eb0626ce7f221aebca179af",
+      "candidate": {
+        "k": 4,
+        "relevant_passage_count": 2,
+        "recall_at_k": 1.0,
+        "hit_at_k": 1.0,
+        "mrr_at_k": 1.0,
+        "required_fact_count": 2,
+        "context_fact_coverage": 0.0,
+        "context_sufficient": false
+      },
+      "fused": {
+        "k": 3,
+        "relevant_passage_count": 2,
+        "recall_at_k": 1.0,
+        "hit_at_k": 1.0,
+        "mrr_at_k": 1.0,
+        "required_fact_count": 2,
+        "context_fact_coverage": 0.0,
+        "context_sufficient": false
+      },
+      "context": {
+        "covered_facts": 1,
+        "required_facts": 2,
+        "coverage": 0.5,
+        "sufficient": false
+      },
+      "complete_api_elapsed_ms": 13572.788976998709,
+      "estimated_api_cost_usd": 0.0031052,
+      "usage": {
+        "input_tokens": 2303,
+        "output_tokens": 220,
+        "embedding_tokens": 90
+      },
+      "model_operations": 5,
+      "paid_calls": 2,
+      "variant_proposals": [
+        {
+          "query": "EastEnders: Who are Ben Mitchell's parents, and who adopted Sharon Watts when she was three?",
+          "accepted": true,
+          "reason": null
+        },
+        {
+          "query": "Captured main-series evidence: Who are Ben Mitchell's parents, and who adopted Sharon Watts when she was three?",
+          "accepted": true,
+          "reason": null
+        }
+      ],
+      "fallback_reasons": []
+    },
+    {
+      "mode": "combined",
+      "case_id": "stella-false-account",
+      "status": "answered",
+      "response_sha256": "72bd03cdb70a4195b4be992a5362e3821fafc2c4a2d49346ec85805906edc039",
+      "candidate": {
+        "k": 4,
+        "relevant_passage_count": 1,
+        "recall_at_k": 1.0,
+        "hit_at_k": 1.0,
+        "mrr_at_k": 1.0,
+        "required_fact_count": 2,
+        "context_fact_coverage": 0.0,
+        "context_sufficient": false
+      },
+      "fused": {
+        "k": 3,
+        "relevant_passage_count": 1,
+        "recall_at_k": 1.0,
+        "hit_at_k": 1.0,
+        "mrr_at_k": 1.0,
+        "required_fact_count": 2,
+        "context_fact_coverage": 0.0,
+        "context_sufficient": false
+      },
+      "context": {
+        "covered_facts": 2,
+        "required_facts": 2,
+        "coverage": 1.0,
+        "sufficient": true
+      },
+      "complete_api_elapsed_ms": 8285.308635000547,
+      "estimated_api_cost_usd": 0.003153,
+      "usage": {
+        "input_tokens": 2306,
+        "output_tokens": 224,
+        "embedding_tokens": 102
+      },
+      "model_operations": 5,
+      "paid_calls": 2,
+      "variant_proposals": [
+        {
+          "query": "EastEnders: Why was Phil Mitchell released after being charged over Stella's death, and who had lied to the police?",
+          "accepted": true,
+          "reason": null
+        },
+        {
+          "query": "Captured main-series evidence: Why was Phil Mitchell released after being charged over Stella's death, and who had lied to the police?",
+          "accepted": true,
+          "reason": null
+        }
+      ],
+      "fallback_reasons": []
+    },
+    {
+      "mode": "combined",
+      "case_id": "lola-changing-account",
+      "status": "answered",
+      "response_sha256": "0d2fcb6e5fb3c586c7fcb3c4e0486f6babe8dc93d221a096ca1169a1bb34f601",
+      "candidate": {
+        "k": 3,
+        "relevant_passage_count": 2,
+        "recall_at_k": 1.0,
+        "hit_at_k": 1.0,
+        "mrr_at_k": 1.0,
+        "required_fact_count": 2,
+        "context_fact_coverage": 0.0,
+        "context_sufficient": false
+      },
+      "fused": {
+        "k": 3,
+        "relevant_passage_count": 2,
+        "recall_at_k": 1.0,
+        "hit_at_k": 1.0,
+        "mrr_at_k": 1.0,
+        "required_fact_count": 2,
+        "context_fact_coverage": 0.0,
+        "context_sufficient": false
+      },
+      "context": {
+        "covered_facts": 2,
+        "required_facts": 2,
+        "coverage": 1.0,
+        "sufficient": true
+      },
+      "complete_api_elapsed_ms": 12298.094589001266,
+      "estimated_api_cost_usd": 0.005142,
+      "usage": {
+        "input_tokens": 2356,
+        "output_tokens": 421,
+        "embedding_tokens": 123
+      },
+      "model_operations": 5,
+      "paid_calls": 2,
+      "variant_proposals": [
+        {
+          "query": "EastEnders: What did Lola first say about Ben Mitchell being her baby's father, and how did Ben later discover he was Lexi's father?",
+          "accepted": true,
+          "reason": null
+        },
+        {
+          "query": "Captured main-series evidence: What did Lola first say about Ben Mitchell being her baby's dad, and how did Ben later discover he was Lexi's dad?",
+          "accepted": true,
+          "reason": null
+        }
+      ],
+      "fallback_reasons": []
+    },
+    {
+      "mode": "combined",
+      "case_id": "unsupported-theme",
+      "status": "insufficient_evidence",
+      "response_sha256": "e1215de2158d47a2928aa9f17e03e942702fcdf31b8f889e96dd278481c3d0b9",
+      "candidate": {
+        "k": 6,
+        "relevant_passage_count": 0,
+        "recall_at_k": null,
+        "hit_at_k": null,
+        "mrr_at_k": null,
+        "required_fact_count": 0,
+        "context_fact_coverage": null,
+        "context_sufficient": false
+      },
+      "fused": {
+        "k": 3,
+        "relevant_passage_count": 0,
+        "recall_at_k": null,
+        "hit_at_k": null,
+        "mrr_at_k": null,
+        "required_fact_count": 0,
+        "context_fact_coverage": null,
+        "context_sufficient": false
+      },
+      "context": {
+        "covered_facts": 0,
+        "required_facts": 0,
+        "coverage": null,
+        "sufficient": false
+      },
+      "complete_api_elapsed_ms": 8555.766165001842,
+      "estimated_api_cost_usd": 0.0022506,
+      "usage": {
+        "input_tokens": 2593,
+        "output_tokens": 130,
+        "embedding_tokens": 66
+      },
+      "model_operations": 5,
+      "paid_calls": 2,
+      "variant_proposals": [
+        {
+          "query": "EastEnders: How did Phil Mitchell respond to the manosphere?",
+          "accepted": true,
+          "reason": null
+        },
+        {
+          "query": "Captured main-series evidence: How did Phil Mitchell respond to the manosphere?",
+          "accepted": true,
+          "reason": null
+        }
+      ],
+      "fallback_reasons": []
+    }
+  ],
+  "reference_sha256": "41d57483fb046937af046dfc45bc698238b7a18d11d1de503717eb893f4acd89"
+}

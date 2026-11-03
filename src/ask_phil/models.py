@@ -246,7 +246,9 @@ class ModelAccounting:
     def summary(self, *, investigation: bool = False) -> ModelExecution:
         """Keep individual provider receipts separate from multi-decision totals."""
         result = (
-            self._calls[-1] if self._calls and not investigation else self._models.skipped_answer()
+            self._calls[-1]
+            if len(self._calls) == 1 and not investigation
+            else self._models.skipped_answer()
         )
         return result.model_copy(
             update={
@@ -259,7 +261,11 @@ class ModelAccounting:
                     [call.estimated_api_cost_usd for call in self._calls]
                 ),
                 "cost_scope": (
-                    "All investigator decisions and query embeddings; " if investigation else ""
+                    "All investigator decisions and query embeddings; "
+                    if investigation
+                    else "All text pipeline model calls and query embeddings; "
+                    if len(self._calls) > 1
+                    else ""
                 )
                 + result.cost_scope,
             }

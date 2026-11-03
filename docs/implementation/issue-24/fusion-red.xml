@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="utf-8"?><testsuites name="pytest tests"><testsuite name="pytest" errors="1" failures="0" skipped="0" tests="1" time="0.320" timestamp="2026-11-03T18:38:31.058295+00:00" hostname="tom-Latitude-3510"><testcase classname="" name="tests.test_text_fusion" time="0.000"><error message="collection failure">ImportError while importing test module '/home/tom/Documents/code/python/rag_demo/tests/test_text_fusion.py'.
+Hint: make sure your test modules/packages have valid Python names.
+Traceback:
+/usr/lib/python3.12/importlib/__init__.py:90: in import_module
+    return _bootstrap._gcd_import(name[level:], package, level)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+tests/test_text_fusion.py:7: in &lt;module&gt;
+    from ask_phil.text_retrieval import RankedQuery, fuse_rankings
+E   ModuleNotFoundError: No module named 'ask_phil.text_retrieval'</error></testcase></testsuite></testsuites>

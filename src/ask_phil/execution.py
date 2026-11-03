@@ -100,14 +100,37 @@ class ExecutionBudget:
         self._last_reservation = Decimal(0)
         self._stop_reason: str | None = None
         self._context_bytes: int | None = None
+        self._optional_deadline: float | None = None
 
     @property
     def remaining_seconds(self) -> float:
-        return max(0, self.limits.seconds - (time.monotonic() - self.started))
+        deadline = self.started + self.limits.seconds
+        if self._optional_deadline is not None:
+            deadline = min(deadline, self._optional_deadline)
+        return max(0, deadline - time.monotonic())
 
     def stop(self, reason: str) -> NoReturn:
+        if (
+            self._optional_deadline is not None
+            and reason in {"provider_failure", "malformed_output", "timeout"}
+            and time.monotonic() < self.started + self.limits.seconds
+        ):
+            # Optional inference may fail without withdrawing remaining request authority.
+            # Calls, HTTP attempts and conservative spending reservations stay charged.
+            raise ExecutionStopped(reason)
         self.record_stop(reason)
         raise ExecutionStopped(self._stop_reason)
+
+    @contextmanager
+    def optional_model(self, seconds: float) -> Iterator[None]:
+        """Bound an optional inference step while retaining time for original-query fallback."""
+        self.check()
+        previous = self._optional_deadline
+        self._optional_deadline = time.monotonic() + min(seconds, self.remaining_seconds)
+        try:
+            yield
+        finally:
+            self._optional_deadline = previous
 
     def record_stop(self, reason: str) -> None:
         if self._stop_reason is None:

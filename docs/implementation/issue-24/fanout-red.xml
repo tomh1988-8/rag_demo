@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="utf-8"?><testsuites name="pytest tests"><testsuite name="pytest" errors="0" failures="1" skipped="0" tests="1" time="4.569" timestamp="2026-11-03T18:55:49.821911+00:00" hostname="tom-Latitude-3510"><testcase classname="tests.test_text_pipeline_api" name="test_small_request_budget_preserves_original_query_and_answer_capacity" time="4.373"><failure message="AssertionError: assert 'insufficient_evidence' == 'answered'&#10;  &#10;  - answered&#10;  + insufficient_evidence">database_url = 'user=ask_phil password=local-demo-only dbname=ask_phil_test_b529a208a87c4c9da866d58adedf2fce host=127.0.0.1 port=55424'
+window_source = SourceSnapshot(snapshot_id='window-test', fixture_version=1, source=Source(title='Phil Mitchell', url=HttpUrl('https:/...5b77ccdf33f43c32e31941be', scope='other_media', reason='Test spin-off.', linked_titles=()))),), records=(), issues=()))
+pipeline_models = Models(settings=ModelSettings(embedding_model='test-embedding', embedding_digest='bbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbb... additional_kwargs={'num_predict': 256}, is_function_calling_model=True, keep_alive=None, thinking=None, headers=None))
+tmp_path = PosixPath('/tmp/pytest-of-tom/pytest-2/test_small_request_budget_pres0')
+
+    def test_small_request_budget_preserves_original_query_and_answer_capacity(
+        database_url: str, window_source: SourceSnapshot, pipeline_models: Models, tmp_path: Path
+    ) -&gt; None:
+        EvidenceStore(database_url).load(window_source)
+        TextRetriever(
+            database_url, pipeline_models.embedding, pipeline_models.settings.embedding_id, 3
+        ).prepare(window_source.snapshot_id)
+        with TestClient(create_app(
+            database_url, models=pipeline_models, tracking_uri=f"sqlite:///{tmp_path}/tracking.db",
+            text_policy=TextPolicy(mode="combined", per_query_k=1),
+            execution_limits=ExecutionLimits(model_calls=2, tool_calls=1),
+        )) as client:
+            result = client.post("/v1/answers", json={
+                "snapshot_id": window_source.snapshot_id,
+                "question": "Was Phil convicted of that fictional robbery?",
+            })
+            assert result.status_code == 200, result.text
+            answer = result.json()["response"]
+&gt;           assert answer["status"] == "answered"
+E           AssertionError: assert 'insufficient_evidence' == 'answered'
+E             
+E             - answered
+E             + insufficient_evidence
+
+tests/test_text_pipeline_api.py:182: AssertionError</failure></testcase></testsuite></testsuites>

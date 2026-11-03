@@ -5,7 +5,7 @@ import json
 import math
 from collections.abc import Iterator
 from contextlib import contextmanager
-from typing import TYPE_CHECKING, Literal
+from typing import TYPE_CHECKING, Any, Literal
 
 import psycopg
 from llama_index.core.base.embeddings.base import BaseEmbedding
@@ -18,6 +18,7 @@ from pydantic import Field
 from sqlalchemy.engine import URL
 from sqlalchemy.exc import DBAPIError
 from sqlalchemy.pool import NullPool
+from sqlalchemy.sql import Select
 
 from ask_phil.classified_facts import ContextClaim
 from ask_phil.evidence import Fingerprint, Passage, Record, SourceSnapshot
@@ -57,6 +58,13 @@ def _validate_query(query: str, k: int) -> None:
 
 class IndexNotReady(ValueError):
     pass
+
+
+def _stable_vector_ties(
+    query: Select[Any], table: Any, _options: Any = None, **kwargs: Any
+) -> Select[Any]:
+    """Apply the evidence tie before LIMIT, after the adapter's cosine distance."""
+    return query.order_by(table.metadata_["evidence_id"].astext.asc())
 
 
 class TextIndex(Record):
@@ -141,6 +149,7 @@ class TextRetriever:
             perform_setup=setup,
             initialization_fail_on_error=True,
             use_jsonb=True,
+            customize_query_fn=_stable_vector_ties,
             create_engine_kwargs={
                 "poolclass": NullPool,
                 "connect_args": {

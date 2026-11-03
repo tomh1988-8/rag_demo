@@ -1,0 +1,134 @@
+{
+  "proposals": [
+    {
+      "mode": "fusion",
+      "case_id": "multi-family",
+      "query": "EastEnders: Who are Ben Mitchell's parents, and who adopted Sharon Watts when she was three?",
+      "faithful": true,
+      "reviewer": "source-based implementer review separate from generation",
+      "reason": "Only a fixed main-series search prefix and/or father/dad substitution; original identities, order, negation, timing and intent retained."
+    },
+    {
+      "mode": "fusion",
+      "case_id": "multi-family",
+      "query": "Captured main-series evidence: Who are Ben Mitchell's parents, and who adopted Sharon Watts when she was three?",
+      "faithful": true,
+      "reviewer": "source-based implementer review separate from generation",
+      "reason": "Only a fixed main-series search prefix and/or father/dad substitution; original identities, order, negation, timing and intent retained."
+    },
+    {
+      "mode": "fusion",
+      "case_id": "stella-false-account",
+      "query": "EastEnders: Why was Phil Mitchell released after being charged over Stella's death, and who had lied to the police?",
+      "faithful": true,
+      "reviewer": "source-based implementer review separate from generation",
+      "reason": "Only a fixed main-series search prefix and/or father/dad substitution; original identities, order, negation, timing and intent retained."
+    },
+    {
+      "mode": "fusion",
+      "case_id": "stella-false-account",
+      "query": "Captured main-series evidence: Why was Phil Mitchell released after being charged over Stella's death, and who had lied to the police?",
+      "faithful": true,
+      "reviewer": "source-based implementer review separate from generation",
+      "reason": "Only a fixed main-series search prefix and/or father/dad substitution; original identities, order, negation, timing and intent retained."
+    },
+    {
+      "mode": "fusion",
+      "case_id": "lola-changing-account",
+      "query": "EastEnders: What did Lola first say about Ben Mitchell being her baby's father, and how did Ben later discover he was Lexi's father?",
+      "faithful": true,
+      "reviewer": "source-based implementer review separate from generation",
+      "reason": "Only a fixed main-series search prefix and/or father/dad substitution; original identities, order, negation, timing and intent retained."
+    },
+    {
+      "mode": "fusion",
+      "case_id": "lola-changing-account",
+      "query": "Captured main-series evidence: What did Lola first say about Ben Mitchell being her baby's dad, and how did Ben later discover he was Lexi's dad?",
+      "faithful": true,
+      "reviewer": "source-based implementer review separate from generation",
+      "reason": "Only a fixed main-series search prefix and/or father/dad substitution; original identities, order, negation, timing and intent retained."
+    },
+    {
+      "mode": "fusion",
+      "case_id": "unsupported-theme",
+      "query": "EastEnders: How did Phil Mitchell respond to the manosphere?",
+      "faithful": true,
+      "reviewer": "source-based implementer review separate from generation",
+      "reason": "Only a fixed main-series search prefix and/or father/dad substitution; original identities, order, negation, timing and intent retained."
+    },
+    {
+      "mode": "fusion",
+      "case_id": "unsupported-theme",
+      "query": "Captured main-series evidence: How did Phil Mitchell respond to the manosphere?",
+      "faithful": true,
+      "reviewer": "source-based implementer review separate from generation",
+      "reason": "Only a fixed main-series search prefix and/or father/dad substitution; original identities, order, negation, timing and intent retained."
+    },
+    {
+      "mode": "combined",
+      "case_id": "multi-family",
+      "query": "EastEnders: Who are Ben Mitchell's parents, and who adopted Sharon Watts when she was three?",
+      "faithful": true,
+      "reviewer": "source-based implementer review separate from generation",
+      "reason": "Only a fixed main-series search prefix and/or father/dad substitution; original identities, order, negation, timing and intent retained."
+    },
+    {
+      "mode": "combined",
+      "case_id": "multi-family",
+      "query": "Captured main-series evidence: Who are Ben Mitchell's parents, and who adopted Sharon Watts when she was three?",
+      "faithful": true,
+      "reviewer": "source-based implementer review separate from generation",
+      "reason": "Only a fixed main-series search prefix and/or father/dad substitution; original identities, order, negation, timing and intent retained."
+    },
+    {
+      "mode": "combined",
+      "case_id": "stella-false-account",
+      "query": "EastEnders: Why was Phil Mitchell released after being charged over Stella's death, and who had lied to the police?",
+      "faithful": true,
+      "reviewer": "source-based implementer review separate from generation",
+      "reason": "Only a fixed main-series search prefix and/or father/dad substitution; original identities, order, negation, timing and intent retained."
+    },
+    {
+      "mode": "combined",
+      "case_id": "stella-false-account",
+      "query": "Captured main-series evidence: Why was Phil Mitchell released after being charged over Stella's death, and who had lied to the police?",
+      "faithful": true,
+      "reviewer": "source-based implementer review separate from generation",
+      "reason": "Only a fixed main-series search prefix and/or father/dad substitution; original identities, order, negation, timing and intent retained."
+    },
+    {
+      "mode": "combined",
+      "case_id": "lola-changing-account",
+      "query": "EastEnders: What did Lola first say about Ben Mitchell being her baby's father, and how did Ben later discover he was Lexi's father?",
+      "faithful": true,
+      "reviewer": "source-based implementer review separate from generation",
+      "reason": "Only a fixed main-series search prefix and/or father/dad substitution; original identities, order, negation, timing and intent retained."
+    },
+    {
+      "mode": "combined",
+      "case_id": "lola-changing-account",
+      "query": "Captured main-series evidence: What did Lola first say about Ben Mitchell being her baby's dad, and how did Ben later discover he was Lexi's dad?",
+      "faithful": true,
+      "reviewer": "source-based implementer review separate from generation",
+      "reason": "Only a fixed main-series search prefix and/or father/dad substitution; original identities, order, negation, timing and intent retained."
+    },
+    {
+      "mode": "combined",
+      "case_id": "unsupported-theme",
+      "query": "EastEnders: How did Phil Mitchell respond to the manosphere?",
+      "faithful": true,
+      "reviewer": "source-based implementer review separate from generation",
+      "reason": "Only a fixed main-series search prefix and/or father/dad substitution; original identities, order, negation, timing and intent retained."
+    },
+    {
+      "mode": "combined",
+      "case_id": "unsupported-theme",
+      "query": "Captured main-series evidence: How did Phil Mitchell respond to the manosphere?",
+      "faithful": true,
+      "reviewer": "source-based implementer review separate from generation",
+      "reason": "Only a fixed main-series search prefix and/or father/dad substitution; original identities, order, negation, timing and intent retained."
+    }
+  ],
+  "faithful": 16,
+  "reviewed": 16
+}

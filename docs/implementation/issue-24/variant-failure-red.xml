@@ -1,0 +1,57 @@
+<?xml version="1.0" encoding="utf-8"?><testsuites name="pytest tests"><testsuite name="pytest" errors="0" failures="1" skipped="0" tests="1" time="4.782" timestamp="2026-11-03T19:07:29.637292+00:00" hostname="tom-Latitude-3510"><testcase classname="tests.test_text_pipeline_api" name="test_failed_optional_variant_transport_falls_back_without_poisoning_answer_budget" time="4.534"><failure message="AssertionError: assert 'failed' == 'answered'&#10;  &#10;  - answered&#10;  + failed">database_url = 'user=ask_phil password=local-demo-only dbname=ask_phil_test_87df772e18004ec2874ea53023fbe1d0 host=127.0.0.1 port=55424'
+seed = SourceSnapshot(snapshot_id='phil-arrival-v1', fixture_version=1, source=Source(title='Phil Mitchell', url=HttpUrl('htt...82d8d2c75291831d8a3c48142261499f6a04ea732d8b2469031db', start=0, end=111, source=None, location=None),), imported=None)
+models = Models(settings=ModelSettings(embedding_model='test-embedding', embedding_digest='bbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbb... additional_kwargs={'num_predict': 256}, is_function_calling_model=True, keep_alive=None, thinking=None, headers=None))
+tmp_path = PosixPath('/tmp/pytest-of-tom/pytest-4/test_failed_optional_variant_t0')
+http_server = &lt;function http_server.&lt;locals&gt;.serve at 0x792e5497c900&gt;
+
+    def test_failed_optional_variant_transport_falls_back_without_poisoning_answer_budget(
+        database_url: str, seed: SourceSnapshot, models: Models, tmp_path: Path,
+        http_server: Callable[[ASGIApp], AbstractContextManager[str]],
+    ) -&gt; None:
+        model_app = FastAPI()
+    
+        @model_app.get("/api/tags")
+        def tags() -&gt; dict[str, object]:
+            return {"models": [
+                {"model": "test-answer", "digest": "a" * 64},
+                {"model": "test-embedding", "digest": "b" * 64},
+            ]}
+    
+        @model_app.post("/api/chat")
+        async def chat(request: Request) -&gt; Response:
+            body = await request.json()
+            if "variants" in body["format"]["properties"]:
+                return Response(" " * 270000, media_type="application/json")
+            return Response(json.dumps({
+                "model": "test-answer", "done": True, "prompt_eval_count": 11, "eval_count": 9,
+                "message": {"role": "assistant", "content": json.dumps({
+                    "answer": "I arrived in February 1990.", "status": "answered",
+                    "evidence_ids": ["phil-arrival-001"], "unanswered": [], "qualifications": [],
+                })},
+            }), media_type="application/json")
+    
+        EvidenceStore(database_url).load(seed)
+        TextRetriever(database_url, models.embedding, models.settings.embedding_id, 3).prepare(seed.snapshot_id)
+        with http_server(model_app) as model_url:
+            bounded = replace(models, llm=Ollama(
+                model="test-answer", context_window=4096,
+                additional_kwargs={"num_predict": 256},
+                client=Client(host=model_url, transport=local_transport(model_url)),
+            ))
+            with TestClient(create_app(
+                database_url, models=bounded, tracking_uri=f"sqlite:///{tmp_path}/tracking.db",
+                text_policy=TextPolicy(mode="fusion"),
+                execution_limits=ExecutionLimits(model_calls=5, tool_calls=3, seconds=10),
+            )) as client:
+                response = client.post("/v1/answers", json={
+                    "snapshot_id": seed.snapshot_id, "question": "When did Phil Mitchell arrive?",
+                })
+        assert response.status_code == 200, response.text
+        answer = response.json()["response"]
+&gt;       assert answer["status"] == "answered"
+E       AssertionError: assert 'failed' == 'answered'
+E         
+E         - answered
+E         + failed
+
+tests/test_text_pipeline_api.py:248: AssertionError</failure></testcase></testsuite></testsuites>

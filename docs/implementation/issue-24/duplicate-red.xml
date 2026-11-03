@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="utf-8"?><testsuites name="pytest tests"><testsuite name="pytest" errors="0" failures="1" skipped="0" tests="2" time="0.207" timestamp="2026-11-03T18:40:06.627005+00:00" hostname="tom-Latitude-3510"><testcase classname="tests.test_text_fusion" name="test_fusion_ranks_complementary_queries_by_independent_one_based_example" time="0.001" /><testcase classname="tests.test_text_fusion" name="test_repeated_query_and_evidence_cannot_cast_extra_fusion_votes" time="0.001"><failure message="assert 0.04839549075403121 == 0.032266458495966696 ± 3.2e-08&#10;  &#10;  comparison failed&#10;  Obtained: 0.04839549075403121&#10;  Expected: 0.032266458495966696 ± 3.2e-08">def test_repeated_query_and_evidence_cannot_cast_extra_fusion_votes() -&gt; None:
+        a, b = hit("a"), hit("b")
+        result = fuse_rankings(
+            (
+                RankedQuery(query="Original question?", hits=(a, a, b)),
+                RankedQuery(query="  ORIGINAL  QUESTION? ", hits=(a, b)),
+                RankedQuery(query="faithful variant", hits=(b,)),
+            ),
+            constant=60,
+            limit=2,
+        )
+    
+        assert [c.passage.evidence_id for c in result] == ["b", "a"]
+&gt;       assert result[0].score == pytest.approx(0.032266458495966696)
+E       assert 0.04839549075403121 == 0.032266458495966696 ± 3.2e-08
+E         
+E         comparison failed
+E         Obtained: 0.04839549075403121
+E         Expected: 0.032266458495966696 ± 3.2e-08
+
+tests/test_text_fusion.py:56: AssertionError</failure></testcase></testsuite></testsuites>

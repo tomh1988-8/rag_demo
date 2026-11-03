@@ -1,0 +1,43 @@
+<?xml version="1.0" encoding="utf-8"?><testsuites name="pytest tests"><testsuite name="pytest" errors="0" failures="1" skipped="0" tests="1" time="4.958" timestamp="2026-11-03T19:33:38.564158+00:00" hostname="tom-Latitude-3510"><testcase classname="tests.test_text_pipeline_api" name="test_expansion_preserves_reviewed_classification_qualifications" time="4.740"><failure message="AssertionError: assert 'Classification gap:' in 'Synthetic example: I was accused but not convicted of that fictional robbery.'">database_url = 'user=ask_phil password=local-demo-only dbname=ask_phil_test_442ce971f1d04ae2806d266d8f501ab1 host=127.0.0.1 port=55424'
+window_source = SourceSnapshot(snapshot_id='window-test', fixture_version=1, source=Source(title='Phil Mitchell', url=HttpUrl('https:/...5b77ccdf33f43c32e31941be', scope='other_media', reason='Test spin-off.', linked_titles=()))),), records=(), issues=()))
+pipeline_models = Models(settings=ModelSettings(embedding_model='test-embedding', embedding_digest='bbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbb... additional_kwargs={'num_predict': 256}, is_function_calling_model=True, keep_alive=None, thinking=None, headers=None))
+tmp_path = PosixPath('/tmp/pytest-of-tom/pytest-7/test_expansion_preserves_revie0')
+
+    def test_expansion_preserves_reviewed_classification_qualifications(
+        database_url: str, window_source: SourceSnapshot, pipeline_models: Models, tmp_path: Path,
+    ) -&gt; None:
+        assert window_source.imported is not None
+        EvidenceStore(database_url).load(window_source)
+        passage = window_source.passages[0]
+        claim = ContextClaim(
+            claim_id="fictional-robbery-gap", kind="unclassified", character_ids=("phil-mitchell",),
+            theme=None, classification_gap="This synthetic incident has no reviewed event category.",
+            evidence=(ClaimEvidence(evidence_id=passage.evidence_id, start=0, end=len(passage.text),
+                                    quote=passage.text),),
+        )
+        batch = EventBatch(
+            snapshot_id=window_source.snapshot_id, snapshot_sha256=window_source.fingerprint,
+            catalogue=window_source.imported.catalogue, extractor="authored-classification-control",
+            claims=(), context_claims=(claim,),
+        )
+        EventGraph(database_url).install(batch, (EventReview(
+            claim_id=claim.claim_id, claim_sha256=claim.fingerprint, verdict="supported",
+            reviewer="authored structural reference", note="Synthetic classification, not canon.",
+        ),))
+        TextRetriever(database_url, pipeline_models.embedding,
+                      pipeline_models.settings.embedding_id, 3).prepare(window_source.snapshot_id)
+        with TestClient(create_app(
+            database_url, models=pipeline_models, tracking_uri=f"sqlite:///{tmp_path}/tracking.db",
+            text_policy=TextPolicy(mode="expansion", per_query_k=1),
+        )) as client:
+            response = client.post("/v1/answers", json={
+                "snapshot_id": window_source.snapshot_id,
+                "question": "Was Phil convicted of that fictional robbery?",
+            })
+        assert response.status_code == 200, response.text
+        answer = response.json()["response"]
+        assert answer["status"] == "answered"
+&gt;       assert "Classification gap:" in answer["answer"]
+E       AssertionError: assert 'Classification gap:' in 'Synthetic example: I was accused but not convicted of that fictional robbery.'
+
+tests/test_text_pipeline_api.py:328: AssertionError</failure></testcase></testsuite></testsuites>

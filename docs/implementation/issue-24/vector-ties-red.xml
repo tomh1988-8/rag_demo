@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="utf-8"?><testsuites name="pytest tests"><testsuite name="pytest" errors="0" failures="1" skipped="0" tests="1" time="0.477" timestamp="2026-11-03T19:20:19.146118+00:00" hostname="tom-Latitude-3510"><testcase classname="tests.test_retrieval" name="test_equal_vector_distances_have_deterministic_evidence_ties_before_top_k" time="0.310"><failure message="AssertionError: assert ['z-candidate'] == ['a-candidate']&#10;  &#10;  At index 0 diff: 'z-candidate' != 'a-candidate'&#10;  Use -v to get more diff">database_url = 'user=ask_phil password=local-demo-only dbname=ask_phil_test_480b3c4694e44d19b10d89c2f5275999 host=127.0.0.1 port=55424'
+seed = SourceSnapshot(snapshot_id='phil-arrival-v1', fixture_version=1, source=Source(title='Phil Mitchell', url=HttpUrl('htt...82d8d2c75291831d8a3c48142261499f6a04ea732d8b2469031db', start=0, end=111, source=None, location=None),), imported=None)
+
+    def test_equal_vector_distances_have_deterministic_evidence_ties_before_top_k(
+        database_url: str, seed: SourceSnapshot
+    ) -&gt; None:
+        snapshot = seed.model_copy(update={"passages": tuple(
+            seed.passages[0].model_copy(update={"evidence_id": eid})
+            for eid in ("z-candidate", "a-candidate")
+        )})
+        EvidenceStore(database_url).load(snapshot)
+        retriever = TextRetriever(database_url, MockEmbedding(embed_dim=3), "tie-embedding-v1", 3)
+        retriever.prepare(snapshot.snapshot_id)
+        result = retriever.retrieve(snapshot.snapshot_id, "When did Phil arrive?", k=1)
+&gt;       assert [h.passage.evidence_id for h in result.hits] == ["a-candidate"]
+E       AssertionError: assert ['z-candidate'] == ['a-candidate']
+E         
+E         At index 0 diff: 'z-candidate' != 'a-candidate'
+E         Use -v to get more diff
+
+tests/test_retrieval.py:30: AssertionError</failure></testcase></testsuite></testsuites>

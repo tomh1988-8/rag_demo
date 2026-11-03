@@ -20,6 +20,7 @@ from ask_phil.models import ModelConfigurationError, Models
 from ask_phil.responses import ResponseLedger
 from ask_phil.retrieval import TextRetriever
 from ask_phil.text_answering import TextAnswer
+from ask_phil.text_retrieval import TextPolicy
 from ask_phil.tracing import experiment_for
 
 
@@ -39,9 +40,11 @@ class AnswerService:
         tracking_uri: str,
         *,
         policies: ExecutionPolicies | None = None,
+        text_policy: TextPolicy | None = None,
     ) -> None:
         self.database_url = database_url
         self.policies = policies or ExecutionPolicies.from_environment()
+        self.text_policy = text_policy or TextPolicy.from_environment()
         categories: tuple[Literal["serving", "offline_evaluation"], ...] = (
             "serving",
             "offline_evaluation",
@@ -148,7 +151,7 @@ class AnswerService:
             route = (
                 Investigation(self.database_url, models, pinned)
                 if request.route == "investigation"
-                else TextAnswer(models, pinned)
+                else TextAnswer(models, pinned, self.text_policy)
             )
         response_id = uuid4()
         experiment_id = experiment_for(self.tracking, category)
@@ -198,6 +201,7 @@ class AnswerService:
                 route_override=request.route != "text_rag",
                 graph=content.graph,
                 investigation=content.investigation,
+                text_pipeline=content.text_pipeline,
                 baseline_version=content.baseline_version,
                 model_settings=content.model_settings,
                 prompt_sha256=content.prompt_sha256,

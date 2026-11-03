@@ -1,0 +1,130 @@
+{
+  "reviews": [
+    {
+      "case_id": "multi-family",
+      "response_sha256": "b803cdf329dbc1eb7a5892f9148cd6a6f731f29c39fb79f342599915e44aee1c",
+      "reference_sha256": "06916c046f7b1424fe72655219e78d953c60a943b61c75029a93435289006913",
+      "reviewer": "source-based implementer review, 2026-11-03",
+      "rationale": "Each asserted story fact checked against the returned citation and actual final context. Partial family outcomes are honest for their truncated context. Literal Stella-label omissions remain failures even though the question is answered without repeating the allegation. No missing-theme claim is scored as a positive factual example.",
+      "claims": [
+        {
+          "claim": "Ben is the son of Phil Mitchell and Kathy Beale.",
+          "correct": true,
+          "grounded": true,
+          "citation_supported": true
+        },
+        {
+          "claim": "Den and Angie Watts adopted Sharon at age three.",
+          "correct": true,
+          "grounded": true,
+          "citation_supported": true
+        }
+      ],
+      "required_facts": [
+        {
+          "fact": "Ben is the son of Phil Mitchell and Kathy Beale.",
+          "covered": true
+        },
+        {
+          "fact": "Den and Angie Watts adopted Sharon at age three.",
+          "covered": true
+        }
+      ],
+      "answerability": true,
+      "relevance": true,
+      "critical_failures": []
+    },
+    {
+      "case_id": "stella-false-account",
+      "response_sha256": "dbf2c9ea53d61b54ef62bff7a212c40a164edbd8505ae5a134b6aaecc2778828",
+      "reference_sha256": "e3f32f2a09a7a35475dc711506b946182b1a39a44b7ce1f511f130826c78f24a",
+      "reviewer": "source-based implementer review, 2026-11-03",
+      "rationale": "Each asserted story fact checked against the returned citation and actual final context. Partial family outcomes are honest for their truncated context. Literal Stella-label omissions remain failures even though the question is answered without repeating the allegation. No missing-theme claim is scored as a positive factual example.",
+      "claims": [
+        {
+          "claim": "Ian discovered Ben lied to DCI Marsden about Stella and told the police.",
+          "correct": true,
+          "grounded": true,
+          "citation_supported": true
+        },
+        {
+          "claim": "Phil was released after Ian reported the lie.",
+          "correct": true,
+          "grounded": true,
+          "citation_supported": true
+        },
+        {
+          "claim": "Ben was the person who lied.",
+          "correct": true,
+          "grounded": true,
+          "citation_supported": true
+        }
+      ],
+      "required_facts": [
+        {
+          "fact": "Ben alleged Phil forced Stella to jump, but this account was a lie.",
+          "covered": false
+        },
+        {
+          "fact": "Ian reported the lie to police and Phil was released.",
+          "covered": true
+        }
+      ],
+      "answerability": true,
+      "relevance": true,
+      "critical_failures": []
+    },
+    {
+      "case_id": "lola-changing-account",
+      "response_sha256": "42b4d383ed09fbccf8f047d5accb032ffe7e5f072664763e29fc4b8af87db4e4",
+      "reference_sha256": "fe93e809c6e94cd1df40d8f86d064bbae532c2189bec5b2668dcb8758c70085f",
+      "reviewer": "source-based implementer review, 2026-11-03",
+      "rationale": "Each asserted story fact checked against the returned citation and actual final context. Partial family outcomes are honest for their truncated context. Literal Stella-label omissions remain failures even though the question is answered without repeating the allegation. No missing-theme claim is scored as a positive factual example.",
+      "claims": [
+        {
+          "claim": "Lola initially denied Ben was the father.",
+          "correct": true,
+          "grounded": true,
+          "citation_supported": true
+        },
+        {
+          "claim": "Ben later learned he was Lexi's father after a visit from Lola.",
+          "correct": true,
+          "grounded": true,
+          "citation_supported": true
+        },
+        {
+          "claim": "Ben received a four-year prison sentence.",
+          "correct": true,
+          "grounded": true,
+          "citation_supported": true
+        }
+      ],
+      "required_facts": [
+        {
+          "fact": "Lola initially denied Ben was the father.",
+          "covered": true
+        },
+        {
+          "fact": "Ben later discovered he was Lexi's father after a visit from Lola.",
+          "covered": true
+        }
+      ],
+      "answerability": true,
+      "relevance": true,
+      "critical_failures": []
+    },
+    {
+      "case_id": "unsupported-theme",
+      "response_sha256": "70328a7d955dfb17d88b21a3a3147f56e5c193f24107d1bda769a37bbc5eb91f",
+      "reference_sha256": "690d5bf3eaddceef1e2d0dc64c226f8cfc3fb54a7d62f55e4d011cda01b381cc",
+      "reviewer": "source-based implementer review, 2026-11-03",
+      "rationale": "Each asserted story fact checked against the returned citation and actual final context. Partial family outcomes are honest for their truncated context. Literal Stella-label omissions remain failures even though the question is answered without repeating the allegation. No missing-theme claim is scored as a positive factual example.",
+      "claims": [],
+      "required_facts": [],
+      "answerability": true,
+      "relevance": true,
+      "critical_failures": []
+    }
+  ]
+}

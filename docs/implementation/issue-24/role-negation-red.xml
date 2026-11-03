@@ -1,0 +1,34 @@
+<?xml version="1.0" encoding="utf-8"?><testsuites name="pytest tests"><testsuite name="pytest" errors="0" failures="2" skipped="0" tests="2" time="0.237" timestamp="2026-11-03T19:23:38.062949+00:00" hostname="tom-Latitude-3510"><testcase classname="tests.test_text_fusion" name="test_identical_word_bags_cannot_swap_roles_or_change_negation_scope[Did Phil accuse Grant?-Did Grant accuse Phil?]" time="0.002"><failure message="AssertionError: assert ('Did Phil ac...accuse Phil?') == ('Did Phil accuse Grant?',)&#10;  &#10;  Left contains one more item: 'Did Grant accuse Phil?'&#10;  Use -v to get more diff">original = 'Did Phil accuse Grant?', drift = 'Did Grant accuse Phil?'
+
+    @pytest.mark.parametrize("original,drift", [
+        ("Did Phil accuse Grant?", "Did Grant accuse Phil?"),
+        ("Did Phil say Grant was not convicted?", "Did Phil not say Grant was convicted?"),
+    ])
+    def test_identical_word_bags_cannot_swap_roles_or_change_negation_scope(
+        original: str, drift: str,
+    ) -&gt; None:
+        result = select_variants(original, (drift,), max_variants=2)
+&gt;       assert result.queries == (original,)
+E       AssertionError: assert ('Did Phil ac...accuse Phil?') == ('Did Phil accuse Grant?',)
+E         
+E         Left contains one more item: 'Did Grant accuse Phil?'
+E         Use -v to get more diff
+
+tests/test_text_fusion.py:105: AssertionError</failure></testcase><testcase classname="tests.test_text_fusion" name="test_identical_word_bags_cannot_swap_roles_or_change_negation_scope[Did Phil say Grant was not convicted?-Did Phil not say Grant was convicted?]" time="0.002"><failure message="AssertionError: assert ('Did Phil sa...s convicted?') == ('Did Phil sa... convicted?',)&#10;  &#10;  Left contains one more item: 'Did Phil not say Grant was convicted?'&#10;  Use -v to get more diff">original = 'Did Phil say Grant was not convicted?'
+drift = 'Did Phil not say Grant was convicted?'
+
+    @pytest.mark.parametrize("original,drift", [
+        ("Did Phil accuse Grant?", "Did Grant accuse Phil?"),
+        ("Did Phil say Grant was not convicted?", "Did Phil not say Grant was convicted?"),
+    ])
+    def test_identical_word_bags_cannot_swap_roles_or_change_negation_scope(
+        original: str, drift: str,
+    ) -&gt; None:
+        result = select_variants(original, (drift,), max_variants=2)
+&gt;       assert result.queries == (original,)
+E       AssertionError: assert ('Did Phil sa...s convicted?') == ('Did Phil sa... convicted?',)
+E         
+E         Left contains one more item: 'Did Phil not say Grant was convicted?'
+E         Use -v to get more diff
+
+tests/test_text_fusion.py:105: AssertionError</failure></testcase></testsuite></testsuites>

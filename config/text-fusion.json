@@ -1,0 +1,9 @@
+{
+  "version": "bounded-text-v1",
+  "mode": "fusion",
+  "max_variants": 2,
+  "per_query_k": 3,
+  "selected_hits": 3,
+  "fusion_constant": 60,
+  "neighbours": 1
+}

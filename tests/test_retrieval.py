@@ -16,6 +16,24 @@ from ask_phil.storage import EvidenceStore
 pytestmark = pytest.mark.integration
 
 
+def test_equal_vector_distances_have_deterministic_evidence_ties_before_top_k(
+    database_url: str, seed: SourceSnapshot
+) -> None:
+    snapshot = seed.model_copy(
+        update={
+            "passages": tuple(
+                seed.passages[0].model_copy(update={"evidence_id": eid})
+                for eid in ("z-candidate", "a-candidate")
+            )
+        }
+    )
+    EvidenceStore(database_url).load(snapshot)
+    retriever = TextRetriever(database_url, MockEmbedding(embed_dim=3), "tie-embedding-v1", 3)
+    retriever.prepare(snapshot.snapshot_id)
+    result = retriever.retrieve(snapshot.snapshot_id, "When did Phil arrive?", k=1)
+    assert [h.passage.evidence_id for h in result.hits] == ["a-candidate"]
+
+
 def test_prepared_index_exposes_reproducible_source_and_artifact_identity(
     database_url: str, seed: SourceSnapshot
 ) -> None:

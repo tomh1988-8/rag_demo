@@ -59,6 +59,7 @@ from ask_phil.retrieval import IndexNotReady
 from ask_phil.sessions import ConversationSessions, SessionNotFound, SessionReceipt, SessionState
 from ask_phil.source_records import CapturedSource, ImportedSources, ImportSummary, SourceInspection
 from ask_phil.storage import EvidenceStore, SnapshotNotFound
+from ask_phil.text_retrieval import TextPolicy
 
 SearchText = Annotated[str, StringConstraints(strip_whitespace=True, min_length=1, max_length=500)]
 
@@ -84,6 +85,7 @@ def create_app(
     models: Models | None = None,
     tracking_uri: str | None = None,
     execution_limits: ExecutionLimits | None = None,
+    text_policy: TextPolicy | None = None,
     session_clock: Callable[[], datetime] = lambda: datetime.now(UTC),
     feedback_policy: FeedbackPolicy | None = None,
     online_policy: OnlinePolicy | None = None,
@@ -138,7 +140,9 @@ def create_app(
 
     app = FastAPI(title="Ask Phil evidence inspection", version="0.1.0", lifespan=lifespan)
     service = (
-        AnswerService(database_url, models, answer_tracking_uri, policies=policies)
+        AnswerService(
+            database_url, models, answer_tracking_uri, policies=policies, text_policy=text_policy
+        )
         if models
         else None
     )
@@ -398,6 +402,7 @@ def create_app(
                         models,
                         answer_tracking_uri,
                         policies=policies,
+                        text_policy=text_policy,
                     )
             return service.ask(
                 request,
@@ -470,7 +475,10 @@ def create_app(
             snapshot = store.snapshot(snapshot_id)
         except SnapshotNotFound as exc:
             raise HTTPException(status_code=404, detail="Snapshot not found.") from exc
-        matches = tuple(p for p in snapshot.passages if p.evidence_id == evidence_id)
+        from ask_phil.source_windows import resolve_span
+
+        passage = resolve_span(snapshot, evidence_id)
+        matches = (passage,) if passage is not None else ()
         if not matches:
             raise HTTPException(status_code=404, detail="Evidence not found in this snapshot.")
         return Inspection(
