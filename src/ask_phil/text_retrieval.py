@@ -15,6 +15,7 @@ import mlflow
 from llama_index.core.llms import ChatMessage
 from pydantic import Field
 
+from ask_phil.classified_facts import ContextClaim
 from ask_phil.evidence import Passage, Record
 from ask_phil.execution import ExecutionBudget, ExecutionStopped
 from ask_phil.identity import normalize_name
@@ -36,6 +37,7 @@ QUERY_VOCABULARY = {
     "incarcerated": "imprisonment",
 }
 QUERY_PREFIXES = ("EastEnders: ", "Captured main-series evidence: ")
+QUERY_VALIDATION_VERSION = "ordered-query-punctuation-v2"
 
 
 class VariantProposal(Record):
@@ -68,6 +70,7 @@ class TextPolicy(Record):
                     "variant_prompt": VARIANT_PROMPT,
                     "vocabulary": QUERY_VOCABULARY,
                     "query_prefixes": QUERY_PREFIXES,
+                    "query_validation": QUERY_VALIDATION_VERSION,
                     "sentences": SENTENCE_VERSION,
                 },
                 sort_keys=True,
@@ -111,7 +114,9 @@ def _faithful_tokens(query: str) -> tuple[str, ...]:
         if query.casefold().startswith(prefix.casefold()):
             query = query[len(prefix) :]
             break
-    return tuple(QUERY_VOCABULARY.get(t, t) for t in _query_tokens(query))
+    # Punctuation can encode a range, a list, or the scope of a quotation.
+    tokens = re.findall(r"\w+(?:'\w+)?|[^\w\s]", query.casefold().replace("’", "'"))
+    return tuple(QUERY_VOCABULARY.get(t, t) for t in tokens)
 
 
 def select_variants(
@@ -225,6 +230,20 @@ class TextPipelineRecord(Record):
     model_executions: tuple[ModelExecution, ...] = ()
     embedding_tokens: tuple[int | None, ...] = ()
     cache_enabled: Literal[False] = False
+
+    def with_final_context(
+        self, context: tuple[Passage, ...], context_claims: tuple[ContextClaim, ...] = ()
+    ) -> "TextPipelineRecord":
+        identifiers = tuple(p.evidence_id for p in context)
+        return self.model_copy(
+            update={
+                "final_context_ids": identifiers,
+                "context_bytes": len(context_text(context, context_claims).encode()),
+                "dropped_evidence_ids": tuple(
+                    eid for eid in self.dropped_evidence_ids if eid not in identifiers
+                ),
+            }
+        )
 
 
 @dataclass(frozen=True)
@@ -469,8 +488,6 @@ class ConventionalText:
                     )
                     if reason
                 ),
-                "final_context_ids": tuple(p.evidence_id for p in context),
-                "context_bytes": len(context_text(context, retrieved.context_claims).encode()),
                 "dropped_evidence_ids": tuple(
                     h.passage.evidence_id
                     for h in hits
@@ -492,6 +509,7 @@ class ConventionalText:
                 ),
             }
         )
+        self.record = self.record.with_final_context(context, retrieved.context_claims)
         self.selection = TextSelection(retrieved=retrieved, context=context)
         budget.context(self.record.context_bytes)
         return self.selection

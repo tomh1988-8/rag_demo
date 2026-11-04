@@ -35,8 +35,9 @@ source-based support/citation review. Literal completeness is 5/6, 6/6, 4/6 and
 [regressions](../implementation/issue-24/regressions.json). The selected default
 remains baseline. This extends scoped AD-02.1, AD-05.1, AD-06.1/2, AD-09.1 and
 RAG-02/03 evidence; the text portion of AD-08.3/AD-09.3 is measured, while broader
-routing/release acceptance remains Pending. Software final-suite and independent
-review results are recorded in the issue evidence before publication. Twenty-four
+routing/release acceptance remains Pending. The final suite passes 679 tests, strict mypy checks 172 files, and both independent
+review axes have zero remaining findings. The initial unreproduced source-validation
+errors and repaired date/appendix/citation-cap failures remain in the evidence. Twenty-four
 paid calls cost $0.061936; the shared ledger is $0.975588, zero unsettled
 reservations. These exposed development results do not discharge held-out or
 owner-threshold acceptance, and the global counts remain 40 Pass / 11 Pending.

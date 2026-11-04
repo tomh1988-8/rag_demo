@@ -45,6 +45,28 @@
     "optional transport failure poisoning fallback",
     "word-bag role and negation drift",
     "lost source classification",
-    "secondary-query evidence loss"
+    "secondary-query evidence loss",
+    "year-range/list punctuation drift",
+    "retained canonical evidence reported as dropped",
+    "too many expanded citations causing HTTP500 on exhausted model budget"
+  ],
+  "verification_anomalies": [
+    {
+      "artifact": "software-tests-interrupted.xml",
+      "tests": 155,
+      "failures": 1,
+      "errors": 5,
+      "scope": "Unchanged conversation source fixture/ingestion/storage; failures precede the fusion/window pipeline.",
+      "source_files_unchanged": true,
+      "independent_probes": {
+        "serial_parses_passed": 40,
+        "concurrent_parses_passed": 80,
+        "postgres_read_only_roundtrips_passed": 12,
+        "fresh_fixture_builds_passed": 2
+      },
+      "isolated_conversation_tests_passed": 16,
+      "cause": "Unproven; not represented as a repaired source-validator defect.",
+      "followup": "Final full retry has bounded local retention of any recurring failing source bytes; no original sources or validators were changed."
+    }
   ]
 }

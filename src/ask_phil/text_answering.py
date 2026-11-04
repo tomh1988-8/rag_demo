@@ -210,10 +210,10 @@ class TextAnswer:
             answer = draft.answer
             if classifications and not stopped:
                 answer += "\n" + "\n".join(dict.fromkeys(c.qualification for c in classifications))
-            record = pipeline.record.model_copy(
+            record = pipeline.record.with_final_context(
+                context, retrieved.context_claims
+            ).model_copy(
                 update={
-                    "final_context_ids": tuple(p.evidence_id for p in context),
-                    "context_bytes": len(context_text(context, retrieved.context_claims).encode()),
                     "model_executions": accounting.executions,
                     "embedding_tokens": accounting.embedding_tokens,
                 }

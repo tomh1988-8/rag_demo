@@ -191,11 +191,12 @@ class AnswerReceipt(Record):
 
 
 _DRAFT_ANSWER_LIMIT = 1600
+_DRAFT_CITATION_LIMIT = 20
 
 
 class Draft(Record):
     answer: str = Field(min_length=1, max_length=_DRAFT_ANSWER_LIMIT)
-    evidence_ids: tuple[Identifier, ...] = Field(max_length=20)
+    evidence_ids: tuple[Identifier, ...] = Field(max_length=_DRAFT_CITATION_LIMIT)
     status: Outcome
     unanswered: tuple[QuestionPart, ...] = Field(max_length=5)
     qualifications: tuple[Qualification, ...] = Field(max_length=5)
@@ -214,6 +215,10 @@ def stopped_answer(
     synthetic: bool = False,
 ) -> Draft:
     """Size the complete stop reply, including mandatory evidence qualifications."""
+    if len(support) > _DRAFT_CITATION_LIMIT:
+        # Preserve the complete context in the receipt, but do not quote facts
+        # whose full citation/qualification set cannot fit the stopped reply.
+        support = ()
     prefix = "Synthetic example, not EastEnders canon. " if synthetic else ""
     prefix += f"Execution stopped: {reason}. "
     caveat = (

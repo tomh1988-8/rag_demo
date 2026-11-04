@@ -13,7 +13,7 @@ from ask_phil.source_windows import expand_context
 
 
 @pytest.fixture
-def window_source() -> SourceSnapshot:
+def window_source(request: pytest.FixtureRequest) -> SourceSnapshot:
     html = """<html><script>{"wgRevisionId":17,"wgWikibaseItemId":"Q202104"}</script>
     <div id="mw-content-text"><div class="mw-parser-output">
     <h2 id="Storylines">Storylines</h2>
@@ -22,6 +22,11 @@ def window_source() -> SourceSnapshot:
     <h2 id="Casting">Casting</h2><p>The performer won an award.</p>
     <h2 id="Other_media">Other media</h2><p>A spin-off says he was convicted.</p>
     </div></div></html>"""
+    repetitions = getattr(request, "param", 1)
+    html = html.replace(
+        "Phil was accused of a fictional robbery.",
+        "Phil was accused of a fictional robbery. " * repetitions,
+    )
     character = Character(
         character_id="phil-mitchell",
         name="Phil Mitchell",

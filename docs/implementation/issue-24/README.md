@@ -98,8 +98,11 @@ The [comparison](comparison-summary.json), [stage metrics](stage-metrics.json),
 four response-bound `*-annotations.json`/`*-quality.json` files separate retrieval,
 context, answer and expenditure dimensions. Sixteen actual proposed variants pass
 independent fidelity review. The [runtime directory](runtime-v1) preserves all
-sixteen responses, raw traces, frozen inputs and four MLflow comparison run IDs;
-four separate MLflow review runs contain the source annotations and scores.
+sixteen responses, losslessly compressed raw traces, frozen inputs and four MLflow comparison run IDs;
+four separate MLflow review runs contain the source annotations and scores. The
+[archive manifest](runtime-v1/artifact-manifest.json) binds compressed archives
+to their original bytes. `evaluate_text_fusion.py score` reads either raw or
+archived captures; the exact original capture script is archived separately.
 
 The 24 paid calls cost **$0.061936**. The shared ledger moves from **$0.913644** to
 **$0.975588**, including conservative rounding, with **zero unsettled reservations**.
@@ -111,15 +114,46 @@ were not executed; no held-out release or owner-threshold acceptance is claimed.
 
 ## Software verification
 
-The focused ticket suite passes **18 cases**, and the affected legacy retrieval,
-answer and classification suite passes **43 cases**. Strict mypy checks 171 files;
-Ruff and formatting pass. Red/green artifacts preserve independently worked rank
-examples, duplicate votes, pre-LIMIT ties, qualification truncation, citation
-resolution, drift, fan-out, transport recovery, source classifications and
-secondary-query failures. Real PostgreSQL/pgvector, local MLflow and actual CLI
-HTTP calls are used; routine substitutes are at external model boundaries.
+The final complete suite passes **679 tests**, with zero failures, errors or skips,
+in **2,176.53 seconds**. The process exits successfully. Strict mypy checks
+**172 files** (including the retained issue #9 helper); Ruff, formatting and
+Compose configuration validation pass. The final focused ticket set contains
+20 cases; its citation-cap/answer-rule run passes 37 cases. The earlier affected
+legacy retrieval, answer and classification run passes 43 cases.
 
-Independent Standards and Spec review and the one final complete software suite
-are pending at this checkpoint. Their final results and preservation record will
-be recorded before publication. The source application fingerprint in every live
-response is `098b693923b6ad7513c41f14630aa4c12e48271cc1c3b0ba895712b027636cf6`.
+Red/green artifacts preserve independently worked rank examples, duplicate votes,
+pre-LIMIT ties, qualification truncation, citation resolution, drift, fan-out,
+transport recovery, source classifications and secondary-query failures. Real
+PostgreSQL/pgvector, local MLflow and actual CLI HTTP calls are used; routine
+substitutes are at external model boundaries.
+
+Both [independent review axes](review.md) have zero remaining findings. Three
+confirmed defects were repaired: punctuation-dependent date drift, an appendix
+that marked retained canonical evidence as dropped, and HTTP 500 on exhausted
+inference when expanded support exceeded citation capacity. The final stop reply
+abstains without uncited quotations while preserving the full captured context.
+All sixteen recorded query proposals and sixteen complete context records are
+unchanged under [deterministic replay](review-repair-replay-v2.json), with no
+additional paid calls. The live calls remain bound to checkpoint `8c7dd56` and
+application fingerprint
+`098b693923b6ad7513c41f14630aa4c12e48271cc1c3b0ba895712b027636cf6`;
+replay is not fresh model-quality evidence on the repaired revision.
+
+The interrupted initial suite recorded one failure and five setup errors in
+unchanged retained-source parsing/storage, before the fusion/window pipeline.
+All original source-file hashes match. Independent serial/concurrent parsing,
+fresh fixture and PostgreSQL round-trip probes passed; the isolated conversation
+file then passed all 16 cases. The cause remains unproven and is retained in
+[the regressions](regressions.json), the interrupted XML/log and the review.
+The final complete retry has no source-integrity failure or diagnostic payload.
+Prefect emitted its previously observed closed-file logging diagnostic during
+shutdown after the passing result; it did not change the exit status.
+
+All **184 frozen software/verification inputs** match the tested bytes. All
+**97 original data files** and the user's pre-existing workspace/private inputs
+are preserved. The complete private-input audit stays local; the published
+[preservation record](preserved-inputs.json) includes counts and tracked data
+hashes. [Validation](validation.json), [full XML](software-tests.xml),
+[execution log](software-tests.log) and [acceptance map](acceptance-map.json)
+record the final checks. Global register counts remain **40 Pass / 11 Pending**;
+routing, cache and owner-accepted release/holdout obligations remain subsequent work.

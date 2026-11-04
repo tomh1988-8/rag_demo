@@ -114,3 +114,12 @@ def test_identical_word_bags_cannot_swap_roles_or_change_negation_scope(
     result = select_variants(original, (drift,), max_variants=2)
     assert result.queries == (original,)
     assert result.fallback_reason == "unfaithful_variants"
+
+
+def test_faithful_variant_cannot_turn_a_year_range_into_a_list() -> None:
+    original = "Was Phil imprisoned in 1990-1992?"
+    result = select_variants(
+        original, ("EastEnders: Was Phil imprisoned in 1990, 1992?",), max_variants=2
+    )
+    assert result.queries == (original,)
+    assert result.fallback_reason == "unfaithful_variants"

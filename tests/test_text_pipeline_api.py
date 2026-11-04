@@ -373,6 +373,8 @@ def test_expansion_preserves_reviewed_classification_qualifications(
     assert answer["status"] == "answered"
     assert "Classification gap:" in answer["answer"]
     assert answer["context_claims"][0]["claim_id"] == claim.claim_id
+    appendix = answer["text_pipeline"]
+    assert set(appendix["final_context_ids"]).isdisjoint(appendix["dropped_evidence_ids"])
 
 
 @pytest.mark.parametrize("pipeline_models", [{"variant_embedding_failure": True}], indirect=True)
@@ -513,3 +515,39 @@ def test_cli_exposes_expanded_spans_and_api_abstains_when_the_window_cannot_fit(
     assert answer["context"] == []
     assert answer["text_pipeline"]["expansion"]["truncated"]
     assert answer["execution"]["model_calls"] == 1
+
+
+@pytest.mark.parametrize("window_source", [21], indirect=True)
+def test_exhausted_model_budget_abstains_when_many_spans_exceed_citation_capacity(
+    database_url: str,
+    window_source: SourceSnapshot,
+    pipeline_models: Models,
+    tmp_path: Path,
+) -> None:
+    EvidenceStore(database_url).load(window_source)
+    TextRetriever(
+        database_url, pipeline_models.embedding, pipeline_models.settings.embedding_id, 3
+    ).prepare(window_source.snapshot_id)
+    with TestClient(
+        create_app(
+            database_url,
+            models=pipeline_models,
+            tracking_uri=f"sqlite:///{tmp_path}/tracking.db",
+            text_policy=TextPolicy(mode="expansion", per_query_k=1),
+            execution_limits=ExecutionLimits(model_calls=1, context_bytes=4000),
+        ),
+        raise_server_exceptions=False,
+    ) as client:
+        result = client.post(
+            "/v1/answers",
+            json={
+                "snapshot_id": window_source.snapshot_id,
+                "question": "Was Phil convicted of that fictional robbery?",
+            },
+        )
+    assert result.status_code == 200, result.text
+    answer = result.json()["response"]
+    assert answer["status"] == "insufficient_evidence"
+    assert answer["execution"]["stop_reason"] == "model_call_limit"
+    assert len(answer["context"]) > 20
+    assert answer["citations"] == []

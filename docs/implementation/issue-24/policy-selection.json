@@ -1,0 +1,35 @@
+{
+  "version": "text-policy-selection-v1",
+  "selected_mode": "baseline",
+  "policy_file": "config/text-baseline.json",
+  "policy_sha256": "c391e08139b756929669eac18d11bc4e3a9f1b399068756d52ded741e98322c3",
+  "validation_version": "ordered-query-punctuation-v2",
+  "comparison_summary_sha256": "3972f864ff63fd75035e845b0b38214ab00613055eb68583d1abcab30bd2146f",
+  "comparison_context_bytes": 4000,
+  "default_execution_limits": {
+    "model_calls": 2,
+    "tool_calls": 1,
+    "http_calls": 8,
+    "seconds": 180.0,
+    "context_bytes": 1200,
+    "spend_usd": "0.15",
+    "retries": 0,
+    "capabilities": [
+      "text_retrieval",
+      "family_graph",
+      "event_graph",
+      "connection_graph"
+    ],
+    "concurrency": 4
+  },
+  "selection_reason": "Fusion adds no context or completed-task gain. Its one frozen completeness-label improvement is extra allegation detail not required by the why/who question; retain this label sensitivity rather than treating it as a reliable policy gain. Expansion loses Ben parentage under the common serialized budget. Keep the established single-query default and version all optional modes.",
+  "optional_modes": [
+    "fusion",
+    "expansion",
+    "combined"
+  ],
+  "default_quality_limit": "The development comparisons used 4,000 context bytes. Default 1,200-byte behavior is preserved; these quality measurements do not transfer automatically to that ceiling.",
+  "holdout_acceptance": false,
+  "release_threshold_owner": "project owner",
+  "followup": "Issue #18 can compare routing against this selected conventional policy; issue #25 can use its policy/context identity for caching."
+}

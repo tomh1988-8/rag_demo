@@ -11,6 +11,39 @@ commands so they work even without a configured Git remote.
 
 ## Current Ask Phil handoff
 
+**Issue #24 is implemented and verified**, ready for final publication readback.
+[Evidence](../implementation/issue-24/README.md) records **679 passing tests**,
+strict mypy across 172 files, Ruff/formatting, Compose validation and zero
+remaining findings on both independent review axes. Multi-query RRF and bounded
+same-revision sentence windows retain actual CLI/API citations, final model
+context, ranked lists, deterministic ties, fallback and per-call accounting.
+
+Four uncached development ablations contain 16 actual responses and 24 paid
+calls costing **$0.061936**. Baseline/fusion retain 6/6 context facts; both expansion
+modes retain 5/6 and return a supported partial answer on the family task.
+All 31 asserted claims pass source-based support/citation review. Strict
+completeness is 5/6, 6/6, 4/6 and 4/6; the extra Stella-label requirement and both
+Ben-context losses remain regressions. **Baseline stays the selected default**;
+optional versioned configurations expose fusion, expansion and combined modes.
+The comparison uses a 4,000-byte ceiling; its quality results do not transfer
+automatically to the preserved 1,200-byte default.
+
+The shared non-resetting $5 ledger is **$0.975588**, zero unsettled reservations.
+Do not repeat unchanged paid work. All 97 original data files and the user's
+pre-existing/private work remain preserved. Live captures bind checkpoint
+`8c7dd56`; the later date-fidelity, appendix and bounded-stop repairs leave all
+16 recorded query/context decisions unchanged under deterministic replay.
+No new paid generation, human canon or held-out acceptance is claimed.
+
+The initial full run's source-validation errors remain unexplained: unchanged
+source/validator probes, the isolated conversation file and the final complete
+retry pass. Preserve the original failure evidence; no source rewrite or
+validator relaxation was used. Register counts remain **40 Pass / 11 Pending**.
+After verified publication/closure, **#18 is next** and #25 is also unblocked.
+Wait for the user's next implementation instruction before starting another issue.
+
+### Prior issue #23 handoff
+
 **Issue #23 is complete and closed** after [verified publication](https://github.com/tomh1988-8/rag_demo/commit/668477cc324a4ae06316392c34395113031605b7).
 [The receipt](../implementation/issue-23/publication.json) records the exact
 remote commit/tree, 272 published inputs, all eleven checked criteria and

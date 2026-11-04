@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="utf-8"?><testsuites name="pytest tests"><testsuite name="pytest" errors="0" failures="1" skipped="0" tests="1" time="0.223" timestamp="2026-11-03T20:39:07.867458+00:00" hostname="tom-Latitude-3510"><testcase classname="tests.test_text_fusion" name="test_faithful_variant_cannot_turn_a_year_range_into_a_list" time="0.001"><failure message="AssertionError: assert ('Was Phil im... 1990, 1992?') == ('Was Phil im... 1990-1992?',)&#10;  &#10;  Left contains one more item: 'EastEnders: Was Phil imprisoned in 1990, 1992?'&#10;  Use -v to get more diff">def test_faithful_variant_cannot_turn_a_year_range_into_a_list() -&gt; None:
+        original = "Was Phil imprisoned in 1990-1992?"
+        result = select_variants(
+            original, ("EastEnders: Was Phil imprisoned in 1990, 1992?",), max_variants=2
+        )
+&gt;       assert result.queries == (original,)
+E       AssertionError: assert ('Was Phil im... 1990, 1992?') == ('Was Phil im... 1990-1992?',)
+E         
+E         Left contains one more item: 'EastEnders: Was Phil imprisoned in 1990, 1992?'
+E         Use -v to get more diff
+
+tests/test_text_fusion.py:124: AssertionError</failure></testcase></testsuite></testsuites>

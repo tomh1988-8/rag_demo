@@ -1,0 +1,39 @@
+<?xml version="1.0" encoding="utf-8"?><testsuites name="pytest tests"><testsuite name="pytest" errors="0" failures="1" skipped="0" tests="1" time="3.789" timestamp="2026-11-03T22:01:19.223814+00:00" hostname="tom-Latitude-3510"><testcase classname="tests.test_text_pipeline_api" name="test_exhausted_model_budget_abstains_when_many_spans_exceed_citation_capacity[21]" time="3.456"><failure message="AssertionError: Internal Server Error&#10;assert 500 == 200&#10; +  where 500 = &lt;Response [500 Internal Server Error]&gt;.status_code">database_url = 'user=ask_phil password=local-demo-only dbname=ask_phil_test_2bc4c5fb72b34e93b6d90f213a9e8648 host=127.0.0.1 port=55424'
+window_source = SourceSnapshot(snapshot_id='window-test', fixture_version=1, source=Source(title='Phil Mitchell', url=HttpUrl('https:/...5b77ccdf33f43c32e31941be', scope='other_media', reason='Test spin-off.', linked_titles=()))),), records=(), issues=()))
+pipeline_models = Models(settings=ModelSettings(embedding_model='test-embedding', embedding_digest='bbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbb... additional_kwargs={'num_predict': 256}, is_function_calling_model=True, keep_alive=None, thinking=None, headers=None))
+tmp_path = PosixPath('/tmp/pytest-of-tom/pytest-15/test_exhausted_model_budget_ab0')
+
+    @pytest.mark.parametrize("window_source", [21], indirect=True)
+    def test_exhausted_model_budget_abstains_when_many_spans_exceed_citation_capacity(
+        database_url: str,
+        window_source: SourceSnapshot,
+        pipeline_models: Models,
+        tmp_path: Path,
+    ) -&gt; None:
+        EvidenceStore(database_url).load(window_source)
+        TextRetriever(
+            database_url, pipeline_models.embedding, pipeline_models.settings.embedding_id, 3
+        ).prepare(window_source.snapshot_id)
+        with TestClient(
+            create_app(
+                database_url,
+                models=pipeline_models,
+                tracking_uri=f"sqlite:///{tmp_path}/tracking.db",
+                text_policy=TextPolicy(mode="expansion", per_query_k=1),
+                execution_limits=ExecutionLimits(model_calls=1, context_bytes=4000),
+            ),
+            raise_server_exceptions=False,
+        ) as client:
+            result = client.post(
+                "/v1/answers",
+                json={
+                    "snapshot_id": window_source.snapshot_id,
+                    "question": "Was Phil convicted of that fictional robbery?",
+                },
+            )
+&gt;       assert result.status_code == 200, result.text
+E       AssertionError: Internal Server Error
+E       assert 500 == 200
+E        +  where 500 = &lt;Response [500 Internal Server Error]&gt;.status_code
+
+tests/test_text_pipeline_api.py:548: AssertionError</failure></testcase></testsuite></testsuites>

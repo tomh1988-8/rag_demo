@@ -1,0 +1,58 @@
+{
+  "validator": "ordered-query-punctuation-v2",
+  "application_sha256": "cc759d1c3e3e3616e1f7822ecd4045a76ed72c7c2290a4990bb9af2f5198885b",
+  "captured_application_sha256": "098b693923b6ad7513c41f14630aa4c12e48271cc1c3b0ba895712b027636cf6",
+  "cases": [
+    {
+      "mode": "fusion",
+      "case_id": "multi-family",
+      "queries_unchanged": true,
+      "proposals": 2
+    },
+    {
+      "mode": "fusion",
+      "case_id": "stella-false-account",
+      "queries_unchanged": true,
+      "proposals": 2
+    },
+    {
+      "mode": "fusion",
+      "case_id": "lola-changing-account",
+      "queries_unchanged": true,
+      "proposals": 2
+    },
+    {
+      "mode": "fusion",
+      "case_id": "unsupported-theme",
+      "queries_unchanged": true,
+      "proposals": 2
+    },
+    {
+      "mode": "combined",
+      "case_id": "multi-family",
+      "queries_unchanged": true,
+      "proposals": 2
+    },
+    {
+      "mode": "combined",
+      "case_id": "stella-false-account",
+      "queries_unchanged": true,
+      "proposals": 2
+    },
+    {
+      "mode": "combined",
+      "case_id": "lola-changing-account",
+      "queries_unchanged": true,
+      "proposals": 2
+    },
+    {
+      "mode": "combined",
+      "case_id": "unsupported-theme",
+      "queries_unchanged": true,
+      "proposals": 2
+    }
+  ],
+  "unchanged_proposals": 16,
+  "paid_model_calls": 0,
+  "scope": "Replays recorded proposals through the repaired deterministic guard; no new generation or quality claim."
+}

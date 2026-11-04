@@ -1,0 +1,95 @@
+{
+  "issue": 24,
+  "criteria": [
+    {
+      "id": "reviewed_real_source_cases",
+      "implementation_executed": true,
+      "evidence": [
+        "../../../data/references/text-fusion-v1.json",
+        "query-fidelity-review.json",
+        "regressions.json"
+      ]
+    },
+    {
+      "id": "bounded_multi_query_rrf",
+      "implementation_executed": true,
+      "evidence": [
+        "../../../src/ask_phil/text_retrieval.py",
+        "../../../src/ask_phil/retrieval.py",
+        "fusion-green.xml",
+        "date-range-green.xml"
+      ]
+    },
+    {
+      "id": "same_revision_scope_windows",
+      "implementation_executed": true,
+      "evidence": [
+        "../../../src/ask_phil/source_windows.py",
+        "windows-green.xml",
+        "citation-green.xml"
+      ]
+    },
+    {
+      "id": "original_question_context_citations_traces",
+      "implementation_executed": true,
+      "evidence": [
+        "runtime-v1/artifact-manifest.json",
+        "trace-audit.json",
+        "review-repair-replay-v2.json"
+      ]
+    },
+    {
+      "id": "request_wide_bounds_and_fallback",
+      "implementation_executed": true,
+      "evidence": [
+        "../../../config/text-comparison-execution.json",
+        "fanout-green.xml",
+        "variant-failure-green.xml",
+        "secondary-query-green.xml",
+        "citation-cap-green.xml"
+      ]
+    },
+    {
+      "id": "failing_public_contracts_real_pg_api_cli",
+      "implementation_executed": true,
+      "evidence": [
+        "duplicate-red.xml",
+        "vector-ties-red.xml",
+        "role-negation-red.xml",
+        "appendix-overlap-red.xml",
+        "review-regressions-green.xml",
+        "citation-cap-red.xml",
+        "citation-cap-green.xml"
+      ]
+    },
+    {
+      "id": "four_uncached_ablations_and_selection",
+      "implementation_executed": true,
+      "evidence": [
+        "protocol.md",
+        "stage-metrics.json",
+        "comparison-summary.json",
+        "policy-selection.json"
+      ]
+    },
+    {
+      "id": "checklist_and_revision_linked_evidence",
+      "implementation_executed": true,
+      "evidence": [
+        "../../checklists/ask-phil-profile.md",
+        "software-inputs.json",
+        "review.md",
+        "regressions.json"
+      ]
+    }
+  ],
+  "final_full_suite": {
+    "tests": 679,
+    "failures": 0,
+    "errors": 0,
+    "skipped": 0,
+    "exit_code": 0
+  },
+  "publication": "ready after final checks; exact remote-tree readback recorded separately",
+  "scope": "Executed development capabilities and honest negative results; no held-out or broad canon acceptance."
+}

@@ -1,0 +1,123 @@
+{
+  "application_sha256": "bf797f44bd5cc113d20c6c3c88aa8e219c1c4a38ab9c0e5ae09c1a00364ee4d3",
+  "capture_commit": "8c7dd56",
+  "validator": "ordered-query-punctuation-v2",
+  "cases": [
+    {
+      "mode": "baseline",
+      "case_id": "multi-family",
+      "complete_context_record_unchanged": true,
+      "stopped_reply_not_used": true,
+      "proposals": 0
+    },
+    {
+      "mode": "baseline",
+      "case_id": "stella-false-account",
+      "complete_context_record_unchanged": true,
+      "stopped_reply_not_used": true,
+      "proposals": 0
+    },
+    {
+      "mode": "baseline",
+      "case_id": "lola-changing-account",
+      "complete_context_record_unchanged": true,
+      "stopped_reply_not_used": true,
+      "proposals": 0
+    },
+    {
+      "mode": "baseline",
+      "case_id": "unsupported-theme",
+      "complete_context_record_unchanged": true,
+      "stopped_reply_not_used": true,
+      "proposals": 0
+    },
+    {
+      "mode": "fusion",
+      "case_id": "multi-family",
+      "complete_context_record_unchanged": true,
+      "stopped_reply_not_used": true,
+      "proposals": 2
+    },
+    {
+      "mode": "fusion",
+      "case_id": "stella-false-account",
+      "complete_context_record_unchanged": true,
+      "stopped_reply_not_used": true,
+      "proposals": 2
+    },
+    {
+      "mode": "fusion",
+      "case_id": "lola-changing-account",
+      "complete_context_record_unchanged": true,
+      "stopped_reply_not_used": true,
+      "proposals": 2
+    },
+    {
+      "mode": "fusion",
+      "case_id": "unsupported-theme",
+      "complete_context_record_unchanged": true,
+      "stopped_reply_not_used": true,
+      "proposals": 2
+    },
+    {
+      "mode": "expansion",
+      "case_id": "multi-family",
+      "complete_context_record_unchanged": true,
+      "stopped_reply_not_used": true,
+      "proposals": 0
+    },
+    {
+      "mode": "expansion",
+      "case_id": "stella-false-account",
+      "complete_context_record_unchanged": true,
+      "stopped_reply_not_used": true,
+      "proposals": 0
+    },
+    {
+      "mode": "expansion",
+      "case_id": "lola-changing-account",
+      "complete_context_record_unchanged": true,
+      "stopped_reply_not_used": true,
+      "proposals": 0
+    },
+    {
+      "mode": "expansion",
+      "case_id": "unsupported-theme",
+      "complete_context_record_unchanged": true,
+      "stopped_reply_not_used": true,
+      "proposals": 0
+    },
+    {
+      "mode": "combined",
+      "case_id": "multi-family",
+      "complete_context_record_unchanged": true,
+      "stopped_reply_not_used": true,
+      "proposals": 2
+    },
+    {
+      "mode": "combined",
+      "case_id": "stella-false-account",
+      "complete_context_record_unchanged": true,
+      "stopped_reply_not_used": true,
+      "proposals": 2
+    },
+    {
+      "mode": "combined",
+      "case_id": "lola-changing-account",
+      "complete_context_record_unchanged": true,
+      "stopped_reply_not_used": true,
+      "proposals": 2
+    },
+    {
+      "mode": "combined",
+      "case_id": "unsupported-theme",
+      "complete_context_record_unchanged": true,
+      "stopped_reply_not_used": true,
+      "proposals": 2
+    }
+  ],
+  "unchanged_proposals": 16,
+  "unchanged_context_records": 16,
+  "paid_calls_in_replay": 0,
+  "scope": "Date/appendix decisions replay unchanged; none of the captured requests enters the newly guarded stopped-answer branch. Not new answer generation."
+}

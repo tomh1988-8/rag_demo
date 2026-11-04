@@ -1,0 +1,55 @@
+{
+  "issue": 24,
+  "base_revision": "a9303b4c2678fa9df1e5bd0524a3b7eabbf999ae",
+  "software": {
+    "tests": 679,
+    "failures": 0,
+    "errors": 0,
+    "skipped": 0,
+    "seconds": 2176.508,
+    "exit_code": 0,
+    "warnings": 16,
+    "mypy_files": 172,
+    "ruff": true,
+    "format": true,
+    "compose_config": true,
+    "frozen_inputs": 184,
+    "all_frozen_hashes_match": true,
+    "application_sha256": "bf797f44bd5cc113d20c6c3c88aa8e219c1c4a38ab9c0e5ae09c1a00364ee4d3",
+    "source_integrity_diagnostic_payloads": 0,
+    "prefect_shutdown_logging": "Closed-file logging diagnostic after successful result; exit code unchanged."
+  },
+  "review": {
+    "standards_remaining": 0,
+    "spec_remaining": 0,
+    "repaired_findings": {
+      "P2": 2,
+      "P3": 1
+    }
+  },
+  "development": {
+    "served_responses": 16,
+    "paid_calls": 24,
+    "reported_usd": 0.061936,
+    "ledger_before_usd": 0.913644,
+    "ledger_after_usd": 0.975588,
+    "unsettled_reservations": 0,
+    "selected_policy": "baseline",
+    "asserted_claims_supported": 31,
+    "holdout_executed": false,
+    "quality_capture_commit": "8c7dd56",
+    "quality_capture_application_sha256": "098b693923b6ad7513c41f14630aa4c12e48271cc1c3b0ba895712b027636cf6",
+    "repair_replay_paid_calls": 0
+  },
+  "preservation": {
+    "protected_unchanged": 1215,
+    "original_data_files": 97,
+    "all_match": true
+  },
+  "limitations": [
+    "Exposed development questions; no held-out or broad canon acceptance.",
+    "Literal Stella fact label remains over-specified; original strict failures preserved.",
+    "Expansion loses Ben parentage under common context budget; baseline remains selected.",
+    "Initial source-validation anomaly remains unreproduced; original errors retained."
+  ]
+}
