@@ -31,9 +31,8 @@ from ask_phil.models import ModelConfigurationError, ModelExecution, Models
 from ask_phil.retrieval import PinnedText, Retrieval
 from ask_phil.review_notes import (
     REVIEW_WORDING,
-    ReviewExplanation,
     ReviewNotice,
-    prepare_text_review,
+    TextReview,
 )
 from ask_phil.text_retrieval import ConventionalText, TextPolicy
 
@@ -96,7 +95,7 @@ class TextAnswer:
             failure = False
             stopped = False
             notices: tuple[ReviewNotice, ...] = ()
-            review = ReviewExplanation()
+            review: TextReview | None = None
             clarification = conversation.reference.clarification if conversation else None
             try:
                 budget.check()
@@ -116,12 +115,8 @@ class TextAnswer:
                 else:
                     selection = pipeline.retrieve(budget)
                     retrieved, context = selection.retrieved, selection.context
+                    review = selection.review
                     with mlflow.start_span("assembled_context") as span:
-                        if retrieved.review_notices:
-                            review = prepare_text_review(
-                                snapshot, retrieved.review_notices, budget.limits.context_bytes
-                            )
-                            context = review.context
                         span.set_outputs(
                             {
                                 "passages": [p.model_dump() for p in context],
@@ -134,7 +129,15 @@ class TextAnswer:
                                 ],
                             }
                         )
-                    if not context:
+                    if review is not None:
+                        draft, citations, notices = review.draft, review.citations, review.notices
+                        root.set_attributes(
+                            {
+                                "answer_model_skipped": "reviewed_interpretation",
+                                "prompt": REVIEW_WORDING,
+                            }
+                        )
+                    elif not context:
                         draft = Draft(
                             answer=(
                                 "I can't answer from the available captured context. "
@@ -148,25 +151,6 @@ class TextAnswer:
                             ),
                         )
                         root.set_attribute("answer_model_skipped", "empty_context")
-                    elif retrieved.review_notices:
-                        notices = review.notices
-                        draft = Draft(
-                            answer="Right, listen. " + review.text,
-                            status="partial",
-                            evidence_ids=tuple(p.evidence_id for p in context),
-                            unanswered=(
-                                "Coverage beyond these reviewed source accounts "
-                                "remains unresolved.",
-                            ),
-                            qualifications=(),
-                        )
-                        citations = cite_answer(draft, context, snapshot_id)
-                        root.set_attributes(
-                            {
-                                "answer_model_skipped": "reviewed_interpretation",
-                                "prompt": REVIEW_WORDING,
-                            }
-                        )
                     else:
                         execution, draft = self._generate(question, retrieved, context)
                         if execution.failure_type is not None:
@@ -189,26 +173,30 @@ class TextAnswer:
             except ExecutionStopped as exc:
                 if pipeline.selection is not None:
                     retrieved, context = pipeline.selection.retrieved, pipeline.selection.context
+                    review = pipeline.selection.review
                 reason = str(exc)
                 budget.record_stop(reason)
                 root.set_status("ERROR")
                 failure = reason in {"provider_failure", "malformed_output"}
                 stopped = True
-                draft = stopped_answer(
-                    reason,
-                    () if failure else context,
-                    context_claims=retrieved.context_claims,
-                    synthetic=any(
-                        (p.source or snapshot.source).support_status == "synthetic_fixture"
-                        for p in context
-                    ),
-                )
-                citations = cite_answer(draft, context, snapshot_id)
+                if review is not None:
+                    draft, citations, notices = review.draft, review.citations, review.notices
+                else:
+                    draft = stopped_answer(
+                        reason,
+                        () if failure else context,
+                        context_claims=retrieved.context_claims,
+                        synthetic=any(
+                            (p.source or snapshot.source).support_status == "synthetic_fixture"
+                            for p in context
+                        ),
+                    )
+                    citations = cite_answer(draft, context, snapshot_id)
             classifications = context_for(
                 retrieved.context_claims, (c.evidence_id for c in citations)
             )
             answer = draft.answer
-            if classifications and not stopped:
+            if classifications and not stopped and review is None:
                 answer += "\n" + "\n".join(dict.fromkeys(c.qualification for c in classifications))
             record = pipeline.record.with_final_context(
                 context, retrieved.context_claims
@@ -240,7 +228,7 @@ class TextAnswer:
                 text_pipeline=record,
                 model_settings=self.models.settings,
                 prompt_sha256=hashlib.sha256(
-                    (REVIEW_WORDING if notices else SYSTEM_PROMPT).encode()
+                    (REVIEW_WORDING if review is not None else SYSTEM_PROMPT).encode()
                 ).hexdigest(),
                 accounting=accounting.summary(),
             )

@@ -3,13 +3,12 @@
 import hashlib
 import os
 import time
-from collections import Counter
 from collections.abc import Callable
 from datetime import UTC, datetime, timedelta
 from pathlib import Path
 from threading import Event
 from typing import Any
-from uuid import NAMESPACE_URL, UUID, uuid4, uuid5
+from uuid import NAMESPACE_URL, UUID, uuid5
 
 from mlflow.entities import AssessmentSource, AssessmentSourceType, Feedback
 from prefect import flow
@@ -24,15 +23,12 @@ from ask_phil.feedback_reporting import FeedbackCohort
 from ask_phil.online_evaluation import (
     OnlineConfiguration,
     OnlineCycle,
-    OnlineDisagreement,
     OnlineInspection,
     OnlineJob,
     OnlinePolicy,
     OnlineReport,
     OnlineTriage,
-    ReviewRequirement,
     check_saved_answer,
-    seconds_since,
 )
 from ask_phil.online_judging import StoredSupportResult, checked_calibration, checked_scope
 from ask_phil.openrouter import maximum_call_cost
@@ -90,6 +86,7 @@ class OnlineEvaluation:
                         Path(__file__),
                         Path(__file__).with_name("assessment_publication.py"),
                         Path(__file__).with_name("online_evaluation.py"),
+                        Path(__file__).with_name("retained_reporting.py"),
                         Path(__file__).with_name("online_judging.py"),
                         Path(__file__).with_name("semantic_judge.py"),
                     )
@@ -662,242 +659,7 @@ class OnlineEvaluation:
         )
 
     def report(self, cohort: FeedbackCohort) -> OnlineReport:
+        from ask_phil.retained_reporting import RetainedReports
+
         self.ensure_schema()
-        feedback = self.feedback.report(cohort)
-        priorities = list(feedback.review_priorities)
-        offset = feedback.next_offset
-        while offset is not None:
-            page = self.feedback.report(cohort, offset=offset)
-            priorities.extend(page.review_priorities)
-            offset = page.next_offset
-        feedback = feedback.model_copy(
-            update={"review_priorities": tuple(priorities), "next_offset": None}
-        )
-        with self.feedback.connect() as conn:
-            rows = (
-                conn.execute(
-                    "SELECT j.document, a.document FROM online_jobs j "
-                    "JOIN feedback_interactions i USING (response_id) "
-                    "JOIN answer_responses a USING (response_id) WHERE j.config_sha256 = %s "
-                    "AND i.served_at >= %s AND i.served_at < %s AND i.served_at <= %s "
-                    "AND i.expires_at > %s ORDER BY i.served_at, i.response_id",
-                    (
-                        self.config_sha256,
-                        cohort.served_from,
-                        cohort.served_until,
-                        cohort.feedback_as_of,
-                        self.feedback.clock(),
-                    ),
-                ).fetchall()
-                if feedback.counts.eligible
-                else []
-            )
-        jobs = tuple(OnlineJob.model_validate(row[0]) for row in rows)
-        disagreements = []
-        for priority in feedback.review_priorities:
-            job = next((j for j in jobs if j.response_id == priority.response_id), None)
-            signal = priority.signal
-            if (
-                job
-                and job.support
-                and job.support.supported is not None
-                and (
-                    (signal.rating == "not_helpful" and job.support.supported)
-                    or (signal.rating == "helpful" and not job.support.supported)
-                )
-            ):
-                disagreements.append(
-                    OnlineDisagreement(
-                        response_id=job.response_id,
-                        feedback_revision=signal.revision,
-                        rating=signal.rating,
-                        supported=job.support.supported,
-                        reason="Helpfulness/report and context support measure different things; "
-                        "inspect evidence.",
-                    )
-                )
-        now = self.feedback.clock()
-        selected = sum(bool(j.selection_reasons) for j in jobs)
-        completed = sum(j.state == "completed" for j in jobs)
-        pending = [
-            seconds_since(now, j.created_at)
-            for j in jobs
-            if j.state == "pending"
-            or (
-                j.state in {"completed", "failed", "budget_skipped"}
-                and j.checks is not None
-                and not j.exported
-                and j.attempts < self.policy.max_attempts
-            )
-        ]
-        with self.feedback.connect() as conn:
-            triage_progress = conn.execute(
-                "SELECT count(*) FILTER (WHERE t.revision IS NULL), "
-                "min(r.accepted_at) FILTER (WHERE t.revision IS NULL), "
-                "count(t.revision), max(extract(epoch FROM "
-                "((t.document->>'processed_at')::timestamptz-r.accepted_at))) "
-                "FROM feedback_interactions i JOIN feedback_revisions r USING (response_id) "
-                "LEFT JOIN online_jobs j ON j.response_id=i.response_id AND j.config_sha256=%s "
-                "LEFT JOIN online_triage t ON t.job_id=j.job_id AND t.revision=r.revision "
-                "WHERE i.served_at >= %s AND i.served_at < %s AND i.served_at <= %s "
-                "AND r.accepted_at <= %s AND i.expires_at > %s AND i.tracking_sha256=%s",
-                (
-                    self.config_sha256,
-                    cohort.served_from,
-                    cohort.served_until,
-                    cohort.feedback_as_of,
-                    cohort.feedback_as_of,
-                    now,
-                    self.feedback.tracking_sha256,
-                ),
-            ).fetchone()
-        triage_age = (
-            seconds_since(now, triage_progress[1])
-            if triage_progress and triage_progress[1]
-            else None
-        )
-        if triage_age is not None:
-            pending.append(triage_age)
-        with self.feedback.connect() as conn:
-            undiscovered = (
-                conn.execute(
-                    "SELECT min(i.served_at) FILTER (WHERE i.tracking_sha256=%s), "
-                    "sum((a.document->>'estimated_api_cost_usd')::numeric), "
-                    "count(*) FILTER (WHERE a.document->>'estimated_api_cost_usd' IS NULL), "
-                    "count(*) FILTER (WHERE i.tracking_sha256<>%s) "
-                    "FROM feedback_interactions i JOIN answer_responses a USING (response_id) "
-                    "WHERE i.served_at >= %s AND i.served_at < %s AND i.served_at <= %s "
-                    "AND i.expires_at > %s AND NOT EXISTS (SELECT 1 FROM online_jobs j "
-                    "WHERE j.response_id=i.response_id AND j.config_sha256=%s)",
-                    (
-                        self.feedback.tracking_sha256,
-                        self.feedback.tracking_sha256,
-                        cohort.served_from,
-                        cohort.served_until,
-                        cohort.feedback_as_of,
-                        now,
-                        self.config_sha256,
-                    ),
-                ).fetchone()
-                if feedback.counts.eligible
-                else None
-            )
-        foreign = undiscovered[3] if undiscovered else 0
-        online_eligible = feedback.counts.eligible - foreign
-        missing_jobs = max(0, online_eligible - len(jobs))
-        states: dict[str, int] = dict(Counter(j.state for j in jobs))
-        if missing_jobs:
-            states["undiscovered"] = missing_jobs
-            if undiscovered and undiscovered[0]:
-                pending.append(seconds_since(now, undiscovered[0]))
-        if foreign:
-            states["ineligible_backend"] = foreign
-        costs = [j.judge_cost_usd for j in jobs]
-        with self.feedback.connect() as conn:
-            expense = conn.execute(
-                "SELECT coalesce(sum(calls),0), coalesce(sum(cost_usd),0), "
-                "coalesce(sum(coalesce(cost_usd,reserved_usd)),0), "
-                "count(*) FILTER (WHERE cost_usd IS NULL) FROM online_expense"
-            ).fetchone()
-        serving = [row[1]["estimated_api_cost_usd"] for row in rows]
-        requirements = []
-        remaining = []
-        for item in feedback.review_priorities:
-            signal = item.signal
-            if signal.categories or signal.comment or signal.proposed_correction:
-                reason = "category_or_comment"
-            elif any(d.response_id == item.response_id for d in disagreements):
-                reason = "judge_disagreement"
-            elif signal.rating != "skip":
-                remaining.append(item)
-                if not self.policy.selects(item.response_id, "review", self.policy.review_rate):
-                    continue
-                reason = "remaining_rating_sample"
-            else:
-                continue
-            requirements.append(
-                ReviewRequirement(
-                    response_id=item.response_id, feedback_revision=signal.revision, reason=reason
-                )
-            )
-        if remaining and not any(r.reason == "remaining_rating_sample" for r in requirements):
-            item = min(
-                remaining,
-                key=lambda p: hashlib.sha256(
-                    f"{self.policy.seed}:review:{p.response_id}".encode()
-                ).hexdigest(),
-            )
-            requirements.append(
-                ReviewRequirement(
-                    response_id=item.response_id,
-                    feedback_revision=item.signal.revision,
-                    reason="remaining_rating_sample_minimum_one",
-                )
-            )
-        report = OnlineReport(
-            report_id=uuid4(),
-            created_at=now,
-            config_sha256=self.config_sha256,
-            configuration=self.configuration,
-            feedback=feedback,
-            selected=selected,
-            online_eligible=online_eligible,
-            completed=completed,
-            states=states,
-            selection_cohorts=dict(Counter(r for j in jobs for r in j.selection_reasons)),
-            sample_coverage=selected / online_eligible if online_eligible else None,
-            score_coverage=sum(j.checks is not None for j in jobs) / selected if selected else None,
-            oldest_pending_seconds=max(pending) if pending else None,
-            pending_triage_revisions=triage_progress[0] if triage_progress else 0,
-            triaged_revisions=triage_progress[2] if triage_progress else 0,
-            oldest_pending_triage_seconds=triage_age,
-            maximum_triage_lag_seconds=float(triage_progress[3])
-            if triage_progress and triage_progress[3] is not None
-            else None,
-            assessment_lag_seconds=tuple(
-                seconds_since(j.completed_at, j.served_at) for j in jobs if j.completed_at
-            ),
-            online_judge_cost_usd=sum(c for c in costs if c is not None)
-            if None not in costs
-            else None,
-            online_judge_reserved_usd=sum(
-                j.judge_reserved_usd for j in jobs if j.judge_cost_usd is None
-            ),
-            online_judge_calls=sum(j.judge_calls for j in jobs),
-            cumulative_online_judge_calls=expense[0] if expense else 0,
-            cumulative_online_judge_cost_usd=float(expense[1])
-            if expense and not expense[3]
-            else None,
-            cumulative_online_judge_allocation_usd=float(expense[2]) if expense else 0,
-            unsettled_online_judge_jobs=expense[3] if expense else 0,
-            scored=sum(j.checks is not None for j in jobs),
-            support_scored=sum(
-                j.support is not None and j.support.supported is not None for j in jobs
-            ),
-            exported=sum(j.exported for j in jobs),
-            enabled=self.policy.enabled
-            and os.environ.get("ASK_PHIL_ONLINE_ENABLED", "true").lower() == "true",
-            serving_cost_usd=sum(c for c in serving if c is not None)
-            + (float(undiscovered[1] or 0) if undiscovered else 0)
-            if None not in serving and (not undiscovered or not undiscovered[2])
-            else None,
-            jobs=jobs,
-            disagreements=tuple(disagreements),
-            required_reviews=tuple(requirements),
-            remaining_rating_review_rate=self.policy.review_rate,
-        )
-        with self.feedback.connect() as conn:
-            expiry = conn.execute(
-                "SELECT min(expires_at) FROM feedback_interactions "
-                "WHERE served_at >= %s AND served_at < %s AND expires_at > %s",
-                (cohort.served_from, cohort.served_until, now),
-            ).fetchone()
-            conn.execute(
-                "INSERT INTO online_reports VALUES (%s, %s, %s)",
-                (
-                    report.report_id,
-                    Jsonb(report.model_dump(mode="json")),
-                    expiry[0] if expiry and expiry[0] else now + timedelta(days=30),
-                ),
-            )
-        return report
+        return RetainedReports(self.feedback).online(cohort, self.configuration)

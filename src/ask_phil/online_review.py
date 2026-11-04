@@ -17,6 +17,7 @@ from ask_phil.online_evaluation import OnlineReport
 from ask_phil.quality_comparison import ComparisonCase, ComparisonDataset
 from ask_phil.reference_data import reference_directory
 from ask_phil.security import redact_text
+from ask_phil.source_windows import resolve_span
 from ask_phil.storage import EvidenceStore
 
 
@@ -183,9 +184,8 @@ class OnlineReview:
                 "Regression must bind the original question, snapshot and independent facts."
             )
         snapshot = EvidenceStore(self.store.database_url).snapshot(response.snapshot_id)
-        passages = {p.evidence_id: p for p in snapshot.passages}
         for evidence in case.evidence:
-            passage = passages.get(evidence.evidence_id)
+            passage = resolve_span(snapshot, evidence.evidence_id)
             source = passage.source or snapshot.source if passage else snapshot.source
             if (
                 passage is None

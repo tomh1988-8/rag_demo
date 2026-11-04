@@ -2,11 +2,11 @@
 
 from dataclasses import dataclass
 from functools import cached_property
-from typing import Literal
+from typing import TYPE_CHECKING, Literal
 
 from ask_phil.claim_projections import EventAudit, FamilyAudit, RelationshipAudit
 from ask_phil.claims import evidence_resolves, replacement_claim_ids
-from ask_phil.classified_facts import ContextClaim
+from ask_phil.classified_facts import ContextClaim, context_for
 from ask_phil.connection_graph import ConnectionResult
 from ask_phil.event_graph import EventGraph, EventResult
 from ask_phil.evidence import Identifier, Passage, Record, SourceSnapshot
@@ -18,6 +18,9 @@ from ask_phil.relationship_graph import RelationshipGraph, RelationshipResult
 from ask_phil.relationships import RelationshipClaim
 from ask_phil.storage import EvidenceStore
 from ask_phil.story_events import EventClaim
+
+if TYPE_CHECKING:
+    from ask_phil.answers import Citation, Draft
 
 type ReviewedClaim = ParentageClaim | RelationshipClaim | EventClaim | ContextClaim
 REVIEW_WORDING = (
@@ -164,19 +167,68 @@ def _wording_bytes(snapshot: SourceSnapshot, explanation: ReviewExplanation) -> 
     return len(text.encode())
 
 
+@dataclass(frozen=True)
+class TextReview:
+    """A complete, citeable reviewed reply or an evidence-free bounded outcome."""
+
+    draft: "Draft"
+    context: tuple[Passage, ...] = ()
+    citations: tuple["Citation", ...] = ()
+    context_claims: tuple[ContextClaim, ...] = ()
+    notices: tuple[ReviewNotice, ...] = ()
+
+
 def prepare_text_review(
-    snapshot: SourceSnapshot, notices: tuple[ReviewNotice, ...], byte_budget: int
-) -> ReviewExplanation:
-    """Keep every reviewed account within the existing text citation and byte limits."""
+    snapshot: SourceSnapshot,
+    notices: tuple[ReviewNotice, ...],
+    byte_budget: int,
+    *,
+    context_claims: tuple[ContextClaim, ...] = (),
+) -> TextReview:
+    """Admit complete evidence, wording and qualifications together, before callers use them."""
+    from ask_phil.answers import Draft, cite_answer
+
+    unavailable = TextReview(
+        draft=Draft(
+            answer=(
+                "The reviewed accounts cannot be safely assembled within "
+                "this request's evidence and reply limits."
+            ),
+            status="insufficient_evidence",
+            evidence_ids=(),
+            qualifications=(),
+            unanswered=("The reviewed interpretation remains unresolved.",),
+        )
+    )
     explanation = _explanation(snapshot, notices, {eid for n in notices for eid in n.evidence_ids})
+    if explanation is None or not notices or len(explanation.context) > 3:
+        return unavailable
+    classifications = context_for(context_claims, (p.evidence_id for p in explanation.context))
+    answer = "Right, listen. " + explanation.text
+    if classifications:
+        answer += "\n" + "\n".join(dict.fromkeys(c.qualification for c in classifications))
     if (
-        explanation is None
-        or len(explanation.context) > 3
-        or len(context_text(explanation.context).encode()) + _wording_bytes(snapshot, explanation)
+        len(context_text(explanation.context, classifications).encode()) + len(answer.encode())
         > byte_budget
     ):
-        return ReviewExplanation()
-    return explanation
+        return unavailable
+    try:
+        draft = Draft(
+            answer=answer,
+            status="partial",
+            evidence_ids=tuple(p.evidence_id for p in explanation.context),
+            unanswered=("Coverage beyond these reviewed source accounts remains unresolved.",),
+            qualifications=(),
+        )
+    except ValueError:
+        return unavailable
+    return TextReview(
+        draft=draft,
+        context=explanation.context,
+        citations=cite_answer(draft, explanation.context, snapshot.snapshot_id),
+        context_claims=classifications,
+        notices=explanation.notices,
+    )
 
 
 @dataclass(frozen=True)

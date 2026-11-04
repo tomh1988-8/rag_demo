@@ -105,8 +105,12 @@ def pipeline_models(request: pytest.FixtureRequest) -> Models:
         else:
             evidence = json.loads(body["messages"][-1]["content"].split("Captured evidence: ")[1])
             output = {
-                "answer": (
-                    "Synthetic example: I was accused but not convicted of that fictional robbery."
+                "answer": options.get(
+                    "answer",
+                    (
+                        "Synthetic example: I was accused but not convicted "
+                        "of that fictional robbery."
+                    ),
                 ),
                 "status": "answered",
                 "evidence_ids": [p["evidence_id"] for p in evidence],

@@ -128,10 +128,10 @@ def summarize_feedback(
     cohort: FeedbackCohort,
     *,
     offset: int = 0,
-    limit: int = 100,
+    limit: int | None = 100,
 ) -> FeedbackSummary:
     """Count every current item once; paginate inspection without sampling the metrics."""
-    if offset < 0 or not 1 <= limit <= 100:
+    if offset < 0 or (limit is not None and not 1 <= limit <= 100):
         raise ValueError("Review pagination requires a nonnegative offset and 1-100 items.")
     rows: list[tuple[ServedFeedback, FeedbackSignal | None]] = []
     seen: set[UUID] = set()
@@ -202,7 +202,7 @@ def summarize_feedback(
             )
         )
     priorities.sort(key=lambda p: (p.priority, p.signal.accepted_at, str(p.response_id)))
-    end = offset + limit
+    end = offset + limit if limit is not None else len(priorities)
     return FeedbackSummary(
         cohort=cohort,
         counts=_counts(rows),

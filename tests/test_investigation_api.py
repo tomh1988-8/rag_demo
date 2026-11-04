@@ -858,6 +858,78 @@ def test_investigation_cannot_restore_a_disputed_claim_from_its_source_text(
         assert answer["review_notices"][0]["claim_id"] == "phil-ben"
 
 
+@pytest.mark.parametrize("route", ["text_rag", "investigation"])
+def test_reviewed_explanation_that_exceeds_reply_limits_has_a_retained_safe_outcome(
+    database_url: str,
+    investigator_models: Callable[[list[dict[str, Any]]], Models],
+    tmp_path: Path,
+    route: str,
+) -> None:
+    from test_parentage import reference_batch
+
+    from ask_phil.family_graph import FamilyGraph
+    from ask_phil.knowledge_review import KnowledgeReview, ReviewRequest
+
+    snapshot, batch, reviews = reference_batch()
+    EvidenceStore(database_url).load(snapshot)
+    FamilyGraph(database_url).install(
+        batch.model_copy(update={"claims": (batch.claims[0],)}), (reviews[0],)
+    )
+    part = "Who is Ben Mitchell's father?"
+    models = investigator_models(
+        [decision("text_search", {"query": part, "k": 1}, part), finish(part, "family-ben-birth")]
+    )
+    reviewer = KnowledgeReview(database_url, models.embedding, models.settings.embedding_id, 3)
+    inspected = reviewer.inspect(snapshot.snapshot_id)
+    reviewer.apply(
+        ReviewRequest(
+            snapshot_id=snapshot.snapshot_id,
+            snapshot_sha256=snapshot.fingerprint,
+            graphs=inspected.graphs,
+            family_reviews=(
+                reviews[0].model_copy(
+                    update={
+                        "verdict": "disputed",
+                        "note": "Synthetic long review rationale. " + "r" * 1680,
+                    }
+                ),
+            ),
+        )
+    )
+    uri = f"sqlite:///{tmp_path}/long-review.db"
+    with TestClient(
+        create_app(
+            database_url,
+            models=models,
+            tracking_uri=uri,
+            execution_limits=ExecutionLimits(context_bytes=4000),
+        )
+    ) as client:
+        result = client.post("/v1/answers", json={"question": part, "route": route})
+        assert result.status_code == 200, result.text
+        receipt = result.json()
+        answer = receipt["response"]
+        assert answer["status"] == "insufficient_evidence"
+        assert answer["citations"] == []
+        assert answer["context"] == []
+        assert answer.get("review_notices", []) == []
+        assert answer["unanswered"]
+        assert len(answer["answer"]) <= 1600
+        if route == "text_rag":
+            assert answer["text_pipeline"]["final_context_ids"] == []
+            assert answer["text_pipeline"]["context_bytes"] == 2
+        else:
+            assert answer["investigation"]["context"] == []
+            assert all(not p["resolved"] for p in answer["investigation"]["coverage"])
+        retained = client.get(
+            f"/v1/responses/{answer['response_id']}",
+            headers={"Authorization": "Bearer " + receipt["read_token"]},
+        )
+        assert retained.json() == answer
+        trace = MlflowClient(tracking_uri=uri).get_trace(answer["trace_id"], flush=True)
+        assert trace.data.spans[0].outputs == answer
+
+
 def test_graph_database_deadline_returns_an_immutable_investigation_stop_receipt(
     database_url: str,
     family_batch: ClaimBatch,

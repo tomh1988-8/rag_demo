@@ -164,7 +164,10 @@ class InvestigationTools:
                     notices = result.review_notices
                     if notices:
                         review = prepare_text_review(
-                            self._pinned.snapshot, notices, self._budget.limits.context_bytes
+                            self._pinned.snapshot,
+                            notices,
+                            self._budget.limits.context_bytes,
+                            context_claims=classifications,
                         )
                         if not review.context:
                             self._budget.stop("context_limit")
@@ -177,11 +180,13 @@ class InvestigationTools:
                     finding = self._graph.query(query)
                     if finding.snapshot_sha256 != self._pinned.snapshot.fingerprint:
                         raise ValueError("Incompatible graph source")
-                    review = self._pinned.reviews.graph(finding, self._budget.limits.context_bytes)
-                    passages = review.context
-                    notices = review.notices
+                    explanation = self._pinned.reviews.graph(
+                        finding, self._budget.limits.context_bytes
+                    )
+                    passages = explanation.context
+                    notices = explanation.notices
                     description = GraphExplanation.for_query(query).render(
-                        finding, synthetic=review.synthetic, investigation=True
+                        finding, synthetic=explanation.synthetic, investigation=True
                     )
                     graphs.append({"tool": tool, "status": finding.status, "findings": description})
                 span.set_outputs(finding.model_dump(mode="json"))

@@ -1,7 +1,6 @@
 """Response-bound human feedback, durable revisions and explicit collection policy."""
 
 import hashlib
-import json
 import os
 from collections.abc import Callable
 from datetime import UTC, datetime, timedelta
@@ -369,57 +368,6 @@ class FeedbackStore:
         self, cohort: "FeedbackCohort", *, offset: int = 0, limit: int = 100
     ) -> "FeedbackSummary":
         """Maintainer-only local inspection; never expose the full cohort to anonymous users."""
-        from ask_phil.feedback_reporting import FeedbackSignal, ServedFeedback, summarize_feedback
+        from ask_phil.retained_reporting import RetainedReports
 
-        now = self.clock()
-        if cohort.feedback_as_of > now:
-            raise ValueError("The feedback cutoff cannot be in the future.")
-        if cohort.served_from < now - timedelta(days=30):
-            raise ValueError("The cohort starts outside the maximum retained feedback window.")
-        self.ensure_schema()
-        interactions = []
-        with self.connect() as conn:
-            conn.execute("SET TRANSACTION ISOLATION LEVEL REPEATABLE READ READ ONLY")
-            if conn.execute("SELECT to_regclass('answer_responses')").fetchone() != (None,):
-                rows = conn.execute(
-                    "SELECT i.response_id, i.feedback_id, i.served_at, a.document "
-                    "FROM feedback_interactions i JOIN answer_responses a USING (response_id) "
-                    "WHERE i.served_at >= %s AND i.served_at < %s AND i.expires_at > %s "
-                    "ORDER BY i.served_at, i.response_id",
-                    (cohort.served_from, cohort.served_until, now),
-                ).fetchall()
-                for row in rows:
-                    revisions = conn.execute(
-                        "SELECT revision, accepted_at, submission, delivery_state "
-                        "FROM feedback_revisions WHERE response_id = %s ORDER BY revision",
-                        (row[0],),
-                    ).fetchall()
-                    response = AnswerRecord.model_validate(row[3])
-                    interactions.append(
-                        ServedFeedback(
-                            response_id=row[0],
-                            served_at=row[2],
-                            route=response.route,
-                            outcome=response.status,
-                            snapshot_id=response.snapshot_id,
-                            application_sha256=response.application_sha256,
-                            prompt_sha256=response.prompt_sha256,
-                            model_id=hashlib.sha256(
-                                json.dumps(row[3]["model_settings"], sort_keys=True).encode()
-                            ).hexdigest(),
-                            feedback=tuple(
-                                FeedbackSignal(
-                                    feedback_id=row[1],
-                                    revision=r[0],
-                                    accepted_at=r[1],
-                                    rating=r[2]["rating"],
-                                    categories=r[2]["categories"],
-                                    comment=r[2]["comment"],
-                                    proposed_correction=r[2]["proposed_correction"],
-                                    delivery_state=r[3],
-                                )
-                                for r in revisions
-                            ),
-                        )
-                    )
-        return summarize_feedback(interactions, cohort, offset=offset, limit=limit)
+        return RetainedReports(self).feedback(cohort, offset=offset, limit=limit)

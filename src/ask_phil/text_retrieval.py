@@ -23,6 +23,7 @@ from ask_phil.models import ModelExecution, Models, OpenRouterSettings
 from ask_phil.openrouter import maximum_call_cost
 from ask_phil.passage_context import assemble_context, context_text
 from ask_phil.retrieval import PinnedText, Retrieval, RetrievedPassage
+from ask_phil.review_notes import TextReview, prepare_text_review
 from ask_phil.source_windows import SENTENCE_VERSION, ContextExpansion, expand_context
 
 # Deliberately narrow retrieval synonyms. All other words, including names,
@@ -250,6 +251,7 @@ class TextPipelineRecord(Record):
 class TextSelection:
     retrieved: Retrieval
     context: tuple[Passage, ...]
+    review: TextReview | None = None
 
 
 class ConventionalText:
@@ -476,6 +478,17 @@ class ConventionalText:
             context = assemble_context(
                 hits, budget.limits.context_bytes, context_claims=retrieved.context_claims
             )
+        review = None
+        if retrieved.review_notices:
+            review = prepare_text_review(
+                self.pinned.snapshot,
+                retrieved.review_notices,
+                budget.limits.context_bytes,
+                context_claims=retrieved.context_claims,
+            )
+            context = review.context
+            if expansion is not None:
+                expansion = expansion.model_copy(update={"context": context})
         self.record = self.record.model_copy(
             update={
                 "expansion": expansion,
@@ -510,6 +523,6 @@ class ConventionalText:
             }
         )
         self.record = self.record.with_final_context(context, retrieved.context_claims)
-        self.selection = TextSelection(retrieved=retrieved, context=context)
+        self.selection = TextSelection(retrieved=retrieved, context=context, review=review)
         budget.context(self.record.context_bytes)
         return self.selection

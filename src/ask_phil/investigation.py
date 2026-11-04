@@ -255,47 +255,38 @@ class Investigation:
                 )
             assert draft is not None
             notices: tuple[ReviewNotice, ...] = ()
+            context = tools.context
+            review = None
             if tools.review_notices:
                 stopped = False
                 review = prepare_text_review(
-                    self.snapshot, tools.review_notices, budget.limits.context_bytes
+                    self.snapshot,
+                    tools.review_notices,
+                    budget.limits.context_bytes,
+                    context_claims=tools.context_claims,
                 )
                 # Preserve the reviewed interpretation even if a model repeats a predecessor.
-                if review.context and len(review.text) <= 1400:
-                    notices = review.notices
-                    draft = Draft(
-                        answer="Right, listen. " + review.text,
-                        status="partial",
-                        evidence_ids=tuple(p.evidence_id for p in review.context),
-                        unanswered=("Coverage beyond these reviewed accounts remains unresolved.",),
-                        qualifications=(),
-                    )
-                    coverage = tuple(
-                        c.model_copy(update={"resolved": False, "evidence_ids": ()})
-                        for c in coverage
-                    )
+                draft, context, notices = review.draft, review.context, review.notices
+                coverage = tuple(
+                    c.model_copy(update={"resolved": False, "evidence_ids": ()}) for c in coverage
+                )
+                if review.context:
                     if stop_reason == "completed":
                         stop_reason = "reviewed_interpretation"
                 else:
                     budget.record_stop("context_limit")
                     stop_reason = budget.record().stop_reason or "context_limit"
-                    draft = Draft(
-                        answer=(
-                            "The reviewed accounts cannot be safely assembled within "
-                            "this request's context limit."
-                        ),
-                        status="insufficient_evidence",
-                        evidence_ids=(),
-                        qualifications=(),
-                        unanswered=("The reviewed interpretation remains unresolved.",),
-                    )
             classifications = context_for(tools.context_claims, draft.evidence_ids)
             answer = draft.answer
-            if classifications and not stopped:
+            if classifications and not stopped and review is None:
                 answer += "\n" + "\n".join(dict.fromkeys(c.qualification for c in classifications))
-            if not stopped and any(
-                (p.source or self.snapshot.source).support_status == "synthetic_fixture"
-                for p in tools.context
+            if (
+                not stopped
+                and review is None
+                and any(
+                    (p.source or self.snapshot.source).support_status == "synthetic_fixture"
+                    for p in tools.context
+                )
             ):
                 answer = "Synthetic example, not EastEnders canon. " + answer
             return AnswerContent(
@@ -304,8 +295,10 @@ class Investigation:
                 answer=answer,
                 unanswered=draft.unanswered,
                 qualifications=draft.qualifications,
-                citations=cite_answer(draft, tools.context, self.snapshot.snapshot_id),
-                context=tools.context,
+                citations=review.citations
+                if review is not None
+                else cite_answer(draft, context, self.snapshot.snapshot_id),
+                context=context,
                 review_notices=notices,
                 context_claims=classifications,
                 retrieved=tuple(
@@ -330,6 +323,6 @@ class Investigation:
                     embedding_tokens=accounting.embedding_tokens,
                     stop_reason=stop_reason,
                     context_bytes=budget.record().context_bytes or 0,
-                    context=tools.context,
+                    context=context,
                 ),
             )
