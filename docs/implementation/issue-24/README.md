@@ -5,6 +5,13 @@ fusion and captured-source sentence windows through the existing API and CLI.
 The selected default remains the single-query baseline: the measured candidates
 did not provide a reliable improvement on this development sample.
 
+[Issue #24](https://github.com/tomh1988-8/rag_demo/issues/24) is complete and closed
+after [native fast-forward publication](https://github.com/tomh1988-8/rag_demo/commit/a737c7fa6bcb0a30b785c04acb70be339d35e337),
+exact remote commit/tree verification and readback of all eight checked criteria.
+The [publication receipt](publication.json) and [completed tracker body](tracker-update.md)
+retain that readback. The final receipt/handoff changes are documentation only;
+the 184 frozen tested inputs remain unchanged.
+
 Starting revision/review fixed point: `a9303b4` on `main`. The [ticket](issue.json)
 and [parent specification](parent-spec.json) retain S117–S121. Dependencies #4 and
 #5 were read back as closed. [Implementation plan](run-plan.md) and

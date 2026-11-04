@@ -90,6 +90,13 @@
     "skipped": 0,
     "exit_code": 0
   },
-  "publication": "ready after final checks; exact remote-tree readback recorded separately",
+  "publication": {
+    "verified": true,
+    "receipt": "publication.json",
+    "commit": "a737c7fa6bcb0a30b785c04acb70be339d35e337",
+    "tree": "ae695d88afcf3629571f8c7891cdda3bb8a37048",
+    "issue_state": "closed",
+    "checked_criteria": 8
+  },
   "scope": "Executed development capabilities and honest negative results; no held-out or broad canon acceptance."
 }

@@ -11,7 +11,13 @@ commands so they work even without a configured Git remote.
 
 ## Current Ask Phil handoff
 
-**Issue #24 is implemented and verified**, ready for final publication readback.
+**Issue #24 is complete and closed** after [verified publication](https://github.com/tomh1988-8/rag_demo/commit/a737c7fa6bcb0a30b785c04acb70be339d35e337).
+[The receipt](../implementation/issue-24/publication.json) records the exact
+remote commit/tree, all 184 frozen software inputs and completed tracker readback
+with all eight criteria checked. The same native fast-forward push succeeded
+after the initial automatic rejection was re-evaluated with the pre-existing
+publication requirement and current remote/permission checks; there is no
+publication blocker.
 [Evidence](../implementation/issue-24/README.md) records **679 passing tests**,
 strict mypy across 172 files, Ruff/formatting, Compose validation and zero
 remaining findings on both independent review axes. Multi-query RRF and bounded
@@ -39,7 +45,7 @@ The initial full run's source-validation errors remain unexplained: unchanged
 source/validator probes, the isolated conversation file and the final complete
 retry pass. Preserve the original failure evidence; no source rewrite or
 validator relaxation was used. Register counts remain **40 Pass / 11 Pending**.
-After verified publication/closure, **#18 is next** and #25 is also unblocked.
+**#18 is next** and #25 is also unblocked.
 Wait for the user's next implementation instruction before starting another issue.
 
 ### Prior issue #23 handoff

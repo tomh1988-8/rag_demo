@@ -1,0 +1,45 @@
+{
+  "verified_at": "2026-11-04T10:07:15.187220+00:00",
+  "issue": {
+    "url": "https://github.com/tomh1988-8/rag_demo/issues/24",
+    "state": "closed",
+    "state_reason": "completed",
+    "closed_at": "2026-11-04T10:06:07Z",
+    "checked_criteria": 8,
+    "exact_body_readback": true,
+    "body_sha256": "24eb2f646ea56ecb869978c7866f4caccb6593d3ca324924902ebba5cc07bfea"
+  },
+  "implementation_commit": "a737c7fa6bcb0a30b785c04acb70be339d35e337",
+  "implementation_tree": "ae695d88afcf3629571f8c7891cdda3bb8a37048",
+  "quality_capture_commit": "8c7dd56c7ee91e9043d2539761e1af1a36e0e916",
+  "publication_method": "native Git fast-forward push to origin/main",
+  "previous_remote_commit": "e217853cb6f7c2a8e7a8dca70cf66c9c76127496",
+  "remote_commit_and_tree_readback": "exact match via native ls-remote and GitHub Git commit API",
+  "frozen_inputs_verified_from_published_commit": 184,
+  "application_sha256": "bf797f44bd5cc113d20c6c3c88aa8e219c1c4a38ab9c0e5ae09c1a00364ee4d3",
+  "full_suite_passed": 679,
+  "strict_mypy_files": 172,
+  "review_findings": {
+    "Standards": 0,
+    "Spec": 0
+  },
+  "provider_ledger_usd": "0.975588",
+  "unsettled_reservations": 0,
+  "new_paid_inference_calls_in_publication": 0,
+  "preservation": {
+    "original_data_files": 97,
+    "protected_original_inputs_unchanged": 1215
+  },
+  "initial_automatic_rejection": {
+    "action": "git push origin main",
+    "reason": "Default-branch publication was initially considered insufficiently explicitly authorized by the implementation request.",
+    "additional_checks": [
+      "Verified the required commit/push/readback instruction already existed in pre-task commit a9303b4 at docs/agents/issue-tracker.md:419-425.",
+      "Verified the user-owned origin repository, main default branch and connector admin/push permission.",
+      "Read the live remote revision and verified it was an ancestor of the tested local commit; no force was requested.",
+      "Verified tests/reviews, staged secret scans and exclusion of pre-existing uncommitted/private inputs."
+    ],
+    "resolution": "The same native git push origin main was admitted on evidence-backed retry and completed successfully. No connector write or indirect push workaround was used; no new explicit user approval is claimed."
+  },
+  "followup_scope": "Publication receipt, completed issue body and handoff are documentation only; all 184 frozen application/test/verification inputs remain unchanged."
+}
