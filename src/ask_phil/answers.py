@@ -28,6 +28,7 @@ from ask_phil.passage_context import context_text as context_text
 from ask_phil.relationship_graph import RelationshipQuery, RelationshipResult
 from ask_phil.retrieval import RetrievedPassage
 from ask_phil.review_notes import ReviewNotice
+from ask_phil.routing import RoutingRecord
 from ask_phil.security import redact_text
 from ask_phil.text_retrieval import TextPipelineRecord
 
@@ -118,7 +119,7 @@ Always call synthetic material synthetic; it is not EastEnders canon."""
 class AskRequest(Record):
     snapshot_id: Identifier | None = None
     question: Annotated[str, StringConstraints(strip_whitespace=True, min_length=1, max_length=500)]
-    route: Literal["text_rag", "graph", "investigation"] = "text_rag"
+    route: Literal["auto", "text_rag", "graph", "investigation"] = "auto"
     graph: FamilyQuery | RelationshipQuery | EventQuery | ConnectionQuery | None = None
 
     @model_validator(mode="after")
@@ -160,6 +161,7 @@ class AnswerRecord(Record):
     retrieval_k: int
     route: Literal["text_rag", "graph", "investigation"] = "text_rag"
     route_override: bool = Field(default=False, exclude_if=lambda v: not v)
+    routing: RoutingRecord | None = Field(default=None, exclude_if=lambda v: v is None)
     graph: FamilyResult | RelationshipResult | EventResult | ConnectionResult | None = Field(
         default=None, exclude_if=lambda v: v is None
     )
@@ -311,3 +313,4 @@ class AnswerContent:
     graph: FamilyResult | RelationshipResult | EventResult | ConnectionResult | None = None
     investigation: InvestigationRecord | None = None
     text_pipeline: TextPipelineRecord | None = None
+    routing: RoutingRecord | None = None

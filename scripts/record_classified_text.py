@@ -155,6 +155,7 @@ def main() -> int:
                                 response = client.post(
                                     "/v1/answers",
                                     json={
+                                        "route": "text_rag",
                                         "question": case["question"],
                                         "snapshot_id": snapshot.snapshot_id,
                                     },

@@ -111,7 +111,15 @@ def main() -> None:
             ):
                 raise ValueError("Conversation sample budget exhausted before next turn.")
             result = subprocess.run(
-                [*command, "ask", step["question"], "--session", str(session)],
+                [
+                    *command,
+                    "ask",
+                    step["question"],
+                    "--route",
+                    "text_rag",
+                    "--session",
+                    str(session),
+                ],
                 env=env,
                 capture_output=True,
                 text=True,

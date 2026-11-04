@@ -195,6 +195,25 @@ class ModelExecution(Record):
     cost_scope: str
     limitation: str
 
+    @classmethod
+    def combine(cls, stages: Sequence["ModelExecution"]) -> "ModelExecution":
+        """Total stage observations without replacing unknown expense or usage with zero."""
+        return cls(
+            content=None,
+            usage=TokenUsage(
+                **{
+                    name: _sum_known([getattr(s.usage, name) for s in stages])
+                    for name in TokenUsage.model_fields
+                }
+            ),
+            provider_usage=None,
+            failure_type=None,
+            estimated_api_cost_usd=_sum_known([s.estimated_api_cost_usd for s in stages]),
+            cost_scope="All routing stages, text variants, evidence assessment and investigation; "
+            + " ".join(dict.fromkeys(s.cost_scope for s in stages)),
+            limitation=" ".join(dict.fromkeys(s.limitation for s in stages)),
+        )
+
     @property
     def usage_complete(self) -> bool:
         return all(value is not None for value in self.usage.model_dump().values())

@@ -90,7 +90,9 @@ def capture(output: Path, case_ids: list[str], limit: int) -> None:
 
         def execute(case: dict[str, Any]) -> dict[str, Any]:
             receipt = service.ask(
-                AskRequest(snapshot_id=case["snapshot_id"], question=case["question"]),
+                AskRequest(
+                    snapshot_id=case["snapshot_id"], question=case["question"], route="text_rag"
+                ),
                 category="offline_evaluation",
             )
             response = receipt.response.model_dump(mode="json")

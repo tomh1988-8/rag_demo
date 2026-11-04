@@ -127,6 +127,8 @@ class Investigation:
         history: tuple[ReferenceTurn, ...],
         budget: ExecutionBudget,
         root: LiveSpan,
+        *,
+        initial: AnswerContent | None = None,
     ) -> AnswerContent:
         with self.models.accounting() as accounting:
             question = request.question
@@ -143,6 +145,10 @@ class Investigation:
                 question = reference.question
             root.set_attributes({"prompt": INVESTIGATOR_PROMPT, "tool_contract": TOOL_CONTRACT})
             tools = InvestigationTools(self.database_url, self.pinned, budget)
+            if initial is not None:
+                tools.context = initial.context
+                tools.context_claims = initial.context_claims
+                tools.review_notices = initial.review_notices
             coverage: tuple[CoveragePart, ...] = ()
             draft: Draft | None = None
             stop_reason = "completed"
@@ -175,6 +181,9 @@ class Investigation:
                                         "support_status": self.snapshot.source.support_status,
                                         "coverage": [p.model_dump() for p in coverage],
                                         "context": tools.model_context(),
+                                        "previous_unanswered": initial.unanswered
+                                        if initial
+                                        else (),
                                         "remaining": {
                                             "model_calls": budget.limits.model_calls
                                             - budget.record().model_calls,
@@ -324,5 +333,8 @@ class Investigation:
                     stop_reason=stop_reason,
                     context_bytes=budget.record().context_bytes or 0,
                     context=context,
+                    initial_context_ids=tuple(p.evidence_id for p in initial.context)
+                    if initial
+                    else (),
                 ),
             )

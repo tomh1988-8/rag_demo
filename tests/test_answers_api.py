@@ -965,5 +965,5 @@ def test_embedding_usage_is_reported_separately_from_answer_tokens(
                 "output_tokens": 5,
                 "total_tokens": 57,
             }
-        root = next(span for span in trace.data.spans if span.name == "text_rag")
+        root = next(span for span in trace.data.spans if span.name in {"text_rag", "auto"})
         assert root.attributes["usage_complete"] is (expected_input is not None)

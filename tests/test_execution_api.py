@@ -92,7 +92,7 @@ def test_model_limit_returns_retained_evidence_and_a_saved_stop_reason(
         )
         assert original.json() == response
         trace = MlflowClient(tracking_uri=tracking_uri).get_trace(response["trace_id"], flush=True)
-        root = next(span for span in trace.data.spans if span.name == "text_rag")
+        root = next(span for span in trace.data.spans if span.name in {"text_rag", "auto"})
         assert root.outputs["execution"]["stop_reason"] == "model_call_limit"
 
 
@@ -138,7 +138,7 @@ def test_large_text_stop_keeps_full_citations_and_an_immutable_bounded_reply(
         )
         assert saved.json() == answer
         trace = MlflowClient(tracking_uri=tracking_uri).get_trace(answer["trace_id"], flush=True)
-        root = next(span for span in trace.data.spans if span.name == "text_rag")
+        root = next(span for span in trace.data.spans if span.name in {"text_rag", "auto"})
         assert root.outputs == answer
 
 
@@ -323,7 +323,7 @@ def test_reviewed_reply_stopped_at_context_admission_retains_its_actual_wording_
     assert response.prompt_sha256 == hashlib.sha256(REVIEW_WORDING.encode()).hexdigest()
     assert ResponseLedger(database_url).get(response.response_id, receipt.read_token) == response
     trace = MlflowClient(tracking_uri=uri).get_trace(response.trace_id, flush=True)
-    root = next(s for s in trace.data.spans if s.name == "text_rag")
+    root = next(s for s in trace.data.spans if s.name in {"text_rag", "auto"})
     assert root.outputs == response.model_dump(mode="json")
     assert root.attributes["prompt"] == REVIEW_WORDING
     assert root.attributes["answer_model_skipped"] == "reviewed_interpretation"
@@ -530,7 +530,7 @@ def test_http_disconnect_cancels_the_external_call_and_records_the_outcome(
             traces = client.search_traces(locations=[experiment])
         assert len(traces) == 1
         trace = client.get_trace(traces[0].info.trace_id, flush=True)
-        root = next(span for span in trace.data.spans if span.name == "text_rag")
+        root = next(span for span in trace.data.spans if span.name in {"text_rag", "auto"})
         record_property("response_json", json.dumps(root.outputs))
         assert root.outputs["execution"]["stop_reason"] == "cancelled"
         assert root.outputs["status"] == "partial"

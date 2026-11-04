@@ -103,7 +103,11 @@ def create_app(
     policies = ExecutionPolicies.from_environment()
     if execution_limits is not None:
         policies = policies.model_copy(
-            update={"serving": execution_limits, "investigation_serving": execution_limits}
+            update={
+                "serving": execution_limits,
+                "investigation_serving": execution_limits,
+                "automatic_serving": execution_limits,
+            }
         )
     feedback_stop = threading.Event()
     feedback_wake = threading.Event()

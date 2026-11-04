@@ -145,6 +145,8 @@ def main() -> None:
                         "--api-url",
                         args.api_url,
                         "ask",
+                        "--route",
+                        "text_rag",
                         reference.question,
                     ],
                     capture_output=True,

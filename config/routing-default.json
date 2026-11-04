@@ -1,0 +1,5 @@
+{
+  "version": "evidence-routing-v1",
+  "escalation_enabled": true,
+  "minimum_remaining_seconds": 3
+}

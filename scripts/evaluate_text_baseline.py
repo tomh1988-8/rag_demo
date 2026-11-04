@@ -41,6 +41,7 @@ def main() -> None:
             AskRequest(
                 snapshot_id=dataset["snapshot_id"],
                 question=reference.question,
+                route="text_rag",
             ),
             category="offline_evaluation",
         )

@@ -37,6 +37,10 @@ class ExecutionLimits(Record):
 class ExecutionPolicies(Record):
     serving: ExecutionLimits = ExecutionLimits()
     offline_evaluation: ExecutionLimits = ExecutionLimits(concurrency=1)
+    automatic_serving: ExecutionLimits = ExecutionLimits(model_calls=8, tool_calls=4, http_calls=24)
+    automatic_offline_evaluation: ExecutionLimits = ExecutionLimits(
+        model_calls=8, tool_calls=4, http_calls=24, concurrency=1
+    )
     investigation_serving: ExecutionLimits = ExecutionLimits(
         model_calls=8, tool_calls=4, http_calls=24, context_bytes=4000, concurrency=1
     )
@@ -55,6 +59,17 @@ class ExecutionPolicies(Record):
     def for_request(
         self, route: str, category: Literal["serving", "offline_evaluation"] = "serving"
     ) -> ExecutionLimits:
+        if route == "auto":
+            key = "automatic_serving" if category == "serving" else "automatic_offline_evaluation"
+            if key not in self.model_fields_set and category in self.model_fields_set:
+                # Existing operator configurations remain authoritative until an
+                # automatic-route quota is explicitly configured.
+                return self.serving if category == "serving" else self.offline_evaluation
+            return (
+                self.automatic_serving
+                if category == "serving"
+                else self.automatic_offline_evaluation
+            )
         if route == "investigation":
             return (
                 self.investigation_serving

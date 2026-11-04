@@ -19,6 +19,7 @@ from ask_phil.execution import ExecutionBudget, ExecutionStopped
 from ask_phil.graph_execution import GraphExecution, GraphResult
 from ask_phil.graph_wording import GraphExplanation
 from ask_phil.models import ModelExecution, TokenUsage
+from ask_phil.publications import ActivePublication
 from ask_phil.review_notes import (
     REVIEW_WORDING,
     ReviewedClaims,
@@ -29,9 +30,18 @@ from ask_phil.security import require_credential_free
 
 
 class FamilyAnswer:
-    def __init__(self, database_url: str, snapshot_id: str | None, budget: ExecutionBudget) -> None:
+    def __init__(
+        self,
+        database_url: str,
+        snapshot_id: str | None,
+        budget: ExecutionBudget,
+        *,
+        publication: ActivePublication | None = None,
+    ) -> None:
         self.database_url = database_url
-        self._graph = GraphExecution(database_url, snapshot_id, execution=budget)
+        self._graph = GraphExecution(
+            database_url, snapshot_id, execution=budget, publication=publication
+        )
         self.publication = self._graph.publication
         self.snapshot = self._graph.snapshot
         self._reviews = ReviewedClaims(database_url, self.snapshot)

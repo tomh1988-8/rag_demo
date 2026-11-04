@@ -44,3 +44,4 @@ class InvestigationRecord(Record):
     stop_reason: str
     context_bytes: int = Field(ge=0)
     context: tuple[Passage, ...]
+    initial_context_ids: tuple[Identifier, ...] = Field(default=(), exclude_if=lambda v: not v)

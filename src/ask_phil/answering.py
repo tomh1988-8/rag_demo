@@ -2,6 +2,7 @@
 
 import hashlib
 import time
+from dataclasses import replace
 from pathlib import Path
 from threading import BoundedSemaphore, Lock
 from typing import Literal
@@ -19,6 +20,8 @@ from ask_phil.investigation import Investigation
 from ask_phil.models import ModelConfigurationError, Models
 from ask_phil.responses import ResponseLedger
 from ask_phil.retrieval import TextRetriever
+from ask_phil.routing import Eligibility, RoutingRecord, RoutingStage
+from ask_phil.routing_answering import AutomaticAnswer
 from ask_phil.text_answering import TextAnswer
 from ask_phil.text_retrieval import TextPolicy
 from ask_phil.tracing import experiment_for
@@ -141,8 +144,17 @@ class AnswerService:
         budget: ExecutionBudget,
     ) -> AnswerReceipt:
         started = time.perf_counter()
-        route: TextAnswer | FamilyAnswer | Investigation
-        if request.route == "graph":
+        route: TextAnswer | FamilyAnswer | Investigation | AutomaticAnswer
+        if request.route == "auto":
+            route = AutomaticAnswer(
+                self.database_url,
+                request.snapshot_id,
+                budget,
+                self._text_resources,
+                self.text_policy,
+                self._investigation_slots[category],
+            )
+        elif request.route == "graph":
             route = FamilyAnswer(self.database_url, request.snapshot_id, budget)
         else:
             models, retriever = self._text_resources()
@@ -163,20 +175,53 @@ class AnswerService:
                 {
                     "response_id": str(response_id),
                     "expenditure_category": category,
-                    "route_override": request.route != "text_rag",
+                    "route_override": request.route != "auto",
                 }
             )
             if route.publication:
                 root.set_attribute(
                     "publication", route.publication.reference.model_dump(mode="json")
                 )
+            before = budget.record()
             content = route.answer(request, turn, history, budget, root)
+            if content.routing is None and request.route != "auto":
+                content = replace(
+                    content,
+                    routing=RoutingRecord(
+                        requested_route=request.route,
+                        selection="override",
+                        final_route=request.route,
+                        eligibility=Eligibility(
+                            eligible=bool(
+                                content.graph and content.graph.status in {"found", "truncated"}
+                            ),
+                            reason=content.graph.status
+                            if content.graph
+                            else budget.record().stop_reason or "unavailable",
+                            query=request.graph,
+                        )
+                        if request.route == "graph"
+                        else None,
+                        stages=(
+                            RoutingStage(
+                                route=request.route,
+                                status=content.status,
+                                elapsed_ms=(time.perf_counter() - started) * 1000,
+                                execution_before=before,
+                                execution_after=budget.record(),
+                                accounting=content.accounting,
+                            ),
+                        ),
+                        stop_reason=budget.record().stop_reason or "override_completed",
+                    ),
+                )
             if content.conversation:
                 root.set_attribute("conversation", content.conversation.model_dump(mode="json"))
             root.set_attributes(
                 {
                     "usage_complete": content.accounting.usage_complete,
                     "execution": budget.record().model_dump(mode="json"),
+                    "routing": content.routing.model_dump(mode="json") if content.routing else None,
                 }
             )
             response = AnswerRecord(
@@ -197,8 +242,9 @@ class AnswerService:
                 context_claims=content.context_claims,
                 review_notices=content.review_notices,
                 retrieval_k=content.retrieval_k,
-                route=request.route,
-                route_override=request.route != "text_rag",
+                route=content.routing.final_route if content.routing else "text_rag",
+                route_override=request.route != "auto",
+                routing=content.routing,
                 graph=content.graph,
                 investigation=content.investigation,
                 text_pipeline=content.text_pipeline,

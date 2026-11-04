@@ -208,6 +208,8 @@ def capture(admin_url: str, output: Path, tracking_uri: str, maximum: Decimal) -
                                             "--api-url",
                                             url,
                                             "ask",
+                                            "--route",
+                                            "text_rag",
                                             selected["question"],
                                             "--snapshot",
                                             snapshot.snapshot_id,
@@ -222,6 +224,7 @@ def capture(admin_url: str, output: Path, tracking_uri: str, maximum: Decimal) -
                                     reply = client.post(
                                         "/v1/answers",
                                         json={
+                                            "route": "text_rag",
                                             "snapshot_id": snapshot.snapshot_id,
                                             "question": selected["question"],
                                         },
