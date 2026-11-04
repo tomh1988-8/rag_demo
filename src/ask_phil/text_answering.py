@@ -131,12 +131,6 @@ class TextAnswer:
                         )
                     if review is not None:
                         draft, citations, notices = review.draft, review.citations, review.notices
-                        root.set_attributes(
-                            {
-                                "answer_model_skipped": "reviewed_interpretation",
-                                "prompt": REVIEW_WORDING,
-                            }
-                        )
                     elif not context:
                         draft = Draft(
                             answer=(
@@ -192,6 +186,10 @@ class TextAnswer:
                         ),
                     )
                     citations = cite_answer(draft, context, snapshot_id)
+            if review is not None:
+                root.set_attributes(
+                    {"answer_model_skipped": "reviewed_interpretation", "prompt": REVIEW_WORDING}
+                )
             classifications = context_for(
                 retrieved.context_claims, (c.evidence_id for c in citations)
             )

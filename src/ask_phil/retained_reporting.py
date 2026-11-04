@@ -36,6 +36,7 @@ from ask_phil.online_evaluation import (
 @dataclass(frozen=True)
 class _Interaction:
     response: AnswerRecord
+    serving_cost_usd: float | None
     expires_at: datetime
     tracking_sha256: str
     feedback: ServedFeedback
@@ -98,6 +99,9 @@ class RetainedReports:
             interactions.append(
                 _Interaction(
                     response=response,
+                    serving_cost_usd=response.estimated_api_cost_usd
+                    if document.get("estimated_api_cost_usd") is not None
+                    else None,
                     expires_at=expires_at,
                     tracking_sha256=tracking,
                     feedback=ServedFeedback(
@@ -258,7 +262,7 @@ class RetainedReports:
                 )
             )
         costs = [j.judge_cost_usd for j in jobs]
-        serving = [i.response.estimated_api_cost_usd for i in interactions]
+        serving = [i.serving_cost_usd for i in interactions]
         report = OnlineReport(
             report_id=uuid4(),
             created_at=now,

@@ -161,3 +161,43 @@ def test_large_report_keeps_all_review_items_and_the_full_retained_denominators(
     assert (report.pending_triage_revisions, report.triaged_revisions) == (101, 0)
     assert report.sample_coverage == 0
     assert report.score_coverage is None
+
+
+@pytest.mark.parametrize("discovered", [False, True])
+def test_report_preserves_unknown_serving_expense_in_an_incomplete_retained_receipt(
+    feedback_client: TestClient,
+    feedback_clock: list[datetime],
+    database_url: str,
+    tmp_path: Path,
+    discovered: bool,
+) -> None:
+    receipt = feedback_client.post(
+        "/v1/answers", json={"snapshot_id": "phil-arrival-v1", "question": "When did Phil arrive?"}
+    ).json()
+    # An incomplete legacy receipt is a storage input, not evidence of a free
+    # model call. The report must preserve the missing measurement.
+    with psycopg.connect(database_url) as conn:
+        conn.execute(
+            "UPDATE answer_responses SET document=document-'estimated_api_cost_usd' "
+            "WHERE response_id=%s",
+            (receipt["response"]["response_id"],),
+        )
+    evaluation = OnlineEvaluation(
+        database_url,
+        f"sqlite:///{tmp_path}/feedback.db",
+        policy=OnlinePolicy(background_rate=0, feedback_rate=0),
+        clock=lambda: feedback_clock[0],
+    )
+    if discovered:
+        evaluation.process()
+    now = feedback_clock[0]
+    report = evaluation.report(
+        FeedbackCohort(
+            served_from=now - timedelta(hours=1),
+            served_until=now + timedelta(hours=1),
+            feedback_as_of=now,
+        )
+    )
+    assert report.feedback.counts.eligible == 1
+    assert report.serving_cost_usd is None
+    assert len(report.jobs) == int(discovered)

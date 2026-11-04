@@ -97,4 +97,44 @@ pass. The complete public OpenAPI is identical to the starting revision:
 existing data and the user's pre-existing work, match the starting hashes.
 These are controlled-model software checks, not new factual-quality acceptance.
 
-Independent review and the final full-suite result will be recorded below.
+Both [independent review axes](review.md) have **zero remaining findings** after
+repairing missing-expense defaulting and stopped-review prompt identity. The
+three new regressions [fail before repair](review-findings-red.xml.gz) and
+[pass afterward](review-findings-green.xml). Original failures are preserved.
+
+The final suite uses the [frozen software/configuration/data inputs](software-inputs.json),
+the real disposable PostgreSQL/pgvector database and local MLflow with controlled
+model adapters.
+
+## Final validation
+
+The full suite ran **once** and passed **691 tests**, with zero failures, errors
+or skips, in **2,206.67 seconds** (36 minutes 47 seconds). The process exited
+successfully and reported 16 warnings. Prefect emitted its existing closed-file
+logging diagnostic during shutdown after the successful result; the exit code
+remained zero. See [the full test report](software-tests.xml) and
+[execution log](software-tests.log).
+
+All **278 frozen inputs** matched at full-suite completion. The final typecheck
+required an explicit execution-record presence assertion in the new cancellation
+test before its already-tested dereference. That test-only assertion was added
+after the suite and [the affected case passed again](post-suite-typing.xml).
+Runtime software and data are identical to the full-suite inputs; the
+[final input manifest](final-software-inputs.json) records the one changed test.
+Final strict mypy passes **174 files**, as do Ruff and formatting. The public
+OpenAPI still exactly matches the starting revision: **28 paths and 104 schemas**.
+
+Both independent review axes have **zero remaining findings**. All **149 protected
+existing inputs**, including **97 existing data files**, match their starting
+hashes. No paid inference was made; no historical evidence or private/user input
+was replaced. [The validation record](validation.json) binds these results.
+
+Reproduce with a disposable PostgreSQL/pgvector admin connection:
+
+```sh
+export ASK_PHIL_TEST_DATABASE_URL=postgresql://USER:PASSWORD@HOST:PORT/postgres
+PREFECT_HOME=/tmp/architecture-verification PREFECT_SERVER_ANALYTICS_ENABLED=false MLFLOW_DISABLE_AGENT_HINT=1 .venv/bin/pytest -q -p no:cacheprovider --disable-warnings
+.venv/bin/mypy src tests scripts docs/implementation/issue-9/apply_support.py
+.venv/bin/ruff check src tests scripts docs/implementation/issue-9/apply_support.py
+.venv/bin/ruff format --check src tests scripts docs/implementation/issue-9/apply_support.py
+```

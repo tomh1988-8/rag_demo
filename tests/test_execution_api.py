@@ -269,6 +269,66 @@ def test_text_and_family_answers_share_admission_and_retain_stopped_outcomes(
         assert resumed.json()["response"]["execution"]["stop_reason"] is None
 
 
+@pytest.mark.parametrize("models", [{"forbid_chat": True}], indirect=True)
+def test_reviewed_reply_stopped_at_context_admission_retains_its_actual_wording_identity(
+    database_url: str, models: Models, tmp_path: Path
+) -> None:
+    from test_parentage import reference_batch
+
+    from ask_phil.family_graph import FamilyGraph
+    from ask_phil.knowledge_review import KnowledgeReview, ReviewRequest
+    from ask_phil.review_notes import REVIEW_WORDING
+
+    class ContextCancellation(ExecutionBudget):
+        """Caller-supplied authority withdraws when evidence enters its context."""
+
+        def context(self, size: int) -> None:
+            self.cancellation.set()
+            super().context(size)
+
+    snapshot, batch, reviews = reference_batch()
+    EvidenceStore(database_url).load(snapshot)
+    FamilyGraph(database_url).install(
+        batch.model_copy(update={"claims": (batch.claims[0],)}), (reviews[0],)
+    )
+    reviewer = KnowledgeReview(database_url, models.embedding, models.settings.embedding_id, 3)
+    inspected = reviewer.inspect(snapshot.snapshot_id)
+    reviewer.apply(
+        ReviewRequest(
+            snapshot_id=snapshot.snapshot_id,
+            snapshot_sha256=snapshot.fingerprint,
+            graphs=inspected.graphs,
+            family_reviews=(
+                reviews[0].model_copy(
+                    update={
+                        "verdict": "disputed",
+                        "note": "Synthetic disagreement that remains explicit after cancellation.",
+                    }
+                ),
+            ),
+        )
+    )
+    uri = f"sqlite:///{tmp_path}/cancelled-review.db"
+    service = AnswerService(database_url, models, uri)
+    receipt = service.ask(
+        AskRequest(question="Who is Ben Mitchell's father?"),
+        execution=ContextCancellation(ExecutionLimits(context_bytes=4000)),
+    )
+    response = receipt.response
+    assert response.status == "partial"
+    assert response.execution is not None
+    assert response.execution.stop_reason == "cancelled"
+    assert "Unresolved source disagreement" in response.answer
+    assert response.citations
+    assert response.prompt_sha256 == hashlib.sha256(REVIEW_WORDING.encode()).hexdigest()
+    assert ResponseLedger(database_url).get(response.response_id, receipt.read_token) == response
+    trace = MlflowClient(tracking_uri=uri).get_trace(response.trace_id, flush=True)
+    root = next(s for s in trace.data.spans if s.name == "text_rag")
+    assert root.outputs == response.model_dump(mode="json")
+    assert root.attributes["prompt"] == REVIEW_WORDING
+    assert root.attributes["answer_model_skipped"] == "reviewed_interpretation"
+
+
 def test_graph_answer_retains_the_callers_consumed_tool_budget(
     database_url: str, family_batch: ClaimBatch, tmp_path: Path
 ) -> None:

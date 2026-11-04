@@ -1,0 +1,61 @@
+{
+  "verified_at": "2026-11-04T14:08:58.415362+00:00",
+  "starting_revision": "70c3d2c308c7e09b1c5e4afab9ba62ee04b2dcf6",
+  "full_suite": {
+    "runs": 1,
+    "exit_code": 0,
+    "tests": 691,
+    "failures": 0,
+    "errors": 0,
+    "skipped": 0,
+    "seconds": 2206.671,
+    "input_manifest": "software-inputs.json",
+    "frozen_inputs": 278,
+    "all_inputs_verified_at_completion": true
+  },
+  "post_suite_test_only_change": {
+    "path": "tests/test_execution_api.py",
+    "change": "Explicitly assert presence of execution before its already-tested dereference, for strict mypy.",
+    "runtime_software_unchanged": true,
+    "rerun": {
+      "tests": 1,
+      "failures": 0,
+      "errors": 0,
+      "skipped": 0,
+      "seconds": 5.806
+    },
+    "artifact": "post-suite-typing.xml"
+  },
+  "final_inputs": {
+    "count": 278,
+    "manifest": "final-software-inputs.json"
+  },
+  "static_checks": {
+    "ruff": "pass",
+    "ruff_format": "pass",
+    "mypy": {
+      "result": "pass",
+      "files": 174
+    },
+    "public_openapi": {
+      "matches_starting_revision": true,
+      "paths": 28,
+      "schemas": 104
+    }
+  },
+  "independent_review": {
+    "standards_remaining": 0,
+    "spec_remaining": 0,
+    "standards_initial": 1,
+    "spec_initial": 2,
+    "artifact": "review.md"
+  },
+  "preservation": {
+    "protected_inputs": 149,
+    "protected_data_files": 98,
+    "mismatches": [],
+    "protected_manifest_sha256": "ff02a26403dbf0146b26b46446caedf57e3d4e84c40557f6cf2b2d83996e6655"
+  },
+  "paid_inference_calls": 0,
+  "limitations": "Controlled-model software verification; no new canon, held-out or model-quality acceptance."
+}
