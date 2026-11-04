@@ -18,10 +18,12 @@ from ask_phil.execution import ExecutionBudget, ExecutionPolicies
 from ask_phil.family_answering import FamilyAnswer
 from ask_phil.investigation import Investigation
 from ask_phil.models import ModelConfigurationError, Models
+from ask_phil.openrouter import ProviderError, read_key
 from ask_phil.responses import ResponseLedger
 from ask_phil.retrieval import TextRetriever
 from ask_phil.routing import Eligibility, RoutingRecord, RoutingStage
 from ask_phil.routing_answering import AutomaticAnswer
+from ask_phil.security import redact_text
 from ask_phil.text_answering import TextAnswer
 from ask_phil.text_retrieval import TextPolicy
 from ask_phil.tracing import experiment_for
@@ -60,6 +62,10 @@ class AnswerService:
             category: BoundedSemaphore(
                 self.policies.for_request("investigation", category).concurrency
             )
+            for category in categories
+        }
+        self._automatic_slots = {
+            category: BoundedSemaphore(self.policies.for_request("auto", category).concurrency)
             for category in categories
         }
         self._models = models
@@ -123,6 +129,11 @@ class AnswerService:
             if not acquired:
                 budget.record_stop("concurrency_limit")
             investigator_acquired = False
+            automatic_acquired = False
+            if request.route == "auto":
+                automatic_acquired = self._automatic_slots[category].acquire(blocking=False)
+                if not automatic_acquired:
+                    budget.record_stop("concurrency_limit")
             if request.route == "investigation":
                 investigator_acquired = self._investigation_slots[category].acquire(blocking=False)
                 if not investigator_acquired:
@@ -134,6 +145,8 @@ class AnswerService:
                     self._slots[category].release()
                 if investigator_acquired:
                     self._investigation_slots[category].release()
+                if automatic_acquired:
+                    self._automatic_slots[category].release()
 
     def _ask(
         self,
@@ -144,6 +157,17 @@ class AnswerService:
         budget: ExecutionBudget,
     ) -> AnswerReceipt:
         started = time.perf_counter()
+        if self._models is not None:
+            request = request.model_copy(update={"question": self._models.redact(request.question)})
+        else:
+            # Graph execution must not depend on loading or verifying an answer
+            # model, but a privately configured key still needs input redaction.
+            try:
+                request = request.model_copy(
+                    update={"question": redact_text(request.question, (read_key(),))}
+                )
+            except ProviderError:
+                pass
         route: TextAnswer | FamilyAnswer | Investigation | AutomaticAnswer
         if request.route == "auto":
             route = AutomaticAnswer(
@@ -221,6 +245,8 @@ class AnswerService:
                 {
                     "usage_complete": content.accounting.usage_complete,
                     "execution": budget.record().model_dump(mode="json"),
+                    "baseline_version": content.baseline_version,
+                    "prompt_sha256": content.prompt_sha256,
                     "routing": content.routing.model_dump(mode="json") if content.routing else None,
                 }
             )

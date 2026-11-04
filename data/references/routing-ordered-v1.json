@@ -1,0 +1,155 @@
+{
+  "version": 1,
+  "split": "development",
+  "source_file": "data/sources/real-sources-v1.json.gz",
+  "source_file_sha256": "bfcaae65ecd30c4ebee805a71d02910ce85db636aa0d5f1ef2a08368a06eb76a",
+  "snapshot_id": "text-expansion-development-v1",
+  "snapshot_sha256": "4746acc28fb72647a876f8ab75df1f9948d6591499c882338b836b1d4e81c17f",
+  "family_projection": "docs/implementation/issue-18/ordered-family-projection.json",
+  "review_note": "Two source-reviewed development questions selected before the supplement calls to exercise actual fusion and sentence windows. Legacy cohort captures and their fallbacks remain unchanged. Separate corpus cohort; do not pool paired results across corpora.",
+  "cases": [
+    {
+      "case_id": "biological-parents",
+      "group_id": "mitchell-biological-parentage",
+      "split": "development",
+      "category": "biological-family",
+      "question": "Who are Ben Mitchell's biological parents?",
+      "graph_eligible": true,
+      "graph": {
+        "character_id": "ben-mitchell",
+        "direction": "ancestors",
+        "max_depth": 1
+      },
+      "answerable": true,
+      "allowed_routes": [
+        "text_rag",
+        "graph",
+        "investigation"
+      ],
+      "expected_outcomes": [
+        "answered",
+        "partial"
+      ],
+      "required_facts": [
+        {
+          "fact": "Phil Mitchell and Kathy Beale are Ben Mitchell's biological parents.",
+          "sufficient_sets": [
+            [
+              "ben-wiki-0022-17983"
+            ]
+          ]
+        }
+      ],
+      "evidence": [
+        {
+          "evidence_id": "ben-wiki-0022-17983",
+          "text": "Ben is born to Phil Mitchell (Steve McFadden) and his then wife Kathy Beale (Gillian Taylforth) in March 1996. Ben becomes ill and is rushed to hospital, where he is diagnosed with meningitis and he is left partially deaf in one ear. As Kathy gives Ben all her affection, Phil turns to alcohol and has an affair with Lorna Cartwright (Janet Dibley), resulting in the breakdown of their marriage. In 1998, Kathy moves to South Africa and takes Ben with her. He accompanies her on two return visits in 1999 before returning with her to South Africa in early 2000. In 2001, Kathy marries a man named Gavin Sullivan (then an unseen character; later played by Paul Nicholas). The same year, Ben briefly returns to stay with Phil who then takes him back to South Africa.",
+          "sha256": "7ae1721af6c6909445d4c6b287d9498a76b90ec8940d41641dd3f39f03d14d1d",
+          "start": 17983,
+          "end": 18747,
+          "source": {
+            "title": "Ben Mitchell",
+            "url": "https://en.wikipedia.org/wiki/Ben_Mitchell_(EastEnders)",
+            "revision_id": "1369268749",
+            "revision_url": "https://en.wikipedia.org/w/index.php?oldid=1369268749",
+            "section": "Storylines / 1996\u20132000",
+            "captured_at": "2026-09-25T12:00:27.860635Z",
+            "capture_sha256": "42038dc15e2c78b46205eebf354d85e8babcc67d1ab73ae8e45d73b469a3a9d6",
+            "scope": "main_series",
+            "license_url": "https://creativecommons.org/licenses/by-sa/4.0/",
+            "attribution": "Wikipedia contributors; markup removed and whitespace normalized.",
+            "coverage": "Reviewed narrative sections in this captured revision only.",
+            "gaps": [
+              "Partial canon coverage; other paragraphs remain excluded or awaiting review.",
+              "Identity and episode metadata do not independently corroborate story claims."
+            ],
+            "support_status": "source_supported"
+          },
+          "location": {
+            "source_id": "ben-wiki",
+            "paragraph_ordinal": 22,
+            "section_id": "1996\u20132000",
+            "character_ids": [
+              "ben-mitchell"
+            ]
+          }
+        }
+      ],
+      "forbidden_assertions": [
+        "Adoption establishes biological ancestry.",
+        "A conviction establishes commission.",
+        "Missing captured evidence proves an event never happened."
+      ],
+      "review_note": "Implementer inspected retained exact source excerpts before paid calls; source-based agent development review, not human canon or held-out acceptance. Broad graph caveats may produce partial status despite complete named fact coverage. Ordered-source supplement uses a different frozen source composition, with original captured paragraph/sentence metadata. No acceptance labels are loaded."
+    },
+    {
+      "case_id": "sufficient-text",
+      "group_id": "sharon-christmas-pregnancy",
+      "split": "development",
+      "category": "complex-sufficient-text",
+      "question": "Explain how the captured account dates Sharon Watts's discovery that she was pregnant, including the date's precision.",
+      "graph_eligible": false,
+      "graph": null,
+      "answerable": true,
+      "allowed_routes": [
+        "text_rag",
+        "investigation"
+      ],
+      "expected_outcomes": [
+        "answered",
+        "partial"
+      ],
+      "required_facts": [
+        {
+          "fact": "Sharon Watts discovers she is pregnant on Christmas Day 2005; the supported story date is exact.",
+          "sufficient_sets": [
+            [
+              "sharon-wiki-0064-61360"
+            ]
+          ]
+        }
+      ],
+      "evidence": [
+        {
+          "evidence_id": "sharon-wiki-0064-61360",
+          "text": "On Christmas Day 2005, Sharon is stunned to discover she is pregnant, and she and Dennis celebrate the potential of having a child. However, their happiness is threatened when Dennis's resolved issues with Phil leads him to become embroiled in a conflict against his enemy and the square's crime kingpin: Johnny Allen (Billy Murray). When Sharon starts to intervene in Johnny's personal affairs in an attempt to warn him to stay away from Dennis, he throttles her warns her that he will kill Dennis unless they leave Walford by midnight on New Year's Eve. Sharon persuades Dennis to leave after confiding in Phil about Johnny's threat. Phil, seeking upmanship over Johnny, informs Dennis about the threat, telling him that Johnny also killed his friend, Andy Hunter (Michael Higgs), almost a year earlier, and informs him that Johnny had just threatened Sharon. Dennis ends up attacking Johnny. Just as the Square's residents are welcoming in the new year, he ends up getting stabbed by a mysterious passer-by. He stumbles upon Sharon and dies, leaving Sharon heartbroken and devastated. She refuses to speak in grief ",
+          "sha256": "5820ccd3936e29c7d45bfeba643ee6de21f5f924dbdae9112fc2bbf2689fae90",
+          "start": 61360,
+          "end": 62478,
+          "source": {
+            "title": "Sharon Watts",
+            "url": "https://en.wikipedia.org/wiki/Sharon_Watts",
+            "revision_id": "1372798905",
+            "revision_url": "https://en.wikipedia.org/w/index.php?oldid=1372798905",
+            "section": "Storylines / 2001\u20132006",
+            "captured_at": "2026-09-25T12:00:27.812293Z",
+            "capture_sha256": "86b90fe8e3816fdd7f6ee92c97f94ba65a650bfa7cbc48476dd01de4f6a6560d",
+            "scope": "main_series",
+            "license_url": "https://creativecommons.org/licenses/by-sa/4.0/",
+            "attribution": "Wikipedia contributors; markup removed and whitespace normalized.",
+            "coverage": "Reviewed narrative sections in this captured revision only.",
+            "gaps": [
+              "Partial canon coverage; other paragraphs remain excluded or awaiting review.",
+              "Identity and episode metadata do not independently corroborate story claims."
+            ],
+            "support_status": "source_supported"
+          },
+          "location": {
+            "source_id": "sharon-wiki",
+            "paragraph_ordinal": 64,
+            "section_id": "2001\u20132006",
+            "character_ids": [
+              "sharon-watts"
+            ]
+          }
+        }
+      ],
+      "forbidden_assertions": [
+        "Adoption establishes biological ancestry.",
+        "A conviction establishes commission.",
+        "Missing captured evidence proves an event never happened."
+      ],
+      "review_note": "Implementer inspected retained exact source excerpts before paid calls; source-based agent development review, not human canon or held-out acceptance. Broad graph caveats may produce partial status despite complete named fact coverage. Ordered-source supplement uses a different frozen source composition, with original captured paragraph/sentence metadata. No acceptance labels are loaded."
+    }
+  ]
+}

@@ -147,7 +147,12 @@ class Investigation:
             tools = InvestigationTools(self.database_url, self.pinned, budget)
             if initial is not None:
                 tools.context = initial.context
-                tools.context_claims = initial.context_claims
+                retained = self.pinned.reviews.text({p.evidence_id for p in initial.context})
+                tools.context_claims = tuple(
+                    {
+                        c.claim_id: c for c in (*initial.context_claims, *retained.context_claims)
+                    }.values()
+                )
                 tools.review_notices = initial.review_notices
             coverage: tuple[CoveragePart, ...] = ()
             draft: Draft | None = None
@@ -234,6 +239,7 @@ class Investigation:
                     tools.execute(action.tool, action.arguments)
             except (
                 ExecutionStopped,
+                ModelConfigurationError,
                 ValueError,
                 psycopg.errors.QueryCanceled,
                 psycopg.errors.LockNotAvailable,
@@ -241,6 +247,8 @@ class Investigation:
                 stop_reason = (
                     str(exc)
                     if isinstance(exc, ExecutionStopped)
+                    else "model_configuration_error"
+                    if isinstance(exc, ModelConfigurationError)
                     else "timeout"
                     if isinstance(
                         exc, psycopg.errors.QueryCanceled | psycopg.errors.LockNotAvailable

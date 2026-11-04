@@ -125,7 +125,11 @@ def capture_quality(
             result = client.post(
                 path,
                 headers=headers,
-                json={"question": row["question"], "snapshot_id": row["snapshot_id"]},
+                json={
+                    "question": row["question"],
+                    "snapshot_id": row["snapshot_id"],
+                    "route": "text_rag",
+                },
             )
             result.raise_for_status()
             receipt_value = AnswerReceipt.model_validate(result.json())

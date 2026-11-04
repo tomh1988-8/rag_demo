@@ -208,7 +208,7 @@ def run_scenario(admin: str, output: Path, name: str, tracking_uri: str) -> dict
         ):
 
             def ask(case: str, payload: dict[str, Any]) -> None:
-                result = client.post("/v1/answers", json=payload)
+                result = client.post("/v1/answers", json={"route": "text_rag", **payload})
                 result.raise_for_status()
                 receipt = AnswerReceipt.model_validate(result.json())
                 records.append(capture(client, tracking, receipt, case, fingerprint))
@@ -263,6 +263,8 @@ def run_scenario(admin: str, output: Path, name: str, tracking_uri: str) -> dict
                     "--api-url",
                     address,
                     "ask",
+                    "--route",
+                    "text_rag",
                     question,
                     "--route",
                     "graph",

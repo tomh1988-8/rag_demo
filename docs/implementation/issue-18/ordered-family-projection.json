@@ -1,0 +1,146 @@
+{
+  "batch": {
+    "claims": [
+      {
+        "claim_id": "phil-ben",
+        "parent_id": "phil-mitchell",
+        "child_id": "ben-mitchell",
+        "parent_role": "parent",
+        "relation": "biological_parent",
+        "polarity": "affirmed",
+        "certainty": "certain",
+        "story_time": "March 1996",
+        "time_precision": "exact",
+        "evidence": [
+          {
+            "evidence_id": "ben-wiki-0022-17983",
+            "start": 0,
+            "end": 110,
+            "quote": "Ben is born to Phil Mitchell (Steve McFadden) and his then wife Kathy Beale (Gillian Taylforth) in March 1996."
+          }
+        ]
+      },
+      {
+        "claim_id": "kathy-ben",
+        "parent_id": "kathy-beale",
+        "child_id": "ben-mitchell",
+        "parent_role": "parent",
+        "relation": "biological_parent",
+        "polarity": "affirmed",
+        "certainty": "certain",
+        "story_time": "March 1996",
+        "time_precision": "exact",
+        "evidence": [
+          {
+            "evidence_id": "ben-wiki-0022-17983",
+            "start": 0,
+            "end": 110,
+            "quote": "Ben is born to Phil Mitchell (Steve McFadden) and his then wife Kathy Beale (Gillian Taylforth) in March 1996."
+          }
+        ]
+      }
+    ],
+    "snapshot_id": "text-expansion-development-v1",
+    "snapshot_sha256": "4746acc28fb72647a876f8ab75df1f9948d6591499c882338b836b1d4e81c17f",
+    "catalogue": {
+      "characters": [
+        {
+          "character_id": "sharon-watts",
+          "name": "Sharon Watts",
+          "aliases": [
+            "Sharon Mitchell",
+            "Sharon Rickman",
+            "Sharon Beale"
+          ],
+          "performers": [
+            "Letitia Dean"
+          ],
+          "coverage": "core",
+          "wikidata_id": "Q7490258",
+          "review_note": "Codex source inspection, 25 September 2026: Wikipedia infobox identity/aliases/performers and linked Wikidata item. Source-supported only; no independent canon corroboration. Den is supporting context for Sharon; his history is not admitted in this slice.",
+          "evidence_sources": [
+            "sharon-wiki",
+            "sharon-identity"
+          ]
+        },
+        {
+          "character_id": "ben-mitchell",
+          "name": "Ben Mitchell",
+          "aliases": [],
+          "performers": [
+            "Matthew Silver",
+            "Morgan Whittle",
+            "Charlie Jones",
+            "Joshua Pascoe",
+            "Harry Reid",
+            "Max Bowden"
+          ],
+          "coverage": "core",
+          "wikidata_id": "Q2766568",
+          "review_note": "Codex source inspection, 25 September 2026: Wikipedia infobox identity/aliases/performers and linked Wikidata item. Source-supported only; no independent canon corroboration. Den is supporting context for Sharon; his history is not admitted in this slice.",
+          "evidence_sources": [
+            "ben-wiki",
+            "ben-identity"
+          ]
+        },
+        {
+          "character_id": "kat-slater",
+          "name": "Kat Slater",
+          "aliases": [
+            "Kat Moon",
+            "Kat Mitchell"
+          ],
+          "performers": [
+            "Jessie Wallace",
+            "Kate Peck",
+            "Sumar-Elise Sandford",
+            "Amelia Crouch"
+          ],
+          "coverage": "core",
+          "wikidata_id": "Q3955054",
+          "review_note": "Codex source inspection, 25 September 2026: Wikipedia infobox identity/aliases/performers and linked Wikidata item. Source-supported only; no independent canon corroboration. Den is supporting context for Sharon; his history is not admitted in this slice.",
+          "evidence_sources": [
+            "kat-wiki",
+            "kat-identity"
+          ]
+        },
+        {
+          "character_id": "den-watts",
+          "name": "Den Watts",
+          "aliases": [
+            "Dennis Alan Watts",
+            "Dirty Den"
+          ],
+          "performers": [
+            "Leslie Grantham"
+          ],
+          "coverage": "supporting",
+          "wikidata_id": "Q5256484",
+          "review_note": "Codex source inspection, 25 September 2026: Wikipedia infobox identity/aliases/performers and linked Wikidata item. Source-supported only; no independent canon corroboration. Den is supporting context for Sharon; his history is not admitted in this slice.",
+          "evidence_sources": [
+            "den-wiki",
+            "sharon-wiki"
+          ]
+        }
+      ]
+    },
+    "extractor": "issue-18-source-reviewed-locator-rebinding"
+  },
+  "reviews": [
+    {
+      "claim_id": "phil-ben",
+      "claim_sha256": "0b3d818fd3d115f47c43b5796e094846164556d8bc151dad0f6004d171d0a34e",
+      "verdict": "supported",
+      "reviewer": "implementer-source-based-agent-review",
+      "note": "Inspected the full Ben paragraph before paid work. It explicitly states Ben was born to Phil and Kathy in March 1996. Rebind the retained reviewed biological claims to the exact same quote in this captured revision; no new extraction or independent canon claim."
+    },
+    {
+      "claim_id": "kathy-ben",
+      "claim_sha256": "d396e104e929e9e235cf61bac24fe8778e0b835369b8f3dc57f68d379919453d",
+      "verdict": "supported",
+      "reviewer": "implementer-source-based-agent-review",
+      "note": "Inspected the full Ben paragraph before paid work. It explicitly states Ben was born to Phil and Kathy in March 1996. Rebind the retained reviewed biological claims to the exact same quote in this captured revision; no new extraction or independent canon claim."
+    }
+  ],
+  "prior_claim_reference_sha256": "51ed3a8d417aea0773a02eec5a554fd41ba2cbef62e118008a48227451806123"
+}

@@ -100,7 +100,11 @@ def capture_persona(
                     raise ValueError("Persona slice cannot reserve another bounded call.")
                 result = client.post(
                     "/v1/answers",
-                    json={"question": selected["question"], "snapshot_id": selected["snapshot_id"]},
+                    json={
+                        "question": selected["question"],
+                        "snapshot_id": selected["snapshot_id"],
+                        "route": "text_rag",
+                    },
                 )
                 result.raise_for_status()
                 receipt = AnswerReceipt.model_validate(result.json())

@@ -162,7 +162,7 @@ def test_cloud_answer_retains_usage_and_receipt_without_credentials(
     EvidenceStore(database_url).load(seed)
     service.prepare(seed.snapshot_id)
     receipt = service.ask(
-        AskRequest(snapshot_id=seed.snapshot_id, question="When did Phil arrive?")
+        AskRequest(snapshot_id=seed.snapshot_id, question="When did Phil arrive? private-test-key")
     )
     response = receipt.response
     if failure == "empty_context":
