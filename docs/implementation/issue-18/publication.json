@@ -1,0 +1,44 @@
+{
+  "issue": 18,
+  "recorded_at": "2026-11-05T17:04:57.325217+00:00",
+  "method": "Native authenticated fast-forward Git push; native Git and GitHub commit-tree readback.",
+  "published_commit": "06b51695e026dd0edb59ff2da2fd0ba6188b378b",
+  "commit_url": "https://github.com/tomh1988-8/rag_demo/commit/06b51695e026dd0edb59ff2da2fd0ba6188b378b",
+  "local_tree": "105404c9f98a38fa2a350f305b16b21984f9daa5",
+  "remote_ref_readback": "06b51695e026dd0edb59ff2da2fd0ba6188b378b",
+  "remote_tree_readback": "105404c9f98a38fa2a350f305b16b21984f9daa5",
+  "exact_tree_match": true,
+  "published_software_inputs_verified": 301,
+  "software_manifest_sha256": "c3cf2b45b3eac0bfb990dae5e3fd429a553389374ff637b81299491d39148bc1",
+  "tracker": {
+    "url": "https://github.com/tomh1988-8/rag_demo/issues/18",
+    "state": "CLOSED",
+    "state_reason": "COMPLETED",
+    "closed_at": "2026-11-05T17:03:17Z",
+    "checked_criteria": 8,
+    "prepared_body_matches_readback": true,
+    "body_sha256": "08c226cf750a792d44ddf4b284871cb2871c06c9ed4fcc9744d8790a78088f7d"
+  },
+  "software": {
+    "native_tests_passed": 715,
+    "docker_contracts_passed": 10,
+    "mypy_files": 183,
+    "ruff_and_format_scope": [
+      "src",
+      "tests",
+      "scripts"
+    ],
+    "review_remaining": {
+      "standards": 0,
+      "spec": 0
+    }
+  },
+  "preservation": {
+    "original_data_files": 98,
+    "protected_inputs": 150,
+    "all_hashes_match": true,
+    "trial_ledger_usd": 1.11353,
+    "unsettled_reservations": 0
+  },
+  "limitations": "Source-reviewed exposed development comparison; known completeness/expansion failures and the optional pre-execution budget stop remain preserved. No held-out, human-canon or full-release acceptance."
+}

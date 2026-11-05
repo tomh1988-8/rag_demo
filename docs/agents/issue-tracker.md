@@ -11,7 +11,10 @@ commands so they work even without a configured Git remote.
 
 ## Current Ask Phil handoff
 
-**Issue #18 is implemented and validated locally; publication is pending.**
+**Issue #18 is complete and closed** after [verified publication](https://github.com/tomh1988-8/rag_demo/commit/06b51695e026dd0edb59ff2da2fd0ba6188b378b).
+[The receipt](../implementation/issue-18/publication.json) records exact remote
+commit/tree readback, all 301 published software inputs, eight checked criteria
+and completed tracker closure.
 [Evidence](../implementation/issue-18/README.md) records 715 passing native tests,
 ten Docker contracts, strict mypy across 183 files and zero remaining Standards
 or Spec findings. All 301 frozen software inputs and 150 protected inputs verify.
@@ -30,8 +33,8 @@ held-out or broad release acceptance is claimed. Register counts are 44 Pass /
 7 Pending. Preserve the non-resetting $5 ledger at **$1.113530**, zero unsettled
 reservations, all 98 original data files and the user's existing work.
 
-After exact-tree publication and tracker readback, **#25 is next**. Do not begin
-another issue without the user's next implementation instruction.
+**#25 is next.** Wait for the user's next implementation instruction before
+starting another issue.
 
 ### Prior issue #24 handoff
 

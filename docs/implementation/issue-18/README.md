@@ -235,3 +235,11 @@ original data files and all 150 protected user/private inputs retain their hashe
 The successful full run retains Prefect's closed-file logging diagnostic during
 temporary-server shutdown after the pytest result; it does not change exit status.
 Earlier failed/interrupted runs remain available and are not reported as passes.
+
+## Publication
+
+[06b5169](https://github.com/tomh1988-8/rag_demo/commit/06b51695e026dd0edb59ff2da2fd0ba6188b378b)
+is published by native fast-forward Git push. [The receipt](publication.json)
+records exact remote-tree agreement, all 301 published software inputs and exact
+tracker readback with all eight criteria checked and issue #18 closed. Completion
+receipt/handoff publication changes documentation only.
