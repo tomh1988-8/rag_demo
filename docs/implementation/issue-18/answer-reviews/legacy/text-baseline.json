@@ -1,0 +1,196 @@
+{
+  "capture_sha256": "2ce994456e9f5d8de8814b7b438d7086785fd42584324c32c2bb325114d448dc",
+  "unit": "Distinct factual sentence/assertion; repeated graph step wording deduplicated. Evidence-limit caveats assessed in outcome review; abstentions have no factual denominator.",
+  "reviews": [
+    {
+      "case_id": "biological-parents",
+      "response_sha256": "52489eef8171df5d06571416f5cd0ada4b7d652856d9cfe2d399dc34376ecaff",
+      "reference_sha256": "0fd996b24d43c19f3b988fb5307e8ca3c74d77676455e3888abd016609a94f40",
+      "reviewer": "Codex source review, independently checked by Spec review",
+      "rationale": "The born-to sentence supports Phil/Kathy as the biological parents; first-person me is Phil. Biological ancestor arrows retain child-to-parent direction. Reviewed actual final prose, context and cited text; coverage caveats are checked separately from factual assertion units. Agent source review, not human canon or independent corroboration.",
+      "claims": [
+        {
+          "claim": "I\u2019m Ben\u2019s father.",
+          "correct": true,
+          "grounded": true,
+          "citation_supported": true
+        },
+        {
+          "claim": "Kathy Beale is his mother.",
+          "correct": true,
+          "grounded": true,
+          "citation_supported": true
+        }
+      ],
+      "required_facts": [
+        {
+          "fact": "Phil Mitchell and Kathy Beale are Ben Mitchell's biological parents.",
+          "covered": true
+        }
+      ],
+      "answerability": true,
+      "relevance": true,
+      "critical_failures": []
+    },
+    {
+      "case_id": "adoptive-history",
+      "response_sha256": "51a114c6dafff07a950c07ee2bddd4ab14c76a31e9d4752bcc726a875bc5c6c3",
+      "reference_sha256": "f1ce29fcdd900ddf428c3e717f7034300ce982ddff5b3c42ff79eac97d0dd1b4",
+      "reviewer": "Codex source review, independently checked by Spec review",
+      "rationale": "The Sharon source identifies adoption by Den and Angie at age three. No biological tie or exhaustive later history is inferred. Reviewed actual final prose, context and cited text; coverage caveats are checked separately from factual assertion units. Agent source review, not human canon or independent corroboration.",
+      "claims": [
+        {
+          "claim": "Den and Angie adopted Sharon when she was three and raised her at The Queen Victoria, where they were landlords.",
+          "correct": true,
+          "grounded": true,
+          "citation_supported": true
+        }
+      ],
+      "required_facts": [
+        {
+          "fact": "Den Watts is Sharon Watts's adoptive parent.",
+          "covered": true
+        }
+      ],
+      "answerability": true,
+      "relevance": true,
+      "critical_failures": []
+    },
+    {
+      "case_id": "crime-roles",
+      "response_sha256": "7753022065d920bb3629cb6be26b48120678ff25751819b3d83cbca993810aa3",
+      "reference_sha256": "167951b931c1e31bd94f7095eacf15cadd3626bd123a3e4337f00f220e8dce46",
+      "reviewer": "Codex source review, independently checked by Spec review",
+      "rationale": "The Max/Phil excerpts distinguish Bobby's commission from Ben/Max arrests, charge, conviction and imprisonment; Max's sentence does not establish guilt. Unknown/relative dates remain qualified. Reviewed actual final prose, context and cited text; coverage caveats are checked separately from factual assertion units. Agent source review, not human canon or independent corroboration.",
+      "claims": [
+        {
+          "claim": "Bobby Beale killed Lucy, and Jane covered it up.",
+          "correct": true,
+          "grounded": true,
+          "citation_supported": true
+        },
+        {
+          "claim": "Max told everyone Bobby was the killer when police arrested Max, but they dismissed his claim.",
+          "correct": true,
+          "grounded": true,
+          "citation_supported": true
+        },
+        {
+          "claim": "Max was later sentenced to life imprisonment for Lucy\u2019s murder.",
+          "correct": true,
+          "grounded": true,
+          "citation_supported": true
+        }
+      ],
+      "required_facts": [
+        {
+          "fact": "Bobby Beale killed Lucy Beale.",
+          "covered": true
+        }
+      ],
+      "answerability": true,
+      "relevance": true,
+      "critical_failures": []
+    },
+    {
+      "case_id": "ancestry-connection",
+      "response_sha256": "981c3b07afda34d0d9dd13311696443abbb850f3aaad003bfea7cca03bdb0858",
+      "reference_sha256": "e333e2d7959a63a6ac59df0f5c04d8935c91751025d2a39a0ddb0ce2192fda61",
+      "reviewer": "Codex source review, independently checked by Spec review",
+      "rationale": "Born-to and Peggy pregnancy passages establish Ben -> Phil -> Peggy ancestry. Kathy/Phil marriage, separation and counselling reconciliation paths are supported social links and are not biological inferences. Reviewed actual final prose, context and cited text; coverage caveats are checked separately from factual assertion units. Agent source review, not human canon or independent corroboration.",
+      "claims": [
+        {
+          "claim": "Peggy\u2019s my mum, and Ben\u2019s my son.",
+          "correct": true,
+          "grounded": true,
+          "citation_supported": true
+        },
+        {
+          "claim": "That makes Peggy Ben\u2019s grandmother.",
+          "correct": true,
+          "grounded": true,
+          "citation_supported": true
+        }
+      ],
+      "required_facts": [
+        {
+          "fact": "Peggy Mitchell is Ben Mitchell's biological grandmother through Phil Mitchell.",
+          "covered": true
+        }
+      ],
+      "answerability": true,
+      "relevance": true,
+      "critical_failures": []
+    },
+    {
+      "case_id": "sufficient-text",
+      "response_sha256": "4513b130a484d132a3ce4ee85de22a12b0b38e0ae504f2dfcc4f030bec435012",
+      "reference_sha256": "c508e10213506d7fa4f7b27d051857d86f8903665d13f78ad5b2beea3e7e0973",
+      "reviewer": "Codex source review, independently checked by Spec review",
+      "rationale": "The cited Christmas Day 2005 sentence supports both the pregnancy discovery and exact story-date precision. Reviewed actual final prose, context and cited text; coverage caveats are checked separately from factual assertion units. Agent source review, not human canon or independent corroboration.",
+      "claims": [
+        {
+          "claim": "Sharon discovered she was pregnant on Christmas Day 2005.",
+          "correct": true,
+          "grounded": true,
+          "citation_supported": true
+        },
+        {
+          "claim": "That\u2019s an exact day, not an estimate.",
+          "correct": true,
+          "grounded": true,
+          "citation_supported": true
+        }
+      ],
+      "required_facts": [
+        {
+          "fact": "Sharon Watts discovers she is pregnant on Christmas Day 2005; the supported story date is exact.",
+          "covered": true
+        }
+      ],
+      "answerability": true,
+      "relevance": true,
+      "critical_failures": []
+    },
+    {
+      "case_id": "multi-family",
+      "response_sha256": "b07357d9cb3226268cd5b457defeb0136d19956f4addda2f21050d84ba53d5dd",
+      "reference_sha256": "4146ee45a68b6963ad0535934ade2c385bdf8126577411cf835e2e1637260c3b",
+      "reviewer": "Codex source review, independently checked by Spec review",
+      "rationale": "The birth sentence supports Phil/Kathy; the Peggy pregnancy sentence supports Peggy as Phil's mother. Text-only context omits Peggy and admits the gap; investigations acquire that support. Reviewed actual final prose, context and cited text; coverage caveats are checked separately from factual assertion units. Agent source review, not human canon or independent corroboration.",
+      "claims": [
+        {
+          "claim": "Ben's biological parents are me and Kathy Beale.",
+          "correct": true,
+          "grounded": true,
+          "citation_supported": true
+        }
+      ],
+      "required_facts": [
+        {
+          "fact": "Phil Mitchell and Kathy Beale are Ben Mitchell's biological parents.",
+          "covered": true
+        },
+        {
+          "fact": "Peggy Mitchell is Phil Mitchell's biological mother.",
+          "covered": false
+        }
+      ],
+      "answerability": true,
+      "relevance": true,
+      "critical_failures": []
+    },
+    {
+      "case_id": "unsupported-theme",
+      "response_sha256": "b59b263d61270041fe4c84a86b0da7f41c471df65baaa640e84ea92d8d975186",
+      "reference_sha256": "41e4a440c41d4fdf8680bcef2b833c1d5c5faea4403f794c65f0fce970acab69",
+      "reviewer": "Codex source review, independently checked by Spec review",
+      "rationale": "No supported thematic response exists in this frozen corpus; the answer abstains and does not infer that the programme event never happened. Reviewed actual final prose, context and cited text; coverage caveats are checked separately from factual assertion units. Agent source review, not human canon or independent corroboration.",
+      "claims": [],
+      "required_facts": [],
+      "answerability": true,
+      "relevance": true,
+      "critical_failures": []
+    }
+  ]
+}

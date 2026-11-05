@@ -1,0 +1,262 @@
+{
+  "capture_sha256": "caca572c01b2d278fcf6a367210664672b772a389384669ef42b191ef612cee7",
+  "unit": "Distinct factual sentence/assertion; repeated graph step wording deduplicated. Evidence-limit caveats assessed in outcome review; abstentions have no factual denominator.",
+  "reviews": [
+    {
+      "case_id": "biological-parents",
+      "response_sha256": "c9029cb3c1af70546e9b83211a294fcf960f61dcd6efe8207c9f67746c7edad3",
+      "reference_sha256": "0fd996b24d43c19f3b988fb5307e8ca3c74d77676455e3888abd016609a94f40",
+      "reviewer": "Codex source review, independently checked by Spec review",
+      "rationale": "The born-to sentence supports Phil/Kathy as the biological parents; first-person me is Phil. Biological ancestor arrows retain child-to-parent direction. Reviewed actual final prose, context and cited text; coverage caveats are checked separately from factual assertion units. Agent source review, not human canon or independent corroboration.",
+      "claims": [
+        {
+          "claim": "Captured biological ancestors paths: Ben Mitchell \u2192 Kathy Beale; Ben Mitchell \u2192 Phil Mitchell.",
+          "correct": true,
+          "grounded": true,
+          "citation_supported": true
+        }
+      ],
+      "required_facts": [
+        {
+          "fact": "Phil Mitchell and Kathy Beale are Ben Mitchell's biological parents.",
+          "covered": true
+        }
+      ],
+      "answerability": true,
+      "relevance": true,
+      "critical_failures": []
+    },
+    {
+      "case_id": "adoptive-history",
+      "response_sha256": "8f7734d8c6cdf1d1e69668e7c3495cd733c23fa8e36b6ad964d10248083ff0de",
+      "reference_sha256": "f1ce29fcdd900ddf428c3e717f7034300ce982ddff5b3c42ff79eac97d0dd1b4",
+      "reviewer": "Codex source review, independently checked by Spec review",
+      "rationale": "The Sharon source identifies adoption by Den and Angie at age three. No biological tie or exhaustive later history is inferred. Reviewed actual final prose, context and cited text; coverage caveats are checked separately from factual assertion units. Agent source review, not human canon or independent corroboration.",
+      "claims": [
+        {
+          "claim": "1. Den Watts was identified as an adoptive parent of Sharon Watts; story timing at the age of three (relative); status unknown in the captured account.",
+          "correct": true,
+          "grounded": true,
+          "citation_supported": true
+        }
+      ],
+      "required_facts": [
+        {
+          "fact": "Den Watts is Sharon Watts's adoptive parent.",
+          "covered": true
+        }
+      ],
+      "answerability": true,
+      "relevance": true,
+      "critical_failures": []
+    },
+    {
+      "case_id": "crime-roles",
+      "response_sha256": "1d487cdf6f5c05bcf4f1d0c6e0c03c2766f9444816d7ff6832916df4a09d04e5",
+      "reference_sha256": "167951b931c1e31bd94f7095eacf15cadd3626bd123a3e4337f00f220e8dce46",
+      "reviewer": "Codex source review, independently checked by Spec review",
+      "rationale": "The Max/Phil excerpts distinguish Bobby's commission from Ben/Max arrests, charge, conviction and imprisonment; Max's sentence does not establish guilt. Unknown/relative dates remain qualified. Reviewed actual final prose, context and cited text; coverage caveats are checked separately from factual assertion units. Agent source review, not human canon or independent corroboration.",
+      "claims": [
+        {
+          "claim": "Lucy Beale's murder \u2014 arrest: Ben Mitchell was arrested; story date unknown.",
+          "correct": true,
+          "grounded": true,
+          "citation_supported": true
+        },
+        {
+          "claim": "Lucy Beale's murder \u2014 accusation: Bobby Beale was accused; Max Branning made the accusation; story timing As he is being arrested (relative).",
+          "correct": true,
+          "grounded": true,
+          "citation_supported": true
+        },
+        {
+          "claim": "Lucy Beale's murder \u2014 commission: Bobby Beale committed the act described in this incident; Lucy Beale was the victim; story date unknown. Separately reviewed narrative supports commission.",
+          "correct": true,
+          "grounded": true,
+          "citation_supported": true
+        },
+        {
+          "claim": "Lucy Beale's murder \u2014 arrest: Max Branning was arrested; story timing when Lucy's blood is found on his shoe (relative).",
+          "correct": true,
+          "grounded": true,
+          "citation_supported": true
+        },
+        {
+          "claim": "Lucy Beale's murder \u2014 charge: Max Branning was accused; story timing when Lucy's blood is found on his shoe (relative).",
+          "correct": true,
+          "grounded": true,
+          "citation_supported": true
+        },
+        {
+          "claim": "Lucy Beale's murder \u2014 conviction: Max Branning was convicted; story date unknown.",
+          "correct": true,
+          "grounded": true,
+          "citation_supported": true
+        },
+        {
+          "claim": "Lucy Beale's murder \u2014 imprisonment: Max Branning was imprisoned; story timing later (relative).",
+          "correct": true,
+          "grounded": true,
+          "citation_supported": true
+        },
+        {
+          "claim": "Lucy Beale's murder \u2014 arrest: Max Branning was arrested; story date unknown.",
+          "correct": true,
+          "grounded": true,
+          "citation_supported": true
+        }
+      ],
+      "required_facts": [
+        {
+          "fact": "Bobby Beale killed Lucy Beale.",
+          "covered": true
+        }
+      ],
+      "answerability": true,
+      "relevance": true,
+      "critical_failures": []
+    },
+    {
+      "case_id": "ancestry-connection",
+      "response_sha256": "d8034a9e4978cb55aa7103ae23b96585139247dc61355b75af7f3c59909cb4be",
+      "reference_sha256": "e333e2d7959a63a6ac59df0f5c04d8935c91751025d2a39a0ddb0ce2192fda61",
+      "reviewer": "Codex source review, independently checked by Spec review",
+      "rationale": "Born-to and Peggy pregnancy passages establish Ben -> Phil -> Peggy ancestry. Kathy/Phil marriage, separation and counselling reconciliation paths are supported social links and are not biological inferences. Reviewed actual final prose, context and cited text; coverage caveats are checked separately from factual assertion units. Agent source review, not human canon or independent corroboration.",
+      "claims": [
+        {
+          "claim": "Ben Mitchell \u2192 Phil Mitchell \u2192 Peggy Mitchell. Derived meaning: biological grandchild from the first to last character.",
+          "correct": true,
+          "grounded": true,
+          "citation_supported": true
+        },
+        {
+          "claim": "Phil Mitchell is a biological parent of Ben Mitchell; traversed child_to_parent. [family-ben-birth]",
+          "correct": true,
+          "grounded": true,
+          "citation_supported": true
+        },
+        {
+          "claim": "Peggy Mitchell is a biological parent of Phil Mitchell; traversed child_to_parent. [family-peggy-phil]",
+          "correct": true,
+          "grounded": true,
+          "citation_supported": true
+        },
+        {
+          "claim": "Kathy Beale is a biological parent of Ben Mitchell; traversed child_to_parent. [family-ben-birth]",
+          "correct": true,
+          "grounded": true,
+          "citation_supported": true
+        },
+        {
+          "claim": "Phil Mitchell \u2192 Kathy Beale: marriage; captured status unknown; story timing unknown (unknown); traversed symmetric. [history-ben-birth]",
+          "correct": true,
+          "grounded": true,
+          "citation_supported": true
+        },
+        {
+          "claim": "Phil Mitchell \u2192 Kathy Beale: reconciliation; captured status unknown; story timing when he attends counselling (relative); traversed symmetric. [history-kathy-reconciliation]",
+          "correct": true,
+          "grounded": true,
+          "citation_supported": true
+        },
+        {
+          "claim": "Phil Mitchell \u2192 Kathy Beale: separation; captured status unknown; story timing unknown (unknown); traversed symmetric. [history-kathy-separation]",
+          "correct": true,
+          "grounded": true,
+          "citation_supported": true
+        },
+        {
+          "claim": "Phil Mitchell \u2192 Kathy Beale: marriage; captured status unknown; story timing unknown (unknown); traversed symmetric. [history-kathy-marriage]",
+          "correct": true,
+          "grounded": true,
+          "citation_supported": true
+        }
+      ],
+      "required_facts": [
+        {
+          "fact": "Peggy Mitchell is Ben Mitchell's biological grandmother through Phil Mitchell.",
+          "covered": true
+        }
+      ],
+      "answerability": true,
+      "relevance": true,
+      "critical_failures": []
+    },
+    {
+      "case_id": "sufficient-text",
+      "response_sha256": "0d331cad635ff532cf2fc449ffce405a6516373ea6efd885c2894217987bdd95",
+      "reference_sha256": "c508e10213506d7fa4f7b27d051857d86f8903665d13f78ad5b2beea3e7e0973",
+      "reviewer": "Codex source review, independently checked by Spec review",
+      "rationale": "The cited Christmas Day 2005 sentence supports both the pregnancy discovery and exact story-date precision. Reviewed actual final prose, context and cited text; coverage caveats are checked separately from factual assertion units. Agent source review, not human canon or independent corroboration.",
+      "claims": [
+        {
+          "claim": "The captured account puts Sharon\u2019s discovery on Christmas Day 2005.",
+          "correct": true,
+          "grounded": true,
+          "citation_supported": true
+        },
+        {
+          "claim": "That\u2019s an exact day, not an approximate date.",
+          "correct": true,
+          "grounded": true,
+          "citation_supported": true
+        }
+      ],
+      "required_facts": [
+        {
+          "fact": "Sharon Watts discovers she is pregnant on Christmas Day 2005; the supported story date is exact.",
+          "covered": true
+        }
+      ],
+      "answerability": true,
+      "relevance": true,
+      "critical_failures": []
+    },
+    {
+      "case_id": "multi-family",
+      "response_sha256": "655ee2e5a78f1e482ea360dc2c12fcb4c98d3e19658412afd3459355cb140f3a",
+      "reference_sha256": "4146ee45a68b6963ad0535934ade2c385bdf8126577411cf835e2e1637260c3b",
+      "reviewer": "Codex source review, independently checked by Spec review",
+      "rationale": "The birth sentence supports Phil/Kathy; the Peggy pregnancy sentence supports Peggy as Phil's mother. Text-only context omits Peggy and admits the gap; investigations acquire that support. Reviewed actual final prose, context and cited text; coverage caveats are checked separately from factual assertion units. Agent source review, not human canon or independent corroboration.",
+      "claims": [
+        {
+          "claim": "Ben's biological parents are me and Kathy Beale.",
+          "correct": true,
+          "grounded": true,
+          "citation_supported": true
+        },
+        {
+          "claim": "My biological mother is Peggy Mitchell.",
+          "correct": true,
+          "grounded": true,
+          "citation_supported": true
+        }
+      ],
+      "required_facts": [
+        {
+          "fact": "Phil Mitchell and Kathy Beale are Ben Mitchell's biological parents.",
+          "covered": true
+        },
+        {
+          "fact": "Peggy Mitchell is Phil Mitchell's biological mother.",
+          "covered": true
+        }
+      ],
+      "answerability": true,
+      "relevance": true,
+      "critical_failures": []
+    },
+    {
+      "case_id": "unsupported-theme",
+      "response_sha256": "cafbb141cfb9c3af41061ff3720d45028f3e3bfe483f06f436f5ba45e8566268",
+      "reference_sha256": "41e4a440c41d4fdf8680bcef2b833c1d5c5faea4403f794c65f0fce970acab69",
+      "reviewer": "Codex source review, independently checked by Spec review",
+      "rationale": "No supported thematic response exists in this frozen corpus; the answer abstains and does not infer that the programme event never happened. Reviewed actual final prose, context and cited text; coverage caveats are checked separately from factual assertion units. Agent source review, not human canon or independent corroboration.",
+      "claims": [],
+      "required_facts": [],
+      "answerability": true,
+      "relevance": true,
+      "critical_failures": []
+    }
+  ]
+}

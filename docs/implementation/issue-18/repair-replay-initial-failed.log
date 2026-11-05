@@ -1,0 +1,49 @@
+/home/tom/Documents/code/python/rag_demo/.venv/lib/python3.12/site-packages/fastapi/testclient.py:1: StarletteDeprecationWarning: Using `httpx` with `starlette.testclient` is deprecated; install `httpx2` instead.
+  from starlette.testclient import TestClient as TestClient  # noqa
+2026/11/05 16:11:47 INFO mlflow.store.db.utils: Creating initial MLflow database tables...
+2026/11/05 16:11:47 INFO mlflow.store.db.utils: Updating database tables
+auto-baseline biological-parents True
+auto-baseline adoptive-history True
+auto-baseline crime-roles True
+auto-baseline ancestry-connection True
+auto-baseline sufficient-text False
+auto-baseline multi-family False
+auto-baseline unsupported-theme False
+auto-combined sufficient-text False
+auto-combined multi-family False
+auto-combined unsupported-theme False
+graph biological-parents True
+graph adoptive-history True
+graph crime-roles True
+graph ancestry-connection True
+investigation sufficient-text False
+investigation multi-family False
+text-baseline biological-parents False
+text-baseline adoptive-history False
+text-baseline crime-roles False
+text-baseline ancestry-connection False
+text-baseline sufficient-text False
+text-baseline multi-family False
+text-baseline unsupported-theme False
+text-combined biological-parents False
+text-combined adoptive-history False
+text-combined crime-roles False
+text-combined ancestry-connection False
+text-combined sufficient-text False
+text-combined multi-family False
+text-combined unsupported-theme False
+text-expansion biological-parents False
+text-expansion adoptive-history False
+text-expansion crime-roles False
+text-expansion ancestry-connection False
+text-expansion sufficient-text False
+text-expansion multi-family False
+text-expansion unsupported-theme False
+text-fusion biological-parents False
+text-fusion adoptive-history False
+text-fusion crime-roles False
+text-fusion ancestry-connection False
+text-fusion sufficient-text False
+text-fusion multi-family False
+text-fusion unsupported-theme False
+2026/11/05 16:12:53 INFO mlflow.tracing.export.async_export_queue: Flushing the async trace logging queue before program exit. This may take a while...

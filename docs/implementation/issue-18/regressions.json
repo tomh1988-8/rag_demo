@@ -1,0 +1,61 @@
+{
+  "version": 1,
+  "split": "development-regression",
+  "issue": 18,
+  "cases": [
+    {
+      "case_id": "multi-family",
+      "cohort": "legacy",
+      "arms": ["text-baseline", "text-fusion", "text-expansion", "text-combined"],
+      "failure": "The assembled text context omits Peggy's parentage; the supported partial answer misses one of two required facts.",
+      "disposition": "Retain four strict completeness failures. Automatic investigation obtains the missing source support; no text-only quality fix is claimed.",
+      "evidence": "comparison.json"
+    },
+    {
+      "case_id": "sufficient-text",
+      "cohort": "ordered",
+      "arms": ["text-expansion", "text-combined"],
+      "failure": "Expansion drops the frozen Christmas Day 2005 discovery passage and instead retains the later Louise/Keanu pregnancy account.",
+      "disposition": "Retain two required-date losses. Relative-sequence answers are supported by their actual context, but fail the frozen fact. The unspecified pregnancy is also a reference limitation. Keep baseline selected.",
+      "evidence": "answer-reviews/ordered"
+    },
+    {
+      "case_id": "biological-parents",
+      "cohort": "ordered",
+      "arms": ["auto-baseline"],
+      "failure": "The v1 reference expected graph eligibility despite Phil/Kathy being absent from the captured identity catalogue. Both reviewed parentage claims are held for identity; actual text fallback is correct.",
+      "disposition": "Preserve the original v1 label, projection, response and false raw eligibility score. Version 2 corrects expected eligibility only. Capture preflight and public admission/API checks prevent accidental acceptance of the mismatch.",
+      "evidence": "../../../data/references/routing-ordered-v2.json"
+    },
+    {
+      "case_id": "ordered-identity-extension",
+      "failure": "Adding retained parent identities only to the claim catalogue conflicts with the captured reviewed catalogue.",
+      "disposition": "Rejected. Preserve the failed fixture and validation evidence; do not admit new identities or change the original corpus.",
+      "evidence": "ordered-identity-constraint-red.xml"
+    },
+    {
+      "case_id": "ordered-capture-interruption",
+      "failure": "Two ordered trace export files are empty and the fourth response stopped during verification.",
+      "disposition": "Original immutable PostgreSQL documents and original MLflow outputs match all four saved responses. Recover original trace exports, verify citations and label isolated copied-document CLI readback. Preserve original damaged artifacts; zero paid recovery calls.",
+      "evidence": "runtime-ordered-recovered-v1/recovery.json"
+    },
+    {
+      "case_id": "ordered-auto-combined-budget-stop",
+      "failure": "At 57 cumulative paid calls, the next request cannot reserve its eight-call maximum under the original 64-call cap.",
+      "disposition": "Stop before both optional ordered auto-combined responses. Retain the failed empty journal and log. No cap reset/increase and no unexecuted quality pass.",
+      "evidence": "runtime-ordered-continuation-v1/auto-combined.json"
+    },
+    {
+      "case_id": "replay-export-reader",
+      "failure": "The initial replay reader expected provider usage in span outputs, where the exporter stores only content; usage is a separate attribute.",
+      "disposition": "Repair only the replay reader. Retain the synthetic failures and the final 44/44 exact replay. Both runs make zero paid calls and provide no fresh model-quality observation.",
+      "evidence": "repair-replay-initial-failed.json"
+    }
+  ],
+  "limitations": [
+    "Seven unique exposed development questions in five overlapping story groups; no human-canon or held-out acceptance.",
+    "Legacy and ordered corpora, operating points and factual-assertion units are reported separately.",
+    "The 4000-byte comparison does not establish quality at the 1200-byte default.",
+    "Historical extraction, corpus and judge disagreements remain unresolved unless separately evidenced."
+  ]
+}

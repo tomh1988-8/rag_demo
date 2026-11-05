@@ -1,0 +1,669 @@
+{
+  "application_sha256": "c20996e15f33bce7adfe9a6c538f20761fab18822aad56f404c420244b269e5f",
+  "capture_commit": "8f63213",
+  "paid_calls": 0,
+  "shared_ledger_unchanged": true,
+  "cases": [
+    {
+      "arm": "auto-baseline",
+      "case_id": "biological-parents",
+      "original_response_id": "813aaae8-0919-4f25-922f-6a6aff3d72de",
+      "all_model_messages_unchanged": true,
+      "replayed_model_calls": 0,
+      "unchanged": {
+        "answer": true,
+        "status": true,
+        "route": true,
+        "context": true,
+        "citations": true,
+        "unanswered": true
+      }
+    },
+    {
+      "arm": "auto-baseline",
+      "case_id": "adoptive-history",
+      "original_response_id": "ce19807d-e4b5-4954-8585-5325bd45878e",
+      "all_model_messages_unchanged": true,
+      "replayed_model_calls": 0,
+      "unchanged": {
+        "answer": true,
+        "status": true,
+        "route": true,
+        "context": true,
+        "citations": true,
+        "unanswered": true
+      }
+    },
+    {
+      "arm": "auto-baseline",
+      "case_id": "crime-roles",
+      "original_response_id": "a8e9bd24-1b57-4071-ab3e-882e124a9d0e",
+      "all_model_messages_unchanged": true,
+      "replayed_model_calls": 0,
+      "unchanged": {
+        "answer": true,
+        "status": true,
+        "route": true,
+        "context": true,
+        "citations": true,
+        "unanswered": true
+      }
+    },
+    {
+      "arm": "auto-baseline",
+      "case_id": "ancestry-connection",
+      "original_response_id": "dd1d9fd1-c940-4d5d-a141-04444ba9f7a1",
+      "all_model_messages_unchanged": true,
+      "replayed_model_calls": 0,
+      "unchanged": {
+        "answer": true,
+        "status": true,
+        "route": true,
+        "context": true,
+        "citations": true,
+        "unanswered": true
+      }
+    },
+    {
+      "arm": "auto-baseline",
+      "case_id": "sufficient-text",
+      "original_response_id": "5394d96a-f2bc-4b8d-b6d0-2bd5135e4c0b",
+      "all_model_messages_unchanged": true,
+      "replayed_model_calls": 1,
+      "unchanged": {
+        "answer": true,
+        "status": true,
+        "route": true,
+        "context": true,
+        "citations": true,
+        "unanswered": true
+      }
+    },
+    {
+      "arm": "auto-baseline",
+      "case_id": "multi-family",
+      "original_response_id": "577d2638-83b1-4505-b5f0-af0f08ab91e3",
+      "all_model_messages_unchanged": true,
+      "replayed_model_calls": 3,
+      "unchanged": {
+        "answer": true,
+        "status": true,
+        "route": true,
+        "context": true,
+        "citations": true,
+        "unanswered": true
+      }
+    },
+    {
+      "arm": "auto-baseline",
+      "case_id": "unsupported-theme",
+      "original_response_id": "317dd522-5664-4134-a80b-a7b48e110313",
+      "all_model_messages_unchanged": true,
+      "replayed_model_calls": 1,
+      "unchanged": {
+        "answer": true,
+        "status": true,
+        "route": true,
+        "context": true,
+        "citations": true,
+        "unanswered": true
+      }
+    },
+    {
+      "arm": "auto-combined",
+      "case_id": "sufficient-text",
+      "original_response_id": "5526e3c7-f3e5-464a-b046-d7e624d4c1ce",
+      "all_model_messages_unchanged": true,
+      "replayed_model_calls": 1,
+      "unchanged": {
+        "answer": true,
+        "status": true,
+        "route": true,
+        "context": true,
+        "citations": true,
+        "unanswered": true
+      }
+    },
+    {
+      "arm": "auto-combined",
+      "case_id": "multi-family",
+      "original_response_id": "22765a83-9a44-49d2-9fac-8d0e1dbaac77",
+      "all_model_messages_unchanged": true,
+      "replayed_model_calls": 3,
+      "unchanged": {
+        "answer": true,
+        "status": true,
+        "route": true,
+        "context": true,
+        "citations": true,
+        "unanswered": true
+      }
+    },
+    {
+      "arm": "auto-combined",
+      "case_id": "unsupported-theme",
+      "original_response_id": "88570e50-1259-4f63-9b41-c89c14e33850",
+      "all_model_messages_unchanged": true,
+      "replayed_model_calls": 1,
+      "unchanged": {
+        "answer": true,
+        "status": true,
+        "route": true,
+        "context": true,
+        "citations": true,
+        "unanswered": true
+      }
+    },
+    {
+      "arm": "graph",
+      "case_id": "biological-parents",
+      "original_response_id": "b1335c32-588e-4942-b7c8-269ed7bf5773",
+      "all_model_messages_unchanged": true,
+      "replayed_model_calls": 0,
+      "unchanged": {
+        "answer": true,
+        "status": true,
+        "route": true,
+        "context": true,
+        "citations": true,
+        "unanswered": true
+      }
+    },
+    {
+      "arm": "graph",
+      "case_id": "adoptive-history",
+      "original_response_id": "3d5310ac-8a45-4dcd-ab8c-0a00455da30e",
+      "all_model_messages_unchanged": true,
+      "replayed_model_calls": 0,
+      "unchanged": {
+        "answer": true,
+        "status": true,
+        "route": true,
+        "context": true,
+        "citations": true,
+        "unanswered": true
+      }
+    },
+    {
+      "arm": "graph",
+      "case_id": "crime-roles",
+      "original_response_id": "f732c539-d085-4d9a-b9be-afb55e2d5a46",
+      "all_model_messages_unchanged": true,
+      "replayed_model_calls": 0,
+      "unchanged": {
+        "answer": true,
+        "status": true,
+        "route": true,
+        "context": true,
+        "citations": true,
+        "unanswered": true
+      }
+    },
+    {
+      "arm": "graph",
+      "case_id": "ancestry-connection",
+      "original_response_id": "a68b663e-bab2-4d37-949d-0c96493851a4",
+      "all_model_messages_unchanged": true,
+      "replayed_model_calls": 0,
+      "unchanged": {
+        "answer": true,
+        "status": true,
+        "route": true,
+        "context": true,
+        "citations": true,
+        "unanswered": true
+      }
+    },
+    {
+      "arm": "investigation",
+      "case_id": "sufficient-text",
+      "original_response_id": "f1084468-aac5-4a09-b3a8-3ee65e63f5b7",
+      "all_model_messages_unchanged": true,
+      "replayed_model_calls": 2,
+      "unchanged": {
+        "answer": true,
+        "status": true,
+        "route": true,
+        "context": true,
+        "citations": true,
+        "unanswered": true
+      }
+    },
+    {
+      "arm": "investigation",
+      "case_id": "multi-family",
+      "original_response_id": "835e26bc-bbea-4219-bd29-815094c4b3dd",
+      "all_model_messages_unchanged": true,
+      "replayed_model_calls": 3,
+      "unchanged": {
+        "answer": true,
+        "status": true,
+        "route": true,
+        "context": true,
+        "citations": true,
+        "unanswered": true
+      }
+    },
+    {
+      "arm": "text-baseline",
+      "case_id": "biological-parents",
+      "original_response_id": "82b3bb50-44c4-4604-b112-51bfe3c84e25",
+      "all_model_messages_unchanged": true,
+      "replayed_model_calls": 1,
+      "unchanged": {
+        "answer": true,
+        "status": true,
+        "route": true,
+        "context": true,
+        "citations": true,
+        "unanswered": true
+      }
+    },
+    {
+      "arm": "text-baseline",
+      "case_id": "adoptive-history",
+      "original_response_id": "f17a3236-da65-4c06-a54a-0115ec8168ea",
+      "all_model_messages_unchanged": true,
+      "replayed_model_calls": 1,
+      "unchanged": {
+        "answer": true,
+        "status": true,
+        "route": true,
+        "context": true,
+        "citations": true,
+        "unanswered": true
+      }
+    },
+    {
+      "arm": "text-baseline",
+      "case_id": "crime-roles",
+      "original_response_id": "9addc668-5760-46b7-aa95-9df068f264f4",
+      "all_model_messages_unchanged": true,
+      "replayed_model_calls": 1,
+      "unchanged": {
+        "answer": true,
+        "status": true,
+        "route": true,
+        "context": true,
+        "citations": true,
+        "unanswered": true
+      }
+    },
+    {
+      "arm": "text-baseline",
+      "case_id": "ancestry-connection",
+      "original_response_id": "a336ad1b-73be-4441-976d-97da3e5e5eeb",
+      "all_model_messages_unchanged": true,
+      "replayed_model_calls": 1,
+      "unchanged": {
+        "answer": true,
+        "status": true,
+        "route": true,
+        "context": true,
+        "citations": true,
+        "unanswered": true
+      }
+    },
+    {
+      "arm": "text-baseline",
+      "case_id": "sufficient-text",
+      "original_response_id": "3eaf0d02-0080-4477-8187-c30bfa55637d",
+      "all_model_messages_unchanged": true,
+      "replayed_model_calls": 1,
+      "unchanged": {
+        "answer": true,
+        "status": true,
+        "route": true,
+        "context": true,
+        "citations": true,
+        "unanswered": true
+      }
+    },
+    {
+      "arm": "text-baseline",
+      "case_id": "multi-family",
+      "original_response_id": "c48c954a-778b-47e2-806e-3b1801c2e407",
+      "all_model_messages_unchanged": true,
+      "replayed_model_calls": 1,
+      "unchanged": {
+        "answer": true,
+        "status": true,
+        "route": true,
+        "context": true,
+        "citations": true,
+        "unanswered": true
+      }
+    },
+    {
+      "arm": "text-baseline",
+      "case_id": "unsupported-theme",
+      "original_response_id": "ab56fe0d-683e-4a67-bfe4-dc5fd61d4b5e",
+      "all_model_messages_unchanged": true,
+      "replayed_model_calls": 1,
+      "unchanged": {
+        "answer": true,
+        "status": true,
+        "route": true,
+        "context": true,
+        "citations": true,
+        "unanswered": true
+      }
+    },
+    {
+      "arm": "text-combined",
+      "case_id": "biological-parents",
+      "original_response_id": "e76cca62-7576-44d9-8b1e-a31c51e0a87c",
+      "all_model_messages_unchanged": true,
+      "replayed_model_calls": 1,
+      "unchanged": {
+        "answer": true,
+        "status": true,
+        "route": true,
+        "context": true,
+        "citations": true,
+        "unanswered": true
+      }
+    },
+    {
+      "arm": "text-combined",
+      "case_id": "adoptive-history",
+      "original_response_id": "21575dde-e3a4-4f25-b78c-1cdfc567ee81",
+      "all_model_messages_unchanged": true,
+      "replayed_model_calls": 1,
+      "unchanged": {
+        "answer": true,
+        "status": true,
+        "route": true,
+        "context": true,
+        "citations": true,
+        "unanswered": true
+      }
+    },
+    {
+      "arm": "text-combined",
+      "case_id": "crime-roles",
+      "original_response_id": "88c7565e-5659-49b6-957f-6a18ecafff40",
+      "all_model_messages_unchanged": true,
+      "replayed_model_calls": 1,
+      "unchanged": {
+        "answer": true,
+        "status": true,
+        "route": true,
+        "context": true,
+        "citations": true,
+        "unanswered": true
+      }
+    },
+    {
+      "arm": "text-combined",
+      "case_id": "ancestry-connection",
+      "original_response_id": "d63ba0ec-e567-4b7e-ac1d-3e8c92b961e4",
+      "all_model_messages_unchanged": true,
+      "replayed_model_calls": 1,
+      "unchanged": {
+        "answer": true,
+        "status": true,
+        "route": true,
+        "context": true,
+        "citations": true,
+        "unanswered": true
+      }
+    },
+    {
+      "arm": "text-combined",
+      "case_id": "sufficient-text",
+      "original_response_id": "b3ba3be4-3c6e-488a-b2e5-9c59eda21fa3",
+      "all_model_messages_unchanged": true,
+      "replayed_model_calls": 1,
+      "unchanged": {
+        "answer": true,
+        "status": true,
+        "route": true,
+        "context": true,
+        "citations": true,
+        "unanswered": true
+      }
+    },
+    {
+      "arm": "text-combined",
+      "case_id": "multi-family",
+      "original_response_id": "c0e25a33-15ad-4fa1-876d-c93b02f1e0d5",
+      "all_model_messages_unchanged": true,
+      "replayed_model_calls": 1,
+      "unchanged": {
+        "answer": true,
+        "status": true,
+        "route": true,
+        "context": true,
+        "citations": true,
+        "unanswered": true
+      }
+    },
+    {
+      "arm": "text-combined",
+      "case_id": "unsupported-theme",
+      "original_response_id": "de710d4b-6c15-4fdd-a3ca-ad0a1a350d57",
+      "all_model_messages_unchanged": true,
+      "replayed_model_calls": 1,
+      "unchanged": {
+        "answer": true,
+        "status": true,
+        "route": true,
+        "context": true,
+        "citations": true,
+        "unanswered": true
+      }
+    },
+    {
+      "arm": "text-expansion",
+      "case_id": "biological-parents",
+      "original_response_id": "4a26f7e8-cbea-4aa9-9063-d05b9fa8e9a0",
+      "all_model_messages_unchanged": true,
+      "replayed_model_calls": 1,
+      "unchanged": {
+        "answer": true,
+        "status": true,
+        "route": true,
+        "context": true,
+        "citations": true,
+        "unanswered": true
+      }
+    },
+    {
+      "arm": "text-expansion",
+      "case_id": "adoptive-history",
+      "original_response_id": "891c3814-176b-4083-a1d3-29930b9607ed",
+      "all_model_messages_unchanged": true,
+      "replayed_model_calls": 1,
+      "unchanged": {
+        "answer": true,
+        "status": true,
+        "route": true,
+        "context": true,
+        "citations": true,
+        "unanswered": true
+      }
+    },
+    {
+      "arm": "text-expansion",
+      "case_id": "crime-roles",
+      "original_response_id": "ce3f28d4-d33b-49e5-94f5-9ed563f03b41",
+      "all_model_messages_unchanged": true,
+      "replayed_model_calls": 1,
+      "unchanged": {
+        "answer": true,
+        "status": true,
+        "route": true,
+        "context": true,
+        "citations": true,
+        "unanswered": true
+      }
+    },
+    {
+      "arm": "text-expansion",
+      "case_id": "ancestry-connection",
+      "original_response_id": "afe8b2d1-e856-4386-8d6f-f08a211236b5",
+      "all_model_messages_unchanged": true,
+      "replayed_model_calls": 1,
+      "unchanged": {
+        "answer": true,
+        "status": true,
+        "route": true,
+        "context": true,
+        "citations": true,
+        "unanswered": true
+      }
+    },
+    {
+      "arm": "text-expansion",
+      "case_id": "sufficient-text",
+      "original_response_id": "1f62138c-5dd6-4044-8e54-6820c62fc042",
+      "all_model_messages_unchanged": true,
+      "replayed_model_calls": 1,
+      "unchanged": {
+        "answer": true,
+        "status": true,
+        "route": true,
+        "context": true,
+        "citations": true,
+        "unanswered": true
+      }
+    },
+    {
+      "arm": "text-expansion",
+      "case_id": "multi-family",
+      "original_response_id": "59d3f021-f1d4-4303-9baa-d0cc24e21686",
+      "all_model_messages_unchanged": true,
+      "replayed_model_calls": 1,
+      "unchanged": {
+        "answer": true,
+        "status": true,
+        "route": true,
+        "context": true,
+        "citations": true,
+        "unanswered": true
+      }
+    },
+    {
+      "arm": "text-expansion",
+      "case_id": "unsupported-theme",
+      "original_response_id": "7c8def7f-56f3-48bf-8e41-35d8335cc42e",
+      "all_model_messages_unchanged": true,
+      "replayed_model_calls": 1,
+      "unchanged": {
+        "answer": true,
+        "status": true,
+        "route": true,
+        "context": true,
+        "citations": true,
+        "unanswered": true
+      }
+    },
+    {
+      "arm": "text-fusion",
+      "case_id": "biological-parents",
+      "original_response_id": "d48f337c-c0ec-4166-a8d9-40c154fca50d",
+      "all_model_messages_unchanged": true,
+      "replayed_model_calls": 1,
+      "unchanged": {
+        "answer": true,
+        "status": true,
+        "route": true,
+        "context": true,
+        "citations": true,
+        "unanswered": true
+      }
+    },
+    {
+      "arm": "text-fusion",
+      "case_id": "adoptive-history",
+      "original_response_id": "34adfb3e-8e72-43b9-a6d9-b1cf938a43a8",
+      "all_model_messages_unchanged": true,
+      "replayed_model_calls": 1,
+      "unchanged": {
+        "answer": true,
+        "status": true,
+        "route": true,
+        "context": true,
+        "citations": true,
+        "unanswered": true
+      }
+    },
+    {
+      "arm": "text-fusion",
+      "case_id": "crime-roles",
+      "original_response_id": "e152417b-49c3-4baf-a821-1e0b70125d7d",
+      "all_model_messages_unchanged": true,
+      "replayed_model_calls": 1,
+      "unchanged": {
+        "answer": true,
+        "status": true,
+        "route": true,
+        "context": true,
+        "citations": true,
+        "unanswered": true
+      }
+    },
+    {
+      "arm": "text-fusion",
+      "case_id": "ancestry-connection",
+      "original_response_id": "71d86103-dd44-472c-9d76-13ff4b8e3ec0",
+      "all_model_messages_unchanged": true,
+      "replayed_model_calls": 1,
+      "unchanged": {
+        "answer": true,
+        "status": true,
+        "route": true,
+        "context": true,
+        "citations": true,
+        "unanswered": true
+      }
+    },
+    {
+      "arm": "text-fusion",
+      "case_id": "sufficient-text",
+      "original_response_id": "05920b76-1cfd-42e3-882f-fcf1be717f4f",
+      "all_model_messages_unchanged": true,
+      "replayed_model_calls": 1,
+      "unchanged": {
+        "answer": true,
+        "status": true,
+        "route": true,
+        "context": true,
+        "citations": true,
+        "unanswered": true
+      }
+    },
+    {
+      "arm": "text-fusion",
+      "case_id": "multi-family",
+      "original_response_id": "346ef5a0-9f26-41fa-bfa4-007039e6db83",
+      "all_model_messages_unchanged": true,
+      "replayed_model_calls": 1,
+      "unchanged": {
+        "answer": true,
+        "status": true,
+        "route": true,
+        "context": true,
+        "citations": true,
+        "unanswered": true
+      }
+    },
+    {
+      "arm": "text-fusion",
+      "case_id": "unsupported-theme",
+      "original_response_id": "fa09e049-edd7-4ae6-9ac4-2739cb184edb",
+      "all_model_messages_unchanged": true,
+      "replayed_model_calls": 1,
+      "unchanged": {
+        "answer": true,
+        "status": true,
+        "route": true,
+        "context": true,
+        "citations": true,
+        "unanswered": true
+      }
+    }
+  ],
+  "limitation": "Retained completions replayed at the external HTTP boundary; this is software/context consistency evidence, not fresh model-quality or latency evidence."
+}

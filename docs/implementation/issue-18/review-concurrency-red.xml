@@ -1,0 +1,34 @@
+<?xml version="1.0" encoding="utf-8"?><testsuites name="pytest tests"><testsuite name="pytest" errors="0" failures="1" skipped="0" tests="1" time="16.072" timestamp="2026-11-04T17:51:09.655840+00:00" hostname="tom-Latitude-3510"><testcase classname="tests.test_routing_api" name="test_automatic_concurrency_is_enforced_in_addition_to_the_shared_serving_limit" time="15.839"><failure message="AssertionError: assert 'malformed_output' == 'concurrency_limit'&#10;  &#10;  - concurrency_limit&#10;  + malformed_output">database_url = 'user=ask_phil password=local-demo-only dbname=ask_phil_test_08232fd138534b9f9d24c9b6b9a58ae4 host=127.0.0.1 port=55424'
+seed = SourceSnapshot(snapshot_id='phil-arrival-v1', fixture_version=1, source=Source(title='Phil Mitchell', url=HttpUrl('htt...82d8d2c75291831d8a3c48142261499f6a04ea732d8b2469031db', start=0, end=111, source=None, location=None),), imported=None)
+slow_models = (Models(settings=ModelSettings(embedding_model='test-embedding', embedding_digest='bbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbb...e, thinking=None, headers=None)), &lt;threading.Event at 0x74d0014f89b0: set&gt;, &lt;threading.Event at 0x74d0014f8a10: unset&gt;)
+tmp_path = PosixPath('/tmp/pytest-of-tom/pytest-49/test_automatic_concurrency_is_0')
+
+    def test_automatic_concurrency_is_enforced_in_addition_to_the_shared_serving_limit(
+        database_url: str,
+        seed: SourceSnapshot,
+        slow_models: tuple[Models, Event, Event],
+        tmp_path: Path,
+    ) -&gt; None:
+        models, entered, _ = slow_models
+        EvidenceStore(database_url).load(seed)
+        TextRetriever(database_url, models.embedding, models.settings.embedding_id, 3).prepare(seed.snapshot_id)
+        policies = ExecutionPolicies(
+            serving=ExecutionLimits(concurrency=4),
+            automatic_serving=ExecutionLimits(concurrency=1),
+        )
+        service = AnswerService(database_url, models, f"sqlite:///{tmp_path}/admission.db", policies=policies)
+        request = AskRequest(snapshot_id=seed.snapshot_id, question="When did Phil arrive?")
+        running_budget = ExecutionBudget(policies.for_request("auto"))
+        with ThreadPoolExecutor(max_workers=1) as pool:
+            running = pool.submit(service.ask, request, execution=running_budget)
+            try:
+                assert entered.wait(5)
+                denied = service.ask(request).response
+                assert denied.execution is not None
+&gt;               assert denied.execution.stop_reason == "concurrency_limit"
+E               AssertionError: assert 'malformed_output' == 'concurrency_limit'
+E                 
+E                 - concurrency_limit
+E                 + malformed_output
+
+tests/test_routing_api.py:377: AssertionError</failure></testcase></testsuite></testsuites>

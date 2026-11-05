@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="utf-8"?><testsuites name="pytest tests"><testsuite name="pytest" errors="0" failures="1" skipped="0" tests="1" time="0.223" timestamp="2026-11-04T17:24:32.799489+00:00" hostname="tom-Latitude-3510"><testcase classname="tests.test_routing" name="test_automatic_routing_honors_existing_explicit_serving_limits" time="0.001"><failure message="assert ExecutionLimi...concurrency=4) == ExecutionLimi...concurrency=4)&#10;  &#10;  Use -v to get more diff">def test_automatic_routing_honors_existing_explicit_serving_limits() -&gt; None:
+        denied = ExecutionLimits(model_calls=0, tool_calls=0)
+        policies = ExecutionPolicies(serving=denied)
+&gt;       assert policies.for_request("auto") == denied
+E       assert ExecutionLimi...concurrency=4) == ExecutionLimi...concurrency=4)
+E         
+E         Use -v to get more diff
+
+tests/test_routing.py:124: AssertionError</failure></testcase></testsuite></testsuites>

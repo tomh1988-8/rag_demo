@@ -1,0 +1,40 @@
+<?xml version="1.0" encoding="utf-8"?><testsuites name="pytest tests"><testsuite name="pytest" errors="0" failures="1" skipped="0" tests="2" time="8.225" timestamp="2026-11-04T17:10:48.100276+00:00" hostname="tom-Latitude-3510"><testcase classname="tests.test_routing_api" name="test_unsupported_thematic_graph_uses_text_or_an_explicit_qualified_empty_override[False]" time="4.599"><failure message="AssertionError: assert 'text_fallback' in {'no_additional_evidence', 'unsupported_question'}">database_url = 'user=ask_phil password=local-demo-only dbname=ask_phil_test_e9f7b50f0bbb476195db47704677d447 host=127.0.0.1 port=55424'
+seed = SourceSnapshot(snapshot_id='phil-arrival-v1', fixture_version=1, source=Source(title='Phil Mitchell', url=HttpUrl('htt...82d8d2c75291831d8a3c48142261499f6a04ea732d8b2469031db', start=0, end=111, source=None, location=None),), imported=None)
+investigator_models = &lt;function investigator_models.&lt;locals&gt;.build at 0x7117e9496200&gt;
+tmp_path = PosixPath('/tmp/pytest-of-tom/pytest-42/test_unsupported_thematic_grap0')
+override = False
+
+    @pytest.mark.parametrize("override", [False, True])
+    def test_unsupported_thematic_graph_uses_text_or_an_explicit_qualified_empty_override(
+        database_url: str,
+        seed: SourceSnapshot,
+        investigator_models: Callable[[list[dict[str, Any]]], Models],
+        tmp_path: Path,
+        override: bool,
+    ) -&gt; None:
+        from test_investigation_api import publish
+    
+        models = investigator_models([{
+            "status": "insufficient_evidence", "answer": "The captured evidence cannot establish that theme.",
+            "evidence_ids": [], "unanswered": [], "qualifications": [],
+        }])
+        publish(database_url, seed, models)
+        request: dict[str, Any] = {"question": "How is Phil Mitchell connected to the theme of betrayal?"}
+        if override:
+            request.update(route="graph", graph={"kind": "theme", "character_id": "phil-mitchell"})
+        with TestClient(create_app(database_url, models=models, tracking_uri=f"sqlite:///{tmp_path}/theme.db")) as client:
+            result = client.post("/v1/answers", json=request)
+            assert result.status_code == 200, result.text
+            answer = result.json()["response"]
+            assert answer["status"] == "insufficient_evidence"
+            assert answer["citations"] == []
+            assert answer.get("route_override", False) is override
+            if override:
+                assert answer["graph"]["status"] == "ineligible"
+                assert not answer["routing"]["eligibility"]["eligible"]
+            else:
+                assert answer["route"] == "text_rag"
+&gt;               assert "text_fallback" in {c["reason"] for c in answer["routing"]["checks"]}
+E               AssertionError: assert 'text_fallback' in {'no_additional_evidence', 'unsupported_question'}
+
+tests/test_routing_api.py:254: AssertionError</failure></testcase><testcase classname="tests.test_routing_api" name="test_unsupported_thematic_graph_uses_text_or_an_explicit_qualified_empty_override[True]" time="3.372" /></testsuite></testsuites>

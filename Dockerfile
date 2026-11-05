@@ -33,6 +33,7 @@ COPY --chown=10001:10001 docs/implementation/issue-11/claims.json docs/implement
 COPY --chown=10001:10001 docs/implementation/issue-12/raw-claims.json docs/implementation/issue-12/raw-claim-reviews.json docs/implementation/issue-12/reviewed-claims-v2.json docs/implementation/issue-12/reviewed-claim-reviews-v2.json ./docs/implementation/issue-12/
 COPY --chown=10001:10001 docs/implementation/issue-13/raw-claims.json docs/implementation/issue-13/raw-reviews.json docs/implementation/issue-13/reviewed-claims-v2.json docs/implementation/issue-13/reviewed-reviews-v2.json ./docs/implementation/issue-13/
 COPY --chown=10001:10001 docs/implementation/issue-16/claim-reviews.json ./docs/implementation/issue-16/
+COPY --chown=10001:10001 docs/implementation/issue-18/ordered-family-projection.json ./docs/implementation/issue-18/
 USER 10001:10001
 CMD ["pytest", "-q", "-p", "no:cacheprovider"]
 

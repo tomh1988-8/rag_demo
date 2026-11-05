@@ -1,0 +1,82 @@
+{
+  "capture_sha256": "18ffcaecba7f24787ec8d27d5113a563d1b4dbaa0e888fafa269c5b0a758f58c",
+  "unit": "Distinct factual sentence/assertion; repeated graph step wording deduplicated. Evidence-limit caveats assessed in outcome review; abstentions have no factual denominator.",
+  "reviews": [
+    {
+      "case_id": "sufficient-text",
+      "response_sha256": "47b24f90817da501169ad0f9ef2d6dd9460373899c7e62c15e7b152b68027447",
+      "reference_sha256": "c508e10213506d7fa4f7b27d051857d86f8903665d13f78ad5b2beea3e7e0973",
+      "reviewer": "Codex source review, independently checked by Spec review",
+      "rationale": "The cited Christmas Day 2005 sentence supports both the pregnancy discovery and exact story-date precision. Reviewed actual final prose, context and cited text; coverage caveats are checked separately from factual assertion units. Agent source review, not human canon or independent corroboration.",
+      "claims": [
+        {
+          "claim": "The captured account dates Sharon\u2019s discovery that she was pregnant to Christmas Day 2005.",
+          "correct": true,
+          "grounded": true,
+          "citation_supported": true
+        },
+        {
+          "claim": "That\u2019s an exact day, not an approximate date.",
+          "correct": true,
+          "grounded": true,
+          "citation_supported": true
+        }
+      ],
+      "required_facts": [
+        {
+          "fact": "Sharon Watts discovers she is pregnant on Christmas Day 2005; the supported story date is exact.",
+          "covered": true
+        }
+      ],
+      "answerability": true,
+      "relevance": true,
+      "critical_failures": []
+    },
+    {
+      "case_id": "multi-family",
+      "response_sha256": "043b65879269e69d729bc8bb01beea61ddd3f3768e0bb99cf92d14e8c9bf271f",
+      "reference_sha256": "4146ee45a68b6963ad0535934ade2c385bdf8126577411cf835e2e1637260c3b",
+      "reviewer": "Codex source review, independently checked by Spec review",
+      "rationale": "The birth sentence supports Phil/Kathy; the Peggy pregnancy sentence supports Peggy as Phil's mother. Text-only context omits Peggy and admits the gap; investigations acquire that support. Reviewed actual final prose, context and cited text; coverage caveats are checked separately from factual assertion units. Agent source review, not human canon or independent corroboration.",
+      "claims": [
+        {
+          "claim": "Ben\u2019s biological parents are me and Kathy Beale.",
+          "correct": true,
+          "grounded": true,
+          "citation_supported": true
+        },
+        {
+          "claim": "My biological mother is Peggy Mitchell.",
+          "correct": true,
+          "grounded": true,
+          "citation_supported": true
+        }
+      ],
+      "required_facts": [
+        {
+          "fact": "Phil Mitchell and Kathy Beale are Ben Mitchell's biological parents.",
+          "covered": true
+        },
+        {
+          "fact": "Peggy Mitchell is Phil Mitchell's biological mother.",
+          "covered": true
+        }
+      ],
+      "answerability": true,
+      "relevance": true,
+      "critical_failures": []
+    },
+    {
+      "case_id": "unsupported-theme",
+      "response_sha256": "b5ec647a07e696256f49a6fc74c14eb78ebd7064d42cdc6e2de6b8f9cf0d2367",
+      "reference_sha256": "41e4a440c41d4fdf8680bcef2b833c1d5c5faea4403f794c65f0fce970acab69",
+      "reviewer": "Codex source review, independently checked by Spec review",
+      "rationale": "No supported thematic response exists in this frozen corpus; the answer abstains and does not infer that the programme event never happened. Reviewed actual final prose, context and cited text; coverage caveats are checked separately from factual assertion units. Agent source review, not human canon or independent corroboration.",
+      "claims": [],
+      "required_facts": [],
+      "answerability": true,
+      "relevance": true,
+      "critical_failures": []
+    }
+  ]
+}

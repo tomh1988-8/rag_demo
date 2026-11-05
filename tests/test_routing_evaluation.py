@@ -1,5 +1,7 @@
 """A matching route label cannot replace supported task completion."""
 
+import json
+from pathlib import Path
 from uuid import UUID
 
 from ask_phil.answers import AnswerRecord
@@ -9,6 +11,28 @@ from ask_phil.execution import ExecutionBudget, ExecutionLimits
 from ask_phil.models import TokenUsage
 from ask_phil.routing import RoutingRecord
 from ask_phil.routing_evaluation import score_routing
+
+
+def test_ordered_routing_parentage_without_captured_parent_identities_stays_held() -> None:
+    from ask_phil.ingestion import build_snapshot, read_batch
+    from ask_phil.parentage import ClaimBatch, ClaimReview, admit_claims
+
+    projection = json.loads(
+        Path("docs/implementation/issue-18/ordered-family-projection.json").read_bytes()
+    )
+    snapshot = build_snapshot(
+        read_batch(Path("data/sources/real-sources-v1.json.gz")), "text-expansion-development-v1"
+    )
+    report = admit_claims(
+        snapshot,
+        ClaimBatch.model_validate(projection["batch"]),
+        tuple(ClaimReview.model_validate(review) for review in projection["reviews"]),
+    )
+    assert {d.claim_id for d in report.decisions if d.status == "held"} == {
+        "phil-ben",
+        "kathy-ben",
+    }
+    assert all(d.reasons == ("identity",) for d in report.decisions)
 
 
 def test_multiple_routes_can_succeed_and_label_agreement_does_not_repair_bad_answers(

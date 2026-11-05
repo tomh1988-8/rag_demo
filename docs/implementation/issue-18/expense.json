@@ -1,0 +1,14 @@
+{
+  "ledger_before_usd": 0.975588,
+  "ledger_after_usd": 1.11353,
+  "additional_ledger_usd": 0.137942,
+  "unsettled_reservations": 0,
+  "paid_calls": 57,
+  "serving_responses": 54,
+  "reported_serving_usd": 0.137923,
+  "offline_review_paid_cost_usd": 0,
+  "indexing_paid_cost_usd": 0,
+  "additional_ceiling_usd": 0.75,
+  "paid_call_ceiling": 64,
+  "stop": "At 57 calls, the next automatic request could not reserve its eight-call maximum under the 64-call ceiling. The two optional ordered auto-combined responses were not executed. No limit was increased or reset."
+}

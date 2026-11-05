@@ -1,0 +1,92 @@
+{
+  "issue": 18,
+  "base_revision": "664541a67a15a76e9f079a2d09fbf3aedc70dcdb",
+  "application_sha256": "c20996e15f33bce7adfe9a6c538f20761fab18822aad56f404c420244b269e5f",
+  "software": {
+    "tests": 715,
+    "failures": 0,
+    "errors": 0,
+    "skipped": 0,
+    "warnings": 16,
+    "seconds": 2312.754,
+    "exit_code": 0,
+    "mypy_files": 183,
+    "ruff": true,
+    "format": true,
+    "compose_config": true,
+    "docker_contracts": 10,
+    "docker_exit_code": 0,
+    "software_inputs": 301,
+    "all_hashes_match": true,
+    "pytest_xml": "final-software-tests.xml",
+    "pytest_log": "final-software-tests.log",
+    "shutdown_diagnostic": "Prefect closed-file logging after successful pytest result; exit status zero.",
+    "ruff_and_format_scope": [
+      "src",
+      "tests",
+      "scripts"
+    ],
+    "root_lint_probe": "Five pre-existing style errors in preserved docs/implementation/issue-24/verification-harness.py; not part of maintained-code lint scope."
+  },
+  "review": {
+    "fixed_point": "664541a",
+    "standards_remaining": 0,
+    "spec_remaining": 0,
+    "evidence": "review.md"
+  },
+  "development": {
+    "responses": 54,
+    "legacy_responses": 44,
+    "ordered_responses": 10,
+    "unique_questions": 7,
+    "story_groups": 5,
+    "paid_calls": 57,
+    "reported_serving_usd": 0.137923,
+    "ledger_before_usd": 0.975588,
+    "ledger_after_usd": 1.11353,
+    "unsettled_reservations": 0,
+    "offline_review_external_inference_usd": 0,
+    "indexing_external_inference_usd": 0,
+    "selected_text_policy": "baseline",
+    "heldout_executed": false,
+    "ordered_optional_auto_combined_responses": 0,
+    "original_eligibility_label_error_preserved": true,
+    "source_review": "Agent source annotations; no human canon acceptance."
+  },
+  "recovery": {
+    "original_responses_unchanged": 4,
+    "paid_calls": 0,
+    "original_db_and_root_match": true,
+    "cli_scope": "Exact document copies with fresh capabilities in an isolated verification database; original response documents and capabilities unchanged."
+  },
+  "replay": {
+    "requests": 44,
+    "model_messages_unchanged": 44,
+    "outcomes_contexts_citations_unchanged": 44,
+    "paid_calls": 0,
+    "shared_ledger_unchanged": true
+  },
+  "preservation": {
+    "original_data_files": 98,
+    "protected_inputs": 150,
+    "all_match": true
+  },
+  "checklist": {
+    "new_scoped_passes": [
+      "AD-02.2",
+      "AD-02.3",
+      "AD-05.4",
+      "AD-09.3"
+    ],
+    "pass": 44,
+    "pending": 7,
+    "AD-08.3": "Pending for held-out/full-release thresholds"
+  },
+  "limitations": [
+    "Four legacy text completeness misses and two ordered expansion date losses remain regressions.",
+    "Ordered v1 eligibility error is corrected by a versioned label; no source/identity validator is relaxed.",
+    "The optional ordered auto-combined arm is stopped before execution by the unchanged paid-call ceiling.",
+    "Legacy and ordered cohorts and assertion units are not pooled.",
+    "4000-byte development measurements do not establish 1200-byte default quality or broad release acceptance."
+  ]
+}

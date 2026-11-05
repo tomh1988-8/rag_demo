@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="utf-8"?><testsuites name="pytest tests"><testsuite name="pytest" errors="0" failures="1" skipped="0" tests="2" time="10.598" timestamp="2026-11-04T16:50:50.313011+00:00" hostname="tom-Latitude-3510"><testcase classname="tests.test_routing_api" name="test_ordinary_question_uses_admitted_biological_graph_and_retains_actual_choice" time="6.610" /><testcase classname="tests.test_routing_api" name="test_sufficient_text_does_not_investigate_a_complex_looking_question" time="3.753"><failure message="AssertionError: assert {'unsupported_question'} &gt;= {'sufficient_text_evidence'}&#10;  &#10;  Extra items in the right set:&#10;  'sufficient_text_evidence'">database_url = 'user=ask_phil password=local-demo-only dbname=ask_phil_test_d7df5ec72c5b4e4c8a2344a24b9b606c host=127.0.0.1 port=55424'
+seed = SourceSnapshot(snapshot_id='phil-arrival-v1', fixture_version=1, source=Source(title='Phil Mitchell', url=HttpUrl('htt...82d8d2c75291831d8a3c48142261499f6a04ea732d8b2469031db', start=0, end=111, source=None, location=None),), imported=None)
+investigator_models = &lt;function investigator_models.&lt;locals&gt;.build at 0x74cab9cc1c60&gt;
+tmp_path = PosixPath('/tmp/pytest-of-tom/pytest-35/test_sufficient_text_does_not_0')
+
+    def test_sufficient_text_does_not_investigate_a_complex_looking_question(
+        database_url: str,
+        seed: SourceSnapshot,
+        investigator_models: Callable[[list[dict[str, Any]]], Models],
+        tmp_path: Path,
+    ) -&gt; None:
+        from test_investigation_api import finish, publish
+    
+        draft = finish("When did Phil arrive?")["action"]["draft"]
+        models = investigator_models([draft])
+        publish(database_url, seed, models)
+        uri = f"sqlite:///{tmp_path}/sufficient.db"
+        with TestClient(create_app(database_url, models=models, tracking_uri=uri)) as client:
+            result = client.post("/v1/answers", json={
+                "question": "Explain when Phil arrived and how the captured date evidence supports it."
+            })
+            assert result.status_code == 200, result.text
+            answer = result.json()["response"]
+            assert answer["status"] == "answered"
+            assert answer["route"] == "text_rag"
+            assert [s["route"] for s in answer["routing"]["stages"]] == ["text_rag"]
+&gt;           assert {c["reason"] for c in answer["routing"]["checks"]} &gt;= {"sufficient_text_evidence"}
+E           AssertionError: assert {'unsupported_question'} &gt;= {'sufficient_text_evidence'}
+E             
+E             Extra items in the right set:
+E             'sufficient_text_evidence'
+
+tests/test_routing_api.py:80: AssertionError</failure></testcase></testsuite></testsuites>

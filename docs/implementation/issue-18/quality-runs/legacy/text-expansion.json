@@ -1,0 +1,1094 @@
+{
+  "kind": "captured-answer-review",
+  "expenditure_category": "offline_evaluation",
+  "source_run_id": null,
+  "answer_model_calls_in_review": 0,
+  "review_model_cost_usd": 0,
+  "model_calls": 0,
+  "cost_usd": "0",
+  "capture_sha256": "5af5ad078756a5875139e77ee8a4374938027a7595f71bc85a167016dff7240c",
+  "reviews_sha256": "24e3d421cf22b9657efc3f72bd2a4b083ee4b5672bfd53e007f769deeaa5f256",
+  "scorer": "reviewed-binary-dimensions-v2",
+  "recorded_at": "2026-11-05T16:15:32.884880+00:00",
+  "reference_file_sha256": "369a4194ef9f2c5ee229ba7666d30215e07f5a85a527b443f616f1a09151c0d5",
+  "recorder_version": "frozen-evaluation-run-v1",
+  "input_artifacts": [
+    {
+      "artifact_path": "inputs/0/routing-v1.json",
+      "sha256": "369a4194ef9f2c5ee229ba7666d30215e07f5a85a527b443f616f1a09151c0d5"
+    },
+    {
+      "artifact_path": "inputs/1/text-expansion.json",
+      "sha256": "5af5ad078756a5875139e77ee8a4374938027a7595f71bc85a167016dff7240c"
+    },
+    {
+      "artifact_path": "inputs/2/text-expansion.json",
+      "sha256": "24e3d421cf22b9657efc3f72bd2a4b083ee4b5672bfd53e007f769deeaa5f256"
+    }
+  ],
+  "result_artifact": "result/text-expansion.json",
+  "case_ids": [
+    "biological-parents",
+    "adoptive-history",
+    "crime-roles",
+    "ancestry-connection",
+    "sufficient-text",
+    "multi-family",
+    "unsupported-theme"
+  ],
+  "cases": [
+    {
+      "case_id": "biological-parents",
+      "reference": {
+        "case_id": "biological-parents",
+        "group_id": "mitchell-biological-parentage",
+        "split": "development",
+        "category": "biological-family",
+        "question": "Who are Ben Mitchell's biological parents?",
+        "graph_eligible": true,
+        "graph": {
+          "character_id": "ben-mitchell",
+          "direction": "ancestors",
+          "max_depth": 1
+        },
+        "answerable": true,
+        "allowed_routes": [
+          "text_rag",
+          "graph",
+          "investigation"
+        ],
+        "expected_outcomes": [
+          "answered",
+          "partial"
+        ],
+        "required_facts": [
+          {
+            "fact": "Phil Mitchell and Kathy Beale are Ben Mitchell's biological parents.",
+            "sufficient_sets": [
+              [
+                "family-ben-birth"
+              ]
+            ]
+          }
+        ],
+        "evidence": [
+          {
+            "evidence_id": "family-ben-birth",
+            "text": "Ben is born to Phil Mitchell (Steve McFadden) and his then wife Kathy Beale (Gillian Taylforth) in March 1996.",
+            "sha256": "8179f5f0724cc08e5a5d51567fb7de0f8e55a4d5fc9881f5e050ae9d153eca08",
+            "start": 17983,
+            "end": 18093,
+            "source": {
+              "title": "Ben Mitchell",
+              "url": "https://en.wikipedia.org/wiki/Ben_Mitchell_(EastEnders)",
+              "revision_id": "1376729134",
+              "revision_url": "https://en.wikipedia.org/w/index.php?oldid=1376729134",
+              "section": "Storylines / 1996\u20132000",
+              "captured_at": "2026-10-17T13:07:31.530421Z",
+              "capture_sha256": "8ae0fbabb19cf12b2bdf46d7a85e15eea4462b8559584c770224a54a9e47d128",
+              "scope": "main_series",
+              "license_url": "https://creativecommons.org/licenses/by-sa/4.0/",
+              "attribution": "Wikipedia contributors; markup removed and whitespace normalized.",
+              "coverage": "Reviewed narrative sections in this captured revision only.",
+              "gaps": [
+                "Partial canon coverage; other paragraphs remain excluded or awaiting review.",
+                "Identity and episode metadata do not independently corroborate story claims."
+              ],
+              "support_status": "source_supported"
+            },
+            "location": {
+              "source_id": "ben-mitchell-wiki",
+              "paragraph_ordinal": 22,
+              "section_id": "1996\u20132000",
+              "character_ids": [
+                "ben-mitchell",
+                "kathy-beale",
+                "phil-mitchell"
+              ]
+            }
+          }
+        ],
+        "forbidden_assertions": [
+          "Adoption establishes biological ancestry.",
+          "A conviction establishes commission.",
+          "Missing captured evidence proves an event never happened."
+        ],
+        "review_note": "Implementer inspected retained exact source excerpts before paid calls; source-based agent development review, not human canon or held-out acceptance. Broad graph caveats may produce partial status despite complete named fact coverage."
+      },
+      "reference_sha256": "0fd996b24d43c19f3b988fb5307e8ca3c74d77676455e3888abd016609a94f40",
+      "state": "complete",
+      "review": {
+        "case_id": "biological-parents",
+        "response_sha256": "0244531c2641300c92b4fa3f8441121349185ee47390474358f2b82e9c473436",
+        "reference_sha256": "0fd996b24d43c19f3b988fb5307e8ca3c74d77676455e3888abd016609a94f40",
+        "reviewer": "Codex source review, independently checked by Spec review",
+        "rationale": "The born-to sentence supports Phil/Kathy as the biological parents; first-person me is Phil. Biological ancestor arrows retain child-to-parent direction. Reviewed actual final prose, context and cited text; coverage caveats are checked separately from factual assertion units. Agent source review, not human canon or independent corroboration.",
+        "claims": [
+          {
+            "claim": "I\u2019m Ben Mitchell\u2019s biological father.",
+            "correct": true,
+            "grounded": true,
+            "citation_supported": true
+          },
+          {
+            "claim": "Kathy Beale is his biological mother.",
+            "correct": true,
+            "grounded": true,
+            "citation_supported": true
+          }
+        ],
+        "required_facts": [
+          {
+            "fact": "Phil Mitchell and Kathy Beale are Ben Mitchell's biological parents.",
+            "covered": true
+          }
+        ],
+        "answerability": true,
+        "relevance": true,
+        "critical_failures": []
+      },
+      "scores": {
+        "correctness": {
+          "passed": 2,
+          "assessed": 2,
+          "unassessed": 0,
+          "value": 1.0
+        },
+        "groundedness": {
+          "passed": 2,
+          "assessed": 2,
+          "unassessed": 0,
+          "value": 1.0
+        },
+        "completeness": {
+          "passed": 1,
+          "assessed": 1,
+          "unassessed": 0,
+          "value": 1.0
+        },
+        "citation_support": {
+          "passed": 2,
+          "assessed": 2,
+          "unassessed": 0,
+          "value": 1.0
+        },
+        "answerability": {
+          "passed": 1,
+          "assessed": 1,
+          "unassessed": 0,
+          "value": 1.0
+        },
+        "relevance": {
+          "passed": 1,
+          "assessed": 1,
+          "unassessed": 0,
+          "value": 1.0
+        },
+        "critical_failures": []
+      }
+    },
+    {
+      "case_id": "adoptive-history",
+      "reference": {
+        "case_id": "adoptive-history",
+        "group_id": "sharon-adoption",
+        "split": "development",
+        "category": "relationship-history",
+        "question": "Explain the relationship history between Sharon Watts and Den Watts.",
+        "graph_eligible": true,
+        "graph": {
+          "kind": "relationship_history",
+          "character_id": "sharon-watts",
+          "partner_id": "den-watts"
+        },
+        "answerable": true,
+        "allowed_routes": [
+          "text_rag",
+          "graph",
+          "investigation"
+        ],
+        "expected_outcomes": [
+          "answered",
+          "partial"
+        ],
+        "required_facts": [
+          {
+            "fact": "Den Watts is Sharon Watts's adoptive parent.",
+            "sufficient_sets": [
+              [
+                "history-den-adoption"
+              ]
+            ]
+          }
+        ],
+        "evidence": [
+          {
+            "evidence_id": "history-den-adoption",
+            "text": "Adopted at the age of three by Den (Leslie Grantham) and Angie Watts (Anita Dobson), Sharon is raised at The Queen Victoria public house in Albert Square, Walford, where her adoptive parents are landlords.",
+            "sha256": "1e54773bc770474ace800fa686ba855dce8b3eac079403d0dd1c78e958023f31",
+            "start": 50624,
+            "end": 50829,
+            "source": {
+              "title": "Sharon Watts",
+              "url": "https://en.wikipedia.org/wiki/Sharon_Watts",
+              "revision_id": "1372798905",
+              "revision_url": "https://en.wikipedia.org/w/index.php?oldid=1372798905",
+              "section": "Storylines / 1985\u20131995",
+              "captured_at": "2026-10-17T13:07:31.327518Z",
+              "capture_sha256": "9ccef3de99353ff737101d9d00561c217608dd4fa6fba0c8200f80ac0114ea85",
+              "scope": "main_series",
+              "license_url": "https://creativecommons.org/licenses/by-sa/4.0/",
+              "attribution": "Wikipedia contributors; markup removed and whitespace normalized.",
+              "coverage": "Reviewed narrative sections in this captured revision only.",
+              "gaps": [
+                "Partial canon coverage; other paragraphs remain excluded or awaiting review.",
+                "Identity and episode metadata do not independently corroborate story claims."
+              ],
+              "support_status": "source_supported"
+            },
+            "location": {
+              "source_id": "sharon-watts-wiki",
+              "paragraph_ordinal": 53,
+              "section_id": "1985\u20131995",
+              "character_ids": [
+                "den-watts",
+                "ian-beale",
+                "sharon-watts"
+              ]
+            }
+          }
+        ],
+        "forbidden_assertions": [
+          "Adoption establishes biological ancestry.",
+          "A conviction establishes commission.",
+          "Missing captured evidence proves an event never happened."
+        ],
+        "review_note": "Implementer inspected retained exact source excerpts before paid calls; source-based agent development review, not human canon or held-out acceptance. Broad graph caveats may produce partial status despite complete named fact coverage."
+      },
+      "reference_sha256": "f1ce29fcdd900ddf428c3e717f7034300ce982ddff5b3c42ff79eac97d0dd1b4",
+      "state": "complete",
+      "review": {
+        "case_id": "adoptive-history",
+        "response_sha256": "caf2892aa70f9c5e87c67ca7a9f8f8c34bf5502f0a46c241a764a77ed78cbd36",
+        "reference_sha256": "f1ce29fcdd900ddf428c3e717f7034300ce982ddff5b3c42ff79eac97d0dd1b4",
+        "reviewer": "Codex source review, independently checked by Spec review",
+        "rationale": "The Sharon source identifies adoption by Den and Angie at age three. No biological tie or exhaustive later history is inferred. Reviewed actual final prose, context and cited text; coverage caveats are checked separately from factual assertion units. Agent source review, not human canon or independent corroboration.",
+        "claims": [
+          {
+            "claim": "Den and Angie Watts adopted Sharon when she was three and raised her at the Queen Victoria, where they were landlords.",
+            "correct": true,
+            "grounded": true,
+            "citation_supported": true
+          }
+        ],
+        "required_facts": [
+          {
+            "fact": "Den Watts is Sharon Watts's adoptive parent.",
+            "covered": true
+          }
+        ],
+        "answerability": true,
+        "relevance": true,
+        "critical_failures": []
+      },
+      "scores": {
+        "correctness": {
+          "passed": 1,
+          "assessed": 1,
+          "unassessed": 0,
+          "value": 1.0
+        },
+        "groundedness": {
+          "passed": 1,
+          "assessed": 1,
+          "unassessed": 0,
+          "value": 1.0
+        },
+        "completeness": {
+          "passed": 1,
+          "assessed": 1,
+          "unassessed": 0,
+          "value": 1.0
+        },
+        "citation_support": {
+          "passed": 1,
+          "assessed": 1,
+          "unassessed": 0,
+          "value": 1.0
+        },
+        "answerability": {
+          "passed": 1,
+          "assessed": 1,
+          "unassessed": 0,
+          "value": 1.0
+        },
+        "relevance": {
+          "passed": 1,
+          "assessed": 1,
+          "unassessed": 0,
+          "value": 1.0
+        },
+        "critical_failures": []
+      }
+    },
+    {
+      "case_id": "crime-roles",
+      "reference": {
+        "case_id": "crime-roles",
+        "group_id": "lucy-murder",
+        "split": "development",
+        "category": "crime-and-justice",
+        "question": "Show Bobby Beale's crime and justice history.",
+        "graph_eligible": true,
+        "graph": {
+          "kind": "crime_history",
+          "character_id": "bobby-beale"
+        },
+        "answerable": true,
+        "allowed_routes": [
+          "text_rag",
+          "graph",
+          "investigation"
+        ],
+        "expected_outcomes": [
+          "answered",
+          "partial"
+        ],
+        "required_facts": [
+          {
+            "fact": "Bobby Beale killed Lucy Beale.",
+            "sufficient_sets": [
+              [
+                "lucy-revelation"
+              ]
+            ]
+          }
+        ],
+        "evidence": [
+          {
+            "evidence_id": "lucy-revelation",
+            "text": "Max soon realises that Jane's adopted son Bobby Beale (Eliot Carrington) is Lucy's killer all along and that Jane had been covering up for her. He then discovers that Lauren knew the truth and disowns her as the police arrive to arrest him once more. As he is being arrested, Max shouts out to everyone that Bobby killed Lucy but they all dismiss his claims as an act of desperation; Max is later sentenced to life imprisonment with a recommendation he should serve at least 21 years.",
+            "sha256": "19f4d15331225d7db9d5fd6da40227c552a8bc61a569c13bf757df477329548c",
+            "start": 29247,
+            "end": 29731,
+            "source": {
+              "title": "Max Branning",
+              "url": "https://en.wikipedia.org/wiki/Max_Branning",
+              "revision_id": "1378782554",
+              "revision_url": "https://en.wikipedia.org/w/index.php?oldid=1378782554",
+              "section": "Storylines / 2006\u20132021",
+              "captured_at": "2026-10-17T13:07:34.684245Z",
+              "capture_sha256": "48c3bdd9d5f7110e9cbcd9e6cbc7f32970c519fee14c1a32b231b42c639dc615",
+              "scope": "main_series",
+              "license_url": "https://creativecommons.org/licenses/by-sa/4.0/",
+              "attribution": "Wikipedia contributors; markup removed and whitespace normalized.",
+              "coverage": "Reviewed narrative sections in this captured revision only.",
+              "gaps": [
+                "Partial canon coverage; other paragraphs remain excluded or awaiting review.",
+                "Identity and episode metadata do not independently corroborate story claims."
+              ],
+              "support_status": "source_supported"
+            },
+            "location": {
+              "source_id": "max-branning-wiki",
+              "paragraph_ordinal": 27,
+              "section_id": "2006\u20132021",
+              "character_ids": [
+                "bobby-beale",
+                "max-branning"
+              ]
+            }
+          }
+        ],
+        "forbidden_assertions": [
+          "Adoption establishes biological ancestry.",
+          "A conviction establishes commission.",
+          "Missing captured evidence proves an event never happened."
+        ],
+        "review_note": "Implementer inspected retained exact source excerpts before paid calls; source-based agent development review, not human canon or held-out acceptance. Broad graph caveats may produce partial status despite complete named fact coverage."
+      },
+      "reference_sha256": "167951b931c1e31bd94f7095eacf15cadd3626bd123a3e4337f00f220e8dce46",
+      "state": "complete",
+      "review": {
+        "case_id": "crime-roles",
+        "response_sha256": "222c02372b81e9936e82855713191f7cdd28dddab6fae5df83a7383126bb0603",
+        "reference_sha256": "167951b931c1e31bd94f7095eacf15cadd3626bd123a3e4337f00f220e8dce46",
+        "reviewer": "Codex source review, independently checked by Spec review",
+        "rationale": "The Max/Phil excerpts distinguish Bobby's commission from Ben/Max arrests, charge, conviction and imprisonment; Max's sentence does not establish guilt. Unknown/relative dates remain qualified. Reviewed actual final prose, context and cited text; coverage caveats are checked separately from factual assertion units. Agent source review, not human canon or independent corroboration.",
+        "claims": [
+          {
+            "claim": "Bobby killed Lucy, and Jane covered it up.",
+            "correct": true,
+            "grounded": true,
+            "citation_supported": true
+          },
+          {
+            "claim": "Ben was arrested for her murder.",
+            "correct": true,
+            "grounded": true,
+            "citation_supported": true
+          },
+          {
+            "claim": "I manipulated Abi into revealing Max\u2019s fake alibi; Max was charged and later sentenced to life, with at least 21 years recommended.",
+            "correct": true,
+            "grounded": true,
+            "citation_supported": true
+          },
+          {
+            "claim": "Max named Bobby as the killer, but people dismissed his claim.",
+            "correct": true,
+            "grounded": true,
+            "citation_supported": true
+          }
+        ],
+        "required_facts": [
+          {
+            "fact": "Bobby Beale killed Lucy Beale.",
+            "covered": true
+          }
+        ],
+        "answerability": true,
+        "relevance": true,
+        "critical_failures": []
+      },
+      "scores": {
+        "correctness": {
+          "passed": 4,
+          "assessed": 4,
+          "unassessed": 0,
+          "value": 1.0
+        },
+        "groundedness": {
+          "passed": 4,
+          "assessed": 4,
+          "unassessed": 0,
+          "value": 1.0
+        },
+        "completeness": {
+          "passed": 1,
+          "assessed": 1,
+          "unassessed": 0,
+          "value": 1.0
+        },
+        "citation_support": {
+          "passed": 4,
+          "assessed": 4,
+          "unassessed": 0,
+          "value": 1.0
+        },
+        "answerability": {
+          "passed": 1,
+          "assessed": 1,
+          "unassessed": 0,
+          "value": 1.0
+        },
+        "relevance": {
+          "passed": 1,
+          "assessed": 1,
+          "unassessed": 0,
+          "value": 1.0
+        },
+        "critical_failures": []
+      }
+    },
+    {
+      "case_id": "ancestry-connection",
+      "reference": {
+        "case_id": "ancestry-connection",
+        "group_id": "mitchell-biological-parentage",
+        "split": "development",
+        "category": "connection",
+        "question": "How are Ben Mitchell and Peggy Mitchell connected?",
+        "graph_eligible": true,
+        "graph": {
+          "kind": "connection",
+          "character_id": "ben-mitchell",
+          "target_id": "peggy-mitchell"
+        },
+        "answerable": true,
+        "allowed_routes": [
+          "text_rag",
+          "graph",
+          "investigation"
+        ],
+        "expected_outcomes": [
+          "answered",
+          "partial"
+        ],
+        "required_facts": [
+          {
+            "fact": "Peggy Mitchell is Ben Mitchell's biological grandmother through Phil Mitchell.",
+            "sufficient_sets": [
+              [
+                "family-ben-birth",
+                "family-peggy-phil"
+              ]
+            ]
+          }
+        ],
+        "evidence": [
+          {
+            "evidence_id": "family-ben-birth",
+            "text": "Ben is born to Phil Mitchell (Steve McFadden) and his then wife Kathy Beale (Gillian Taylforth) in March 1996.",
+            "sha256": "8179f5f0724cc08e5a5d51567fb7de0f8e55a4d5fc9881f5e050ae9d153eca08",
+            "start": 17983,
+            "end": 18093,
+            "source": {
+              "title": "Ben Mitchell",
+              "url": "https://en.wikipedia.org/wiki/Ben_Mitchell_(EastEnders)",
+              "revision_id": "1376729134",
+              "revision_url": "https://en.wikipedia.org/w/index.php?oldid=1376729134",
+              "section": "Storylines / 1996\u20132000",
+              "captured_at": "2026-10-17T13:07:31.530421Z",
+              "capture_sha256": "8ae0fbabb19cf12b2bdf46d7a85e15eea4462b8559584c770224a54a9e47d128",
+              "scope": "main_series",
+              "license_url": "https://creativecommons.org/licenses/by-sa/4.0/",
+              "attribution": "Wikipedia contributors; markup removed and whitespace normalized.",
+              "coverage": "Reviewed narrative sections in this captured revision only.",
+              "gaps": [
+                "Partial canon coverage; other paragraphs remain excluded or awaiting review.",
+                "Identity and episode metadata do not independently corroborate story claims."
+              ],
+              "support_status": "source_supported"
+            },
+            "location": {
+              "source_id": "ben-mitchell-wiki",
+              "paragraph_ordinal": 22,
+              "section_id": "1996\u20132000",
+              "character_ids": [
+                "ben-mitchell",
+                "kathy-beale",
+                "phil-mitchell"
+              ]
+            }
+          },
+          {
+            "evidence_id": "family-peggy-phil",
+            "text": "Peggy married Eric Mitchell (George Russo) because she was pregnant with their son Phil (Steve McFadden).",
+            "sha256": "601d2f2332aa61ff7cecd296e9d2b4be8b78207a8a739e7354b2105847f531f2",
+            "start": 34316,
+            "end": 34421,
+            "source": {
+              "title": "Peggy Mitchell",
+              "url": "https://en.wikipedia.org/wiki/Peggy_Mitchell",
+              "revision_id": "1372787814",
+              "revision_url": "https://en.wikipedia.org/w/index.php?oldid=1372787814",
+              "section": "Storylines / Backstory",
+              "captured_at": "2026-10-17T13:07:31.253971Z",
+              "capture_sha256": "d777ce7a2fffc8e7cb1da6ccd3a87aca45590147a348b5ef5eb6361fb685cacb",
+              "scope": "main_series",
+              "license_url": "https://creativecommons.org/licenses/by-sa/4.0/",
+              "attribution": "Wikipedia contributors; markup removed and whitespace normalized.",
+              "coverage": "Reviewed narrative sections in this captured revision only.",
+              "gaps": [
+                "Partial canon coverage; other paragraphs remain excluded or awaiting review.",
+                "Identity and episode metadata do not independently corroborate story claims."
+              ],
+              "support_status": "source_supported"
+            },
+            "location": {
+              "source_id": "peggy-mitchell-wiki",
+              "paragraph_ordinal": 37,
+              "section_id": "Backstory",
+              "character_ids": [
+                "grant-mitchell",
+                "peggy-mitchell",
+                "phil-mitchell"
+              ]
+            }
+          }
+        ],
+        "forbidden_assertions": [
+          "Adoption establishes biological ancestry.",
+          "A conviction establishes commission.",
+          "Missing captured evidence proves an event never happened."
+        ],
+        "review_note": "Implementer inspected retained exact source excerpts before paid calls; source-based agent development review, not human canon or held-out acceptance. Broad graph caveats may produce partial status despite complete named fact coverage."
+      },
+      "reference_sha256": "e333e2d7959a63a6ac59df0f5c04d8935c91751025d2a39a0ddb0ce2192fda61",
+      "state": "complete",
+      "review": {
+        "case_id": "ancestry-connection",
+        "response_sha256": "dcecfe9442e7aa6aec46fe0e1781a9a71c85d82a0877749b67cf776055e9a915",
+        "reference_sha256": "e333e2d7959a63a6ac59df0f5c04d8935c91751025d2a39a0ddb0ce2192fda61",
+        "reviewer": "Codex source review, independently checked by Spec review",
+        "rationale": "Born-to and Peggy pregnancy passages establish Ben -> Phil -> Peggy ancestry. Kathy/Phil marriage, separation and counselling reconciliation paths are supported social links and are not biological inferences. Reviewed actual final prose, context and cited text; coverage caveats are checked separately from factual assertion units. Agent source review, not human canon or independent corroboration.",
+        "claims": [
+          {
+            "claim": "Ben is my son, and Peggy is my mum.",
+            "correct": true,
+            "grounded": true,
+            "citation_supported": true
+          },
+          {
+            "claim": "That makes Peggy Ben\u2019s grandmother.",
+            "correct": true,
+            "grounded": true,
+            "citation_supported": true
+          }
+        ],
+        "required_facts": [
+          {
+            "fact": "Peggy Mitchell is Ben Mitchell's biological grandmother through Phil Mitchell.",
+            "covered": true
+          }
+        ],
+        "answerability": true,
+        "relevance": true,
+        "critical_failures": []
+      },
+      "scores": {
+        "correctness": {
+          "passed": 2,
+          "assessed": 2,
+          "unassessed": 0,
+          "value": 1.0
+        },
+        "groundedness": {
+          "passed": 2,
+          "assessed": 2,
+          "unassessed": 0,
+          "value": 1.0
+        },
+        "completeness": {
+          "passed": 1,
+          "assessed": 1,
+          "unassessed": 0,
+          "value": 1.0
+        },
+        "citation_support": {
+          "passed": 2,
+          "assessed": 2,
+          "unassessed": 0,
+          "value": 1.0
+        },
+        "answerability": {
+          "passed": 1,
+          "assessed": 1,
+          "unassessed": 0,
+          "value": 1.0
+        },
+        "relevance": {
+          "passed": 1,
+          "assessed": 1,
+          "unassessed": 0,
+          "value": 1.0
+        },
+        "critical_failures": []
+      }
+    },
+    {
+      "case_id": "sufficient-text",
+      "reference": {
+        "case_id": "sufficient-text",
+        "group_id": "sharon-christmas-pregnancy",
+        "split": "development",
+        "category": "complex-sufficient-text",
+        "question": "Explain how the captured account dates Sharon Watts's discovery that she was pregnant, including the date's precision.",
+        "graph_eligible": false,
+        "graph": null,
+        "answerable": true,
+        "allowed_routes": [
+          "text_rag",
+          "investigation"
+        ],
+        "expected_outcomes": [
+          "answered",
+          "partial"
+        ],
+        "required_facts": [
+          {
+            "fact": "Sharon Watts discovers she is pregnant on Christmas Day 2005; the supported story date is exact.",
+            "sufficient_sets": [
+              [
+                "sharon-christmas-pregnancy"
+              ]
+            ]
+          }
+        ],
+        "evidence": [
+          {
+            "evidence_id": "sharon-christmas-pregnancy",
+            "text": "On Christmas Day 2005, Sharon is stunned to discover she is pregnant, and she and Dennis celebrate the potential of having a child.",
+            "sha256": "dfa4fd7ae0dbe533dcdec506808a9bbdd4f16b27cbccefc8e8df6d69363ad06d",
+            "start": 61360,
+            "end": 61491,
+            "source": {
+              "title": "Sharon Watts",
+              "url": "https://en.wikipedia.org/wiki/Sharon_Watts",
+              "revision_id": "1372798905",
+              "revision_url": "https://en.wikipedia.org/w/index.php?oldid=1372798905",
+              "section": "Storylines / 2001\u20132006",
+              "captured_at": "2026-10-17T13:07:31.327518Z",
+              "capture_sha256": "9ccef3de99353ff737101d9d00561c217608dd4fa6fba0c8200f80ac0114ea85",
+              "scope": "main_series",
+              "license_url": "https://creativecommons.org/licenses/by-sa/4.0/",
+              "attribution": "Wikipedia contributors; markup removed and whitespace normalized.",
+              "coverage": "Reviewed narrative sections in this captured revision only.",
+              "gaps": [
+                "Partial canon coverage; other paragraphs remain excluded or awaiting review.",
+                "Identity and episode metadata do not independently corroborate story claims."
+              ],
+              "support_status": "source_supported"
+            },
+            "location": {
+              "source_id": "sharon-watts-wiki",
+              "paragraph_ordinal": 64,
+              "section_id": "2001\u20132006",
+              "character_ids": [
+                "sharon-watts"
+              ]
+            }
+          }
+        ],
+        "forbidden_assertions": [
+          "Adoption establishes biological ancestry.",
+          "A conviction establishes commission.",
+          "Missing captured evidence proves an event never happened."
+        ],
+        "review_note": "Implementer inspected retained exact source excerpts before paid calls; source-based agent development review, not human canon or held-out acceptance. Broad graph caveats may produce partial status despite complete named fact coverage."
+      },
+      "reference_sha256": "c508e10213506d7fa4f7b27d051857d86f8903665d13f78ad5b2beea3e7e0973",
+      "state": "complete",
+      "review": {
+        "case_id": "sufficient-text",
+        "response_sha256": "2cb0e8917264dd0ec80dd9908a6376ba2413740f40c78659c8d63bd4a157622a",
+        "reference_sha256": "c508e10213506d7fa4f7b27d051857d86f8903665d13f78ad5b2beea3e7e0973",
+        "reviewer": "Codex source review, independently checked by Spec review",
+        "rationale": "The cited Christmas Day 2005 sentence supports both the pregnancy discovery and exact story-date precision. Reviewed actual final prose, context and cited text; coverage caveats are checked separately from factual assertion units. Agent source review, not human canon or independent corroboration.",
+        "claims": [
+          {
+            "claim": "The captured account says Sharon discovered she was pregnant on Christmas Day 2005.",
+            "correct": true,
+            "grounded": true,
+            "citation_supported": true
+          },
+          {
+            "claim": "That\u2019s an exact day, not an approximate date.",
+            "correct": true,
+            "grounded": true,
+            "citation_supported": true
+          }
+        ],
+        "required_facts": [
+          {
+            "fact": "Sharon Watts discovers she is pregnant on Christmas Day 2005; the supported story date is exact.",
+            "covered": true
+          }
+        ],
+        "answerability": true,
+        "relevance": true,
+        "critical_failures": []
+      },
+      "scores": {
+        "correctness": {
+          "passed": 2,
+          "assessed": 2,
+          "unassessed": 0,
+          "value": 1.0
+        },
+        "groundedness": {
+          "passed": 2,
+          "assessed": 2,
+          "unassessed": 0,
+          "value": 1.0
+        },
+        "completeness": {
+          "passed": 1,
+          "assessed": 1,
+          "unassessed": 0,
+          "value": 1.0
+        },
+        "citation_support": {
+          "passed": 2,
+          "assessed": 2,
+          "unassessed": 0,
+          "value": 1.0
+        },
+        "answerability": {
+          "passed": 1,
+          "assessed": 1,
+          "unassessed": 0,
+          "value": 1.0
+        },
+        "relevance": {
+          "passed": 1,
+          "assessed": 1,
+          "unassessed": 0,
+          "value": 1.0
+        },
+        "critical_failures": []
+      }
+    },
+    {
+      "case_id": "multi-family",
+      "reference": {
+        "case_id": "multi-family",
+        "group_id": "mitchell-biological-parentage",
+        "split": "development",
+        "category": "observed-text-context-gap",
+        "question": "Who are Ben Mitchell's biological parents, and who is Phil Mitchell's biological mother?",
+        "graph_eligible": false,
+        "graph": null,
+        "answerable": true,
+        "allowed_routes": [
+          "text_rag",
+          "investigation"
+        ],
+        "expected_outcomes": [
+          "answered",
+          "partial"
+        ],
+        "required_facts": [
+          {
+            "fact": "Phil Mitchell and Kathy Beale are Ben Mitchell's biological parents.",
+            "sufficient_sets": [
+              [
+                "family-ben-birth"
+              ]
+            ]
+          },
+          {
+            "fact": "Peggy Mitchell is Phil Mitchell's biological mother.",
+            "sufficient_sets": [
+              [
+                "family-peggy-phil"
+              ]
+            ]
+          }
+        ],
+        "evidence": [
+          {
+            "evidence_id": "family-ben-birth",
+            "text": "Ben is born to Phil Mitchell (Steve McFadden) and his then wife Kathy Beale (Gillian Taylforth) in March 1996.",
+            "sha256": "8179f5f0724cc08e5a5d51567fb7de0f8e55a4d5fc9881f5e050ae9d153eca08",
+            "start": 17983,
+            "end": 18093,
+            "source": {
+              "title": "Ben Mitchell",
+              "url": "https://en.wikipedia.org/wiki/Ben_Mitchell_(EastEnders)",
+              "revision_id": "1376729134",
+              "revision_url": "https://en.wikipedia.org/w/index.php?oldid=1376729134",
+              "section": "Storylines / 1996\u20132000",
+              "captured_at": "2026-10-17T13:07:31.530421Z",
+              "capture_sha256": "8ae0fbabb19cf12b2bdf46d7a85e15eea4462b8559584c770224a54a9e47d128",
+              "scope": "main_series",
+              "license_url": "https://creativecommons.org/licenses/by-sa/4.0/",
+              "attribution": "Wikipedia contributors; markup removed and whitespace normalized.",
+              "coverage": "Reviewed narrative sections in this captured revision only.",
+              "gaps": [
+                "Partial canon coverage; other paragraphs remain excluded or awaiting review.",
+                "Identity and episode metadata do not independently corroborate story claims."
+              ],
+              "support_status": "source_supported"
+            },
+            "location": {
+              "source_id": "ben-mitchell-wiki",
+              "paragraph_ordinal": 22,
+              "section_id": "1996\u20132000",
+              "character_ids": [
+                "ben-mitchell",
+                "kathy-beale",
+                "phil-mitchell"
+              ]
+            }
+          },
+          {
+            "evidence_id": "family-peggy-phil",
+            "text": "Peggy married Eric Mitchell (George Russo) because she was pregnant with their son Phil (Steve McFadden).",
+            "sha256": "601d2f2332aa61ff7cecd296e9d2b4be8b78207a8a739e7354b2105847f531f2",
+            "start": 34316,
+            "end": 34421,
+            "source": {
+              "title": "Peggy Mitchell",
+              "url": "https://en.wikipedia.org/wiki/Peggy_Mitchell",
+              "revision_id": "1372787814",
+              "revision_url": "https://en.wikipedia.org/w/index.php?oldid=1372787814",
+              "section": "Storylines / Backstory",
+              "captured_at": "2026-10-17T13:07:31.253971Z",
+              "capture_sha256": "d777ce7a2fffc8e7cb1da6ccd3a87aca45590147a348b5ef5eb6361fb685cacb",
+              "scope": "main_series",
+              "license_url": "https://creativecommons.org/licenses/by-sa/4.0/",
+              "attribution": "Wikipedia contributors; markup removed and whitespace normalized.",
+              "coverage": "Reviewed narrative sections in this captured revision only.",
+              "gaps": [
+                "Partial canon coverage; other paragraphs remain excluded or awaiting review.",
+                "Identity and episode metadata do not independently corroborate story claims."
+              ],
+              "support_status": "source_supported"
+            },
+            "location": {
+              "source_id": "peggy-mitchell-wiki",
+              "paragraph_ordinal": 37,
+              "section_id": "Backstory",
+              "character_ids": [
+                "grant-mitchell",
+                "peggy-mitchell",
+                "phil-mitchell"
+              ]
+            }
+          }
+        ],
+        "forbidden_assertions": [
+          "Adoption establishes biological ancestry.",
+          "A conviction establishes commission.",
+          "Missing captured evidence proves an event never happened."
+        ],
+        "review_note": "Implementer inspected retained exact source excerpts before paid calls; source-based agent development review, not human canon or held-out acceptance. Broad graph caveats may produce partial status despite complete named fact coverage."
+      },
+      "reference_sha256": "4146ee45a68b6963ad0535934ade2c385bdf8126577411cf835e2e1637260c3b",
+      "state": "complete",
+      "review": {
+        "case_id": "multi-family",
+        "response_sha256": "a197f8f6378713710a48321744ad0d2c5ddeedffc5d1d1faaa7c32bb7fe26368",
+        "reference_sha256": "4146ee45a68b6963ad0535934ade2c385bdf8126577411cf835e2e1637260c3b",
+        "reviewer": "Codex source review, independently checked by Spec review",
+        "rationale": "The birth sentence supports Phil/Kathy; the Peggy pregnancy sentence supports Peggy as Phil's mother. Text-only context omits Peggy and admits the gap; investigations acquire that support. Reviewed actual final prose, context and cited text; coverage caveats are checked separately from factual assertion units. Agent source review, not human canon or independent corroboration.",
+        "claims": [
+          {
+            "claim": "Ben\u2019s biological parents are me and Kathy Beale.",
+            "correct": true,
+            "grounded": true,
+            "citation_supported": true
+          }
+        ],
+        "required_facts": [
+          {
+            "fact": "Phil Mitchell and Kathy Beale are Ben Mitchell's biological parents.",
+            "covered": true
+          },
+          {
+            "fact": "Peggy Mitchell is Phil Mitchell's biological mother.",
+            "covered": false
+          }
+        ],
+        "answerability": true,
+        "relevance": true,
+        "critical_failures": []
+      },
+      "scores": {
+        "correctness": {
+          "passed": 1,
+          "assessed": 1,
+          "unassessed": 0,
+          "value": 1.0
+        },
+        "groundedness": {
+          "passed": 1,
+          "assessed": 1,
+          "unassessed": 0,
+          "value": 1.0
+        },
+        "completeness": {
+          "passed": 1,
+          "assessed": 2,
+          "unassessed": 0,
+          "value": 0.5
+        },
+        "citation_support": {
+          "passed": 1,
+          "assessed": 1,
+          "unassessed": 0,
+          "value": 1.0
+        },
+        "answerability": {
+          "passed": 1,
+          "assessed": 1,
+          "unassessed": 0,
+          "value": 1.0
+        },
+        "relevance": {
+          "passed": 1,
+          "assessed": 1,
+          "unassessed": 0,
+          "value": 1.0
+        },
+        "critical_failures": []
+      }
+    },
+    {
+      "case_id": "unsupported-theme",
+      "reference": {
+        "case_id": "unsupported-theme",
+        "group_id": "unsupported-manosphere-coverage",
+        "split": "development",
+        "category": "unsupported-graph",
+        "question": "How did Phil Mitchell respond to the manosphere?",
+        "graph_eligible": false,
+        "graph": null,
+        "answerable": false,
+        "allowed_routes": [
+          "text_rag",
+          "investigation"
+        ],
+        "expected_outcomes": [
+          "insufficient_evidence"
+        ],
+        "required_facts": [],
+        "evidence": [],
+        "forbidden_assertions": [
+          "Adoption establishes biological ancestry.",
+          "A conviction establishes commission.",
+          "Missing captured evidence proves an event never happened."
+        ],
+        "review_note": "Implementer inspected retained exact source excerpts before paid calls; source-based agent development review, not human canon or held-out acceptance. Broad graph caveats may produce partial status despite complete named fact coverage."
+      },
+      "reference_sha256": "41e4a440c41d4fdf8680bcef2b833c1d5c5faea4403f794c65f0fce970acab69",
+      "state": "complete",
+      "review": {
+        "case_id": "unsupported-theme",
+        "response_sha256": "9813af9f67c4b4fb45afa3fb66109b460d67276fa53511dfdfddc43cde2a2be7",
+        "reference_sha256": "41e4a440c41d4fdf8680bcef2b833c1d5c5faea4403f794c65f0fce970acab69",
+        "reviewer": "Codex source review, independently checked by Spec review",
+        "rationale": "No supported thematic response exists in this frozen corpus; the answer abstains and does not infer that the programme event never happened. Reviewed actual final prose, context and cited text; coverage caveats are checked separately from factual assertion units. Agent source review, not human canon or independent corroboration.",
+        "claims": [],
+        "required_facts": [],
+        "answerability": true,
+        "relevance": true,
+        "critical_failures": []
+      },
+      "scores": {
+        "correctness": {
+          "passed": 0,
+          "assessed": 0,
+          "unassessed": 0,
+          "value": null
+        },
+        "groundedness": {
+          "passed": 0,
+          "assessed": 0,
+          "unassessed": 0,
+          "value": null
+        },
+        "completeness": {
+          "passed": 0,
+          "assessed": 0,
+          "unassessed": 0,
+          "value": null
+        },
+        "citation_support": {
+          "passed": 0,
+          "assessed": 0,
+          "unassessed": 0,
+          "value": null
+        },
+        "answerability": {
+          "passed": 1,
+          "assessed": 1,
+          "unassessed": 0,
+          "value": 1.0
+        },
+        "relevance": {
+          "passed": 1,
+          "assessed": 1,
+          "unassessed": 0,
+          "value": 1.0
+        },
+        "critical_failures": []
+      }
+    }
+  ],
+  "state": "complete",
+  "run_id": "ddf74b96514c41e5a92db1f73e6bbd35",
+  "tracking_status": "FINISHED"
+}

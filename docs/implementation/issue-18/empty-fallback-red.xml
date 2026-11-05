@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="utf-8"?><testsuites name="pytest tests"><testsuite name="pytest" errors="0" failures="1" skipped="0" tests="1" time="5.451" timestamp="2026-11-04T17:13:44.650146+00:00" hostname="tom-Latitude-3510"><testcase classname="tests.test_routing_api" name="test_empty_eligible_graph_falls_back_to_text_within_the_same_publication" time="5.203"><failure message="AssertionError: assert 'graph' == 'text_rag'&#10;  &#10;  - text_rag&#10;  + graph">database_url = 'user=ask_phil password=local-demo-only dbname=ask_phil_test_f96aa78ac8dc4403b4afe663ee80b950 host=127.0.0.1 port=55424'
+connection_snapshot = SourceSnapshot(snapshot_id='connections-pilot-v1', fixture_version=1, source=Source(title='Ben Mitchell', url=HttpUrl(...wiki', paragraph_ordinal=24, section_id='1990–1999', character_ids=('grant-mitchell', 'kathy-beale')))), imported=None)
+investigator_models = &lt;function investigator_models.&lt;locals&gt;.build at 0x70c44a767560&gt;
+tmp_path = PosixPath('/tmp/pytest-of-tom/pytest-44/test_empty_eligible_graph_fall0')
+
+    def test_empty_eligible_graph_falls_back_to_text_within_the_same_publication(
+        database_url: str,
+        connection_snapshot: SourceSnapshot,
+        investigator_models: Callable[[list[dict[str, Any]]], Models],
+        tmp_path: Path,
+    ) -&gt; None:
+        from test_investigation_api import publish
+    
+        models = investigator_models([{
+            "status": "insufficient_evidence", "answer": "I can't establish this connection in the captured material.",
+            "evidence_ids": [], "unanswered": [], "qualifications": [],
+        }])
+        publish(database_url, connection_snapshot, models)
+        with TestClient(create_app(database_url, models=models,
+            tracking_uri=f"sqlite:///{tmp_path}/empty.db",
+            execution_limits=ExecutionLimits(model_calls=2, tool_calls=2, context_bytes=6000),
+        )) as client:
+            result = client.post("/v1/answers", json={"question": "How are Kat Slater and Ben Mitchell connected?"})
+            assert result.status_code == 200, result.text
+            answer = result.json()["response"]
+&gt;           assert answer["route"] == "text_rag"
+E           AssertionError: assert 'graph' == 'text_rag'
+E             
+E             - text_rag
+E             + graph
+
+tests/test_routing_api.py:329: AssertionError</failure></testcase></testsuite></testsuites>

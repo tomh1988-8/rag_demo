@@ -1,0 +1,53 @@
+{
+  "paid_calls": 0,
+  "observations": [
+    {
+      "arm": "text-baseline",
+      "case_id": "biological-parents",
+      "response_sha256": "53a1eb31dfcab9a41cc711074c93c2f44b9ec7d8557fd47467e319dcea4bf2b2",
+      "original_state": "complete",
+      "original_verification_state": "complete",
+      "original_trace_sha256": "1e3674ac77b334c3a596409341e4dae145f28932105b365004cacfac58aed4fb",
+      "original_response_store_matches": true,
+      "original_mlflow_output_matches": true,
+      "isolated_cli_readback_matches": true,
+      "citations_resolve": true
+    },
+    {
+      "arm": "text-baseline",
+      "case_id": "sufficient-text",
+      "response_sha256": "fdfdf19dd63c8c005080dcf5cb1ef8313e1fbf950049f903307f5d0d1310a885",
+      "original_state": "complete",
+      "original_verification_state": "complete",
+      "original_trace_sha256": "a95d6f7172a4b19d07faf00b443436f30bf46a486aa349c8362d6e8f7c29c82e",
+      "original_response_store_matches": true,
+      "original_mlflow_output_matches": true,
+      "isolated_cli_readback_matches": true,
+      "citations_resolve": true
+    },
+    {
+      "arm": "text-fusion",
+      "case_id": "biological-parents",
+      "response_sha256": "fe915fc20bd8e9e23c8ef1fe8872b796c37578a61876fceb42c063770534d552",
+      "original_state": "complete",
+      "original_verification_state": "complete",
+      "original_trace_sha256": "b82f7d983a04646136a212b2719e12945fd9f0b48b0a9ae8a190b8263441ea8f",
+      "original_response_store_matches": true,
+      "original_mlflow_output_matches": true,
+      "isolated_cli_readback_matches": true,
+      "citations_resolve": true
+    },
+    {
+      "arm": "text-fusion",
+      "case_id": "sufficient-text",
+      "response_sha256": "361af2e1c670157ce404ff43cd68df12f822d2a253ba3678ab80f8dc17d628ce",
+      "original_state": "attempting",
+      "original_verification_state": "running",
+      "original_trace_sha256": null,
+      "original_response_store_matches": true,
+      "original_mlflow_output_matches": true,
+      "isolated_cli_readback_matches": true,
+      "citations_resolve": true
+    }
+  ]
+}

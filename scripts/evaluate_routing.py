@@ -31,7 +31,7 @@ from ask_phil.openrouter import Budget
 from ask_phil.parentage import ClaimBatch, ClaimReview
 from ask_phil.publications import PublicationStore, RefreshRun
 from ask_phil.retrieval import TextRetriever
-from ask_phil.routing import Route, RoutingPolicy
+from ask_phil.routing import Route, RoutingPolicy, RoutingRules
 from ask_phil.routing_evaluation import score_routing
 from ask_phil.storage import EvidenceStore
 from ask_phil.text_retrieval import TextPolicy
@@ -64,6 +64,12 @@ def install_ordered(database_url: str, models: Models, reference: dict[str, Any]
         ClaimBatch.model_validate(projection["batch"]),
         tuple(ClaimReview.model_validate(r) for r in projection["reviews"]),
     )
+    rules = RoutingRules.load(database_url, snapshot, LIMITS)
+    if any(
+        rules.eligibility(case["question"]).eligible != case["graph_eligible"]
+        for case in reference["cases"]
+    ):
+        raise ValueError("Admitted graph coverage differs from the frozen eligibility labels.")
     index = TextRetriever(
         database_url,
         models.embedding,
@@ -91,13 +97,14 @@ def capture(
     maximum: Decimal,
     cohort: str = "legacy",
     prior_capture: Path | None = None,
+    selected_arms: list[str] | None = None,
 ) -> None:
     if output.exists() or not 0 < maximum <= Decimal("0.75"):
         raise ValueError(
             "Use a fresh capture directory and an additional cap no larger than $0.75."
         )
     references_path = (
-        REFERENCES if cohort == "legacy" else Path("data/references/routing-ordered-v1.json")
+        REFERENCES if cohort == "legacy" else Path("data/references/routing-ordered-v2.json")
     )
     references = json.loads(references_path.read_bytes())
     source_path = Path(references["source_file"])
@@ -179,6 +186,12 @@ def capture(
                 [c for c in cases if c["case_id"] in {"multi-family", "sufficient-text"}],
             ),
         ]
+    if selected_arms is not None:
+        if not selected_arms or len(set(selected_arms)) != len(selected_arms):
+            raise ValueError("Select unique comparison arms.")
+        if set(selected_arms) - {arm[0] for arm in arms}:
+            raise ValueError("Unknown comparison arm for this cohort.")
+        arms = [arm for arm in arms if arm[0] in selected_arms]
     with database(admin_url) as database_url:
         started = time.perf_counter()
         snapshot = (
@@ -434,6 +447,7 @@ def main() -> None:
     capture_parser.add_argument("--maximum-additional-usd", type=Decimal, default=Decimal("0.75"))
     capture_parser.add_argument("--cohort", choices=("legacy", "ordered"), default="legacy")
     capture_parser.add_argument("--prior-capture", type=Path)
+    capture_parser.add_argument("--arm", action="append", dest="arms")
     score_parser = sub.add_parser("score")
     score_parser.add_argument("--captures", type=Path, required=True)
     score_parser.add_argument("--reviews", type=Path, required=True)
@@ -448,6 +462,7 @@ def main() -> None:
             args.maximum_additional_usd,
             args.cohort,
             args.prior_capture,
+            args.arms,
         )
     else:
         score(args.captures, args.reviews, args.output, args.references)

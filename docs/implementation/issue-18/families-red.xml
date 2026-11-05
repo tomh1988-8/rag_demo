@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="utf-8"?><testsuites name="pytest tests"><testsuite name="pytest" errors="1" failures="0" skipped="0" tests="1" time="0.292" timestamp="2026-11-04T16:42:39.803896+00:00" hostname="tom-Latitude-3510"><testcase classname="" name="tests.test_routing" time="0.000"><error message="collection failure">ImportError while importing test module '/home/tom/Documents/code/python/rag_demo/tests/test_routing.py'.
+Hint: make sure your test modules/packages have valid Python names.
+Traceback:
+/usr/lib/python3.12/importlib/__init__.py:90: in import_module
+    return _bootstrap._gcd_import(name[level:], package, level)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+tests/test_routing.py:11: in &lt;module&gt;
+    from ask_phil.routing import CoveredEvent, GraphCoverage, RoutingRules
+E   ImportError: cannot import name 'CoveredEvent' from 'ask_phil.routing' (/home/tom/Documents/code/python/rag_demo/src/ask_phil/routing.py)</error></testcase></testsuite></testsuites>

@@ -1,0 +1,6 @@
+2026/11/04 18:16:08 INFO mlflow.agent.hint: Load the `instrumenting-with-mlflow-tracing` skill at /home/tom/Documents/code/python/rag_demo/.venv/lib/python3.12/site-packages/mlflow/assistant/skills/instrumenting-with-mlflow-tracing/SKILL.md before writing any tracing code; it ships with this MLflow install. Set MLFLOW_DISABLE_AGENT_HINT=1 to silence this.
+2026/11/04 18:16:10 INFO mlflow.store.db.utils: Creating initial MLflow database tables...
+2026/11/04 18:16:10 INFO mlflow.store.db.utils: Updating database tables
+text-baseline/biological-parents: answered via text_rag ($0.097788; 44 cumulative paid calls)
+text-baseline/sufficient-text: answered via text_rag ($0.101879; 45 cumulative paid calls)
+text-fusion/biological-parents: answered via text_rag ($0.105655; 47 cumulative paid calls)

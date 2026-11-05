@@ -1,0 +1,119 @@
+.......F..................................................               [100%]
+=================================== FAILURES ===================================
+_______ test_offline_answer_admission_does_not_consume_serving_capacity ________
+
+database_url = 'user=ask_phil password=local-demo-only dbname=ask_phil_test_adb4dbd753b740249afc38c7d8936be7 host=127.0.0.1 port=55424'
+seed = SourceSnapshot(snapshot_id='phil-arrival-v1', fixture_version=1, source=Source(title='Phil Mitchell', url=HttpUrl('htt...82d8d2c75291831d8a3c48142261499f6a04ea732d8b2469031db', start=0, end=111, source=None, location=None),), imported=None)
+family_batch = ClaimBatch(claims=(ParentageClaim(claim_id='phil-ben', parent_id='phil-mitchell', child_id='ben-mitchell', parent_role...ns do not expand the core roster.', evidence_sources=('sharon-watts-wiki',)))), extractor='reviewed-reference-fixture')
+slow_models = (Models(settings=ModelSettings(embedding_model='test-embedding', embedding_digest='bbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbb...e, thinking=None, headers=None)), <threading.Event at 0x75455bcf8b90: set>, <threading.Event at 0x75455bcf8920: unset>)
+tmp_path = PosixPath('/tmp/pytest-of-tom/pytest-46/test_offline_answer_admission_0')
+
+    def test_offline_answer_admission_does_not_consume_serving_capacity(
+        database_url: str,
+        seed: SourceSnapshot,
+        family_batch: ClaimBatch,
+        slow_models: tuple[Models, Event, Event],
+        tmp_path: Path,
+    ) -> None:
+        from test_family_graph import install_family
+    
+        supplied, entered, _ = slow_models
+        EvidenceStore(database_url).load(seed)
+        TextRetriever(database_url, supplied.embedding, supplied.settings.embedding_id, 3).prepare(
+            seed.snapshot_id
+        )
+        install_family(database_url, family_batch)
+        policies = ExecutionPolicies(
+            serving=ExecutionLimits(concurrency=1),
+            offline_evaluation=ExecutionLimits(concurrency=1, seconds=5),
+        )
+        tracking_uri = f"sqlite:///{tmp_path}/categories.db"
+        answers = AnswerService(database_url, supplied, tracking_uri, policies=policies)
+        graph_request = AskRequest.model_validate(
+            {
+                "snapshot_id": family_batch.snapshot_id,
+                "question": "Who are Ben's ancestors?",
+                "route": "graph",
+                "graph": {"character_id": "ben-mitchell", "direction": "ancestors"},
+            }
+        )
+        with ThreadPoolExecutor(max_workers=1) as pool:
+            running = pool.submit(
+                answers.ask,
+                AskRequest(snapshot_id=seed.snapshot_id, question="When did Phil arrive?"),
+                category="offline_evaluation",
+            )
+            assert entered.wait(3), "The offline text model must hold the evaluation slot."
+            serving = answers.ask(graph_request)
+            assert serving.response.graph is not None
+            assert serving.response.graph.status == "found"
+            assert serving.response.expenditure_category == "serving"
+            rejected = answers.ask(graph_request, category="offline_evaluation")
+            stopped = rejected.response
+            assert stopped.execution is not None
+            assert stopped.execution.stop_reason == "concurrency_limit"
+            assert stopped.execution.tool_calls == 0
+            assert stopped.expenditure_category == "offline_evaluation"
+            assert ResponseLedger(database_url).get(stopped.response_id, rejected.read_token) == stopped
+            trace = MlflowClient(tracking_uri=tracking_uri).get_trace(stopped.trace_id, flush=True)
+            root = next(span for span in trace.data.spans if span.name == "graph")
+            assert root.outputs == stopped.model_dump(mode="json")
+            assert root.attributes["expenditure_category"] == "offline_evaluation"
+            completed = running.result(timeout=8).response
+            assert completed.execution is not None
+>           assert completed.execution.stop_reason == "timeout"
+E           AssertionError: assert 'malformed_output' == 'timeout'
+E             
+E             - timeout
+E             + malformed_output
+
+tests/test_execution_api.py:456: AssertionError
+----------------------------- Captured stderr call -----------------------------
+2026/11/04 17:21:56 INFO mlflow.store.db.utils: Creating initial MLflow database tables...
+2026/11/04 17:21:56 INFO mlflow.store.db.utils: Updating database tables
+------------------------------ Captured log call -------------------------------
+INFO     mlflow.store.db.utils:utils.py:87 Creating initial MLflow database tables...
+INFO     mlflow.store.db.utils:utils.py:294 Updating database tables
+=============================== warnings summary ===============================
+.venv/lib/python3.12/site-packages/fastapi/testclient.py:1
+  /home/tom/Documents/code/python/rag_demo/.venv/lib/python3.12/site-packages/fastapi/testclient.py:1: StarletteDeprecationWarning: Using `httpx` with `starlette.testclient` is deprecated; install `httpx2` instead.
+    from starlette.testclient import TestClient as TestClient  # noqa
+
+tests/test_execution_api.py::test_model_limit_returns_retained_evidence_and_a_saved_stop_reason[models0]
+  tests/test_execution_api.py:56: PytestWarning: record_property is incompatible with junit_family 'xunit2' (use 'legacy' or 'xunit1')
+    @pytest.mark.parametrize("models", [{"forbid_chat": True}], indirect=True)
+
+tests/test_execution_api.py::test_text_and_family_answers_share_admission_and_retain_stopped_outcomes
+  tests/test_execution_api.py:200: PytestWarning: record_property is incompatible with junit_family 'xunit2' (use 'legacy' or 'xunit1')
+    def test_text_and_family_answers_share_admission_and_retain_stopped_outcomes(
+
+tests/test_execution_api.py::test_http_disconnect_cancels_the_external_call_and_records_the_outcome
+  tests/test_execution_api.py:495: PytestWarning: record_property is incompatible with junit_family 'xunit2' (use 'legacy' or 'xunit1')
+    def test_http_disconnect_cancels_the_external_call_and_records_the_outcome(
+
+tests/test_execution_api.py::test_malformed_embedding_returns_a_safe_stored_failure_without_generation
+  tests/test_execution_api.py:540: PytestWarning: record_property is incompatible with junit_family 'xunit2' (use 'legacy' or 'xunit1')
+    def test_malformed_embedding_returns_a_safe_stored_failure_without_generation(
+
+tests/test_execution_api.py::test_request_and_provider_credentials_are_redacted_before_trace_and_storage[models0]
+  tests/test_execution_api.py:581: PytestWarning: record_property is incompatible with junit_family 'xunit2' (use 'legacy' or 'xunit1')
+    @pytest.mark.parametrize(
+
+tests/test_execution_api.py::test_request_deadline_closes_a_slow_provider_and_keeps_supported_excerpts
+  tests/test_execution_api.py:625: PytestWarning: record_property is incompatible with junit_family 'xunit2' (use 'legacy' or 'xunit1')
+    def test_request_deadline_closes_a_slow_provider_and_keeps_supported_excerpts(
+
+tests/test_execution_api.py::test_retrieved_instructions_and_model_tool_requests_cannot_mutate_captured_evidence[models0]
+  tests/test_execution_api.py:666: PytestWarning: record_property is incompatible with junit_family 'xunit2' (use 'legacy' or 'xunit1')
+    @pytest.mark.parametrize(
+
+tests/test_execution_api.py::test_retrieval_database_timeouts_return_a_saved_stop_outcome[models0-text_indexes-0]
+tests/test_execution_api.py::test_retrieval_database_timeouts_return_a_saved_stop_outcome[models0-vector-1]
+  tests/test_execution_api.py:774: PytestWarning: record_property is incompatible with junit_family 'xunit2' (use 'legacy' or 'xunit1')
+    @pytest.mark.parametrize("locked,attempts", [("text_indexes", 0), ("vector", 1)])
+
+-- Docs: https://docs.pytest.org/en/stable/how-to/capture-warnings.html
+=========================== short test summary info ============================
+FAILED tests/test_execution_api.py::test_offline_answer_admission_does_not_consume_serving_capacity
+1 failed, 57 passed, 10 warnings in 495.61s (0:08:15)
+2026/11/04 17:29:36 INFO mlflow.tracing.export.async_export_queue: Flushing the async trace logging queue before program exit. This may take a while...

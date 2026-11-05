@@ -1,0 +1,109 @@
+<?xml version="1.0" encoding="utf-8"?><testsuites name="pytest tests"><testsuite name="pytest" errors="0" failures="2" skipped="0" tests="2" time="8.349" timestamp="2026-11-04T17:09:17.549877+00:00" hostname="tom-Latitude-3510"><testcase classname="tests.test_routing_api" name="test_failed_or_unaffordable_escalation_preserves_the_supported_partial_answer[4-False]" time="4.585"><failure message="NameError: name 'receipt' is not defined">database_url = 'user=ask_phil password=local-demo-only dbname=ask_phil_test_521e6b7050e6481fa23ffdfa1b30f85f host=127.0.0.1 port=55424'
+family_batch = ClaimBatch(claims=(ParentageClaim(claim_id='phil-ben', parent_id='phil-mitchell', child_id='ben-mitchell', parent_role...ns do not expand the core roster.', evidence_sources=('sharon-watts-wiki',)))), extractor='reviewed-reference-fixture')
+investigator_models = &lt;function investigator_models.&lt;locals&gt;.build at 0x7572c026ade0&gt;
+tmp_path = PosixPath('/tmp/pytest-of-tom/pytest-40/test_failed_or_unaffordable_es0')
+model_limit = 4, failure = False
+
+    @pytest.mark.parametrize("model_limit,failure", [(4, False), (6, True)])
+    def test_failed_or_unaffordable_escalation_preserves_the_supported_partial_answer(
+        database_url: str,
+        family_batch: ClaimBatch,
+        investigator_models: Callable[[list[dict[str, Any]]], Models],
+        tmp_path: Path,
+        model_limit: int,
+        failure: bool,
+    ) -&gt; None:
+        from test_family_graph import install_family
+        from test_investigation_api import finish, publish
+    
+        install_family(database_url, family_batch)
+        snapshot = EvidenceStore(database_url).snapshot(family_batch.snapshot_id)
+        part = "Who are Ben Mitchell's biological parents and grandmother?"
+        first = finish(part)["action"]["draft"]
+        first.update(status="partial", evidence_ids=["family-ben-birth"],
+            answer="Kathy and I are Ben's biological parents. His grandmother is unresolved.",
+            unanswered=["Who is Ben Mitchell's biological grandmother?"],
+        )
+        outputs = [first]
+        if failure:
+            outputs.append({"invalid": True, "_usage": {"prompt_eval_count": None, "eval_count": None}})
+        models = investigator_models(outputs)
+        publish(database_url, snapshot, models)
+        uri = f"sqlite:///{tmp_path}/recovery.db"
+        with TestClient(create_app(
+            database_url, models=models, tracking_uri=uri,
+            text_policy=TextPolicy(per_query_k=1, selected_hits=1),
+            execution_limits=ExecutionLimits(model_calls=model_limit, tool_calls=2, context_bytes=6000),
+        )) as client:
+            result = client.post("/v1/answers", json={"question": part})
+            assert result.status_code == 200, result.text
+            answer = result.json()["response"]
+            assert answer["status"] == "partial"
+            assert answer["answer"] == first["answer"]
+            assert [c["evidence_id"] for c in answer["citations"]] == ["family-ben-birth"]
+            reasons = {c["reason"] for c in answer["routing"]["checks"]}
+            if failure:
+                assert "retained_prior_support" in reasons
+                assert answer["routing"]["stop_reason"] == "malformed_output"
+                assert len(answer["routing"]["stages"]) == 2
+                assert answer["usage"]["input_tokens"] is None
+                assert answer["usage"]["output_tokens"] is None
+                assert answer["routing"]["stages"][0]["accounting"]["usage"]["input_tokens"] == 40
+            else:
+                assert "no_escalation_budget" in reasons
+                assert len(answer["routing"]["stages"]) == 1
+                assert answer["execution"]["model_calls"] == 2
+            original = client.get(
+                f"/v1/responses/{answer['response_id']}",
+&gt;               headers={"Authorization": "Bearer " + receipt["read_token"]},
+                                                      ^^^^^^^
+            )
+E           NameError: name 'receipt' is not defined
+
+tests/test_routing_api.py:107: NameError</failure></testcase><testcase classname="tests.test_routing_api" name="test_failed_or_unaffordable_escalation_preserves_the_supported_partial_answer[6-True]" time="3.525"><failure message="AssertionError: assert 'insufficient_evidence' == 'partial'&#10;  &#10;  - partial&#10;  + insufficient_evidence">database_url = 'user=ask_phil password=local-demo-only dbname=ask_phil_test_0761491744e54e08ab9520ba202653bd host=127.0.0.1 port=55424'
+family_batch = ClaimBatch(claims=(ParentageClaim(claim_id='phil-ben', parent_id='phil-mitchell', child_id='ben-mitchell', parent_role...ns do not expand the core roster.', evidence_sources=('sharon-watts-wiki',)))), extractor='reviewed-reference-fixture')
+investigator_models = &lt;function investigator_models.&lt;locals&gt;.build at 0x7572b673fb00&gt;
+tmp_path = PosixPath('/tmp/pytest-of-tom/pytest-40/test_failed_or_unaffordable_es1')
+model_limit = 6, failure = True
+
+    @pytest.mark.parametrize("model_limit,failure", [(4, False), (6, True)])
+    def test_failed_or_unaffordable_escalation_preserves_the_supported_partial_answer(
+        database_url: str,
+        family_batch: ClaimBatch,
+        investigator_models: Callable[[list[dict[str, Any]]], Models],
+        tmp_path: Path,
+        model_limit: int,
+        failure: bool,
+    ) -&gt; None:
+        from test_family_graph import install_family
+        from test_investigation_api import finish, publish
+    
+        install_family(database_url, family_batch)
+        snapshot = EvidenceStore(database_url).snapshot(family_batch.snapshot_id)
+        part = "Who are Ben Mitchell's biological parents and grandmother?"
+        first = finish(part)["action"]["draft"]
+        first.update(status="partial", evidence_ids=["family-ben-birth"],
+            answer="Kathy and I are Ben's biological parents. His grandmother is unresolved.",
+            unanswered=["Who is Ben Mitchell's biological grandmother?"],
+        )
+        outputs = [first]
+        if failure:
+            outputs.append({"invalid": True, "_usage": {"prompt_eval_count": None, "eval_count": None}})
+        models = investigator_models(outputs)
+        publish(database_url, snapshot, models)
+        uri = f"sqlite:///{tmp_path}/recovery.db"
+        with TestClient(create_app(
+            database_url, models=models, tracking_uri=uri,
+            text_policy=TextPolicy(per_query_k=1, selected_hits=1),
+            execution_limits=ExecutionLimits(model_calls=model_limit, tool_calls=2, context_bytes=6000),
+        )) as client:
+            result = client.post("/v1/answers", json={"question": part})
+            assert result.status_code == 200, result.text
+            answer = result.json()["response"]
+&gt;           assert answer["status"] == "partial"
+E           AssertionError: assert 'insufficient_evidence' == 'partial'
+E             
+E             - partial
+E             + insufficient_evidence
+
+tests/test_routing_api.py:90: AssertionError</failure></testcase></testsuite></testsuites>

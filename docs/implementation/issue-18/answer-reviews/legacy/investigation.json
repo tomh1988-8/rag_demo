@@ -1,0 +1,76 @@
+{
+  "capture_sha256": "34a5c237170b75d446a651ced13459ea104419fb1aab9469c5c958439befff1a",
+  "unit": "Distinct factual sentence/assertion; repeated graph step wording deduplicated. Evidence-limit caveats assessed in outcome review; abstentions have no factual denominator.",
+  "reviews": [
+    {
+      "case_id": "sufficient-text",
+      "response_sha256": "ce9b4d4cebb6095f6bcdc63a6c43f1e664f083e6eae0d785213ab4120778dc31",
+      "reference_sha256": "c508e10213506d7fa4f7b27d051857d86f8903665d13f78ad5b2beea3e7e0973",
+      "reviewer": "Codex source review, independently checked by Spec review",
+      "rationale": "The cited Christmas Day 2005 sentence supports both the pregnancy discovery and exact story-date precision. Reviewed actual final prose, context and cited text; coverage caveats are checked separately from factual assertion units. Agent source review, not human canon or independent corroboration.",
+      "claims": [
+        {
+          "claim": "The account says Sharon was stunned to discover she was pregnant on Christmas Day 2005.",
+          "correct": true,
+          "grounded": true,
+          "citation_supported": true
+        },
+        {
+          "claim": "She and Dennis celebrated the prospect of a child.",
+          "correct": true,
+          "grounded": true,
+          "citation_supported": true
+        },
+        {
+          "claim": "That\u2019s an exact day, not an estimate.",
+          "correct": true,
+          "grounded": true,
+          "citation_supported": true
+        }
+      ],
+      "required_facts": [
+        {
+          "fact": "Sharon Watts discovers she is pregnant on Christmas Day 2005; the supported story date is exact.",
+          "covered": true
+        }
+      ],
+      "answerability": true,
+      "relevance": true,
+      "critical_failures": []
+    },
+    {
+      "case_id": "multi-family",
+      "response_sha256": "35318783171937e641702a77f5ee47b7a2f6f2fd6a3b7ddde56e27f72c66e864",
+      "reference_sha256": "4146ee45a68b6963ad0535934ade2c385bdf8126577411cf835e2e1637260c3b",
+      "reviewer": "Codex source review, independently checked by Spec review",
+      "rationale": "The birth sentence supports Phil/Kathy; the Peggy pregnancy sentence supports Peggy as Phil's mother. Text-only context omits Peggy and admits the gap; investigations acquire that support. Reviewed actual final prose, context and cited text; coverage caveats are checked separately from factual assertion units. Agent source review, not human canon or independent corroboration.",
+      "claims": [
+        {
+          "claim": "Ben's biological parents are me and Kathy Beale.",
+          "correct": true,
+          "grounded": true,
+          "citation_supported": true
+        },
+        {
+          "claim": "My biological mother is Peggy Mitchell.",
+          "correct": true,
+          "grounded": true,
+          "citation_supported": true
+        }
+      ],
+      "required_facts": [
+        {
+          "fact": "Phil Mitchell and Kathy Beale are Ben Mitchell's biological parents.",
+          "covered": true
+        },
+        {
+          "fact": "Peggy Mitchell is Phil Mitchell's biological mother.",
+          "covered": true
+        }
+      ],
+      "answerability": true,
+      "relevance": true,
+      "critical_failures": []
+    }
+  ]
+}

@@ -1,0 +1,54 @@
+{
+  "capture_sha256": "3770ec7d42bf9eb303fb55a490f6b746437a0061bdc63d1e7d9207415a685038",
+  "unit": "One compound final factual statement per short ordered answer, including timing/precision when asserted. This denominator differs from legacy sentence units; compare task outcomes separately.",
+  "reviews": [
+    {
+      "case_id": "biological-parents",
+      "response_sha256": "c0507f5a9e3b73e4ec17220bc7035ae96cfdd318c4fb1882c8f353670d46c61c",
+      "reference_sha256": "00d535c4f9ebaf8a143fff70c1e04309264b8d564ca170b7ad420d7957533bfa",
+      "reviewer": "Codex source-based development review",
+      "rationale": "The actual cited birth sentence supports Phil/Kathy parentage, or the Christmas Day 2005 discovery sentence supports the exact day. First-person me is Phil. The expected fact and outcome are covered. Full final prose and actual context inspected; no human canon or held-out acceptance.",
+      "claims": [
+        {
+          "claim": "Ben\u2019s biological parents are me and Kathy Beale.",
+          "correct": true,
+          "grounded": true,
+          "citation_supported": true
+        }
+      ],
+      "required_facts": [
+        {
+          "fact": "Phil Mitchell and Kathy Beale are Ben Mitchell's biological parents.",
+          "covered": true
+        }
+      ],
+      "answerability": true,
+      "relevance": true,
+      "critical_failures": []
+    },
+    {
+      "case_id": "sufficient-text",
+      "response_sha256": "4355210de6e7de87b9c6df7cfe3120b3c1d55661769002961f6f4bbf76ef8861",
+      "reference_sha256": "881f74577eac726fd702a919acf3ae30a00bd54162128127b0f63dca0d66374e",
+      "reviewer": "Codex source-based development review",
+      "rationale": "The later Louise/Keanu pregnancy sentences support the relative sequence actually asserted, but context expansion drops the frozen Christmas Day 2005 discovery passage. This is a completeness failure and an ambiguous-event reference limitation, not independent support for the expected date. Full final prose and actual context inspected; no human canon or held-out acceptance.",
+      "claims": [
+        {
+          "claim": "The account places Sharon\u2019s discovery after Louise learns she\u2019s pregnant with Keanu\u2019s baby and Sharon ends their affair. That\u2019s relative timing, not a calendar date; Sharon\u2019s discovery date isn\u2019t given.",
+          "correct": true,
+          "grounded": true,
+          "citation_supported": true
+        }
+      ],
+      "required_facts": [
+        {
+          "fact": "Sharon Watts discovers she is pregnant on Christmas Day 2005; the supported story date is exact.",
+          "covered": false
+        }
+      ],
+      "answerability": true,
+      "relevance": true,
+      "critical_failures": []
+    }
+  ]
+}

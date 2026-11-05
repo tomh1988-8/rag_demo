@@ -1,0 +1,56 @@
+<?xml version="1.0" encoding="utf-8"?><testsuites name="pytest tests"><testsuite name="pytest" errors="0" failures="1" skipped="0" tests="9" time="1.282" timestamp="2026-11-05T15:45:05.820579+00:00" hostname="tom-Latitude-3510"><testcase classname="tests.test_routing" name="test_biological_routing_requires_admitted_directional_coverage" time="0.002" /><testcase classname="tests.test_routing" name="test_relationship_history_requires_the_requested_pair_and_complete_question" time="0.001" /><testcase classname="tests.test_routing" name="test_events_and_connections_use_supported_roles_without_thematic_graphs" time="0.001" /><testcase classname="tests.test_routing" name="test_escalation_uses_remaining_authority_without_replenishing_it[6-2-investigate_evidence_gap]" time="0.001" /><testcase classname="tests.test_routing" name="test_escalation_uses_remaining_authority_without_replenishing_it[4-2-no_escalation_budget]" time="0.001" /><testcase classname="tests.test_routing" name="test_escalation_uses_remaining_authority_without_replenishing_it[6-1-no_escalation_budget]" time="0.001" /><testcase classname="tests.test_routing" name="test_automatic_routing_honors_existing_explicit_serving_limits" time="0.001" /><testcase classname="tests.test_routing_evaluation" name="test_ordered_routing_parentage_has_reviewed_identities_and_admitted_coverage" time="0.941"><failure message="ValueError: Claim identities must match the captured reviewed catalogue.">def test_ordered_routing_parentage_has_reviewed_identities_and_admitted_coverage() -&gt; None:
+        from ask_phil.ingestion import build_snapshot, read_batch
+        from ask_phil.parentage import ClaimBatch, ClaimReview, admit_claims
+    
+        projection = json.loads(
+            Path("docs/implementation/issue-18/ordered-family-projection-v2.json").read_bytes()
+        )
+        snapshot = build_snapshot(
+            read_batch(Path("data/sources/real-sources-v1.json.gz")), "text-expansion-development-v1"
+        )
+&gt;       report = admit_claims(
+            snapshot,
+            ClaimBatch.model_validate(projection["batch"]),
+            tuple(ClaimReview.model_validate(review) for review in projection["reviews"]),
+        )
+
+tests/test_routing_evaluation.py:26: 
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ 
+src/ask_phil/parentage.py:72: in admit_claims
+    admission = ClaimAdmission(snapshot, batch, reviews, prior_reviews=prior_reviews)
+                ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ 
+
+self = &lt;ask_phil.claims.ClaimAdmission object at 0x752ab80fd9a0&gt;
+snapshot = SourceSnapshot(snapshot_id='text-expansion-development-v1', fixture_version=1, source=Source(title='Sharon Watts', url...ders'}}})), issues=(ImportIssue(source_id='episode', code='missing_field', detail='Episode 116520 has no summary.'),)))
+batch = ClaimBatch(claims=(ParentageClaim(claim_id='phil-ben', parent_id='phil-mitchell', child_id='ben-mitchell', parent_role...ory corroboration.', evidence_sources=('kathy-beale-wiki',)))), extractor='issue-18-source-reviewed-locator-rebinding')
+reviews = (ClaimReview(claim_id='phil-ben', claim_sha256='0b3d818fd3d115f47c43b5796e094846164556d8bc151dad0f6004d171d0a34e', ver...s to the exact same quote in this captured revision; no new extraction or independent canon claim.', superseded_by=()))
+extra_claims = (), prior_reviews = ()
+
+    def __init__(
+        self,
+        snapshot: SourceSnapshot,
+        batch: _Batch,
+        reviews: Sequence[Review],
+        *,
+        extra_claims: Sequence[_Claim] = (),
+        prior_reviews: Sequence[ClaimReview] = (),
+    ) -&gt; None:
+        if (batch.snapshot_id, batch.snapshot_sha256) != (
+            snapshot.snapshot_id,
+            snapshot.fingerprint,
+        ):
+            raise ValueError("Claims belong to a different source snapshot.")
+        claim_ids = {c.claim_id for c in (*batch.claims, *extra_claims)}
+        if (
+            len({r.claim_id for r in reviews}) != len(reviews)
+            or not {r.claim_id for r in reviews} &lt;= claim_ids
+        ):
+            raise ValueError("Reviews must uniquely identify claims in this batch.")
+        if snapshot.imported is not None:
+            captured = {c.character_id: c for c in snapshot.imported.catalogue.characters}
+            if any(captured.get(c.character_id) != c for c in batch.catalogue.characters):
+&gt;               raise ValueError("Claim identities must match the captured reviewed catalogue.")
+E               ValueError: Claim identities must match the captured reviewed catalogue.
+
+src/ask_phil/claims.py:131: ValueError</failure></testcase><testcase classname="tests.test_routing_evaluation" name="test_multiple_routes_can_succeed_and_label_agreement_does_not_repair_bad_answers" time="0.012" /></testsuite></testsuites>

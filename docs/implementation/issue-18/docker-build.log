@@ -1,0 +1,414 @@
+ Image ask-phil-test Building 
+#1 [internal] load local bake definitions
+#1 reading from stdin 550B done
+#1 DONE 0.0s
+
+#2 [internal] load build definition from Dockerfile
+#2 transferring dockerfile: 2.78kB done
+#2 DONE 0.0s
+
+#3 [internal] load metadata for ghcr.io/astral-sh/uv:0.12.9
+#3 DONE 0.6s
+
+#4 [internal] load metadata for docker.io/library/python:3.12-slim
+#4 DONE 1.4s
+
+#5 [internal] load .dockerignore
+#5 transferring context: 922B done
+#5 DONE 0.0s
+
+#6 FROM ghcr.io/astral-sh/uv:0.12.9@sha256:8b940d3a9d65bed080436972241af2e21c84b5e8c9193f7014ed71479ee795ff
+#6 resolve ghcr.io/astral-sh/uv:0.12.9@sha256:8b940d3a9d65bed080436972241af2e21c84b5e8c9193f7014ed71479ee795ff 0.0s done
+#6 CACHED
+
+#7 [base  1/11] FROM docker.io/library/python:3.12-slim@sha256:e695ab189fa2d082b1c61c69a6b888a5adeca61ceeccad107b1ed2a125721a9e
+#7 resolve docker.io/library/python:3.12-slim@sha256:e695ab189fa2d082b1c61c69a6b888a5adeca61ceeccad107b1ed2a125721a9e 0.0s done
+#7 DONE 0.1s
+
+#8 [internal] load build context
+#8 transferring context: 15.27MB 0.2s done
+#8 DONE 0.2s
+
+#7 [base  1/11] FROM docker.io/library/python:3.12-slim@sha256:e695ab189fa2d082b1c61c69a6b888a5adeca61ceeccad107b1ed2a125721a9e
+#7 sha256:05e0eee5572e9c9f50408a2132590133b830a668a1cf2ff2b150f19c57707e2b 248B / 248B 0.1s done
+#7 sha256:2dc99d2d0a39fce31e37615eb4c932e16dcc4c2b0ce9993714280081b5dbe085 0B / 12.12MB 0.3s
+#7 sha256:68bced9e0afa4479df17c3646e27c7c7e9ce9ba70c0e6c73b6826487b89037d9 0B / 1.29MB 0.2s
+#7 sha256:37fb86c2a767b88d500c6872195f88078f64765fe0d2f9cc375cc2efbd4c0a41 0B / 29.86MB 0.2s
+#7 sha256:2dc99d2d0a39fce31e37615eb4c932e16dcc4c2b0ce9993714280081b5dbe085 9.44MB / 12.12MB 0.5s
+#7 sha256:2dc99d2d0a39fce31e37615eb4c932e16dcc4c2b0ce9993714280081b5dbe085 12.12MB / 12.12MB 0.5s done
+#7 sha256:68bced9e0afa4479df17c3646e27c7c7e9ce9ba70c0e6c73b6826487b89037d9 1.29MB / 1.29MB 0.5s done
+#7 sha256:37fb86c2a767b88d500c6872195f88078f64765fe0d2f9cc375cc2efbd4c0a41 6.29MB / 29.86MB 0.6s
+#7 sha256:37fb86c2a767b88d500c6872195f88078f64765fe0d2f9cc375cc2efbd4c0a41 17.83MB / 29.86MB 0.8s
+#7 sha256:37fb86c2a767b88d500c6872195f88078f64765fe0d2f9cc375cc2efbd4c0a41 29.86MB / 29.86MB 0.9s
+#7 sha256:37fb86c2a767b88d500c6872195f88078f64765fe0d2f9cc375cc2efbd4c0a41 29.86MB / 29.86MB 0.9s done
+#7 extracting sha256:37fb86c2a767b88d500c6872195f88078f64765fe0d2f9cc375cc2efbd4c0a41
+#7 extracting sha256:37fb86c2a767b88d500c6872195f88078f64765fe0d2f9cc375cc2efbd4c0a41 0.7s done
+#7 DONE 1.8s
+
+#7 [base  1/11] FROM docker.io/library/python:3.12-slim@sha256:e695ab189fa2d082b1c61c69a6b888a5adeca61ceeccad107b1ed2a125721a9e
+#7 extracting sha256:68bced9e0afa4479df17c3646e27c7c7e9ce9ba70c0e6c73b6826487b89037d9 0.1s done
+#7 extracting sha256:2dc99d2d0a39fce31e37615eb4c932e16dcc4c2b0ce9993714280081b5dbe085
+#7 extracting sha256:2dc99d2d0a39fce31e37615eb4c932e16dcc4c2b0ce9993714280081b5dbe085 0.4s done
+#7 DONE 2.2s
+
+#7 [base  1/11] FROM docker.io/library/python:3.12-slim@sha256:e695ab189fa2d082b1c61c69a6b888a5adeca61ceeccad107b1ed2a125721a9e
+#7 extracting sha256:05e0eee5572e9c9f50408a2132590133b830a668a1cf2ff2b150f19c57707e2b done
+#7 DONE 2.2s
+
+#9 [base  2/11] COPY --from=ghcr.io/astral-sh/uv:0.12.9 /uv /usr/local/bin/uv
+#9 DONE 0.3s
+
+#10 [base  3/11] WORKDIR /app
+#10 DONE 0.0s
+
+#11 [base  4/11] COPY pyproject.toml uv.lock .python-version ./
+#11 DONE 0.0s
+
+#12 [base  5/11] COPY src ./src
+#12 DONE 0.0s
+
+#13 [base  6/11] COPY data ./data
+#13 DONE 0.0s
+
+#14 [base  7/11] COPY config ./config
+#14 DONE 0.0s
+
+#15 [base  8/11] COPY --chown=10001:10001 docs/implementation/issue-9/judge-calibration.json ./docs/implementation/issue-9/
+#15 DONE 0.0s
+
+#16 [base  9/11] COPY scripts/evaluate_text_baseline.py scripts/evaluate_answer_policy.py scripts/evaluate_text_corpus.py scripts/evaluate_conversation.py ./scripts/
+#16 DONE 0.0s
+
+#17 [base 10/11] RUN uv sync --frozen --no-dev --no-editable --cache-dir /tmp/uv-cache
+#17 0.448 Using CPython 3.12.16 interpreter at: /usr/local/bin/python3.12
+#17 0.448 Creating virtual environment at: .venv
+#17 0.497    Building ask-phil @ file:///app
+#17 0.609 Downloading pygments (1.2MiB)
+#17 0.627 Downloading tiktoken (1.1MiB)
+#17 0.628 Downloading networkx (2.0MiB)
+#17 0.642 Downloading burner-redis (1.3MiB)
+#17 0.643 Downloading pandas (10.3MiB)
+#17 0.643 Downloading mlflow-tracing (1.7MiB)
+#17 0.643 Downloading pydantic-core (2.0MiB)
+#17 0.643 Downloading cryptography (4.5MiB)
+#17 0.644 Downloading scipy (33.7MiB)
+#17 0.644 Downloading aiohttp (1.7MiB)
+#17 0.644 Downloading psycopg-binary (5.0MiB)
+#17 0.644 Downloading psycopg2-binary (4.1MiB)
+#17 0.644 Downloading matplotlib (9.4MiB)
+#17 0.645 Downloading asyncpg (3.4MiB)
+#17 0.645 Downloading numpy (15.9MiB)
+#17 0.645 Downloading fonttools (5.1MiB)
+#17 0.646 Downloading mlflow-skinny (3.6MiB)
+#17 0.646 Downloading sqlalchemy (3.3MiB)
+#17 0.646 Downloading llama-index-core (11.4MiB)
+#17 0.646 Downloading kiwisolver (1.4MiB)
+#17 0.646 Downloading scikit-learn (8.7MiB)
+#17 0.646 Downloading nltk (1.7MiB)
+#17 0.647 Downloading pillow (6.6MiB)
+#17 0.647 Downloading databricks-sdk (1.0MiB)
+#17 0.648 Downloading mlflow (11.1MiB)
+#17 0.649 Downloading pyarrow (47.8MiB)
+#17 0.649 Downloading apprise (1.7MiB)
+#17 0.649 Downloading beartype (1.3MiB)
+#17 0.728 Downloading prefect (14.9MiB)
+#17 1.282  Downloaded databricks-sdk
+#17 1.322  Downloaded tiktoken
+#17 1.327  Downloaded pygments
+#17 1.356  Downloaded beartype
+#17 1.376  Downloaded burner-redis
+#17 1.460  Downloaded kiwisolver
+#17 1.523  Downloaded mlflow-tracing
+#17 1.549  Downloaded nltk
+#17 1.563  Downloaded apprise
+#17 1.579  Downloaded aiohttp
+#17 1.640  Downloaded pydantic-core
+#17 1.666  Downloaded networkx
+#17 1.959  Downloaded asyncpg
+#17 1.983  Downloaded sqlalchemy
+#17 2.020  Downloaded mlflow-skinny
+#17 2.132  Downloaded psycopg2-binary
+#17 2.181  Downloaded cryptography
+#17 2.234  Downloaded psycopg-binary
+#17 2.272  Downloaded fonttools
+#17 2.435  Downloaded pillow
+#17 2.678  Downloaded scikit-learn
+#17 2.786  Downloaded matplotlib
+#17 2.824  Downloaded pandas
+#17 2.955  Downloaded mlflow
+#17 3.146  Downloaded llama-index-core
+#17 3.146  Downloaded numpy
+#17 3.147       Built ask-phil @ file:///app
+#17 3.661  Downloaded prefect
+#17 3.726  Downloaded scipy
+#17 3.964  Downloaded pyarrow
+#17 3.964 Prepared 193 packages in 3.50s
+#17 4.207 Installed 193 packages in 242ms
+#17 4.207  + aiohappyeyeballs==2.7.1
+#17 4.207  + aiohttp==3.14.3
+#17 4.207  + aiosignal==1.4.0
+#17 4.207  + aiosqlite==0.22.1
+#17 4.207  + alembic==1.20.0
+#17 4.207  + amplitude-analytics==1.2.3
+#17 4.207  + annotated-doc==0.0.5
+#17 4.207  + annotated-types==0.8.0
+#17 4.207  + anyio==4.15.1
+#17 4.207  + apprise==1.13.1
+#17 4.207  + asgi-lifespan==2.1.0
+#17 4.207  + ask-phil==0.1.0 (from file:///app)
+#17 4.207  + asyncpg==0.31.0
+#17 4.207  + attrs==26.1.0
+#17 4.207  + banks==2.5.1
+#17 4.207  + beartype==0.22.9
+#17 4.207  + beautifulsoup4==4.15.0
+#17 4.207  + blinker==1.9.0
+#17 4.207  + burner-redis==0.1.7
+#17 4.207  + cachetools==7.2.0
+#17 4.207  + certifi==2026.7.22
+#17 4.207  + cffi==2.1.1
+#17 4.207  + charset-normalizer==3.5.1
+#17 4.207  + click==8.5.0
+#17 4.208  + cloudpickle==3.1.2
+#17 4.208  + colorama==0.4.6
+#17 4.208  + contourpy==1.4.0
+#17 4.208  + coolname==5.0.0
+#17 4.208  + cronsim==2.7
+#17 4.208  + cryptography==50.0.1
+#17 4.208  + cycler==0.12.1
+#17 4.208  + cyclopts==5.0.0
+#17 4.208  + databricks-sdk==0.141.0
+#17 4.208  + dataclasses-json==0.6.7
+#17 4.208  + dateparser==1.4.3
+#17 4.208  + defusedxml==0.7.1
+#17 4.208  + deprecated==1.3.1
+#17 4.208  + dirtyjson==1.0.8
+#17 4.208  + docker==7.2.0
+#17 4.208  + docstring-parser==0.18.0
+#17 4.208  + exceptiongroup==1.3.1
+#17 4.208  + fastapi==0.141.1
+#17 4.208  + filetype==1.2.0
+#17 4.208  + flask==3.1.3
+#17 4.208  + flask-cors==6.0.5
+#17 4.208  + fonttools==4.66.0
+#17 4.208  + frozenlist==1.8.0
+#17 4.208  + fsspec==2026.9.0
+#17 4.208  + gitdb==4.0.12
+#17 4.208  + gitpython==3.1.62
+#17 4.208  + google-auth==2.58.0
+#17 4.208  + graphene==3.4.3
+#17 4.208  + graphql-core==3.2.12
+#17 4.208  + graphql-relay==3.2.0
+#17 4.208  + graphviz==0.21
+#17 4.208  + greenlet==3.5.6
+#17 4.208  + griffe==2.3.0
+#17 4.208  + griffecli==2.3.0
+#17 4.208  + griffelib==2.3.0
+#17 4.208  + gunicorn==26.2.0
+#17 4.208  + h11==0.16.0
+#17 4.208  + h2==4.4.1
+#17 4.208  + hpack==4.2.0
+#17 4.208  + httpcore==1.0.9
+#17 4.208  + httpx==0.28.1
+#17 4.208  + huey==3.4.0
+#17 4.208  + humanize==4.16.0
+#17 4.208  + hyperframe==6.1.0
+#17 4.208  + idna==3.20
+#17 4.208  + importlib-metadata==9.0.1
+#17 4.208  + iniconfig==2.3.0
+#17 4.209  + itsdangerous==2.2.0
+#17 4.209  + jinja2==3.1.6
+#17 4.209  + jinja2-humanize-extension==0.4.0
+#17 4.209  + joblib==1.6.0
+#17 4.209  + jsonpatch==1.33
+#17 4.209  + jsonpointer==3.1.1
+#17 4.209  + jsonschema==4.26.0
+#17 4.209  + jsonschema-specifications==2025.9.1
+#17 4.209  + kiwisolver==1.5.1
+#17 4.209  + llama-index-core==0.14.25
+#17 4.209  + llama-index-embeddings-ollama==0.10.0
+#17 4.209  + llama-index-instrumentation==0.6.0
+#17 4.209  + llama-index-llms-ollama==0.11.0
+#17 4.209  + llama-index-vector-stores-postgres==0.9.0
+#17 4.209  + llama-index-workflows==2.24.1
+#17 4.209  + mako==1.4.3
+#17 4.209  + markdown==3.11
+#17 4.209  + markdown-it-py==4.2.0
+#17 4.209  + markupsafe==3.0.3
+#17 4.209  + marshmallow==3.26.2
+#17 4.209  + matplotlib==3.11.2
+#17 4.209  + mdurl==0.1.2
+#17 4.209  + mlflow==3.16.1
+#17 4.209  + mlflow-skinny==3.16.1
+#17 4.209  + mlflow-tracing==3.16.1
+#17 4.209  + multidict==6.9.1
+#17 4.209  + mypy-extensions==1.1.0
+#17 4.209  + narwhals==2.26.0
+#17 4.209  + nest-asyncio==1.6.0
+#17 4.209  + networkx==3.7
+#17 4.209  + nltk==3.10.3
+#17 4.209  + numpy==2.5.3
+#17 4.209  + oauthlib==3.3.1
+#17 4.209  + ollama==0.6.2
+#17 4.209  + opentelemetry-api==1.44.0
+#17 4.209  + opentelemetry-proto==1.44.0
+#17 4.209  + opentelemetry-sdk==1.44.0
+#17 4.209  + opentelemetry-semantic-conventions==0.65b0
+#17 4.209  + orjson==3.12.0
+#17 4.209  + packaging==26.3
+#17 4.209  + pandas==3.0.6
+#17 4.209  + pathspec==1.1.1
+#17 4.209  + pendulum==3.2.0
+#17 4.209  + pgvector==0.5.0
+#17 4.209  + pillow==12.3.0
+#17 4.209  + platformdirs==4.11.12
+#17 4.210  + pluggy==1.6.0
+#17 4.210  + prefect==3.8.6
+#17 4.210  + prettytable==3.18.0
+#17 4.210  + prometheus-client==0.26.0
+#17 4.210  + propcache==0.5.4
+#17 4.210  + protobuf==6.33.6
+#17 4.210  + psycopg==3.3.6
+#17 4.210  + psycopg-binary==3.3.6
+#17 4.210  + psycopg2-binary==2.9.13
+#17 4.210  + py-key-value-aio==0.4.6
+#17 4.210  + pyarrow==25.0.1
+#17 4.210  + pyasn1==0.6.4
+#17 4.210  + pyasn1-modules==0.4.2
+#17 4.210  + pycparser==3.0
+#17 4.210  + pydantic==2.13.5
+#17 4.210  + pydantic-core==2.46.5
+#17 4.210  + pydantic-extra-types==2.11.1
+#17 4.210  + pydantic-settings==2.15.0
+#17 4.210  + pydocket==0.25.2
+#17 4.210  + pygments==2.21.0
+#17 4.210  + pyparsing==3.3.3
+#17 4.210  + pytest==9.1.1
+#17 4.210  + pytest-asyncio==1.4.0
+#17 4.210  + python-dateutil==2.9.0.post0
+#17 4.210  + python-dotenv==1.2.3
+#17 4.210  + python-json-logger==4.2.0
+#17 4.210  + python-slugify==8.0.4
+#17 4.210  + pytz==2026.4
+#17 4.210  + pyyaml==6.0.3
+#17 4.210  + readchar==4.2.2
+#17 4.210  + redis==8.1.0
+#17 4.210  + referencing==0.37.0
+#17 4.210  + regex==2026.9.10
+#17 4.210  + requests==2.34.2
+#17 4.210  + requests-oauthlib==2.0.0
+#17 4.210  + rfc3339-validator==0.1.4
+#17 4.210  + rich==15.0.0
+#17 4.211  + rich-rst==2.1.0
+#17 4.211  + rpds-py==2026.6.3
+#17 4.211  + ruamel-yaml==0.19.1
+#17 4.211  + ruamel-yaml-clib==0.2.15
+#17 4.211  + scikit-learn==1.9.1
+#17 4.211  + scipy==1.18.1
+#17 4.211  + semver==3.1.0
+#17 4.211  + setuptools==84.0.0
+#17 4.211  + shellingham==1.5.4
+#17 4.211  + six==1.17.0
+#17 4.211  + skops==0.16.0
+#17 4.211  + smmap==5.0.3
+#17 4.211  + sniffio==1.3.1
+#17 4.211  + soupsieve==2.10
+#17 4.211  + sqlalchemy==2.0.54
+#17 4.211  + sqlparse==0.6.0
+#17 4.211  + starlette==1.7.0
+#17 4.211  + tenacity==9.1.4
+#17 4.211  + text-unidecode==1.3
+#17 4.211  + threadpoolctl==3.7.0
+#17 4.211  + tiktoken==0.14.0
+#17 4.211  + tinytag==2.3.2
+#17 4.211  + toml==0.10.2
+#17 4.211  + tqdm==4.70.1
+#17 4.211  + typer==0.27.2
+#17 4.211  + typing-extensions==4.16.0
+#17 4.211  + typing-inspect==0.9.0
+#17 4.211  + typing-inspection==0.4.4
+#17 4.211  + tzdata==2026.4
+#17 4.211  + tzlocal==5.4.4
+#17 4.211  + uncalled-for==0.4.0
+#17 4.211  + urllib3==2.8.0
+#17 4.211  + uvicorn==0.53.0
+#17 4.211  + wcwidth==0.9.1
+#17 4.212  + websockets==16.1.1
+#17 4.212  + werkzeug==3.1.8
+#17 4.212  + wrapt==2.4.1
+#17 4.212  + yarl==1.25.1
+#17 4.212  + zipp==4.1.0
+#17 DONE 4.6s
+
+#18 [base 11/11] RUN mkdir -p /app/artifacts && chown 10001:10001 /app/artifacts
+#18 DONE 0.4s
+
+#19 [test  1/15] RUN uv sync --frozen --no-editable --cache-dir /tmp/uv-cache
+#19 0.408 Downloading ruff (9.8MiB)
+#19 0.408 Downloading mypy (14.1MiB)
+#19 0.769  Downloaded ruff
+#19 0.887  Downloaded mypy
+#19 0.887 Prepared 4 packages in 636ms
+#19 0.922 Installed 4 packages in 34ms
+#19 0.922  + librt==0.15.0
+#19 0.922  + mypy==1.20.2
+#19 0.922  + ruff==0.16.8
+#19 0.922  + types-jsonschema==4.26.0.20260518
+#19 DONE 1.0s
+
+#20 [test  2/15] COPY tests ./tests
+#20 DONE 0.0s
+
+#21 [test  3/15] COPY scripts ./scripts
+#21 DONE 0.1s
+
+#22 [test  4/15] COPY --chown=10001:10001 docs/implementation/issue-9 ./docs/implementation/issue-9
+#22 DONE 0.2s
+
+#23 [test  5/15] COPY --chown=10001:10001 docs/implementation/issue-15 ./docs/implementation/issue-15
+#23 DONE 0.1s
+
+#24 [test  6/15] COPY --chown=10001:10001 docs/implementation/issue-19 ./docs/implementation/issue-19
+#24 DONE 0.0s
+
+#25 [test  7/15] COPY --chown=10001:10001 docs/implementation/issue-20 ./docs/implementation/issue-20
+#25 DONE 0.1s
+
+#26 [test  8/15] COPY --chown=10001:10001 docs/implementation/issue-3/docker-serving.json ./docs/implementation/issue-3/docker-serving.json
+#26 DONE 0.0s
+
+#27 [test  9/15] COPY scripts/record_family_acceptance.py scripts/record_relationship_acceptance.py scripts/record_event_acceptance.py ./scripts/
+#27 DONE 0.0s
+
+#28 [test 10/15] COPY scripts/prepare_coverage.py scripts/run_coverage.py scripts/assemble_coverage.py scripts/report_coverage.py scripts/record_coverage.py ./scripts/
+#28 DONE 0.1s
+
+#29 [test 11/15] COPY --chown=10001:10001 docs/implementation/issue-11/claims.json docs/implementation/issue-11/claim-reviews.json ./docs/implementation/issue-11/
+#29 DONE 0.0s
+
+#30 [test 12/15] COPY --chown=10001:10001 docs/implementation/issue-12/raw-claims.json docs/implementation/issue-12/raw-claim-reviews.json docs/implementation/issue-12/reviewed-claims-v2.json docs/implementation/issue-12/reviewed-claim-reviews-v2.json ./docs/implementation/issue-12/
+#30 DONE 0.1s
+
+#31 [test 13/15] COPY --chown=10001:10001 docs/implementation/issue-13/raw-claims.json docs/implementation/issue-13/raw-reviews.json docs/implementation/issue-13/reviewed-claims-v2.json docs/implementation/issue-13/reviewed-reviews-v2.json ./docs/implementation/issue-13/
+#31 DONE 0.0s
+
+#32 [test 14/15] COPY --chown=10001:10001 docs/implementation/issue-16/claim-reviews.json ./docs/implementation/issue-16/
+#32 DONE 0.0s
+
+#33 [test 15/15] COPY --chown=10001:10001 docs/implementation/issue-18/ordered-family-projection.json ./docs/implementation/issue-18/
+#33 DONE 0.0s
+
+#34 exporting to image
+#34 exporting layers
+#34 exporting layers 40.1s done
+#34 exporting manifest sha256:686cc0b0bdc8f9ddb0eda7ce0e2e5ac6a8231064f6c870385c9789d5bcc6471f done
+#34 exporting config sha256:c934d7fc04ab37ec6e7a3b6fa24b35aa14a62bf612f97cae00fc1050ea754c06 done
+#34 exporting attestation manifest sha256:acfac9d47c95cfedea0ae4466e752d5e77e304fb45b0f54f0e9ab1a8d1a73595 done
+#34 exporting manifest list sha256:3709725992b0cc8cf59e82f21b3bbce02ecd621fdccdbdedfdaf2711f768a0d9 done
+#34 naming to docker.io/library/ask-phil-test:latest done
+#34 unpacking to docker.io/library/ask-phil-test:latest
+#34 unpacking to docker.io/library/ask-phil-test:latest 12.8s done
+#34 DONE 53.0s
+
+#35 resolving provenance for metadata file
+#35 DONE 0.0s
+ Image ask-phil-test Built 

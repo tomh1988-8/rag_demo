@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="utf-8"?><testsuites name="pytest tests"><testsuite name="pytest" errors="0" failures="1" skipped="0" tests="1" time="3.495" timestamp="2026-11-04T16:46:13.888396+00:00" hostname="tom-Latitude-3510"><testcase classname="tests.test_routing_api" name="test_ordinary_question_uses_admitted_biological_graph_and_retains_actual_choice" time="3.273"><failure message="AssertionError: {&quot;detail&quot;:[{&quot;loc&quot;:[&quot;body&quot;],&quot;type&quot;:&quot;literal_error&quot;,&quot;msg&quot;:&quot;Invalid request value.&quot;}]}&#10;assert 422 == 200&#10; +  where 422 = &lt;Response [422 Unprocessable Entity]&gt;.status_code">database_url = 'user=ask_phil password=local-demo-only dbname=ask_phil_test_69a6b25c71664e87b1093fa36ae0f3fb host=127.0.0.1 port=55424'
+family_batch = ClaimBatch(claims=(ParentageClaim(claim_id='phil-ben', parent_id='phil-mitchell', child_id='ben-mitchell', parent_role...ns do not expand the core roster.', evidence_sources=('sharon-watts-wiki',)))), extractor='reviewed-reference-fixture')
+investigator_models = &lt;function investigator_models.&lt;locals&gt;.build at 0x7c99143b0d60&gt;
+tmp_path = PosixPath('/tmp/pytest-of-tom/pytest-33/test_ordinary_question_uses_ad0')
+
+    def test_ordinary_question_uses_admitted_biological_graph_and_retains_actual_choice(
+        database_url: str,
+        family_batch: ClaimBatch,
+        investigator_models: Callable[[list[dict[str, Any]]], Models],
+        tmp_path: Path,
+    ) -&gt; None:
+        from test_family_graph import install_family
+        from test_investigation_api import publish
+    
+        install_family(database_url, family_batch)
+        snapshot = EvidenceStore(database_url).snapshot(family_batch.snapshot_id)
+        models = investigator_models([])
+        publish(database_url, snapshot, models)
+        uri = f"sqlite:///{tmp_path}/routing.db"
+        with TestClient(create_app(database_url, models=models, tracking_uri=uri)) as client:
+            result = client.post(
+                "/v1/answers",
+                json={"question": "Who are Ben Mitchell's biological parents?", "route": "auto"},
+            )
+&gt;           assert result.status_code == 200, result.text
+E           AssertionError: {"detail":[{"loc":["body"],"type":"literal_error","msg":"Invalid request value."}]}
+E           assert 422 == 200
+E            +  where 422 = &lt;Response [422 Unprocessable Entity]&gt;.status_code
+
+tests/test_routing_api.py:39: AssertionError</failure></testcase></testsuite></testsuites>

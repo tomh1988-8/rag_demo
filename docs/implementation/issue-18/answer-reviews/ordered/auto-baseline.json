@@ -1,0 +1,54 @@
+{
+  "capture_sha256": "9af10a9312cc8b7fba7655fc2d662fc21f5ea0f4d0d3f33e00566f7cc40170d7",
+  "unit": "One compound final factual statement per short ordered answer, including timing/precision when asserted. This denominator differs from legacy sentence units; compare task outcomes separately.",
+  "reviews": [
+    {
+      "case_id": "biological-parents",
+      "response_sha256": "d5619055fa1a3f0d6301f8acc17df33d091f3e610b88093a1541cc81164aad06",
+      "reference_sha256": "00d535c4f9ebaf8a143fff70c1e04309264b8d564ca170b7ad420d7957533bfa",
+      "reviewer": "Codex source-based development review",
+      "rationale": "The actual cited birth sentence supports Phil/Kathy parentage, or the Christmas Day 2005 discovery sentence supports the exact day. First-person me is Phil. The expected fact and outcome are covered. Full final prose and actual context inspected; no human canon or held-out acceptance.",
+      "claims": [
+        {
+          "claim": "Ben's biological parents are me and Kathy Beale.",
+          "correct": true,
+          "grounded": true,
+          "citation_supported": true
+        }
+      ],
+      "required_facts": [
+        {
+          "fact": "Phil Mitchell and Kathy Beale are Ben Mitchell's biological parents.",
+          "covered": true
+        }
+      ],
+      "answerability": true,
+      "relevance": true,
+      "critical_failures": []
+    },
+    {
+      "case_id": "sufficient-text",
+      "response_sha256": "834e4eafbf51f84b64dca7b0f855518d1e34dee8ea55d647a536d6b0bad30ece",
+      "reference_sha256": "881f74577eac726fd702a919acf3ae30a00bd54162128127b0f63dca0d66374e",
+      "reviewer": "Codex source-based development review",
+      "rationale": "The actual cited birth sentence supports Phil/Kathy parentage, or the Christmas Day 2005 discovery sentence supports the exact day. First-person me is Phil. The expected fact and outcome are covered. Full final prose and actual context inspected; no human canon or held-out acceptance.",
+      "claims": [
+        {
+          "claim": "The captured account dates Sharon\u2019s discovery to Christmas Day 2005. That\u2019s an exact day, not an approximate date.",
+          "correct": true,
+          "grounded": true,
+          "citation_supported": true
+        }
+      ],
+      "required_facts": [
+        {
+          "fact": "Sharon Watts discovers she is pregnant on Christmas Day 2005; the supported story date is exact.",
+          "covered": true
+        }
+      ],
+      "answerability": true,
+      "relevance": true,
+      "critical_failures": []
+    }
+  ]
+}

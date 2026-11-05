@@ -1,0 +1,17 @@
+2026/11/05 16:15:26 INFO mlflow.store.db.utils: Creating initial MLflow database tables...
+2026/11/05 16:15:26 INFO mlflow.store.db.utils: Updating database tables
+legacy auto-baseline 7/7 facts=7/7 5 $0.0149340 4445
+legacy auto-combined 3/3 facts=3/3 5 $0.0089130 5918
+legacy graph 4/4 facts=4/4 0 $0.0000000 1265
+legacy investigation 2/2 facts=3/3 5 $0.0130600 11673
+legacy text-baseline 6/7 facts=6/7 7 $0.0183296 4757
+legacy text-combined 6/7 facts=6/7 7 $0.0124268 4912
+legacy text-expansion 6/7 facts=6/7 7 $0.0130668 4434
+legacy text-fusion 6/7 facts=6/7 7 $0.0116268 4209
+ordered auto-baseline 2/2 facts=2/2 2 $0.0063862 7278
+ordered text-baseline 2/2 facts=2/2 2 $0.0095066 5773
+ordered text-combined 1/2 facts=1/2 4 $0.0092116 9999
+ordered text-expansion 1/2 facts=1/2 2 $0.0116816 7001
+ordered text-fusion 2/2 facts=2/2 4 $0.0087800 9470
+expense {'ledger_before_usd': 0.975588, 'ledger_after_usd': 1.11353, 'additional_ledger_usd': 0.137942, 'unsettled_reservations': 0, 'paid_calls': 57, 'serving_responses': 54, 'reported_serving_usd': 0.137923, 'offline_review_paid_cost_usd': 0, 'indexing_paid_cost_usd': 0, 'additional_ceiling_usd': 0.75, 'paid_call_ceiling': 64, 'stop': 'At 57 calls, the next automatic request could not reserve its eight-call maximum under the 64-call ceiling. The two optional ordered auto-combined responses were not executed. No limit was increased or reset.'}
+uncertainty {'method': 'Exact percentile cluster bootstrap over the five exposed development story groups', 'resamples': 3125, 'paired_question_delta': 0.14285714285714285, 'illustrative_95_percent_interval': [0.0, 0.2727272727272727], 'limitation': 'Five deliberately selected groups, one observation per case/arm. Descriptive uncertainty only; not held-out inference or an acceptance threshold.'}

@@ -11,6 +11,30 @@ commands so they work even without a configured Git remote.
 
 ## Current Ask Phil handoff
 
+**Issue #18 is implemented and validated locally; publication is pending.**
+[Evidence](../implementation/issue-18/README.md) records 715 passing native tests,
+ten Docker contracts, strict mypy across 183 files and zero remaining Standards
+or Spec findings. All 301 frozen software inputs and 150 protected inputs verify.
+
+The controlled development comparison retains 54 actual responses and 57 paid
+calls/$0.137923. All 44 legacy messages/context decisions reproduce under current
+code without paid inference. Four interrupted ordered responses have original
+PostgreSQL/MLflow equality and explicitly labelled recovered readback. The last
+two optional ordered auto-combined requests stopped before execution under the
+original 64-call ceiling. Source identities are never added to bypass admission;
+v2 corrects the ordered eligibility label while preserving v1 failures.
+
+Baseline remains the selected text policy. Four legacy text completeness misses
+and two ordered expansion date losses remain regressions. No human-canon,
+held-out or broad release acceptance is claimed. Register counts are 44 Pass /
+7 Pending. Preserve the non-resetting $5 ledger at **$1.113530**, zero unsettled
+reservations, all 98 original data files and the user's existing work.
+
+After exact-tree publication and tracker readback, **#25 is next**. Do not begin
+another issue without the user's next implementation instruction.
+
+### Prior issue #24 handoff
+
 **Issue #24 is complete and closed** after [verified publication](https://github.com/tomh1988-8/rag_demo/commit/a737c7fa6bcb0a30b785c04acb70be339d35e337).
 [The receipt](../implementation/issue-24/publication.json) records the exact
 remote commit/tree, all 184 frozen software inputs and completed tracker readback

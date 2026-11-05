@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="utf-8"?><testsuites name="pytest tests"><testsuite name="pytest" errors="0" failures="1" skipped="0" tests="1" time="0.285" timestamp="2026-11-05T15:52:49.974685+00:00" hostname="tom-Latitude-3510"><testcase classname="tests.test_routing_api" name="test_ordered_question_falls_back_when_captured_parent_identities_are_missing" time="0.064"><failure message="ModuleNotFoundError: No module named 'scripts'">database_url = 'user=ask_phil password=local-demo-only dbname=ask_phil_test_6b03476beb9c4f7d873398a57a6678b9 host=127.0.0.1 port=55424'
+investigator_models = &lt;function investigator_models.&lt;locals&gt;.build at 0x7fc024355d00&gt;
+tmp_path = PosixPath('/tmp/pytest-of-tom/pytest-1/test_ordered_question_falls_ba0')
+
+    def test_ordered_question_falls_back_when_captured_parent_identities_are_missing(
+        database_url: str,
+        investigator_models: Callable[[list[dict[str, Any]]], Models],
+        tmp_path: Path,
+    ) -&gt; None:
+        from test_investigation_api import finish
+    
+&gt;       from scripts.evaluate_routing import install_ordered
+E       ModuleNotFoundError: No module named 'scripts'
+
+tests/test_routing_api.py:39: ModuleNotFoundError</failure></testcase></testsuite></testsuites>

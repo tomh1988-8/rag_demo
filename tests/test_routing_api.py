@@ -29,6 +29,42 @@ pytestmark = pytest.mark.integration
 pytest_plugins = ("test_investigation_api",)
 
 
+def test_ordered_question_falls_back_when_captured_parent_identities_are_missing(
+    database_url: str,
+    investigator_models: Callable[[list[dict[str, Any]]], Models],
+    tmp_path: Path,
+) -> None:
+    from test_investigation_api import finish, publish
+
+    from ask_phil.family_graph import FamilyGraph
+    from ask_phil.ingestion import build_snapshot, read_batch
+    from ask_phil.parentage import ClaimReview
+
+    reference = json.loads(Path("data/references/routing-ordered-v2.json").read_bytes())
+    snapshot = build_snapshot(read_batch(Path(reference["source_file"])), reference["snapshot_id"])
+    projection = json.loads(Path(reference["family_projection"]).read_bytes())
+    EvidenceStore(database_url).load(snapshot)
+    FamilyGraph(database_url).install(
+        ClaimBatch.model_validate(projection["batch"]),
+        tuple(ClaimReview.model_validate(review) for review in projection["reviews"]),
+    )
+    question = "Who are Ben Mitchell's biological parents?"
+    draft = finish(question, "ben-wiki-0022-17983")["action"]["draft"]
+    draft.update(status="answered", answer="Phil Mitchell and Kathy Beale are Ben's parents.")
+    models = gateway_models(investigator_models([]), [draft])
+    publish(database_url, snapshot, models)
+    tracking_uri = f"sqlite:///{tmp_path}/ordered-coverage.db"
+    with TestClient(create_app(database_url, models=models, tracking_uri=tracking_uri)) as client:
+        result = client.post("/v1/answers", json={"question": question})
+        assert result.status_code == 200, result.text
+        answer = result.json()["response"]
+        assert answer["route"] == "text_rag"
+        assert answer["routing"]["eligibility"]["reason"] == "no_admitted_coverage"
+        assert "Phil Mitchell" in answer["answer"] and "Kathy Beale" in answer["answer"]
+        trace = MlflowClient(tracking_uri=tracking_uri).get_trace(answer["trace_id"], flush=True)
+        assert trace.data.spans[0].outputs == answer
+
+
 def gateway_models(
     base: Models,
     outputs: list[dict[str, Any]],

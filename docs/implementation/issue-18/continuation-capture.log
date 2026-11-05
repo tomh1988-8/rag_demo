@@ -1,0 +1,19 @@
+2026/11/05 15:39:28 INFO mlflow.store.db.utils: Creating initial MLflow database tables...
+2026/11/05 15:39:28 INFO mlflow.store.db.utils: Updating database tables
+text-expansion/biological-parents: answered via text_rag ($0.115774; 50 cumulative paid calls)
+text-expansion/sufficient-text: partial via text_rag ($0.122343; 51 cumulative paid calls)
+text-combined/biological-parents: answered via text_rag ($0.124814; 53 cumulative paid calls)
+text-combined/sufficient-text: partial via text_rag ($0.131555; 55 cumulative paid calls)
+auto-baseline/biological-parents: answered via text_rag ($0.134111; 56 cumulative paid calls)
+auto-baseline/sufficient-text: answered via text_rag ($0.137942; 57 cumulative paid calls)
+Traceback (most recent call last):
+  File "<frozen runpy>", line 198, in _run_module_as_main
+  File "<frozen runpy>", line 88, in _run_code
+  File "/home/tom/Documents/code/python/rag_demo/scripts/evaluate_routing.py", line 466, in <module>
+    main()
+  File "/home/tom/Documents/code/python/rag_demo/scripts/evaluate_routing.py", line 452, in main
+    capture(
+  File "/home/tom/Documents/code/python/rag_demo/scripts/evaluate_routing.py", line 247, in capture
+    raise ValueError("The paid-call cap cannot reserve the next request.")
+ValueError: The paid-call cap cannot reserve the next request.
+2026/11/05 15:41:59 INFO mlflow.tracing.export.async_export_queue: Flushing the async trace logging queue before program exit. This may take a while...

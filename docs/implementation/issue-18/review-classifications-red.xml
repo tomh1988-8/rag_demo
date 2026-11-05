@@ -1,0 +1,215 @@
+<?xml version="1.0" encoding="utf-8"?><testsuites name="pytest tests"><testsuite name="pytest" errors="0" failures="1" skipped="0" tests="1" time="4.518" timestamp="2026-11-04T18:01:28.821764+00:00" hostname="tom-Latitude-3510"><testcase classname="tests.test_routing_api" name="test_investigation_retains_classifications_on_initially_uncited_context" time="3.607"><failure message="assert 'domestic_abuse' in '{&quot;question&quot;: &quot;Who are Ben Mitchell\'s biological parents and which abuse theme involves Peggy Mitchell?&quot;, &quot;source&quot;: &quot;...empts&quot;: []}, &quot;previous_unanswered&quot;: [&quot;Which theme involves Peggy?&quot;], &quot;remaining&quot;: {&quot;model_calls&quot;: 4, &quot;tool_calls&quot;: 1}}'">database_url = 'user=ask_phil password=local-demo-only dbname=ask_phil_test_c4d0559a1efa480aa10bc932e4295a5b host=127.0.0.1 port=55424'
+connection_snapshot = SourceSnapshot(snapshot_id='connections-pilot-v1', fixture_version=1, source=Source(title='Ben Mitchell', url=HttpUrl(...wiki', paragraph_ordinal=24, section_id='1990–1999', character_ids=('grant-mitchell', 'kathy-beale')))), imported=None)
+investigator_models = &lt;function investigator_models.&lt;locals&gt;.build at 0x7d1371193e20&gt;
+tmp_path = PosixPath('/tmp/pytest-of-tom/pytest-54/test_investigation_retains_cla0')
+
+    def test_investigation_retains_classifications_on_initially_uncited_context(
+        database_url: str,
+        connection_snapshot: SourceSnapshot,
+        investigator_models: Callable[[list[dict[str, Any]]], Models],
+        tmp_path: Path,
+    ) -&gt; None:
+        from test_investigation_api import finish, publish
+        from ask_phil.connection_evaluation import ConnectionReference
+        from ask_phil.family_graph import FamilyGraph
+        from ask_phil.claims import ClaimReview
+        from ask_phil.event_graph import EventGraph
+        from ask_phil.story_events import EventBatch, EventReview
+    
+        reference = ConnectionReference.model_validate_json(Path("data/references/connections-v1.json").read_bytes())
+        snapshot = connection_snapshot.model_copy(update={
+            "snapshot_id": "routing-classified-seed",
+            "passages": tuple(p for p in connection_snapshot.passages if p.evidence_id in {
+                "family-ben-birth", "peggy-abuse-theme", "sharon-christmas-pregnancy"
+            }),
+        })
+        EvidenceStore(database_url).load(snapshot)
+        batch = ClaimBatch(snapshot_id=snapshot.snapshot_id, snapshot_sha256=snapshot.fingerprint,
+            catalogue=reference.catalogue, extractor="reviewed-source-fixture",
+            claims=tuple(c for c in reference.family_claims if c.child_id == "ben-mitchell"),
+        )
+        FamilyGraph(database_url).install(batch, tuple(ClaimReview(
+            claim_id=c.claim_id, claim_sha256=c.fingerprint, verdict="supported",
+            reviewer="retained source fixture", note="Born-to statement supports both parent roles.",
+        ) for c in batch.claims))
+        classified = tuple(c for c in reference.context_claims if c.theme == "domestic_abuse")
+        EventGraph(database_url).install(EventBatch(
+            snapshot_id=snapshot.snapshot_id, snapshot_sha256=snapshot.fingerprint,
+            catalogue=reference.catalogue, extractor="reviewed-source-fixture", claims=(),
+            context_claims=classified,
+        ), tuple(EventReview(claim_id=c.claim_id, claim_sha256=c.fingerprint,
+            verdict="supported", reviewer="retained source fixture",
+            note="The retained passage describes Eric's violence towards Peggy and Phil.",
+        ) for c in classified))
+        part = "Who are Ben Mitchell's biological parents and which abuse theme involves Peggy Mitchell?"
+        first = finish(part, "family-ben-birth")["action"]["draft"]
+        first.update(status="partial", answer="Kathy and I are Ben's parents. Peggy's theme is unresolved.", unanswered=["Which theme involves Peggy?"])
+        final = finish(part, "peggy-abuse-theme")
+        final["coverage"][0]["evidence_ids"] = ["family-ben-birth", "peggy-abuse-theme"]
+        final["action"]["draft"].update(evidence_ids=["family-ben-birth", "peggy-abuse-theme"],
+            answer="Kathy and I are Ben's parents. Eric was violent towards Peggy and me.")
+        observed: list[dict[str, Any]] = []
+    
+        def inspect_model_context(body: dict[str, Any]) -&gt; None:
+            content = body["messages"][-1]["content"]
+            if content.startswith("{"):
+                observed.append(json.loads(content))
+                assert "domestic_abuse" in content
+    
+        models = gateway_models(investigator_models([]), [first, final], check=inspect_model_context)
+        publish(database_url, snapshot, models)
+        with TestClient(create_app(database_url, models=models,
+            tracking_uri=f"sqlite:///{tmp_path}/qualifications.db",
+            text_policy=TextPolicy(per_query_k=2, selected_hits=2),
+            execution_limits=ExecutionLimits(model_calls=6, tool_calls=2, context_bytes=6000),
+        )) as client:
+&gt;           result = client.post("/v1/answers", json={"question": part})
+                     ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+tests/test_routing_api.py:543: 
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ 
+.venv/lib/python3.12/site-packages/httpx/_client.py:1144: in post
+    return self.request(
+.venv/lib/python3.12/site-packages/starlette/testclient.py:463: in request
+    return super().request(
+.venv/lib/python3.12/site-packages/httpx/_client.py:825: in request
+    return self.send(request, auth=auth, follow_redirects=follow_redirects)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+.venv/lib/python3.12/site-packages/httpx/_client.py:914: in send
+    response = self._send_handling_auth(
+.venv/lib/python3.12/site-packages/httpx/_client.py:942: in _send_handling_auth
+    response = self._send_handling_redirects(
+.venv/lib/python3.12/site-packages/httpx/_client.py:979: in _send_handling_redirects
+    response = self._send_single_request(request)
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+.venv/lib/python3.12/site-packages/httpx/_client.py:1014: in _send_single_request
+    response = transport.handle_request(request)
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+.venv/lib/python3.12/site-packages/starlette/testclient.py:360: in handle_request
+    raise exc
+.venv/lib/python3.12/site-packages/starlette/testclient.py:357: in handle_request
+    portal.call(self.app, scope, receive, send)
+.venv/lib/python3.12/site-packages/anyio/from_thread.py:340: in call
+    return cast(T_Retval, self.start_task_soon(func, *args).result())
+                          ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+/usr/lib/python3.12/concurrent/futures/_base.py:456: in result
+    return self.__get_result()
+           ^^^^^^^^^^^^^^^^^^^
+/usr/lib/python3.12/concurrent/futures/_base.py:401: in __get_result
+    raise self._exception
+.venv/lib/python3.12/site-packages/anyio/from_thread.py:265: in _call_func
+    retval = await retval_or_awaitable
+             ^^^^^^^^^^^^^^^^^^^^^^^^^
+.venv/lib/python3.12/site-packages/fastapi/applications.py:1163: in __call__
+    await super().__call__(scope, receive, send)
+.venv/lib/python3.12/site-packages/starlette/applications.py:96: in __call__
+    await self.middleware_stack(scope, receive, send)
+.venv/lib/python3.12/site-packages/starlette/middleware/errors.py:186: in __call__
+    raise exc
+.venv/lib/python3.12/site-packages/starlette/middleware/errors.py:164: in __call__
+    await self.app(scope, receive, _send)
+.venv/lib/python3.12/site-packages/starlette/middleware/exceptions.py:63: in __call__
+    await wrap_app_handling_exceptions(self.app, conn)(scope, receive, send)
+.venv/lib/python3.12/site-packages/starlette/_exception_handler.py:53: in wrapped_app
+    raise exc
+.venv/lib/python3.12/site-packages/starlette/_exception_handler.py:42: in wrapped_app
+    await app(scope, receive, sender)
+.venv/lib/python3.12/site-packages/fastapi/middleware/asyncexitstack.py:18: in __call__
+    await self.app(scope, receive, send)
+.venv/lib/python3.12/site-packages/starlette/routing.py:676: in __call__
+    await self.middleware_stack(scope, receive, send)
+.venv/lib/python3.12/site-packages/fastapi/routing.py:2734: in app
+    await route.handle(scope, receive, send)
+.venv/lib/python3.12/site-packages/fastapi/routing.py:1281: in handle
+    await super().handle(scope, receive, send)
+.venv/lib/python3.12/site-packages/starlette/routing.py:282: in handle
+    await self.app(scope, receive, send)
+.venv/lib/python3.12/site-packages/fastapi/routing.py:158: in app
+    await wrap_app_handling_exceptions(app, request)(scope, receive, send)
+.venv/lib/python3.12/site-packages/starlette/_exception_handler.py:53: in wrapped_app
+    raise exc
+.venv/lib/python3.12/site-packages/starlette/_exception_handler.py:42: in wrapped_app
+    await app(scope, receive, sender)
+.venv/lib/python3.12/site-packages/fastapi/routing.py:144: in app
+    response = await f(request)
+               ^^^^^^^^^^^^^^^^
+.venv/lib/python3.12/site-packages/fastapi/routing.py:706: in app
+    raw_response = await run_endpoint_function(
+.venv/lib/python3.12/site-packages/fastapi/routing.py:352: in run_endpoint_function
+    return await dependant.call(**values)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+src/ask_phil/api.py:364: in standalone_answer
+    return await connected_answer(
+src/ask_phil/api.py:381: in connected_answer
+    receipt = await worker
+              ^^^^^^^^^^^^
+/usr/lib/python3.12/asyncio/threads.py:25: in to_thread
+    return await loop.run_in_executor(None, func_call)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+/usr/lib/python3.12/concurrent/futures/thread.py:58: in run
+    result = self.fn(*self.args, **self.kwargs)
+             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+src/ask_phil/api.py:373: in run
+    return operation()
+           ^^^^^^^^^^^
+src/ask_phil/api.py:411: in answer
+    return service.ask(
+src/ask_phil/answering.py:142: in ask
+    return self._ask(request, category, turn, history, budget)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+src/ask_phil/answering.py:210: in _ask
+    content = route.answer(request, turn, history, budget, root)
+              ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+src/ask_phil/routing_answering.py:161: in answer
+    investigated = Investigation(self.database_url, models, pinned).answer(
+src/ask_phil/investigation.py:199: in answer
+    execution = self.models.generate_answer(
+src/ask_phil/models.py:344: in generate_answer
+    result = self.llm.chat(messages, format=schema)
+             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+.venv/lib/python3.12/site-packages/llama_index_instrumentation/dispatcher.py:413: in wrapper
+    result = func(*args, **kwargs)
+             ^^^^^^^^^^^^^^^^^^^^^
+.venv/lib/python3.12/site-packages/llama_index/core/llms/callbacks.py:179: in wrapped_llm_chat
+    f_return_val = f(_self, messages, **kwargs)
+                   ^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+.venv/lib/python3.12/site-packages/llama_index/llms/ollama/base.py:407: in chat
+    response = self.client.chat(
+.venv/lib/python3.12/site-packages/ollama/_client.py:387: in chat
+    return self._request(
+.venv/lib/python3.12/site-packages/ollama/_client.py:199: in _request
+    return cls(**self._request_raw(*args, **kwargs).json())
+                 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+.venv/lib/python3.12/site-packages/ollama/_client.py:139: in _request_raw
+    r = self._client.request(*args, **kwargs)
+        ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+.venv/lib/python3.12/site-packages/httpx/_client.py:825: in request
+    return self.send(request, auth=auth, follow_redirects=follow_redirects)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+.venv/lib/python3.12/site-packages/httpx/_client.py:914: in send
+    response = self._send_handling_auth(
+.venv/lib/python3.12/site-packages/httpx/_client.py:942: in _send_handling_auth
+    response = self._send_handling_redirects(
+.venv/lib/python3.12/site-packages/httpx/_client.py:979: in _send_handling_redirects
+    response = self._send_single_request(request)
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+.venv/lib/python3.12/site-packages/httpx/_client.py:1014: in _send_single_request
+    response = transport.handle_request(request)
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+.venv/lib/python3.12/site-packages/httpx/_transports/mock.py:24: in handle_request
+    response = self.handler(request)
+               ^^^^^^^^^^^^^^^^^^^^^
+tests/test_routing_api.py:59: in provider
+    check(json.loads(request.content))
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ 
+
+body = {'model': 'test-answer', 'stream': False, 'options': {'temperature': None, 'num_ctx': 4096, 'num_predict': 256}, 'form...fs/ToolAction'}, {'$ref': '#/$defs/FinishAction'}], 'title': 'Action'}}, 'required': ['coverage', 'action'], ...}, ...}
+
+    def inspect_model_context(body: dict[str, Any]) -&gt; None:
+        content = body["messages"][-1]["content"]
+        if content.startswith("{"):
+            observed.append(json.loads(content))
+&gt;           assert "domestic_abuse" in content
+E           assert 'domestic_abuse' in '{"question": "Who are Ben Mitchell\'s biological parents and which abuse theme involves Peggy Mitchell?", "source": "...empts": []}, "previous_unanswered": ["Which theme involves Peggy?"], "remaining": {"model_calls": 4, "tool_calls": 1}}'
+
+tests/test_routing_api.py:534: AssertionError</failure></testcase></testsuite></testsuites>

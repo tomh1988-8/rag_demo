@@ -1,0 +1,51 @@
+<?xml version="1.0" encoding="utf-8"?><testsuites name="pytest tests"><testsuite name="pytest" errors="0" failures="1" skipped="0" tests="1" time="4.903" timestamp="2026-11-04T17:00:52.202877+00:00" hostname="tom-Latitude-3510"><testcase classname="tests.test_routing_api" name="test_evidence_gap_investigates_with_prior_support_and_one_shared_budget" time="4.664"><failure message="AssertionError: assert 'partial' == 'answered'&#10;  &#10;  - answered&#10;  + partial">database_url = 'user=ask_phil password=local-demo-only dbname=ask_phil_test_aa8fdabe540345539fc87a58dbe00298 host=127.0.0.1 port=55424'
+family_batch = ClaimBatch(claims=(ParentageClaim(claim_id='phil-ben', parent_id='phil-mitchell', child_id='ben-mitchell', parent_role...ns do not expand the core roster.', evidence_sources=('sharon-watts-wiki',)))), extractor='reviewed-reference-fixture')
+investigator_models = &lt;function investigator_models.&lt;locals&gt;.build at 0x7650599d5f80&gt;
+tmp_path = PosixPath('/tmp/pytest-of-tom/pytest-37/test_evidence_gap_investigates0')
+
+    def test_evidence_gap_investigates_with_prior_support_and_one_shared_budget(
+        database_url: str,
+        family_batch: ClaimBatch,
+        investigator_models: Callable[[list[dict[str, Any]]], Models],
+        tmp_path: Path,
+    ) -&gt; None:
+        from test_family_graph import install_family
+        from test_investigation_api import decision, finish, publish
+    
+        install_family(database_url, family_batch)
+        snapshot = EvidenceStore(database_url).snapshot(family_batch.snapshot_id)
+        part = "Who are Ben Mitchell's biological parents and grandmother?"
+        first = finish(part)["action"]["draft"]
+        first.update(
+            status="partial", evidence_ids=["family-ben-birth"],
+            answer="Kathy and I are Ben's biological parents. His grandmother is unresolved.",
+            unanswered=["Who is Ben Mitchell's biological grandmother?"],
+        )
+        final = finish(part, "family-peggy-phil")
+        final["coverage"][0]["evidence_ids"] = ["family-ben-birth", "family-peggy-phil"]
+        final["action"]["draft"].update(
+            evidence_ids=["family-ben-birth", "family-peggy-phil"],
+            answer="Kathy and I are Ben's biological parents. My mother Peggy is his grandmother.",
+        )
+        models = investigator_models([
+            first,
+            decision("family", {"character_id": "ben-mitchell", "direction": "ancestors", "max_depth": 2}, part),
+            final,
+        ])
+        publish(database_url, snapshot, models)
+        uri = f"sqlite:///{tmp_path}/escalation.db"
+        with TestClient(create_app(
+            database_url, models=models, tracking_uri=uri,
+            text_policy=TextPolicy(per_query_k=1, selected_hits=1),
+            execution_limits=ExecutionLimits(model_calls=6, tool_calls=2, context_bytes=6000),
+        )) as client:
+            result = client.post("/v1/answers", json={"question": part})
+            assert result.status_code == 200, result.text
+            answer = result.json()["response"]
+&gt;           assert answer["status"] == "answered"
+E           AssertionError: assert 'partial' == 'answered'
+E             
+E             - answered
+E             + partial
+
+tests/test_routing_api.py:129: AssertionError</failure></testcase></testsuite></testsuites>

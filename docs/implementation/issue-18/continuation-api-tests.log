@@ -1,0 +1,27 @@
+F..............                                                          [100%]
+=================================== FAILURES ===================================
+____ test_corrected_ordered_parentage_is_selected_by_ordinary_conversation _____
+
+database_url = 'user=ask_phil password=local-demo-only dbname=ask_phil_test_2aa955831c7d4f6494b13b8952a270b9 host=127.0.0.1 port=55424'
+investigator_models = <function investigator_models.<locals>.build at 0x7d25e180d6c0>
+tmp_path = PosixPath('/tmp/pytest-of-tom/pytest-0/test_corrected_ordered_parenta0')
+
+    def test_corrected_ordered_parentage_is_selected_by_ordinary_conversation(
+        database_url: str,
+        investigator_models: Callable[[list[dict[str, Any]]], Models],
+        tmp_path: Path,
+    ) -> None:
+>       from scripts.evaluate_routing import install_ordered
+E       ModuleNotFoundError: No module named 'scripts'
+
+tests/test_routing_api.py:37: ModuleNotFoundError
+=============================== warnings summary ===============================
+.venv/lib/python3.12/site-packages/fastapi/testclient.py:1
+  /home/tom/Documents/code/python/rag_demo/.venv/lib/python3.12/site-packages/fastapi/testclient.py:1: StarletteDeprecationWarning: Using `httpx` with `starlette.testclient` is deprecated; install `httpx2` instead.
+    from starlette.testclient import TestClient as TestClient  # noqa
+
+-- Docs: https://docs.pytest.org/en/stable/how-to/capture-warnings.html
+=========================== short test summary info ============================
+FAILED tests/test_routing_api.py::test_corrected_ordered_parentage_is_selected_by_ordinary_conversation
+1 failed, 14 passed, 1 warning in 58.09s
+2026/11/05 15:48:45 INFO mlflow.tracing.export.async_export_queue: Flushing the async trace logging queue before program exit. This may take a while...
