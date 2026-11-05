@@ -1,0 +1,19 @@
+{
+  "ledger_before_usd": 0.975588,
+  "ledger_after_usd": 1.137848,
+  "additional_ledger_usd": 0.16226,
+  "unsettled_reservations": 0,
+  "paid_calls": 62,
+  "serving_responses": 56,
+  "reported_serving_usd": 0.1622391,
+  "offline_review_paid_cost_usd": 0,
+  "indexing_paid_cost_usd": 0,
+  "additional_ceiling_usd": 0.75,
+  "paid_call_ceiling": 73,
+  "stop": "No planned capture remains unexecuted. The original 57-call admission stop is historical; the finite follow-up completed both missing requests, carrying forward all earlier cost and calls.",
+  "version": 2,
+  "original_paid_call_ceiling": 64,
+  "followup_paid_calls": 5,
+  "followup_reported_usd": 0.0243161,
+  "followup_ledger_usd": 0.024318000000000062
+}

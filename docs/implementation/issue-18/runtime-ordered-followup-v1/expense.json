@@ -1,0 +1,12 @@
+{
+  "ledger_before_usd": 0.975588,
+  "cohort_ledger_before_usd": 1.11353,
+  "ledger_after_usd": 1.137848,
+  "additional_usd": 0.16225999999999996,
+  "cohort_additional_usd": 0.024318000000000062,
+  "unsettled_reservations": 0,
+  "paid_calls": 62,
+  "cohort_paid_calls": 5,
+  "offline_review_paid_cost_usd": 0,
+  "indexing_paid_cost_usd": 0
+}

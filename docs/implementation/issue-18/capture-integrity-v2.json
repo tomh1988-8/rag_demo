@@ -1,0 +1,568 @@
+{
+  "cases": [
+    {
+      "cohort": "legacy",
+      "arm": "auto-baseline",
+      "case_id": "biological-parents",
+      "capture_sha256": "caca572c01b2d278fcf6a367210664672b772a389384669ef42b191ef612cee7",
+      "response_sha256": "c9029cb3c1af70546e9b83211a294fcf960f61dcd6efe8207c9f67746c7edad3",
+      "trace_archive_sha256": "e9f77c6cf83e2557d681e305d4b42a293629a7a102fbd3bc99e6009ee202c15e",
+      "cli_and_root_match": true,
+      "trace_archive_matches": true
+    },
+    {
+      "cohort": "legacy",
+      "arm": "auto-baseline",
+      "case_id": "adoptive-history",
+      "capture_sha256": "caca572c01b2d278fcf6a367210664672b772a389384669ef42b191ef612cee7",
+      "response_sha256": "8f7734d8c6cdf1d1e69668e7c3495cd733c23fa8e36b6ad964d10248083ff0de",
+      "trace_archive_sha256": "90caeda61b8257ccdd7bd23cf73f198693942f26a87f6f7867b56a80089dbb97",
+      "cli_and_root_match": true,
+      "trace_archive_matches": true
+    },
+    {
+      "cohort": "legacy",
+      "arm": "auto-baseline",
+      "case_id": "crime-roles",
+      "capture_sha256": "caca572c01b2d278fcf6a367210664672b772a389384669ef42b191ef612cee7",
+      "response_sha256": "1d487cdf6f5c05bcf4f1d0c6e0c03c2766f9444816d7ff6832916df4a09d04e5",
+      "trace_archive_sha256": "851d63b33bc51ff6b7f2d98a20780dd4404b63cf6e5619331b309eedcb6ba9b8",
+      "cli_and_root_match": true,
+      "trace_archive_matches": true
+    },
+    {
+      "cohort": "legacy",
+      "arm": "auto-baseline",
+      "case_id": "ancestry-connection",
+      "capture_sha256": "caca572c01b2d278fcf6a367210664672b772a389384669ef42b191ef612cee7",
+      "response_sha256": "d8034a9e4978cb55aa7103ae23b96585139247dc61355b75af7f3c59909cb4be",
+      "trace_archive_sha256": "189acc8b2926c1280e0f5764aef6e665d768d60ec9248d5613518d0b878d6d17",
+      "cli_and_root_match": true,
+      "trace_archive_matches": true
+    },
+    {
+      "cohort": "legacy",
+      "arm": "auto-baseline",
+      "case_id": "sufficient-text",
+      "capture_sha256": "caca572c01b2d278fcf6a367210664672b772a389384669ef42b191ef612cee7",
+      "response_sha256": "0d331cad635ff532cf2fc449ffce405a6516373ea6efd885c2894217987bdd95",
+      "trace_archive_sha256": "effd9149c9d8ac7f8aa8b8c70f1c65841849bffe04de833cef176b5d822ac965",
+      "cli_and_root_match": true,
+      "trace_archive_matches": true
+    },
+    {
+      "cohort": "legacy",
+      "arm": "auto-baseline",
+      "case_id": "multi-family",
+      "capture_sha256": "caca572c01b2d278fcf6a367210664672b772a389384669ef42b191ef612cee7",
+      "response_sha256": "655ee2e5a78f1e482ea360dc2c12fcb4c98d3e19658412afd3459355cb140f3a",
+      "trace_archive_sha256": "08063912174ae482c9ea6eb7825eca6b24d35d7d3281834b0168ac6bb42360e1",
+      "cli_and_root_match": true,
+      "trace_archive_matches": true
+    },
+    {
+      "cohort": "legacy",
+      "arm": "auto-baseline",
+      "case_id": "unsupported-theme",
+      "capture_sha256": "caca572c01b2d278fcf6a367210664672b772a389384669ef42b191ef612cee7",
+      "response_sha256": "cafbb141cfb9c3af41061ff3720d45028f3e3bfe483f06f436f5ba45e8566268",
+      "trace_archive_sha256": "a83c473e70eef57ad3a7d604f8f1ab9fb75af792c5c436aa535adb16dc4288e5",
+      "cli_and_root_match": true,
+      "trace_archive_matches": true
+    },
+    {
+      "cohort": "legacy",
+      "arm": "auto-combined",
+      "case_id": "sufficient-text",
+      "capture_sha256": "18ffcaecba7f24787ec8d27d5113a563d1b4dbaa0e888fafa269c5b0a758f58c",
+      "response_sha256": "47b24f90817da501169ad0f9ef2d6dd9460373899c7e62c15e7b152b68027447",
+      "trace_archive_sha256": "cc4fd79d77860d100855609e1b787484d1ad83385ce32a500900650f5407f95a",
+      "cli_and_root_match": true,
+      "trace_archive_matches": true
+    },
+    {
+      "cohort": "legacy",
+      "arm": "auto-combined",
+      "case_id": "multi-family",
+      "capture_sha256": "18ffcaecba7f24787ec8d27d5113a563d1b4dbaa0e888fafa269c5b0a758f58c",
+      "response_sha256": "043b65879269e69d729bc8bb01beea61ddd3f3768e0bb99cf92d14e8c9bf271f",
+      "trace_archive_sha256": "a4108bf9635171c1100f5de08a8760bc7857a24a76c0e5d3f160d78ce89e7346",
+      "cli_and_root_match": true,
+      "trace_archive_matches": true
+    },
+    {
+      "cohort": "legacy",
+      "arm": "auto-combined",
+      "case_id": "unsupported-theme",
+      "capture_sha256": "18ffcaecba7f24787ec8d27d5113a563d1b4dbaa0e888fafa269c5b0a758f58c",
+      "response_sha256": "b5ec647a07e696256f49a6fc74c14eb78ebd7064d42cdc6e2de6b8f9cf0d2367",
+      "trace_archive_sha256": "a5d90126e24488898ca4f64bb3c5ed1c9b51c14385a8ad146c8272e783ae41da",
+      "cli_and_root_match": true,
+      "trace_archive_matches": true
+    },
+    {
+      "cohort": "legacy",
+      "arm": "graph",
+      "case_id": "biological-parents",
+      "capture_sha256": "2a1409bd6e921f0e53ef35fdde4a13ee994f98addada8c7f857be49312b99ff7",
+      "response_sha256": "bbbcd97308327ee098b422394c1dcb3bbd1ff086065a647ee57220732e766017",
+      "trace_archive_sha256": "0bc3849d6f7dfb4a369bcdacba72f70579d53e6256176407c4518ef70d7205c0",
+      "cli_and_root_match": true,
+      "trace_archive_matches": true
+    },
+    {
+      "cohort": "legacy",
+      "arm": "graph",
+      "case_id": "adoptive-history",
+      "capture_sha256": "2a1409bd6e921f0e53ef35fdde4a13ee994f98addada8c7f857be49312b99ff7",
+      "response_sha256": "dbf6e16dc3a41da5d8d8ec515afcbec4a7618707a0554a97de57e366608ee176",
+      "trace_archive_sha256": "b3cf8d831a701d3a90bb5921ce1cd5554b5fd86ffb32e6131081246cd3bbbcd6",
+      "cli_and_root_match": true,
+      "trace_archive_matches": true
+    },
+    {
+      "cohort": "legacy",
+      "arm": "graph",
+      "case_id": "crime-roles",
+      "capture_sha256": "2a1409bd6e921f0e53ef35fdde4a13ee994f98addada8c7f857be49312b99ff7",
+      "response_sha256": "6bbedf15d385cb994dd550c5024ec3555bb441d04abd89fff005f27f501aa0dd",
+      "trace_archive_sha256": "c1e13cdb6bdf55b900bea109db48dada12c863b0beb5144aa4a088d03b89c01b",
+      "cli_and_root_match": true,
+      "trace_archive_matches": true
+    },
+    {
+      "cohort": "legacy",
+      "arm": "graph",
+      "case_id": "ancestry-connection",
+      "capture_sha256": "2a1409bd6e921f0e53ef35fdde4a13ee994f98addada8c7f857be49312b99ff7",
+      "response_sha256": "38b2d537235e99fda01c4c31ec418f870b350fda7fb5dba5e6dd214da8c9fec4",
+      "trace_archive_sha256": "a4c4bcbadd86e0ac5249fd3bd95c495940a00a74c4e01305327f745c19693f2a",
+      "cli_and_root_match": true,
+      "trace_archive_matches": true
+    },
+    {
+      "cohort": "legacy",
+      "arm": "investigation",
+      "case_id": "sufficient-text",
+      "capture_sha256": "34a5c237170b75d446a651ced13459ea104419fb1aab9469c5c958439befff1a",
+      "response_sha256": "ce9b4d4cebb6095f6bcdc63a6c43f1e664f083e6eae0d785213ab4120778dc31",
+      "trace_archive_sha256": "ecf9b25d7b08a2feab3e4808e5c629699c9b243ad96b40cf1628e0e077186f5b",
+      "cli_and_root_match": true,
+      "trace_archive_matches": true
+    },
+    {
+      "cohort": "legacy",
+      "arm": "investigation",
+      "case_id": "multi-family",
+      "capture_sha256": "34a5c237170b75d446a651ced13459ea104419fb1aab9469c5c958439befff1a",
+      "response_sha256": "35318783171937e641702a77f5ee47b7a2f6f2fd6a3b7ddde56e27f72c66e864",
+      "trace_archive_sha256": "9e751cd1457e30cd1699a54f740e121751e5595bf65180d09c4fc576eb70218c",
+      "cli_and_root_match": true,
+      "trace_archive_matches": true
+    },
+    {
+      "cohort": "legacy",
+      "arm": "text-baseline",
+      "case_id": "biological-parents",
+      "capture_sha256": "2ce994456e9f5d8de8814b7b438d7086785fd42584324c32c2bb325114d448dc",
+      "response_sha256": "52489eef8171df5d06571416f5cd0ada4b7d652856d9cfe2d399dc34376ecaff",
+      "trace_archive_sha256": "37eba41377d6db85ae11f2287036f96cb7685aceafaab4f882a036ee8c3e3a5e",
+      "cli_and_root_match": true,
+      "trace_archive_matches": true
+    },
+    {
+      "cohort": "legacy",
+      "arm": "text-baseline",
+      "case_id": "adoptive-history",
+      "capture_sha256": "2ce994456e9f5d8de8814b7b438d7086785fd42584324c32c2bb325114d448dc",
+      "response_sha256": "51a114c6dafff07a950c07ee2bddd4ab14c76a31e9d4752bcc726a875bc5c6c3",
+      "trace_archive_sha256": "2ebbd99de44f50de13d92bfa089e207188b5aad4e0519bb266cb71c336fe125b",
+      "cli_and_root_match": true,
+      "trace_archive_matches": true
+    },
+    {
+      "cohort": "legacy",
+      "arm": "text-baseline",
+      "case_id": "crime-roles",
+      "capture_sha256": "2ce994456e9f5d8de8814b7b438d7086785fd42584324c32c2bb325114d448dc",
+      "response_sha256": "7753022065d920bb3629cb6be26b48120678ff25751819b3d83cbca993810aa3",
+      "trace_archive_sha256": "63f3dfc3e3b045a8daacd63c11beeb514a589db2a889d5171931e132441c48ef",
+      "cli_and_root_match": true,
+      "trace_archive_matches": true
+    },
+    {
+      "cohort": "legacy",
+      "arm": "text-baseline",
+      "case_id": "ancestry-connection",
+      "capture_sha256": "2ce994456e9f5d8de8814b7b438d7086785fd42584324c32c2bb325114d448dc",
+      "response_sha256": "981c3b07afda34d0d9dd13311696443abbb850f3aaad003bfea7cca03bdb0858",
+      "trace_archive_sha256": "c560fb08c282a2289185809f6425b2791183836dad7741c01e6bda92b82b8141",
+      "cli_and_root_match": true,
+      "trace_archive_matches": true
+    },
+    {
+      "cohort": "legacy",
+      "arm": "text-baseline",
+      "case_id": "sufficient-text",
+      "capture_sha256": "2ce994456e9f5d8de8814b7b438d7086785fd42584324c32c2bb325114d448dc",
+      "response_sha256": "4513b130a484d132a3ce4ee85de22a12b0b38e0ae504f2dfcc4f030bec435012",
+      "trace_archive_sha256": "6c4c5ad70ed4acdfb9660ead3c539ceb160f229ff7fd9e4f3ac910f2e8437a81",
+      "cli_and_root_match": true,
+      "trace_archive_matches": true
+    },
+    {
+      "cohort": "legacy",
+      "arm": "text-baseline",
+      "case_id": "multi-family",
+      "capture_sha256": "2ce994456e9f5d8de8814b7b438d7086785fd42584324c32c2bb325114d448dc",
+      "response_sha256": "b07357d9cb3226268cd5b457defeb0136d19956f4addda2f21050d84ba53d5dd",
+      "trace_archive_sha256": "6d140484676a9959a985a0fad38ae0a858176cd0d66521394b07ab41739000d3",
+      "cli_and_root_match": true,
+      "trace_archive_matches": true
+    },
+    {
+      "cohort": "legacy",
+      "arm": "text-baseline",
+      "case_id": "unsupported-theme",
+      "capture_sha256": "2ce994456e9f5d8de8814b7b438d7086785fd42584324c32c2bb325114d448dc",
+      "response_sha256": "b59b263d61270041fe4c84a86b0da7f41c471df65baaa640e84ea92d8d975186",
+      "trace_archive_sha256": "66b24b1c9a9e379acf3eb1526a62f9019591ebd09a56f7290a414e1f488aed34",
+      "cli_and_root_match": true,
+      "trace_archive_matches": true
+    },
+    {
+      "cohort": "legacy",
+      "arm": "text-combined",
+      "case_id": "biological-parents",
+      "capture_sha256": "4ceccdbfdb2753af78c2e517fa1f84a17b2237281d7f27b8f664982adec60fb0",
+      "response_sha256": "5bad8b2fff4f432637c895fd6dd963097e865d7adcb13597c01e9672b3b8d6e0",
+      "trace_archive_sha256": "9399d5ca1c5413aeae57d0f8b18ef96f2a7cc7fb9d537ab8e6c0e952027bffc0",
+      "cli_and_root_match": true,
+      "trace_archive_matches": true
+    },
+    {
+      "cohort": "legacy",
+      "arm": "text-combined",
+      "case_id": "adoptive-history",
+      "capture_sha256": "4ceccdbfdb2753af78c2e517fa1f84a17b2237281d7f27b8f664982adec60fb0",
+      "response_sha256": "f7042d8156edc81c6f32f71c1cb042ac971a0400c60247b7c18fb2d6b44aabda",
+      "trace_archive_sha256": "4f44a4403c7cf2381f80f0834b37494708fbb78ca93c9851b4502425a21b823b",
+      "cli_and_root_match": true,
+      "trace_archive_matches": true
+    },
+    {
+      "cohort": "legacy",
+      "arm": "text-combined",
+      "case_id": "crime-roles",
+      "capture_sha256": "4ceccdbfdb2753af78c2e517fa1f84a17b2237281d7f27b8f664982adec60fb0",
+      "response_sha256": "25db122e7624ade16794890e35b0d632b27d73b4c0284a30915a8c7a437c692d",
+      "trace_archive_sha256": "a32c63f4217f4158732bf5d13ba4c1c3288271c256cd8d75116971a222bc70bb",
+      "cli_and_root_match": true,
+      "trace_archive_matches": true
+    },
+    {
+      "cohort": "legacy",
+      "arm": "text-combined",
+      "case_id": "ancestry-connection",
+      "capture_sha256": "4ceccdbfdb2753af78c2e517fa1f84a17b2237281d7f27b8f664982adec60fb0",
+      "response_sha256": "f8f6d53e081370a3929d52d76308daf001435fa81bbdf3976438be50fbeac258",
+      "trace_archive_sha256": "229acb1efdb10f25268adf9759d47715d39c1c014f9037ff1be74c5013bcfc5c",
+      "cli_and_root_match": true,
+      "trace_archive_matches": true
+    },
+    {
+      "cohort": "legacy",
+      "arm": "text-combined",
+      "case_id": "sufficient-text",
+      "capture_sha256": "4ceccdbfdb2753af78c2e517fa1f84a17b2237281d7f27b8f664982adec60fb0",
+      "response_sha256": "171bf5544eff5e22b9e390d173c06ff588b68719f8a5ccaaf1d3ef8a691ff148",
+      "trace_archive_sha256": "003efdd9942182e5eb6df42b82e973f49b9b79ee8ef81b3b5c56f1506749edf0",
+      "cli_and_root_match": true,
+      "trace_archive_matches": true
+    },
+    {
+      "cohort": "legacy",
+      "arm": "text-combined",
+      "case_id": "multi-family",
+      "capture_sha256": "4ceccdbfdb2753af78c2e517fa1f84a17b2237281d7f27b8f664982adec60fb0",
+      "response_sha256": "b06ff1008c45cc3dbfd38d361eb059ab43deed6d10e351f105c5aa493b287256",
+      "trace_archive_sha256": "3870c91d9fe897e8fd50880f324a6e97f445dc658469d56043b1bb2a782d434b",
+      "cli_and_root_match": true,
+      "trace_archive_matches": true
+    },
+    {
+      "cohort": "legacy",
+      "arm": "text-combined",
+      "case_id": "unsupported-theme",
+      "capture_sha256": "4ceccdbfdb2753af78c2e517fa1f84a17b2237281d7f27b8f664982adec60fb0",
+      "response_sha256": "f7f83ebeb6c9e23427f90e7055ad038ae295f53fee7d2b4100df36dc5a08494f",
+      "trace_archive_sha256": "61963ddb6d30801251d69314824d9294c2d5ad83f888fe63c1d479cb809da3be",
+      "cli_and_root_match": true,
+      "trace_archive_matches": true
+    },
+    {
+      "cohort": "legacy",
+      "arm": "text-expansion",
+      "case_id": "biological-parents",
+      "capture_sha256": "5af5ad078756a5875139e77ee8a4374938027a7595f71bc85a167016dff7240c",
+      "response_sha256": "0244531c2641300c92b4fa3f8441121349185ee47390474358f2b82e9c473436",
+      "trace_archive_sha256": "71fc62f8e1f328ef541abd1b3fc00a786c7a33f4209a5178eb4b2ae0e36f6f4c",
+      "cli_and_root_match": true,
+      "trace_archive_matches": true
+    },
+    {
+      "cohort": "legacy",
+      "arm": "text-expansion",
+      "case_id": "adoptive-history",
+      "capture_sha256": "5af5ad078756a5875139e77ee8a4374938027a7595f71bc85a167016dff7240c",
+      "response_sha256": "caf2892aa70f9c5e87c67ca7a9f8f8c34bf5502f0a46c241a764a77ed78cbd36",
+      "trace_archive_sha256": "674455ed84b79b14112bfc7ca1b7fc0d6b34b0c2d06a05f3c2ea2e53cf11aa0b",
+      "cli_and_root_match": true,
+      "trace_archive_matches": true
+    },
+    {
+      "cohort": "legacy",
+      "arm": "text-expansion",
+      "case_id": "crime-roles",
+      "capture_sha256": "5af5ad078756a5875139e77ee8a4374938027a7595f71bc85a167016dff7240c",
+      "response_sha256": "222c02372b81e9936e82855713191f7cdd28dddab6fae5df83a7383126bb0603",
+      "trace_archive_sha256": "83610ef33c0347f6b0802f10b93731ac2a3b55887e5ed01d5ea2e4b9e9ccbb4c",
+      "cli_and_root_match": true,
+      "trace_archive_matches": true
+    },
+    {
+      "cohort": "legacy",
+      "arm": "text-expansion",
+      "case_id": "ancestry-connection",
+      "capture_sha256": "5af5ad078756a5875139e77ee8a4374938027a7595f71bc85a167016dff7240c",
+      "response_sha256": "dcecfe9442e7aa6aec46fe0e1781a9a71c85d82a0877749b67cf776055e9a915",
+      "trace_archive_sha256": "9ac53b4fb0eee13f6f5c9f9aa9fdebfdf7dd36415f6055fa6b5f87aa111cec10",
+      "cli_and_root_match": true,
+      "trace_archive_matches": true
+    },
+    {
+      "cohort": "legacy",
+      "arm": "text-expansion",
+      "case_id": "sufficient-text",
+      "capture_sha256": "5af5ad078756a5875139e77ee8a4374938027a7595f71bc85a167016dff7240c",
+      "response_sha256": "2cb0e8917264dd0ec80dd9908a6376ba2413740f40c78659c8d63bd4a157622a",
+      "trace_archive_sha256": "88d0efdcf3e21944c5ecc4d6ae52f1f5f056374f238186a7abe58305168400fe",
+      "cli_and_root_match": true,
+      "trace_archive_matches": true
+    },
+    {
+      "cohort": "legacy",
+      "arm": "text-expansion",
+      "case_id": "multi-family",
+      "capture_sha256": "5af5ad078756a5875139e77ee8a4374938027a7595f71bc85a167016dff7240c",
+      "response_sha256": "a197f8f6378713710a48321744ad0d2c5ddeedffc5d1d1faaa7c32bb7fe26368",
+      "trace_archive_sha256": "1948190bbb004afc6bfd677d9b075ec6ee7a531c19d0791c0e7a7efa30094fdf",
+      "cli_and_root_match": true,
+      "trace_archive_matches": true
+    },
+    {
+      "cohort": "legacy",
+      "arm": "text-expansion",
+      "case_id": "unsupported-theme",
+      "capture_sha256": "5af5ad078756a5875139e77ee8a4374938027a7595f71bc85a167016dff7240c",
+      "response_sha256": "9813af9f67c4b4fb45afa3fb66109b460d67276fa53511dfdfddc43cde2a2be7",
+      "trace_archive_sha256": "ff871e32994b53a9059fbf87693c7308ac0e6e066c93ccc301ecb66f89eaf564",
+      "cli_and_root_match": true,
+      "trace_archive_matches": true
+    },
+    {
+      "cohort": "legacy",
+      "arm": "text-fusion",
+      "case_id": "biological-parents",
+      "capture_sha256": "e9c4e67e89df39a9ac8991ece65c5f62a5b343b74d63dfb2afb0855a1d9e5a8c",
+      "response_sha256": "a4b2d056f2a9281f1bb183df0a4e3e4b589310b92966319a2a6942c49432dc92",
+      "trace_archive_sha256": "976fcbbb0c05378ed0102bde010aeff715ec1dc8e558e616752aac645eee5493",
+      "cli_and_root_match": true,
+      "trace_archive_matches": true
+    },
+    {
+      "cohort": "legacy",
+      "arm": "text-fusion",
+      "case_id": "adoptive-history",
+      "capture_sha256": "e9c4e67e89df39a9ac8991ece65c5f62a5b343b74d63dfb2afb0855a1d9e5a8c",
+      "response_sha256": "92bba8945bc79b5b00e1bc3b1708dc5335f1ddbb73cc109182e2b4336520cd12",
+      "trace_archive_sha256": "dbc03a224193604a0c745fcaa5af9f2b09392f2404d96338642cd17e63d96fb7",
+      "cli_and_root_match": true,
+      "trace_archive_matches": true
+    },
+    {
+      "cohort": "legacy",
+      "arm": "text-fusion",
+      "case_id": "crime-roles",
+      "capture_sha256": "e9c4e67e89df39a9ac8991ece65c5f62a5b343b74d63dfb2afb0855a1d9e5a8c",
+      "response_sha256": "22a21b523bab113f052a95156554dcdc2d6312418be41e35add33bce4ba1d594",
+      "trace_archive_sha256": "755b0d81998663b757583312475627735a95a5e5f1f777a1f53eb46c91da1bc1",
+      "cli_and_root_match": true,
+      "trace_archive_matches": true
+    },
+    {
+      "cohort": "legacy",
+      "arm": "text-fusion",
+      "case_id": "ancestry-connection",
+      "capture_sha256": "e9c4e67e89df39a9ac8991ece65c5f62a5b343b74d63dfb2afb0855a1d9e5a8c",
+      "response_sha256": "658d941edefe2f4c5059f4760146138d77ab3f5ca093372e6f735e5c4fbdfdf7",
+      "trace_archive_sha256": "c772d022b3ca1c07522db1417ac3800db24f395eaacc0064eba5ac0fe91d12a0",
+      "cli_and_root_match": true,
+      "trace_archive_matches": true
+    },
+    {
+      "cohort": "legacy",
+      "arm": "text-fusion",
+      "case_id": "sufficient-text",
+      "capture_sha256": "e9c4e67e89df39a9ac8991ece65c5f62a5b343b74d63dfb2afb0855a1d9e5a8c",
+      "response_sha256": "0008e28ab0169ad55e470a38f275278fac0659e3f5fe70e0fca54f0d9a4658f4",
+      "trace_archive_sha256": "788a94bad92753aab5e13516b59fba8c6d863399d5f1f70ccea15d404c678f61",
+      "cli_and_root_match": true,
+      "trace_archive_matches": true
+    },
+    {
+      "cohort": "legacy",
+      "arm": "text-fusion",
+      "case_id": "multi-family",
+      "capture_sha256": "e9c4e67e89df39a9ac8991ece65c5f62a5b343b74d63dfb2afb0855a1d9e5a8c",
+      "response_sha256": "16812fd2c89ffc977883a5ca1bf66fe811e928af22fe528ada0076bd22696255",
+      "trace_archive_sha256": "bc98330c8fad8d302ba36df8b0126bf73162fceb84ad1045a72c7815f1bf895b",
+      "cli_and_root_match": true,
+      "trace_archive_matches": true
+    },
+    {
+      "cohort": "legacy",
+      "arm": "text-fusion",
+      "case_id": "unsupported-theme",
+      "capture_sha256": "e9c4e67e89df39a9ac8991ece65c5f62a5b343b74d63dfb2afb0855a1d9e5a8c",
+      "response_sha256": "1fe273564bd989dae4b28885526a0ba32b148f31b4ddf27d21e9afab1fc86c94",
+      "trace_archive_sha256": "e965661d6db9594cca68d47fd8d59aecd72c70f263be053dddc4adb59a9d27f6",
+      "cli_and_root_match": true,
+      "trace_archive_matches": true
+    },
+    {
+      "cohort": "ordered",
+      "arm": "text-baseline",
+      "case_id": "biological-parents",
+      "capture_sha256": "0b17b2ea2a59bc4522d030f78139caa7966beba32d28db3cf45b952d677bbc7c",
+      "response_sha256": "53a1eb31dfcab9a41cc711074c93c2f44b9ec7d8557fd47467e319dcea4bf2b2",
+      "trace_archive_sha256": "03a1f5f6d40dd46c30d99993ae13eeaa2655d0440c81d87acb4e438c5d691bac",
+      "cli_and_root_match": true,
+      "trace_archive_matches": true
+    },
+    {
+      "cohort": "ordered",
+      "arm": "text-baseline",
+      "case_id": "sufficient-text",
+      "capture_sha256": "0b17b2ea2a59bc4522d030f78139caa7966beba32d28db3cf45b952d677bbc7c",
+      "response_sha256": "fdfdf19dd63c8c005080dcf5cb1ef8313e1fbf950049f903307f5d0d1310a885",
+      "trace_archive_sha256": "1b7290a0b2d29079e1256f67d4d8be564d8fd0f2c5053b3f67a96a6aac9e76be",
+      "cli_and_root_match": true,
+      "trace_archive_matches": true
+    },
+    {
+      "cohort": "ordered",
+      "arm": "text-fusion",
+      "case_id": "biological-parents",
+      "capture_sha256": "3579a32afcea242bbcd920f8ebb851e37162a7526d289e6160146ce9ae56fb88",
+      "response_sha256": "fe915fc20bd8e9e23c8ef1fe8872b796c37578a61876fceb42c063770534d552",
+      "trace_archive_sha256": "c5c1ca85be6c6868d325a84c0cfe2913168d23be55987198d9d3b18393c0b799",
+      "cli_and_root_match": true,
+      "trace_archive_matches": true
+    },
+    {
+      "cohort": "ordered",
+      "arm": "text-fusion",
+      "case_id": "sufficient-text",
+      "capture_sha256": "3579a32afcea242bbcd920f8ebb851e37162a7526d289e6160146ce9ae56fb88",
+      "response_sha256": "361af2e1c670157ce404ff43cd68df12f822d2a253ba3678ab80f8dc17d628ce",
+      "trace_archive_sha256": "5b28cad00b26452b00db640fa54eee1dcfaeaa2df6a1263741b9710b6ccea15f",
+      "cli_and_root_match": true,
+      "trace_archive_matches": true
+    },
+    {
+      "cohort": "ordered",
+      "arm": "auto-baseline",
+      "case_id": "biological-parents",
+      "capture_sha256": "9af10a9312cc8b7fba7655fc2d662fc21f5ea0f4d0d3f33e00566f7cc40170d7",
+      "response_sha256": "d5619055fa1a3f0d6301f8acc17df33d091f3e610b88093a1541cc81164aad06",
+      "trace_archive_sha256": "3c0da9244d9acb1f23444fcd7ce31c876d07cb42c202611cf89d58e874f74130",
+      "cli_and_root_match": true,
+      "trace_archive_matches": true
+    },
+    {
+      "cohort": "ordered",
+      "arm": "auto-baseline",
+      "case_id": "sufficient-text",
+      "capture_sha256": "9af10a9312cc8b7fba7655fc2d662fc21f5ea0f4d0d3f33e00566f7cc40170d7",
+      "response_sha256": "834e4eafbf51f84b64dca7b0f855518d1e34dee8ea55d647a536d6b0bad30ece",
+      "trace_archive_sha256": "6b956f79f8e0b880b3f30156c31a9c9ffa924e0db884cde19dcdb2f1c235d444",
+      "cli_and_root_match": true,
+      "trace_archive_matches": true
+    },
+    {
+      "cohort": "ordered",
+      "arm": "text-combined",
+      "case_id": "biological-parents",
+      "capture_sha256": "3770ec7d42bf9eb303fb55a490f6b746437a0061bdc63d1e7d9207415a685038",
+      "response_sha256": "c0507f5a9e3b73e4ec17220bc7035ae96cfdd318c4fb1882c8f353670d46c61c",
+      "trace_archive_sha256": "c152d9d703afb2c51936bb84a23ef5f52ef5b98a999edbf75bc7b08ee3ef98bd",
+      "cli_and_root_match": true,
+      "trace_archive_matches": true
+    },
+    {
+      "cohort": "ordered",
+      "arm": "text-combined",
+      "case_id": "sufficient-text",
+      "capture_sha256": "3770ec7d42bf9eb303fb55a490f6b746437a0061bdc63d1e7d9207415a685038",
+      "response_sha256": "4355210de6e7de87b9c6df7cfe3120b3c1d55661769002961f6f4bbf76ef8861",
+      "trace_archive_sha256": "79254c5075599c90acf8d42c182b42533299b7c9f950606185d28958f7ca9151",
+      "cli_and_root_match": true,
+      "trace_archive_matches": true
+    },
+    {
+      "cohort": "ordered",
+      "arm": "text-expansion",
+      "case_id": "biological-parents",
+      "capture_sha256": "b51205dadff4f38745e649e7d81b8741e77e99e16f4d89df3be12868c56a06fa",
+      "response_sha256": "e71ba84e982aa058044eeddff0e9032fb21e9613cf93fa928814fd9fabd4f750",
+      "trace_archive_sha256": "f32460089ea92d8b9e69a2df3588614f1b059052ef8c36a2866a7e6405af3bba",
+      "cli_and_root_match": true,
+      "trace_archive_matches": true
+    },
+    {
+      "cohort": "ordered",
+      "arm": "text-expansion",
+      "case_id": "sufficient-text",
+      "capture_sha256": "b51205dadff4f38745e649e7d81b8741e77e99e16f4d89df3be12868c56a06fa",
+      "response_sha256": "2cded50d038a627f6b815788b10fc2723ff6be46c79717562d8020d0b303247b",
+      "trace_archive_sha256": "9c25bfbda2805f89b76c70f317d09236e1cfba20b150551113fb2f9000b3f6d8",
+      "cli_and_root_match": true,
+      "trace_archive_matches": true
+    },
+    {
+      "cohort": "ordered",
+      "arm": "auto-combined",
+      "case_id": "biological-parents",
+      "capture_sha256": "cc1f6b5cc20b4f9f09176d11a72c927434d7ee92c23081d96a0f50a0183af2a5",
+      "response_sha256": "d04488a5dcfd0a68decae9ff08f07711a9f777dfdd9027c44b1148143604b9d0",
+      "trace_archive_sha256": "77b58757ec16b4b05d7a144ae9a0772920b8dd0e52a4af8ded97c4f04420bb0b",
+      "cli_and_root_match": true,
+      "trace_archive_matches": true
+    },
+    {
+      "cohort": "ordered",
+      "arm": "auto-combined",
+      "case_id": "sufficient-text",
+      "capture_sha256": "cc1f6b5cc20b4f9f09176d11a72c927434d7ee92c23081d96a0f50a0183af2a5",
+      "response_sha256": "aaccee9c39267edd308103aef46c849183af5a68b35b25125006b293c4150c25",
+      "trace_archive_sha256": "c56cc27b88a4b8202955800e639781d1035ea8a9fa0159edb04a01b2b5e47b65",
+      "cli_and_root_match": true,
+      "trace_archive_matches": true
+    }
+  ],
+  "rows": 56,
+  "recovered_readback": "Four ordered rows use labelled isolated CLI readback; original DB and MLflow equality are separately retained.",
+  "version": 2,
+  "supersedes": "capture-integrity.json"
+}

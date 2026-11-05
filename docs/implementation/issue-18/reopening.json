@@ -1,0 +1,19 @@
+{
+  "superseded_closure_commit": "168f5c05cf8e3c8391a51716aab875da1a026387",
+  "initial_readme_sha256": "e2ec81b3376099e8cd69c99d701fb23d1a3b63fe5193e1d17973a22a59393e49",
+  "reason": "Two promised ordered automatic-combined runs were unfinished. Their optional classification and the initial completion declaration were incorrect.",
+  "original_software_inputs_unchanged": 301,
+  "call_allowance_revision": {
+    "previous": 64,
+    "followup_cumulative": 73,
+    "prior_calls_carried": 57,
+    "maximum_new_requests": 2,
+    "maximum_model_operations_per_request": 8
+  },
+  "unchanged_dollar_limits": {
+    "lifetime_usd": 5,
+    "ticket_additional_usd": 0.75,
+    "ticket_anchor_usd": 0.975588
+  },
+  "new_scope": "Complete only the two missing requests, source review and publication; no earlier paid repeats or application changes."
+}

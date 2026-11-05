@@ -1,0 +1,113 @@
+{
+  "issue": 18,
+  "base_revision": "664541a67a15a76e9f079a2d09fbf3aedc70dcdb",
+  "application_sha256": "c20996e15f33bce7adfe9a6c538f20761fab18822aad56f404c420244b269e5f",
+  "software": {
+    "tests": 715,
+    "failures": 0,
+    "errors": 0,
+    "skipped": 0,
+    "warnings": 16,
+    "seconds": 2312.754,
+    "exit_code": 0,
+    "mypy_files": 183,
+    "ruff": true,
+    "format": true,
+    "compose_config": true,
+    "docker_contracts": 10,
+    "docker_exit_code": 0,
+    "software_inputs": 301,
+    "all_hashes_match": true,
+    "pytest_xml": "final-software-tests.xml",
+    "pytest_log": "final-software-tests.log",
+    "shutdown_diagnostic": "Prefect closed-file logging after successful pytest result; exit status zero.",
+    "ruff_and_format_scope": [
+      "src",
+      "tests",
+      "scripts"
+    ],
+    "root_lint_probe": "Five pre-existing style errors in preserved docs/implementation/issue-24/verification-harness.py; not part of maintained-code lint scope."
+  },
+  "review": {
+    "fixed_point": "664541a",
+    "standards_remaining": 0,
+    "spec_remaining": 0,
+    "evidence": "review-v2.md",
+    "initial_evidence": "review.md",
+    "followup_fixed_point": "168f5c05cf8e3c8391a51716aab875da1a026387",
+    "initial_completion_conclusion": "Withdrawn: two promised runs were omitted. Follow-up reviews verify both now execute."
+  },
+  "development": {
+    "responses": 56,
+    "legacy_responses": 44,
+    "ordered_responses": 12,
+    "unique_questions": 7,
+    "story_groups": 5,
+    "paid_calls": 62,
+    "reported_serving_usd": 0.1622391,
+    "ledger_before_usd": 0.975588,
+    "ledger_after_usd": 1.137848,
+    "unsettled_reservations": 0,
+    "offline_review_external_inference_usd": 0,
+    "indexing_external_inference_usd": 0,
+    "selected_text_policy": "baseline",
+    "heldout_executed": false,
+    "original_eligibility_label_error_preserved": true,
+    "source_review": "Agent source annotations; no human canon acceptance.",
+    "ordered_planned_auto_combined_responses": 2,
+    "planned_ordered_arms_complete": 6,
+    "all_planned_ordered_responses_complete": 12,
+    "followup_paid_calls": 5,
+    "followup_reported_usd": 0.0243161,
+    "followup_task_successes": 1,
+    "followup_task_cases": 2
+  },
+  "recovery": {
+    "original_responses_unchanged": 4,
+    "paid_calls": 0,
+    "original_db_and_root_match": true,
+    "cli_scope": "Exact document copies with fresh capabilities in an isolated verification database; original response documents and capabilities unchanged."
+  },
+  "replay": {
+    "requests": 44,
+    "model_messages_unchanged": 44,
+    "outcomes_contexts_citations_unchanged": 44,
+    "paid_calls": 0,
+    "shared_ledger_unchanged": true
+  },
+  "preservation": {
+    "original_data_files": 98,
+    "protected_inputs": 150,
+    "all_match": true
+  },
+  "checklist": {
+    "new_scoped_passes": [
+      "AD-02.2",
+      "AD-02.3",
+      "AD-05.4",
+      "AD-09.3"
+    ],
+    "pass": 44,
+    "pending": 7,
+    "AD-08.3": "Pending for held-out/full-release thresholds"
+  },
+  "limitations": [
+    "Four legacy text completeness misses and three ordered expansion/automatic-combined date losses remain measured quality regressions.",
+    "The date follow-up attempts investigation, then reaches context_limit when adding passages and retains initial supported partial evidence.",
+    "The original wrong eligibility label and premature closure remain preserved; the new observations use corrected v2 labels.",
+    "All planned capture requests now execute. No claim of broad quality, human canon, held-out or full-release acceptance.",
+    "The 4000-byte comparison does not establish 1200-byte default quality."
+  ],
+  "version": 2,
+  "supersedes": "validation.json",
+  "initial_closure": "Premature: two planned ordered automatic-combined runs were omitted and incorrectly described as optional. Issue reopened and both now executed.",
+  "software_validation_scope": "Original 715-test/10-Docker validation is reused because all 301 tested software inputs remain byte-identical. No application, maintained recorder, test, dependency or configuration file changed in this follow-up.",
+  "followup_recorder_validation": {
+    "archived_script": "frozen-scripts/evaluate_routing_followup_v1.py",
+    "only_changes": "Three cumulative64-to73 guard/metadata changes and fingerprinting reopening-protocol.md.",
+    "mypy_checked_with_project_roots": 184,
+    "ruff": true,
+    "format": true,
+    "all 301_previously_tested_hashes_match": true
+  }
+}

@@ -11,6 +11,26 @@ commands so they work even without a configured Git remote.
 
 ## Current Ask Phil handoff
 
+**Issue #18 follow-up is complete locally; publication and final closure are pending.**
+The earlier closure was premature: two promised ordered automatic-combined runs
+were omitted and incorrectly called optional. The issue was reopened and both
+now execute under the [bounded follow-up protocol](../implementation/issue-18/reopening-protocol.md).
+[Final comparison](../implementation/issue-18/comparison-v2.json) contains 56 actual
+responses and all 12 ordered observations across six arms. The new arm scores 1/2:
+parentage passes; the date answer stays partial after an attempted investigation
+reaches context_limit and safely retains prior support. Baseline stays selected.
+
+Five new paid calls report $0.0243161; total 62 calls report $0.1622391. Original
+$5/$0.75 monetary ceilings and per-request limits remain unchanged. The ledger is
+**$1.137848**, zero unsettled reservations. All 301 tested software inputs match,
+so 715 native tests/ten Docker contracts remain valid; the archived recorder passes
+strict mypy/style with 184 files. All 98 original data and 150 protected inputs match.
+No earlier paid result is repeated, no identity/validator is weakened and no
+quality failure is marked passed. The old closure/receipts remain historical.
+Do not start #25 until this completion is published and read back on GitHub.
+
+### Superseded initial issue #18 closure
+
 **Issue #18 is complete and closed** after [verified publication](https://github.com/tomh1988-8/rag_demo/commit/06b51695e026dd0edb59ff2da2fd0ba6188b378b).
 [The receipt](../implementation/issue-18/publication.json) records exact remote
 commit/tree readback, all 301 published software inputs, eight checked criteria
