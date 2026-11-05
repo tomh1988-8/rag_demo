@@ -83,7 +83,8 @@ review expenses are recorded separately from serving operations.
 Issue #18 was initially closed too soon: two runs promised by the frozen ordered
 protocol were unfinished and were incorrectly called optional. The issue was
 reopened. **Both missing runs are now executed and independently reviewed**;
-publication and final tracker readback remain to be recorded before closing again.
+[Publication and final tracker readback](publication-v2.json) now verify the
+completed comparison and closed issue.
 The initial [closure account](README-initial-closure.md), [receipt](publication.json)
 and [reopening record](reopening.json) remain intact. Their completion claim is
 superseded by this report and the [follow-up protocol](reopening-protocol.md).
@@ -210,3 +211,11 @@ limits and fair comparison identities. Earlier software/logging failures, source
 label mistakes, the premature closure and all current quality misses remain in
 [versioned regressions](regressions-v2.json). Completion of this ticket does not
 pass the full-product, cache or held-out acceptance obligations in #25/#21.
+
+## Corrected publication
+
+[51f43ce](https://github.com/tomh1988-8/rag_demo/commit/51f43ce3622a868f9b277312da42bc1b0f8045da)
+publishes both formerly missing runs and the completed report. The
+[corrected receipt](publication-v2.json) verifies the exact remote tree, all 301
+original software inputs, all frozen follow-up inputs and exact closed-ticket
+readback with eight checked criteria. No planned comparison run remains omitted.

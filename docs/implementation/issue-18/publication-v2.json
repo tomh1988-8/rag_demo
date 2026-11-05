@@ -1,0 +1,64 @@
+{
+  "version": 2,
+  "supersedes": "publication.json",
+  "issue": 18,
+  "recorded_at": "2026-11-05T17:43:08.975572+00:00",
+  "published_commit": "51f43ce3622a868f9b277312da42bc1b0f8045da",
+  "commit_url": "https://github.com/tomh1988-8/rag_demo/commit/51f43ce3622a868f9b277312da42bc1b0f8045da",
+  "local_tree": "f2d8b0f24562c1b3b8614f27cf321de96cd8257b",
+  "remote_ref_readback": "51f43ce3622a868f9b277312da42bc1b0f8045da",
+  "remote_tree_readback": "f2d8b0f24562c1b3b8614f27cf321de96cd8257b",
+  "exact_tree_match": true,
+  "method": "Native authenticated fast-forward Git push and native Git/GitHub commit-tree readback.",
+  "initial_closure": "Premature because two frozen-plan runs were omitted. Reopened and now completed; original receipt and records preserved.",
+  "published_original_software_inputs_verified": 301,
+  "published_followup_input_entries_verified": 101,
+  "comparison": {
+    "responses": 56,
+    "ordered_responses": 12,
+    "planned_ordered_arms": 6,
+    "planned_ordered_arms_executed": 6,
+    "remaining_unexecuted_planned_requests": 0,
+    "prior54_case_records_unchanged": true,
+    "new_requests": 2,
+    "new_paid_calls": 5,
+    "new_reported_usd": 0.0243161,
+    "new_strict_task_successes": 1,
+    "new_task_cases": 2,
+    "date_failure": "Context limit after attempted investigation; initial supported partial answer retained."
+  },
+  "expense": {
+    "paid_calls": 62,
+    "reported_serving_usd": 0.1622391,
+    "ledger_after_usd": 1.137848,
+    "unsettled_reservations": 0,
+    "lifetime_dollar_cap_unchanged": 5,
+    "ticket_additional_dollar_cap_unchanged": 0.75,
+    "agent_set_cumulative_call_cap_revised": 73
+  },
+  "tracker": {
+    "url": "https://github.com/tomh1988-8/rag_demo/issues/18",
+    "state": "CLOSED",
+    "state_reason": "COMPLETED",
+    "closed_at": "2026-11-05T17:41:54Z",
+    "checked_criteria": 8,
+    "prepared_body_matches": true,
+    "body_sha256": "0c664e2871e44288c3743019fb5c633e1b36adc92942890f531ec786dacac382"
+  },
+  "software_validation": {
+    "prior_native_tests_passed": 715,
+    "prior_docker_contracts_passed": 10,
+    "all301_tested_inputs_unchanged": true,
+    "archived_recorder_mypy_and_style_checked_files": 184
+  },
+  "review_remaining": {
+    "standards": 0,
+    "spec": 0
+  },
+  "preservation": {
+    "original_data_files": 98,
+    "protected_inputs": 150,
+    "all_hashes_match": true
+  },
+  "limits": "Completion of planned evaluation is distinct from model-quality success; the date limitation and broader release/held-out obligations remain explicit."
+}

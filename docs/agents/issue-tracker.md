@@ -11,7 +11,10 @@ commands so they work even without a configured Git remote.
 
 ## Current Ask Phil handoff
 
-**Issue #18 follow-up is complete locally; publication and final closure are pending.**
+**Issue #18 is complete and closed after finishing the previously omitted runs**,
+with [verified publication](https://github.com/tomh1988-8/rag_demo/commit/51f43ce3622a868f9b277312da42bc1b0f8045da).
+[The corrected receipt](../implementation/issue-18/publication-v2.json) records
+exact remote-tree and completed-tracker readback with all eight criteria checked.
 The earlier closure was premature: two promised ordered automatic-combined runs
 were omitted and incorrectly called optional. The issue was reopened and both
 now execute under the [bounded follow-up protocol](../implementation/issue-18/reopening-protocol.md).
@@ -27,7 +30,8 @@ so 715 native tests/ten Docker contracts remain valid; the archived recorder pas
 strict mypy/style with 184 files. All 98 original data and 150 protected inputs match.
 No earlier paid result is repeated, no identity/validator is weakened and no
 quality failure is marked passed. The old closure/receipts remain historical.
-Do not start #25 until this completion is published and read back on GitHub.
+**#25 is next.** Wait for the user's next implementation instruction before
+starting another issue.
 
 ### Superseded initial issue #18 closure
 
