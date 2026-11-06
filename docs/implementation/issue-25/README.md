@@ -1,7 +1,9 @@
 # Issue #25: versioned text-answer caching
 
 Status: implementation, measured development workload and validation complete.
-Publication and tracker closure are verified in the final receipt.
+Publication and tracker closure await explicit approval: automatic approval review
+rejected direct publication to the default branch. [Pending actions](publication-pending.json)
+are concrete; no remote commit or tracker change was made.
 
 The [ticket](https://github.com/tomh1988-8/rag_demo/issues/25) and preserved
 [acceptance criteria](spec.json) require exact, eligible conventional-text reuse in

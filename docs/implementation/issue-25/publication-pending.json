@@ -1,0 +1,15 @@
+{
+  "status": "awaiting_explicit_publication_approval",
+  "validated_evidence_commit": "e8be8cf27098fd8b7b2e2c89423f542b67c630b5",
+  "rejected_action": "git push origin HEAD:main",
+  "automatic_review_reason": "Publishes commits directly to the repository default main branch; trusted user instructions authorized implementation and local commits but did not explicitly authorize this remote publication.",
+  "push_executed": false,
+  "remote_before": "dcf2b5e2d53f9e82033dee1eceefd3098e3acbaa",
+  "tracker_updated_or_closed": false,
+  "ready_after_approval": [
+    "Push current branch without forcing, preserving existing starting commit 1fefa2f.",
+    "Read back the remote commit/tree and verify frozen inputs.",
+    "Apply the prepared nine-criterion tracker body and close #25.",
+    "Read back tracker completion and publish the final receipt."
+  ]
+}

@@ -67,5 +67,11 @@
     "cloud_performance_acceptance": false,
     "human_canon_acceptance": false
   },
-  "publication": "pending exact remote-tree and tracker readback"
+  "publication": {
+    "status": "awaiting_explicit_publication_approval",
+    "reason": "Publishes commits directly to the repository default main branch; trusted user instructions authorized implementation and local commits but did not explicitly authorize this remote publication.",
+    "push_executed": false,
+    "tracker_state": "OPEN",
+    "evidence": "publication-pending.json"
+  }
 }

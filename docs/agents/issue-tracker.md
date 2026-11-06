@@ -11,7 +11,11 @@ commands so they work even without a configured Git remote.
 
 ## Current Ask Phil handoff
 
-**Issue #25 is implemented and validated; final publication/tracker readback is pending.**
+**Issue #25 is implemented and validated; publication awaits explicit approval.**
+Automatic approval review rejected `git push origin HEAD:main` because the trusted
+instructions did not explicitly authorize publication to the default branch. No
+remote write or tracker closure was made. [The pending receipt](../implementation/issue-25/publication-pending.json)
+records the tested evidence commit and remaining actions.
 [Evidence](../implementation/issue-25/README.md) records 765 passing native tests,
 12 Docker contracts, strict mypy across 192 files and zero remaining findings on
 both independent review axes. PostgreSQL exact reuse, versioned invalidation,
