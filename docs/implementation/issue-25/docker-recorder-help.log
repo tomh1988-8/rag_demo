@@ -1,0 +1,25 @@
+ Container ask-phil-test-run-6c79e8c15ed1 Creating 
+ Container ask-phil-test-run-6c79e8c15ed1 Created 
+usage: evaluate_answer_cache.py [-h] [--api-url API_URL]
+                                [--tracking-uri TRACKING_URI]
+                                [--workload WORKLOAD] [--output OUTPUT]
+                                [--profile PROFILE]
+                                [--max-cost-usd MAX_COST_USD]
+                                [--summarize SUMMARIZE] [--reviews REVIEWS]
+
+Capture a bounded development cold/warm workload, then summarize independent
+reviews. Use a new empty PostgreSQL cache namespace and a separate development
+workload. The serving app and this recorder must share the local MLflow
+backend. Capture refuses an existing output directory; reviewing saved
+outcomes never calls models.
+
+options:
+  -h, --help            show this help message and exit
+  --api-url API_URL
+  --tracking-uri TRACKING_URI
+  --workload WORKLOAD
+  --output OUTPUT
+  --profile PROFILE
+  --max-cost-usd MAX_COST_USD
+  --summarize SUMMARIZE
+  --reviews REVIEWS

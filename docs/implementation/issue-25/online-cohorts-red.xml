@@ -1,0 +1,6 @@
+<?xml version="1.0" encoding="utf-8"?><testsuites name="pytest tests"><testsuite name="pytest" errors="0" failures="1" skipped="0" tests="1" time="21.141" timestamp="2026-11-06T12:20:21.897828+00:00" hostname="tom-Latitude-3510"><testcase classname="tests.test_answer_cache" name="test_cached_feedback_is_assessed_on_original_context_and_reported_as_shared_generation" time="19.855"><failure message="AttributeError: 'OnlineReport' object has no attribute 'distinct_generations'">tests/test_answer_cache.py:267: in test_cached_feedback_is_assessed_on_original_context_and_reported_as_shared_generation
+    assert report.distinct_generations == 1
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^
+.venv/lib/python3.12/site-packages/pydantic/main.py:1042: in __getattr__
+    raise AttributeError(f'{type(self).__name__!r} object has no attribute {item!r}')
+E   AttributeError: 'OnlineReport' object has no attribute 'distinct_generations'</failure></testcase></testsuite></testsuites>

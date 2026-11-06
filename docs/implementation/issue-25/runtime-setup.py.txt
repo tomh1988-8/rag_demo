@@ -1,0 +1,121 @@
+import hashlib
+import json
+import os
+import socket
+import subprocess
+import sys
+import threading
+import time
+from datetime import UTC, datetime, timedelta
+from pathlib import Path
+from uuid import uuid4
+
+import psycopg
+import uvicorn
+from psycopg import sql
+from psycopg.conninfo import make_conninfo
+
+from ask_phil.answer_cache import CachePolicy
+from ask_phil.answering import application_fingerprint
+from ask_phil.api import create_app
+from ask_phil.evidence import SourceSnapshot
+from ask_phil.feedback_reporting import FeedbackCohort
+from ask_phil.identity import IdentityCatalogue
+from ask_phil.ingestion import build_snapshot, read_batch
+from ask_phil.models import Models
+from ask_phil.online_evaluation import OnlinePolicy
+from ask_phil.online_workflow import OnlineEvaluation
+from ask_phil.openrouter import Budget
+from ask_phil.publications import PublicationStore, RefreshRun
+from ask_phil.retrieval import TextRetriever
+from ask_phil.source_records import SourceBatch
+from ask_phil.storage import EvidenceStore
+
+directory = Path('docs/implementation/issue-25')
+destination = directory / 'runtime-local-v2'
+if destination.exists():
+    raise SystemExit('Existing capture must be inspected; no paid replay is permitted.')
+before = Budget().summary()
+if before != (1.137848, 0):
+    raise SystemExit('Shared ledger changed; reconcile before any new inference.')
+source_path = Path('data/sources/core-profiles-v2.json.gz')
+batch = read_batch(source_path)
+phil = next(c for c in batch.catalogue.characters if c.character_id == 'phil-mitchell')
+subset = SourceBatch(
+    format_version=1, catalogue=IdentityCatalogue(characters=(phil,)),
+    captures=tuple(c for c in batch.captures if c.source_id in phil.evidence_sources),
+    policies={k: v for k, v in batch.policies.items() if k in phil.evidence_sources},
+)
+complete = build_snapshot(subset, 'cache-phil-development-v1')
+passage = next(p for p in complete.passages if p.evidence_id == 'phil-mitchell-wiki-0018-15527')
+document = complete.model_dump(mode='json')
+document['passages'] = [passage.model_dump(mode='json')]
+document['source']['coverage'] = 'Curated cache development slice: one original arrival paragraph; not broad character coverage.'
+snapshot = SourceSnapshot.model_validate(document)
+models = Models.from_environment()
+admin = 'postgresql://ask_phil:local-demo-only@127.0.0.1:55424/postgres'
+name = 'ask_phil_cache_workload_' + uuid4().hex
+url = make_conninfo(admin, dbname=name)
+with psycopg.connect(admin, autocommit=True) as conn:
+    conn.execute(sql.SQL('CREATE DATABASE {} TEMPLATE template0').format(sql.Identifier(name)))
+(Path('/tmp') / 'issue25-live-database.txt').write_text(url)
+EvidenceStore(url).load(snapshot)
+index = TextRetriever(url, models.embedding, models.settings.embedding_id, models.settings.embedding_dimensions).prepare(snapshot.snapshot_id)
+publications = PublicationStore(url)
+run = RefreshRun(run_id=uuid4(), flow_run_id=uuid4(), started_at=datetime.now(UTC), status='running', action='review', input_sha256=snapshot.fingerprint)
+with publications.writer() as conn:
+    publications.publish(snapshot, index, run, conn)
+tracking_uri = 'sqlite:///' + str((Path('artifacts') / 'issue25-live-mlflow.db').resolve())
+policy = OnlinePolicy(background_rate=1, interval_seconds=0.2, retry_seconds=0.2, max_judge_calls=0)
+app = create_app(url, models=models, tracking_uri=tracking_uri,
+                 cache_policy=CachePolicy(namespace='issue25-development-cold-warm-v1'),
+                 online_policy=policy)
+identity = application_fingerprint()
+with socket.socket() as listener:
+    listener.bind(('127.0.0.1', 0))
+    server = uvicorn.Server(uvicorn.Config(app, log_level='error'))
+    thread = threading.Thread(target=server.run, kwargs={'sockets': [listener]}, daemon=True)
+    thread.start()
+    try:
+        deadline = time.monotonic() + 10
+        while not server.started and thread.is_alive() and time.monotonic() < deadline:
+            time.sleep(0.05)
+        assert server.started
+        result = subprocess.run([
+            sys.executable, 'scripts/evaluate_answer_cache.py',
+            '--api-url', f'http://127.0.0.1:{listener.getsockname()[1]}',
+            '--tracking-uri', tracking_uri,
+            '--workload', str(directory / 'workload-plan.json'),
+            '--output', str(destination), '--profile', 'config/local-models.json', '--max-cost-usd', '0.25',
+        ], check=False, timeout=300)
+        assert application_fingerprint() == identity
+        if result.returncode:
+            raise SystemExit('Capture stopped; retain outcomes and investigate without replay.')
+        evaluation = OnlineEvaluation(url, tracking_uri, policy=policy)
+        evaluation.ensure_schema()
+        deadline = time.monotonic() + 45
+        while time.monotonic() < deadline:
+            now = datetime.now(UTC)
+            report = evaluation.report(FeedbackCohort(served_from=now-timedelta(hours=1), served_until=now+timedelta(hours=1), feedback_as_of=now))
+            if report.completed == 7:
+                break
+            time.sleep(0.3)
+        (destination / 'online-report.json').write_text(report.model_dump_json(indent=2) + '\n')
+        (destination / 'source-selection.json').write_text(json.dumps({
+            'source_file': str(source_path), 'source_file_sha256': hashlib.sha256(source_path.read_bytes()).hexdigest(),
+            'source_capture_sha256': subset.captures[0].sha256,
+            'snapshot_id': snapshot.snapshot_id, 'snapshot_sha256': snapshot.fingerprint,
+            'original_passages': len(complete.passages), 'selected_passages': [passage.evidence_id],
+            'publication': publications.active().model_dump(mode='json'),
+            'application_sha256': identity,
+            'software_revision': subprocess.check_output(['git','rev-parse','HEAD'],text=True).strip(),
+            'model_settings': models.settings.model_dump(mode='json'),
+            'ledger_before': before, 'ledger_after': Budget().summary(),
+            'limitation': 'Two exposed questions in one curated paragraph, not held-out or representative quality/latency acceptance. Local Gemma development inference only; zero external inference calls or paid semantic judgments. Online code checks run automatically. No cloud latency/cost acceptance.',
+        }, indent=2) + '\n')
+        print('Captured seven API deliveries; automatic online completed:', report.completed)
+        print('Shared ledger:', Budget().summary())
+    finally:
+        server.should_exit = True
+        thread.join(timeout=35)
+        assert not thread.is_alive()

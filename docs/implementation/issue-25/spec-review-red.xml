@@ -1,0 +1,68 @@
+<?xml version="1.0" encoding="utf-8"?><testsuites name="pytest tests"><testsuite name="pytest" errors="0" failures="6" skipped="0" tests="6" time="15.856" timestamp="2026-11-06T12:48:42.141595+00:00" hostname="tom-Latitude-3510"><testcase classname="tests.test_answer_cache" name="test_contextual_object_references_bypass_even_a_plausible_cited_model_answer[Did Phil Mitchell do it?]" time="3.694"><failure message="AssertionError: assert 'miss' == 'bypass'&#10;  &#10;  - bypass&#10;  + miss">tests/test_answer_cache.py:628: in test_contextual_object_references_bypass_even_a_plausible_cited_model_answer
+    assert answer["cache"]["status"] == "bypass"
+E   AssertionError: assert 'miss' == 'bypass'
+E     
+E     - bypass
+E     + miss</failure></testcase><testcase classname="tests.test_answer_cache" name="test_contextual_object_references_bypass_even_a_plausible_cited_model_answer[What did Phil Mitchell do then?]" time="3.491"><failure message="AssertionError: assert 'miss' == 'bypass'&#10;  &#10;  - bypass&#10;  + miss">tests/test_answer_cache.py:628: in test_contextual_object_references_bypass_even_a_plausible_cited_model_answer
+    assert answer["cache"]["status"] == "bypass"
+E   AssertionError: assert 'miss' == 'bypass'
+E     
+E     - bypass
+E     + miss</failure></testcase><testcase classname="tests.test_answer_cache" name="test_optional_cache_configuration_failure_and_disable_preserve_normal_text_answering[routing]" time="2.446"><failure message="AssertionError: Internal Server Error&#10;assert 500 == 200&#10; +  where 500 = &lt;Response [500 Internal Server Error]&gt;.status_code">tests/test_answer_cache.py:658: in test_optional_cache_configuration_failure_and_disable_preserve_normal_text_answering
+    answer = ask(client, route="text_rag")["response"]
+             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+tests/test_answer_cache.py:139: in ask
+    assert result.status_code == 200, result.text
+E   AssertionError: Internal Server Error
+E   assert 500 == 200
+E    +  where 500 = &lt;Response [500 Internal Server Error]&gt;.status_code</failure></testcase><testcase classname="tests.test_answer_cache" name="test_optional_cache_configuration_failure_and_disable_preserve_normal_text_answering[missing_cache]" time="1.522"><failure message="FileNotFoundError: [Errno 2] No such file or directory: '/tmp/pytest-of-tom/pytest-64/test_optional_cache_configurat1/bad-policy.json'">tests/test_answer_cache.py:653: in test_optional_cache_configuration_failure_and_disable_preserve_normal_text_answering
+    create_app(
+src/ask_phil/api.py:149: in create_app
+    AnswerService(
+src/ask_phil/answering.py:59: in __init__
+    self.cache = AnswerCache(
+src/ask_phil/answer_cache.py:106: in __init__
+    self.policy = policy or CachePolicy.from_environment()
+                            ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+src/ask_phil/answer_cache.py:59: in from_environment
+    return cls.model_validate_json(Path(path).read_bytes()) if path else cls()
+                                   ^^^^^^^^^^^^^^^^^^^^^^^
+/usr/lib/python3.12/pathlib.py:1021: in read_bytes
+    with self.open(mode='rb') as f:
+         ^^^^^^^^^^^^^^^^^^^^
+/usr/lib/python3.12/pathlib.py:1015: in open
+    return io.open(self, mode, buffering, encoding, errors, newline)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+E   FileNotFoundError: [Errno 2] No such file or directory: '/tmp/pytest-of-tom/pytest-64/test_optional_cache_configurat1/bad-policy.json'</failure></testcase><testcase classname="tests.test_answer_cache" name="test_optional_cache_configuration_failure_and_disable_preserve_normal_text_answering[malformed_cache]" time="1.515"><failure message="pydantic_core._pydantic_core.ValidationError: 1 validation error for CachePolicy&#10;  Invalid JSON: expected ident at line 1 column 2 [type=json_invalid, input_value=b'not valid JSON', input_type=bytes]&#10;    For further information visit https://errors.pydantic.dev/2.13/v/json_invalid">tests/test_answer_cache.py:653: in test_optional_cache_configuration_failure_and_disable_preserve_normal_text_answering
+    create_app(
+src/ask_phil/api.py:149: in create_app
+    AnswerService(
+src/ask_phil/answering.py:59: in __init__
+    self.cache = AnswerCache(
+src/ask_phil/answer_cache.py:106: in __init__
+    self.policy = policy or CachePolicy.from_environment()
+                            ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+src/ask_phil/answer_cache.py:59: in from_environment
+    return cls.model_validate_json(Path(path).read_bytes()) if path else cls()
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+E   pydantic_core._pydantic_core.ValidationError: 1 validation error for CachePolicy
+E     Invalid JSON: expected ident at line 1 column 2 [type=json_invalid, input_value=b'not valid JSON', input_type=bytes]
+E       For further information visit https://errors.pydantic.dev/2.13/v/json_invalid</failure></testcase><testcase classname="tests.test_answer_cache" name="test_optional_cache_configuration_failure_and_disable_preserve_normal_text_answering[disabled_missing]" time="1.730"><failure message="FileNotFoundError: [Errno 2] No such file or directory: '/tmp/pytest-of-tom/pytest-64/test_optional_cache_configurat3/bad-policy.json'">tests/test_answer_cache.py:653: in test_optional_cache_configuration_failure_and_disable_preserve_normal_text_answering
+    create_app(
+src/ask_phil/api.py:149: in create_app
+    AnswerService(
+src/ask_phil/answering.py:59: in __init__
+    self.cache = AnswerCache(
+src/ask_phil/answer_cache.py:106: in __init__
+    self.policy = policy or CachePolicy.from_environment()
+                            ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+src/ask_phil/answer_cache.py:59: in from_environment
+    return cls.model_validate_json(Path(path).read_bytes()) if path else cls()
+                                   ^^^^^^^^^^^^^^^^^^^^^^^
+/usr/lib/python3.12/pathlib.py:1021: in read_bytes
+    with self.open(mode='rb') as f:
+         ^^^^^^^^^^^^^^^^^^^^
+/usr/lib/python3.12/pathlib.py:1015: in open
+    return io.open(self, mode, buffering, encoding, errors, newline)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+E   FileNotFoundError: [Errno 2] No such file or directory: '/tmp/pytest-of-tom/pytest-64/test_optional_cache_configurat3/bad-policy.json'</failure></testcase></testsuite></testsuites>

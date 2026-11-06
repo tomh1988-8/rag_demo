@@ -1,0 +1,64 @@
+{
+  "namespace": "issue25-development-cold-warm-v1",
+  "partition": "development",
+  "scope": "Two exposed source facts from one retained Phil paragraph; cache capability and timing only.",
+  "requests": [
+    {
+      "case_id": "cold-arrival",
+      "phase": "cold",
+      "request": {
+        "route": "text_rag",
+        "question": "When did Phil Mitchell first arrive in Walford?"
+      }
+    },
+    {
+      "case_id": "cold-business",
+      "phase": "cold",
+      "request": {
+        "route": "text_rag",
+        "question": "What business did Phil Mitchell open on arriving in Walford?"
+      }
+    },
+    {
+      "case_id": "warm-arrival-1",
+      "phase": "warm",
+      "request": {
+        "route": "text_rag",
+        "question": "When did Phil Mitchell first arrive in Walford?"
+      }
+    },
+    {
+      "case_id": "warm-business-1",
+      "phase": "warm",
+      "request": {
+        "route": "text_rag",
+        "question": "What business did Phil Mitchell open on arriving in Walford?"
+      }
+    },
+    {
+      "case_id": "warm-arrival-2",
+      "phase": "warm",
+      "request": {
+        "route": "text_rag",
+        "question": "When did Phil Mitchell first arrive in Walford?"
+      }
+    },
+    {
+      "case_id": "warm-business-2",
+      "phase": "warm",
+      "request": {
+        "route": "text_rag",
+        "question": "What business did Phil Mitchell open on arriving in Walford?"
+      }
+    },
+    {
+      "case_id": "unresolved-session",
+      "phase": "control",
+      "session": "unresolved-control",
+      "request": {
+        "route": "text_rag",
+        "question": "When did he first arrive in Walford?"
+      }
+    }
+  ]
+}

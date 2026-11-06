@@ -1,0 +1,10 @@
+{
+  "matching_packaged_inputs": 207,
+  "mismatches": [],
+  "application_sources_match": true,
+  "not_in_hash_scope": [
+    "Dockerfile",
+    "compose.yaml",
+    "scripts/install-docker-ubuntu.sh"
+  ]
+}

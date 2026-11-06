@@ -1,0 +1,27 @@
+{
+  "issue": 25,
+  "software_revision": "a7a0780",
+  "partition": "development",
+  "source_selection": "One original Phil arrival paragraph from data/sources/core-profiles-v2.json.gz; six explicit standalone deliveries and one unresolved-session control.",
+  "planned_requests": 7,
+  "expected_cold_generations": 2,
+  "expected_warm_deliveries": 4,
+  "initial_external_attempt": {
+    "executed": false,
+    "destination": "OpenRouter",
+    "maximum_workload_usd": 0.25,
+    "automatic_review": "Rejected: trusted instructions did not authorize the specific external payload, destination or spend. No workaround or paid request was made."
+  },
+  "safe_alternative": {
+    "provider": "Local Ollama only",
+    "model_configuration": "config/local-models.json",
+    "api_spend_usd": 0,
+    "source_export": false,
+    "setup_failure": "Initial attempt stopped before generation because the answer model was absent. Existing embedding model was retained; configured answer model was pulled and its pinned digest verified."
+  },
+  "limitations": [
+    "Local development capability measurements; no cloud latency/cost acceptance.",
+    "Exposed curated source slice; no held-out or broad model-quality acceptance.",
+    "Independent source-based reviews are separate from generated output and raw feedback."
+  ]
+}

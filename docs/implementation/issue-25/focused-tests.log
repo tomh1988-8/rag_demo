@@ -1,0 +1,21 @@
+..........................F...                                           [100%]
+=================================== FAILURES ===================================
+_________ test_skip_and_missing_feedback_never_become_positive_ratings _________
+tests/test_feedback_reporting.py:47: in test_skip_and_missing_feedback_never_become_positive_ratings
+    assert summary.counts.model_dump() == {
+E   AssertionError: assert {'eligible': ...tive': 1, ...} == {'eligible': ...tive': 1, ...}
+E     
+E     Omitting 15 identical items, use -vv to show
+E     Left contains 1 more item:
+E     {'distinct_generations': 4}
+E     Use -v to get more diff
+=============================== warnings summary ===============================
+.venv/lib/python3.12/site-packages/fastapi/testclient.py:1
+  /home/tom/Documents/code/python/rag_demo/.venv/lib/python3.12/site-packages/fastapi/testclient.py:1: StarletteDeprecationWarning: Using `httpx` with `starlette.testclient` is deprecated; install `httpx2` instead.
+    from starlette.testclient import TestClient as TestClient  # noqa
+
+-- Docs: https://docs.pytest.org/en/stable/how-to/capture-warnings.html
+=========================== short test summary info ============================
+FAILED tests/test_feedback_reporting.py::test_skip_and_missing_feedback_never_become_positive_ratings
+1 failed, 29 passed, 1 warning in 212.42s (0:03:32)
+2026/11/06 12:46:01 INFO mlflow.tracing.export.async_export_queue: Flushing the async trace logging queue before program exit. This may take a while...

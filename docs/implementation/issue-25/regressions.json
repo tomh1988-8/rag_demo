@@ -1,0 +1,52 @@
+{
+  "issue": 25,
+  "kind": "exposed-local-development-failures; not a promoted held-out reference",
+  "failures": [
+    {
+      "id": "local-phil-third-person",
+      "criterion": "SYSTEM_PROMPT requires I/me/my for Phil actions.",
+      "delivered_failures": 6,
+      "generation_groups": [
+        "a96be47d-e16f-4509-94d1-7d23b0a3b370",
+        "db158890-bc3a-44a6-a100-7fc81de312d6"
+      ],
+      "response_ids": [
+        "2c38ff6d-40a1-49c0-a890-f763c1dca993",
+        "34a39aae-706e-41ba-976f-ed88e16d3db9",
+        "849a8a02-13e6-485e-b705-d5669bf2a603",
+        "d928f413-87ec-450a-b4e7-12ab4220ff21",
+        "d8633b46-dd4f-44fc-be43-4404f0094d46",
+        "15169421-921c-4989-93bd-0b9650bc70cc"
+      ],
+      "source_support_pass": true,
+      "persona_pass": false,
+      "disposition": "Preserve local-model style failure for final #21 review; do not claim broad persona/cloud acceptance or alter the cache result."
+    },
+    {
+      "id": "local-positive-fact-negative-qualification",
+      "criterion": "An explicit_negative qualification requires an actual negative source statement.",
+      "delivered_failures": 3,
+      "generation_groups": [
+        "db158890-bc3a-44a6-a100-7fc81de312d6"
+      ],
+      "response_ids": [
+        "34a39aae-706e-41ba-976f-ed88e16d3db9",
+        "d928f413-87ec-450a-b4e7-12ab4220ff21",
+        "15169421-921c-4989-93bd-0b9650bc70cc"
+      ],
+      "source_fact_support_pass": true,
+      "qualification_type_pass": false,
+      "reviewer": "Independent Spec review agent",
+      "disposition": "Preserve for final #21 output-quality review; no prompt/source change and no hidden cache repair."
+    }
+  ],
+  "historical_failures_preserved": [
+    "database-setup-failure.xml",
+    "cache-contracts.xml",
+    "focused-tests.xml",
+    "trace-review-red.xml",
+    "spec-review-red.xml",
+    "investigation-cohort-red.xml"
+  ],
+  "paid_capture_rejected_before_execution": true
+}

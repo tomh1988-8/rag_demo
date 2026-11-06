@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="utf-8"?><testsuites name="pytest tests"><testsuite name="pytest" errors="1" failures="0" skipped="0" tests="1" time="0.322" timestamp="2026-11-06T12:34:15.783243+00:00" hostname="tom-Latitude-3510"><testcase classname="" name="tests.test_cache_evaluation" time="0.000"><error message="collection failure">ImportError while importing test module '/home/tom/Documents/code/python/rag_demo/tests/test_cache_evaluation.py'.
+Hint: make sure your test modules/packages have valid Python names.
+Traceback:
+/usr/lib/python3.12/importlib/__init__.py:90: in import_module
+    return _bootstrap._gcd_import(name[level:], package, level)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+tests/test_cache_evaluation.py:3: in &lt;module&gt;
+    from ask_phil.cache_evaluation import CacheObservation, summarize_cache_workload
+E   ModuleNotFoundError: No module named 'ask_phil.cache_evaluation'</error></testcase></testsuite></testsuites>

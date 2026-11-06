@@ -1,0 +1,2336 @@
+[
+  {
+    "case_id": "cold-arrival",
+    "request": {
+      "route": "text_rag",
+      "question": "When did Phil Mitchell first arrive in Walford?"
+    },
+    "response": {
+      "response_id": "2c38ff6d-40a1-49c0-a890-f763c1dca993",
+      "generation_id": "a96be47d-e16f-4509-94d1-7d23b0a3b370",
+      "cache": {
+        "version": "exact-text-cache-v1",
+        "status": "miss",
+        "reason": "absent",
+        "eligible": true
+      },
+      "question": "When did Phil Mitchell first arrive in Walford?",
+      "status": "answered",
+      "answer": "Phil Mitchell first arrived in Walford in February 1990 to open an automobile repair shop called The Arches.",
+      "qualifications": [
+        {
+          "detail": "The arrival date is February 1990.",
+          "evidence_ids": [
+            "phil-mitchell-wiki-0018-15527"
+          ],
+          "kind": "timing",
+          "precision": "exact"
+        }
+      ],
+      "citations": [
+        {
+          "evidence_id": "phil-mitchell-wiki-0018-15527",
+          "text": "Phil Mitchell first arrives in Walford in February 1990 to open an automobile repair shop, known as The Arches; he is joined by his younger brother Grant (Ross Kemp). Two years later, Phil goes into partnership at The Queen Victoria public house with Grant and his wife Sharon Watts (Letitia Dean) \u2013 up to the point where he moves in with them. Phil grows close to Sharon, who turns to him for comfort during Grant's violent outbursts. Sharon and Phil have sex but she stays with Grant, who is unaware of their betrayal. Sharon and Grant's reconciliation is brief, and amidst more rowing and physical violence, Grant is arrested and imprisoned. In his absence, Phil and Sharon continue their affair but when Grant is released, Sharon reconciles with him, leaving Phil heartbroken. On the rebound, Phil enters into a marriage of convenience with Nadia Borovac (Anna Barkan) - a Romanian refugee - enabling her to stay in Britain, with Nadia departing after the wedding.",
+          "sha256": "9a13fe3539b69694d88ab06a1bd85cf898f46d65ca5ac1d958d0e0ff026bd263",
+          "start": 15527,
+          "end": 16495,
+          "source": {
+            "title": "Phil Mitchell",
+            "url": "https://en.wikipedia.org/wiki/Phil_Mitchell",
+            "revision_id": "1379872347",
+            "revision_url": "https://en.wikipedia.org/w/index.php?oldid=1379872347",
+            "section": "Storylines / 1990\u20132003",
+            "captured_at": "2026-10-17T13:07:31.014189Z",
+            "capture_sha256": "a338d3065203be54e383f2c9c141bca22ae9aedbb950e2e1eada601bcccfe313",
+            "scope": "main_series",
+            "license_url": "https://creativecommons.org/licenses/by-sa/4.0/",
+            "attribution": "Wikipedia contributors; markup removed and whitespace normalized.",
+            "coverage": "Reviewed narrative sections in this captured revision only.",
+            "gaps": [
+              "Partial canon coverage; other paragraphs remain excluded or awaiting review.",
+              "Identity and episode metadata do not independently corroborate story claims."
+            ],
+            "support_status": "source_supported"
+          },
+          "location": {
+            "source_id": "phil-mitchell-wiki",
+            "paragraph_ordinal": 18,
+            "section_id": "1990\u20132003",
+            "character_ids": [
+              "phil-mitchell"
+            ]
+          },
+          "resolve_path": "/v1/snapshots/cache-phil-development-v1/evidence/phil-mitchell-wiki-0018-15527"
+        }
+      ],
+      "snapshot_id": "cache-phil-development-v1",
+      "snapshot_sha256": "2aa5e7a34c35c3be01871cda969a49f22326fe4132ef3e0a950f5368eefd5391",
+      "publication": {
+        "compatibility_id": "389c42ab1b7e236c1dd48e24de08a812d6e3d4936747533859a75a0faa10eba3",
+        "index_sha256": "8bb71dc8863baa8a465fac08d94e4226359a4c3ec4c9125efad060bfbcf3159d",
+        "generation": 1
+      },
+      "source": {
+        "title": "Phil Mitchell",
+        "url": "https://en.wikipedia.org/wiki/Phil_Mitchell",
+        "revision_id": "1379872347",
+        "revision_url": "https://en.wikipedia.org/w/index.php?oldid=1379872347",
+        "section": "Storylines / 1990\u20132003",
+        "captured_at": "2026-10-17T13:07:31.014189Z",
+        "capture_sha256": "a338d3065203be54e383f2c9c141bca22ae9aedbb950e2e1eada601bcccfe313",
+        "scope": "main_series",
+        "license_url": "https://creativecommons.org/licenses/by-sa/4.0/",
+        "attribution": "Wikipedia contributors; markup removed and whitespace normalized.",
+        "coverage": "Curated cache development slice: one original arrival paragraph; not broad character coverage.",
+        "gaps": [
+          "Partial canon coverage; other paragraphs remain excluded or awaiting review.",
+          "Identity and episode metadata do not independently corroborate story claims."
+        ],
+        "support_status": "source_supported"
+      },
+      "retrieved": [
+        {
+          "passage": {
+            "evidence_id": "phil-mitchell-wiki-0018-15527",
+            "text": "Phil Mitchell first arrives in Walford in February 1990 to open an automobile repair shop, known as The Arches; he is joined by his younger brother Grant (Ross Kemp). Two years later, Phil goes into partnership at The Queen Victoria public house with Grant and his wife Sharon Watts (Letitia Dean) \u2013 up to the point where he moves in with them. Phil grows close to Sharon, who turns to him for comfort during Grant's violent outbursts. Sharon and Phil have sex but she stays with Grant, who is unaware of their betrayal. Sharon and Grant's reconciliation is brief, and amidst more rowing and physical violence, Grant is arrested and imprisoned. In his absence, Phil and Sharon continue their affair but when Grant is released, Sharon reconciles with him, leaving Phil heartbroken. On the rebound, Phil enters into a marriage of convenience with Nadia Borovac (Anna Barkan) - a Romanian refugee - enabling her to stay in Britain, with Nadia departing after the wedding.",
+            "sha256": "9a13fe3539b69694d88ab06a1bd85cf898f46d65ca5ac1d958d0e0ff026bd263",
+            "start": 15527,
+            "end": 16495,
+            "source": {
+              "title": "Phil Mitchell",
+              "url": "https://en.wikipedia.org/wiki/Phil_Mitchell",
+              "revision_id": "1379872347",
+              "revision_url": "https://en.wikipedia.org/w/index.php?oldid=1379872347",
+              "section": "Storylines / 1990\u20132003",
+              "captured_at": "2026-10-17T13:07:31.014189Z",
+              "capture_sha256": "a338d3065203be54e383f2c9c141bca22ae9aedbb950e2e1eada601bcccfe313",
+              "scope": "main_series",
+              "license_url": "https://creativecommons.org/licenses/by-sa/4.0/",
+              "attribution": "Wikipedia contributors; markup removed and whitespace normalized.",
+              "coverage": "Reviewed narrative sections in this captured revision only.",
+              "gaps": [
+                "Partial canon coverage; other paragraphs remain excluded or awaiting review.",
+                "Identity and episode metadata do not independently corroborate story claims."
+              ],
+              "support_status": "source_supported"
+            },
+            "location": {
+              "source_id": "phil-mitchell-wiki",
+              "paragraph_ordinal": 18,
+              "section_id": "1990\u20132003",
+              "character_ids": [
+                "phil-mitchell"
+              ]
+            }
+          },
+          "similarity": 0.5647641939206896
+        }
+      ],
+      "context": [
+        {
+          "evidence_id": "phil-mitchell-wiki-0018-15527",
+          "text": "Phil Mitchell first arrives in Walford in February 1990 to open an automobile repair shop, known as The Arches; he is joined by his younger brother Grant (Ross Kemp). Two years later, Phil goes into partnership at The Queen Victoria public house with Grant and his wife Sharon Watts (Letitia Dean) \u2013 up to the point where he moves in with them. Phil grows close to Sharon, who turns to him for comfort during Grant's violent outbursts. Sharon and Phil have sex but she stays with Grant, who is unaware of their betrayal. Sharon and Grant's reconciliation is brief, and amidst more rowing and physical violence, Grant is arrested and imprisoned. In his absence, Phil and Sharon continue their affair but when Grant is released, Sharon reconciles with him, leaving Phil heartbroken. On the rebound, Phil enters into a marriage of convenience with Nadia Borovac (Anna Barkan) - a Romanian refugee - enabling her to stay in Britain, with Nadia departing after the wedding.",
+          "sha256": "9a13fe3539b69694d88ab06a1bd85cf898f46d65ca5ac1d958d0e0ff026bd263",
+          "start": 15527,
+          "end": 16495,
+          "source": {
+            "title": "Phil Mitchell",
+            "url": "https://en.wikipedia.org/wiki/Phil_Mitchell",
+            "revision_id": "1379872347",
+            "revision_url": "https://en.wikipedia.org/w/index.php?oldid=1379872347",
+            "section": "Storylines / 1990\u20132003",
+            "captured_at": "2026-10-17T13:07:31.014189Z",
+            "capture_sha256": "a338d3065203be54e383f2c9c141bca22ae9aedbb950e2e1eada601bcccfe313",
+            "scope": "main_series",
+            "license_url": "https://creativecommons.org/licenses/by-sa/4.0/",
+            "attribution": "Wikipedia contributors; markup removed and whitespace normalized.",
+            "coverage": "Reviewed narrative sections in this captured revision only.",
+            "gaps": [
+              "Partial canon coverage; other paragraphs remain excluded or awaiting review.",
+              "Identity and episode metadata do not independently corroborate story claims."
+            ],
+            "support_status": "source_supported"
+          },
+          "location": {
+            "source_id": "phil-mitchell-wiki",
+            "paragraph_ordinal": 18,
+            "section_id": "1990\u20132003",
+            "character_ids": [
+              "phil-mitchell"
+            ]
+          }
+        }
+      ],
+      "retrieval_k": 3,
+      "route": "text_rag",
+      "route_override": true,
+      "routing": {
+        "version": "evidence-routing-v1",
+        "requested_route": "text_rag",
+        "selection": "override",
+        "final_route": "text_rag",
+        "eligibility": null,
+        "checks": [],
+        "stages": [
+          {
+            "route": "text_rag",
+            "status": "answered",
+            "elapsed_ms": 109636.07840599434,
+            "execution_before": {
+              "limits": {
+                "model_calls": 2,
+                "tool_calls": 1,
+                "http_calls": 8,
+                "seconds": 180.0,
+                "context_bytes": 1200,
+                "spend_usd": "0.15",
+                "retries": 0,
+                "capabilities": [
+                  "text_retrieval",
+                  "family_graph",
+                  "event_graph",
+                  "connection_graph"
+                ],
+                "concurrency": 4
+              },
+              "model_calls": 0,
+              "tool_calls": 0,
+              "http_calls": 0,
+              "reserved_usd": "0",
+              "stop_reason": null
+            },
+            "execution_after": {
+              "limits": {
+                "model_calls": 2,
+                "tool_calls": 1,
+                "http_calls": 8,
+                "seconds": 180.0,
+                "context_bytes": 1200,
+                "spend_usd": "0.15",
+                "retries": 0,
+                "capabilities": [
+                  "text_retrieval",
+                  "family_graph",
+                  "event_graph",
+                  "connection_graph"
+                ],
+                "concurrency": 4
+              },
+              "model_calls": 2,
+              "tool_calls": 1,
+              "http_calls": 3,
+              "reserved_usd": "0",
+              "stop_reason": null,
+              "context_bytes": 1060
+            },
+            "accounting": {
+              "content": "{\n  \"answer\": \"Phil Mitchell first arrived in Walford in February 1990 to open an automobile repair shop called The Arches.\",\n  \"evidence_ids\": [\n    \"phil-mitchell-wiki-0018-15527\"\n  ],\n  \"status\": \"answered\",\n  \"unanswered\": [],\n  \"qualifications\": [\n    {\n      \"detail\": \"The arrival date is February 1990.\",\n      \"evidence_ids\": [\n        \"phil-mitchell-wiki-0018-15527\"\n      ],\n      \"kind\": \"timing\",\n      \"precision\": \"exact\"\n    }\n  ]\n}",
+              "usage": {
+                "input_tokens": 1273,
+                "output_tokens": 165,
+                "embedding_tokens": 19
+              },
+              "provider_usage": null,
+              "failure_type": null,
+              "estimated_api_cost_usd": 0.0,
+              "cost_scope": "Local Ollama API only; hardware, electricity and hosting are unmeasured.",
+              "limitation": "Source-supported is not independently cross-checked. Coverage is limited to the captured snapshot. Local-model results are development smoke evidence, not a deployment or representative quality assessment."
+            }
+          }
+        ],
+        "stop_reason": "override_completed",
+        "policy": {
+          "version": "evidence-routing-v1",
+          "escalation_enabled": true,
+          "minimum_remaining_seconds": 3.0
+        },
+        "selection_elapsed_ms": null,
+        "evidence_check_elapsed_ms": null
+      },
+      "text_pipeline": {
+        "policy": {
+          "version": "bounded-text-v1",
+          "mode": "baseline",
+          "max_variants": 2,
+          "per_query_k": 3,
+          "selected_hits": 3,
+          "fusion_constant": 60,
+          "neighbours": 1
+        },
+        "policy_sha256": "c391e08139b756929669eac18d11bc4e3a9f1b399068756d52ded741e98322c3",
+        "original_question": "When did Phil Mitchell first arrive in Walford?",
+        "resolved_question": "When did Phil Mitchell first arrive in Walford?",
+        "variants": {
+          "queries": [
+            "When did Phil Mitchell first arrive in Walford?"
+          ],
+          "proposals": [],
+          "fallback_reason": null
+        },
+        "rank_convention": "one-based; score=sum(1/(constant+rank)); ties=evidence_id",
+        "rankings": [
+          {
+            "query": "When did Phil Mitchell first arrive in Walford?",
+            "hits": [
+              {
+                "passage": {
+                  "evidence_id": "phil-mitchell-wiki-0018-15527",
+                  "text": "Phil Mitchell first arrives in Walford in February 1990 to open an automobile repair shop, known as The Arches; he is joined by his younger brother Grant (Ross Kemp). Two years later, Phil goes into partnership at The Queen Victoria public house with Grant and his wife Sharon Watts (Letitia Dean) \u2013 up to the point where he moves in with them. Phil grows close to Sharon, who turns to him for comfort during Grant's violent outbursts. Sharon and Phil have sex but she stays with Grant, who is unaware of their betrayal. Sharon and Grant's reconciliation is brief, and amidst more rowing and physical violence, Grant is arrested and imprisoned. In his absence, Phil and Sharon continue their affair but when Grant is released, Sharon reconciles with him, leaving Phil heartbroken. On the rebound, Phil enters into a marriage of convenience with Nadia Borovac (Anna Barkan) - a Romanian refugee - enabling her to stay in Britain, with Nadia departing after the wedding.",
+                  "sha256": "9a13fe3539b69694d88ab06a1bd85cf898f46d65ca5ac1d958d0e0ff026bd263",
+                  "start": 15527,
+                  "end": 16495,
+                  "source": {
+                    "title": "Phil Mitchell",
+                    "url": "https://en.wikipedia.org/wiki/Phil_Mitchell",
+                    "revision_id": "1379872347",
+                    "revision_url": "https://en.wikipedia.org/w/index.php?oldid=1379872347",
+                    "section": "Storylines / 1990\u20132003",
+                    "captured_at": "2026-10-17T13:07:31.014189Z",
+                    "capture_sha256": "a338d3065203be54e383f2c9c141bca22ae9aedbb950e2e1eada601bcccfe313",
+                    "scope": "main_series",
+                    "license_url": "https://creativecommons.org/licenses/by-sa/4.0/",
+                    "attribution": "Wikipedia contributors; markup removed and whitespace normalized.",
+                    "coverage": "Reviewed narrative sections in this captured revision only.",
+                    "gaps": [
+                      "Partial canon coverage; other paragraphs remain excluded or awaiting review.",
+                      "Identity and episode metadata do not independently corroborate story claims."
+                    ],
+                    "support_status": "source_supported"
+                  },
+                  "location": {
+                    "source_id": "phil-mitchell-wiki",
+                    "paragraph_ordinal": 18,
+                    "section_id": "1990\u20132003",
+                    "character_ids": [
+                      "phil-mitchell"
+                    ]
+                  }
+                },
+                "similarity": 0.5647641939206896
+              }
+            ]
+          }
+        ],
+        "fused_candidates": [],
+        "expansion": null,
+        "final_context_ids": [
+          "phil-mitchell-wiki-0018-15527"
+        ],
+        "context_bytes": 1060,
+        "dropped_evidence_ids": [],
+        "fallback_reasons": [],
+        "failed_queries": [],
+        "stages": [
+          {
+            "name": "retrieval",
+            "elapsed_ms": 336.41881999210455
+          },
+          {
+            "name": "context",
+            "elapsed_ms": 0.09486499766353518
+          }
+        ],
+        "model_executions": [
+          {
+            "content": "{\n  \"answer\": \"Phil Mitchell first arrived in Walford in February 1990 to open an automobile repair shop called The Arches.\",\n  \"evidence_ids\": [\n    \"phil-mitchell-wiki-0018-15527\"\n  ],\n  \"status\": \"answered\",\n  \"unanswered\": [],\n  \"qualifications\": [\n    {\n      \"detail\": \"The arrival date is February 1990.\",\n      \"evidence_ids\": [\n        \"phil-mitchell-wiki-0018-15527\"\n      ],\n      \"kind\": \"timing\",\n      \"precision\": \"exact\"\n    }\n  ]\n}",
+            "usage": {
+              "input_tokens": 1273,
+              "output_tokens": 165,
+              "embedding_tokens": 0
+            },
+            "provider_usage": null,
+            "failure_type": null,
+            "estimated_api_cost_usd": 0.0,
+            "cost_scope": "Local Ollama API only; hardware, electricity and hosting are unmeasured.",
+            "limitation": "Source-supported is not independently cross-checked. Coverage is limited to the captured snapshot. Local-model results are development smoke evidence, not a deployment or representative quality assessment."
+          }
+        ],
+        "embedding_tokens": [
+          19
+        ],
+        "cache_enabled": true
+      },
+      "baseline_version": "single-query-uncached-v2",
+      "model_settings": {
+        "embedding_model": "embeddinggemma:300m",
+        "embedding_digest": "85462619ee721b466c5927d109d4cb765861907d5417b9109caebc4e614679f1",
+        "embedding_dimensions": 768,
+        "answer_model": "gemma4:e2b-it-qat",
+        "answer_digest": "07ea59a474013479c8b6b802bef095c40e964a1d776ba02f264c0e30e1aede0c",
+        "context_window": 4096,
+        "output_tokens": 512,
+        "temperature": 0.0,
+        "request_timeout_seconds": 180,
+        "seed": 17
+      },
+      "prompt_sha256": "1837220ea074375ef25b894885b2530a0b28b8c3f7f37f95b7746cd380341afc",
+      "application_sha256": "4d964d699c403007ce4e73d1d6ed4c0289234f7694be0d45d581b55311720561",
+      "trace_id": "tr-b5d5a8b8c7251053ce7076cd5a3840d4",
+      "execution": {
+        "limits": {
+          "model_calls": 2,
+          "tool_calls": 1,
+          "http_calls": 8,
+          "seconds": 180.0,
+          "context_bytes": 1200,
+          "spend_usd": "0.15",
+          "retries": 0,
+          "capabilities": [
+            "text_retrieval",
+            "family_graph",
+            "event_graph",
+            "connection_graph"
+          ],
+          "concurrency": 4
+        },
+        "model_calls": 2,
+        "tool_calls": 1,
+        "http_calls": 3,
+        "reserved_usd": "0",
+        "stop_reason": null,
+        "context_bytes": 1060
+      },
+      "elapsed_ms": 109715.41942200565,
+      "usage": {
+        "input_tokens": 1273,
+        "output_tokens": 165,
+        "embedding_tokens": 19
+      },
+      "expenditure_category": "serving",
+      "estimated_api_cost_usd": 0.0,
+      "cost_scope": "Local Ollama API only; hardware, electricity and hosting are unmeasured.",
+      "limitation": "Source-supported is not independently cross-checked. Coverage is limited to the captured snapshot. Local-model results are development smoke evidence, not a deployment or representative quality assessment."
+    },
+    "observation": {
+      "phase": "cold",
+      "delivery": {
+        "version": "exact-text-cache-v1",
+        "status": "miss",
+        "reason": "absent",
+        "eligible": true
+      },
+      "elapsed_ms": 109715.41942200565,
+      "end_to_end_ms": 111704.828396003,
+      "cost_usd": 0.0,
+      "generation_id": "a96be47d-e16f-4509-94d1-7d23b0a3b370",
+      "supported": null,
+      "compatible": null
+    },
+    "trace_and_citations_verified": true
+  },
+  {
+    "case_id": "cold-business",
+    "request": {
+      "route": "text_rag",
+      "question": "What business did Phil Mitchell open on arriving in Walford?"
+    },
+    "response": {
+      "response_id": "34a39aae-706e-41ba-976f-ed88e16d3db9",
+      "generation_id": "db158890-bc3a-44a6-a100-7fc81de312d6",
+      "cache": {
+        "version": "exact-text-cache-v1",
+        "status": "miss",
+        "reason": "absent",
+        "eligible": true
+      },
+      "question": "What business did Phil Mitchell open on arriving in Walford?",
+      "status": "answered",
+      "answer": "Phil Mitchell opened an automobile repair shop called The Arches when he first arrived in Walford in February 1990.",
+      "qualifications": [
+        {
+          "detail": "The business was an automobile repair shop.",
+          "evidence_ids": [
+            "phil-mitchell-wiki-0018-15527"
+          ],
+          "kind": "explicit_negative"
+        }
+      ],
+      "citations": [
+        {
+          "evidence_id": "phil-mitchell-wiki-0018-15527",
+          "text": "Phil Mitchell first arrives in Walford in February 1990 to open an automobile repair shop, known as The Arches; he is joined by his younger brother Grant (Ross Kemp). Two years later, Phil goes into partnership at The Queen Victoria public house with Grant and his wife Sharon Watts (Letitia Dean) \u2013 up to the point where he moves in with them. Phil grows close to Sharon, who turns to him for comfort during Grant's violent outbursts. Sharon and Phil have sex but she stays with Grant, who is unaware of their betrayal. Sharon and Grant's reconciliation is brief, and amidst more rowing and physical violence, Grant is arrested and imprisoned. In his absence, Phil and Sharon continue their affair but when Grant is released, Sharon reconciles with him, leaving Phil heartbroken. On the rebound, Phil enters into a marriage of convenience with Nadia Borovac (Anna Barkan) - a Romanian refugee - enabling her to stay in Britain, with Nadia departing after the wedding.",
+          "sha256": "9a13fe3539b69694d88ab06a1bd85cf898f46d65ca5ac1d958d0e0ff026bd263",
+          "start": 15527,
+          "end": 16495,
+          "source": {
+            "title": "Phil Mitchell",
+            "url": "https://en.wikipedia.org/wiki/Phil_Mitchell",
+            "revision_id": "1379872347",
+            "revision_url": "https://en.wikipedia.org/w/index.php?oldid=1379872347",
+            "section": "Storylines / 1990\u20132003",
+            "captured_at": "2026-10-17T13:07:31.014189Z",
+            "capture_sha256": "a338d3065203be54e383f2c9c141bca22ae9aedbb950e2e1eada601bcccfe313",
+            "scope": "main_series",
+            "license_url": "https://creativecommons.org/licenses/by-sa/4.0/",
+            "attribution": "Wikipedia contributors; markup removed and whitespace normalized.",
+            "coverage": "Reviewed narrative sections in this captured revision only.",
+            "gaps": [
+              "Partial canon coverage; other paragraphs remain excluded or awaiting review.",
+              "Identity and episode metadata do not independently corroborate story claims."
+            ],
+            "support_status": "source_supported"
+          },
+          "location": {
+            "source_id": "phil-mitchell-wiki",
+            "paragraph_ordinal": 18,
+            "section_id": "1990\u20132003",
+            "character_ids": [
+              "phil-mitchell"
+            ]
+          },
+          "resolve_path": "/v1/snapshots/cache-phil-development-v1/evidence/phil-mitchell-wiki-0018-15527"
+        }
+      ],
+      "snapshot_id": "cache-phil-development-v1",
+      "snapshot_sha256": "2aa5e7a34c35c3be01871cda969a49f22326fe4132ef3e0a950f5368eefd5391",
+      "publication": {
+        "compatibility_id": "389c42ab1b7e236c1dd48e24de08a812d6e3d4936747533859a75a0faa10eba3",
+        "index_sha256": "8bb71dc8863baa8a465fac08d94e4226359a4c3ec4c9125efad060bfbcf3159d",
+        "generation": 1
+      },
+      "source": {
+        "title": "Phil Mitchell",
+        "url": "https://en.wikipedia.org/wiki/Phil_Mitchell",
+        "revision_id": "1379872347",
+        "revision_url": "https://en.wikipedia.org/w/index.php?oldid=1379872347",
+        "section": "Storylines / 1990\u20132003",
+        "captured_at": "2026-10-17T13:07:31.014189Z",
+        "capture_sha256": "a338d3065203be54e383f2c9c141bca22ae9aedbb950e2e1eada601bcccfe313",
+        "scope": "main_series",
+        "license_url": "https://creativecommons.org/licenses/by-sa/4.0/",
+        "attribution": "Wikipedia contributors; markup removed and whitespace normalized.",
+        "coverage": "Curated cache development slice: one original arrival paragraph; not broad character coverage.",
+        "gaps": [
+          "Partial canon coverage; other paragraphs remain excluded or awaiting review.",
+          "Identity and episode metadata do not independently corroborate story claims."
+        ],
+        "support_status": "source_supported"
+      },
+      "retrieved": [
+        {
+          "passage": {
+            "evidence_id": "phil-mitchell-wiki-0018-15527",
+            "text": "Phil Mitchell first arrives in Walford in February 1990 to open an automobile repair shop, known as The Arches; he is joined by his younger brother Grant (Ross Kemp). Two years later, Phil goes into partnership at The Queen Victoria public house with Grant and his wife Sharon Watts (Letitia Dean) \u2013 up to the point where he moves in with them. Phil grows close to Sharon, who turns to him for comfort during Grant's violent outbursts. Sharon and Phil have sex but she stays with Grant, who is unaware of their betrayal. Sharon and Grant's reconciliation is brief, and amidst more rowing and physical violence, Grant is arrested and imprisoned. In his absence, Phil and Sharon continue their affair but when Grant is released, Sharon reconciles with him, leaving Phil heartbroken. On the rebound, Phil enters into a marriage of convenience with Nadia Borovac (Anna Barkan) - a Romanian refugee - enabling her to stay in Britain, with Nadia departing after the wedding.",
+            "sha256": "9a13fe3539b69694d88ab06a1bd85cf898f46d65ca5ac1d958d0e0ff026bd263",
+            "start": 15527,
+            "end": 16495,
+            "source": {
+              "title": "Phil Mitchell",
+              "url": "https://en.wikipedia.org/wiki/Phil_Mitchell",
+              "revision_id": "1379872347",
+              "revision_url": "https://en.wikipedia.org/w/index.php?oldid=1379872347",
+              "section": "Storylines / 1990\u20132003",
+              "captured_at": "2026-10-17T13:07:31.014189Z",
+              "capture_sha256": "a338d3065203be54e383f2c9c141bca22ae9aedbb950e2e1eada601bcccfe313",
+              "scope": "main_series",
+              "license_url": "https://creativecommons.org/licenses/by-sa/4.0/",
+              "attribution": "Wikipedia contributors; markup removed and whitespace normalized.",
+              "coverage": "Reviewed narrative sections in this captured revision only.",
+              "gaps": [
+                "Partial canon coverage; other paragraphs remain excluded or awaiting review.",
+                "Identity and episode metadata do not independently corroborate story claims."
+              ],
+              "support_status": "source_supported"
+            },
+            "location": {
+              "source_id": "phil-mitchell-wiki",
+              "paragraph_ordinal": 18,
+              "section_id": "1990\u20132003",
+              "character_ids": [
+                "phil-mitchell"
+              ]
+            }
+          },
+          "similarity": 0.5797723393750337
+        }
+      ],
+      "context": [
+        {
+          "evidence_id": "phil-mitchell-wiki-0018-15527",
+          "text": "Phil Mitchell first arrives in Walford in February 1990 to open an automobile repair shop, known as The Arches; he is joined by his younger brother Grant (Ross Kemp). Two years later, Phil goes into partnership at The Queen Victoria public house with Grant and his wife Sharon Watts (Letitia Dean) \u2013 up to the point where he moves in with them. Phil grows close to Sharon, who turns to him for comfort during Grant's violent outbursts. Sharon and Phil have sex but she stays with Grant, who is unaware of their betrayal. Sharon and Grant's reconciliation is brief, and amidst more rowing and physical violence, Grant is arrested and imprisoned. In his absence, Phil and Sharon continue their affair but when Grant is released, Sharon reconciles with him, leaving Phil heartbroken. On the rebound, Phil enters into a marriage of convenience with Nadia Borovac (Anna Barkan) - a Romanian refugee - enabling her to stay in Britain, with Nadia departing after the wedding.",
+          "sha256": "9a13fe3539b69694d88ab06a1bd85cf898f46d65ca5ac1d958d0e0ff026bd263",
+          "start": 15527,
+          "end": 16495,
+          "source": {
+            "title": "Phil Mitchell",
+            "url": "https://en.wikipedia.org/wiki/Phil_Mitchell",
+            "revision_id": "1379872347",
+            "revision_url": "https://en.wikipedia.org/w/index.php?oldid=1379872347",
+            "section": "Storylines / 1990\u20132003",
+            "captured_at": "2026-10-17T13:07:31.014189Z",
+            "capture_sha256": "a338d3065203be54e383f2c9c141bca22ae9aedbb950e2e1eada601bcccfe313",
+            "scope": "main_series",
+            "license_url": "https://creativecommons.org/licenses/by-sa/4.0/",
+            "attribution": "Wikipedia contributors; markup removed and whitespace normalized.",
+            "coverage": "Reviewed narrative sections in this captured revision only.",
+            "gaps": [
+              "Partial canon coverage; other paragraphs remain excluded or awaiting review.",
+              "Identity and episode metadata do not independently corroborate story claims."
+            ],
+            "support_status": "source_supported"
+          },
+          "location": {
+            "source_id": "phil-mitchell-wiki",
+            "paragraph_ordinal": 18,
+            "section_id": "1990\u20132003",
+            "character_ids": [
+              "phil-mitchell"
+            ]
+          }
+        }
+      ],
+      "retrieval_k": 3,
+      "route": "text_rag",
+      "route_override": true,
+      "routing": {
+        "version": "evidence-routing-v1",
+        "requested_route": "text_rag",
+        "selection": "override",
+        "final_route": "text_rag",
+        "eligibility": null,
+        "checks": [],
+        "stages": [
+          {
+            "route": "text_rag",
+            "status": "answered",
+            "elapsed_ms": 103651.82136799558,
+            "execution_before": {
+              "limits": {
+                "model_calls": 2,
+                "tool_calls": 1,
+                "http_calls": 8,
+                "seconds": 180.0,
+                "context_bytes": 1200,
+                "spend_usd": "0.15",
+                "retries": 0,
+                "capabilities": [
+                  "text_retrieval",
+                  "family_graph",
+                  "event_graph",
+                  "connection_graph"
+                ],
+                "concurrency": 4
+              },
+              "model_calls": 0,
+              "tool_calls": 0,
+              "http_calls": 0,
+              "reserved_usd": "0",
+              "stop_reason": null
+            },
+            "execution_after": {
+              "limits": {
+                "model_calls": 2,
+                "tool_calls": 1,
+                "http_calls": 8,
+                "seconds": 180.0,
+                "context_bytes": 1200,
+                "spend_usd": "0.15",
+                "retries": 0,
+                "capabilities": [
+                  "text_retrieval",
+                  "family_graph",
+                  "event_graph",
+                  "connection_graph"
+                ],
+                "concurrency": 4
+              },
+              "model_calls": 2,
+              "tool_calls": 1,
+              "http_calls": 3,
+              "reserved_usd": "0",
+              "stop_reason": null,
+              "context_bytes": 1060
+            },
+            "accounting": {
+              "content": "{\n  \"answer\": \"Phil Mitchell opened an automobile repair shop called The Arches when he first arrived in Walford in February 1990.\",\n  \"evidence_ids\": [\n    \"phil-mitchell-wiki-0018-15527\"\n  ],\n  \"status\": \"answered\",\n  \"unanswered\": [],\n  \"qualifications\": [\n    {\n      \"detail\": \"The business was an automobile repair shop.\",\n      \"evidence_ids\": [\n        \"phil-mitchell-wiki-0018-15527\"\n      ],\n      \"kind\": \"explicit_negative\"\n    }\n  ]\n}",
+              "usage": {
+                "input_tokens": 1275,
+                "output_tokens": 156,
+                "embedding_tokens": 21
+              },
+              "provider_usage": null,
+              "failure_type": null,
+              "estimated_api_cost_usd": 0.0,
+              "cost_scope": "Local Ollama API only; hardware, electricity and hosting are unmeasured.",
+              "limitation": "Source-supported is not independently cross-checked. Coverage is limited to the captured snapshot. Local-model results are development smoke evidence, not a deployment or representative quality assessment."
+            }
+          }
+        ],
+        "stop_reason": "override_completed",
+        "policy": {
+          "version": "evidence-routing-v1",
+          "escalation_enabled": true,
+          "minimum_remaining_seconds": 3.0
+        },
+        "selection_elapsed_ms": null,
+        "evidence_check_elapsed_ms": null
+      },
+      "text_pipeline": {
+        "policy": {
+          "version": "bounded-text-v1",
+          "mode": "baseline",
+          "max_variants": 2,
+          "per_query_k": 3,
+          "selected_hits": 3,
+          "fusion_constant": 60,
+          "neighbours": 1
+        },
+        "policy_sha256": "c391e08139b756929669eac18d11bc4e3a9f1b399068756d52ded741e98322c3",
+        "original_question": "What business did Phil Mitchell open on arriving in Walford?",
+        "resolved_question": "What business did Phil Mitchell open on arriving in Walford?",
+        "variants": {
+          "queries": [
+            "What business did Phil Mitchell open on arriving in Walford?"
+          ],
+          "proposals": [],
+          "fallback_reason": null
+        },
+        "rank_convention": "one-based; score=sum(1/(constant+rank)); ties=evidence_id",
+        "rankings": [
+          {
+            "query": "What business did Phil Mitchell open on arriving in Walford?",
+            "hits": [
+              {
+                "passage": {
+                  "evidence_id": "phil-mitchell-wiki-0018-15527",
+                  "text": "Phil Mitchell first arrives in Walford in February 1990 to open an automobile repair shop, known as The Arches; he is joined by his younger brother Grant (Ross Kemp). Two years later, Phil goes into partnership at The Queen Victoria public house with Grant and his wife Sharon Watts (Letitia Dean) \u2013 up to the point where he moves in with them. Phil grows close to Sharon, who turns to him for comfort during Grant's violent outbursts. Sharon and Phil have sex but she stays with Grant, who is unaware of their betrayal. Sharon and Grant's reconciliation is brief, and amidst more rowing and physical violence, Grant is arrested and imprisoned. In his absence, Phil and Sharon continue their affair but when Grant is released, Sharon reconciles with him, leaving Phil heartbroken. On the rebound, Phil enters into a marriage of convenience with Nadia Borovac (Anna Barkan) - a Romanian refugee - enabling her to stay in Britain, with Nadia departing after the wedding.",
+                  "sha256": "9a13fe3539b69694d88ab06a1bd85cf898f46d65ca5ac1d958d0e0ff026bd263",
+                  "start": 15527,
+                  "end": 16495,
+                  "source": {
+                    "title": "Phil Mitchell",
+                    "url": "https://en.wikipedia.org/wiki/Phil_Mitchell",
+                    "revision_id": "1379872347",
+                    "revision_url": "https://en.wikipedia.org/w/index.php?oldid=1379872347",
+                    "section": "Storylines / 1990\u20132003",
+                    "captured_at": "2026-10-17T13:07:31.014189Z",
+                    "capture_sha256": "a338d3065203be54e383f2c9c141bca22ae9aedbb950e2e1eada601bcccfe313",
+                    "scope": "main_series",
+                    "license_url": "https://creativecommons.org/licenses/by-sa/4.0/",
+                    "attribution": "Wikipedia contributors; markup removed and whitespace normalized.",
+                    "coverage": "Reviewed narrative sections in this captured revision only.",
+                    "gaps": [
+                      "Partial canon coverage; other paragraphs remain excluded or awaiting review.",
+                      "Identity and episode metadata do not independently corroborate story claims."
+                    ],
+                    "support_status": "source_supported"
+                  },
+                  "location": {
+                    "source_id": "phil-mitchell-wiki",
+                    "paragraph_ordinal": 18,
+                    "section_id": "1990\u20132003",
+                    "character_ids": [
+                      "phil-mitchell"
+                    ]
+                  }
+                },
+                "similarity": 0.5797723393750337
+              }
+            ]
+          }
+        ],
+        "fused_candidates": [],
+        "expansion": null,
+        "final_context_ids": [
+          "phil-mitchell-wiki-0018-15527"
+        ],
+        "context_bytes": 1060,
+        "dropped_evidence_ids": [],
+        "fallback_reasons": [],
+        "failed_queries": [],
+        "stages": [
+          {
+            "name": "retrieval",
+            "elapsed_ms": 3381.167029001517
+          },
+          {
+            "name": "context",
+            "elapsed_ms": 0.2479819959262386
+          }
+        ],
+        "model_executions": [
+          {
+            "content": "{\n  \"answer\": \"Phil Mitchell opened an automobile repair shop called The Arches when he first arrived in Walford in February 1990.\",\n  \"evidence_ids\": [\n    \"phil-mitchell-wiki-0018-15527\"\n  ],\n  \"status\": \"answered\",\n  \"unanswered\": [],\n  \"qualifications\": [\n    {\n      \"detail\": \"The business was an automobile repair shop.\",\n      \"evidence_ids\": [\n        \"phil-mitchell-wiki-0018-15527\"\n      ],\n      \"kind\": \"explicit_negative\"\n    }\n  ]\n}",
+            "usage": {
+              "input_tokens": 1275,
+              "output_tokens": 156,
+              "embedding_tokens": 0
+            },
+            "provider_usage": null,
+            "failure_type": null,
+            "estimated_api_cost_usd": 0.0,
+            "cost_scope": "Local Ollama API only; hardware, electricity and hosting are unmeasured.",
+            "limitation": "Source-supported is not independently cross-checked. Coverage is limited to the captured snapshot. Local-model results are development smoke evidence, not a deployment or representative quality assessment."
+          }
+        ],
+        "embedding_tokens": [
+          21
+        ],
+        "cache_enabled": true
+      },
+      "baseline_version": "single-query-uncached-v2",
+      "model_settings": {
+        "embedding_model": "embeddinggemma:300m",
+        "embedding_digest": "85462619ee721b466c5927d109d4cb765861907d5417b9109caebc4e614679f1",
+        "embedding_dimensions": 768,
+        "answer_model": "gemma4:e2b-it-qat",
+        "answer_digest": "07ea59a474013479c8b6b802bef095c40e964a1d776ba02f264c0e30e1aede0c",
+        "context_window": 4096,
+        "output_tokens": 512,
+        "temperature": 0.0,
+        "request_timeout_seconds": 180,
+        "seed": 17
+      },
+      "prompt_sha256": "1837220ea074375ef25b894885b2530a0b28b8c3f7f37f95b7746cd380341afc",
+      "application_sha256": "4d964d699c403007ce4e73d1d6ed4c0289234f7694be0d45d581b55311720561",
+      "trace_id": "tr-118463f9b69beb0ffa8dd9364f8edccd",
+      "execution": {
+        "limits": {
+          "model_calls": 2,
+          "tool_calls": 1,
+          "http_calls": 8,
+          "seconds": 180.0,
+          "context_bytes": 1200,
+          "spend_usd": "0.15",
+          "retries": 0,
+          "capabilities": [
+            "text_retrieval",
+            "family_graph",
+            "event_graph",
+            "connection_graph"
+          ],
+          "concurrency": 4
+        },
+        "model_calls": 2,
+        "tool_calls": 1,
+        "http_calls": 3,
+        "reserved_usd": "0",
+        "stop_reason": null,
+        "context_bytes": 1060
+      },
+      "elapsed_ms": 103739.6750110056,
+      "usage": {
+        "input_tokens": 1275,
+        "output_tokens": 156,
+        "embedding_tokens": 21
+      },
+      "expenditure_category": "serving",
+      "estimated_api_cost_usd": 0.0,
+      "cost_scope": "Local Ollama API only; hardware, electricity and hosting are unmeasured.",
+      "limitation": "Source-supported is not independently cross-checked. Coverage is limited to the captured snapshot. Local-model results are development smoke evidence, not a deployment or representative quality assessment."
+    },
+    "observation": {
+      "phase": "cold",
+      "delivery": {
+        "version": "exact-text-cache-v1",
+        "status": "miss",
+        "reason": "absent",
+        "eligible": true
+      },
+      "elapsed_ms": 103739.6750110056,
+      "end_to_end_ms": 105550.92913399858,
+      "cost_usd": 0.0,
+      "generation_id": "db158890-bc3a-44a6-a100-7fc81de312d6",
+      "supported": null,
+      "compatible": null
+    },
+    "trace_and_citations_verified": true
+  },
+  {
+    "case_id": "warm-arrival-1",
+    "request": {
+      "route": "text_rag",
+      "question": "When did Phil Mitchell first arrive in Walford?"
+    },
+    "response": {
+      "response_id": "849a8a02-13e6-485e-b705-d5669bf2a603",
+      "generation_id": "a96be47d-e16f-4509-94d1-7d23b0a3b370",
+      "cache": {
+        "version": "exact-text-cache-v1",
+        "status": "hit",
+        "reason": "compatible_exact_match",
+        "eligible": true
+      },
+      "question": "When did Phil Mitchell first arrive in Walford?",
+      "status": "answered",
+      "answer": "Phil Mitchell first arrived in Walford in February 1990 to open an automobile repair shop called The Arches.",
+      "qualifications": [
+        {
+          "detail": "The arrival date is February 1990.",
+          "evidence_ids": [
+            "phil-mitchell-wiki-0018-15527"
+          ],
+          "kind": "timing",
+          "precision": "exact"
+        }
+      ],
+      "citations": [
+        {
+          "evidence_id": "phil-mitchell-wiki-0018-15527",
+          "text": "Phil Mitchell first arrives in Walford in February 1990 to open an automobile repair shop, known as The Arches; he is joined by his younger brother Grant (Ross Kemp). Two years later, Phil goes into partnership at The Queen Victoria public house with Grant and his wife Sharon Watts (Letitia Dean) \u2013 up to the point where he moves in with them. Phil grows close to Sharon, who turns to him for comfort during Grant's violent outbursts. Sharon and Phil have sex but she stays with Grant, who is unaware of their betrayal. Sharon and Grant's reconciliation is brief, and amidst more rowing and physical violence, Grant is arrested and imprisoned. In his absence, Phil and Sharon continue their affair but when Grant is released, Sharon reconciles with him, leaving Phil heartbroken. On the rebound, Phil enters into a marriage of convenience with Nadia Borovac (Anna Barkan) - a Romanian refugee - enabling her to stay in Britain, with Nadia departing after the wedding.",
+          "sha256": "9a13fe3539b69694d88ab06a1bd85cf898f46d65ca5ac1d958d0e0ff026bd263",
+          "start": 15527,
+          "end": 16495,
+          "source": {
+            "title": "Phil Mitchell",
+            "url": "https://en.wikipedia.org/wiki/Phil_Mitchell",
+            "revision_id": "1379872347",
+            "revision_url": "https://en.wikipedia.org/w/index.php?oldid=1379872347",
+            "section": "Storylines / 1990\u20132003",
+            "captured_at": "2026-10-17T13:07:31.014189Z",
+            "capture_sha256": "a338d3065203be54e383f2c9c141bca22ae9aedbb950e2e1eada601bcccfe313",
+            "scope": "main_series",
+            "license_url": "https://creativecommons.org/licenses/by-sa/4.0/",
+            "attribution": "Wikipedia contributors; markup removed and whitespace normalized.",
+            "coverage": "Reviewed narrative sections in this captured revision only.",
+            "gaps": [
+              "Partial canon coverage; other paragraphs remain excluded or awaiting review.",
+              "Identity and episode metadata do not independently corroborate story claims."
+            ],
+            "support_status": "source_supported"
+          },
+          "location": {
+            "source_id": "phil-mitchell-wiki",
+            "paragraph_ordinal": 18,
+            "section_id": "1990\u20132003",
+            "character_ids": [
+              "phil-mitchell"
+            ]
+          },
+          "resolve_path": "/v1/snapshots/cache-phil-development-v1/evidence/phil-mitchell-wiki-0018-15527"
+        }
+      ],
+      "snapshot_id": "cache-phil-development-v1",
+      "snapshot_sha256": "2aa5e7a34c35c3be01871cda969a49f22326fe4132ef3e0a950f5368eefd5391",
+      "publication": {
+        "compatibility_id": "389c42ab1b7e236c1dd48e24de08a812d6e3d4936747533859a75a0faa10eba3",
+        "index_sha256": "8bb71dc8863baa8a465fac08d94e4226359a4c3ec4c9125efad060bfbcf3159d",
+        "generation": 1
+      },
+      "source": {
+        "title": "Phil Mitchell",
+        "url": "https://en.wikipedia.org/wiki/Phil_Mitchell",
+        "revision_id": "1379872347",
+        "revision_url": "https://en.wikipedia.org/w/index.php?oldid=1379872347",
+        "section": "Storylines / 1990\u20132003",
+        "captured_at": "2026-10-17T13:07:31.014189Z",
+        "capture_sha256": "a338d3065203be54e383f2c9c141bca22ae9aedbb950e2e1eada601bcccfe313",
+        "scope": "main_series",
+        "license_url": "https://creativecommons.org/licenses/by-sa/4.0/",
+        "attribution": "Wikipedia contributors; markup removed and whitespace normalized.",
+        "coverage": "Curated cache development slice: one original arrival paragraph; not broad character coverage.",
+        "gaps": [
+          "Partial canon coverage; other paragraphs remain excluded or awaiting review.",
+          "Identity and episode metadata do not independently corroborate story claims."
+        ],
+        "support_status": "source_supported"
+      },
+      "retrieved": [],
+      "context": [
+        {
+          "evidence_id": "phil-mitchell-wiki-0018-15527",
+          "text": "Phil Mitchell first arrives in Walford in February 1990 to open an automobile repair shop, known as The Arches; he is joined by his younger brother Grant (Ross Kemp). Two years later, Phil goes into partnership at The Queen Victoria public house with Grant and his wife Sharon Watts (Letitia Dean) \u2013 up to the point where he moves in with them. Phil grows close to Sharon, who turns to him for comfort during Grant's violent outbursts. Sharon and Phil have sex but she stays with Grant, who is unaware of their betrayal. Sharon and Grant's reconciliation is brief, and amidst more rowing and physical violence, Grant is arrested and imprisoned. In his absence, Phil and Sharon continue their affair but when Grant is released, Sharon reconciles with him, leaving Phil heartbroken. On the rebound, Phil enters into a marriage of convenience with Nadia Borovac (Anna Barkan) - a Romanian refugee - enabling her to stay in Britain, with Nadia departing after the wedding.",
+          "sha256": "9a13fe3539b69694d88ab06a1bd85cf898f46d65ca5ac1d958d0e0ff026bd263",
+          "start": 15527,
+          "end": 16495,
+          "source": {
+            "title": "Phil Mitchell",
+            "url": "https://en.wikipedia.org/wiki/Phil_Mitchell",
+            "revision_id": "1379872347",
+            "revision_url": "https://en.wikipedia.org/w/index.php?oldid=1379872347",
+            "section": "Storylines / 1990\u20132003",
+            "captured_at": "2026-10-17T13:07:31.014189Z",
+            "capture_sha256": "a338d3065203be54e383f2c9c141bca22ae9aedbb950e2e1eada601bcccfe313",
+            "scope": "main_series",
+            "license_url": "https://creativecommons.org/licenses/by-sa/4.0/",
+            "attribution": "Wikipedia contributors; markup removed and whitespace normalized.",
+            "coverage": "Reviewed narrative sections in this captured revision only.",
+            "gaps": [
+              "Partial canon coverage; other paragraphs remain excluded or awaiting review.",
+              "Identity and episode metadata do not independently corroborate story claims."
+            ],
+            "support_status": "source_supported"
+          },
+          "location": {
+            "source_id": "phil-mitchell-wiki",
+            "paragraph_ordinal": 18,
+            "section_id": "1990\u20132003",
+            "character_ids": [
+              "phil-mitchell"
+            ]
+          }
+        }
+      ],
+      "retrieval_k": 0,
+      "route": "text_rag",
+      "route_override": true,
+      "routing": {
+        "version": "evidence-routing-v1",
+        "requested_route": "text_rag",
+        "selection": "override",
+        "final_route": "text_rag",
+        "eligibility": null,
+        "checks": [],
+        "stages": [
+          {
+            "route": "text_rag",
+            "status": "answered",
+            "elapsed_ms": 458.20413500769064,
+            "execution_before": {
+              "limits": {
+                "model_calls": 2,
+                "tool_calls": 1,
+                "http_calls": 8,
+                "seconds": 180.0,
+                "context_bytes": 1200,
+                "spend_usd": "0.15",
+                "retries": 0,
+                "capabilities": [
+                  "text_retrieval",
+                  "family_graph",
+                  "event_graph",
+                  "connection_graph"
+                ],
+                "concurrency": 4
+              },
+              "model_calls": 0,
+              "tool_calls": 0,
+              "http_calls": 0,
+              "reserved_usd": "0",
+              "stop_reason": null
+            },
+            "execution_after": {
+              "limits": {
+                "model_calls": 2,
+                "tool_calls": 1,
+                "http_calls": 8,
+                "seconds": 180.0,
+                "context_bytes": 1200,
+                "spend_usd": "0.15",
+                "retries": 0,
+                "capabilities": [
+                  "text_retrieval",
+                  "family_graph",
+                  "event_graph",
+                  "connection_graph"
+                ],
+                "concurrency": 4
+              },
+              "model_calls": 0,
+              "tool_calls": 0,
+              "http_calls": 0,
+              "reserved_usd": "0",
+              "stop_reason": null,
+              "context_bytes": 1060
+            },
+            "accounting": {
+              "content": null,
+              "usage": {
+                "input_tokens": 0,
+                "output_tokens": 0,
+                "embedding_tokens": 0
+              },
+              "provider_usage": null,
+              "failure_type": null,
+              "estimated_api_cost_usd": 0.0,
+              "cost_scope": "This cache delivery made no new model or embedding calls.",
+              "limitation": "Source support is preserved; reuse is not independent verification."
+            }
+          }
+        ],
+        "stop_reason": "override_completed",
+        "policy": {
+          "version": "evidence-routing-v1",
+          "escalation_enabled": true,
+          "minimum_remaining_seconds": 3.0
+        },
+        "selection_elapsed_ms": null,
+        "evidence_check_elapsed_ms": null
+      },
+      "text_pipeline": {
+        "policy": {
+          "version": "bounded-text-v1",
+          "mode": "baseline",
+          "max_variants": 2,
+          "per_query_k": 3,
+          "selected_hits": 3,
+          "fusion_constant": 60,
+          "neighbours": 1
+        },
+        "policy_sha256": "c391e08139b756929669eac18d11bc4e3a9f1b399068756d52ded741e98322c3",
+        "original_question": "When did Phil Mitchell first arrive in Walford?",
+        "resolved_question": "When did Phil Mitchell first arrive in Walford?",
+        "variants": {
+          "queries": [],
+          "proposals": [],
+          "fallback_reason": null
+        },
+        "rank_convention": "one-based; score=sum(1/(constant+rank)); ties=evidence_id",
+        "rankings": [],
+        "fused_candidates": [],
+        "expansion": null,
+        "final_context_ids": [
+          "phil-mitchell-wiki-0018-15527"
+        ],
+        "context_bytes": 1060,
+        "dropped_evidence_ids": [],
+        "fallback_reasons": [],
+        "failed_queries": [],
+        "stages": [],
+        "model_executions": [],
+        "embedding_tokens": [],
+        "cache_enabled": true
+      },
+      "baseline_version": "bounded-text-v1",
+      "model_settings": {
+        "embedding_model": "embeddinggemma:300m",
+        "embedding_digest": "85462619ee721b466c5927d109d4cb765861907d5417b9109caebc4e614679f1",
+        "embedding_dimensions": 768,
+        "answer_model": "gemma4:e2b-it-qat",
+        "answer_digest": "07ea59a474013479c8b6b802bef095c40e964a1d776ba02f264c0e30e1aede0c",
+        "context_window": 4096,
+        "output_tokens": 512,
+        "temperature": 0.0,
+        "request_timeout_seconds": 180,
+        "seed": 17
+      },
+      "prompt_sha256": "1837220ea074375ef25b894885b2530a0b28b8c3f7f37f95b7746cd380341afc",
+      "application_sha256": "4d964d699c403007ce4e73d1d6ed4c0289234f7694be0d45d581b55311720561",
+      "trace_id": "tr-3b4ff424a9a3df1f00020e97ef6eaee2",
+      "execution": {
+        "limits": {
+          "model_calls": 2,
+          "tool_calls": 1,
+          "http_calls": 8,
+          "seconds": 180.0,
+          "context_bytes": 1200,
+          "spend_usd": "0.15",
+          "retries": 0,
+          "capabilities": [
+            "text_retrieval",
+            "family_graph",
+            "event_graph",
+            "connection_graph"
+          ],
+          "concurrency": 4
+        },
+        "model_calls": 0,
+        "tool_calls": 0,
+        "http_calls": 0,
+        "reserved_usd": "0",
+        "stop_reason": null,
+        "context_bytes": 1060
+      },
+      "elapsed_ms": 474.9499330064282,
+      "usage": {
+        "input_tokens": 0,
+        "output_tokens": 0,
+        "embedding_tokens": 0
+      },
+      "expenditure_category": "serving",
+      "estimated_api_cost_usd": 0.0,
+      "cost_scope": "This cache delivery made no new model or embedding calls.",
+      "limitation": "Source support is preserved; reuse is not independent verification."
+    },
+    "observation": {
+      "phase": "warm",
+      "delivery": {
+        "version": "exact-text-cache-v1",
+        "status": "hit",
+        "reason": "compatible_exact_match",
+        "eligible": true
+      },
+      "elapsed_ms": 474.9499330064282,
+      "end_to_end_ms": 1673.3845520066097,
+      "cost_usd": 0.0,
+      "generation_id": "a96be47d-e16f-4509-94d1-7d23b0a3b370",
+      "supported": null,
+      "compatible": null
+    },
+    "trace_and_citations_verified": true
+  },
+  {
+    "case_id": "warm-business-1",
+    "request": {
+      "route": "text_rag",
+      "question": "What business did Phil Mitchell open on arriving in Walford?"
+    },
+    "response": {
+      "response_id": "d928f413-87ec-450a-b4e7-12ab4220ff21",
+      "generation_id": "db158890-bc3a-44a6-a100-7fc81de312d6",
+      "cache": {
+        "version": "exact-text-cache-v1",
+        "status": "hit",
+        "reason": "compatible_exact_match",
+        "eligible": true
+      },
+      "question": "What business did Phil Mitchell open on arriving in Walford?",
+      "status": "answered",
+      "answer": "Phil Mitchell opened an automobile repair shop called The Arches when he first arrived in Walford in February 1990.",
+      "qualifications": [
+        {
+          "detail": "The business was an automobile repair shop.",
+          "evidence_ids": [
+            "phil-mitchell-wiki-0018-15527"
+          ],
+          "kind": "explicit_negative"
+        }
+      ],
+      "citations": [
+        {
+          "evidence_id": "phil-mitchell-wiki-0018-15527",
+          "text": "Phil Mitchell first arrives in Walford in February 1990 to open an automobile repair shop, known as The Arches; he is joined by his younger brother Grant (Ross Kemp). Two years later, Phil goes into partnership at The Queen Victoria public house with Grant and his wife Sharon Watts (Letitia Dean) \u2013 up to the point where he moves in with them. Phil grows close to Sharon, who turns to him for comfort during Grant's violent outbursts. Sharon and Phil have sex but she stays with Grant, who is unaware of their betrayal. Sharon and Grant's reconciliation is brief, and amidst more rowing and physical violence, Grant is arrested and imprisoned. In his absence, Phil and Sharon continue their affair but when Grant is released, Sharon reconciles with him, leaving Phil heartbroken. On the rebound, Phil enters into a marriage of convenience with Nadia Borovac (Anna Barkan) - a Romanian refugee - enabling her to stay in Britain, with Nadia departing after the wedding.",
+          "sha256": "9a13fe3539b69694d88ab06a1bd85cf898f46d65ca5ac1d958d0e0ff026bd263",
+          "start": 15527,
+          "end": 16495,
+          "source": {
+            "title": "Phil Mitchell",
+            "url": "https://en.wikipedia.org/wiki/Phil_Mitchell",
+            "revision_id": "1379872347",
+            "revision_url": "https://en.wikipedia.org/w/index.php?oldid=1379872347",
+            "section": "Storylines / 1990\u20132003",
+            "captured_at": "2026-10-17T13:07:31.014189Z",
+            "capture_sha256": "a338d3065203be54e383f2c9c141bca22ae9aedbb950e2e1eada601bcccfe313",
+            "scope": "main_series",
+            "license_url": "https://creativecommons.org/licenses/by-sa/4.0/",
+            "attribution": "Wikipedia contributors; markup removed and whitespace normalized.",
+            "coverage": "Reviewed narrative sections in this captured revision only.",
+            "gaps": [
+              "Partial canon coverage; other paragraphs remain excluded or awaiting review.",
+              "Identity and episode metadata do not independently corroborate story claims."
+            ],
+            "support_status": "source_supported"
+          },
+          "location": {
+            "source_id": "phil-mitchell-wiki",
+            "paragraph_ordinal": 18,
+            "section_id": "1990\u20132003",
+            "character_ids": [
+              "phil-mitchell"
+            ]
+          },
+          "resolve_path": "/v1/snapshots/cache-phil-development-v1/evidence/phil-mitchell-wiki-0018-15527"
+        }
+      ],
+      "snapshot_id": "cache-phil-development-v1",
+      "snapshot_sha256": "2aa5e7a34c35c3be01871cda969a49f22326fe4132ef3e0a950f5368eefd5391",
+      "publication": {
+        "compatibility_id": "389c42ab1b7e236c1dd48e24de08a812d6e3d4936747533859a75a0faa10eba3",
+        "index_sha256": "8bb71dc8863baa8a465fac08d94e4226359a4c3ec4c9125efad060bfbcf3159d",
+        "generation": 1
+      },
+      "source": {
+        "title": "Phil Mitchell",
+        "url": "https://en.wikipedia.org/wiki/Phil_Mitchell",
+        "revision_id": "1379872347",
+        "revision_url": "https://en.wikipedia.org/w/index.php?oldid=1379872347",
+        "section": "Storylines / 1990\u20132003",
+        "captured_at": "2026-10-17T13:07:31.014189Z",
+        "capture_sha256": "a338d3065203be54e383f2c9c141bca22ae9aedbb950e2e1eada601bcccfe313",
+        "scope": "main_series",
+        "license_url": "https://creativecommons.org/licenses/by-sa/4.0/",
+        "attribution": "Wikipedia contributors; markup removed and whitespace normalized.",
+        "coverage": "Curated cache development slice: one original arrival paragraph; not broad character coverage.",
+        "gaps": [
+          "Partial canon coverage; other paragraphs remain excluded or awaiting review.",
+          "Identity and episode metadata do not independently corroborate story claims."
+        ],
+        "support_status": "source_supported"
+      },
+      "retrieved": [],
+      "context": [
+        {
+          "evidence_id": "phil-mitchell-wiki-0018-15527",
+          "text": "Phil Mitchell first arrives in Walford in February 1990 to open an automobile repair shop, known as The Arches; he is joined by his younger brother Grant (Ross Kemp). Two years later, Phil goes into partnership at The Queen Victoria public house with Grant and his wife Sharon Watts (Letitia Dean) \u2013 up to the point where he moves in with them. Phil grows close to Sharon, who turns to him for comfort during Grant's violent outbursts. Sharon and Phil have sex but she stays with Grant, who is unaware of their betrayal. Sharon and Grant's reconciliation is brief, and amidst more rowing and physical violence, Grant is arrested and imprisoned. In his absence, Phil and Sharon continue their affair but when Grant is released, Sharon reconciles with him, leaving Phil heartbroken. On the rebound, Phil enters into a marriage of convenience with Nadia Borovac (Anna Barkan) - a Romanian refugee - enabling her to stay in Britain, with Nadia departing after the wedding.",
+          "sha256": "9a13fe3539b69694d88ab06a1bd85cf898f46d65ca5ac1d958d0e0ff026bd263",
+          "start": 15527,
+          "end": 16495,
+          "source": {
+            "title": "Phil Mitchell",
+            "url": "https://en.wikipedia.org/wiki/Phil_Mitchell",
+            "revision_id": "1379872347",
+            "revision_url": "https://en.wikipedia.org/w/index.php?oldid=1379872347",
+            "section": "Storylines / 1990\u20132003",
+            "captured_at": "2026-10-17T13:07:31.014189Z",
+            "capture_sha256": "a338d3065203be54e383f2c9c141bca22ae9aedbb950e2e1eada601bcccfe313",
+            "scope": "main_series",
+            "license_url": "https://creativecommons.org/licenses/by-sa/4.0/",
+            "attribution": "Wikipedia contributors; markup removed and whitespace normalized.",
+            "coverage": "Reviewed narrative sections in this captured revision only.",
+            "gaps": [
+              "Partial canon coverage; other paragraphs remain excluded or awaiting review.",
+              "Identity and episode metadata do not independently corroborate story claims."
+            ],
+            "support_status": "source_supported"
+          },
+          "location": {
+            "source_id": "phil-mitchell-wiki",
+            "paragraph_ordinal": 18,
+            "section_id": "1990\u20132003",
+            "character_ids": [
+              "phil-mitchell"
+            ]
+          }
+        }
+      ],
+      "retrieval_k": 0,
+      "route": "text_rag",
+      "route_override": true,
+      "routing": {
+        "version": "evidence-routing-v1",
+        "requested_route": "text_rag",
+        "selection": "override",
+        "final_route": "text_rag",
+        "eligibility": null,
+        "checks": [],
+        "stages": [
+          {
+            "route": "text_rag",
+            "status": "answered",
+            "elapsed_ms": 347.748097992735,
+            "execution_before": {
+              "limits": {
+                "model_calls": 2,
+                "tool_calls": 1,
+                "http_calls": 8,
+                "seconds": 180.0,
+                "context_bytes": 1200,
+                "spend_usd": "0.15",
+                "retries": 0,
+                "capabilities": [
+                  "text_retrieval",
+                  "family_graph",
+                  "event_graph",
+                  "connection_graph"
+                ],
+                "concurrency": 4
+              },
+              "model_calls": 0,
+              "tool_calls": 0,
+              "http_calls": 0,
+              "reserved_usd": "0",
+              "stop_reason": null
+            },
+            "execution_after": {
+              "limits": {
+                "model_calls": 2,
+                "tool_calls": 1,
+                "http_calls": 8,
+                "seconds": 180.0,
+                "context_bytes": 1200,
+                "spend_usd": "0.15",
+                "retries": 0,
+                "capabilities": [
+                  "text_retrieval",
+                  "family_graph",
+                  "event_graph",
+                  "connection_graph"
+                ],
+                "concurrency": 4
+              },
+              "model_calls": 0,
+              "tool_calls": 0,
+              "http_calls": 0,
+              "reserved_usd": "0",
+              "stop_reason": null,
+              "context_bytes": 1060
+            },
+            "accounting": {
+              "content": null,
+              "usage": {
+                "input_tokens": 0,
+                "output_tokens": 0,
+                "embedding_tokens": 0
+              },
+              "provider_usage": null,
+              "failure_type": null,
+              "estimated_api_cost_usd": 0.0,
+              "cost_scope": "This cache delivery made no new model or embedding calls.",
+              "limitation": "Source support is preserved; reuse is not independent verification."
+            }
+          }
+        ],
+        "stop_reason": "override_completed",
+        "policy": {
+          "version": "evidence-routing-v1",
+          "escalation_enabled": true,
+          "minimum_remaining_seconds": 3.0
+        },
+        "selection_elapsed_ms": null,
+        "evidence_check_elapsed_ms": null
+      },
+      "text_pipeline": {
+        "policy": {
+          "version": "bounded-text-v1",
+          "mode": "baseline",
+          "max_variants": 2,
+          "per_query_k": 3,
+          "selected_hits": 3,
+          "fusion_constant": 60,
+          "neighbours": 1
+        },
+        "policy_sha256": "c391e08139b756929669eac18d11bc4e3a9f1b399068756d52ded741e98322c3",
+        "original_question": "What business did Phil Mitchell open on arriving in Walford?",
+        "resolved_question": "What business did Phil Mitchell open on arriving in Walford?",
+        "variants": {
+          "queries": [],
+          "proposals": [],
+          "fallback_reason": null
+        },
+        "rank_convention": "one-based; score=sum(1/(constant+rank)); ties=evidence_id",
+        "rankings": [],
+        "fused_candidates": [],
+        "expansion": null,
+        "final_context_ids": [
+          "phil-mitchell-wiki-0018-15527"
+        ],
+        "context_bytes": 1060,
+        "dropped_evidence_ids": [],
+        "fallback_reasons": [],
+        "failed_queries": [],
+        "stages": [],
+        "model_executions": [],
+        "embedding_tokens": [],
+        "cache_enabled": true
+      },
+      "baseline_version": "bounded-text-v1",
+      "model_settings": {
+        "embedding_model": "embeddinggemma:300m",
+        "embedding_digest": "85462619ee721b466c5927d109d4cb765861907d5417b9109caebc4e614679f1",
+        "embedding_dimensions": 768,
+        "answer_model": "gemma4:e2b-it-qat",
+        "answer_digest": "07ea59a474013479c8b6b802bef095c40e964a1d776ba02f264c0e30e1aede0c",
+        "context_window": 4096,
+        "output_tokens": 512,
+        "temperature": 0.0,
+        "request_timeout_seconds": 180,
+        "seed": 17
+      },
+      "prompt_sha256": "1837220ea074375ef25b894885b2530a0b28b8c3f7f37f95b7746cd380341afc",
+      "application_sha256": "4d964d699c403007ce4e73d1d6ed4c0289234f7694be0d45d581b55311720561",
+      "trace_id": "tr-4bc4fcd5d78c6043a0b475f8012f8dba",
+      "execution": {
+        "limits": {
+          "model_calls": 2,
+          "tool_calls": 1,
+          "http_calls": 8,
+          "seconds": 180.0,
+          "context_bytes": 1200,
+          "spend_usd": "0.15",
+          "retries": 0,
+          "capabilities": [
+            "text_retrieval",
+            "family_graph",
+            "event_graph",
+            "connection_graph"
+          ],
+          "concurrency": 4
+        },
+        "model_calls": 0,
+        "tool_calls": 0,
+        "http_calls": 0,
+        "reserved_usd": "0",
+        "stop_reason": null,
+        "context_bytes": 1060
+      },
+      "elapsed_ms": 360.3348649921827,
+      "usage": {
+        "input_tokens": 0,
+        "output_tokens": 0,
+        "embedding_tokens": 0
+      },
+      "expenditure_category": "serving",
+      "estimated_api_cost_usd": 0.0,
+      "cost_scope": "This cache delivery made no new model or embedding calls.",
+      "limitation": "Source support is preserved; reuse is not independent verification."
+    },
+    "observation": {
+      "phase": "warm",
+      "delivery": {
+        "version": "exact-text-cache-v1",
+        "status": "hit",
+        "reason": "compatible_exact_match",
+        "eligible": true
+      },
+      "elapsed_ms": 360.3348649921827,
+      "end_to_end_ms": 1539.4696370058227,
+      "cost_usd": 0.0,
+      "generation_id": "db158890-bc3a-44a6-a100-7fc81de312d6",
+      "supported": null,
+      "compatible": null
+    },
+    "trace_and_citations_verified": true
+  },
+  {
+    "case_id": "warm-arrival-2",
+    "request": {
+      "route": "text_rag",
+      "question": "When did Phil Mitchell first arrive in Walford?"
+    },
+    "response": {
+      "response_id": "d8633b46-dd4f-44fc-be43-4404f0094d46",
+      "generation_id": "a96be47d-e16f-4509-94d1-7d23b0a3b370",
+      "cache": {
+        "version": "exact-text-cache-v1",
+        "status": "hit",
+        "reason": "compatible_exact_match",
+        "eligible": true
+      },
+      "question": "When did Phil Mitchell first arrive in Walford?",
+      "status": "answered",
+      "answer": "Phil Mitchell first arrived in Walford in February 1990 to open an automobile repair shop called The Arches.",
+      "qualifications": [
+        {
+          "detail": "The arrival date is February 1990.",
+          "evidence_ids": [
+            "phil-mitchell-wiki-0018-15527"
+          ],
+          "kind": "timing",
+          "precision": "exact"
+        }
+      ],
+      "citations": [
+        {
+          "evidence_id": "phil-mitchell-wiki-0018-15527",
+          "text": "Phil Mitchell first arrives in Walford in February 1990 to open an automobile repair shop, known as The Arches; he is joined by his younger brother Grant (Ross Kemp). Two years later, Phil goes into partnership at The Queen Victoria public house with Grant and his wife Sharon Watts (Letitia Dean) \u2013 up to the point where he moves in with them. Phil grows close to Sharon, who turns to him for comfort during Grant's violent outbursts. Sharon and Phil have sex but she stays with Grant, who is unaware of their betrayal. Sharon and Grant's reconciliation is brief, and amidst more rowing and physical violence, Grant is arrested and imprisoned. In his absence, Phil and Sharon continue their affair but when Grant is released, Sharon reconciles with him, leaving Phil heartbroken. On the rebound, Phil enters into a marriage of convenience with Nadia Borovac (Anna Barkan) - a Romanian refugee - enabling her to stay in Britain, with Nadia departing after the wedding.",
+          "sha256": "9a13fe3539b69694d88ab06a1bd85cf898f46d65ca5ac1d958d0e0ff026bd263",
+          "start": 15527,
+          "end": 16495,
+          "source": {
+            "title": "Phil Mitchell",
+            "url": "https://en.wikipedia.org/wiki/Phil_Mitchell",
+            "revision_id": "1379872347",
+            "revision_url": "https://en.wikipedia.org/w/index.php?oldid=1379872347",
+            "section": "Storylines / 1990\u20132003",
+            "captured_at": "2026-10-17T13:07:31.014189Z",
+            "capture_sha256": "a338d3065203be54e383f2c9c141bca22ae9aedbb950e2e1eada601bcccfe313",
+            "scope": "main_series",
+            "license_url": "https://creativecommons.org/licenses/by-sa/4.0/",
+            "attribution": "Wikipedia contributors; markup removed and whitespace normalized.",
+            "coverage": "Reviewed narrative sections in this captured revision only.",
+            "gaps": [
+              "Partial canon coverage; other paragraphs remain excluded or awaiting review.",
+              "Identity and episode metadata do not independently corroborate story claims."
+            ],
+            "support_status": "source_supported"
+          },
+          "location": {
+            "source_id": "phil-mitchell-wiki",
+            "paragraph_ordinal": 18,
+            "section_id": "1990\u20132003",
+            "character_ids": [
+              "phil-mitchell"
+            ]
+          },
+          "resolve_path": "/v1/snapshots/cache-phil-development-v1/evidence/phil-mitchell-wiki-0018-15527"
+        }
+      ],
+      "snapshot_id": "cache-phil-development-v1",
+      "snapshot_sha256": "2aa5e7a34c35c3be01871cda969a49f22326fe4132ef3e0a950f5368eefd5391",
+      "publication": {
+        "compatibility_id": "389c42ab1b7e236c1dd48e24de08a812d6e3d4936747533859a75a0faa10eba3",
+        "index_sha256": "8bb71dc8863baa8a465fac08d94e4226359a4c3ec4c9125efad060bfbcf3159d",
+        "generation": 1
+      },
+      "source": {
+        "title": "Phil Mitchell",
+        "url": "https://en.wikipedia.org/wiki/Phil_Mitchell",
+        "revision_id": "1379872347",
+        "revision_url": "https://en.wikipedia.org/w/index.php?oldid=1379872347",
+        "section": "Storylines / 1990\u20132003",
+        "captured_at": "2026-10-17T13:07:31.014189Z",
+        "capture_sha256": "a338d3065203be54e383f2c9c141bca22ae9aedbb950e2e1eada601bcccfe313",
+        "scope": "main_series",
+        "license_url": "https://creativecommons.org/licenses/by-sa/4.0/",
+        "attribution": "Wikipedia contributors; markup removed and whitespace normalized.",
+        "coverage": "Curated cache development slice: one original arrival paragraph; not broad character coverage.",
+        "gaps": [
+          "Partial canon coverage; other paragraphs remain excluded or awaiting review.",
+          "Identity and episode metadata do not independently corroborate story claims."
+        ],
+        "support_status": "source_supported"
+      },
+      "retrieved": [],
+      "context": [
+        {
+          "evidence_id": "phil-mitchell-wiki-0018-15527",
+          "text": "Phil Mitchell first arrives in Walford in February 1990 to open an automobile repair shop, known as The Arches; he is joined by his younger brother Grant (Ross Kemp). Two years later, Phil goes into partnership at The Queen Victoria public house with Grant and his wife Sharon Watts (Letitia Dean) \u2013 up to the point where he moves in with them. Phil grows close to Sharon, who turns to him for comfort during Grant's violent outbursts. Sharon and Phil have sex but she stays with Grant, who is unaware of their betrayal. Sharon and Grant's reconciliation is brief, and amidst more rowing and physical violence, Grant is arrested and imprisoned. In his absence, Phil and Sharon continue their affair but when Grant is released, Sharon reconciles with him, leaving Phil heartbroken. On the rebound, Phil enters into a marriage of convenience with Nadia Borovac (Anna Barkan) - a Romanian refugee - enabling her to stay in Britain, with Nadia departing after the wedding.",
+          "sha256": "9a13fe3539b69694d88ab06a1bd85cf898f46d65ca5ac1d958d0e0ff026bd263",
+          "start": 15527,
+          "end": 16495,
+          "source": {
+            "title": "Phil Mitchell",
+            "url": "https://en.wikipedia.org/wiki/Phil_Mitchell",
+            "revision_id": "1379872347",
+            "revision_url": "https://en.wikipedia.org/w/index.php?oldid=1379872347",
+            "section": "Storylines / 1990\u20132003",
+            "captured_at": "2026-10-17T13:07:31.014189Z",
+            "capture_sha256": "a338d3065203be54e383f2c9c141bca22ae9aedbb950e2e1eada601bcccfe313",
+            "scope": "main_series",
+            "license_url": "https://creativecommons.org/licenses/by-sa/4.0/",
+            "attribution": "Wikipedia contributors; markup removed and whitespace normalized.",
+            "coverage": "Reviewed narrative sections in this captured revision only.",
+            "gaps": [
+              "Partial canon coverage; other paragraphs remain excluded or awaiting review.",
+              "Identity and episode metadata do not independently corroborate story claims."
+            ],
+            "support_status": "source_supported"
+          },
+          "location": {
+            "source_id": "phil-mitchell-wiki",
+            "paragraph_ordinal": 18,
+            "section_id": "1990\u20132003",
+            "character_ids": [
+              "phil-mitchell"
+            ]
+          }
+        }
+      ],
+      "retrieval_k": 0,
+      "route": "text_rag",
+      "route_override": true,
+      "routing": {
+        "version": "evidence-routing-v1",
+        "requested_route": "text_rag",
+        "selection": "override",
+        "final_route": "text_rag",
+        "eligibility": null,
+        "checks": [],
+        "stages": [
+          {
+            "route": "text_rag",
+            "status": "answered",
+            "elapsed_ms": 296.21164000127465,
+            "execution_before": {
+              "limits": {
+                "model_calls": 2,
+                "tool_calls": 1,
+                "http_calls": 8,
+                "seconds": 180.0,
+                "context_bytes": 1200,
+                "spend_usd": "0.15",
+                "retries": 0,
+                "capabilities": [
+                  "text_retrieval",
+                  "family_graph",
+                  "event_graph",
+                  "connection_graph"
+                ],
+                "concurrency": 4
+              },
+              "model_calls": 0,
+              "tool_calls": 0,
+              "http_calls": 0,
+              "reserved_usd": "0",
+              "stop_reason": null
+            },
+            "execution_after": {
+              "limits": {
+                "model_calls": 2,
+                "tool_calls": 1,
+                "http_calls": 8,
+                "seconds": 180.0,
+                "context_bytes": 1200,
+                "spend_usd": "0.15",
+                "retries": 0,
+                "capabilities": [
+                  "text_retrieval",
+                  "family_graph",
+                  "event_graph",
+                  "connection_graph"
+                ],
+                "concurrency": 4
+              },
+              "model_calls": 0,
+              "tool_calls": 0,
+              "http_calls": 0,
+              "reserved_usd": "0",
+              "stop_reason": null,
+              "context_bytes": 1060
+            },
+            "accounting": {
+              "content": null,
+              "usage": {
+                "input_tokens": 0,
+                "output_tokens": 0,
+                "embedding_tokens": 0
+              },
+              "provider_usage": null,
+              "failure_type": null,
+              "estimated_api_cost_usd": 0.0,
+              "cost_scope": "This cache delivery made no new model or embedding calls.",
+              "limitation": "Source support is preserved; reuse is not independent verification."
+            }
+          }
+        ],
+        "stop_reason": "override_completed",
+        "policy": {
+          "version": "evidence-routing-v1",
+          "escalation_enabled": true,
+          "minimum_remaining_seconds": 3.0
+        },
+        "selection_elapsed_ms": null,
+        "evidence_check_elapsed_ms": null
+      },
+      "text_pipeline": {
+        "policy": {
+          "version": "bounded-text-v1",
+          "mode": "baseline",
+          "max_variants": 2,
+          "per_query_k": 3,
+          "selected_hits": 3,
+          "fusion_constant": 60,
+          "neighbours": 1
+        },
+        "policy_sha256": "c391e08139b756929669eac18d11bc4e3a9f1b399068756d52ded741e98322c3",
+        "original_question": "When did Phil Mitchell first arrive in Walford?",
+        "resolved_question": "When did Phil Mitchell first arrive in Walford?",
+        "variants": {
+          "queries": [],
+          "proposals": [],
+          "fallback_reason": null
+        },
+        "rank_convention": "one-based; score=sum(1/(constant+rank)); ties=evidence_id",
+        "rankings": [],
+        "fused_candidates": [],
+        "expansion": null,
+        "final_context_ids": [
+          "phil-mitchell-wiki-0018-15527"
+        ],
+        "context_bytes": 1060,
+        "dropped_evidence_ids": [],
+        "fallback_reasons": [],
+        "failed_queries": [],
+        "stages": [],
+        "model_executions": [],
+        "embedding_tokens": [],
+        "cache_enabled": true
+      },
+      "baseline_version": "bounded-text-v1",
+      "model_settings": {
+        "embedding_model": "embeddinggemma:300m",
+        "embedding_digest": "85462619ee721b466c5927d109d4cb765861907d5417b9109caebc4e614679f1",
+        "embedding_dimensions": 768,
+        "answer_model": "gemma4:e2b-it-qat",
+        "answer_digest": "07ea59a474013479c8b6b802bef095c40e964a1d776ba02f264c0e30e1aede0c",
+        "context_window": 4096,
+        "output_tokens": 512,
+        "temperature": 0.0,
+        "request_timeout_seconds": 180,
+        "seed": 17
+      },
+      "prompt_sha256": "1837220ea074375ef25b894885b2530a0b28b8c3f7f37f95b7746cd380341afc",
+      "application_sha256": "4d964d699c403007ce4e73d1d6ed4c0289234f7694be0d45d581b55311720561",
+      "trace_id": "tr-cf8aa59cbbe625087f62c48abcbbe9fc",
+      "execution": {
+        "limits": {
+          "model_calls": 2,
+          "tool_calls": 1,
+          "http_calls": 8,
+          "seconds": 180.0,
+          "context_bytes": 1200,
+          "spend_usd": "0.15",
+          "retries": 0,
+          "capabilities": [
+            "text_retrieval",
+            "family_graph",
+            "event_graph",
+            "connection_graph"
+          ],
+          "concurrency": 4
+        },
+        "model_calls": 0,
+        "tool_calls": 0,
+        "http_calls": 0,
+        "reserved_usd": "0",
+        "stop_reason": null,
+        "context_bytes": 1060
+      },
+      "elapsed_ms": 309.7339980013203,
+      "usage": {
+        "input_tokens": 0,
+        "output_tokens": 0,
+        "embedding_tokens": 0
+      },
+      "expenditure_category": "serving",
+      "estimated_api_cost_usd": 0.0,
+      "cost_scope": "This cache delivery made no new model or embedding calls.",
+      "limitation": "Source support is preserved; reuse is not independent verification."
+    },
+    "observation": {
+      "phase": "warm",
+      "delivery": {
+        "version": "exact-text-cache-v1",
+        "status": "hit",
+        "reason": "compatible_exact_match",
+        "eligible": true
+      },
+      "elapsed_ms": 309.7339980013203,
+      "end_to_end_ms": 1469.0790770109743,
+      "cost_usd": 0.0,
+      "generation_id": "a96be47d-e16f-4509-94d1-7d23b0a3b370",
+      "supported": null,
+      "compatible": null
+    },
+    "trace_and_citations_verified": true
+  },
+  {
+    "case_id": "warm-business-2",
+    "request": {
+      "route": "text_rag",
+      "question": "What business did Phil Mitchell open on arriving in Walford?"
+    },
+    "response": {
+      "response_id": "15169421-921c-4989-93bd-0b9650bc70cc",
+      "generation_id": "db158890-bc3a-44a6-a100-7fc81de312d6",
+      "cache": {
+        "version": "exact-text-cache-v1",
+        "status": "hit",
+        "reason": "compatible_exact_match",
+        "eligible": true
+      },
+      "question": "What business did Phil Mitchell open on arriving in Walford?",
+      "status": "answered",
+      "answer": "Phil Mitchell opened an automobile repair shop called The Arches when he first arrived in Walford in February 1990.",
+      "qualifications": [
+        {
+          "detail": "The business was an automobile repair shop.",
+          "evidence_ids": [
+            "phil-mitchell-wiki-0018-15527"
+          ],
+          "kind": "explicit_negative"
+        }
+      ],
+      "citations": [
+        {
+          "evidence_id": "phil-mitchell-wiki-0018-15527",
+          "text": "Phil Mitchell first arrives in Walford in February 1990 to open an automobile repair shop, known as The Arches; he is joined by his younger brother Grant (Ross Kemp). Two years later, Phil goes into partnership at The Queen Victoria public house with Grant and his wife Sharon Watts (Letitia Dean) \u2013 up to the point where he moves in with them. Phil grows close to Sharon, who turns to him for comfort during Grant's violent outbursts. Sharon and Phil have sex but she stays with Grant, who is unaware of their betrayal. Sharon and Grant's reconciliation is brief, and amidst more rowing and physical violence, Grant is arrested and imprisoned. In his absence, Phil and Sharon continue their affair but when Grant is released, Sharon reconciles with him, leaving Phil heartbroken. On the rebound, Phil enters into a marriage of convenience with Nadia Borovac (Anna Barkan) - a Romanian refugee - enabling her to stay in Britain, with Nadia departing after the wedding.",
+          "sha256": "9a13fe3539b69694d88ab06a1bd85cf898f46d65ca5ac1d958d0e0ff026bd263",
+          "start": 15527,
+          "end": 16495,
+          "source": {
+            "title": "Phil Mitchell",
+            "url": "https://en.wikipedia.org/wiki/Phil_Mitchell",
+            "revision_id": "1379872347",
+            "revision_url": "https://en.wikipedia.org/w/index.php?oldid=1379872347",
+            "section": "Storylines / 1990\u20132003",
+            "captured_at": "2026-10-17T13:07:31.014189Z",
+            "capture_sha256": "a338d3065203be54e383f2c9c141bca22ae9aedbb950e2e1eada601bcccfe313",
+            "scope": "main_series",
+            "license_url": "https://creativecommons.org/licenses/by-sa/4.0/",
+            "attribution": "Wikipedia contributors; markup removed and whitespace normalized.",
+            "coverage": "Reviewed narrative sections in this captured revision only.",
+            "gaps": [
+              "Partial canon coverage; other paragraphs remain excluded or awaiting review.",
+              "Identity and episode metadata do not independently corroborate story claims."
+            ],
+            "support_status": "source_supported"
+          },
+          "location": {
+            "source_id": "phil-mitchell-wiki",
+            "paragraph_ordinal": 18,
+            "section_id": "1990\u20132003",
+            "character_ids": [
+              "phil-mitchell"
+            ]
+          },
+          "resolve_path": "/v1/snapshots/cache-phil-development-v1/evidence/phil-mitchell-wiki-0018-15527"
+        }
+      ],
+      "snapshot_id": "cache-phil-development-v1",
+      "snapshot_sha256": "2aa5e7a34c35c3be01871cda969a49f22326fe4132ef3e0a950f5368eefd5391",
+      "publication": {
+        "compatibility_id": "389c42ab1b7e236c1dd48e24de08a812d6e3d4936747533859a75a0faa10eba3",
+        "index_sha256": "8bb71dc8863baa8a465fac08d94e4226359a4c3ec4c9125efad060bfbcf3159d",
+        "generation": 1
+      },
+      "source": {
+        "title": "Phil Mitchell",
+        "url": "https://en.wikipedia.org/wiki/Phil_Mitchell",
+        "revision_id": "1379872347",
+        "revision_url": "https://en.wikipedia.org/w/index.php?oldid=1379872347",
+        "section": "Storylines / 1990\u20132003",
+        "captured_at": "2026-10-17T13:07:31.014189Z",
+        "capture_sha256": "a338d3065203be54e383f2c9c141bca22ae9aedbb950e2e1eada601bcccfe313",
+        "scope": "main_series",
+        "license_url": "https://creativecommons.org/licenses/by-sa/4.0/",
+        "attribution": "Wikipedia contributors; markup removed and whitespace normalized.",
+        "coverage": "Curated cache development slice: one original arrival paragraph; not broad character coverage.",
+        "gaps": [
+          "Partial canon coverage; other paragraphs remain excluded or awaiting review.",
+          "Identity and episode metadata do not independently corroborate story claims."
+        ],
+        "support_status": "source_supported"
+      },
+      "retrieved": [],
+      "context": [
+        {
+          "evidence_id": "phil-mitchell-wiki-0018-15527",
+          "text": "Phil Mitchell first arrives in Walford in February 1990 to open an automobile repair shop, known as The Arches; he is joined by his younger brother Grant (Ross Kemp). Two years later, Phil goes into partnership at The Queen Victoria public house with Grant and his wife Sharon Watts (Letitia Dean) \u2013 up to the point where he moves in with them. Phil grows close to Sharon, who turns to him for comfort during Grant's violent outbursts. Sharon and Phil have sex but she stays with Grant, who is unaware of their betrayal. Sharon and Grant's reconciliation is brief, and amidst more rowing and physical violence, Grant is arrested and imprisoned. In his absence, Phil and Sharon continue their affair but when Grant is released, Sharon reconciles with him, leaving Phil heartbroken. On the rebound, Phil enters into a marriage of convenience with Nadia Borovac (Anna Barkan) - a Romanian refugee - enabling her to stay in Britain, with Nadia departing after the wedding.",
+          "sha256": "9a13fe3539b69694d88ab06a1bd85cf898f46d65ca5ac1d958d0e0ff026bd263",
+          "start": 15527,
+          "end": 16495,
+          "source": {
+            "title": "Phil Mitchell",
+            "url": "https://en.wikipedia.org/wiki/Phil_Mitchell",
+            "revision_id": "1379872347",
+            "revision_url": "https://en.wikipedia.org/w/index.php?oldid=1379872347",
+            "section": "Storylines / 1990\u20132003",
+            "captured_at": "2026-10-17T13:07:31.014189Z",
+            "capture_sha256": "a338d3065203be54e383f2c9c141bca22ae9aedbb950e2e1eada601bcccfe313",
+            "scope": "main_series",
+            "license_url": "https://creativecommons.org/licenses/by-sa/4.0/",
+            "attribution": "Wikipedia contributors; markup removed and whitespace normalized.",
+            "coverage": "Reviewed narrative sections in this captured revision only.",
+            "gaps": [
+              "Partial canon coverage; other paragraphs remain excluded or awaiting review.",
+              "Identity and episode metadata do not independently corroborate story claims."
+            ],
+            "support_status": "source_supported"
+          },
+          "location": {
+            "source_id": "phil-mitchell-wiki",
+            "paragraph_ordinal": 18,
+            "section_id": "1990\u20132003",
+            "character_ids": [
+              "phil-mitchell"
+            ]
+          }
+        }
+      ],
+      "retrieval_k": 0,
+      "route": "text_rag",
+      "route_override": true,
+      "routing": {
+        "version": "evidence-routing-v1",
+        "requested_route": "text_rag",
+        "selection": "override",
+        "final_route": "text_rag",
+        "eligibility": null,
+        "checks": [],
+        "stages": [
+          {
+            "route": "text_rag",
+            "status": "answered",
+            "elapsed_ms": 333.93764299398754,
+            "execution_before": {
+              "limits": {
+                "model_calls": 2,
+                "tool_calls": 1,
+                "http_calls": 8,
+                "seconds": 180.0,
+                "context_bytes": 1200,
+                "spend_usd": "0.15",
+                "retries": 0,
+                "capabilities": [
+                  "text_retrieval",
+                  "family_graph",
+                  "event_graph",
+                  "connection_graph"
+                ],
+                "concurrency": 4
+              },
+              "model_calls": 0,
+              "tool_calls": 0,
+              "http_calls": 0,
+              "reserved_usd": "0",
+              "stop_reason": null
+            },
+            "execution_after": {
+              "limits": {
+                "model_calls": 2,
+                "tool_calls": 1,
+                "http_calls": 8,
+                "seconds": 180.0,
+                "context_bytes": 1200,
+                "spend_usd": "0.15",
+                "retries": 0,
+                "capabilities": [
+                  "text_retrieval",
+                  "family_graph",
+                  "event_graph",
+                  "connection_graph"
+                ],
+                "concurrency": 4
+              },
+              "model_calls": 0,
+              "tool_calls": 0,
+              "http_calls": 0,
+              "reserved_usd": "0",
+              "stop_reason": null,
+              "context_bytes": 1060
+            },
+            "accounting": {
+              "content": null,
+              "usage": {
+                "input_tokens": 0,
+                "output_tokens": 0,
+                "embedding_tokens": 0
+              },
+              "provider_usage": null,
+              "failure_type": null,
+              "estimated_api_cost_usd": 0.0,
+              "cost_scope": "This cache delivery made no new model or embedding calls.",
+              "limitation": "Source support is preserved; reuse is not independent verification."
+            }
+          }
+        ],
+        "stop_reason": "override_completed",
+        "policy": {
+          "version": "evidence-routing-v1",
+          "escalation_enabled": true,
+          "minimum_remaining_seconds": 3.0
+        },
+        "selection_elapsed_ms": null,
+        "evidence_check_elapsed_ms": null
+      },
+      "text_pipeline": {
+        "policy": {
+          "version": "bounded-text-v1",
+          "mode": "baseline",
+          "max_variants": 2,
+          "per_query_k": 3,
+          "selected_hits": 3,
+          "fusion_constant": 60,
+          "neighbours": 1
+        },
+        "policy_sha256": "c391e08139b756929669eac18d11bc4e3a9f1b399068756d52ded741e98322c3",
+        "original_question": "What business did Phil Mitchell open on arriving in Walford?",
+        "resolved_question": "What business did Phil Mitchell open on arriving in Walford?",
+        "variants": {
+          "queries": [],
+          "proposals": [],
+          "fallback_reason": null
+        },
+        "rank_convention": "one-based; score=sum(1/(constant+rank)); ties=evidence_id",
+        "rankings": [],
+        "fused_candidates": [],
+        "expansion": null,
+        "final_context_ids": [
+          "phil-mitchell-wiki-0018-15527"
+        ],
+        "context_bytes": 1060,
+        "dropped_evidence_ids": [],
+        "fallback_reasons": [],
+        "failed_queries": [],
+        "stages": [],
+        "model_executions": [],
+        "embedding_tokens": [],
+        "cache_enabled": true
+      },
+      "baseline_version": "bounded-text-v1",
+      "model_settings": {
+        "embedding_model": "embeddinggemma:300m",
+        "embedding_digest": "85462619ee721b466c5927d109d4cb765861907d5417b9109caebc4e614679f1",
+        "embedding_dimensions": 768,
+        "answer_model": "gemma4:e2b-it-qat",
+        "answer_digest": "07ea59a474013479c8b6b802bef095c40e964a1d776ba02f264c0e30e1aede0c",
+        "context_window": 4096,
+        "output_tokens": 512,
+        "temperature": 0.0,
+        "request_timeout_seconds": 180,
+        "seed": 17
+      },
+      "prompt_sha256": "1837220ea074375ef25b894885b2530a0b28b8c3f7f37f95b7746cd380341afc",
+      "application_sha256": "4d964d699c403007ce4e73d1d6ed4c0289234f7694be0d45d581b55311720561",
+      "trace_id": "tr-cbc3d51524510dd7e645745f760b4356",
+      "execution": {
+        "limits": {
+          "model_calls": 2,
+          "tool_calls": 1,
+          "http_calls": 8,
+          "seconds": 180.0,
+          "context_bytes": 1200,
+          "spend_usd": "0.15",
+          "retries": 0,
+          "capabilities": [
+            "text_retrieval",
+            "family_graph",
+            "event_graph",
+            "connection_graph"
+          ],
+          "concurrency": 4
+        },
+        "model_calls": 0,
+        "tool_calls": 0,
+        "http_calls": 0,
+        "reserved_usd": "0",
+        "stop_reason": null,
+        "context_bytes": 1060
+      },
+      "elapsed_ms": 360.4987419967074,
+      "usage": {
+        "input_tokens": 0,
+        "output_tokens": 0,
+        "embedding_tokens": 0
+      },
+      "expenditure_category": "serving",
+      "estimated_api_cost_usd": 0.0,
+      "cost_scope": "This cache delivery made no new model or embedding calls.",
+      "limitation": "Source support is preserved; reuse is not independent verification."
+    },
+    "observation": {
+      "phase": "warm",
+      "delivery": {
+        "version": "exact-text-cache-v1",
+        "status": "hit",
+        "reason": "compatible_exact_match",
+        "eligible": true
+      },
+      "elapsed_ms": 360.4987419967074,
+      "end_to_end_ms": 1557.2357640048722,
+      "cost_usd": 0.0,
+      "generation_id": "db158890-bc3a-44a6-a100-7fc81de312d6",
+      "supported": null,
+      "compatible": null
+    },
+    "trace_and_citations_verified": true
+  },
+  {
+    "case_id": "unresolved-session",
+    "request": {
+      "route": "text_rag",
+      "question": "When did he first arrive in Walford?"
+    },
+    "response": {
+      "response_id": "7621bb2e-3c1e-4e91-89a5-cfcf6ed55c51",
+      "cache": {
+        "version": "exact-text-cache-v1",
+        "status": "bypass",
+        "reason": "unresolved_or_contextual_identity",
+        "eligible": false
+      },
+      "question": "When did he first arrive in Walford?",
+      "conversation": {
+        "session_id": "19e06b51-b063-40b5-b7b1-021bc4c53de5",
+        "turn_id": "b1831bc2-bac5-4771-b537-3f8b200123e0",
+        "turn_number": 1,
+        "generation": 0,
+        "reference": {
+          "question": "When did he first arrive in Walford?",
+          "character_ids": [],
+          "context_turn_id": null,
+          "clarification": "Which character do you mean? Please give their full name; the reference is unresolved in the available context.",
+          "followup_requires_name": false
+        }
+      },
+      "status": "clarification",
+      "answer": "Which character do you mean? Please give their full name; the reference is unresolved in the available context.",
+      "unanswered": [
+        "Which character is intended?"
+      ],
+      "citations": [],
+      "snapshot_id": "cache-phil-development-v1",
+      "snapshot_sha256": "2aa5e7a34c35c3be01871cda969a49f22326fe4132ef3e0a950f5368eefd5391",
+      "publication": {
+        "compatibility_id": "389c42ab1b7e236c1dd48e24de08a812d6e3d4936747533859a75a0faa10eba3",
+        "index_sha256": "8bb71dc8863baa8a465fac08d94e4226359a4c3ec4c9125efad060bfbcf3159d",
+        "generation": 1
+      },
+      "source": {
+        "title": "Phil Mitchell",
+        "url": "https://en.wikipedia.org/wiki/Phil_Mitchell",
+        "revision_id": "1379872347",
+        "revision_url": "https://en.wikipedia.org/w/index.php?oldid=1379872347",
+        "section": "Storylines / 1990\u20132003",
+        "captured_at": "2026-10-17T13:07:31.014189Z",
+        "capture_sha256": "a338d3065203be54e383f2c9c141bca22ae9aedbb950e2e1eada601bcccfe313",
+        "scope": "main_series",
+        "license_url": "https://creativecommons.org/licenses/by-sa/4.0/",
+        "attribution": "Wikipedia contributors; markup removed and whitespace normalized.",
+        "coverage": "Curated cache development slice: one original arrival paragraph; not broad character coverage.",
+        "gaps": [
+          "Partial canon coverage; other paragraphs remain excluded or awaiting review.",
+          "Identity and episode metadata do not independently corroborate story claims."
+        ],
+        "support_status": "source_supported"
+      },
+      "retrieved": [],
+      "context": [],
+      "retrieval_k": 0,
+      "route": "text_rag",
+      "route_override": true,
+      "routing": {
+        "version": "evidence-routing-v1",
+        "requested_route": "text_rag",
+        "selection": "override",
+        "final_route": "text_rag",
+        "eligibility": null,
+        "checks": [],
+        "stages": [
+          {
+            "route": "text_rag",
+            "status": "clarification",
+            "elapsed_ms": 287.92669100221246,
+            "execution_before": {
+              "limits": {
+                "model_calls": 2,
+                "tool_calls": 1,
+                "http_calls": 8,
+                "seconds": 180.0,
+                "context_bytes": 1200,
+                "spend_usd": "0.15",
+                "retries": 0,
+                "capabilities": [
+                  "text_retrieval",
+                  "family_graph",
+                  "event_graph",
+                  "connection_graph"
+                ],
+                "concurrency": 4
+              },
+              "model_calls": 0,
+              "tool_calls": 0,
+              "http_calls": 0,
+              "reserved_usd": "0",
+              "stop_reason": null
+            },
+            "execution_after": {
+              "limits": {
+                "model_calls": 2,
+                "tool_calls": 1,
+                "http_calls": 8,
+                "seconds": 180.0,
+                "context_bytes": 1200,
+                "spend_usd": "0.15",
+                "retries": 0,
+                "capabilities": [
+                  "text_retrieval",
+                  "family_graph",
+                  "event_graph",
+                  "connection_graph"
+                ],
+                "concurrency": 4
+              },
+              "model_calls": 0,
+              "tool_calls": 0,
+              "http_calls": 1,
+              "reserved_usd": "0",
+              "stop_reason": null
+            },
+            "accounting": {
+              "content": null,
+              "usage": {
+                "input_tokens": 0,
+                "output_tokens": 0,
+                "embedding_tokens": 0
+              },
+              "provider_usage": null,
+              "failure_type": null,
+              "estimated_api_cost_usd": 0.0,
+              "cost_scope": "Local Ollama API only; hardware, electricity and hosting are unmeasured.",
+              "limitation": "Source-supported is not independently cross-checked. Coverage is limited to the captured snapshot. Local-model results are development smoke evidence, not a deployment or representative quality assessment."
+            }
+          }
+        ],
+        "stop_reason": "override_completed",
+        "policy": {
+          "version": "evidence-routing-v1",
+          "escalation_enabled": true,
+          "minimum_remaining_seconds": 3.0
+        },
+        "selection_elapsed_ms": null,
+        "evidence_check_elapsed_ms": null
+      },
+      "text_pipeline": {
+        "policy": {
+          "version": "bounded-text-v1",
+          "mode": "baseline",
+          "max_variants": 2,
+          "per_query_k": 3,
+          "selected_hits": 3,
+          "fusion_constant": 60,
+          "neighbours": 1
+        },
+        "policy_sha256": "c391e08139b756929669eac18d11bc4e3a9f1b399068756d52ded741e98322c3",
+        "original_question": "When did he first arrive in Walford?",
+        "resolved_question": "When did he first arrive in Walford?",
+        "variants": {
+          "queries": [
+            "When did he first arrive in Walford?"
+          ],
+          "proposals": [],
+          "fallback_reason": null
+        },
+        "rank_convention": "one-based; score=sum(1/(constant+rank)); ties=evidence_id",
+        "rankings": [],
+        "fused_candidates": [],
+        "expansion": null,
+        "final_context_ids": [],
+        "context_bytes": 2,
+        "dropped_evidence_ids": [],
+        "fallback_reasons": [],
+        "failed_queries": [],
+        "stages": [],
+        "model_executions": [],
+        "embedding_tokens": [],
+        "cache_enabled": false
+      },
+      "baseline_version": "single-query-uncached-v2",
+      "model_settings": {
+        "embedding_model": "embeddinggemma:300m",
+        "embedding_digest": "85462619ee721b466c5927d109d4cb765861907d5417b9109caebc4e614679f1",
+        "embedding_dimensions": 768,
+        "answer_model": "gemma4:e2b-it-qat",
+        "answer_digest": "07ea59a474013479c8b6b802bef095c40e964a1d776ba02f264c0e30e1aede0c",
+        "context_window": 4096,
+        "output_tokens": 512,
+        "temperature": 0.0,
+        "request_timeout_seconds": 180,
+        "seed": 17
+      },
+      "prompt_sha256": "1837220ea074375ef25b894885b2530a0b28b8c3f7f37f95b7746cd380341afc",
+      "application_sha256": "4d964d699c403007ce4e73d1d6ed4c0289234f7694be0d45d581b55311720561",
+      "trace_id": "tr-bd9a8f9a081612d3bc4d40a14d79b9f8",
+      "execution": {
+        "limits": {
+          "model_calls": 2,
+          "tool_calls": 1,
+          "http_calls": 8,
+          "seconds": 180.0,
+          "context_bytes": 1200,
+          "spend_usd": "0.15",
+          "retries": 0,
+          "capabilities": [
+            "text_retrieval",
+            "family_graph",
+            "event_graph",
+            "connection_graph"
+          ],
+          "concurrency": 4
+        },
+        "model_calls": 0,
+        "tool_calls": 0,
+        "http_calls": 1,
+        "reserved_usd": "0",
+        "stop_reason": null
+      },
+      "elapsed_ms": 299.2849979927996,
+      "usage": {
+        "input_tokens": 0,
+        "output_tokens": 0,
+        "embedding_tokens": 0
+      },
+      "expenditure_category": "serving",
+      "estimated_api_cost_usd": 0.0,
+      "cost_scope": "Local Ollama API only; hardware, electricity and hosting are unmeasured.",
+      "limitation": "Source-supported is not independently cross-checked. Coverage is limited to the captured snapshot. Local-model results are development smoke evidence, not a deployment or representative quality assessment."
+    },
+    "observation": {
+      "phase": "control",
+      "delivery": {
+        "version": "exact-text-cache-v1",
+        "status": "bypass",
+        "reason": "unresolved_or_contextual_identity",
+        "eligible": false
+      },
+      "elapsed_ms": 299.2849979927996,
+      "end_to_end_ms": 1501.4092589990469,
+      "cost_usd": 0.0,
+      "generation_id": "7621bb2e-3c1e-4e91-89a5-cfcf6ed55c51",
+      "supported": null,
+      "compatible": null
+    },
+    "trace_and_citations_verified": true
+  }
+]

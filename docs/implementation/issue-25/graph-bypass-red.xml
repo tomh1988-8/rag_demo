@@ -1,0 +1,6 @@
+<?xml version="1.0" encoding="utf-8"?><testsuites name="pytest tests"><testsuite name="pytest" errors="0" failures="1" skipped="0" tests="1" time="5.741" timestamp="2026-11-06T12:30:31.793428+00:00" hostname="tom-Latitude-3510"><testcase classname="tests.test_routing_api" name="test_empty_eligible_graph_falls_back_to_text_within_the_same_publication" time="5.420"><failure message="AssertionError: assert 'miss' == 'bypass'&#10;  &#10;  - bypass&#10;  + miss">tests/test_routing_api.py:535: in test_empty_eligible_graph_falls_back_to_text_within_the_same_publication
+    assert answer["cache"]["status"] == "bypass"
+E   AssertionError: assert 'miss' == 'bypass'
+E     
+E     - bypass
+E     + miss</failure></testcase></testsuite></testsuites>

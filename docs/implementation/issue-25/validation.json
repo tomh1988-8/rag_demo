@@ -1,0 +1,71 @@
+{
+  "issue": 25,
+  "base_revision": "1fefa2f0d3c7a7f1da9978bed995f1e93c13ccb6",
+  "final_software_revision": "4d584c12fd6af0d5d1e19a2ec17d157131510b94",
+  "live_capture_revision": "a7a07802fd326eff284eee1dc26366e256e1b742",
+  "application_source_unchanged_since_live_capture": true,
+  "software": {
+    "tests": 765,
+    "failures": 0,
+    "errors": 0,
+    "skipped": 0,
+    "seconds": 2800.937,
+    "warnings": 16,
+    "exit_code": 0,
+    "mypy_files": 192,
+    "ruff": true,
+    "format": true,
+    "compose_config": true,
+    "docker_contracts": 12,
+    "docker_exit_code": 0,
+    "docker_matching_packaged_inputs": 207,
+    "frozen_inputs": 210
+  },
+  "reviews": {
+    "standards_remaining": 0,
+    "spec_implementation_remaining": 0,
+    "evidence": "review.md"
+  },
+  "workload": {
+    "kind": "local development, not cloud or held-out acceptance",
+    "requests": 7,
+    "eligible": 6,
+    "hits": 4,
+    "misses": 2,
+    "bypasses": 1,
+    "eligible_hit_rate": "4/6",
+    "all_request_hit_coverage": "4/7",
+    "warm_hit_rate": "4/4",
+    "unsupported_factual_reuse": "0/4 reviewed hits",
+    "incompatible_reuse": "0/4 checked hits",
+    "supported_reply_text": "6/6 reviewed factual deliveries",
+    "persona_first_person_pass": "0/6 factual deliveries; 2 generation groups",
+    "qualification_type_pass": "3/6 factual deliveries",
+    "cold_mean_end_to_end_ms": 108627.87876500079,
+    "warm_mean_end_to_end_ms": 1559.7922575070697,
+    "new_answer_model_calls": 2,
+    "response_origin_groups": 3,
+    "deterministic_clarification_groups": 1,
+    "external_api_spend_usd": 0,
+    "infrastructure_cost_usd": null,
+    "automatic_code_assessments": "7/7",
+    "semantic_live_assessments": 0,
+    "shared_trial_ledger_usd": 1.137848,
+    "unsettled_reservations": 0,
+    "paid_external_capture": "Rejected by automatic approval review before execution; safer local inference used."
+  },
+  "preservation": {
+    "original_tracked_data_files": 101,
+    "all_match_starting_commit": true,
+    "user_changes_included": false
+  },
+  "release": {
+    "checklist_pass": 44,
+    "checklist_pending": 7,
+    "next_issue": 21,
+    "heldout_acceptance": false,
+    "cloud_performance_acceptance": false,
+    "human_canon_acceptance": false
+  },
+  "publication": "pending exact remote-tree and tracker readback"
+}

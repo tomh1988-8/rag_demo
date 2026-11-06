@@ -1,0 +1,8 @@
+<?xml version="1.0" encoding="utf-8"?><testsuites name="pytest tests"><testsuite name="pytest" errors="0" failures="1" skipped="0" tests="2" time="24.152" timestamp="2026-11-06T12:45:35.298975+00:00" hostname="tom-Latitude-3510"><testcase classname="tests.test_answer_cache" name="test_repeat_reuses_supported_context_with_new_delivery_and_zero_new_inference" time="9.427"><failure message="AssertionError: assert {'policy': {'...sed of?', ...} == {'policy': {'...sed of?', ...}&#10;  &#10;  Omitting 17 identical items, use -vv to show&#10;  Differing items:&#10;  {'cache_enabled': False} != {'cache_enabled': True}&#10;  Use -v to get more diff">tests/test_answer_cache.py:168: in test_repeat_reuses_supported_context_with_new_delivery_and_zero_new_inference
+    assert cold_trace.data.spans[0].attributes["text_pipeline"] == original["text_pipeline"]
+E   AssertionError: assert {'policy': {'...sed of?', ...} == {'policy': {'...sed of?', ...}
+E     
+E     Omitting 17 identical items, use -vv to show
+E     Differing items:
+E     {'cache_enabled': False} != {'cache_enabled': True}
+E     Use -v to get more diff</failure></testcase><testcase classname="tests.test_answer_cache" name="test_whitespace_repeat_reuses_but_meaningful_near_misses_generate_separately" time="13.143" /></testsuite></testsuites>

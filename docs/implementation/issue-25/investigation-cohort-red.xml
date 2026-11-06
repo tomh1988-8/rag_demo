@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="utf-8"?><testsuites name="pytest tests"><testsuite name="pytest" errors="0" failures="1" skipped="0" tests="1" time="19.723" timestamp="2026-11-06T12:49:19.833321+00:00" hostname="tom-Latitude-3510"><testcase classname="tests.test_online_routes" name="test_graph_and_investigation_assessments_preserve_the_actual_route_evidence" time="18.463"><failure message="AssertionError: assert {'other': 3} == {'fresh_gener...1, 'other': 2}&#10;  &#10;  Differing items:&#10;  {'other': 3} != {'other': 2}&#10;  Right contains 1 more item:&#10;  {'fresh_generation': 1}&#10;  Use -v to get more diff">tests/test_online_routes.py:83: in test_graph_and_investigation_assessments_preserve_the_actual_route_evidence
+    assert {
+E   AssertionError: assert {'other': 3} == {'fresh_gener...1, 'other': 2}
+E     
+E     Differing items:
+E     {'other': 3} != {'other': 2}
+E     Right contains 1 more item:
+E     {'fresh_generation': 1}
+E     Use -v to get more diff</failure></testcase></testsuite></testsuites>

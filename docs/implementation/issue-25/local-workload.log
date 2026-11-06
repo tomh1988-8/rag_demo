@@ -1,0 +1,10 @@
+2026/11/06 12:58:13 INFO mlflow.store.db.utils: Creating initial MLflow database tables...
+2026/11/06 12:58:13 INFO mlflow.store.db.utils: Updating database tables
+12:58:17.028 | INFO    | prefect - Starting temporary server on http://127.0.0.1:8131
+See https://docs.prefect.io/v3/concepts/server#how-to-guides for more information on running a dedicated Prefect server.
+Workload stopped; preserve captured outcomes and investigate before retrying.
+12:58:30.845 | INFO    | Flow run 'hissing-fulmar' - Beginning flow run 'hissing-fulmar' for flow 'ask-phil-online-evaluation'
+12:58:31.886 | INFO    | Flow run 'hissing-fulmar' - Finished in state Completed()
+Capture stopped; retain outcomes and investigate without replay.
+2026/11/06 12:58:31 INFO mlflow.tracing.export.async_export_queue: Flushing the async trace logging queue before program exit. This may take a while...
+12:58:32.231 | INFO    | prefect - Stopping temporary server on http://127.0.0.1:8131

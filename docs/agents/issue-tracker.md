@@ -11,6 +11,33 @@ commands so they work even without a configured Git remote.
 
 ## Current Ask Phil handoff
 
+**Issue #25 is implemented and validated; final publication/tracker readback is pending.**
+[Evidence](../implementation/issue-25/README.md) records 765 passing native tests,
+12 Docker contracts, strict mypy across 192 files and zero remaining findings on
+both independent review axes. PostgreSQL exact reuse, versioned invalidation,
+new delivery identities and original-context feedback/evaluation execute through
+the confirmed public seams.
+
+The local workload has 7 deliveries: 6 eligible, 4 hits, 2 misses and one clarification
+bypass. Cold/warm mean end-to-end latency is 108.63 s / 1.56 s. All six factual reply
+texts are source-supported, while first-person style fails 6/6 and qualification
+type fails 3/6. Keep those failures for #21; no cloud/held-out or complete-output
+quality acceptance is claimed. Seven automatic code assessments complete; semantic
+live assessments remain unscored. Three UUID origin groups include only two model
+generations plus one deterministic clarification.
+
+The proposed paid OpenRouter capture was automatically rejected before execution
+for lack of authorization for the specific payload/destination/spend. The safer local
+run leaves the non-resetting $5 ledger at **$1.137848**, zero unsettled reservations.
+Preserve all 101 starting data files and the user's existing workspace/private inputs.
+Do not repeat recorded inference for publication. Register counts remain 44 Pass / 7 Pending.
+
+**#21 is next** once #25 publication and closure are verified. Wait for the user's
+next implementation instruction before starting another issue. #26 is open without
+a ready-for-agent label and is not the current ready dependency frontier.
+
+### Prior issue #18 handoff
+
 **Issue #18 is complete and closed after finishing the previously omitted runs**,
 with [verified publication](https://github.com/tomh1988-8/rag_demo/commit/51f43ce3622a868f9b277312da42bc1b0f8045da).
 [The corrected receipt](../implementation/issue-18/publication-v2.json) records

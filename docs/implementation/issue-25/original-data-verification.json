@@ -1,0 +1,510 @@
+{
+  "base_revision": "1fefa2f0d3c7a7f1da9978bed995f1e93c13ccb6",
+  "files": [
+    {
+      "path": "data/coverage/core-v1/alfie-moon-reference.json",
+      "sha256": "09af3d296b674e7b67db207f70863a9143ced7fd232f70012bc71720ebac3dc7",
+      "matches_starting_commit": true
+    },
+    {
+      "path": "data/coverage/core-v1/alfie-moon-source.json",
+      "sha256": "06dba040a5a8f897a7d42f98f7b0a2f47a58bedd6c46991e0b589465deb3b47c",
+      "matches_starting_commit": true
+    },
+    {
+      "path": "data/coverage/core-v1/ben-mitchell-reference.json",
+      "sha256": "60fe521fe242fd1af8a8adee147fe12553352dad43cd76ceafce688b49264139",
+      "matches_starting_commit": true
+    },
+    {
+      "path": "data/coverage/core-v1/ben-mitchell-source.json",
+      "sha256": "49ffa95fa557f0ae6ad3897320376eee9fffdd1e3d1e106a471f12acc481fd17",
+      "matches_starting_commit": true
+    },
+    {
+      "path": "data/coverage/core-v1/bobby-beale-reference.json",
+      "sha256": "fe012b69cff8e0fc70a05a181a83b62b8e94446f31bd3af8dc6fee2f285a85bd",
+      "matches_starting_commit": true
+    },
+    {
+      "path": "data/coverage/core-v1/bobby-beale-source.json",
+      "sha256": "0e11a5a20c57c4c5ccf34539da7bbb214ab039901ba018853e6e282a971c12e9",
+      "matches_starting_commit": true
+    },
+    {
+      "path": "data/coverage/core-v1/cindy-beale-reference.json",
+      "sha256": "01f3eb63fa7ce488878da7a2942141eaff5df21cfcd7719c8311fae3dfbe3863",
+      "matches_starting_commit": true
+    },
+    {
+      "path": "data/coverage/core-v1/cindy-beale-source.json",
+      "sha256": "876e32a38115fc9715b1be41e80052788e11348931b67c1b296d54b0883f9a22",
+      "matches_starting_commit": true
+    },
+    {
+      "path": "data/coverage/core-v1/denise-fox-reference.json",
+      "sha256": "5fdcc355409513d42aa02c9807018e18a0ac9e035c5c4672945be12b15eed7b5",
+      "matches_starting_commit": true
+    },
+    {
+      "path": "data/coverage/core-v1/denise-fox-source.json",
+      "sha256": "ee391cedb015b99e4953e89ac00c3a35b13edb82c3fec8b85562601eb77b448b",
+      "matches_starting_commit": true
+    },
+    {
+      "path": "data/coverage/core-v1/dot-cotton-reference.json",
+      "sha256": "b527a0f60f346cf33f38616ff94dcabab27e21f42ed0c3b9703daccb7e1d8861",
+      "matches_starting_commit": true
+    },
+    {
+      "path": "data/coverage/core-v1/dot-cotton-source.json",
+      "sha256": "db284096398f4dfb36d0c4832690e654f723c2005ac458d227cc1b76e4390c5e",
+      "matches_starting_commit": true
+    },
+    {
+      "path": "data/coverage/core-v1/grant-abuse-reference.json",
+      "sha256": "36b3149e5d216be11fc9308c6df273385cfd1ceb7f034e47cdb32ae2ea96b043",
+      "matches_starting_commit": true
+    },
+    {
+      "path": "data/coverage/core-v1/grant-abuse-source.json",
+      "sha256": "be2d500b53faaa240d20f35dc291ee87ceed2a48b9bb22a509596b6c2eef2e7e",
+      "matches_starting_commit": true
+    },
+    {
+      "path": "data/coverage/core-v1/grant-mitchell-reference.json",
+      "sha256": "bf7f87e9eb4ec9c5925b6dc191affb6fb5e9e77b71eafcf153b5efc326e5da1c",
+      "matches_starting_commit": true
+    },
+    {
+      "path": "data/coverage/core-v1/grant-mitchell-source.json",
+      "sha256": "355e22b21029c81a7508d6a13a9fda58c02f9fd0c74662f8b0f52d990abb0d34",
+      "matches_starting_commit": true
+    },
+    {
+      "path": "data/coverage/core-v1/ian-beale-reference.json",
+      "sha256": "080f48c3d705df7516da26242b7f7afba35423c6ccaec0ae023e504d00f374b8",
+      "matches_starting_commit": true
+    },
+    {
+      "path": "data/coverage/core-v1/ian-beale-source.json",
+      "sha256": "529bc1947f0380d3306dc7cde1f476066d06ce56ceaa870e200514bad0f14d09",
+      "matches_starting_commit": true
+    },
+    {
+      "path": "data/coverage/core-v1/janine-butcher-reference.json",
+      "sha256": "a933913351db9702da2fa22dcf63004f0187e55fc90a2c21a04804ec4cd5c16e",
+      "matches_starting_commit": true
+    },
+    {
+      "path": "data/coverage/core-v1/janine-butcher-source.json",
+      "sha256": "e3ac9db95d3c3ecf489e98744f9c7a9b065e8b63de0ec272d797c0d80442908b",
+      "matches_starting_commit": true
+    },
+    {
+      "path": "data/coverage/core-v1/kat-slater-reference.json",
+      "sha256": "549432ca10d18a8183d24f8ef70853499232e63ac67aa4578a4d7e5a5eb7f8cd",
+      "matches_starting_commit": true
+    },
+    {
+      "path": "data/coverage/core-v1/kat-slater-source.json",
+      "sha256": "e4a3a9ef4ccbeb1281a6a36dde7b54cb4cec8b012501d82cb0d6688e50f4f675",
+      "matches_starting_commit": true
+    },
+    {
+      "path": "data/coverage/core-v1/kathy-beale-reference.json",
+      "sha256": "251c8b306911f82a0e8c7b1623e983835d67d55ac22fbc6e1d7f24031fd0fd46",
+      "matches_starting_commit": true
+    },
+    {
+      "path": "data/coverage/core-v1/kathy-beale-source.json",
+      "sha256": "a497545ebbe77c7498b9a5efaf0e1afe4d0584ff3c1cc374457529ac8d9019da",
+      "matches_starting_commit": true
+    },
+    {
+      "path": "data/coverage/core-v1/linda-carter-reference.json",
+      "sha256": "a058031a676a1bff39f22995d17378b43f232d63f73056066b281963c046c894",
+      "matches_starting_commit": true
+    },
+    {
+      "path": "data/coverage/core-v1/linda-carter-source.json",
+      "sha256": "db50a7a4162649dbd118c950014c345225cb055a2774a0a409c42f351e52b03f",
+      "matches_starting_commit": true
+    },
+    {
+      "path": "data/coverage/core-v1/lucy-beale-reference.json",
+      "sha256": "6dcd9100ba41d2b9b6b10ff234f20727528e7f747f03161908ba97f37f616b59",
+      "matches_starting_commit": true
+    },
+    {
+      "path": "data/coverage/core-v1/lucy-beale-source.json",
+      "sha256": "8ca93342b5109a4d3b71c4eb95d447f67e7216a2a26735c78efa91e15c68ae65",
+      "matches_starting_commit": true
+    },
+    {
+      "path": "data/coverage/core-v1/martin-fowler-reference.json",
+      "sha256": "0d73cd1bf4affb3ca8d7616159824695c7badc00be6dfce36e385365a2c2dbfe",
+      "matches_starting_commit": true
+    },
+    {
+      "path": "data/coverage/core-v1/martin-fowler-source.json",
+      "sha256": "55bc0bc98fd4005d0420834aea25f8c77748dfd9c1940abffad28170d38f5a6e",
+      "matches_starting_commit": true
+    },
+    {
+      "path": "data/coverage/core-v1/max-branning-reference.json",
+      "sha256": "6af364658ab407072bac042fd07991242b5d78a4789a378400681f0ce4a28bfe",
+      "matches_starting_commit": true
+    },
+    {
+      "path": "data/coverage/core-v1/max-branning-source.json",
+      "sha256": "feba2a886aa50911937e1dac813e88a648d58946d996ba83d3dbf36fb57f6e81",
+      "matches_starting_commit": true
+    },
+    {
+      "path": "data/coverage/core-v1/pat-butcher-reference.json",
+      "sha256": "db84b72e22e783975c630dd6df1a9a7092e4ac096de103f4c5d9b1bc45471853",
+      "matches_starting_commit": true
+    },
+    {
+      "path": "data/coverage/core-v1/pat-butcher-source.json",
+      "sha256": "94301df6482ee8a5b5b0e18b6e64b3b5a16bd64416c8e7fe9385cb8a945aaeaa",
+      "matches_starting_commit": true
+    },
+    {
+      "path": "data/coverage/core-v1/peggy-mitchell-reference.json",
+      "sha256": "f25f58f2c042c55f9db4856f02ea51623860b6d6ea01689ac23d3489e40c500e",
+      "matches_starting_commit": true
+    },
+    {
+      "path": "data/coverage/core-v1/peggy-mitchell-source.json",
+      "sha256": "7cd1059e7ea3697d517e728743e4a5fc4e5b410044135b8a829097ddd75bfb86",
+      "matches_starting_commit": true
+    },
+    {
+      "path": "data/coverage/core-v1/phil-mitchell-reference.json",
+      "sha256": "81db6d6e634ee50d66f1adb6292e943b8e4d011f452dd522a75723de512d7305",
+      "matches_starting_commit": true
+    },
+    {
+      "path": "data/coverage/core-v1/phil-mitchell-source.json",
+      "sha256": "49a34cf133e6d84f6df436201631586b5320b6e02075371493ce82f7d77f46c5",
+      "matches_starting_commit": true
+    },
+    {
+      "path": "data/coverage/core-v1/phil-tape-reference.json",
+      "sha256": "088326b5f35ddb7efedeb6f8f89199d4ca36206303a9860562538e441bf27a21",
+      "matches_starting_commit": true
+    },
+    {
+      "path": "data/coverage/core-v1/phil-tape-source.json",
+      "sha256": "24d2e7092c82331986a6b8eb2bd951a47a1d1ce0e6602c8fec53dcab2eba125a",
+      "matches_starting_commit": true
+    },
+    {
+      "path": "data/coverage/core-v1/plan.json",
+      "sha256": "16bd084f870d152d269ae65f05a3165e11d9d7561b95e1da169c4231ab8584b5",
+      "matches_starting_commit": true
+    },
+    {
+      "path": "data/coverage/core-v1/sharon-watts-reference.json",
+      "sha256": "f44a772e7bd7f6dd5152acce3da67307b9a13e1d2c972d2a34b68313a8f497ba",
+      "matches_starting_commit": true
+    },
+    {
+      "path": "data/coverage/core-v1/sharon-watts-source.json",
+      "sha256": "098825a826f6930bc9b33ef3cb270290736bf11a8369c784f4dc83009926bf8c",
+      "matches_starting_commit": true
+    },
+    {
+      "path": "data/coverage/core-v1/stacey-slater-reference.json",
+      "sha256": "5acc0b8db59ec8dba968026e3c7a46f9fc03e11b9c69eaa5219a41ceb6252099",
+      "matches_starting_commit": true
+    },
+    {
+      "path": "data/coverage/core-v1/stacey-slater-source.json",
+      "sha256": "ef69079bc28985b7425319de40993b51c30cc7d2cf4303845d6a6193f3e8f7d1",
+      "matches_starting_commit": true
+    },
+    {
+      "path": "data/references/answer-policy-regressions-v1.json",
+      "sha256": "d54c0d0e6495e37ebcadcdb3ad8eb25cb8ab28c0e812da3755482a6bea5e569b",
+      "matches_starting_commit": true
+    },
+    {
+      "path": "data/references/answer-policy-regressions-v2.json",
+      "sha256": "a8974cdae1eed084ee6398540de304c9d57ff0c2b0cb6971877037127aa469eb",
+      "matches_starting_commit": true
+    },
+    {
+      "path": "data/references/answer-policy-v1.json",
+      "sha256": "131c84ceafa7c730c5854f220a6b28b3441a40aa3cd0c657363c315ad73ae4f9",
+      "matches_starting_commit": true
+    },
+    {
+      "path": "data/references/answer-policy-v2.json",
+      "sha256": "6e5d81207393ec8c2b324ed790133432c5d8dac6ccdaeb8b63ce1b939fa7e8e7",
+      "matches_starting_commit": true
+    },
+    {
+      "path": "data/references/connections-v1.json",
+      "sha256": "51ed3a8d417aea0773a02eec5a554fd41ba2cbef62e118008a48227451806123",
+      "matches_starting_commit": true
+    },
+    {
+      "path": "data/references/conversation-v1.json",
+      "sha256": "71e6bfa28f8c09bd0a79bacf617d577bf93ffc868b42539de9f27d87fe73958d",
+      "matches_starting_commit": true
+    },
+    {
+      "path": "data/references/core-graph-questions-v1.json",
+      "sha256": "6db0b69c028d8b51325b050fcc713c3f68f6cbb33b8cc68b6f2fbfa07fd361aa",
+      "matches_starting_commit": true
+    },
+    {
+      "path": "data/references/core-graph-questions-v2.json",
+      "sha256": "f733a80020452fd5498264a7fc74e0912cc3075972b2423da99f6081af35fd6b",
+      "matches_starting_commit": true
+    },
+    {
+      "path": "data/references/core-graph-text-v1.json",
+      "sha256": "cfdfb97ef0dd8abc1b53a4a13a36bd190289181176df3ca1706b46c6ab9915e2",
+      "matches_starting_commit": true
+    },
+    {
+      "path": "data/references/core-graph-v1.json",
+      "sha256": "56275247f9cf2976827f1fd6d9df6ae7682c73da343bc615b819e3f22a7571bb",
+      "matches_starting_commit": true
+    },
+    {
+      "path": "data/references/core-profiles-v1.json",
+      "sha256": "8127346fb4e31f9bb844b6bf2f6c447655ee0c40d61e86e8715636588538ab5e",
+      "matches_starting_commit": true
+    },
+    {
+      "path": "data/references/core-profiles-v2.json",
+      "sha256": "c0a08239b5b01eafdc37fdf4b11632e57990d21327da2caf17eb2226e26d55c4",
+      "matches_starting_commit": true
+    },
+    {
+      "path": "data/references/crime-justice-v1.json",
+      "sha256": "2f9173bd23dbd99b7b4848479315e64d177d2f59fae51172e51c7b57b0d21a77",
+      "matches_starting_commit": true
+    },
+    {
+      "path": "data/references/crime-justice-v2.json",
+      "sha256": "9dca294792ccb1cd83cb950cf9b0a8dd7d03f19b6162d833cbf3bd3ecbf351ae",
+      "matches_starting_commit": true
+    },
+    {
+      "path": "data/references/investigation-v1.json",
+      "sha256": "86b81cc9595a8a40c7e78e95fdf1f9c956bb0de35f0b7424d3e832470f9addae",
+      "matches_starting_commit": true
+    },
+    {
+      "path": "data/references/life-events-v1.json",
+      "sha256": "10eb79db7ea4a6916113506a0d84c6b274dc07cc15e6d528b53f2f621659c3b0",
+      "matches_starting_commit": true
+    },
+    {
+      "path": "data/references/life-text-v1.json",
+      "sha256": "081b3a0a147412bf05c284ed5a311d8c0aaba9a89dbdc08fec6e3c7dc9188f4b",
+      "matches_starting_commit": true
+    },
+    {
+      "path": "data/references/online-phil-arrival-regression-v1.json",
+      "sha256": "9da530c8f9458ec29a5ef24580d2f335150aef832511ac1c7651e54e619a6b31",
+      "matches_starting_commit": true
+    },
+    {
+      "path": "data/references/online-phil-arrival-regression-v1.lineage.json",
+      "sha256": "fce1770def361dfcaedf50f1257f094d1ef300ad386d75a9c2dfc06a18e3876f",
+      "matches_starting_commit": true
+    },
+    {
+      "path": "data/references/online-support-scope-v1.json",
+      "sha256": "a560e4a156e8ea8a9006165cb82b782c287f0c7ce8288fb985adccb296e0d708",
+      "matches_starting_commit": true
+    },
+    {
+      "path": "data/references/parentage-v1.json",
+      "sha256": "7f200f7d38c09c66fc2039288180db7f98c8cd2a130672abcfef165f8c8b777e",
+      "matches_starting_commit": true
+    },
+    {
+      "path": "data/references/persona-v1.json",
+      "sha256": "81d1e8ed4ea6b76122bb03228f17fd899fa7a2a4814216645d28bcaf482cf9b2",
+      "matches_starting_commit": true
+    },
+    {
+      "path": "data/references/phil-arrival-rag-v1.json",
+      "sha256": "a19df8459191b27e355f246afeab3640d2f3086424d4e2deeb88494f8a0840aa",
+      "matches_starting_commit": true
+    },
+    {
+      "path": "data/references/phil-arrival-v1.json",
+      "sha256": "0afb6859fbb655f42b7b5c0756f3f07f9895027c69536c95369d642cece519de",
+      "matches_starting_commit": true
+    },
+    {
+      "path": "data/references/quality-comparison-v1.json",
+      "sha256": "dfc4e22247cef79faea55ebfca325239cfcef0c4fba0f4ddc21be5503bd8bcf1",
+      "matches_starting_commit": true
+    },
+    {
+      "path": "data/references/quality-scorer-contracts-v1.json",
+      "sha256": "430fee618c6fcb8cce661ab818474ddf059fc4da5f9897d5d0392ceda12fb1ca",
+      "matches_starting_commit": true
+    },
+    {
+      "path": "data/references/relationships-v1.json",
+      "sha256": "3bfa591869c680ae3c928326509d249350ff4e8b820a8fdecb9561624b04fed2",
+      "matches_starting_commit": true
+    },
+    {
+      "path": "data/references/relationships-v2.json",
+      "sha256": "09c258dfb092b7f85672d6c77a749cf5bb6994ffa7f4916078ed688d2807caf8",
+      "matches_starting_commit": true
+    },
+    {
+      "path": "data/references/routing-ordered-v1.json",
+      "sha256": "d4244ff5c41c96174bb20dca06d5d5dc5d36fbb1d3c2fa60b45f1a184cc8427b",
+      "matches_starting_commit": true
+    },
+    {
+      "path": "data/references/routing-ordered-v2.json",
+      "sha256": "054580d741dcfb8007a62b4d8c55d18120a089ece32023e3f5a96ec813bb353e",
+      "matches_starting_commit": true
+    },
+    {
+      "path": "data/references/routing-v1.json",
+      "sha256": "369a4194ef9f2c5ee229ba7666d30215e07f5a85a527b443f616f1a09151c0d5",
+      "matches_starting_commit": true
+    },
+    {
+      "path": "data/references/source-ingestion-v1.json",
+      "sha256": "1bb00dc59f4b4f34c57a12453dc7135fb7f589dd2c258a876b54ae174a43f86b",
+      "matches_starting_commit": true
+    },
+    {
+      "path": "data/references/support-judge-v1.json",
+      "sha256": "5b7cab78ae1cd8b125e2e90ad8f65b7f787fc99b437853aab76092533c049f89",
+      "matches_starting_commit": true
+    },
+    {
+      "path": "data/references/text-fusion-v1.json",
+      "sha256": "41d57483fb046937af046dfc45bc698238b7a18d11d1de503717eb893f4acd89",
+      "matches_starting_commit": true
+    },
+    {
+      "path": "data/seed/README.md",
+      "sha256": "c595b5de07bb90adb95726dbec35796e1531d9c5d0d8bed29d49ce04a08f58ee",
+      "matches_starting_commit": true
+    },
+    {
+      "path": "data/seed/connections-pilot-v1.json",
+      "sha256": "52059b75376a5e0c82116285eb3fee592c9f3139dbadd336d0f35713ea82402b",
+      "matches_starting_commit": true
+    },
+    {
+      "path": "data/seed/context-fit-legacy-v1.json",
+      "sha256": "e4ab629482f779302dcd05d1aa22d71402bfcca27fe0860fcaab1535452c8973",
+      "matches_starting_commit": true
+    },
+    {
+      "path": "data/seed/crime-pilot-v1.json",
+      "sha256": "31102817a98b3747ef42b64b89ce1a1c455204be79e817d0efda803963589bfd",
+      "matches_starting_commit": true
+    },
+    {
+      "path": "data/seed/family-pilot-v1.json",
+      "sha256": "01273598d2cc36c5012a7813d86b57a35350f7ab66210dc14b3a22fbf5c46cd2",
+      "matches_starting_commit": true
+    },
+    {
+      "path": "data/seed/life-events-pilot-v1.json",
+      "sha256": "05aa486d0002372e6ccf2788bb44aaef1361a20ec6d7d7401097c79725f70d72",
+      "matches_starting_commit": true
+    },
+    {
+      "path": "data/seed/persona/crash-v1.json",
+      "sha256": "207923ac668c47950b0a1f3f36649c2dafff51ac779e65fdc2475b97b4d88a29",
+      "matches_starting_commit": true
+    },
+    {
+      "path": "data/seed/persona/lucy-v1.json",
+      "sha256": "9324228e3aea0bf0166ccc7182fa0a61c2c1e2affd8d9030b95d23a986fe4e3f",
+      "matches_starting_commit": true
+    },
+    {
+      "path": "data/seed/persona/self-interest-v1.json",
+      "sha256": "e30a3464876e8ecbca8e39919e15eb6fa0a1f9a97e1b0b610a075daf281e903c",
+      "matches_starting_commit": true
+    },
+    {
+      "path": "data/seed/persona/stella-v1.json",
+      "sha256": "2f7d92a7efca26ed85069ef9b2067be17769181639c9f565463eb5cf28d7a3a2",
+      "matches_starting_commit": true
+    },
+    {
+      "path": "data/seed/phil-arrival-v1.json",
+      "sha256": "7ee9a1c5676adbdfbb4a38ffebad5a5d01a118d09f1ed43d0d8297edb8e25fc0",
+      "matches_starting_commit": true
+    },
+    {
+      "path": "data/seed/policy/conflict-v1.json",
+      "sha256": "ac4b18ed9c5c5dd6f894215754e9b53f0b9f3c3c7ebe4f94f9a96dd282082b8e",
+      "matches_starting_commit": true
+    },
+    {
+      "path": "data/seed/policy/negative-v1.json",
+      "sha256": "def36c8d8f48e15d39612a96ccec835ae8cbabdfbdf3911ae5a735cc0eb0c682",
+      "matches_starting_commit": true
+    },
+    {
+      "path": "data/seed/policy/no-context-v1.json",
+      "sha256": "f860bbbb538dfec96fd4839eb774e2e202a5f9ee20140398e541a39a017b428a",
+      "matches_starting_commit": true
+    },
+    {
+      "path": "data/seed/policy/timing-v1.json",
+      "sha256": "9607bdab2788de3693366fb765173ce2c8fdafaf0fcd76490bcf16a8ead1e2cc",
+      "matches_starting_commit": true
+    },
+    {
+      "path": "data/seed/relationship-pilot-v1.json",
+      "sha256": "7777a1d1e669241dc811b495310b23d575e6f1ed9b4d89cb1c60bd4cc1aefb9f",
+      "matches_starting_commit": true
+    },
+    {
+      "path": "data/sources/README.md",
+      "sha256": "de84fd8297548690dd013c0c2d0631a0ab42eb2df41e6f0df8b30aee9736f16c",
+      "matches_starting_commit": true
+    },
+    {
+      "path": "data/sources/core-profiles-plan-v1.json",
+      "sha256": "839c60b18868cc895a755198168ae9f0ec62611e5e67466c7f45399c6232fe83",
+      "matches_starting_commit": true
+    },
+    {
+      "path": "data/sources/core-profiles-plan-v2.json",
+      "sha256": "090c81e429393683ee785c2dbe485264c384fec91e4338f0a37ff574c9076bef",
+      "matches_starting_commit": true
+    },
+    {
+      "path": "data/sources/core-profiles-v2.json.gz",
+      "sha256": "1cebb5169b4f36b12f900e3d73f43b4c483c6903b02a566c8f8dee96e5eba457",
+      "matches_starting_commit": true
+    },
+    {
+      "path": "data/sources/real-sources-plan-v1.json",
+      "sha256": "f26d1b1c409e5e27e0d603cd22128e013939c7869255fff6b6e921c3a9d220b5",
+      "matches_starting_commit": true
+    },
+    {
+      "path": "data/sources/real-sources-v1.json.gz",
+      "sha256": "bfcaae65ecd30c4ebee805a71d02910ce85db636aa0d5f1ef2a08368a06eb76a",
+      "matches_starting_commit": true
+    }
+  ]
+}

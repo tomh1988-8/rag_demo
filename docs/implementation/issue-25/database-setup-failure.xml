@@ -1,0 +1,235 @@
+<?xml version="1.0" encoding="utf-8"?><testsuites name="pytest tests"><testsuite name="pytest" errors="1" failures="0" skipped="0" tests="1" time="0.765" timestamp="2026-11-06T12:11:33.056653+00:00" hostname="tom-Latitude-3510"><testcase classname="tests.test_answer_cache" name="test_repeat_reuses_supported_context_with_new_delivery_and_zero_new_inference" time="0.240"><error message="failed on setup with &quot;sqlalchemy.exc.NotSupportedError: (psycopg.errors.FeatureNotSupported) extension &quot;vector&quot; is not available&#10;HINT:  The extension must first be installed on the system where PostgreSQL is running.&#10;[SQL: CREATE EXTENSION IF NOT EXISTS vector]&#10;(Background on this error at: https://sqlalche.me/e/20/tw8g)&quot;">self = &lt;sqlalchemy.engine.base.Connection object at 0x70fea02d3050&gt;
+dialect = &lt;sqlalchemy.dialects.postgresql.psycopg.PGDialect_psycopg object at 0x70fea02d10d0&gt;
+context = &lt;sqlalchemy.dialects.postgresql.psycopg.PGExecutionContext_psycopg object at 0x70fea02d3980&gt;
+statement = &lt;sqlalchemy.dialects.postgresql.psycopg.PGCompiler_psycopg object at 0x70fea02d3d70&gt;
+parameters = [{}]
+
+    def _exec_single_context(
+        self,
+        dialect: Dialect,
+        context: ExecutionContext,
+        statement: Union[str, Compiled],
+        parameters: Optional[_AnyMultiExecuteParams],
+    ) -&gt; CursorResult[Any]:
+        """continue the _execute_context() method for a single DBAPI
+        cursor.execute() or cursor.executemany() call.
+    
+        """
+        if dialect.bind_typing is BindTyping.SETINPUTSIZES:
+            generic_setinputsizes = context._prepare_set_input_sizes()
+    
+            if generic_setinputsizes:
+                try:
+                    dialect.do_set_input_sizes(
+                        context.cursor, generic_setinputsizes, context
+                    )
+                except BaseException as e:
+                    self._handle_dbapi_exception(
+                        e, str(statement), parameters, None, context
+                    )
+    
+        cursor, str_statement, parameters = (
+            context.cursor,
+            context.statement,
+            context.parameters,
+        )
+    
+        effective_parameters: Optional[_AnyExecuteParams]
+    
+        if not context.executemany:
+            effective_parameters = parameters[0]
+        else:
+            effective_parameters = parameters
+    
+        if self._has_events or self.engine._has_events:
+            for fn in self.dispatch.before_cursor_execute:
+                str_statement, effective_parameters = fn(
+                    self,
+                    cursor,
+                    str_statement,
+                    effective_parameters,
+                    context,
+                    context.executemany,
+                )
+    
+        if self._echo:
+            self._log_info(str_statement)
+    
+            stats = context._get_cache_stats()
+    
+            if not self.engine.hide_parameters:
+                self._log_info(
+                    "[%s] %r",
+                    stats,
+                    sql_util._repr_params(
+                        effective_parameters,
+                        batches=10,
+                        ismulti=context.executemany,
+                    ),
+                )
+            else:
+                self._log_info(
+                    "[%s] [SQL parameters hidden due to hide_parameters=True]",
+                    stats,
+                )
+    
+        evt_handled: bool = False
+        try:
+            if context.execute_style is ExecuteStyle.EXECUTEMANY:
+                effective_parameters = cast(
+                    "_CoreMultiExecuteParams", effective_parameters
+                )
+                if self.dialect._has_events:
+                    for fn in self.dialect.dispatch.do_executemany:
+                        if fn(
+                            cursor,
+                            str_statement,
+                            effective_parameters,
+                            context,
+                        ):
+                            evt_handled = True
+                            break
+                if not evt_handled:
+                    self.dialect.do_executemany(
+                        cursor,
+                        str_statement,
+                        effective_parameters,
+                        context,
+                    )
+            elif not effective_parameters and context.no_parameters:
+                if self.dialect._has_events:
+                    for fn in self.dialect.dispatch.do_execute_no_params:
+                        if fn(cursor, str_statement, context):
+                            evt_handled = True
+                            break
+                if not evt_handled:
+                    self.dialect.do_execute_no_params(
+                        cursor, str_statement, context
+                    )
+            else:
+                effective_parameters = cast(
+                    "_CoreSingleExecuteParams", effective_parameters
+                )
+                if self.dialect._has_events:
+                    for fn in self.dialect.dispatch.do_execute:
+                        if fn(
+                            cursor,
+                            str_statement,
+                            effective_parameters,
+                            context,
+                        ):
+                            evt_handled = True
+                            break
+                if not evt_handled:
+&gt;                   self.dialect.do_execute(
+                        cursor, str_statement, effective_parameters, context
+                    )
+
+.venv/lib/python3.12/site-packages/sqlalchemy/engine/base.py:1969: 
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ 
+.venv/lib/python3.12/site-packages/sqlalchemy/engine/default.py:952: in do_execute
+    cursor.execute(statement, parameters)
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ 
+
+self = &lt;psycopg.Cursor [closed] [BAD] at 0x70fea0567a10&gt;
+query = 'CREATE EXTENSION IF NOT EXISTS vector', params = {}, prepare = None
+binary = None
+
+    def execute(
+        self,
+        query: Query,
+        params: Params | None = None,
+        *,
+        prepare: bool | None = None,
+        binary: bool | None = None,
+    ) -&gt; Self:
+        """
+        Execute a query or command to the database.
+        """
+        try:
+            with self._conn.lock:
+                self._conn.wait(
+                    self._execute_gen(query, params, prepare=prepare, binary=binary)
+                )
+        except e._NO_TRACEBACK as ex:
+&gt;           raise ex.with_traceback(None)
+E           psycopg.errors.FeatureNotSupported: extension "vector" is not available
+E           HINT:  The extension must first be installed on the system where PostgreSQL is running.
+
+.venv/lib/python3.12/site-packages/psycopg/cursor.py:117: FeatureNotSupported
+
+The above exception was the direct cause of the following exception:
+
+database_url = 'dbname=ask_phil_test_126ca57d68134dbabd51b50730f6be5c'
+window_source = SourceSnapshot(snapshot_id='window-test', fixture_version=1, source=Source(title='Phil Mitchell', url=HttpUrl('https:/...5b77ccdf33f43c32e31941be', scope='other_media', reason='Test spin-off.', linked_titles=()))),), records=(), issues=()))
+cache_models = Models(settings=ModelSettings(embedding_model='test-embedding', embedding_digest='bbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbb..., json_mode=False, additional_kwargs={}, is_function_calling_model=True, keep_alive=None, thinking=None, headers=None))
+tmp_path = PosixPath('/tmp/pytest-of-tom/pytest-43/test_repeat_reuses_supported_c0')
+
+    @pytest.fixture
+    def cache_client(
+        database_url: str, window_source: SourceSnapshot, cache_models: Models, tmp_path: Path
+    ) -&gt; Iterator[TestClient]:
+&gt;       publish(database_url, window_source, cache_models)
+
+tests/test_answer_cache.py:70: 
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ 
+tests/test_investigation_api.py:130: in publish
+    index = TextRetriever(database_url, models.embedding, models.settings.embedding_id, 3).prepare(
+src/ask_phil/retrieval.py:217: in prepare
+    vectors.delete_nodes(filters=self._filter(fingerprint))
+.venv/lib/python3.12/site-packages/llama_index/vector_stores/postgres/base.py:1511: in delete_nodes
+    self._initialize()
+.venv/lib/python3.12/site-packages/llama_index/vector_stores/postgres/base.py:603: in _initialize
+    self._create_extension()
+.venv/lib/python3.12/site-packages/llama_index/vector_stores/postgres/base.py:552: in _create_extension
+    session.execute(statement)
+.venv/lib/python3.12/site-packages/sqlalchemy/orm/session.py:2373: in execute
+    return self._execute_internal(
+.venv/lib/python3.12/site-packages/sqlalchemy/orm/session.py:2280: in _execute_internal
+    result = conn.execute(
+.venv/lib/python3.12/site-packages/sqlalchemy/engine/base.py:1421: in execute
+    return meth(
+.venv/lib/python3.12/site-packages/sqlalchemy/sql/elements.py:526: in _execute_on_connection
+    return connection._execute_clauseelement(
+.venv/lib/python3.12/site-packages/sqlalchemy/engine/base.py:1643: in _execute_clauseelement
+    ret = self._execute_context(
+.venv/lib/python3.12/site-packages/sqlalchemy/engine/base.py:1848: in _execute_context
+    return self._exec_single_context(
+.venv/lib/python3.12/site-packages/sqlalchemy/engine/base.py:1988: in _exec_single_context
+    self._handle_dbapi_exception(
+.venv/lib/python3.12/site-packages/sqlalchemy/engine/base.py:2365: in _handle_dbapi_exception
+    raise sqlalchemy_exception.with_traceback(exc_info[2]) from e
+.venv/lib/python3.12/site-packages/sqlalchemy/engine/base.py:1969: in _exec_single_context
+    self.dialect.do_execute(
+.venv/lib/python3.12/site-packages/sqlalchemy/engine/default.py:952: in do_execute
+    cursor.execute(statement, parameters)
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ 
+
+self = &lt;psycopg.Cursor [closed] [BAD] at 0x70fea0567a10&gt;
+query = 'CREATE EXTENSION IF NOT EXISTS vector', params = {}, prepare = None
+binary = None
+
+    def execute(
+        self,
+        query: Query,
+        params: Params | None = None,
+        *,
+        prepare: bool | None = None,
+        binary: bool | None = None,
+    ) -&gt; Self:
+        """
+        Execute a query or command to the database.
+        """
+        try:
+            with self._conn.lock:
+                self._conn.wait(
+                    self._execute_gen(query, params, prepare=prepare, binary=binary)
+                )
+        except e._NO_TRACEBACK as ex:
+&gt;           raise ex.with_traceback(None)
+E           sqlalchemy.exc.NotSupportedError: (psycopg.errors.FeatureNotSupported) extension "vector" is not available
+E           HINT:  The extension must first be installed on the system where PostgreSQL is running.
+E           [SQL: CREATE EXTENSION IF NOT EXISTS vector]
+E           (Background on this error at: https://sqlalche.me/e/20/tw8g)
+
+.venv/lib/python3.12/site-packages/psycopg/cursor.py:117: NotSupportedError</error></testcase></testsuite></testsuites>

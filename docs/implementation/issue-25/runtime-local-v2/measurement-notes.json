@@ -1,0 +1,22 @@
+{
+  "response_origin_groups": 3,
+  "actual_model_generations": 2,
+  "deterministic_clarification_groups": 1,
+  "paid_api_expense_usd": 0,
+  "hardware_electricity_hosting_cost": null,
+  "source_supported_factual_text": {
+    "passed": 6,
+    "reviewed": 6
+  },
+  "first_person_persona": {
+    "passed": 0,
+    "reviewed": 6,
+    "unique_generation_groups": 2
+  },
+  "qualification_type": {
+    "passed": 3,
+    "reviewed": 6,
+    "failed_unique_generation_groups": 1
+  },
+  "scope": "Cache reuse and answer-text support are distinct from complete output quality. Cold and warm quality failures remain visible."
+}

@@ -1,0 +1,4 @@
+<?xml version="1.0" encoding="utf-8"?><testsuites name="pytest tests"><testsuite name="pytest" errors="0" failures="1" skipped="0" tests="1" time="6.225" timestamp="2026-11-06T12:12:29.235487+00:00" hostname="tom-Latitude-3510"><testcase classname="tests.test_answer_cache" name="test_repeat_reuses_supported_context_with_new_delivery_and_zero_new_inference" time="5.991"><failure message="KeyError: 'cache'">tests/test_answer_cache.py:103: in test_repeat_reuses_supported_context_with_new_delivery_and_zero_new_inference
+    assert original["cache"]["status"] == "miss"
+           ^^^^^^^^^^^^^^^^^
+E   KeyError: 'cache'</failure></testcase></testsuite></testsuites>

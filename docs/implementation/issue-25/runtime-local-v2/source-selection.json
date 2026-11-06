@@ -1,0 +1,75 @@
+{
+  "source_file": "data/sources/core-profiles-v2.json.gz",
+  "source_file_sha256": "1cebb5169b4f36b12f900e3d73f43b4c483c6903b02a566c8f8dee96e5eba457",
+  "source_capture_sha256": "a338d3065203be54e383f2c9c141bca22ae9aedbb950e2e1eada601bcccfe313",
+  "snapshot_id": "cache-phil-development-v1",
+  "snapshot_sha256": "2aa5e7a34c35c3be01871cda969a49f22326fe4132ef3e0a950f5368eefd5391",
+  "original_passages": 93,
+  "selected_passages": [
+    "phil-mitchell-wiki-0018-15527"
+  ],
+  "publication": {
+    "compatibility_id": "389c42ab1b7e236c1dd48e24de08a812d6e3d4936747533859a75a0faa10eba3",
+    "manifest": {
+      "format_version": "source-text-publication-v1",
+      "snapshot_id": "cache-phil-development-v1",
+      "snapshot_sha256": "2aa5e7a34c35c3be01871cda969a49f22326fe4132ef3e0a950f5368eefd5391",
+      "input_sha256": "2aa5e7a34c35c3be01871cda969a49f22326fe4132ef3e0a950f5368eefd5391",
+      "sources": [
+        {
+          "role": "narrative",
+          "license_url": "https://creativecommons.org/licenses/by-sa/4.0/",
+          "attribution": "Wikipedia contributors; markup removed and whitespace normalized.",
+          "source_id": "phil-mitchell-wiki",
+          "url": "https://en.wikipedia.org/wiki/Phil_Mitchell",
+          "revision_id": "1379872347",
+          "captured_at": "2026-10-17T13:07:31.014189Z",
+          "sha256": "a338d3065203be54e383f2c9c141bca22ae9aedbb950e2e1eada601bcccfe313",
+          "paragraphs": 79,
+          "admitted_paragraphs": 51,
+          "excluded_paragraphs": 0,
+          "review_required_paragraphs": 28,
+          "structured_records": 0
+        }
+      ],
+      "index": {
+        "format_version": "pgvector-exact-v1",
+        "snapshot_sha256": "2aa5e7a34c35c3be01871cda969a49f22326fe4132ef3e0a950f5368eefd5391",
+        "embedding_id": "ca378fa1493585d9a05dbc2ed5b01023a944d96bae9a94ec7349ed0dbd2fd7fd",
+        "dimensions": 768,
+        "passages": 1,
+        "artifact_sha256": "f573d963fa7f2593aca9ec8b1bca75adc697f40edfb7ce956fcb3a911bd252db"
+      },
+      "graphs": {
+        "family": null,
+        "relationship": null,
+        "event": null
+      }
+    },
+    "generation": 1,
+    "published_at": "2026-11-06T13:04:07.599351Z"
+  },
+  "application_sha256": "4d964d699c403007ce4e73d1d6ed4c0289234f7694be0d45d581b55311720561",
+  "software_revision": "a7a07802fd326eff284eee1dc26366e256e1b742",
+  "model_settings": {
+    "embedding_model": "embeddinggemma:300m",
+    "embedding_digest": "85462619ee721b466c5927d109d4cb765861907d5417b9109caebc4e614679f1",
+    "embedding_dimensions": 768,
+    "answer_model": "gemma4:e2b-it-qat",
+    "answer_digest": "07ea59a474013479c8b6b802bef095c40e964a1d776ba02f264c0e30e1aede0c",
+    "context_window": 4096,
+    "output_tokens": 512,
+    "temperature": 0.0,
+    "request_timeout_seconds": 180,
+    "seed": 17
+  },
+  "ledger_before": [
+    1.137848,
+    0
+  ],
+  "ledger_after": [
+    1.137848,
+    0
+  ],
+  "limitation": "Two exposed questions in one curated paragraph, not held-out or representative quality/latency acceptance. Local Gemma development inference only; zero external inference calls or paid semantic judgments. Online code checks run automatically. No cloud latency/cost acceptance."
+}

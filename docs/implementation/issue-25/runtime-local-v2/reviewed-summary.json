@@ -1,0 +1,223 @@
+{
+  "version": "cache-workload-v1",
+  "captures_sha256": "948710ede208ca3970a8cdcd036288ca3b696417952affca08e6bba0899b37ef",
+  "reviews_sha256": "04c52c28de5373d6b885ac60283c64499f103695fb060335e437f78faf504461",
+  "all": {
+    "requests": 7,
+    "eligible": 6,
+    "hits": 4,
+    "misses": 2,
+    "bypasses": 1,
+    "eligible_hit_rate": 0.6666666666666666,
+    "all_request_hit_coverage": 0.5714285714285714,
+    "reviewed_hits": 4,
+    "incorrect_hits": 0,
+    "incorrect_reuse_rate": 0.0,
+    "compatibility_checked_hits": 4,
+    "stale_hits": 0,
+    "stale_reuse_rate": 0.0,
+    "support_reviewed": 6,
+    "supported_share": 1.0,
+    "distinct_generations": 3,
+    "cost_usd": 0.0,
+    "known_cost_usd": 0.0,
+    "unknown_cost_requests": 0,
+    "mean_elapsed_ms": 30751.413852714384,
+    "mean_end_to_end_ms": 32142.3336884327,
+    "median_end_to_end_ms": 1557.2357640048722,
+    "p95_end_to_end_ms": 111704.828396003,
+    "interpretation": "Hit rate is hits/eligible requests; coverage is hits/all requests. Incorrect reuse is unsupported/reviewed hits; stale reuse is incompatible/compatibility-checked hits. Support is supported/reviewed deliveries, not independent factual examples. Missing reviews and expense remain unavailable. End-to-end includes transport and response persistence; p95 uses nearest rank. Cold/warm results are workload observations. distinct_generations counts origin UUID groups, including non-generated outcomes; see generation_measurements for actual model calls."
+  },
+  "phases": {
+    "cold": {
+      "requests": 2,
+      "eligible": 2,
+      "hits": 0,
+      "misses": 2,
+      "bypasses": 0,
+      "eligible_hit_rate": 0.0,
+      "all_request_hit_coverage": 0.0,
+      "reviewed_hits": 0,
+      "incorrect_hits": 0,
+      "incorrect_reuse_rate": null,
+      "compatibility_checked_hits": 0,
+      "stale_hits": 0,
+      "stale_reuse_rate": null,
+      "support_reviewed": 2,
+      "supported_share": 1.0,
+      "distinct_generations": 2,
+      "cost_usd": 0.0,
+      "known_cost_usd": 0.0,
+      "unknown_cost_requests": 0,
+      "mean_elapsed_ms": 106727.54721650563,
+      "mean_end_to_end_ms": 108627.87876500079,
+      "median_end_to_end_ms": 108627.87876500079,
+      "p95_end_to_end_ms": 111704.828396003,
+      "interpretation": "Hit rate is hits/eligible requests; coverage is hits/all requests. Incorrect reuse is unsupported/reviewed hits; stale reuse is incompatible/compatibility-checked hits. Support is supported/reviewed deliveries, not independent factual examples. Missing reviews and expense remain unavailable. End-to-end includes transport and response persistence; p95 uses nearest rank. Cold/warm results are workload observations. distinct_generations counts origin UUID groups, including non-generated outcomes; see generation_measurements for actual model calls."
+    },
+    "warm": {
+      "requests": 4,
+      "eligible": 4,
+      "hits": 4,
+      "misses": 0,
+      "bypasses": 0,
+      "eligible_hit_rate": 1.0,
+      "all_request_hit_coverage": 1.0,
+      "reviewed_hits": 4,
+      "incorrect_hits": 0,
+      "incorrect_reuse_rate": 0.0,
+      "compatibility_checked_hits": 4,
+      "stale_hits": 0,
+      "stale_reuse_rate": 0.0,
+      "support_reviewed": 4,
+      "supported_share": 1.0,
+      "distinct_generations": 2,
+      "cost_usd": 0.0,
+      "known_cost_usd": 0.0,
+      "unknown_cost_requests": 0,
+      "mean_elapsed_ms": 376.37938449915964,
+      "mean_end_to_end_ms": 1559.7922575070697,
+      "median_end_to_end_ms": 1548.3527005053475,
+      "p95_end_to_end_ms": 1673.3845520066097,
+      "interpretation": "Hit rate is hits/eligible requests; coverage is hits/all requests. Incorrect reuse is unsupported/reviewed hits; stale reuse is incompatible/compatibility-checked hits. Support is supported/reviewed deliveries, not independent factual examples. Missing reviews and expense remain unavailable. End-to-end includes transport and response persistence; p95 uses nearest rank. Cold/warm results are workload observations. distinct_generations counts origin UUID groups, including non-generated outcomes; see generation_measurements for actual model calls."
+    },
+    "control": {
+      "requests": 1,
+      "eligible": 0,
+      "hits": 0,
+      "misses": 0,
+      "bypasses": 1,
+      "eligible_hit_rate": null,
+      "all_request_hit_coverage": 0.0,
+      "reviewed_hits": 0,
+      "incorrect_hits": 0,
+      "incorrect_reuse_rate": null,
+      "compatibility_checked_hits": 0,
+      "stale_hits": 0,
+      "stale_reuse_rate": null,
+      "support_reviewed": 0,
+      "supported_share": null,
+      "distinct_generations": 1,
+      "cost_usd": 0.0,
+      "known_cost_usd": 0.0,
+      "unknown_cost_requests": 0,
+      "mean_elapsed_ms": 299.2849979927996,
+      "mean_end_to_end_ms": 1501.4092589990469,
+      "median_end_to_end_ms": 1501.4092589990469,
+      "p95_end_to_end_ms": 1501.4092589990469,
+      "interpretation": "Hit rate is hits/eligible requests; coverage is hits/all requests. Incorrect reuse is unsupported/reviewed hits; stale reuse is incompatible/compatibility-checked hits. Support is supported/reviewed deliveries, not independent factual examples. Missing reviews and expense remain unavailable. End-to-end includes transport and response persistence; p95 uses nearest rank. Cold/warm results are workload observations. distinct_generations counts origin UUID groups, including non-generated outcomes; see generation_measurements for actual model calls."
+    }
+  },
+  "cases": {
+    "cold-arrival": {
+      "phase": "cold",
+      "delivery": {
+        "version": "exact-text-cache-v1",
+        "status": "miss",
+        "reason": "absent",
+        "eligible": true
+      },
+      "elapsed_ms": 109715.41942200565,
+      "end_to_end_ms": 111704.828396003,
+      "cost_usd": 0.0,
+      "generation_id": "a96be47d-e16f-4509-94d1-7d23b0a3b370",
+      "supported": true,
+      "compatible": null
+    },
+    "cold-business": {
+      "phase": "cold",
+      "delivery": {
+        "version": "exact-text-cache-v1",
+        "status": "miss",
+        "reason": "absent",
+        "eligible": true
+      },
+      "elapsed_ms": 103739.6750110056,
+      "end_to_end_ms": 105550.92913399858,
+      "cost_usd": 0.0,
+      "generation_id": "db158890-bc3a-44a6-a100-7fc81de312d6",
+      "supported": true,
+      "compatible": null
+    },
+    "warm-arrival-1": {
+      "phase": "warm",
+      "delivery": {
+        "version": "exact-text-cache-v1",
+        "status": "hit",
+        "reason": "compatible_exact_match",
+        "eligible": true
+      },
+      "elapsed_ms": 474.9499330064282,
+      "end_to_end_ms": 1673.3845520066097,
+      "cost_usd": 0.0,
+      "generation_id": "a96be47d-e16f-4509-94d1-7d23b0a3b370",
+      "supported": true,
+      "compatible": true
+    },
+    "warm-business-1": {
+      "phase": "warm",
+      "delivery": {
+        "version": "exact-text-cache-v1",
+        "status": "hit",
+        "reason": "compatible_exact_match",
+        "eligible": true
+      },
+      "elapsed_ms": 360.3348649921827,
+      "end_to_end_ms": 1539.4696370058227,
+      "cost_usd": 0.0,
+      "generation_id": "db158890-bc3a-44a6-a100-7fc81de312d6",
+      "supported": true,
+      "compatible": true
+    },
+    "warm-arrival-2": {
+      "phase": "warm",
+      "delivery": {
+        "version": "exact-text-cache-v1",
+        "status": "hit",
+        "reason": "compatible_exact_match",
+        "eligible": true
+      },
+      "elapsed_ms": 309.7339980013203,
+      "end_to_end_ms": 1469.0790770109743,
+      "cost_usd": 0.0,
+      "generation_id": "a96be47d-e16f-4509-94d1-7d23b0a3b370",
+      "supported": true,
+      "compatible": true
+    },
+    "warm-business-2": {
+      "phase": "warm",
+      "delivery": {
+        "version": "exact-text-cache-v1",
+        "status": "hit",
+        "reason": "compatible_exact_match",
+        "eligible": true
+      },
+      "elapsed_ms": 360.4987419967074,
+      "end_to_end_ms": 1557.2357640048722,
+      "cost_usd": 0.0,
+      "generation_id": "db158890-bc3a-44a6-a100-7fc81de312d6",
+      "supported": true,
+      "compatible": true
+    },
+    "unresolved-session": {
+      "phase": "control",
+      "delivery": {
+        "version": "exact-text-cache-v1",
+        "status": "bypass",
+        "reason": "unresolved_or_contextual_identity",
+        "eligible": false
+      },
+      "elapsed_ms": 299.2849979927996,
+      "end_to_end_ms": 1501.4092589990469,
+      "cost_usd": 0.0,
+      "generation_id": "7621bb2e-3c1e-4e91-89a5-cfcf6ed55c51",
+      "supported": null,
+      "compatible": null
+    }
+  },
+  "generation_measurements": {
+    "new_answer_model_calls": 2,
+    "distinct_reused_generation_ids": 2,
+    "interpretation": "distinct_generations counts supplied origin UUID groups, including non-generated outcomes that use response_id. It is not a count of model calls. New answer-model calls are counted from actual execution receipts."
+  }
+}

@@ -1,0 +1,68 @@
+{
+  "cold-arrival": {
+    "supported": true,
+    "compatible": null,
+    "reviewer": "Codex source-based agent review; no human canon adjudication",
+    "review_note": "The retained arrival paragraph explicitly gives February 1990 and the automobile repair shop known as The Arches. The response asserts only those supported facts. Exact text, original context, source/publication and generation are preserved on hits.",
+    "persona_first_person_pass": false,
+    "persona_note": "The factual reply says Phil Mitchell rather than speaking as Phil with I/me/my; cache deliveries preserve the original defect.",
+    "qualification_type_pass": true
+  },
+  "cold-business": {
+    "supported": true,
+    "compatible": null,
+    "reviewer": "Codex source-based agent review; no human canon adjudication",
+    "review_note": "The retained arrival paragraph explicitly gives February 1990 and the automobile repair shop known as The Arches. The response asserts only those supported facts. Exact text, original context, source/publication and generation are preserved on hits.",
+    "persona_first_person_pass": false,
+    "persona_note": "The factual reply says Phil Mitchell rather than speaking as Phil with I/me/my; cache deliveries preserve the original defect.",
+    "qualification_type_pass": false,
+    "qualification_note": "The explicit_negative kind incorrectly labels the positive statement that the business was an automobile repair shop; source facts are supported, qualification type is wrong."
+  },
+  "warm-arrival-1": {
+    "supported": true,
+    "compatible": true,
+    "reviewer": "Codex source-based agent review; no human canon adjudication",
+    "review_note": "The retained arrival paragraph explicitly gives February 1990 and the automobile repair shop known as The Arches. The response asserts only those supported facts. Exact text, original context, source/publication and generation are preserved on hits.",
+    "persona_first_person_pass": false,
+    "persona_note": "The factual reply says Phil Mitchell rather than speaking as Phil with I/me/my; cache deliveries preserve the original defect.",
+    "qualification_type_pass": true
+  },
+  "warm-business-1": {
+    "supported": true,
+    "compatible": true,
+    "reviewer": "Codex source-based agent review; no human canon adjudication",
+    "review_note": "The retained arrival paragraph explicitly gives February 1990 and the automobile repair shop known as The Arches. The response asserts only those supported facts. Exact text, original context, source/publication and generation are preserved on hits.",
+    "persona_first_person_pass": false,
+    "persona_note": "The factual reply says Phil Mitchell rather than speaking as Phil with I/me/my; cache deliveries preserve the original defect.",
+    "qualification_type_pass": false,
+    "qualification_note": "The explicit_negative kind incorrectly labels the positive statement that the business was an automobile repair shop; source facts are supported, qualification type is wrong."
+  },
+  "warm-arrival-2": {
+    "supported": true,
+    "compatible": true,
+    "reviewer": "Codex source-based agent review; no human canon adjudication",
+    "review_note": "The retained arrival paragraph explicitly gives February 1990 and the automobile repair shop known as The Arches. The response asserts only those supported facts. Exact text, original context, source/publication and generation are preserved on hits.",
+    "persona_first_person_pass": false,
+    "persona_note": "The factual reply says Phil Mitchell rather than speaking as Phil with I/me/my; cache deliveries preserve the original defect.",
+    "qualification_type_pass": true
+  },
+  "warm-business-2": {
+    "supported": true,
+    "compatible": true,
+    "reviewer": "Codex source-based agent review; no human canon adjudication",
+    "review_note": "The retained arrival paragraph explicitly gives February 1990 and the automobile repair shop known as The Arches. The response asserts only those supported facts. Exact text, original context, source/publication and generation are preserved on hits.",
+    "persona_first_person_pass": false,
+    "persona_note": "The factual reply says Phil Mitchell rather than speaking as Phil with I/me/my; cache deliveries preserve the original defect.",
+    "qualification_type_pass": false,
+    "qualification_note": "The explicit_negative kind incorrectly labels the positive statement that the business was an automobile repair shop; source facts are supported, qualification type is wrong."
+  },
+  "unresolved-session": {
+    "supported": null,
+    "compatible": null,
+    "reviewer": "Codex source-based agent review; no human canon adjudication",
+    "review_note": "No factual assertion: the unnamed character remains unresolved and the response asks for a full name.",
+    "persona_first_person_pass": null,
+    "persona_note": "No factual first-person assertion to score.",
+    "qualification_type_pass": null
+  }
+}
