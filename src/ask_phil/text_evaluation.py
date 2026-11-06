@@ -1,12 +1,23 @@
 """Source-span context sufficiency, separate from answer/model-quality review."""
 
 import hashlib
+import json
+from pathlib import Path
 from typing import Self
 
 from pydantic import Field, model_validator
 
+from ask_phil.comparison_capture import ComparisonPlan
 from ask_phil.evidence import Passage, Record, SourceSnapshot
 from ask_phil.source_windows import resolve_span
+
+TEXT_COMPARISON_MODES = ("baseline", "fusion", "expansion", "combined")
+
+
+def text_comparison(references: Path) -> ComparisonPlan:
+    document = json.loads(references.read_bytes())
+    selected = tuple(c["case_id"] for c in document["cases"] if c["split"] == "development")
+    return ComparisonPlan(references, {mode: selected for mode in TEXT_COMPARISON_MODES})
 
 
 class SpanExpectation(Record):

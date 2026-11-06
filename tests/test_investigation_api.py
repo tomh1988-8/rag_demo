@@ -658,7 +658,10 @@ def test_investigation_network_deadline_and_disconnect_cancel_inflight_work(
         models=models,
         tracking_uri=uri,
         execution_limits=ExecutionLimits(
-            model_calls=4, tool_calls=3, seconds=8 if disconnect else 1.2
+            # Include snapshot/tracing setup before the provider holds I/O for 10s.
+            model_calls=4,
+            tool_calls=3,
+            seconds=8 if disconnect else 3,
         ),
     )
     tracking = MlflowClient(tracking_uri=uri)

@@ -51,7 +51,8 @@ def http_server() -> Callable[[ASGIApp], AbstractContextManager[str]]:
                 yield f"http://127.0.0.1:{listener.getsockname()[1]}"
             finally:
                 server.should_exit = True
-                thread.join(timeout=5)
+                # Application shutdown can drain two workers for up to 15s each.
+                thread.join(timeout=35)
                 assert not thread.is_alive(), "Test HTTP server did not stop."
 
     return serve

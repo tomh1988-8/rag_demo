@@ -21,13 +21,12 @@ from ask_phil.answers import (
 from ask_phil.classified_facts import context_for
 from ask_phil.conversation import (
     ConversationReference,
+    ReferenceResolution,
     ReferenceTurn,
     TurnIdentity,
-    resolve_reference,
 )
 from ask_phil.evidence import Passage, Record
 from ask_phil.execution import ExecutionBudget, ExecutionStopped
-from ask_phil.identity import IdentityCatalogue
 from ask_phil.investigation_records import CoveragePart, InvestigationRecord, TextFinding
 from ask_phil.investigation_tools import (
     TOOL_CONTRACT,
@@ -109,7 +108,14 @@ def _qualified_draft(draft: Draft, coverage: tuple[CoveragePart, ...]) -> Draft:
 
 
 class Investigation:
-    def __init__(self, database_url: str, models: Models, pinned: PinnedText) -> None:
+    def __init__(
+        self,
+        database_url: str,
+        models: Models,
+        pinned: PinnedText,
+        *,
+        reference: ReferenceResolution | None,
+    ) -> None:
         if pinned.publication is None:
             raise IndexNotReady("Investigation requires a published source/index/graph snapshot.")
         self.models = models
@@ -117,6 +123,7 @@ class Investigation:
         self.pinned = pinned
         self.snapshot = pinned.snapshot
         self.publication = pinned.publication
+        self.reference = reference
         if models.redact(self.snapshot.model_dump_json()) != self.snapshot.model_dump_json():
             raise ModelConfigurationError("Captured evidence contains unsafe credential text.")
 
@@ -131,18 +138,10 @@ class Investigation:
         initial: AnswerContent | None = None,
     ) -> AnswerContent:
         with self.models.accounting() as accounting:
-            question = request.question
+            question = self.reference.question if turn and self.reference else request.question
             conversation = None
-            if turn:
-                reference = resolve_reference(
-                    question,
-                    self.snapshot.imported.catalogue
-                    if self.snapshot.imported
-                    else IdentityCatalogue(characters=()),
-                    history,
-                )
-                conversation = ConversationReference(**turn.model_dump(), reference=reference)
-                question = reference.question
+            if turn and self.reference:
+                conversation = ConversationReference(**turn.model_dump(), reference=self.reference)
             root.set_attributes({"prompt": INVESTIGATOR_PROMPT, "tool_contract": TOOL_CONTRACT})
             tools = InvestigationTools(self.database_url, self.pinned, budget)
             if initial is not None:
@@ -163,9 +162,9 @@ class Investigation:
                 self.pinned.verify()
                 self.models.verify()
                 budget.check()
-                if conversation and conversation.reference.clarification:
+                if turn and self.reference and self.reference.clarification:
                     draft = Draft(
-                        answer=conversation.reference.clarification,
+                        answer=self.reference.clarification,
                         status="clarification",
                         evidence_ids=(),
                         unanswered=("Which character is intended?",),

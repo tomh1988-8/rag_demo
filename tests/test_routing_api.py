@@ -10,6 +10,7 @@ from typing import Any
 import httpx
 import pytest
 from fastapi.testclient import TestClient
+from llama_index.core.llms import ChatMessage
 from llama_index.llms.ollama import Ollama
 from mlflow import MlflowClient
 from ollama import Client
@@ -27,6 +28,94 @@ from ask_phil.text_retrieval import TextPolicy
 
 pytestmark = pytest.mark.integration
 pytest_plugins = ("test_investigation_api",)
+
+
+@pytest.mark.parametrize("escalate", [False, True])
+def test_automatic_followup_retains_the_reviewed_character_reference_across_routes(
+    database_url: str,
+    family_batch: ClaimBatch,
+    investigator_models: Callable[[list[dict[str, Any]]], Models],
+    tmp_path: Path,
+    escalate: bool,
+) -> None:
+    from test_family_graph import install_family
+    from test_investigation_api import decision, finish, publish
+
+    install_family(database_url, family_batch)
+    snapshot = EvidenceStore(database_url).snapshot(family_batch.snapshot_id)
+    draft = finish("Ben Mitchell", "family-ben-birth")["action"]["draft"]
+    draft["answer"] = "Kathy and I are Ben Mitchell's biological parents."
+    question = (
+        "Who are his biological parents and grandmother?" if escalate else "Tell me more about him."
+    )
+    resolved = (
+        "Who are Ben Mitchell's biological parents and grandmother?"
+        if escalate
+        else "Tell me more about Ben Mitchell."
+    )
+    outputs = [draft, draft]
+    if escalate:
+        partial = dict(draft, status="partial", unanswered=["Who is Ben Mitchell's grandmother?"])
+        final = finish(resolved, "family-peggy-phil")
+        final["coverage"][0]["evidence_ids"] = ["family-ben-birth", "family-peggy-phil"]
+        final["action"]["draft"].update(
+            evidence_ids=["family-ben-birth", "family-peggy-phil"],
+            answer="Kathy and I are Ben's biological parents. Peggy is his grandmother.",
+        )
+        outputs = [
+            draft,
+            partial,
+            decision(
+                "family",
+                {"character_id": "ben-mitchell", "direction": "ancestors", "max_depth": 2},
+                resolved,
+            ),
+            final,
+        ]
+    models = investigator_models(outputs)
+    publish(database_url, snapshot, models)
+    tracking_uri = f"sqlite:///{tmp_path}/reference.db"
+    with TestClient(
+        create_app(
+            database_url,
+            models=models,
+            tracking_uri=tracking_uri,
+            text_policy=TextPolicy(per_query_k=1, selected_hits=1),
+            execution_limits=ExecutionLimits(model_calls=6, tool_calls=2, context_bytes=6000),
+        )
+    ) as client:
+        session = client.post("/v1/sessions").json()
+        path = f"/v1/sessions/{session['session']['session_id']}/turns"
+        headers = {"Authorization": "Bearer " + session["session_token"]}
+        first = client.post(path, headers=headers, json={"question": "Tell me about Ben Mitchell."})
+        assert first.status_code == 200, first.text
+        result = client.post(path, headers=headers, json={"question": question})
+        assert result.status_code == 200, result.text
+        receipt = result.json()
+        answer = receipt["response"]
+        assert answer["status"] == "answered"
+        reference = answer["conversation"]["reference"]
+        assert reference["question"] == resolved
+        assert reference["character_ids"] == ["ben-mitchell"]
+        assert reference["clarification"] is None
+        assert answer["question"] == question
+        assert answer["route"] == ("investigation" if escalate else "text_rag")
+        original = client.get(
+            f"/v1/responses/{answer['response_id']}",
+            headers={"Authorization": "Bearer " + receipt["read_token"]},
+        )
+        assert original.json() == answer
+        trace = MlflowClient(tracking_uri=tracking_uri).get_trace(answer["trace_id"], flush=True)
+        assert trace.data.spans[0].outputs == answer
+        if escalate:
+            questions = {
+                json.loads(ChatMessage.model_validate(span.inputs[-1]).content or "")["question"]
+                for span in trace.data.spans
+                if span.name == "investigator_decision"
+            }
+            assert questions == {resolved}
+            ambiguous = client.post(path, headers=headers, json={"question": "When was she born?"})
+            assert ambiguous.json()["response"]["status"] == "clarification"
 
 
 def test_ordered_question_falls_back_when_captured_parent_identities_are_missing(
@@ -431,8 +520,11 @@ def test_empty_eligible_graph_falls_back_to_text_within_the_same_publication(
             execution_limits=ExecutionLimits(model_calls=2, tool_calls=2, context_bytes=6000),
         )
     ) as client:
+        session = client.post("/v1/sessions").json()
         result = client.post(
-            "/v1/answers", json={"question": "How are Kat Slater and Ben Mitchell connected?"}
+            f"/v1/sessions/{session['session']['session_id']}/turns",
+            headers={"Authorization": "Bearer " + session["session_token"]},
+            json={"question": "How are Kat Slater and Ben Mitchell connected?"},
         )
         assert result.status_code == 200, result.text
         answer = result.json()["response"]
@@ -443,6 +535,10 @@ def test_empty_eligible_graph_falls_back_to_text_within_the_same_publication(
         assert "graph_evidence_gap" in {c["reason"] for c in answer["routing"]["checks"]}
         assert answer["execution"]["tool_calls"] == 2
         assert answer["snapshot_sha256"] == connection_snapshot.fingerprint
+        reference = answer["conversation"]["reference"]
+        assert reference["question"] == "How are Kat Slater and Ben Mitchell connected?"
+        assert set(reference["character_ids"]) == {"kat-slater", "ben-mitchell"}
+        assert reference["clarification"] is None
 
 
 def test_automatic_concurrency_is_enforced_in_addition_to_the_shared_serving_limit(

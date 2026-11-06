@@ -132,7 +132,57 @@ class CapturedAnswers:
             raise ValueError("Unknown captured case identifier.")
         if verified and expected is not None and set(identifiers) != expected.keys():
             raise ValueError("Review every declared captured case exactly once.")
-        self.cases: dict[str, dict[str, Any]] = {}
+        self.cases = self._validated_cases(rows, expected, legacy=legacy, verified=verified)
+
+    @classmethod
+    def retained(cls, path: Path, references: Path) -> "CapturedAnswers | None":
+        """Read strictly verified observations from a phase stopped before completion.
+
+        The source journal keeps its failed state. Full-run publication
+        or input-validation failures remain ineligible for this partial read.
+        """
+        document, fingerprint = _read_document(path)
+        if (
+            document.get("recorder_version") != "frozen-evaluation-run-v1"
+            or document.get("state") != "failed"
+        ):
+            return None
+        rows = document["cases"]
+        declared = document["case_ids"]
+        identifiers = [_case_id(row) for row in rows]
+        if len(set(declared)) != len(declared) or identifiers != declared[: len(identifiers)]:
+            raise ValueError("Stopped capture must retain its declared attempt order.")
+        if len(rows) == len(declared) and all(row.get("state") == "complete" for row in rows):
+            return None
+        expected, reference_sha256 = _references(references)
+        if (
+            document.get("reference_file_sha256") != reference_sha256
+            or not set(declared) <= expected.keys()
+        ):
+            raise ValueError("Stopped capture differs from its frozen references.")
+        retained = [
+            row
+            for row in rows
+            if row.get("state") == "complete" and row.get("verification_state") == "complete"
+        ]
+        if not retained:
+            return None
+        captured = cls.__new__(cls)
+        captured.document, captured.fingerprint = document, fingerprint
+        captured.inputs = {path: fingerprint, references: reference_sha256}
+        captured.cases = cls._validated_cases(retained, expected, legacy=False, verified=True)
+        return captured
+
+    @staticmethod
+    def _validated_cases(
+        rows: list[dict[str, Any]],
+        expected: dict[str, dict[str, Any]] | None,
+        *,
+        legacy: bool,
+        verified: bool,
+    ) -> dict[str, dict[str, Any]]:
+        identifiers = [_case_id(row) for row in rows]
+        cases: dict[str, dict[str, Any]] = {}
         for identifier, row in zip(identifiers, rows, strict=True):
             if not legacy and ("case_id" not in row or "reference" not in row):
                 raise ValueError("Recorded cases must retain explicit case and reference identity.")
@@ -171,9 +221,11 @@ class CapturedAnswers:
                 or row.get("trace_response") != response
             ):
                 raise ValueError("Capture verification lacks matching final CLI/trace records.")
-            self.cases[identifier] = {**row, "reference": reference}
-        if not self.cases:
+            cases[identifier] = {**row, "reference": reference}
+        if not cases:
             raise ValueError("Capture has no served responses to review.")
+
+        return cases
 
     def score(self, reviews: Sequence[QualityReview]) -> dict[str, ScoredReview]:
         """Bind exactly one annotation to each usable answer; derive its factual score."""

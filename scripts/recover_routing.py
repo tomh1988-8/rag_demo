@@ -20,6 +20,7 @@ from ask_phil.evaluation import CapturedAnswers, document_fingerprint
 from ask_phil.ingestion import build_snapshot, read_batch
 from ask_phil.openrouter import Budget
 from ask_phil.responses import ResponseLedger
+from ask_phil.routing_evaluation import routing_comparison
 from ask_phil.storage import EvidenceStore
 from scripts.evaluate_investigation import database, serve
 from scripts.evaluate_routing import write
@@ -47,7 +48,7 @@ def recover(
         raise ValueError("Recover only the two interrupted ordered arms.")
     observations: list[dict[str, Any]] = []
     paid = 43
-    with database(admin_url) as verification_url:
+    with routing_comparison(reference_path).record(output), database(admin_url) as verification_url:
         EvidenceStore(verification_url).load(snapshot)
         with (
             psycopg.connect(original_url, connect_timeout=5) as original,

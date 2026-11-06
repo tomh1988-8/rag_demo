@@ -13,7 +13,7 @@ from mlflow import MlflowClient
 from mlflow.entities import MlflowExperimentLocation
 
 from ask_phil.answers import AnswerReceipt, AnswerRecord, AskRequest
-from ask_phil.conversation import ReferenceTurn, TurnIdentity
+from ask_phil.conversation import ReferenceTurn, TurnIdentity, resolve_snapshot_reference
 from ask_phil.execution import ExecutionBudget, ExecutionPolicies
 from ask_phil.family_answering import FamilyAnswer
 from ask_phil.investigation import Investigation
@@ -184,10 +184,15 @@ class AnswerService:
             models, retriever = self._text_resources()
             request = request.model_copy(update={"question": models.redact(request.question)})
             pinned = retriever.pin(request.snapshot_id)
+            reference = (
+                resolve_snapshot_reference(request.question, pinned.snapshot, history)
+                if turn
+                else None
+            )
             route = (
-                Investigation(self.database_url, models, pinned)
+                Investigation(self.database_url, models, pinned, reference=reference)
                 if request.route == "investigation"
-                else TextAnswer(models, pinned, self.text_policy)
+                else TextAnswer(models, pinned, self.text_policy, reference=reference)
             )
         response_id = uuid4()
         experiment_id = experiment_for(self.tracking, category)

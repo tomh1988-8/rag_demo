@@ -1,7 +1,6 @@
 """Capture four capped, uncached text ablations; score source spans separately."""
 
 import argparse
-import gzip
 import hashlib
 import json
 import os
@@ -29,7 +28,6 @@ from psycopg.conninfo import make_conninfo
 from ask_phil.answering import application_fingerprint
 from ask_phil.api import create_app
 from ask_phil.evaluation import (
-    CapturedAnswers,
     EvaluationRun,
     EvaluationTracking,
     RetrievalReference,
@@ -42,11 +40,10 @@ from ask_phil.models import Models
 from ask_phil.openrouter import Budget
 from ask_phil.retrieval import TextRetriever
 from ask_phil.storage import EvidenceStore
-from ask_phil.text_evaluation import SpanExpectation, score_text_context
+from ask_phil.text_evaluation import SpanExpectation, score_text_context, text_comparison
 from ask_phil.text_retrieval import TextPolicy
 
 REFERENCES = Path("data/references/text-fusion-v1.json")
-MODES = ("baseline", "fusion", "expansion", "combined")
 LIMITS = ExecutionLimits(
     model_calls=5,
     tool_calls=3,
@@ -94,6 +91,7 @@ def capture(admin_url: str, output: Path, tracking_uri: str, maximum: Decimal) -
     if output.exists() or not 0 < maximum <= Decimal("0.50"):
         raise ValueError("Choose a fresh output directory and a positive cap no larger than $0.50.")
     reference, snapshot = source()
+    plan = text_comparison(REFERENCES)
     models = Models.from_environment()
     before, unsettled = Budget().summary()
     if unsettled:
@@ -114,7 +112,7 @@ def capture(admin_url: str, output: Path, tracking_uri: str, maximum: Decimal) -
         raise ValueError("The frozen ticket plan requires exactly four development questions.")
     database_name = "ask_phil_fusion_" + uuid4().hex
     tracking = MlflowClient(tracking_uri=tracking_uri)
-    with psycopg.connect(admin_url, autocommit=True) as admin:
+    with plan.record(output), psycopg.connect(admin_url, autocommit=True) as admin:
         admin.execute(
             sql.SQL("CREATE DATABASE {} TEMPLATE template0").format(sql.Identifier(database_name))
         )
@@ -130,7 +128,7 @@ def capture(admin_url: str, output: Path, tracking_uri: str, maximum: Decimal) -
                 models.settings.embedding_dimensions,
             ).prepare(snapshot.snapshot_id)
             indexing_ms = (time.perf_counter() - started) * 1000
-            for mode in MODES:
+            for mode in plan.arms:
                 policy = TextPolicy.model_validate({"mode": mode})
                 metadata = {
                     "kind": "uncached-text-development-ablation",
@@ -309,22 +307,16 @@ def score(directory: Path, output: Path) -> None:
     if output.exists():
         raise ValueError("Choose a fresh score output; recorded results cannot be overwritten.")
     reference, snapshot = source()
+    plan = text_comparison(REFERENCES)
     results: dict[str, Any] = {
         "kind": "text-stage-metrics-v1",
         "cases": [],
         "reference_sha256": hashlib.sha256(REFERENCES.read_bytes()).hexdigest(),
+        "state": "complete",
+        "comparison_plan": plan.document,
+        "comparison_plan_sha256": plan.fingerprint,
     }
-    for mode in MODES:
-        path = directory / f"{mode}.json"
-        if path.exists():
-            captured = CapturedAnswers(path, REFERENCES)
-        else:
-            # Published raw traces are losslessly archived; parsing still binds
-            # the original uncompressed capture/reference fingerprints.
-            with tempfile.NamedTemporaryFile(suffix=".json") as retained:
-                retained.write(gzip.decompress(path.with_suffix(".json.gz").read_bytes()))
-                retained.flush()
-                captured = CapturedAnswers(Path(retained.name), REFERENCES)
+    for mode, captured in plan.captures(directory).items():
         for row in captured.cases.values():
             response = row["response"]
             record = response["text_pipeline"]

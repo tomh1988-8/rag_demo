@@ -12,7 +12,7 @@ from ask_phil.conversation import (
     ConversationReference,
     ReferenceTurn,
     TurnIdentity,
-    resolve_reference,
+    resolve_snapshot_reference,
 )
 from ask_phil.execution import ExecutionBudget
 from ask_phil.family_answering import FamilyAnswer
@@ -61,7 +61,9 @@ class AutomaticAnswer:
     ) -> AnswerContent:
         selection_started = time.perf_counter()
         rules = RoutingRules.load(self.database_url, self.snapshot, budget.limits)
-        reference = resolve_reference(request.question, rules.catalogue, history)
+        reference = resolve_snapshot_reference(
+            request.question, self.snapshot, history, legacy_catalogue=rules.catalogue
+        )
         eligibility = rules.eligibility(reference.question) if not reference.clarification else None
         selection_elapsed_ms = (time.perf_counter() - selection_started) * 1000
         check_elapsed_ms = None
@@ -81,7 +83,7 @@ class AutomaticAnswer:
         else:
             models, retriever = self.resources()
             pinned = PinnedText(retriever, self.snapshot, self.publication)
-            content = TextAnswer(models, pinned, self.text_policy).answer(
+            content = TextAnswer(models, pinned, self.text_policy, reference=reference).answer(
                 request, turn, history, budget, root
             )
             route = "text_rag"
@@ -114,7 +116,7 @@ class AutomaticAnswer:
             pinned = PinnedText(retriever, self.snapshot, self.publication)
             before = budget.record()
             started = time.perf_counter()
-            content = TextAnswer(models, pinned, self.text_policy).answer(
+            content = TextAnswer(models, pinned, self.text_policy, reference=reference).answer(
                 request, turn, history, budget, root
             )
             stages.append(
@@ -158,9 +160,9 @@ class AutomaticAnswer:
                     try:
                         before = budget.record()
                         started = time.perf_counter()
-                        investigated = Investigation(self.database_url, models, pinned).answer(
-                            request, turn, history, budget, root, initial=content
-                        )
+                        investigated = Investigation(
+                            self.database_url, models, pinned, reference=reference
+                        ).answer(request, turn, history, budget, root, initial=content)
                         stages.append(
                             RoutingStage(
                                 route="investigation",

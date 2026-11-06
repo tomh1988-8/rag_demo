@@ -1,9 +1,35 @@
 """Route diagnostics and source-reviewed task success are independent measurements."""
 
+import json
+from pathlib import Path
+
 from ask_phil.answers import AnswerRecord
+from ask_phil.comparison_capture import ComparisonPlan
 from ask_phil.evaluation import AnswerQuality
 from ask_phil.evidence import Record
 from ask_phil.routing import Route
+
+
+def routing_comparison(references: Path) -> ComparisonPlan:
+    document = json.loads(references.read_bytes())
+    cases = document["cases"]
+    identifiers = tuple(case["case_id"] for case in cases)
+    ordered = "family_projection" in document
+    arms = {f"text-{mode}": identifiers for mode in ("baseline", "fusion", "expansion", "combined")}
+    arms["auto-baseline"] = identifiers
+    arms["auto-combined"] = (
+        identifiers
+        if ordered
+        else tuple(
+            c for c in identifiers if c in {"multi-family", "sufficient-text", "unsupported-theme"}
+        )
+    )
+    if not ordered:
+        arms["graph"] = tuple(c["case_id"] for c in cases if c["graph"])
+        arms["investigation"] = tuple(
+            c for c in identifiers if c in {"multi-family", "sufficient-text"}
+        )
+    return ComparisonPlan(references, arms)
 
 
 class RoutingScores(Record):

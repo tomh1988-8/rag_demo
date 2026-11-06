@@ -1,8 +1,9 @@
+from pathlib import Path
 from uuid import uuid4
 
 import pytest
 
-from ask_phil.conversation import ReferenceTurn, resolve_reference
+from ask_phil.conversation import ReferenceTurn, resolve_reference, resolve_snapshot_reference
 from ask_phil.identity import Character, IdentityCatalogue
 
 
@@ -47,6 +48,20 @@ def test_followup_resolves_only_reviewed_character_references() -> None:
     alias = resolve_reference("Who is Kat Moon's father?", catalogue(), ())
     assert alias.character_ids == ("kat-slater",)
     assert alias.question == "Who is Kat Slater's father?"
+
+
+def test_imported_character_references_do_not_gain_names_from_a_graph_catalogue() -> None:
+    from ask_phil.ingestion import build_snapshot, read_batch
+
+    snapshot = build_snapshot(
+        read_batch(Path("data/sources/real-sources-v1.json.gz")), "reference-authority"
+    )
+    history = (ReferenceTurn(turn_id=uuid4(), character_ids=("phil-mitchell",)),)
+    reference = resolve_snapshot_reference(
+        "When did he arrive?", snapshot, history, legacy_catalogue=catalogue()
+    )
+    assert reference.question == "When did he arrive?"
+    assert reference.clarification is not None
 
 
 @pytest.mark.parametrize(

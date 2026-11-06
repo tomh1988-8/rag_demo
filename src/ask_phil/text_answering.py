@@ -20,13 +20,12 @@ from ask_phil.answers import (
 from ask_phil.classified_facts import context_for
 from ask_phil.conversation import (
     ConversationReference,
+    ReferenceResolution,
     ReferenceTurn,
     TurnIdentity,
-    resolve_reference,
 )
 from ask_phil.evidence import Passage
 from ask_phil.execution import ExecutionBudget, ExecutionStopped
-from ask_phil.identity import IdentityCatalogue
 from ask_phil.models import ModelConfigurationError, ModelExecution, Models
 from ask_phil.retrieval import PinnedText, Retrieval
 from ask_phil.review_notes import (
@@ -38,12 +37,20 @@ from ask_phil.text_retrieval import ConventionalText, TextPolicy
 
 
 class TextAnswer:
-    def __init__(self, models: Models, pinned: PinnedText, policy: TextPolicy) -> None:
+    def __init__(
+        self,
+        models: Models,
+        pinned: PinnedText,
+        policy: TextPolicy,
+        *,
+        reference: ReferenceResolution | None,
+    ) -> None:
         self.models = models
         self.pinned = pinned
         self.snapshot = pinned.snapshot
         self.publication = pinned.publication
         self.policy = policy
+        self.reference = reference
         if models.redact(self.snapshot.model_dump_json()) != self.snapshot.model_dump_json():
             raise ModelConfigurationError("Captured evidence contains unsafe credential text.")
 
@@ -59,17 +66,9 @@ class TextAnswer:
             snapshot = self.snapshot
             snapshot_id = snapshot.snapshot_id
             conversation = None
-            question = request.question
-            if turn:
-                reference = resolve_reference(
-                    question,
-                    snapshot.imported.catalogue
-                    if snapshot.imported
-                    else IdentityCatalogue(characters=()),
-                    history,
-                )
-                conversation = ConversationReference(**turn.model_dump(), reference=reference)
-                question = reference.question
+            question = self.reference.question if turn and self.reference else request.question
+            if turn and self.reference:
+                conversation = ConversationReference(**turn.model_dump(), reference=self.reference)
             root.set_attributes(
                 {
                     "model_settings": self.models.settings.model_dump(mode="json"),
@@ -96,7 +95,7 @@ class TextAnswer:
             stopped = False
             notices: tuple[ReviewNotice, ...] = ()
             review: TextReview | None = None
-            clarification = conversation.reference.clarification if conversation else None
+            clarification = self.reference.clarification if turn and self.reference else None
             try:
                 budget.check()
                 self.pinned.verify()

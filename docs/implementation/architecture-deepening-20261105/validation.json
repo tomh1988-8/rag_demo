@@ -1,0 +1,120 @@
+{
+  "verified_at": "2026-11-06T05:12:20.909856+00:00",
+  "starting_revision": "dcf2b5e2d53f9e82033dee1eceefd3098e3acbaa",
+  "branch": "main",
+  "application_sha256": "41862b2428036d8df6a0292db52870548a1ee87b2d93459c74722b29456ab5d7",
+  "full_suite": {
+    "tests": 733,
+    "failures": 0,
+    "errors": 0,
+    "skipped": 0,
+    "passed": 733,
+    "seconds": 2373.48,
+    "artifact": "software-tests.xml",
+    "exit_code": 0,
+    "inputs": "software-inputs.json",
+    "all_inputs_verified": true
+  },
+  "earlier_attempts": [
+    {
+      "tests": 155,
+      "failures": 5,
+      "errors": 0,
+      "skipped": 0,
+      "passed": 150,
+      "seconds": 216.985,
+      "artifact": "full-suite-initial.xml.gz",
+      "exit_code": 2,
+      "interrupted": true,
+      "inputs": "software-inputs-initial.json",
+      "reason": "Standalone interpretation regressions, repaired."
+    },
+    {
+      "tests": 733,
+      "failures": 1,
+      "errors": 0,
+      "skipped": 0,
+      "passed": 732,
+      "seconds": 2371.166,
+      "artifact": "full-suite-shutdown-failure.xml.gz",
+      "exit_code": 1,
+      "inputs": "software-inputs-before-fixture-repair.json",
+      "reason": "Test-server shutdown wait shorter than existing application drain allowances, repaired."
+    },
+    {
+      "tests": 733,
+      "failures": 1,
+      "errors": 0,
+      "skipped": 0,
+      "passed": 732,
+      "seconds": 2362.252,
+      "artifact": "full-suite-deadline-failure.xml.gz",
+      "exit_code": 1,
+      "inputs": "software-inputs-before-deadline-repair.json",
+      "reason": "Test network deadline exhausted during setup before provider I/O, repaired with a test-only allowance."
+    }
+  ],
+  "focused_repairs": {
+    "standalone": {
+      "tests": 48,
+      "failures": 0,
+      "errors": 0,
+      "skipped": 0,
+      "passed": 48,
+      "seconds": 190.856,
+      "artifact": "standalone-repair.xml"
+    },
+    "cli_and_conversation": {
+      "tests": 4,
+      "failures": 0,
+      "errors": 0,
+      "skipped": 0,
+      "passed": 4,
+      "seconds": 43.754,
+      "artifact": "interactive-cli-repair.xml"
+    },
+    "network_deadline_and_disconnect": {
+      "tests": 2,
+      "failures": 0,
+      "errors": 0,
+      "skipped": 0,
+      "passed": 2,
+      "seconds": 15.244,
+      "artifact": "network-deadline-repair.xml"
+    }
+  },
+  "static_checks": {
+    "ruff": "pass",
+    "ruff_format": "pass",
+    "mypy": {
+      "result": "pass",
+      "files": 185
+    }
+  },
+  "independent_review": {
+    "standards_remaining": 0,
+    "spec_remaining": 0,
+    "artifact": "review.md"
+  },
+  "public_openapi": {
+    "matches_starting_revision": true,
+    "paths": 28,
+    "schemas": 111
+  },
+  "retained_comparison": {
+    "routing_observations": 44,
+    "text_observations": 16,
+    "text_stage_metrics_match_retained": true,
+    "model_calls": 0
+  },
+  "preservation": {
+    "frozen_software_and_data_inputs": 303,
+    "protected_inputs": 107,
+    "protected_data_files": 101,
+    "mismatches": [],
+    "shared_budget_ledger_unchanged": true,
+    "protected_manifest_sha256": "dccb21f2d2ec0a8ffee5808276618b1280de3a0e2e17cfbe11c1a48fbdf42bc9"
+  },
+  "paid_inference_calls": 0,
+  "scope": "Controlled-model software verification; no new canon, held-out or model-quality acceptance."
+}

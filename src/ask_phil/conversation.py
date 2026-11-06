@@ -7,7 +7,7 @@ from uuid import UUID
 
 from pydantic import Field
 
-from ask_phil.evidence import Record
+from ask_phil.evidence import Record, SourceSnapshot
 from ask_phil.identity import IdentityCatalogue
 
 MAX_CONTEXT_TURNS = 8
@@ -300,3 +300,19 @@ def resolve_reference(
         clarification=clarification,
         followup_requires_name=bool(RELATIONSHIP_REFERENCE.search(question)),
     )
+
+
+def resolve_snapshot_reference(
+    question: str,
+    snapshot: SourceSnapshot,
+    history: tuple[ReferenceTurn, ...],
+    *,
+    legacy_catalogue: IdentityCatalogue | None = None,
+) -> ReferenceResolution:
+    """Imported identities are authoritative; legacy snapshots can use reviewed graph names."""
+    catalogue = (
+        snapshot.imported.catalogue
+        if snapshot.imported
+        else legacy_catalogue or IdentityCatalogue(characters=())
+    )
+    return resolve_reference(question, catalogue, history)
