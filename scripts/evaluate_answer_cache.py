@@ -71,9 +71,9 @@ def capture(args: argparse.Namespace) -> None:
         or not 0 < args.max_cost_usd <= 0.5
     ):
         raise ValueError("Use a named, isolated development plan of at most 20 requests and $0.50.")
-    profile = TypeAdapter(ModelSettings | OpenRouterSettings).validate_json(
-        args.profile.read_bytes()
-    )
+    profile: ModelSettings | OpenRouterSettings = TypeAdapter(
+        ModelSettings | OpenRouterSettings
+    ).validate_json(args.profile.read_bytes())
     maximum = float(maximum_call_cost(profile)) if isinstance(profile, OpenRouterSettings) else 0
     args.output.mkdir(parents=True, exist_ok=False)
     save(args.output / "plan.json", plan)
