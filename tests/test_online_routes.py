@@ -80,6 +80,9 @@ def test_graph_and_investigation_assessments_preserve_the_actual_route_evidence(
         "graph",
         "investigation",
     }
+    assert {
+        s.value: s.counts.eligible for s in report.feedback.slices if s.dimension == "delivery_kind"
+    } == {"fresh_generation": 1, "other": 2}
     for job, original in zip(report.jobs, responses, strict=True):
         assert evaluation.inspect(job.job_id).response.model_dump(mode="json") == original
         assert job.checks is not None

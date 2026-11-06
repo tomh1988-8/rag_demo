@@ -278,6 +278,9 @@ class AnswerService:
                     "cache": content.cache.model_dump(mode="json") if content.cache else None,
                     "generation_id": str(content.generation_id) if content.generation_id else None,
                     "cache_namespace": self.cache.policy.namespace,
+                    "text_pipeline": content.text_pipeline.model_dump(mode="json")
+                    if content.text_pipeline
+                    else None,
                 }
             )
             response = AnswerRecord(

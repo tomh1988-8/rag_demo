@@ -162,6 +162,11 @@ def test_repeat_reuses_supported_context_with_new_delivery_and_zero_new_inferenc
     trace = MlflowClient(tracking_uri=f"sqlite:///{tmp_path}/cache.db").get_trace(
         repeated["trace_id"], flush=True
     )
+    cold_trace = MlflowClient(tracking_uri=f"sqlite:///{tmp_path}/cache.db").get_trace(
+        original["trace_id"], flush=True
+    )
+    assert cold_trace.data.spans[0].attributes["text_pipeline"] == original["text_pipeline"]
+    assert trace.data.spans[0].attributes["text_pipeline"] == repeated["text_pipeline"]
     assert trace.data.spans[0].outputs == repeated
     assert not any(s.name == "answer_model" for s in trace.data.spans)
     assert cache_client.get(repeated["citations"][0]["resolve_path"]).status_code == 200
@@ -609,3 +614,46 @@ def test_cli_serves_cache_hits_accepts_their_feedback_and_can_force_fresh_work(
             [*command, "ask", QUESTION, "--no-cache"], capture_output=True, text=True, check=True
         )
         assert json.loads(fresh.stdout)["response"]["cache"]["reason"] == "request_bypass"
+
+
+@pytest.mark.parametrize(
+    "question", ["Did Phil Mitchell do it?", "What did Phil Mitchell do then?"]
+)
+def test_contextual_object_references_bypass_even_a_plausible_cited_model_answer(
+    cache_client: TestClient,
+    question: str,
+) -> None:
+    for _ in range(2):
+        answer = ask(cache_client, question=question, route="text_rag")["response"]
+        assert answer["cache"]["status"] == "bypass"
+        assert answer["cache"]["reason"] == "context_dependent"
+        assert answer["execution"]["model_calls"] == 2
+
+
+@pytest.mark.parametrize(
+    "fault", ["routing", "missing_cache", "malformed_cache", "disabled_missing"]
+)
+def test_optional_cache_configuration_failure_and_disable_preserve_normal_text_answering(
+    cache_client: TestClient,
+    database_url: str,
+    cache_models: Models,
+    tmp_path: Path,
+    monkeypatch: pytest.MonkeyPatch,
+    fault: str,
+) -> None:
+    policy = tmp_path / "bad-policy.json"
+    if fault in {"routing", "malformed_cache"}:
+        policy.write_text("not valid JSON")
+    monkeypatch.setenv(
+        "ASK_PHIL_ROUTING_POLICY" if fault == "routing" else "ASK_PHIL_CACHE_POLICY", str(policy)
+    )
+    if fault == "disabled_missing":
+        monkeypatch.setenv("ASK_PHIL_CACHE_ENABLED", "false")
+    with TestClient(
+        create_app(
+            database_url, models=cache_models, tracking_uri=f"sqlite:///{tmp_path}/cache.db"
+        ),
+        raise_server_exceptions=False,
+    ) as client:
+        answer = ask(client, route="text_rag")["response"]
+        assert answer["status"] == "answered"

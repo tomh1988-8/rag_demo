@@ -43,7 +43,11 @@ from ask_phil.source_windows import resolve_span
 from ask_phil.text_retrieval import QueryVariants, TextPipelineRecord, TextPolicy
 
 _CONTEXT_DEPENDENT = re.compile(
-    r"\b(that|this|those|these|again|also|more|previous|above|earlier|same)\b", re.IGNORECASE
+    r"\b(that|this|those|these|again|also|more|previous|above|earlier|same|"
+    r"it|its|then|next|later|afterwards|there|here|another|today|yesterday|"
+    r"tomorrow|now|currently|recently|last|i|me|my|mine|we|us|our|ours|you|your|yours)\b|"
+    r"\b(?:do|did|does|doing)\s+so\b|^\s*(?:and|but|what about|how about)\b",
+    re.IGNORECASE,
 )
 
 
@@ -55,6 +59,8 @@ class CachePolicy(Record):
 
     @classmethod
     def from_environment(cls) -> "CachePolicy":
+        if os.environ.get("ASK_PHIL_CACHE_ENABLED", "true").lower() != "true":
+            return cls(enabled=False)
         path = os.environ.get("ASK_PHIL_CACHE_POLICY")
         return cls.model_validate_json(Path(path).read_bytes()) if path else cls()
 
@@ -103,7 +109,12 @@ class AnswerCache:
     ) -> None:
         self.database_url = database_url
         self.application_sha256 = application_sha256
-        self.policy = policy or CachePolicy.from_environment()
+        self.configuration_error = False
+        try:
+            self.policy = policy or CachePolicy.from_environment()
+        except (OSError, ValueError):
+            self.policy = CachePolicy(enabled=False)
+            self.configuration_error = True
         self.clock = clock
         self.runtime = {
             "python": platform.python_version(),
@@ -161,6 +172,8 @@ class AnswerCache:
             reason = "offline_evaluation"
         elif request.bypass_cache:
             reason = "request_bypass"
+        elif self.configuration_error:
+            reason = "invalid_cache_policy"
         elif not self.policy.enabled_now:
             reason = "disabled"
         elif history or reference.context_turn_id or _CONTEXT_DEPENDENT.search(request.question):
@@ -195,7 +208,9 @@ class AnswerCache:
                 "publication": publication.reference.model_dump(mode="json"),
                 "text_policy": policy.model_dump(mode="json"),
                 "route_override": request.route,
-                "routing_policy": RoutingPolicy.from_environment().model_dump(mode="json"),
+                "routing_policy": RoutingPolicy.from_environment().model_dump(mode="json")
+                if request.route == "auto"
+                else None,
                 "model": models.settings.model_dump(mode="json"),
                 "prompt": hashlib.sha256(SYSTEM_PROMPT.encode()).hexdigest(),
                 "output_schema": Draft.model_json_schema(),

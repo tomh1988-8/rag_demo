@@ -6,7 +6,8 @@ policy remains baseline; fusion and expanded contexts have their own cache ident
 
 An eligible request names reviewed characters explicitly, uses the current published
 source/index, and has no conversation history, unresolved reference or contextual
-pronoun. The first turn of a new session can reuse an answer. Later turns bypass
+pronoun or deictic object such as “it”/“then”. Relative time, conversational prefixes
+and first/second-person references also bypass. The first turn of a new session can reuse an answer. Later turns bypass
 reuse, even when a name is repeated. Graph execution, graph-to-text fallback,
 investigation, clarification, partial/unsupported replies, failures and bounded stops
 cannot populate the cache. Explicit text overrides have separate identities from
@@ -47,7 +48,7 @@ both reading and population for one request. With local maintainer database acce
 preserving original response receipts. It can subsequently be generated anew.
 
 Cache operations have short SQL/lock timeouts and skip work near the request
-deadline. Unavailable storage falls back to normal answering using the same
+deadline. Invalid optional cache configuration and unavailable storage fall back to normal answering using the same
 execution budget. Invalid entries are discarded as misses; cache writes are optional.
 
 ## Delivery and assessment

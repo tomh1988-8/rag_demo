@@ -121,7 +121,8 @@ class RetainedReports:
                             "cache_hit"
                             if response.cache and response.cache.status == "hit"
                             else "fresh_generation"
-                            if response.text_pipeline and response.text_pipeline.model_executions
+                            if (response.text_pipeline and response.text_pipeline.model_executions)
+                            or (response.investigation and response.investigation.model_executions)
                             else "other"
                         ),
                         feedback=tuple(signals.get(response_id, ())),
