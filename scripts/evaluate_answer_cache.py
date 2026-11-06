@@ -15,11 +15,13 @@ from typing import Any
 
 import httpx
 from mlflow import MlflowClient
+from pydantic import TypeAdapter
 
 from ask_phil.answers import AnswerReceipt
 from ask_phil.cache_evaluation import CacheObservation, summarize_cache_workload
 from ask_phil.evaluation import document_fingerprint
-from ask_phil.openrouter import OpenRouterProfile, maximum_call_cost
+from ask_phil.models import ModelSettings, OpenRouterSettings
+from ask_phil.openrouter import maximum_call_cost
 
 
 def save(path: Path, document: object) -> None:
@@ -69,8 +71,10 @@ def capture(args: argparse.Namespace) -> None:
         or not 0 < args.max_cost_usd <= 0.5
     ):
         raise ValueError("Use a named, isolated development plan of at most 20 requests and $0.50.")
-    profile = OpenRouterProfile.model_validate_json(args.profile.read_bytes(), extra="ignore")
-    maximum = float(maximum_call_cost(profile))
+    profile = TypeAdapter(ModelSettings | OpenRouterSettings).validate_json(
+        args.profile.read_bytes()
+    )
+    maximum = float(maximum_call_cost(profile)) if isinstance(profile, OpenRouterSettings) else 0
     args.output.mkdir(parents=True, exist_ok=False)
     save(args.output / "plan.json", plan)
     save(args.output / "profile.json", profile.model_dump(mode="json"))
@@ -124,13 +128,7 @@ def capture(args: argparse.Namespace) -> None:
             rows.append(row)
             # Preserve every actual result before checking its interpretation.
             save(args.output / "captures.json", rows)
-            if (
-                response.model_settings is not None
-                and OpenRouterProfile.model_validate(
-                    response.model_settings.model_dump(mode="json"), extra="ignore"
-                )
-                != profile
-            ):
+            if response.model_settings is not None and response.model_settings != profile:
                 raise ValueError("The observed model differs from the frozen workload profile.")
             trace = tracking.get_trace(response.trace_id, flush=True)
             root = trace.data.spans[0]
