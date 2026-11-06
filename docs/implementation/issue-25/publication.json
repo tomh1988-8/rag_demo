@@ -1,0 +1,46 @@
+{
+  "status": "complete",
+  "recorded_at": "2026-11-06T14:08:21.898983+00:00",
+  "publication_method": "native Git fast-forward push",
+  "user_authorization": {
+    "message": "i approve",
+    "scope": [
+      "Publish the validated current branch through 81b7bd0 to origin/main, including starting commit 1fefa2f.",
+      "Verify the published tree and close #25.",
+      "Publish the completion receipt and handoff."
+    ]
+  },
+  "published_commit": "81b7bd0465c71807ed217d0891ddb3ac9534c466",
+  "published_tree": "eb903dea999b3e95a7a5f6a9bca02b14499cf07c",
+  "published_url": "https://github.com/tomh1988-8/rag_demo/commit/81b7bd0465c71807ed217d0891ddb3ac9534c466",
+  "remote_tree_matches_intended_local_tree": true,
+  "frozen_software_inputs_verified": 210,
+  "original_data_files_verified": 101,
+  "initial_publication_rejection": {
+    "evidence": "publication-pending.json",
+    "superseded_by_user_approval": true
+  },
+  "tracker": {
+    "number": 25,
+    "url": "https://github.com/tomh1988-8/rag_demo/issues/25",
+    "state": "CLOSED",
+    "state_reason": "COMPLETED",
+    "closed_at": "2026-11-06T14:06:52Z",
+    "criteria_checked": 9,
+    "body_matches_prepared_update": true,
+    "body_sha256": "cd524c0978738f568f0ee2397ac8e497f9bee71a90afae7db4fbeb54da80345e",
+    "readback": "tracker-completion-readback.json"
+  },
+  "validation": {
+    "native_tests": 765,
+    "docker_contracts": 12,
+    "mypy_files": 192,
+    "standards_findings_remaining": 0,
+    "spec_implementation_findings_remaining": 0
+  },
+  "source_and_quality_limits_preserved": true,
+  "model_calls_repeated_for_publication": 0,
+  "shared_trial_ledger_usd": 1.137848,
+  "unsettled_reservations": 0,
+  "next_issue": 21
+}

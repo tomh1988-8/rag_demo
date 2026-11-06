@@ -1,0 +1,10 @@
+{
+  "checked_at": "2026-11-06T14:06:43.414875+00:00",
+  "method": "native Git push; independent GitHub commit/recursive-tree readback; Git blob and SHA-256 checks",
+  "commit": "81b7bd0465c71807ed217d0891ddb3ac9534c466",
+  "tree": "eb903dea999b3e95a7a5f6a9bca02b14499cf07c",
+  "remote_tree_matches_local": true,
+  "remote_tree_truncated": false,
+  "software_inputs_verified": 210,
+  "original_data_verified": 101
+}

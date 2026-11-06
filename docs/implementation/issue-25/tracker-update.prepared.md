@@ -48,3 +48,5 @@ The local development workload records 7 deliveries: 6 eligible, 4 hits, 2 misse
 Source-supported text is 6/6, while local first-person style fails 6/6 and qualification type fails 3/6. These failures are retained, including shared generation lineage; no complete-output, cloud-performance, held-out or broad release acceptance is claimed. Final acceptance remains #21.
 
 The proposed paid OpenRouter run was rejected by automatic approval review before execution for lack of authorization for its specific payload/destination/spend. The safer local run leaves the shared non-resetting $5 ledger unchanged at $1.137848 with zero unsettled reservations. All 101 starting data files and existing user work are preserved.
+
+Publication approved by the user ("i approve"). Published revision: https://github.com/tomh1988-8/rag_demo/commit/81b7bd0465c71807ed217d0891ddb3ac9534c466. Exact remote-tree readback verifies all 210 frozen software inputs and all 101 original data files.

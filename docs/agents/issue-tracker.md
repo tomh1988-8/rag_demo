@@ -11,11 +11,11 @@ commands so they work even without a configured Git remote.
 
 ## Current Ask Phil handoff
 
-**Issue #25 is implemented and validated; publication awaits explicit approval.**
-Automatic approval review rejected `git push origin HEAD:main` because the trusted
-instructions did not explicitly authorize publication to the default branch. No
-remote write or tracker closure was made. [The pending receipt](../implementation/issue-25/publication-pending.json)
-records the tested evidence commit and remaining actions.
+**Issue #25 is complete and closed** after [verified publication](https://github.com/tomh1988-8/rag_demo/commit/81b7bd0465c71807ed217d0891ddb3ac9534c466).
+[The completion receipt](../implementation/issue-25/publication.json) records the
+user's explicit `i approve`, exact remote-tree equality, all 210 frozen software
+inputs, all 101 original data files and tracker readback with all nine criteria
+checked. The initial publication rejection is historical and superseded by approval.
 [Evidence](../implementation/issue-25/README.md) records 765 passing native tests,
 12 Docker contracts, strict mypy across 192 files and zero remaining findings on
 both independent review axes. PostgreSQL exact reuse, versioned invalidation,
@@ -36,9 +36,8 @@ run leaves the non-resetting $5 ledger at **$1.137848**, zero unsettled reservat
 Preserve all 101 starting data files and the user's existing workspace/private inputs.
 Do not repeat recorded inference for publication. Register counts remain 44 Pass / 7 Pending.
 
-**#21 is next** once #25 publication and closure are verified. Wait for the user's
-next implementation instruction before starting another issue. #26 is open without
-a ready-for-agent label and is not the current ready dependency frontier.
+**#21 is next.** Wait for the user's next implementation instruction before
+starting another issue.
 
 ### Prior issue #18 handoff
 

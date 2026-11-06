@@ -68,10 +68,13 @@
     "human_canon_acceptance": false
   },
   "publication": {
-    "status": "awaiting_explicit_publication_approval",
-    "reason": "Publishes commits directly to the repository default main branch; trusted user instructions authorized implementation and local commits but did not explicitly authorize this remote publication.",
-    "push_executed": false,
-    "tracker_state": "OPEN",
-    "evidence": "publication-pending.json"
+    "status": "verified_and_closed",
+    "commit": "81b7bd0465c71807ed217d0891ddb3ac9534c466",
+    "tree": "eb903dea999b3e95a7a5f6a9bca02b14499cf07c",
+    "push_executed": true,
+    "tracker_state": "CLOSED",
+    "criteria_checked": 9,
+    "explicit_user_approval": "i approve",
+    "evidence": "publication.json"
   }
 }
