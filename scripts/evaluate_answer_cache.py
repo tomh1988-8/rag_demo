@@ -39,7 +39,7 @@ def summarize(directory: Path, reviews: Path | None) -> dict[str, Any]:
             raise ValueError("Every supplied review needs an evidence-based rationale.")
         raw.update({key: label[key] for key in ("supported", "compatible") if key in label})
         observations.append(CacheObservation.model_validate(raw))
-    report = {
+    report: dict[str, Any] = {
         "version": "cache-workload-v1",
         "captures_sha256": document_fingerprint(rows),
         "reviews_sha256": document_fingerprint(labels) if reviews else None,
@@ -54,7 +54,30 @@ def summarize(directory: Path, reviews: Path | None) -> dict[str, Any]:
             row["case_id"]: observation.model_dump(mode="json")
             for row, observation in zip(rows, observations, strict=True)
         },
+        "generation_measurements": {
+            "new_answer_model_calls": sum(
+                len(row["response"].get("text_pipeline", {}).get("model_executions", []))
+                for row in rows
+            ),
+            "distinct_reused_generation_ids": len(
+                {
+                    row["response"].get("generation_id")
+                    for row in rows
+                    if row["response"].get("cache", {}).get("status") == "hit"
+                }
+            ),
+            "interpretation": (
+                "distinct_generations counts supplied origin UUID groups, including non-generated "
+                "outcomes that use response_id. It is not a count of model calls. "
+                "New answer-model calls are counted from actual execution receipts."
+            ),
+        },
     }
+    for metrics in (report["all"], *report["phases"].values()):
+        metrics["interpretation"] += (
+            " distinct_generations counts origin UUID groups, including "
+            "non-generated outcomes; see generation_measurements for actual model calls."
+        )
     save(directory / ("reviewed-summary.json" if reviews else "summary.json"), report)
     return report
 

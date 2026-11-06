@@ -68,7 +68,9 @@ receipt persistence and feedback registration, beyond the server's answer timing
 
 Feedback is attached to the new response. Automatic online processing assesses its
 preserved context. Reports expose cache-status and fresh-generation delivery
-cohorts, selected counts and distinct generations. Semantic results for the same
+cohorts, selected counts and distinct origin groups. The `distinct_generations` field
+counts those UUID groups, including non-generated outcomes that use their response ID;
+actual model calls come from execution receipts. Semantic results for the same
 generation/context/rubric are reused, so repeated deliveries remain separate
 interactions without becoming independent factual examples or duplicated judge cost.
 Delayed/revised votes change the current delivery's rating and retain revision history.
