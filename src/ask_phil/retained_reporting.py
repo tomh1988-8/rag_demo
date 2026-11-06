@@ -115,6 +115,15 @@ class RetainedReports:
                         model_id=hashlib.sha256(
                             json.dumps(document["model_settings"], sort_keys=True).encode()
                         ).hexdigest(),
+                        generation_id=response.generation_id or response.response_id,
+                        cache_status=response.cache.status if response.cache else "unmeasured",
+                        delivery_kind=(
+                            "cache_hit"
+                            if response.cache and response.cache.status == "hit"
+                            else "fresh_generation"
+                            if response.text_pipeline and response.text_pipeline.model_executions
+                            else "other"
+                        ),
                         feedback=tuple(signals.get(response_id, ())),
                     ),
                 )
@@ -307,6 +316,23 @@ class RetainedReports:
             serving_cost_usd=sum(c for c in serving if c is not None)
             if None not in serving
             else None,
+            cache_cohorts=dict(Counter(i.feedback.cache_status for i in interactions)),
+            cache_selected_cohorts=dict(
+                Counter(
+                    i.feedback.cache_status
+                    for i in interactions
+                    if i.response.response_id in jobs_by_response
+                    and jobs_by_response[i.response.response_id].selection_reasons
+                )
+            ),
+            distinct_generations=len({i.feedback.generation_id for i in interactions}),
+            distinct_support_generations=len(
+                {
+                    j.generation_id
+                    for j in jobs
+                    if j.support is not None and j.support.supported is not None
+                }
+            ),
             jobs=jobs,
             disagreements=tuple(disagreements),
             required_reviews=tuple(requirements),

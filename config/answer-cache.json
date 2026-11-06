@@ -1,0 +1,6 @@
+{
+  "enabled": true,
+  "namespace": "serving-v1",
+  "ttl_seconds": 3600,
+  "capacity": 256
+}

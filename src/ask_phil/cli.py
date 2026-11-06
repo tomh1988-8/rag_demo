@@ -29,6 +29,11 @@ def main() -> int:
     commands.add_parser(
         "configure-openrouter", help="Privately save a provider-verified, capped OpenRouter key."
     )
+    retire_cache = commands.add_parser(
+        "retire-cached-answer",
+        help="Maintainer: retire a reusable generation without deleting receipts.",
+    )
+    retire_cache.add_argument("generation_id", type=UUID)
     inspect = commands.add_parser("inspect", help="Retrieve matching passages through the API.")
     inspect.add_argument("query")
     inspect.add_argument("--snapshot", help="Defaults to the active publication.")
@@ -66,6 +71,9 @@ def main() -> int:
     identity.add_argument("--snapshot", required=True)
     ask = commands.add_parser("ask", help="Ask a question using the captured snapshot.")
     ask.add_argument("query")
+    ask.add_argument(
+        "--no-cache", action="store_true", help="Bypass answer cache lookup and population."
+    )
     ask.add_argument("--snapshot", help="Defaults to the active publication.")
     ask.add_argument("--session", type=Path, help="Private receipt from start-session.")
     ask.add_argument(
@@ -239,7 +247,16 @@ def main() -> int:
         if args.event and not args.event_kind:
             parser.error("--event requires --event-kind or --crime-history.")
     try:
-        if args.command == "configure-openrouter":
+        if args.command == "retire-cached-answer":
+            from ask_phil.answer_cache import AnswerCache
+            from ask_phil.answering import application_fingerprint
+
+            database_url = os.environ.get("DATABASE_URL")
+            if not database_url:
+                raise ValueError("DATABASE_URL is required for maintainer retirement.")
+            cache = AnswerCache(database_url, application_fingerprint())
+            print(json.dumps({"retired": cache.retire(args.generation_id)}))
+        elif args.command == "configure-openrouter":
             if not sys.stdin.isatty():
                 raise ProviderError("Run this command in an interactive terminal for hidden input.")
             key = getpass.getpass("OpenRouter key (hidden): ")
@@ -479,6 +496,7 @@ def main() -> int:
                         headers=session_headers,
                         json={
                             "question": args.query,
+                            "bypass_cache": args.no_cache,
                             "snapshot_id": args.snapshot,
                             "route": args.route,
                             "graph": (

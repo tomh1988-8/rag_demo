@@ -17,6 +17,7 @@ from fastapi.exceptions import RequestValidationError
 from fastapi.responses import JSONResponse
 from pydantic import StringConstraints
 
+from ask_phil.answer_cache import CachePolicy
 from ask_phil.answering import AnswerService
 from ask_phil.answers import AnswerReceipt, AnswerRecord, AskRequest
 from ask_phil.connection_graph import ConnectionQuery, ConnectionResult
@@ -86,6 +87,7 @@ def create_app(
     tracking_uri: str | None = None,
     execution_limits: ExecutionLimits | None = None,
     text_policy: TextPolicy | None = None,
+    cache_policy: "CachePolicy | None" = None,
     session_clock: Callable[[], datetime] = lambda: datetime.now(UTC),
     feedback_policy: FeedbackPolicy | None = None,
     online_policy: OnlinePolicy | None = None,
@@ -145,7 +147,13 @@ def create_app(
     app = FastAPI(title="Ask Phil evidence inspection", version="0.1.0", lifespan=lifespan)
     service = (
         AnswerService(
-            database_url, models, answer_tracking_uri, policies=policies, text_policy=text_policy
+            database_url,
+            models,
+            answer_tracking_uri,
+            policies=policies,
+            text_policy=text_policy,
+            cache_policy=cache_policy,
+            cache_clock=session_clock,
         )
         if models
         else None
@@ -407,6 +415,8 @@ def create_app(
                         answer_tracking_uri,
                         policies=policies,
                         text_policy=text_policy,
+                        cache_policy=cache_policy,
+                        cache_clock=session_clock,
                     )
             return service.ask(
                 request,

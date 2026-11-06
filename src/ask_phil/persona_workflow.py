@@ -102,6 +102,7 @@ def capture_persona(
                     "/v1/answers",
                     json={
                         "question": selected["question"],
+                        "bypass_cache": True,
                         "snapshot_id": selected["snapshot_id"],
                         "route": "text_rag",
                     },

@@ -206,6 +206,7 @@ def capture(admin_url: str, output: Path, tracking_uri: str, maximum: Decimal) -
                                             "--api-url",
                                             url,
                                             "ask",
+                                            "--no-cache",
                                             "--route",
                                             "text_rag",
                                             selected["question"],
@@ -225,6 +226,7 @@ def capture(admin_url: str, output: Path, tracking_uri: str, maximum: Decimal) -
                                             "route": "text_rag",
                                             "snapshot_id": snapshot.snapshot_id,
                                             "question": selected["question"],
+                                            "bypass_cache": True,
                                         },
                                     )
                                     reply.raise_for_status()

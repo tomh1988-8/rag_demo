@@ -230,7 +230,7 @@ class TextPipelineRecord(Record):
     stages: tuple[TextStage, ...] = ()
     model_executions: tuple[ModelExecution, ...] = ()
     embedding_tokens: tuple[int | None, ...] = ()
-    cache_enabled: Literal[False] = False
+    cache_enabled: bool = False
 
     def with_final_context(
         self, context: tuple[Passage, ...], context_claims: tuple[ContextClaim, ...] = ()

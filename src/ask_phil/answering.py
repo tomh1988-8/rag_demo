@@ -2,7 +2,9 @@
 
 import hashlib
 import time
+from collections.abc import Callable
 from dataclasses import replace
+from datetime import UTC, datetime
 from pathlib import Path
 from threading import BoundedSemaphore, Lock
 from typing import Literal
@@ -12,7 +14,9 @@ import mlflow
 from mlflow import MlflowClient
 from mlflow.entities import MlflowExperimentLocation
 
+from ask_phil.answer_cache import AnswerCache, CachePolicy
 from ask_phil.answers import AnswerReceipt, AnswerRecord, AskRequest
+from ask_phil.cache_records import CacheDelivery
 from ask_phil.conversation import ReferenceTurn, TurnIdentity, resolve_snapshot_reference
 from ask_phil.execution import ExecutionBudget, ExecutionPolicies
 from ask_phil.family_answering import FamilyAnswer
@@ -46,10 +50,15 @@ class AnswerService:
         *,
         policies: ExecutionPolicies | None = None,
         text_policy: TextPolicy | None = None,
+        cache_policy: CachePolicy | None = None,
+        cache_clock: Callable[[], datetime] = lambda: datetime.now(UTC),
     ) -> None:
         self.database_url = database_url
         self.policies = policies or ExecutionPolicies.from_environment()
         self.text_policy = text_policy or TextPolicy.from_environment()
+        self.cache = AnswerCache(
+            database_url, application_fingerprint(), policy=cache_policy, clock=cache_clock
+        )
         categories: tuple[Literal["serving", "offline_evaluation"], ...] = (
             "serving",
             "offline_evaluation",
@@ -177,6 +186,8 @@ class AnswerService:
                 self._text_resources,
                 self.text_policy,
                 self._investigation_slots[category],
+                self.cache,
+                category,
             )
         elif request.route == "graph":
             route = FamilyAnswer(self.database_url, request.snapshot_id, budget)
@@ -192,7 +203,14 @@ class AnswerService:
             route = (
                 Investigation(self.database_url, models, pinned, reference=reference)
                 if request.route == "investigation"
-                else TextAnswer(models, pinned, self.text_policy, reference=reference)
+                else TextAnswer(
+                    models,
+                    pinned,
+                    self.text_policy,
+                    reference=reference,
+                    cache=self.cache,
+                    category=category,
+                )
             )
         response_id = uuid4()
         experiment_id = experiment_for(self.tracking, category)
@@ -213,6 +231,10 @@ class AnswerService:
                 )
             before = budget.record()
             content = route.answer(request, turn, history, budget, root)
+            if content.cache is None:
+                content = replace(
+                    content, cache=CacheDelivery(status="bypass", reason="incompatible_route")
+                )
             if content.routing is None and request.route != "auto":
                 content = replace(
                     content,
@@ -253,10 +275,15 @@ class AnswerService:
                     "baseline_version": content.baseline_version,
                     "prompt_sha256": content.prompt_sha256,
                     "routing": content.routing.model_dump(mode="json") if content.routing else None,
+                    "cache": content.cache.model_dump(mode="json") if content.cache else None,
+                    "generation_id": str(content.generation_id) if content.generation_id else None,
+                    "cache_namespace": self.cache.policy.namespace,
                 }
             )
             response = AnswerRecord(
                 response_id=response_id,
+                generation_id=content.generation_id,
+                cache=content.cache,
                 question=request.question,
                 conversation=content.conversation,
                 status=content.status,

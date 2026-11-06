@@ -532,6 +532,8 @@ def test_empty_eligible_graph_falls_back_to_text_within_the_same_publication(
         assert answer["status"] == "insufficient_evidence"
         assert [s["route"] for s in answer["routing"]["stages"]] == ["graph", "text_rag"]
         assert answer["routing"]["stages"][0]["graph"]["status"] == "empty"
+        assert answer["cache"]["status"] == "bypass"
+        assert answer["cache"]["reason"] == "incompatible_route"
         assert "graph_evidence_gap" in {c["reason"] for c in answer["routing"]["checks"]}
         assert answer["execution"]["tool_calls"] == 2
         assert answer["snapshot_sha256"] == connection_snapshot.fingerprint

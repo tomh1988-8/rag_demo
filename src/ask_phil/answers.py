@@ -6,6 +6,7 @@ from uuid import UUID
 
 from pydantic import Field, StringConstraints, field_validator, model_validator
 
+from ask_phil.cache_records import CacheDelivery
 from ask_phil.classified_facts import ContextClaim, context_for
 from ask_phil.connection_graph import ConnectionQuery, ConnectionResult
 from ask_phil.conversation import ConversationReference
@@ -118,6 +119,7 @@ Always call synthetic material synthetic; it is not EastEnders canon."""
 
 class AskRequest(Record):
     snapshot_id: Identifier | None = None
+    bypass_cache: bool = Field(default=False, exclude_if=lambda value: not value)
     question: Annotated[str, StringConstraints(strip_whitespace=True, min_length=1, max_length=500)]
     route: Literal["auto", "text_rag", "graph", "investigation"] = "auto"
     graph: FamilyQuery | RelationshipQuery | EventQuery | ConnectionQuery | None = None
@@ -139,6 +141,7 @@ class AskRequest(Record):
 class AnswerRecord(Record):
     response_id: UUID
     generation_id: UUID | None = Field(default=None, exclude_if=lambda value: value is None)
+    cache: CacheDelivery | None = Field(default=None, exclude_if=lambda value: value is None)
     question: str
     conversation: ConversationReference | None = Field(default=None, exclude_if=lambda v: v is None)
     status: Outcome | Literal["failed"]
@@ -296,6 +299,8 @@ class AnswerContent:
     context: tuple[Passage, ...]
     accounting: ModelExecution
     prompt_sha256: str
+    generation_id: UUID | None = None
+    cache: CacheDelivery | None = None
     conversation: ConversationReference | None = None
     unanswered: tuple[str, ...] = ()
     qualifications: tuple[Qualification, ...] = ()

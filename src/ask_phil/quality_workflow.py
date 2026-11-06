@@ -127,6 +127,7 @@ def capture_quality(
                 headers=headers,
                 json={
                     "question": row["question"],
+                    "bypass_cache": True,
                     "snapshot_id": row["snapshot_id"],
                     "route": "text_rag",
                 },
@@ -190,6 +191,8 @@ def capture_quality(
 
 
 def _answer_configuration(response: AnswerRecord, namespace: str) -> ComparisonConfiguration:
+    if response.cache is not None and response.cache.status != "bypass":
+        raise ValueError("Quality comparisons require cache bypass for lookup and population.")
     if response.route != "text_rag" or response.model_settings is None:
         raise ValueError("This comparison requires a text answer model configuration.")
     if response.baseline_version != "single-query-uncached-v2":

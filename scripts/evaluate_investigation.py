@@ -278,6 +278,7 @@ def main() -> int:
                         json={
                             "snapshot_id": snapshot.snapshot_id,
                             "question": selected_case["question"],
+                            "bypass_cache": True,
                             "route": route,
                         },
                     )

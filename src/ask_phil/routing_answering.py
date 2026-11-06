@@ -7,6 +7,7 @@ from threading import BoundedSemaphore
 
 from mlflow.entities import LiveSpan
 
+from ask_phil.answer_cache import AnswerCache
 from ask_phil.answers import AnswerContent, AskRequest
 from ask_phil.conversation import (
     ConversationReference,
@@ -41,6 +42,8 @@ class AutomaticAnswer:
         resources: Callable[[], tuple[Models, TextRetriever]],
         text_policy: TextPolicy,
         investigation_slot: BoundedSemaphore,
+        cache: AnswerCache | None = None,
+        category: str = "serving",
     ) -> None:
         self.database_url = database_url
         graph = GraphExecution(database_url, snapshot_id, execution=budget)
@@ -50,6 +53,8 @@ class AutomaticAnswer:
         self.text_policy = text_policy
         self.investigation_slot = investigation_slot
         self.policy = RoutingPolicy.from_environment()
+        self.cache = cache
+        self.category = category
 
     def answer(
         self,
@@ -83,9 +88,14 @@ class AutomaticAnswer:
         else:
             models, retriever = self.resources()
             pinned = PinnedText(retriever, self.snapshot, self.publication)
-            content = TextAnswer(models, pinned, self.text_policy, reference=reference).answer(
-                request, turn, history, budget, root
-            )
+            content = TextAnswer(
+                models,
+                pinned,
+                self.text_policy,
+                reference=reference,
+                cache=self.cache,
+                category=self.category,
+            ).answer(request, turn, history, budget, root)
             route = "text_rag"
         stages.append(
             RoutingStage(
@@ -116,9 +126,13 @@ class AutomaticAnswer:
             pinned = PinnedText(retriever, self.snapshot, self.publication)
             before = budget.record()
             started = time.perf_counter()
-            content = TextAnswer(models, pinned, self.text_policy, reference=reference).answer(
-                request, turn, history, budget, root
-            )
+            content = TextAnswer(
+                models,
+                pinned,
+                self.text_policy,
+                reference=reference,
+                category=self.category,
+            ).answer(request, turn, history, budget, root)
             stages.append(
                 RoutingStage(
                     route="text_rag",

@@ -212,6 +212,10 @@ class OnlineReport(Record):
     exported: int = 0
     enabled: bool = True
     serving_cost_usd: float | None
+    cache_cohorts: dict[str, int] = Field(default_factory=dict)
+    cache_selected_cohorts: dict[str, int] = Field(default_factory=dict)
+    distinct_generations: int = 0
+    distinct_support_generations: int = 0
     offline_evaluation_cost_usd: None = None
     jobs: tuple[OnlineJob, ...]
     disagreements: tuple[OnlineDisagreement, ...] = ()

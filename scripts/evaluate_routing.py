@@ -272,6 +272,7 @@ def capture(
                                         "--api-url",
                                         url,
                                         "ask",
+                                        "--no-cache",
                                         selected["question"],
                                     ],
                                     check=True,
@@ -285,6 +286,7 @@ def capture(
                                     "/v1/answers",
                                     json={
                                         "question": selected["question"],
+                                        "bypass_cache": True,
                                         "route": selected_route,
                                         "graph": selected["graph"]
                                         if selected_route == "graph"

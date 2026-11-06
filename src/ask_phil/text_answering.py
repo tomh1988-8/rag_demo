@@ -1,12 +1,14 @@
 """Text evidence and wording inside the shared answer execution lifecycle."""
 
 import hashlib
+from dataclasses import replace
 from typing import Literal
 
 import mlflow
 from llama_index.core.llms import ChatMessage
 from mlflow.entities import LiveSpan
 
+from ask_phil.answer_cache import AnswerCache
 from ask_phil.answers import (
     SYSTEM_PROMPT,
     AnswerContent,
@@ -44,6 +46,8 @@ class TextAnswer:
         policy: TextPolicy,
         *,
         reference: ReferenceResolution | None,
+        cache: AnswerCache | None = None,
+        category: str = "serving",
     ) -> None:
         self.models = models
         self.pinned = pinned
@@ -51,6 +55,8 @@ class TextAnswer:
         self.publication = pinned.publication
         self.policy = policy
         self.reference = reference
+        self.cache = cache
+        self.category = category
         if models.redact(self.snapshot.model_dump_json()) != self.snapshot.model_dump_json():
             raise ModelConfigurationError("Captured evidence contains unsafe credential text.")
 
@@ -95,10 +101,31 @@ class TextAnswer:
             stopped = False
             notices: tuple[ReviewNotice, ...] = ()
             review: TextReview | None = None
+            lookup = None
             clarification = self.reference.clarification if turn and self.reference else None
             try:
                 budget.check()
                 self.pinned.verify()
+                if self.cache:
+                    lookup = self.cache.lookup(
+                        request,
+                        self.pinned,
+                        self.models,
+                        self.policy,
+                        self.reference,
+                        history,
+                        budget,
+                        category=self.category,
+                    )
+                    if lookup.content is not None and lookup.entry is not None:
+                        root.set_attributes(
+                            {
+                                "answer_model_skipped": "exact_cache_hit",
+                                "cache_entry_id": str(lookup.entry.entry_id),
+                                "origin_generation_trace_id": lookup.entry.origin_trace_id,
+                            }
+                        )
+                        return replace(lookup.content, conversation=conversation)
                 self.models.verify()
                 budget.check()
                 if clarification:
@@ -209,7 +236,7 @@ class TextAnswer:
             root.set_attributes(
                 {"text_pipeline": record.model_dump(mode="json"), "baseline_version": version}
             )
-            return AnswerContent(
+            content = AnswerContent(
                 conversation=conversation,
                 status="failed" if failure else draft.status,
                 answer=answer,
@@ -228,6 +255,11 @@ class TextAnswer:
                     (REVIEW_WORDING if review is not None else SYSTEM_PROMPT).encode()
                 ).hexdigest(),
                 accounting=accounting.summary(),
+            )
+            return (
+                self.cache.populate(lookup, content, root.trace_id, budget)
+                if self.cache and lookup is not None
+                else content
             )
 
     def _generate(

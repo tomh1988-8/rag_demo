@@ -42,6 +42,9 @@ class ServedFeedback(Record):
     application_sha256: Fingerprint
     prompt_sha256: Fingerprint
     model_id: str
+    generation_id: UUID | None = None
+    cache_status: str = "unmeasured"
+    delivery_kind: str = "unmeasured"
     feedback: tuple[FeedbackSignal, ...] = ()
 
 
@@ -60,6 +63,7 @@ class FeedbackCounts(Record):
     reported_evidence_errors: int
     reported_harm_problems: int = 0
     pending_delivery: int
+    distinct_generations: int = 0
     independently_reviewed_correctness: None = None
 
 
@@ -94,6 +98,7 @@ class FeedbackSummary(Record):
         "and reported problems are not unbiased accuracy, checked correctness or causal proof. "
         "Category slices overlap when an item reports multiple categories. "
         "Delivery state is current processing state, not reconstructed historical state."
+        " Deliveries sharing a generation are not independent factual examples."
     )
 
 
@@ -120,6 +125,7 @@ def _counts(rows: list[tuple[ServedFeedback, FeedbackSignal | None]]) -> Feedbac
         reported_evidence_errors=sum("evidence" in signal.categories for signal in signals),
         reported_harm_problems=sum("harm" in signal.categories for signal in signals),
         pending_delivery=sum(signal.delivery_state == "pending" for signal in signals),
+        distinct_generations=len({row.generation_id or row.response_id for row, _ in rows}),
     )
 
 
@@ -156,6 +162,8 @@ def summarize_feedback(
         "application_sha256",
         "prompt_sha256",
         "model_id",
+        "cache_status",
+        "delivery_kind",
     ):
         groups: dict[str, list[tuple[ServedFeedback, FeedbackSignal | None]]] = {}
         for row, signal in rows:

@@ -80,6 +80,8 @@ services:
       MLFLOW_TRACKING_URI: sqlite:////app/artifacts/mlflow.db
       ASK_PHIL_FEEDBACK_ENABLED: "true"
       ASK_PHIL_FEEDBACK_RETENTION_DAYS: "30"
+      ASK_PHIL_CACHE_ENABLED: ${ASK_PHIL_CACHE_ENABLED:-true}
+      ASK_PHIL_CACHE_POLICY: ${ASK_PHIL_CACHE_POLICY:-/app/config/answer-cache.json}
       ASK_PHIL_ONLINE_AUTO_PROCESS: "true"
       ASK_PHIL_ONLINE_ENABLED: "true"
       PREFECT_SERVER_ANALYTICS_ENABLED: "false"

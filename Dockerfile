@@ -7,6 +7,7 @@ COPY data ./data
 COPY config ./config
 COPY --chown=10001:10001 docs/implementation/issue-9/judge-calibration.json ./docs/implementation/issue-9/
 COPY scripts/evaluate_text_baseline.py scripts/evaluate_answer_policy.py scripts/evaluate_text_corpus.py scripts/evaluate_conversation.py ./scripts/
+COPY scripts/evaluate_answer_cache.py ./scripts/
 RUN uv sync --frozen --no-dev --no-editable --cache-dir /tmp/uv-cache
 RUN mkdir -p /app/artifacts && chown 10001:10001 /app/artifacts
 ENV PATH="/app/.venv/bin:$PATH"
